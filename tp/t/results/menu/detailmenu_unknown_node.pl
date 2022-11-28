@@ -318,7 +318,7 @@ $result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node name="Top" spaces
 
 <menu endspaces=" ">
 <detailmenu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">unknown</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>unknown</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></detailmenu>
 </menu>
 ';

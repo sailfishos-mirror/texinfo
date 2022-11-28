@@ -1,3 +1,15 @@
+2022-11-28  Patrice Dumas  <pertusus@free.fr>
+
+	XML menu leading text and menu separator in elements instead of attributes
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (%type_elements, _convert),
+	util/texinfo.dtd: put menu_entry_leading_text and menu_entry_separator
+	types text in element rather than in attributes.  It is better to keep
+	the structure and protect spaces more naturally.
+
+	* util/texinfo.dtd: add endspace attribute for macro and rmacro.
+
+
 2022-11-27  Per Bothner  <per@bothner.com>
 
 	* js/info.js (on_link): Change query pattern for links.

@@ -241,7 +241,9 @@ my %type_elements = (
   'paragraph' => 'para',
   'preformatted' => 'pre',
   'menu_entry' => 'menuentry',
+  'menu_entry_leading_text' => 'menuleadingtext',
   'menu_entry_node' => 'menunode',
+  'menu_entry_separator' => 'menuseparator',
   'menu_comment' => 'menucomment',
   'menu_entry_description' => 'menudescription',
   'menu_entry_name' => 'menutitle',
@@ -582,7 +584,17 @@ sub _convert($$;$)
     if ($self->{'document_context'}->[-1]->{'raw'}) {
       return $element->{'text'};
     }
-    return $self->txi_markup_convert_text($element);
+    my $result = '';
+    my $text_element;
+    if ($element->{'type'} and defined($type_elements{$element->{'type'}})) {
+      $text_element = $type_elements{$element->{'type'}};
+      $result .= $self->txi_markup_open_element($text_element);
+    }
+    $result .= $self->txi_markup_convert_text($element);
+    if ($text_element) {
+      $result .= $self->txi_markup_close_element($text_element);
+    }
+    return $result;
   }
 
   my @close_format_elements;
@@ -738,6 +750,7 @@ sub _convert($$;$)
         my $attribute;
         if ($line_command_line_attributes{$cmdname}) {
           if ($element->{'extra'} and defined($element->{'extra'}->{'text_arg'})) {
+            # FIXME use _protect_in_spaces_attribute_text?
             push @$attribute, [$line_command_line_attributes{$cmdname},
                   $element->{'extra'}->{'text_arg'}];
           }
@@ -1433,15 +1446,6 @@ sub _convert($$;$)
       my $attribute = [];
       if ($element->{'type'} eq 'preformatted') {
         push @$attribute, ['space', 'preserve'];
-      } elsif ($element->{'type'} eq 'menu_entry') {
-        push @$attribute, ['leadingtext',
-                           $self->_convert($element->{'args'}->[0])];
-      } elsif (($element->{'type'} eq 'menu_entry_node'
-                or $element->{'type'} eq 'menu_entry_name')
-               and $self->{'pending_menu_entry_separator'}) {
-        push @$attribute, ['separator',
-               $self->_convert($self->{'pending_menu_entry_separator'})];
-        delete $self->{'pending_menu_entry_separator'};
       }
       $result
         .= $self->txi_markup_open_element($type_elements{$element->{'type'}},
@@ -1544,17 +1548,7 @@ sub _convert($$;$)
   if ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
     foreach my $arg (@{$element->{'args'}}) {
       $arg_nr++;
-      # menu_entry_leading_text is added as attribute leadingtext of menu_entry
-      # menu_entry_separator is recorded here and then added ass attribute
-      # separator
-      next if ($arg->{'type'} eq 'menu_entry_leading_text'
-               or $arg->{'type'} eq 'menu_entry_separator');
-      if ($element->{'args'}->[$arg_nr +1]
-          and $element->{'args'}->[$arg_nr +1]->{'type'}
-          and $element->{'args'}->[$arg_nr +1]->{'type'} eq 'menu_entry_separator') {
-        $self->{'pending_menu_entry_separator'} = $element->{'args'}->[$arg_nr +1];
-      }
-      my $in_code;
+      my $in_code = 0;
       if ($arg->{'type'} eq 'menu_entry_node') {
         $in_code = 1;
       }

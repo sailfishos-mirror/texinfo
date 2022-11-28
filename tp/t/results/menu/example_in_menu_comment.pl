@@ -319,7 +319,7 @@ $result_converted_errors{'html'}->{'example_in_menu_comment'} = [
 
 
 $result_converted{'xml'}->{'example_in_menu_comment'} = '<menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">entry</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>entry</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre><example endspaces=" ">
 <pre xml:space="preserve">in 

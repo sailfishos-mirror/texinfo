@@ -1538,9 +1538,9 @@ $result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" space
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">n c2</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::">n c3</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::">n c3 s1 s2</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>n c2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>n c3</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>n c3 s1 s2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>
@@ -1558,7 +1558,7 @@ $result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" space
 <chapter spaces=" "><sectiontitle>c3</sectiontitle>
 
 <menu endspaces=" "> 
-<menuentry leadingtext="* "><menunode separator="::">n c3 s 2</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>n c3 s 2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 <section spaces=" "><sectiontitle>C3 s1</sectiontitle>

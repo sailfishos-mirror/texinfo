@@ -956,16 +956,16 @@ $result_converted_errors{'html'}->{'menu_entry_name'} = [
 
 
 $result_converted{'xml'}->{'menu_entry_name'} = '<menu endspaces=" ">
-<menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode>(f)b
-</menunode><menudescription><pre xml:space="preserve"></pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=",">(f)b1.c</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=",     ">(f)b2.c</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=",    ">(f)b3.c</menunode><menudescription><pre xml:space="preserve">d
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=". ">(f)b1.</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a </menutitle><menunode separator=".">(f) b2 .</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a.n</menutitle><menunode separator=".         ">(f)b3.</menunode><menudescription><pre xml:space="preserve">d
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=".">(f)b1.c</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=".  ">(f)b2.c</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">a</menutitle><menunode separator=". ">(f)b3.c</menunode><menudescription><pre xml:space="preserve">d
+<menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b
+</menunode><menudescription><pre xml:space="preserve"></pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.c</menunode><menuseparator>,</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b2.c</menunode><menuseparator>,     </menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b3.c</menunode><menuseparator>,    </menuseparator><menudescription><pre xml:space="preserve">d
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.</menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a </menutitle><menuseparator>: </menuseparator><menunode>(f) b2 .</menunode><menuseparator>.</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a.n</menutitle><menuseparator>: </menuseparator><menunode>(f)b3.</menunode><menuseparator>.         </menuseparator><menudescription><pre xml:space="preserve">d
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.c</menunode><menuseparator>.</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b2.c</menunode><menuseparator>.  </menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b3.c</menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d
 </pre></menudescription></menuentry></menu>
 ';
 

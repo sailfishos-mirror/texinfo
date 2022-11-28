@@ -297,9 +297,9 @@ $result_converted_errors{'html'}->{'detailmenu_in_description'} = [
 
 $result_converted{'xml'}->{'detailmenu_in_description'} = '
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::          ">Copying Conditions</menunode><menudescription><pre xml:space="preserve">Your rights.
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>Copying Conditions</menunode><menuseparator>::          </menuseparator><menudescription><pre xml:space="preserve">Your rights.
 </pre></menudescription></menuentry><detailmenu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">detailmenu</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>detailmenu</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></detailmenu>
 </menu>
 ';

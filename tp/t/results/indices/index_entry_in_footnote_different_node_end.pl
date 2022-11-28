@@ -633,7 +633,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 $result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">First</nodenext></node>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">First</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>First</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 <para>Top node<footnote><para>in footnote

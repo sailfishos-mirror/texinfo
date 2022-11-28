@@ -629,7 +629,7 @@ $result_converted{'xml'}->{'double_index_entry'} = '<node name="Top" spaces=" ">
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">aaa</indexterm></cindex>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">other node</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>other node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 <node name="other-node" spaces=" "><nodename>other node</nodename><nodenext></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>

@@ -753,11 +753,11 @@ $result_converted_errors{'html'}->{'invalid_info_menu_entry'} = [
 $result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(f)<asis>a:</asis></nodenext></node>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">(f)<asis>a:</asis></menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": "><asis>name:</asis></menutitle><menunode separator=".">(f)node</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">name</menutitle><menunode separator=". ">(f)<asis>node. </asis></menunode><menudescription><pre xml:space="preserve">d
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">name</menutitle><menunode separator=". ">(f)<asis>node,n</asis></menunode><menudescription><pre xml:space="preserve">d2
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": ">name</menutitle><menunode separator=". ">(f)<asis>node	n</asis></menunode><menudescription><pre xml:space="preserve">d3
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)<asis>a:</asis></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle><asis>name:</asis></menutitle><menuseparator>: </menuseparator><menunode>(f)node</menunode><menuseparator>.</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name</menutitle><menuseparator>: </menuseparator><menunode>(f)<asis>node. </asis></menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name</menutitle><menuseparator>: </menuseparator><menunode>(f)<asis>node,n</asis></menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d2
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>name</menutitle><menuseparator>: </menuseparator><menunode>(f)<asis>node	n</asis></menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">d3
 </pre></menudescription></menuentry></menu>
 ';
 

@@ -1412,7 +1412,7 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying'} = '<copying ends
 </para><insertcopying></insertcopying>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">chapter</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>

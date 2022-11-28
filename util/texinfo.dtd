@@ -703,15 +703,13 @@
 <!ELEMENT direntry (menuentry | menucomment)*>
 <!ATTLIST direntry
           %spacesblockattr;>
-<!ELEMENT menuentry (menutitle?, menunode?, menudescription?)>
-<!ATTLIST menuentry
-          leadingtext CDATA #REQUIRED>
+<!ELEMENT menuentry (menuleadingtext,
+                     ((menutitle, menuseparator, menunode, menuseparator?)
+                     | (menunode, menuseparator)), menudescription?)>
+<!ELEMENT menuleadingtext (#PCDATA)>
 <!ELEMENT menunode (#PCDATA | %Inline.line;)*>
-<!ATTLIST menunode
-          separator CDATA #IMPLIED>
 <!ELEMENT menutitle (#PCDATA | %Inline.line;)*>
-<!ATTLIST menutitle
-          separator CDATA #IMPLIED>
+<!ELEMENT menuseparator (#PCDATA)>
 <!ELEMENT menudescription (%block;)*>
 <!ELEMENT menucomment (%block;)*>
 
@@ -738,11 +736,13 @@
 <!ELEMENT macro (#PCDATA | formalarg | macro | rmacro)*>
 <!ATTLIST macro
           name CDATA #REQUIRED
-          line CDATA #REQUIRED>
+          line CDATA #REQUIRED
+          endspaces CDATA #IMPLIED>
 <!ELEMENT rmacro (#PCDATA | formalarg | macro | rmacro)*>
 <!ATTLIST rmacro
           name CDATA #REQUIRED
-          line CDATA #REQUIRED>
+          line CDATA #REQUIRED
+          endspaces CDATA #IMPLIED>
 
 <!ELEMENT formalarg (#PCDATA)>
 

@@ -325,7 +325,7 @@ $result_converted{'xml'}->{'empty_menu_description'} = '<node name="Top" spaces=
 </nodenext></node>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menutitle separator=":">a</menutitle><menunode>(f)b
+<menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>:</menuseparator><menunode>(f)b
 </menunode><menudescription></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment></menu>
 ';

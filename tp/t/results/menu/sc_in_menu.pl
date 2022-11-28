@@ -971,7 +971,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on"><sc>node</sc></nodenext></node>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menutitle separator=":"><sc>value</sc></menutitle><menunode separator=".   "><sc>node</sc></menunode><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>
+<menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>value</sc></menutitle><menuseparator>:</menuseparator><menunode><sc>node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 <sc>menu comment</sc>
 
@@ -986,7 +986,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 
 <example endspaces=" ">
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menutitle separator=":"><sc>example value</sc></menutitle><menunode separator=".   ">(dir)<sc>example node</sc></menunode><menudescription><pre xml:space="preserve"><sc>example descrip tion</sc>
+<menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>example value</sc></menutitle><menuseparator>:</menuseparator><menunode>(dir)<sc>example node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>example descrip tion</sc>
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 <sc>example comment</sc>
 </pre></menucomment></menu>

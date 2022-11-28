@@ -685,7 +685,7 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '<node name="Top" spaces="
 <para>Top node
 </para>
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">section node</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>section node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>

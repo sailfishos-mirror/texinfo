@@ -459,10 +459,10 @@ $result_converted_errors{'html'}->{'menu_entry_node_comments'} = [
 
 
 $result_converted{'xml'}->{'menu_entry_node_comments'} = '<menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">(f)a1c</menunode><menudescription><pre xml:space="preserve"><!-- c c -->
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::  ">(f)a2c</menunode><menudescription><pre xml:space="preserve"><!-- c c -->
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::         ">(f)a3c</menunode><menudescription><pre xml:space="preserve">d<!-- c c -->
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::   ">(f) a4 </menunode><menudescription><pre xml:space="preserve"><!-- c c -->
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a1c</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve"><!-- c c -->
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a2c</menunode><menuseparator>::  </menuseparator><menudescription><pre xml:space="preserve"><!-- c c -->
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a3c</menunode><menuseparator>::         </menuseparator><menudescription><pre xml:space="preserve">d<!-- c c -->
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f) a4 </menunode><menuseparator>::   </menuseparator><menudescription><pre xml:space="preserve"><!-- c c -->
 </pre></menudescription></menuentry></menu>
 ';
 

@@ -11,8 +11,8 @@
 
 <dircategory spaces=" ">Formatting <accent type="acute" bracketed="off">e</accent> <code>&arobase; &tex;</code> test</dircategory>
 <direntry endspaces=" ">
-<menuentry leadingtext="* "><menutitle separator=": ">Truc</menutitle><menunode separator=".           ">(formatting)</menunode><menudescription><pre xml:space="preserve">The GNU documentation truc.
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": "><code>&arobase; <accent type="acute" bracketed="off">e</accent> &equiv;</code></menutitle><menunode separator=".  ">(formatting)</menunode><menudescription><pre xml:space="preserve">&textldquo;<asis>&textmdash; something</asis>&textrdquo; 
+<menuentry><menuleadingtext>* </menuleadingtext><menutitle>Truc</menutitle><menuseparator>: </menuseparator><menunode>(formatting)</menunode><menuseparator>.           </menuseparator><menudescription><pre xml:space="preserve">The GNU documentation truc.
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle><code>&arobase; <accent type="acute" bracketed="off">e</accent> &equiv;</code></menutitle><menuseparator>: </menuseparator><menunode>(formatting)</menunode><menuseparator>.  </menuseparator><menudescription><pre xml:space="preserve">&textldquo;<asis>&textmdash; something</asis>&textrdquo; 
                            <command>cmd</command> <accent type="grave" bracketed="off">a</accent>
 </pre></menudescription></menuentry></direntry>
 
@@ -3528,11 +3528,11 @@ in verbatim ''
 <top spaces=" "><sectiontitle>Top section</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::               ">chapter</menunode><menudescription><pre xml:space="preserve">chapter
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::               </menuseparator><menudescription><pre xml:space="preserve">chapter
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 Menu comment
 
-</pre></menucomment><menuentry leadingtext="* "><menutitle separator=":">description</menutitle><menunode separator=".   ">chapter2</menunode><menudescription><pre xml:space="preserve">Chapter 2
+</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menutitle>description</menutitle><menuseparator>:</menuseparator><menunode>chapter2</menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve">Chapter 2
 </pre></menudescription></menuentry></menu>
 
 
@@ -5933,7 +5933,7 @@ Various deff lines
 </para>
 <format endspaces=" ">
 <menu endspaces=" "> 
-<menuentry leadingtext="* "><menunode separator=":: ">s--ect&comma;ion</menunode><menudescription><pre xml:space="preserve">s&textndash;ect&comma;ion
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>s--ect&comma;ion</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">s&textndash;ect&comma;ion
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 Menu comment
 &textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo;&linebreak;
@@ -5945,13 +5945,13 @@ Menu comment
 <section spaces=" "><sectiontitle>A section</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator=":: ">subsection</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>subsection</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment><detailmenu endspaces=" ">
 <menucomment><pre xml:space="preserve">In detailmenu
 
-</pre></menucomment><menuentry leadingtext="* "><menunode separator="::">subsubsection ``simple-double--</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::">subsubsection three---four----''</menunode><menudescription><pre xml:space="preserve">
+</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menunode>subsubsection ``simple-double--</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>subsubsection three---four----''</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></detailmenu>
 </menu>
 
@@ -5959,8 +5959,8 @@ Menu comment
 <subsection spaces=" "><sectiontitle>subsection</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">subsubsection ``simple-double--</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::">subsubsection three---four----''</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>subsubsection ``simple-double--</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>subsubsection three---four----''</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 <anchor name="anchor">anchor</anchor>

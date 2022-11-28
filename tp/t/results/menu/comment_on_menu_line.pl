@@ -440,7 +440,7 @@ $result_converted_errors{'html'}->{'comment_on_menu_line'} = [
 $result_converted{'xml'}->{'comment_on_menu_line'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
 
 <menu spaces="  " endspaces=" "><!-- c -->
-<menuentry leadingtext="* "><menunode separator="::">first</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 <chapter spaces=" "><sectiontitle>first</sectiontitle>

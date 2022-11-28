@@ -524,7 +524,7 @@ $result_converted{'xml'}->{'section_before_top'} = '<node name="section-node" sp
 <unnumberedsec originalcommand="top" spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">section node</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>section node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 </unnumberedsec>
 ';

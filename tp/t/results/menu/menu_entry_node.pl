@@ -413,10 +413,10 @@ $result_converted_errors{'html'}->{'menu_entry_node'} = [
 
 
 $result_converted{'xml'}->{'menu_entry_node'} = '<menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">(f)a1</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::  ">(f)a2</menunode><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::         ">(f)a3</menunode><menudescription><pre xml:space="preserve">d
-</pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator=":: ">(f)&arobase;a&noeos;</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a2</menunode><menuseparator>::  </menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)a3</menunode><menuseparator>::         </menuseparator><menudescription><pre xml:space="preserve">d
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)&arobase;a&noeos;</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 ';
 

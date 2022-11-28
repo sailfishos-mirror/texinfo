@@ -298,7 +298,7 @@ $result_converted{'xml'}->{'reference_to_external_manual'} = '
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(info)</nodenext></node>
 
 <menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::">(info)</menunode><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>(info)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 ';
 
