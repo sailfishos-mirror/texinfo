@@ -90,6 +90,15 @@ my $result_options = Getopt::Long::GetOptions (
  'debug|d' => \$debug,
 );
 
+# to get unbuffered output
+if ($debug) {
+  my $previous_default = select(STDOUT);  # save previous default
+  $|++;                                   # autoflush STDOUT
+  select(STDERR);
+  $|++;                                   # autoflush STDERR, to be sure
+  select($previous_default);              # restore previous default
+}
+
 sub command_with_braces($)
 {
   my $command = shift;
@@ -121,6 +130,7 @@ my %elements_end_attributes = (
 # reference which associates an attribute value to the formatted @-command
 # string.
 my %element_at_commands;
+
 # entities not associated to @-commands
 my %entity_texts = (
   'textldquo' => '``',
@@ -367,6 +377,7 @@ while ($reader->read) {
         }
       }
     } elsif ($arg_elements{$name}) {
+      # elements corresponding to @-commands arguments
       if ($reader->hasAttributes()
           and defined($reader->getAttribute('automatic'))
           and $reader->getAttribute('automatic') eq 'on') {
@@ -446,6 +457,7 @@ while ($reader->read) {
         print '{';
         print "$spaces";
       }
+      # menus 'star' and following spaces
       if (defined($reader->getAttribute('leadingtext'))) {
         print $reader->getAttribute('leadingtext');
       }
@@ -514,6 +526,8 @@ while ($reader->read) {
       print STDERR "END UNKNOWN $name\n" if ($debug);
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_ENTITY_REFERENCE) {
+    # for some reason XML_READER_TYPE_ENTITY is never emitted
+    #       or $reader->nodeType() eq XML_READER_TYPE_ENTITY) {
     if (defined($entity_texts{$name})) {
       print $entity_texts{$name};
     }
