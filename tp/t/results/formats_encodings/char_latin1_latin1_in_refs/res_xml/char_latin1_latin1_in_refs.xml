@@ -4,12 +4,10 @@
 <filename file="char_latin1_latin1_in_refs.xml"></filename>
 <preamblebeforebeginning>\input texinfo
 
-</preamblebeforebeginning><setfilename file="char_latin1_latin1_in_refs.info" spaces=" ">char_latin1_latin1_in_refs.info</setfilename>
-
-<documentencoding encoding="iso-8859-1" spaces=" ">iso-8859-1</documentencoding>
+</preamblebeforebeginning><documentencoding encoding="iso-8859-1" spaces=" ">iso-8859-1</documentencoding>
 
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<top spaces=" "><sectiontitle>char latin1 latin1 in refs</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry leadingtext="* "><menunode separator="::">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</menunode><menudescription><pre xml:space="preserve">

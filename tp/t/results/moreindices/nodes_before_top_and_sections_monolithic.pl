@@ -36,7 +36,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'more_before_top_section'
+                      'text' => 'nodes_before_top_and_sections.info'
                     }
                   ],
                   'info' => {
@@ -48,7 +48,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'text_arg' => 'more_before_top_section'
+                'text_arg' => 'nodes_before_top_and_sections.info'
               },
               'info' => {
                 'spaces_before_argument' => ' '
@@ -2595,7 +2595,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'}{'contents'}[11]{'extra
 
 $result_texis{'nodes_before_top_and_sections_monolithic'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename more_before_top_section
+@setfilename nodes_before_top_and_sections.info
 
 
 @node first before top, Top, ,(dir)

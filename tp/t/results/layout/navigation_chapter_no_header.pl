@@ -12,59 +12,20 @@ $result_trees{'navigation_chapter_no_header'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'navigation.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'navigation.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'navigation.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -105,7 +66,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -187,7 +148,7 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -216,14 +177,14 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'navigation.texi',
-            'line_nr' => 8,
+            'line_nr' => 6,
             'macro' => ''
           }
         },
@@ -239,7 +200,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -278,7 +239,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 12,
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -360,7 +321,7 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 16,
+                'line_nr' => 14,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -389,14 +350,14 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'navigation.texi',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -412,7 +373,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 13,
+        'line_nr' => 11,
         'macro' => ''
       }
     },
@@ -451,7 +412,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 19,
+        'line_nr' => 17,
         'macro' => ''
       }
     },
@@ -719,7 +680,7 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 50,
+                'line_nr' => 48,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -748,14 +709,14 @@ $result_trees{'navigation_chapter_no_header'} = {
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
-                'line_nr' => 51,
+                'line_nr' => 49,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'navigation.texi',
-            'line_nr' => 49,
+            'line_nr' => 47,
             'macro' => ''
           }
         },
@@ -771,7 +732,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 20,
+        'line_nr' => 18,
         'macro' => ''
       }
     },
@@ -810,7 +771,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 53,
+        'line_nr' => 51,
         'macro' => ''
       }
     },
@@ -847,7 +808,7 @@ $result_trees{'navigation_chapter_no_header'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'navigation.texi',
-            'line_nr' => 56,
+            'line_nr' => 54,
             'macro' => ''
           }
         },
@@ -863,7 +824,7 @@ $result_trees{'navigation_chapter_no_header'} = {
       },
       'source_info' => {
         'file_name' => 'navigation.texi',
-        'line_nr' => 54,
+        'line_nr' => 52,
         'macro' => ''
       }
     },
@@ -896,8 +857,6 @@ $result_trees{'navigation_chapter_no_header'}{'contents'}[7]{'extra'}{'node_cont
 $result_trees{'navigation_chapter_no_header'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'navigation_chapter_no_header'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 
 $result_texis{'navigation_chapter_no_header'} = '\\input texinfo @c -*-texinfo-*-
-
-@setfilename navigation.info
 
 @node Top
 @top File used for navigation testing
@@ -956,8 +915,7 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 ';
 
 
-$result_texts{'navigation_chapter_no_header'} = '
-File used for navigation testing
+$result_texts{'navigation_chapter_no_header'} = 'File used for navigation testing
 ********************************
 
 * chapter::

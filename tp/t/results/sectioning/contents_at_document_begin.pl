@@ -12,58 +12,20 @@ $result_trees{'contents_at_document_begin'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'contents_at_document_begin.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'contents_at_document_begin.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'contents_at_document_begin.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -75,7 +37,7 @@ $result_trees{'contents_at_document_begin'} = {
               'cmdname' => 'contents',
               'source_info' => {
                 'file_name' => 'contents_at_document_begin.texi',
-                'line_nr' => 5,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -125,7 +87,7 @@ $result_trees{'contents_at_document_begin'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -134,7 +96,7 @@ $result_trees{'contents_at_document_begin'} = {
         {
           'contents' => [
             {
-              'text' => 'top'
+              'text' => 'contents at document begin'
             }
           ],
           'info' => {
@@ -158,7 +120,7 @@ $result_trees{'contents_at_document_begin'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -190,7 +152,7 @@ $result_trees{'contents_at_document_begin'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 10,
+        'line_nr' => 8,
         'macro' => ''
       }
     },
@@ -212,12 +174,10 @@ $result_trees{'contents_at_document_begin'}{'contents'}[1]{'extra'}{'nodes_manua
 
 $result_texis{'contents_at_document_begin'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename contents_at_document_begin.info
-
 @contents
 
 @node Top
-@top top
+@top contents at document begin
 
 @chapter chap
 
@@ -226,9 +186,8 @@ $result_texis{'contents_at_document_begin'} = '\\input texinfo @c -*-texinfo-*-
 
 
 $result_texts{'contents_at_document_begin'} = '
-
-top
-***
+contents at document begin
+**************************
 
 1 chap
 ******

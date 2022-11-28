@@ -1,5 +1,5 @@
-top
-***
+encoding index latin1
+*********************
 
 * Menu:
 

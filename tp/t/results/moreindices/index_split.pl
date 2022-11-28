@@ -12,59 +12,20 @@ $result_trees{'index_split'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'index_split'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'index_split'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'index_split.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -106,7 +67,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -162,7 +123,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 7,
+            'line_nr' => 5,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -198,7 +159,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -233,7 +194,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 11,
+            'line_nr' => 9,
             'macro' => ''
           }
         },
@@ -282,7 +243,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -347,7 +308,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 18,
+                'line_nr' => 16,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -396,7 +357,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -445,7 +406,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 20,
+                'line_nr' => 18,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -474,14 +435,14 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 21,
+                'line_nr' => 19,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           }
         },
@@ -497,7 +458,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -564,7 +525,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 26,
+                'line_nr' => 24,
                 'macro' => ''
               },
               'type' => 'index_entry_command'
@@ -604,7 +565,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 27,
+                'line_nr' => 25,
                 'macro' => ''
               },
               'type' => 'index_entry_command'
@@ -644,7 +605,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 28,
+                'line_nr' => 26,
                 'macro' => ''
               },
               'type' => 'index_entry_command'
@@ -684,7 +645,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 29,
+                'line_nr' => 27,
                 'macro' => ''
               },
               'type' => 'index_entry_command'
@@ -723,7 +684,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 31,
+            'line_nr' => 29,
             'macro' => ''
           }
         },
@@ -758,7 +719,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 33,
+            'line_nr' => 31,
             'macro' => ''
           }
         },
@@ -802,7 +763,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 35,
+            'line_nr' => 33,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -833,7 +794,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 23,
+        'line_nr' => 21,
         'macro' => ''
       }
     },
@@ -889,7 +850,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 38,
+            'line_nr' => 36,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -929,7 +890,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 39,
+            'line_nr' => 37,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -969,7 +930,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 40,
+            'line_nr' => 38,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1035,7 +996,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 43,
+                'line_nr' => 41,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1084,7 +1045,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 44,
+                'line_nr' => 42,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1133,7 +1094,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 45,
+                'line_nr' => 43,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1182,7 +1143,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 46,
+                'line_nr' => 44,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1231,7 +1192,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 47,
+                'line_nr' => 45,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1280,7 +1241,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 48,
+                'line_nr' => 46,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1309,14 +1270,14 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 49,
+                'line_nr' => 47,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 42,
+            'line_nr' => 40,
             'macro' => ''
           }
         },
@@ -1332,7 +1293,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 37,
+        'line_nr' => 35,
         'macro' => ''
       }
     },
@@ -1372,7 +1333,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 51,
+        'line_nr' => 49,
         'macro' => ''
       }
     },
@@ -1433,7 +1394,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 54,
+            'line_nr' => 52,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1499,7 +1460,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 57,
+                'line_nr' => 55,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1548,7 +1509,7 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 58,
+                'line_nr' => 56,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1577,14 +1538,14 @@ $result_trees{'index_split'} = {
               },
               'source_info' => {
                 'file_name' => 'index_split.texi',
-                'line_nr' => 59,
+                'line_nr' => 57,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 56,
+            'line_nr' => 54,
             'macro' => ''
           }
         },
@@ -1628,7 +1589,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 62,
+            'line_nr' => 60,
             'macro' => ''
           }
         },
@@ -1672,7 +1633,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 64,
+            'line_nr' => 62,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1689,7 +1650,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 52,
+        'line_nr' => 50,
         'macro' => ''
       }
     },
@@ -1728,7 +1689,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 66,
+        'line_nr' => 64,
         'macro' => ''
       }
     },
@@ -1775,7 +1736,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 67,
+        'line_nr' => 65,
         'macro' => ''
       }
     },
@@ -1815,7 +1776,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 71,
+        'line_nr' => 69,
         'macro' => ''
       }
     },
@@ -1890,7 +1851,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 76,
+            'line_nr' => 74,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1926,7 +1887,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 78,
+            'line_nr' => 76,
             'macro' => ''
           }
         },
@@ -1970,7 +1931,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 80,
+            'line_nr' => 78,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1987,7 +1948,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 72,
+        'line_nr' => 70,
         'macro' => ''
       }
     },
@@ -2026,7 +1987,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 82,
+        'line_nr' => 80,
         'macro' => ''
       }
     },
@@ -2073,7 +2034,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 83,
+        'line_nr' => 81,
         'macro' => ''
       }
     },
@@ -2113,7 +2074,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 87,
+        'line_nr' => 85,
         'macro' => ''
       }
     },
@@ -2174,7 +2135,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 90,
+            'line_nr' => 88,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2210,7 +2171,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 92,
+            'line_nr' => 90,
             'macro' => ''
           }
         },
@@ -2226,7 +2187,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 88,
+        'line_nr' => 86,
         'macro' => ''
       }
     },
@@ -2306,7 +2267,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 96,
+            'line_nr' => 94,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2358,7 +2319,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 94,
+        'line_nr' => 92,
         'macro' => ''
       }
     },
@@ -2433,7 +2394,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 101,
+            'line_nr' => 99,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2478,7 +2439,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 104,
+            'line_nr' => 102,
             'macro' => ''
           }
         },
@@ -2522,7 +2483,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 106,
+            'line_nr' => 104,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2558,7 +2519,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 108,
+            'line_nr' => 106,
             'macro' => ''
           }
         },
@@ -2602,7 +2563,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 110,
+            'line_nr' => 108,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2641,7 +2602,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 99,
+        'line_nr' => 97,
         'macro' => ''
       }
     },
@@ -2716,7 +2677,7 @@ $result_trees{'index_split'} = {
           },
           'source_info' => {
             'file_name' => 'index_split.texi',
-            'line_nr' => 114,
+            'line_nr' => 112,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2754,7 +2715,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 112,
+        'line_nr' => 110,
         'macro' => ''
       }
     },
@@ -2793,7 +2754,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 116,
+        'line_nr' => 114,
         'macro' => ''
       }
     },
@@ -2840,7 +2801,7 @@ $result_trees{'index_split'} = {
       },
       'source_info' => {
         'file_name' => 'index_split.texi',
-        'line_nr' => 117,
+        'line_nr' => 115,
         'macro' => ''
       }
     },
@@ -2984,8 +2945,6 @@ $result_trees{'index_split'}{'contents'}[18]{'extra'}{'nodes_manuals'}[0]{'node_
 
 $result_texis{'index_split'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename index_split
-
 @node Top
 @top split indices
 @cindex entry a
@@ -3106,8 +3065,7 @@ Second chapter
 ';
 
 
-$result_texts{'index_split'} = '
-split indices
+$result_texts{'index_split'} = 'split indices
 *************
 
 
@@ -3759,7 +3717,7 @@ $result_errors{'index_split'} = [
     'error_line' => 'warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
 ',
     'file_name' => 'index_split.texi',
-    'line_nr' => 87,
+    'line_nr' => 85,
     'macro' => '',
     'text' => 'node `node in section 3\' is next for `section 3\' in menu but not in sectioning',
     'type' => 'warning'

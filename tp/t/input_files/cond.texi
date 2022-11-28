@@ -1,5 +1,6 @@
 \input texinfo
-@setfilename cond.info
+
+@c test conditions
 
 @node Top
 

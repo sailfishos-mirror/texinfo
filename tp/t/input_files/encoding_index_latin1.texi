@@ -1,9 +1,8 @@
 
-@setfilename encoding_index_latin1.info
 @documentencoding iso-8859-1
 
 @node Top
-@top top
+@top encoding index latin1
 
 @cindex é é
 @cindex @"{i} @"{i}@"{i}@"{i}

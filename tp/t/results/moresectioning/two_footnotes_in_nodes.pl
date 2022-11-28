@@ -12,59 +12,20 @@ $result_trees{'two_footnotes_in_nodes'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'two_footnotes_in_nodes.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'two_footnotes_in_nodes.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -105,7 +66,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -169,7 +130,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 8,
+                'line_nr' => 6,
                 'macro' => ''
               }
             },
@@ -223,7 +184,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -295,7 +256,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -324,14 +285,14 @@ $result_trees{'two_footnotes_in_nodes'} = {
               },
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 18,
+                'line_nr' => 16,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'two_footnotes_in_nodes.texi',
-            'line_nr' => 16,
+            'line_nr' => 14,
             'macro' => ''
           }
         },
@@ -347,7 +308,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -386,7 +347,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
-        'line_nr' => 20,
+        'line_nr' => 18,
         'macro' => ''
       }
     },
@@ -450,7 +411,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 23,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -504,7 +465,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
-                'line_nr' => 27,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -527,7 +488,7 @@ $result_trees{'two_footnotes_in_nodes'} = {
       },
       'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
-        'line_nr' => 21,
+        'line_nr' => 19,
         'macro' => ''
       }
     },
@@ -552,8 +513,6 @@ $result_trees{'two_footnotes_in_nodes'}{'contents'}[3]{'extra'}{'node_content'}[
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'two_footnotes_in_nodes'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'two_footnotes_in_nodes'} = '\\input texinfo @c -*-texinfo-*-
-
-@setfilename two_footnotes_in_nodes.info
 
 @node Top
 @top 2 footnotes in 2 nodes
@@ -585,8 +544,7 @@ para2}
 ';
 
 
-$result_texts{'two_footnotes_in_nodes'} = '
-2 footnotes in 2 nodes
+$result_texts{'two_footnotes_in_nodes'} = '2 footnotes in 2 nodes
 **********************
 
 A

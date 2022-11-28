@@ -12,59 +12,20 @@ $result_trees{'contents_at_end_document_after_node'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'contents_at_end_document_after_node.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'contents_at_end_document_after_node.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'contents_at_end_document_after_node.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -105,7 +66,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end_document_after_node.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -114,7 +75,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
         {
           'contents' => [
             {
-              'text' => 'top'
+              'text' => 'contents at end document after node'
             }
           ],
           'info' => {
@@ -187,7 +148,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
               },
               'source_info' => {
                 'file_name' => 'contents_at_end_document_after_node.texi',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -216,14 +177,14 @@ $result_trees{'contents_at_end_document_after_node'} = {
               },
               'source_info' => {
                 'file_name' => 'contents_at_end_document_after_node.texi',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'contents_at_end_document_after_node.texi',
-            'line_nr' => 8,
+            'line_nr' => 6,
             'macro' => ''
           }
         },
@@ -239,7 +200,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end_document_after_node.texi',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -271,7 +232,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end_document_after_node.texi',
-        'line_nr' => 12,
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -322,7 +283,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'contents_at_end_document_after_node.texi',
-            'line_nr' => 16,
+            'line_nr' => 14,
             'macro' => ''
           }
         },
@@ -359,7 +320,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
       },
       'source_info' => {
         'file_name' => 'contents_at_end_document_after_node.texi',
-        'line_nr' => 14,
+        'line_nr' => 12,
         'macro' => ''
       }
     },
@@ -386,10 +347,8 @@ $result_trees{'contents_at_end_document_after_node'}{'contents'}[4]{'extra'}{'no
 
 $result_texis{'contents_at_end_document_after_node'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename contents_at_end_document_after_node.info
-
 @node Top
-@top top
+@top contents at end document after node
 
 @menu
 * a node::
@@ -405,9 +364,8 @@ $result_texis{'contents_at_end_document_after_node'} = '\\input texinfo @c -*-te
 ';
 
 
-$result_texts{'contents_at_end_document_after_node'} = '
-top
-***
+$result_texts{'contents_at_end_document_after_node'} = 'contents at end document after node
+***********************************
 
 * a node::
 

@@ -1,9 +1,7 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename contents_at_end_document_after_node.info
-
 @node Top
-@top top
+@top contents at end document after node
 
 @menu
 * a node::

@@ -1,5 +1,5 @@
-top
-***
+encoding index utf8
+*******************
 
 * Menu:
 

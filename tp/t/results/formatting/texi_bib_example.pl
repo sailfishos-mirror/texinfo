@@ -12,15 +12,15 @@ $result_trees{'texi_bib_example'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo   @c -*-texinfo-*-
+              'text' => '\\input texinfo   @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -301,39 +301,6 @@ $result_trees{'texi_bib_example'} = {
 '
                 ]
               }
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'my-file-with-bib.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'my-file-with-bib.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'bib-example.texi',
-                'line_nr' => 23,
-                'macro' => ''
-              }
             },
             {
               'args' => [
@@ -357,7 +324,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 24,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -3473,7 +3440,7 @@ $result_trees{'texi_bib_example'} = {
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
-        'line_nr' => 31,
+        'line_nr' => 30,
         'macro' => ''
       }
     },
@@ -3555,7 +3522,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 35,
+                'line_nr' => 34,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -3604,7 +3571,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 36,
+                'line_nr' => 35,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -3648,14 +3615,14 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 38,
+                'line_nr' => 37,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'bib-example.texi',
-            'line_nr' => 34,
+            'line_nr' => 33,
             'macro' => ''
           }
         },
@@ -3671,7 +3638,7 @@ $result_trees{'texi_bib_example'} = {
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
-        'line_nr' => 32,
+        'line_nr' => 31,
         'macro' => ''
       }
     },
@@ -3710,7 +3677,7 @@ $result_trees{'texi_bib_example'} = {
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
-        'line_nr' => 40,
+        'line_nr' => 39,
         'macro' => ''
       }
     },
@@ -3823,7 +3790,7 @@ $result_trees{'texi_bib_example'} = {
                   },
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
-                    'line_nr' => 47,
+                    'line_nr' => 46,
                     'macro' => ''
                   }
                 },
@@ -3836,7 +3803,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 44,
+                'line_nr' => 43,
                 'macro' => 'mybibmakeref'
               }
             },
@@ -3867,7 +3834,7 @@ $result_trees{'texi_bib_example'} = {
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
-        'line_nr' => 41,
+        'line_nr' => 40,
         'macro' => ''
       }
     },
@@ -3902,7 +3869,7 @@ $result_trees{'texi_bib_example'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
-                    'line_nr' => 50,
+                    'line_nr' => 49,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -3955,7 +3922,7 @@ $result_trees{'texi_bib_example'} = {
                   },
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
-                    'line_nr' => 52,
+                    'line_nr' => 51,
                     'macro' => 'mybibitem'
                   }
                 },
@@ -4007,7 +3974,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 52,
+                'line_nr' => 51,
                 'macro' => 'mybibitem'
               }
             },
@@ -4035,7 +4002,7 @@ $result_trees{'texi_bib_example'} = {
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
-                'line_nr' => 56,
+                'line_nr' => 55,
                 'macro' => ''
               }
             }
@@ -4048,7 +4015,7 @@ $result_trees{'texi_bib_example'} = {
           },
           'source_info' => {
             'file_name' => 'bib-example.texi',
-            'line_nr' => 50,
+            'line_nr' => 49,
             'macro' => ''
           }
         },
@@ -4064,7 +4031,7 @@ $result_trees{'texi_bib_example'} = {
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
-        'line_nr' => 48,
+        'line_nr' => 47,
         'macro' => ''
       }
     },
@@ -4118,7 +4085,6 @@ $result_texis{'texi_bib_example'} = '\\input texinfo   @c -*-texinfo-*-
 @c % Boston, MA 02111-1307, USA.
 
 @comment %**start of header
-@setfilename my-file-with-bib.info
 @settitle Texinfo with a Bibliography and References
 
 @c \\input texinfo   @c -*-texinfo-*-
@@ -4661,7 +4627,7 @@ $result_errors{'texi_bib_example'} = [
     'error_line' => 'warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
 ',
     'file_name' => 'bib-example.texi',
-    'line_nr' => 44,
+    'line_nr' => 43,
     'macro' => 'mybibcite',
     'text' => '@ifclear should only appear at the beginning of a line',
     'type' => 'warning'
@@ -4706,6 +4672,11 @@ th.menu-comment {text-align:left}
 <body lang="en">
 <h1 class="settitle">Texinfo with a Bibliography and References</h1>
 <hr>
+
+
+
+
+
 
 
 

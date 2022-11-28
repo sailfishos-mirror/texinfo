@@ -1,6 +1,6 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename equivalent_nodes.info
+@c test equivalent nodes
 
 @node before top, @asis{node},,(dir)
 

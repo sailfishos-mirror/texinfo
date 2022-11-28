@@ -12,51 +12,34 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
+              'type' => 'text_before_beginning'
+            },
+            {
+              'text' => '
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'nodes_after_top_before_chapter.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
+                  'text' => ' test nodes after top before chapter
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
+              'cmdname' => 'c',
               'extra' => {
-                'text_arg' => 'nodes_after_top_before_chapter.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'nodes_after_top_before_chapter.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'misc_args' => [
+                  ' test nodes after top before chapter
+'
+                ]
               }
             },
             {
@@ -520,7 +503,7 @@ $result_trees{'nodes_after_top_before_chapter'}{'contents'}[3]{'extra'}{'nodes_m
 
 $result_texis{'nodes_after_top_before_chapter'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename nodes_after_top_before_chapter.info
+@c test nodes after top before chapter
 
 
 @node Top

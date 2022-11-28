@@ -12,15 +12,15 @@ $result_trees{'chinese_mixed_with_en'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -50,39 +50,6 @@ $result_trees{'chinese_mixed_with_en'} = {
                 'line_nr' => 2,
                 'macro' => ''
               }
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chinese_mixed_with_en.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'chinese_mixed_with_en.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
             },
             {
               'args' => [
@@ -105,7 +72,7 @@ $result_trees{'chinese_mixed_with_en'} = {
               },
               'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 4,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -315,7 +282,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 6,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -337,7 +304,6 @@ $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'extra'}{'nodes_manuals'}[
 
 $result_texis{'chinese_mixed_with_en'} = '\\input texinfo
 @documentencoding utf-8
-@setfilename chinese_mixed_with_en.info
 @settitle chinese mixed with english
 
 @node Top

@@ -1,6 +1,6 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename more_before_top_section
+@setfilename nodes_before_top_and_sections.info
 
 
 @node first before top, Top, ,(dir)

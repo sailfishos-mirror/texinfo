@@ -12,46 +12,34 @@ $result_trees{'texi_cond'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
+            },
+            {
+              'text' => '
+',
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'cond.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
+                  'text' => ' test conditions
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
+              'cmdname' => 'c',
               'extra' => {
-                'text_arg' => 'cond.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'cond.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'misc_args' => [
+                  ' test conditions
+'
+                ]
               }
             },
             {
@@ -132,14 +120,14 @@ $result_trees{'texi_cond'} = {
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 8,
+                'line_nr' => 9,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'cond.texi',
-            'line_nr' => 6,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -235,14 +223,14 @@ $result_trees{'texi_cond'} = {
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 30,
+                'line_nr' => 31,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'cond.texi',
-            'line_nr' => 28,
+            'line_nr' => 29,
             'macro' => ''
           }
         },
@@ -290,7 +278,7 @@ $result_trees{'texi_cond'} = {
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 4,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -311,7 +299,8 @@ $result_trees{'texi_cond'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_
 $result_trees{'texi_cond'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'texi_cond'} = '\\input texinfo
-@setfilename cond.info
+
+@c test conditions
 
 @node Top
 

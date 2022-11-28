@@ -12,51 +12,34 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
+              'type' => 'text_before_beginning'
+            },
+            {
+              'text' => '
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'node_footnote.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
+                  'text' => ' test footnotes with nodes only
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
+              'cmdname' => 'c',
               'extra' => {
-                'text_arg' => 'node_footnote.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'misc_args' => [
+                  ' test footnotes with nodes only
+'
+                ]
               }
             },
             {
@@ -1065,7 +1048,7 @@ $result_trees{'node_footnote_use_node'}{'contents'}[6]{'extra'}{'nodes_manuals'}
 
 $result_texis{'node_footnote_use_node'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename node_footnote.info
+@c test footnotes with nodes only
 
 @node Top
 

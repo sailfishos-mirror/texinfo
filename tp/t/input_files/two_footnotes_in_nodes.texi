@@ -1,7 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename two_footnotes_in_nodes.info
-
 @node Top
 @top 2 footnotes in 2 nodes
 

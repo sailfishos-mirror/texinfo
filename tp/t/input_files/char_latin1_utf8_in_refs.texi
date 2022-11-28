@@ -1,11 +1,9 @@
 \input texinfo
 
-@setfilename char_latin1_utf8_in_refs.info
-
 @documentencoding utf-8
 
 @node Top
-@top top
+@top char latin1 utf8 in refs
 
 @printindex cp
 

@@ -12,46 +12,34 @@ $result_trees{'defcondx_Ubar'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
+            },
+            {
+              'text' => '
+',
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'defxcond.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
+                  'text' => ' test def*x in a conditional
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
+              'cmdname' => 'c',
               'extra' => {
-                'text_arg' => 'defxcond.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'defxcond.texi',
-                'line_nr' => 2,
-                'macro' => ''
+                'misc_args' => [
+                  ' test def*x in a conditional
+'
+                ]
               }
             },
             {
@@ -149,7 +137,7 @@ $result_trees{'defcondx_Ubar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 8,
+                'line_nr' => 9,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -207,7 +195,7 @@ $result_trees{'defcondx_Ubar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 16,
+                'line_nr' => 17,
                 'macro' => ''
               }
             }
@@ -217,7 +205,7 @@ $result_trees{'defcondx_Ubar'} = {
           },
           'source_info' => {
             'file_name' => 'defxcond.texi',
-            'line_nr' => 8,
+            'line_nr' => 9,
             'macro' => ''
           }
         },
@@ -245,7 +233,8 @@ $result_trees{'defcondx_Ubar'} = {
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'defcondx_Ubar'} = '\\input texinfo
-@setfilename defxcond.info
+
+@c test def*x in a conditional
 
 @c set this from the command line.
 @c set bar
@@ -277,7 +266,7 @@ $result_errors{'defcondx_Ubar'} = [
     'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => 'defxcond.texi',
-    'line_nr' => 8,
+    'line_nr' => 9,
     'macro' => '',
     'text' => 'missing name for @deffn',
     'type' => 'warning'

@@ -1,6 +1,6 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename index_nodes
+@c test nodes before Top node
 
 
 @node first before top, Top, ,(dir)

@@ -12,51 +12,34 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
+              'type' => 'text_before_beginning'
+            },
+            {
+              'text' => '
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'index_nodes'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
+                  'text' => ' test nodes before Top node
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
+              'cmdname' => 'c',
               'extra' => {
-                'text_arg' => 'index_nodes'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 3,
-                'macro' => ''
+                'misc_args' => [
+                  ' test nodes before Top node
+'
+                ]
               }
             },
             {
@@ -2058,7 +2041,7 @@ $result_trees{'nodes_before_top_no_nodes'}{'contents'}[7]{'extra'}{'nodes_manual
 
 $result_texis{'nodes_before_top_no_nodes'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename index_nodes
+@c test nodes before Top node
 
 
 @node first before top, Top, ,(dir)

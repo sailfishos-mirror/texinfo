@@ -12,53 +12,20 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'char_latin2_latin2_in_refs.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'char_latin2_latin2_in_refs.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'char_latin2_latin2_in_refs.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -85,7 +52,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
-                'line_nr' => 4,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -136,7 +103,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       },
       'source_info' => {
         'file_name' => 'char_latin2_latin2_in_refs.texi',
-        'line_nr' => 6,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -145,7 +112,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         {
           'contents' => [
             {
-              'text' => 'top'
+              'text' => 'char latin2 latin2 in refs'
             }
           ],
           'info' => {
@@ -212,7 +179,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   },
                   'source_info' => {
                     'file_name' => 'char_latin2_latin2_in_refs.texi',
-                    'line_nr' => 18,
+                    'line_nr' => 17,
                     'macro' => ''
                   }
                 },
@@ -225,7 +192,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
-                'line_nr' => 9,
+                'line_nr' => 8,
                 'macro' => ''
               }
             },
@@ -267,7 +234,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           },
           'source_info' => {
             'file_name' => 'char_latin2_latin2_in_refs.texi',
-            'line_nr' => 11,
+            'line_nr' => 10,
             'macro' => ''
           }
         },
@@ -348,7 +315,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
-                'line_nr' => 15,
+                'line_nr' => 14,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -377,14 +344,14 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
-                'line_nr' => 16,
+                'line_nr' => 15,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'char_latin2_latin2_in_refs.texi',
-            'line_nr' => 14,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -400,7 +367,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       },
       'source_info' => {
         'file_name' => 'char_latin2_latin2_in_refs.texi',
-        'line_nr' => 7,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -462,7 +429,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           },
           'source_info' => {
             'file_name' => 'char_latin2_latin2_in_refs.texi',
-            'line_nr' => 21,
+            'line_nr' => 20,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -479,7 +446,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       },
       'source_info' => {
         'file_name' => 'char_latin2_latin2_in_refs.texi',
-        'line_nr' => 19,
+        'line_nr' => 18,
         'macro' => ''
       }
     },
@@ -510,12 +477,11 @@ $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[4]{'contents'}[1]{'extra
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'label'};
 
 $result_texis{'char_latin2_latin2_in_refs'} = '\\input texinfo
-@setfilename char_latin2_latin2_in_refs.info
 
 @documentencoding ISO-8859-2
 
 @node Top
-@top top
+@top char latin2 latin2 in refs
 
 @ref{Ą ą ˛ Ę ę}.
 
@@ -536,9 +502,8 @@ $result_texis{'char_latin2_latin2_in_refs'} = '\\input texinfo
 
 
 $result_texts{'char_latin2_latin2_in_refs'} = '
-
-top
-***
+char latin2 latin2 in refs
+**************************
 
 Ą ą ˛ Ę ę.
 

@@ -1,6 +1,6 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename nodes_after_top_before_chapter.info
+@c test nodes after top before chapter
 
 
 @node Top

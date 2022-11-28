@@ -12,48 +12,15 @@ $result_trees{'encoding_index_utf8'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '
+              'text' => '
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
             }
           ],
-          'type' => 'preamble_before_setfilename'
+          'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'encoding_index_utf8.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'encoding_index_utf8.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'encoding_index_utf8.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
-            },
             {
               'args' => [
                 {
@@ -80,7 +47,7 @@ $result_trees{'encoding_index_utf8'} = {
               },
               'source_info' => {
                 'file_name' => 'encoding_index_utf8.texi',
-                'line_nr' => 3,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -131,7 +98,7 @@ $result_trees{'encoding_index_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 5,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -140,7 +107,7 @@ $result_trees{'encoding_index_utf8'} = {
         {
           'contents' => [
             {
-              'text' => 'top'
+              'text' => 'encoding index utf8'
             }
           ],
           'info' => {
@@ -192,7 +159,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 8,
+            'line_nr' => 7,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -215,7 +182,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 },
@@ -236,7 +203,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 },
@@ -254,7 +221,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 },
@@ -272,7 +239,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 }
@@ -304,7 +271,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 9,
+            'line_nr' => 8,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -327,7 +294,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 },
@@ -348,7 +315,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 },
@@ -366,7 +333,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 },
@@ -384,7 +351,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 },
@@ -402,7 +369,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 }
@@ -434,7 +401,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 10,
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -474,7 +441,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 11,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -514,7 +481,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 12,
+            'line_nr' => 11,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -554,7 +521,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 13,
+            'line_nr' => 12,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -594,7 +561,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 14,
+            'line_nr' => 13,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -634,7 +601,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 15,
+            'line_nr' => 14,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -674,7 +641,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 16,
+            'line_nr' => 15,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -714,7 +681,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 17,
+            'line_nr' => 16,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -754,7 +721,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 18,
+            'line_nr' => 17,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -794,7 +761,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 19,
+            'line_nr' => 18,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -834,7 +801,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 20,
+            'line_nr' => 19,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -874,7 +841,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 21,
+            'line_nr' => 20,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -914,7 +881,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 22,
+            'line_nr' => 21,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -954,7 +921,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 23,
+            'line_nr' => 22,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -994,7 +961,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 24,
+            'line_nr' => 23,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1034,7 +1001,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 25,
+            'line_nr' => 24,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1074,7 +1041,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 26,
+            'line_nr' => 25,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1114,7 +1081,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 27,
+            'line_nr' => 26,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1154,7 +1121,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 28,
+            'line_nr' => 27,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1194,7 +1161,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 29,
+            'line_nr' => 28,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1234,7 +1201,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 30,
+            'line_nr' => 29,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1274,7 +1241,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 31,
+            'line_nr' => 30,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1314,7 +1281,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 32,
+            'line_nr' => 31,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1354,7 +1321,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 33,
+            'line_nr' => 32,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1394,7 +1361,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 34,
+            'line_nr' => 33,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1434,7 +1401,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 35,
+            'line_nr' => 34,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1474,7 +1441,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 36,
+            'line_nr' => 35,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1514,7 +1481,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 37,
+            'line_nr' => 36,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1554,7 +1521,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 38,
+            'line_nr' => 37,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1572,7 +1539,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'l',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 39,
+                    'line_nr' => 38,
                     'macro' => ''
                   }
                 }
@@ -1604,7 +1571,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 39,
+            'line_nr' => 38,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1622,7 +1589,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'L',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 40,
+                    'line_nr' => 39,
                     'macro' => ''
                   }
                 }
@@ -1654,7 +1621,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 40,
+            'line_nr' => 39,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1677,7 +1644,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 41,
+                    'line_nr' => 40,
                     'macro' => ''
                   }
                 },
@@ -1698,7 +1665,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 41,
+                    'line_nr' => 40,
                     'macro' => ''
                   }
                 },
@@ -1733,7 +1700,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 41,
+            'line_nr' => 40,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1760,7 +1727,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 42,
+                            'line_nr' => 41,
                             'macro' => ''
                           }
                         }
@@ -1771,7 +1738,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 42,
+                    'line_nr' => 41,
                     'macro' => ''
                   }
                 },
@@ -1796,7 +1763,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 42,
+                            'line_nr' => 41,
                             'macro' => ''
                           }
                         }
@@ -1807,7 +1774,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 42,
+                    'line_nr' => 41,
                     'macro' => ''
                   }
                 },
@@ -1842,7 +1809,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 42,
+            'line_nr' => 41,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1860,7 +1827,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'ss',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 43,
+                    'line_nr' => 42,
                     'macro' => ''
                   }
                 }
@@ -1892,7 +1859,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 43,
+            'line_nr' => 42,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1910,7 +1877,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'euro',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 44,
+                    'line_nr' => 43,
                     'macro' => ''
                   }
                 }
@@ -1942,7 +1909,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 44,
+            'line_nr' => 43,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1960,7 +1927,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'AE',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 45,
+                    'line_nr' => 44,
                     'macro' => ''
                   }
                 }
@@ -1992,7 +1959,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 45,
+            'line_nr' => 44,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2010,7 +1977,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'exclamdown',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 46,
+                    'line_nr' => 45,
                     'macro' => ''
                   }
                 }
@@ -2042,7 +2009,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 46,
+            'line_nr' => 45,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2060,7 +2027,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'TH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 47,
+                    'line_nr' => 46,
                     'macro' => ''
                   }
                 }
@@ -2092,7 +2059,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 47,
+            'line_nr' => 46,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2110,7 +2077,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'DH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 48,
+                    'line_nr' => 47,
                     'macro' => ''
                   }
                 }
@@ -2142,7 +2109,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 48,
+            'line_nr' => 47,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2160,7 +2127,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'textdegree',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 49,
+                    'line_nr' => 48,
                     'macro' => ''
                   }
                 }
@@ -2192,7 +2159,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 49,
+            'line_nr' => 48,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2232,7 +2199,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 50,
+            'line_nr' => 49,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2272,7 +2239,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 51,
+            'line_nr' => 50,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2290,7 +2257,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 52,
+                    'line_nr' => 51,
                     'macro' => ''
                   }
                 }
@@ -2322,7 +2289,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 52,
+            'line_nr' => 51,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2340,7 +2307,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'geq',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 53,
+                    'line_nr' => 52,
                     'macro' => ''
                   }
                 }
@@ -2372,7 +2339,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 53,
+            'line_nr' => 52,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2390,7 +2357,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => 'comma',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 54,
+                    'line_nr' => 53,
                     'macro' => ''
                   }
                 }
@@ -2422,7 +2389,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 54,
+            'line_nr' => 53,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2462,7 +2429,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 55,
+            'line_nr' => 54,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2502,7 +2469,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 56,
+            'line_nr' => 55,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2542,7 +2509,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 57,
+            'line_nr' => 56,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2582,7 +2549,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 58,
+            'line_nr' => 57,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2622,7 +2589,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 59,
+            'line_nr' => 58,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2662,7 +2629,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 60,
+            'line_nr' => 59,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2702,7 +2669,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 61,
+            'line_nr' => 60,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2742,7 +2709,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 62,
+            'line_nr' => 61,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2778,7 +2745,7 @@ $result_trees{'encoding_index_utf8'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 64,
+            'line_nr' => 63,
             'macro' => ''
           }
         }
@@ -2789,7 +2756,7 @@ $result_trees{'encoding_index_utf8'} = {
       },
       'source_info' => {
         'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 6,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -3030,11 +2997,10 @@ $result_trees{'encoding_index_utf8'}{'contents'}[2]{'contents'}[55]{'extra'}{'in
 $result_trees{'encoding_index_utf8'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[1];
 
 $result_texis{'encoding_index_utf8'} = '
-@setfilename encoding_index_utf8.info
 @documentencoding utf-8
 
 @node Top
-@top top
+@top encoding index utf8
 
 @cindex é é
 @cindex @"{i} @"{i}@"{i}@"{i}
@@ -3098,8 +3064,8 @@ $result_texis{'encoding_index_utf8'} = '
 
 
 $result_texts{'encoding_index_utf8'} = '
-top
-***
+encoding index utf8
+*******************
 
 
 ';
