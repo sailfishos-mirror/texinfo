@@ -12,59 +12,20 @@ $result_trees{'split_for_format_not_split'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'simplest.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'simplest.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'simplest.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -132,7 +93,7 @@ $result_trees{'split_for_format_not_split'} = {
       },
       'source_info' => {
         'file_name' => 'simplest.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -154,8 +115,6 @@ $result_trees{'split_for_format_not_split'}{'contents'}[1]{'extra'}{'nodes_manua
 
 $result_texis{'split_for_format_not_split'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename simplest.info
-
 @node Top
 
 This is a very simple texi manual @  <>.
@@ -165,7 +124,6 @@ This is a very simple texi manual @  <>.
 
 
 $result_texts{'split_for_format_not_split'} = '
-
 This is a very simple texi manual   <>.
 
 ';

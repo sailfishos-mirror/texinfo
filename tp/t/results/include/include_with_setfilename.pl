@@ -28,7 +28,7 @@ $result_trees{'include_with_setfilename'} = {
             {
               'contents' => [
                 {
-                  'text' => 'main_file.info'
+                  'text' => 'include_with_setfilename.info'
                 }
               ],
               'info' => {
@@ -40,7 +40,7 @@ $result_trees{'include_with_setfilename'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'text_arg' => 'main_file.info'
+            'text_arg' => 'include_with_setfilename.info'
           },
           'info' => {
             'spaces_before_argument' => ' '
@@ -60,7 +60,7 @@ $result_trees{'include_with_setfilename'} = {
 
 $result_texis{'include_with_setfilename'} = '
 In included file.
-@setfilename main_file.info
+@setfilename include_with_setfilename.info
 ';
 
 
@@ -75,7 +75,7 @@ $result_floats{'include_with_setfilename'} = {};
 
 
 
-$result_converted{'info'}->{'include_with_setfilename'} = 'This is main_file.info, produced from .
+$result_converted{'info'}->{'include_with_setfilename'} = 'This is include_with_setfilename.info, produced from .
 
 In included file.
 

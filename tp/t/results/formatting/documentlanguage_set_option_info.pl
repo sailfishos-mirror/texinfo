@@ -12,15 +12,15 @@ $result_trees{'documentlanguage_set_option_info'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -36,39 +36,11 @@ $result_trees{'documentlanguage_set_option_info'} = {
 '
                 ]
               }
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
+            },
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'documentlanguage_set.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'documentlanguage_set.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'documentlanguage_set.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'text' => '
+',
+              'type' => 'empty_line'
             },
             {
               'args' => [
@@ -247,7 +219,7 @@ $result_trees{'documentlanguage_set_option_info'}{'contents'}[1]{'extra'}{'nodes
 
 $result_texis{'documentlanguage_set_option_info'} = '\\input texinfo @c -*-texinfo-*-
 @c
-@setfilename documentlanguage_set.info
+
 @documentlanguage pt
 @settitle Test @@documentlanguage set
 
@@ -261,6 +233,7 @@ Text.
 
 
 $result_texts{'documentlanguage_set_option_info'} = '
+
 @documentlanguage set
 *********************
 

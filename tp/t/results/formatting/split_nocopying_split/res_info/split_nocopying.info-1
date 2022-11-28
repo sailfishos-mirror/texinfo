@@ -1,0 +1,15 @@
+This is split_nocopying.info, produced by texi2any version from
+split_nocopying.texi.
+
+
+File: split_nocopying.info,  Node: Top,  Next: Ch1,  Up: (dir)
+
+Test file used to test split Info without copying
+*************************************************
+
+This is the top node.
+
+* Menu:
+
+* Ch1::
+

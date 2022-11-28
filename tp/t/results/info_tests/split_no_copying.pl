@@ -23,7 +23,7 @@ $result_trees{'split_no_copying'} = {
             {
               'contents' => [
                 {
-                  'text' => 'split-nocopying.info'
+                  'text' => 'split_no_copying.info'
                 }
               ],
               'info' => {
@@ -35,7 +35,7 @@ $result_trees{'split_no_copying'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'text_arg' => 'split-nocopying.info'
+            'text_arg' => 'split_no_copying.info'
           },
           'info' => {
             'spaces_before_argument' => ' '
@@ -348,7 +348,7 @@ $result_trees{'split_no_copying'}{'contents'}[3]{'extra'}{'node_content'}[0] = $
 $result_trees{'split_no_copying'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_no_copying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'split_no_copying'} = '\\input texinfo
-@setfilename split-nocopying.info
+@setfilename split_no_copying.info
 
 @node Top
 @top Top
@@ -512,12 +512,12 @@ $result_floats{'split_no_copying'} = {};
 
 
 
-$result_converted{'info'}->{'split_no_copying'} = 'This is split-nocopying.info, produced from .
+$result_converted{'info'}->{'split_no_copying'} = 'This is split_no_copying.info, produced from .
 
 \\input texinfo
 
 
-File: split-nocopying.info,  Node: Top,  Next: Ch1,  Up: (dir)
+File: split_no_copying.info,  Node: Top,  Next: Ch1,  Up: (dir)
 
 Top
 ***
@@ -529,7 +529,7 @@ This is the top node.
 * Ch1::
 
 
-File: split-nocopying.info,  Node: Ch1,  Prev: Top,  Up: Top
+File: split_no_copying.info,  Node: Ch1,  Prev: Top,  Up: Top
 
 1 Ch1
 *****
@@ -539,8 +539,8 @@ First chapter.
 
 
 Tag Table:
-Node: Top63
-Node: Ch1179
+Node: Top64
+Node: Ch1181
 
 End Tag Table
 

@@ -131,7 +131,7 @@ After.'],
 # for now the plaintext expansion do not test anything as the setfilename in
 # included files is removed from the tree.  But this may change in the future.
 '@include included_file_with_setfilename.texi 
-@setfilename main_file.info
+@setfilename include_with_setfilename.info
 ', {'test_formats' => ['info']}],
 ['include_setfilename_on_setfilename_line',
 '@setfilename file @setfilename other file @include are you joking!

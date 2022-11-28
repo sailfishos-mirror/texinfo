@@ -1,5 +1,4 @@
 \input texinfo @c -*-texinfo-*-
-@setfilename formatting.info
 
 @dircategory Formatting @'e @code{@@ @TeX{}} test
 @direntry

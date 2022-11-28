@@ -10,32 +10,9 @@ $result_trees{'titles'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'html-title.info'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'text_arg' => 'html-title.info'
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -259,7 +236,7 @@ $result_trees{'titles'} = {
 $result_trees{'titles'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'titles'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'titles'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titles'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'titles'} = '@setfilename html-title.info
+$result_texis{'titles'} = '
 @settitle @@title @sc{html} @code{test}
 
 @node Top
@@ -272,6 +249,7 @@ Second paragraph.
 
 
 $result_texts{'titles'} = '
+
 Top of @title HTML test
 ***********************
 
@@ -361,6 +339,7 @@ h1.settitle {text-align:center}
 <body lang="en">
 <h1 class="settitle">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 <hr>
+
 
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>

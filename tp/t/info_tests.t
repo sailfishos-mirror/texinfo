@@ -512,7 +512,7 @@ V@footnote{F2}
 # here, in fact.
 ['split_no_copying',
 '\input texinfo
-@setfilename split-nocopying.info
+@setfilename split_no_copying.info
 
 @node Top
 @top Top
@@ -985,7 +985,7 @@ In chap1.
 
 ',{},{'SPLIT_SIZE' => 10}],
 ['split_test_before_first_node_no_empty_line',
-'@setfilename split_test_before_first_node.info
+'@setfilename split_test_before_first_node_no_empty_line.info
 
 truc machin et reuc machin  ze aze zea zae eaz eaz zae
 @node Top

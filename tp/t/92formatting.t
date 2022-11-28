@@ -9,7 +9,7 @@ require 't/test_utils.pl';
 # under tp/tests did, but to be faster, as we are avoiding the
 # start-up time of perl for every one.
 my @test_cases = (
-['texi_glossary',
+['glossary',
   undef, {'test_file' => 'glossary.texi',
   },
 ],
@@ -81,7 +81,7 @@ my @test_cases = (
   undef, {'test_file' => 'one_line.texi',
   },
 ],
-['direntry_dircategory_info_split',
+['direntry_dircategory',
   undef,
   {'test_file' => 'direntry_dircategory.texi',
    'test_formats' => ['file_info']

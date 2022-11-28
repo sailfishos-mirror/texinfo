@@ -455,7 +455,7 @@ aa
 {'EXPANDED_FORMATS' => ['tex']}
 ],
 ['titles',
-'@setfilename html-title.info
+'
 @settitle @@title @sc{html} @code{test}
 
 @node Top
@@ -466,7 +466,7 @@ Top.
 Second paragraph.
 ', {}, {'SHOW_TITLE' => 1}],
 ['shorttitlepage',
-'@setfilename html-shorttitlepage.info
+'
 @shorttitlepage @@title @sc{html} @code{test}
 
 @node Top

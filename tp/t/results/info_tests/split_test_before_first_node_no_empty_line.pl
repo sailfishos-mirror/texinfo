@@ -14,7 +14,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'split_test_before_first_node.info'
+                  'text' => 'split_test_before_first_node_no_empty_line.info'
                 }
               ],
               'info' => {
@@ -26,7 +26,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'text_arg' => 'split_test_before_first_node.info'
+            'text_arg' => 'split_test_before_first_node_no_empty_line.info'
           },
           'info' => {
             'spaces_before_argument' => ' '
@@ -337,7 +337,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'cont
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
-$result_texis{'split_test_before_first_node_no_empty_line'} = '@setfilename split_test_before_first_node.info
+$result_texis{'split_test_before_first_node_no_empty_line'} = '@setfilename split_test_before_first_node_no_empty_line.info
 
 truc machin et reuc machin  ze aze zea zae eaz eaz zae
 @node Top

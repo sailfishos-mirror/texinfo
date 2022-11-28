@@ -52,7 +52,7 @@ my @test_cases = (
   {'test_file' => 'nodes_before_top.texi' },
   {'SPLIT' => 'chapter'}
 ],
-['nodes_before_top_and_sections_monolithic',
+['nodes_before_top_and_sections',
   undef,
   {'test_file' => 'nodes_before_top_and_sections.texi' },
 ],

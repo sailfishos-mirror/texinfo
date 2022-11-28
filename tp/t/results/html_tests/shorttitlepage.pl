@@ -10,32 +10,9 @@ $result_trees{'shorttitlepage'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'html-shorttitlepage.info'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'text_arg' => 'html-shorttitlepage.info'
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -259,7 +236,7 @@ $result_trees{'shorttitlepage'} = {
 $result_trees{'shorttitlepage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'shorttitlepage'} = '@setfilename html-shorttitlepage.info
+$result_texis{'shorttitlepage'} = '
 @shorttitlepage @@title @sc{html} @code{test}
 
 @node Top
@@ -272,6 +249,7 @@ Second paragraph.
 
 
 $result_texts{'shorttitlepage'} = '
+
 Top of @title HTML test
 ***********************
 
@@ -361,6 +339,7 @@ h1.shorttitlepage {text-align:center}
 <body lang="en">
 <h1 class="shorttitlepage">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 <hr>
+
 
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>

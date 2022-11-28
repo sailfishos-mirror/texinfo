@@ -12,33 +12,15 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multiple_lang_chapters.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'multiple_lang_chapters.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
+              'text' => '
+',
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -1645,7 +1627,7 @@ $result_trees{'multiple_lang_chapters_latex'}{'contents'}[11]{'extra'}{'nodes_ma
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[3];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'multiple_lang_chapters_latex'} = '@setfilename multiple_lang_chapters.info
+$result_texis{'multiple_lang_chapters_latex'} = '
 @documentencoding utf-8
 
 @c @node Top is ignored in TeX and LaTeX, so switch here

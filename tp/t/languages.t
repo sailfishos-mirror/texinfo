@@ -146,7 +146,7 @@ Another unknown language. @xref{Top}.
 );
 
 my $multiple_lang_chapters_text = 
-'@setfilename multiple_lang_chapters.info
+'
 @documentencoding utf-8
 
 @c @node Top is ignored in TeX and LaTeX, so switch here
@@ -205,7 +205,9 @@ my @file_tests = (
 # this first test expands everything including latex, so ends up
 # with a redundant @documentlanguage
 ['multiple_lang_chapters',
-$multiple_lang_chapters_text, {}, {'SPLIT' => 0}],
+$multiple_lang_chapters_text,
+{'test_input_file_name' => 'multiple_lang_chapters.texi'},
+{'SPLIT' => 0}],
 ['multiple_lang_chapters_texi2html',
 $multiple_lang_chapters_text, 
 {'test_input_file_name' => 'multiple_lang_chapters.texi',
@@ -217,7 +219,8 @@ $multiple_lang_chapters_text,
 my @latex_file_tests = (
 ['multiple_lang_chapters_latex',
 $multiple_lang_chapters_text,
-{'EXPANDED_FORMATS' => ['latex']}
+{'test_input_file_name' => 'multiple_lang_chapters.texi',
+'EXPANDED_FORMATS' => ['latex']}
 ]
 );
 

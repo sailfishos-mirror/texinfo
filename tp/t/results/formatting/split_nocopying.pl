@@ -12,54 +12,20 @@ $result_trees{'split_nocopying'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'split-nocopying.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'split-nocopying.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'split_nocopying.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -100,7 +66,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 4,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -109,7 +75,7 @@ $result_trees{'split_nocopying'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'Test file used to test split Info without copying'
             }
           ],
           'info' => {
@@ -196,7 +162,7 @@ $result_trees{'split_nocopying'} = {
               },
               'source_info' => {
                 'file_name' => 'split_nocopying.texi',
-                'line_nr' => 10,
+                'line_nr' => 9,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -225,14 +191,14 @@ $result_trees{'split_nocopying'} = {
               },
               'source_info' => {
                 'file_name' => 'split_nocopying.texi',
-                'line_nr' => 11,
+                'line_nr' => 10,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'split_nocopying.texi',
-            'line_nr' => 9,
+            'line_nr' => 8,
             'macro' => ''
           }
         },
@@ -248,7 +214,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 5,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -287,7 +253,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 13,
+        'line_nr' => 12,
         'macro' => ''
       }
     },
@@ -334,7 +300,7 @@ $result_trees{'split_nocopying'} = {
       },
       'source_info' => {
         'file_name' => 'split_nocopying.texi',
-        'line_nr' => 14,
+        'line_nr' => 13,
         'macro' => ''
       }
     },
@@ -359,10 +325,9 @@ $result_trees{'split_nocopying'}{'contents'}[3]{'extra'}{'node_content'}[0] = $r
 $result_trees{'split_nocopying'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'split_nocopying'} = '\\input texinfo
-@setfilename split-nocopying.info
 
 @node Top
-@top Top
+@top Test file used to test split Info without copying
 
 This is the top node.
 
@@ -379,9 +344,8 @@ First chapter.
 ';
 
 
-$result_texts{'split_nocopying'} = '
-Top
-***
+$result_texts{'split_nocopying'} = 'Test file used to test split Info without copying
+*************************************************
 
 This is the top node.
 

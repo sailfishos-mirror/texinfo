@@ -12,53 +12,20 @@ $result_trees{'texi_formatting'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'formatting.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'formatting.info'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'formatting.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -80,7 +47,7 @@ $result_trees{'texi_formatting'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => 'formatting.texi',
-                        'line_nr' => 4,
+                        'line_nr' => 3,
                         'macro' => ''
                       }
                     },
@@ -106,7 +73,7 @@ $result_trees{'texi_formatting'} = {
                               'cmdname' => 'TeX',
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
-                                'line_nr' => 4,
+                                'line_nr' => 3,
                                 'macro' => ''
                               }
                             }
@@ -117,7 +84,7 @@ $result_trees{'texi_formatting'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'file_name' => 'formatting.texi',
-                        'line_nr' => 4,
+                        'line_nr' => 3,
                         'macro' => ''
                       }
                     },
@@ -138,7 +105,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 4,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -216,7 +183,7 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 6,
+                    'line_nr' => 5,
                     'macro' => ''
                   },
                   'type' => 'menu_entry'
@@ -253,7 +220,7 @@ $result_trees{'texi_formatting'} = {
                                   'cmdname' => '\'',
                                   'source_info' => {
                                     'file_name' => 'formatting.texi',
-                                    'line_nr' => 7,
+                                    'line_nr' => 6,
                                     'macro' => ''
                                   }
                                 },
@@ -269,7 +236,7 @@ $result_trees{'texi_formatting'} = {
                                   'cmdname' => 'equiv',
                                   'source_info' => {
                                     'file_name' => 'formatting.texi',
-                                    'line_nr' => 7,
+                                    'line_nr' => 6,
                                     'macro' => ''
                                   }
                                 }
@@ -280,7 +247,7 @@ $result_trees{'texi_formatting'} = {
                           'cmdname' => 'code',
                           'source_info' => {
                             'file_name' => 'formatting.texi',
-                            'line_nr' => 7,
+                            'line_nr' => 6,
                             'macro' => ''
                           }
                         }
@@ -330,7 +297,7 @@ $result_trees{'texi_formatting'} = {
                               'cmdname' => 'asis',
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
-                                'line_nr' => 7,
+                                'line_nr' => 6,
                                 'macro' => ''
                               }
                             },
@@ -355,7 +322,7 @@ $result_trees{'texi_formatting'} = {
                               'cmdname' => 'command',
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
-                                'line_nr' => 8,
+                                'line_nr' => 7,
                                 'macro' => ''
                               }
                             },
@@ -376,7 +343,7 @@ $result_trees{'texi_formatting'} = {
                               'cmdname' => '`',
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
-                                'line_nr' => 8,
+                                'line_nr' => 7,
                                 'macro' => ''
                               }
                             },
@@ -402,7 +369,7 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 7,
+                    'line_nr' => 6,
                     'macro' => ''
                   },
                   'type' => 'menu_entry'
@@ -431,14 +398,14 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 5,
+                'line_nr' => 4,
                 'macro' => ''
               }
             }
@@ -484,7 +451,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 10,
+        'line_nr' => 9,
         'macro' => ''
       }
     },
@@ -566,7 +533,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 14,
+                'line_nr' => 13,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -652,7 +619,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 18,
+                'line_nr' => 17,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -681,14 +648,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 19,
+                'line_nr' => 18,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 13,
+            'line_nr' => 12,
             'macro' => ''
           }
         },
@@ -721,7 +688,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 21,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -779,14 +746,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 26,
+                'line_nr' => 25,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 23,
+            'line_nr' => 22,
             'macro' => ''
           }
         },
@@ -829,7 +796,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 29,
+                'line_nr' => 28,
                 'macro' => ''
               }
             },
@@ -854,7 +821,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 30,
+                'line_nr' => 29,
                 'macro' => ''
               }
             },
@@ -879,7 +846,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 31,
+                'line_nr' => 30,
                 'macro' => ''
               }
             },
@@ -904,7 +871,7 @@ $result_trees{'texi_formatting'} = {
                       'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => 'formatting.texi',
-                        'line_nr' => 32,
+                        'line_nr' => 31,
                         'macro' => ''
                       }
                     },
@@ -922,7 +889,7 @@ $result_trees{'texi_formatting'} = {
                       'cmdname' => ',',
                       'source_info' => {
                         'file_name' => 'formatting.texi',
-                        'line_nr' => 32,
+                        'line_nr' => 31,
                         'macro' => ''
                       }
                     },
@@ -946,7 +913,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 32,
+                'line_nr' => 31,
                 'macro' => ''
               }
             },
@@ -974,7 +941,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 33,
+                'line_nr' => 32,
                 'macro' => ''
               }
             },
@@ -1016,7 +983,7 @@ $result_trees{'texi_formatting'} = {
               'cmdname' => 'insertcopying',
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 38,
+                'line_nr' => 37,
                 'macro' => ''
               }
             },
@@ -1044,14 +1011,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 39,
+                'line_nr' => 38,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 28,
+            'line_nr' => 27,
             'macro' => ''
           }
         },
@@ -1080,7 +1047,7 @@ $result_trees{'texi_formatting'} = {
           'cmdname' => 'insertcopying',
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 42,
+            'line_nr' => 41,
             'macro' => ''
           }
         },
@@ -1161,14 +1128,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 50,
+                'line_nr' => 49,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 48,
+            'line_nr' => 47,
             'macro' => ''
           }
         },
@@ -1212,7 +1179,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 52,
+            'line_nr' => 51,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1252,7 +1219,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 53,
+            'line_nr' => 52,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1292,7 +1259,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 54,
+            'line_nr' => 53,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1332,7 +1299,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 55,
+            'line_nr' => 54,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1372,7 +1339,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 56,
+            'line_nr' => 55,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1412,7 +1379,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 57,
+            'line_nr' => 56,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1452,7 +1419,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 58,
+            'line_nr' => 57,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1492,7 +1459,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 59,
+            'line_nr' => 58,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1532,7 +1499,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 60,
+            'line_nr' => 59,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1572,7 +1539,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 61,
+            'line_nr' => 60,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1622,7 +1589,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 65,
+            'line_nr' => 64,
             'macro' => ''
           }
         },
@@ -1666,7 +1633,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 68,
+            'line_nr' => 67,
             'macro' => ''
           }
         },
@@ -1710,7 +1677,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 71,
+            'line_nr' => 70,
             'macro' => ''
           }
         },
@@ -1754,7 +1721,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 74,
+            'line_nr' => 73,
             'macro' => ''
           }
         },
@@ -1798,7 +1765,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 77,
+            'line_nr' => 76,
             'macro' => ''
           }
         },
@@ -1842,7 +1809,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 80,
+            'line_nr' => 79,
             'macro' => ''
           }
         },
@@ -1868,7 +1835,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 11,
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -1907,7 +1874,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 84,
+        'line_nr' => 83,
         'macro' => ''
       }
     },
@@ -1954,7 +1921,7 @@ $result_trees{'texi_formatting'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 87,
+                'line_nr' => 86,
                 'macro' => ''
               }
             },
@@ -2014,7 +1981,7 @@ $result_trees{'texi_formatting'} = {
                           'cmdname' => 'comma',
                           'source_info' => {
                             'file_name' => 'formatting.texi',
-                            'line_nr' => 91,
+                            'line_nr' => 90,
                             'macro' => ''
                           }
                         },
@@ -2044,7 +2011,7 @@ $result_trees{'texi_formatting'} = {
                               'cmdname' => 'comma',
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
-                                'line_nr' => 91,
+                                'line_nr' => 90,
                                 'macro' => ''
                               }
                             },
@@ -2072,7 +2039,7 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 91,
+                    'line_nr' => 90,
                     'macro' => ''
                   },
                   'type' => 'menu_entry'
@@ -2135,14 +2102,14 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 96,
+                    'line_nr' => 95,
                     'macro' => ''
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 90,
+                'line_nr' => 89,
                 'macro' => ''
               }
             },
@@ -2170,14 +2137,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 97,
+                'line_nr' => 96,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 89,
+            'line_nr' => 88,
             'macro' => ''
           }
         },
@@ -2193,7 +2160,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 85,
+        'line_nr' => 84,
         'macro' => ''
       }
     },
@@ -2213,7 +2180,7 @@ $result_trees{'texi_formatting'} = {
               'cmdname' => 'comma',
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 99,
+                'line_nr' => 98,
                 'macro' => ''
               }
             },
@@ -2252,7 +2219,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 99,
+        'line_nr' => 98,
         'macro' => ''
       }
     },
@@ -2334,7 +2301,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 103,
+                'line_nr' => 102,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -2429,7 +2396,7 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 108,
+                    'line_nr' => 107,
                     'macro' => ''
                   },
                   'type' => 'menu_entry'
@@ -2478,7 +2445,7 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 109,
+                    'line_nr' => 108,
                     'macro' => ''
                   },
                   'type' => 'menu_entry'
@@ -2507,14 +2474,14 @@ $result_trees{'texi_formatting'} = {
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
-                    'line_nr' => 110,
+                    'line_nr' => 109,
                     'macro' => ''
                   }
                 }
               ],
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 105,
+                'line_nr' => 104,
                 'macro' => ''
               }
             },
@@ -2542,14 +2509,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 111,
+                'line_nr' => 110,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 102,
+            'line_nr' => 101,
             'macro' => ''
           }
         },
@@ -2565,7 +2532,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 100,
+        'line_nr' => 99,
         'macro' => ''
       }
     },
@@ -2604,7 +2571,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 113,
+        'line_nr' => 112,
         'macro' => ''
       }
     },
@@ -2686,7 +2653,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 117,
+                'line_nr' => 116,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -2735,7 +2702,7 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 118,
+                'line_nr' => 117,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -2764,14 +2731,14 @@ $result_trees{'texi_formatting'} = {
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
-                'line_nr' => 119,
+                'line_nr' => 118,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 116,
+            'line_nr' => 115,
             'macro' => ''
           }
         },
@@ -2800,7 +2767,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 121,
+            'line_nr' => 120,
             'macro' => ''
           }
         },
@@ -2821,7 +2788,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 114,
+        'line_nr' => 113,
         'macro' => ''
       }
     },
@@ -2860,7 +2827,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 123,
+        'line_nr' => 122,
         'macro' => ''
       }
     },
@@ -2893,7 +2860,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 124,
+        'line_nr' => 123,
         'macro' => ''
       }
     },
@@ -2932,7 +2899,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 126,
+        'line_nr' => 125,
         'macro' => ''
       }
     },
@@ -2965,7 +2932,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 127,
+        'line_nr' => 126,
         'macro' => ''
       }
     },
@@ -3005,7 +2972,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 129,
+        'line_nr' => 128,
         'macro' => ''
       }
     },
@@ -3057,7 +3024,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 132,
+            'line_nr' => 131,
             'macro' => ''
           }
         },
@@ -3087,7 +3054,7 @@ $result_trees{'texi_formatting'} = {
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 133,
+            'line_nr' => 132,
             'macro' => ''
           }
         },
@@ -3107,7 +3074,7 @@ $result_trees{'texi_formatting'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 135,
+            'line_nr' => 134,
             'macro' => ''
           }
         },
@@ -3122,7 +3089,7 @@ $result_trees{'texi_formatting'} = {
           'cmdname' => 'shortcontents',
           'source_info' => {
             'file_name' => 'formatting.texi',
-            'line_nr' => 136,
+            'line_nr' => 135,
             'macro' => ''
           }
         }
@@ -3133,7 +3100,7 @@ $result_trees{'texi_formatting'} = {
       },
       'source_info' => {
         'file_name' => 'formatting.texi',
-        'line_nr' => 130,
+        'line_nr' => 129,
         'macro' => ''
       }
     },
@@ -3150,12 +3117,12 @@ $result_trees{'texi_formatting'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'args'}[5];
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_name'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'args'}[1];
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[1];
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[5];
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_name'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[1];
-$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[5];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_name'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[1];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[1];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[5];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_name'} = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[1];
+$result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'texi_formatting'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_formatting'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'texi_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
@@ -3238,7 +3205,6 @@ $result_trees{'texi_formatting'}{'contents'}[13]{'extra'}{'node_content'}[0] = $
 $result_trees{'texi_formatting'}{'contents'}[13]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_formatting'}{'contents'}[13]{'args'}[0]{'contents'}[0];
 
 $result_texis{'texi_formatting'} = '\\input texinfo @c -*-texinfo-*-
-@setfilename formatting.info
 
 @dircategory Formatting @\'e @code{@@ @TeX{}} test
 @direntry
@@ -3377,8 +3343,7 @@ In detailmenu
 ';
 
 
-$result_texts{'texi_formatting'} = '
-* Truc: (formatting).           The GNU documentation truc.
+$result_texts{'texi_formatting'} = '* Truc: (formatting).           The GNU documentation truc.
 * @ e\' ==: (formatting).  "-- something" 
                            cmd a`
 Top section
@@ -3738,7 +3703,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => '@include: could not find coverage_macro.texi
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 21,
+    'line_nr' => 20,
     'macro' => '',
     'text' => '@include: could not find coverage_macro.texi',
     'type' => 'error'
@@ -3747,7 +3712,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 25,
+    'line_nr' => 24,
     'macro' => '',
     'text' => 'unknown command `mymacro\'',
     'type' => 'error'
@@ -3756,7 +3721,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 25,
+    'line_nr' => 24,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -3765,7 +3730,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 25,
+    'line_nr' => 24,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -3774,7 +3739,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 35,
+    'line_nr' => 34,
     'macro' => '',
     'text' => 'unknown command `mymacro\'',
     'type' => 'error'
@@ -3783,7 +3748,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 35,
+    'line_nr' => 34,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -3792,7 +3757,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 35,
+    'line_nr' => 34,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -3801,7 +3766,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 45,
+    'line_nr' => 44,
     'macro' => '',
     'text' => 'unknown command `mymacro\'',
     'type' => 'error'
@@ -3810,7 +3775,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 45,
+    'line_nr' => 44,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -3819,7 +3784,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 45,
+    'line_nr' => 44,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -3828,7 +3793,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 49,
+    'line_nr' => 48,
     'macro' => '',
     'text' => 'unknown command `mymacro\'',
     'type' => 'error'
@@ -3837,7 +3802,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 49,
+    'line_nr' => 48,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -3846,7 +3811,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 49,
+    'line_nr' => 48,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -3855,7 +3820,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 90,
+    'line_nr' => 89,
     'macro' => '',
     'text' => '@menu in invalid context',
     'type' => 'warning'
@@ -3864,7 +3829,7 @@ $result_errors{'texi_formatting'} = [
     'error_line' => 'warning: @centerchap is obsolete
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 130,
+    'line_nr' => 129,
     'macro' => '',
     'text' => '@centerchap is obsolete',
     'type' => 'warning'
@@ -3894,7 +3859,7 @@ $result_indices_sort_strings{'texi_formatting'} = {
 
 
 
-$result_converted{'info'}->{'texi_formatting'} = 'This is formatting.info, produced from formatting.texi.
+$result_converted{'info'}->{'texi_formatting'} = 'This is , produced from formatting.texi.
 
 In copying
 INFO-DIR-SECTION Formatting é ‘@ TeX’ test
@@ -3905,7 +3870,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: formatting.info,  Node: Top,  Next: chapter,  Up: (dir)
+File: ,  Node: Top,  Next: chapter,  Up: (dir)
 
 Top section
 ***********
@@ -3957,7 +3922,7 @@ Insertcopying in normal text
    tp
 
 
-File: formatting.info,  Node: chapter,  Next: chapter2,  Prev: Top,  Up: Top
+File: ,  Node: chapter,  Next: chapter2,  Prev: Top,  Up: Top
 
 1 chapter
 *********
@@ -3978,7 +3943,7 @@ Menu comment
    (1) in footnote
 
 
-File: formatting.info,  Node: s--ect,ion,  Up: chapter
+File: ,  Node: s--ect,ion,  Up: chapter
 
 1.1 A section
 =============
@@ -3993,7 +3958,7 @@ In detailmenu
 * subsubsection three---four----\'\'::
 
 
-File: formatting.info,  Node: subsection,  Up: s--ect,ion
+File: ,  Node: subsection,  Up: s--ect,ion
 
 1.1.1 subsection
 ----------------
@@ -4004,19 +3969,19 @@ File: formatting.info,  Node: subsection,  Up: s--ect,ion
 * subsubsection three---four----\'\'::
 
 
-File: formatting.info,  Node: subsubsection ``simple-double--,  Next: subsubsection three---four----\'\',  Up: subsection
+File: ,  Node: subsubsection ``simple-double--,  Next: subsubsection three---four----\'\',  Up: subsection
 
 1.1.1.1 subsubsection “simple-double–
 .....................................
 
 
-File: formatting.info,  Node: subsubsection three---four----\'\',  Prev: subsubsection ``simple-double--,  Up: subsection
+File: ,  Node: subsubsection three---four----\'\',  Prev: subsubsection ``simple-double--,  Up: subsection
 
 1.1.1.2 three—four—-”
 .....................
 
 
-File: formatting.info,  Node: chapter2,  Prev: chapter,  Up: Top
+File: ,  Node: chapter2,  Prev: chapter,  Up: Top
 
 chapter 2
 *********
@@ -4042,15 +4007,15 @@ chapter 2
 
 
 Tag Table:
-Node: Top310
-Node: chapter1392
-Ref: chapter-Footnote-11626
-Node: s--ect,ion1646
-Node: subsection1849
-Ref: anchor2030
-Node: subsubsection ``simple-double--2030
-Node: subsubsection three---four----\'\'2234
-Node: chapter22408
+Node: Top295
+Node: chapter1362
+Ref: chapter-Footnote-11581
+Node: s--ect,ion1601
+Node: subsection1789
+Ref: anchor1955
+Node: subsubsection ``simple-double--1955
+Node: subsubsection three---four----\'\'2144
+Node: chapter22303
 
 End Tag Table
 
@@ -4065,7 +4030,7 @@ $result_converted_errors{'info'}->{'texi_formatting'} = [
     'error_line' => 'warning: @node name should not contain `,\': s--ect,ion
 ',
     'file_name' => 'formatting.texi',
-    'line_nr' => 99,
+    'line_nr' => 98,
     'macro' => '',
     'text' => '@node name should not contain `,\': s--ect,ion',
     'type' => 'warning'
@@ -4109,7 +4074,6 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body lang="en">
-
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
@@ -4434,8 +4398,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 ';
 
 
-$result_converted{'html_text'}->{'texi_formatting'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'texi_formatting'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>

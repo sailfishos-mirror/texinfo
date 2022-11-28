@@ -4,9 +4,7 @@
 <filename file="simplest.xml"></filename>
 <preamblebeforebeginning>\input texinfo @c -*-texinfo-*-
 
-</preamblebeforebeginning><setfilename file="simplest.info" spaces=" ">simplest.info</setfilename>
-
-<node name="Top" spaces=" "><nodename>Top</nodename></node>
+</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename></node>
 
 <para>This is a very simple texi manual <spacecmd type="spc"/> &lt;&gt;.
 </para>
