@@ -1,3 +1,8 @@
+2022-11-29  Per Bothner  <per@bothner.com>
+
+	* js/info.css (.tex-input): Make input element a bit wider.
+	This works better for longer index or menu names.
+
 2022-11-29  Patrice Dumas  <pertusus@free.fr>
 
 	* util/txixml2texi.pl: avoid double comment for line specific command.

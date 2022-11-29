@@ -230,6 +230,10 @@ table#keyboard-shortcuts th {
     right: 0;
 }
 
+.text-input input {
+    width: 25em;
+}
+
 .error {
     background-color: orange;
     padding: 5px;
