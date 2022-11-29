@@ -364,17 +364,28 @@ while ($reader->read) {
       if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
         my $line = $reader->getAttribute('line');
         $line =~ s/\\\\/\x{1F}/g;
+        # convert back formfeed
         $line =~ s/\\f/\f/g;
         $line =~ s/\x{1F}/\\/g;
+        # FIXME needed?
+        #$line =~ s/\\v/\x{000B}/g;
         print $line;
       }
-      if ($name eq 'set' or $name eq 'clickstyle' or $name eq 'columnfractions') {
+      my $specific_line = (defined($Texinfo::Commands::line_commands{$name})
+                and $Texinfo::Commands::line_commands{$name} eq 'specific');
+      if ($name eq 'set' or $name eq 'clickstyle' or $name eq 'columnfractions'
+          or $specific_line) {
         skip_until_end($reader, $name);
-        if ($name eq 'columnfractions') {
-          # A comment should already appear in the line attribute, so we skip
-          # a redundant XML comment following the columnfractions closing
-          # element.
-          # start at 2 as there is a -1 right after at the end of
+        if ($name eq 'columnfractions' or $specific_line) {
+          # specific line commands have a line argument obtained by converting
+          # their line to Texinfo, which would include a comment on the line,
+          # and could also have a comment associated to the command appearing
+          # after the command as an XML comment.  Similar for columnfraction.
+          #
+          # We skip the possibly existing redundant XML comment following the
+          # closing element.
+          #
+          # start at 2 as there is a -1 right down at the end of
           # the loop, and another -1 for the next element (possibly
           # an ignored comment).
           $skip_comment = 2;
