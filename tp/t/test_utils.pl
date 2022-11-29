@@ -1680,7 +1680,10 @@ sub output_texi_file($)
   # a test string from a *.t file code, it is a perl character string
   # and is encoded here, to UTF-8 as it is the default Texinfo encoding.
   $test_text = Encode::encode('UTF-8', $test_text) if ($encode);
-  print OUTFILE $test_text;
+  # Always add a newline in the end.  There may not be a newline for tests
+  # defined as strings ending right after a character.
+  chomp($test_text);
+  print OUTFILE $test_text."\n";
   print OUTFILE "$bye\n" if ($bye ne '');
   close (OUTFILE) or die "Close $file: $!\n";
 }

@@ -11,6 +11,11 @@
 
 2022-11-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (output_texi_file): always add a newline in the
+	end of the test Texinfo code.
+
+2022-11-29  Patrice Dumas  <pertusus@free.fr>
+
 	* util/txixml2texi.pl: avoid double comment for line specific command.
 
 2022-11-28  Patrice Dumas  <pertusus@free.fr>
