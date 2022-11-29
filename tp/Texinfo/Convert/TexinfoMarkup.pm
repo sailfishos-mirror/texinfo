@@ -446,12 +446,19 @@ sub convert_tree($$)
   return $self->_convert($root);
 }
 
-# FIXME is that function markup format specific or not?
+# FIXME that function is markup format specific, it only works if \ is not
+# special in the markup language
 sub _protect_in_spaces_attribute_text($)
 {
   my $text = shift;
   $text =~ s/\n/\\n/g;
+  # protect formfeed in space attributes.  It is necessary for XML 1.0
+  # (and most likely XML 1.1) and probably a good thing in other formats.
   $text =~ s/\f/\\f/g;
+  # \v does not match U+000B vertical tab, but matches diverse vertical spaces.
+  # We nevertheless use \v here to represent ^K as is customarily done in other
+  # contexts.
+  $text =~ s/\N{U+000B}/\\v/g;
   return $text;
 }
 

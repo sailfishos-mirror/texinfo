@@ -1331,6 +1331,7 @@
 <!ELEMENT linebreak EMPTY>
 <!ELEMENT noeos EMPTY>
 <!ELEMENT formfeed EMPTY>
+<!ELEMENT verticaltab EMPTY>
 <!ELEMENT divideheading EMPTY>
 
 <!ENTITY tex        "<logo>TeX</logo>">
@@ -1380,6 +1381,8 @@ Use exactly what is on the XML specification
 <!ENTITY textndash      "&#x2013;">
 <!ENTITY formfeed       "<formfeed/>">
 <!ENTITY attrformfeed   "\f">
+<!ENTITY verticaltab       "<verticaltab/>">
+<!ENTITY attrverticaltab   "\v">
 <!ENTITY period     "<punct end-of-sentence='no'>.</punct>">
 <!ENTITY eosperiod  "<punct end-of-sentence='yes'>.</punct>">
 <!ENTITY quest      "<punct end-of-sentence='no'>?</punct>">

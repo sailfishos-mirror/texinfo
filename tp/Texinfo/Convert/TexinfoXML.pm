@@ -71,6 +71,27 @@ my %special_xml_attributes = (
   'verbatim' => {'space' => 'xml:space'},
 );
 
+# Both attributes and CData are defined in term of chars:
+# Char is defined as: https://www.w3.org/TR/REC-xml/#charsets
+# Char	   ::=   	#x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+# A corresponding character class regexp could be
+# [^\x09\x0A\x0D\x20-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}]
+# or
+# [\x00-\x08 \x0B \x0C \x0E-\x19]
+
+# Attributes are defined as https://www.w3.org/TR/REC-xml/#NT-AttValue
+# 	AttValue	   ::=   	'"' ([^<&"] | Reference)* '"'
+#			|  "'" ([^<&'] | Reference)* "'"
+# Reference as https://www.w3.org/TR/REC-xml/#NT-Reference
+# Reference	   ::=   	EntityRef | CharRef
+# Next CharRef is defined as https://www.w3.org/TR/REC-xml/#NT-CharRef
+# CharRef	   ::=   	'&#' [0-9]+ ';'
+#			| '&#x' [0-9a-fA-F]+ ';'
+# With the additional constraint that
+# Characters referred to using character references MUST match the production for Char.
+# Which means that numerical entities used in attributes should correspond to
+# characters in the range of acceptable characters.  For example form feed is not
+# in that range, such that both \f and &#12; are invalid.
 sub _xml_attributes($$)
 {
   my $self = shift;
@@ -84,18 +105,18 @@ sub _xml_attributes($$)
     if (ref($attribute_spec) ne 'ARRAY') {
        cluck "attribute_spec not an array($attribute_spec).";
     }
-    # this cannot be used because of formfeed, as '<', which
-    # is substituted from &formfeed; is not allowed in attribute.
+    # _protect_text cannot be used because of formfeed and verticaltab,
+    # as they become elements, which are not allowed in attribute.
     #my $text = $self->_protect_text($attribute_spec->[1]);
     my $text = $self->xml_protect_text($attribute_spec->[1]);
-    # in fact form feed is not allowed at all in XML, even protected
-    # and even in xml 1.1 in contrast to what is said on internet.
-    # maybe this is a limitation of libxml?
-    #$text =~ s/\f/&#12;/g;
+    # Form feed/vertical tab U+000B are not allowed at all in XML attributes,
+    # even protected (and even in xml 1.1 in contrast to what is said on
+    # internet).  Cf above the full explanation for XML 1.0.
     if ($attribute_spec->[0] ne 'spaces'
         and $attribute_spec->[0] ne 'trailingspaces') {
       $text =~ s/\f/&attrformfeed;/g;
-      # &attrformfeed; resolves to \f so \ are doubled
+      $text =~ s/\N{U+000B}/&attrverticaltab;/g;
+      # &attrformfeed; and similar resolves to \f and similar so \ are doubled
       $text =~ s/\\/\\\\/g;
     }
     my $attribute_name = $attribute_spec->[0];
@@ -164,12 +185,16 @@ sub txi_markup_comment($$)
 }
 
 # form feed is not accepted in xml, replace it.
+# The CData symbol is defined in terms of Char: https://www.w3.org/TR/REC-xml/#sec-cdata-sect
+# CData	   ::=   	(Char* - (Char* ']]>' Char*))
 sub _protect_text($$)
 {
   my $self = shift;
   my $text = shift;
   my $result = $self->xml_protect_text($text);
   $result =~ s/\f/&formfeed;/g;
+  # \v matches many vertical spaces and not vertical tab U+000B
+  $result =~ s/\N{U+000B}/&verticaltab;/g;
   return $result;
 }
 

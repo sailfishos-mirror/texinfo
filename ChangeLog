@@ -1,5 +1,15 @@
 2022-11-28  Patrice Dumas  <pertusus@free.fr>
 
+	Protect vertical tab in XML
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_protect_in_spaces_attribute_text), tp/Texinfo/Convert/TexinfoXML.pm
+	(_xml_attributes, _protect_text), util/txixml2texi.pl,
+	util/texinfo.dtd: protect vertical tab U+000B as \v in attributes and
+	with verticaltab added entities in other contexts.
+
+2022-11-28  Patrice Dumas  <pertusus@free.fr>
+
 	XML menu leading text and menu separator in elements instead of attributes
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (%type_elements, _convert),

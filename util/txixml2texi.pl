@@ -140,9 +140,11 @@ my %entity_texts = (
   'textrsquo' => "'",
   'textlsquo' => '`',
   'formfeed' => "\f",
-  # this is not used in pratice, as attrformfeed appears in an
-  # attribute and thus is already expanded to text.
+  'verticaltab' => "\x{000B}",
+  # following mappings are not used in pratice, as attrformfeed and similar
+  # appear in attributes and thus are already expanded to text.
   'attrformfeed' => "\f",
+  'attrverticaltab' => "\x{000B}",
 );
 
 # contains nobrace symbol and brace noarg commands
@@ -288,7 +290,9 @@ while ($reader->read) {
     my $spaces = $reader->getAttribute('spaces');
     if (defined($spaces)) {
       $spaces =~ s/\\n/\n/g;
+      # convert back formfeed and other special characters
       $spaces =~ s/\\f/\f/g;
+      $spaces =~ s/\\v/\x{000B}/g;
     } else {
       $spaces = '';
     }
