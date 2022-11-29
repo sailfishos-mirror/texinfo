@@ -1,5 +1,11 @@
 2022-11-29  Per Bothner  <per@bothner.com>
 
+	* js/info.css (cache_index_links): Fix index entry processing.
+	Also implement subentry handling.
+	(init_iframe - on_load): Change search and call of cache_index_links.
+
+2022-11-29  Per Bothner  <per@bothner.com>
+
 	* js/info.css (.tex-input): Make input element a bit wider.
 	This works better for longer index or menu names.
 
