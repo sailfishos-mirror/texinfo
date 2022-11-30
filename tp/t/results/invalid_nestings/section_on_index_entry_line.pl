@@ -14,13 +14,29 @@ $result_trees{'section_on_index_entry_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'a '
+                  'text' => 'a'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_number' => 1,
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex'
+            }
+          },
           'info' => {
             'spaces_before_argument' => ' '
           },
@@ -28,7 +44,8 @@ $result_trees{'section_on_index_entry_line'} = {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         }
       ],
       'type' => 'before_node_section'
@@ -77,6 +94,9 @@ $result_trees{'section_on_index_entry_line'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0];
 
 $result_texis{'section_on_index_entry_line'} = '@cindex a @section b
 
@@ -126,11 +146,27 @@ $result_errors{'section_on_index_entry_line'} = [
     'macro' => '',
     'text' => '@section should not appear in @cindex',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' outside of any node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'entry for index `cp\' outside of any node',
+    'type' => 'warning'
   }
 ];
 
 
 $result_floats{'section_on_index_entry_line'} = {};
+
+
+$result_indices_sort_strings{'section_on_index_entry_line'} = {
+  'cp' => [
+    'a'
+  ]
+};
 
 
 1;

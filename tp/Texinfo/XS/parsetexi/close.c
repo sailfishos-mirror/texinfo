@@ -357,6 +357,24 @@ close_current (ELEMENT *current,
 
           break;
         case ET_line_arg:
+          if (current->parent && current->parent->type == ET_def_line)
+            {
+              c = pop_context ();
+              if (c != ct_def)
+                {
+                  /* error */
+                  fatal ("def context expected");
+                }
+            }
+          else
+            {
+              /* We ignore the current returned, to be sure that
+                 we close the command too. */
+              end_line_misc_line (current);
+            }
+          current = current->parent;
+
+          break;
         case ET_block_line_arg:
           c = pop_context ();
           if (c != ct_line && c != ct_def)

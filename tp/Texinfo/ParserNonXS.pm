@@ -1114,6 +1114,7 @@ sub _pop_context($$$$;$)
          .join(" or ", @$expected_contexts);
     $error_message .= "; $message" if (defined($message));
     $self->_bug_message($error_message, $source_info, $current);
+    cluck;
     die;
   }
   my $popped_command = pop @{$self->{'context_command_stack'}};
@@ -1916,7 +1917,7 @@ sub _close_current($$$;$$)
       $current = $current->{'parent'};
     } else {
       # There @item and @tab commands are closed, and also line commands
-      # with invalid content
+      # with invalid content.
       $current = $current->{'parent'};
     }
   } elsif ($current->{'type'}) {
@@ -1939,8 +1940,18 @@ sub _close_current($$$;$$)
           and !@{$current->{'contents'}}) {
         pop @{$current->{'parent'}->{'contents'}};
       }
-    } elsif ($current->{'type'} eq 'line_arg'
-             or $current->{'type'} eq 'block_line_arg') {
+    } elsif ($current->{'type'} eq 'line_arg') {
+      if ($current->{'parent'}
+          and $current->{'parent'}->{'type'}
+          and $current->{'parent'}->{'type'} eq 'def_line') {
+        $self->_pop_context(['ct_def'], $source_info, $current);
+      } else {
+        #$current = _end_line_misc_line($self, $current, $source_info);
+        # We ignore the current returned $current, to be sure that
+        # we close the command too.
+        _end_line_misc_line($self, $current, $source_info);
+      }
+    } elsif ($current->{'type'} eq 'block_line_arg') {
       $self->_pop_context(['ct_line', 'ct_def'], $source_info, $current);
     }
     # empty types, not closed or associated to a command that is not closed
@@ -2906,6 +2917,354 @@ sub _convert_to_text {
   return ($text, $superfluous_arg);
 }
 
+sub _end_line_misc_line($$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $source_info = shift;
+
+  $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
+  _isolate_last_space($self, $current);
+
+  # first parent is the @command, second is the parent
+  $current = $current->{'parent'};
+  my $misc_cmd = $current;
+  my $command = $current->{'cmdname'};
+  my $end_command;
+  print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
+     if ($self->{'DEBUG'});
+
+  if ($self->{'line_commands'}->{$command} eq 'specific') {
+    my $args = _parse_line_command_args($self, $current, $source_info);
+    $current->{'extra'}->{'misc_args'} = $args if (defined($args));
+  } elsif ($self->{'line_commands'}->{$command} eq 'text') {
+    my ($text, $superfluous_arg)
+      = _convert_to_text($current->{'args'}->[0]);
+
+    #$current->{'extra'} = {} if (!$current->{'extra'});
+    if ($text eq '') {
+      if (not $superfluous_arg) {
+        $self->_command_warn($current, $source_info,
+                             __("\@%s missing argument"), $command);
+      }
+      # if there is superfluous arg, a more suitable error is issued below.
+      $current->{'extra'}->{'missing_argument'} = 1;
+    } else {
+      $current->{'extra'}->{'text_arg'} = $text;
+      if ($command eq 'end') {
+        # REMACRO
+        my $remaining_on_line = $text;
+        if ($remaining_on_line =~ s/^([[:alnum:]][[:alnum:]-]*)//) {
+          $end_command = $1;
+
+          if (!exists $block_commands{$end_command}) {
+            $self->_command_warn($current, $source_info,
+                                 __("unknown \@end %s"), $end_command);
+            $end_command = undef;
+          } else {
+            print STDERR "END BLOCK $end_command\n" if ($self->{'DEBUG'});
+            if ($block_commands{$end_command} eq 'conditional') {
+              if (@{$self->{'conditionals_stack'}}
+                and $self->{'conditionals_stack'}->[-1] eq $end_command) {
+                pop @{$self->{'conditionals_stack'}};
+              } else {
+                $self->_command_error($current, $source_info,
+                                  __("unmatched `%c%s'"), ord('@'), 'end');
+                $end_command = undef;
+              }
+            }
+          }
+          # non-ASCII spaces are also superfluous arguments.
+          # If there is superfluous text after @end argument, set
+          # $superfluous_arg such that the error message triggered by an
+          # unexpected @-command on the @end line is issued below.  Note
+          # that $superfluous_arg may also be true if it was set above.
+          if ($end_command and $remaining_on_line =~ /\S/) {
+            $superfluous_arg = 1;
+          }
+        # if $superfluous_arg is set there is a similar and somewhat
+        # better error message below
+        } elsif (!$superfluous_arg) {
+          $self->_command_error($current, $source_info,
+                            __("bad argument to \@%s: %s"),
+                            $command, $remaining_on_line);
+        }
+      } elsif ($superfluous_arg) {
+        # @-command effects are ignored, an error message is issued below.
+      } elsif ($command eq 'include') {
+        # We want Perl binary strings representing sequences of bytes,
+        # not character strings of codepoints in the internal perl encoding.
+        my ($file_name, $file_name_encoding) = _encode_file_name($self, $text);
+        my $file = Texinfo::Common::locate_include_file($self, $file_name);
+        if (defined($file)) {
+          my $filehandle = do { local *FH };
+          if (_open_in ($self, $filehandle, $file)) {
+            print STDERR "Included $file($filehandle)\n" if ($self->{'DEBUG'});
+            my ($directories, $suffix);
+            ($file, $directories, $suffix) = fileparse($file);
+            unshift @{$self->{'input'}}, {
+              'input_file_info' => {'file_name' => $file,
+                                    'line_nr' => 0,
+                                   },
+              'file_name_encoding' => $file_name_encoding,
+              'pending' => [],
+              'fh' => $filehandle };
+            # TODO note that it is bytes.  No reason to have it used much
+            # Make sure to document that it is bytes.
+            # TODO add $file_name_encoding information?
+            $current->{'extra'}->{'file'} = $file;
+            # we set the type to replaced to tell converters not to
+            # expand the @-command
+            $current->{'type'} = 'replaced';
+          } else {
+            # FIXME $text does not show the include directory.  Using $file
+            # would require to decode it to perl internal codepoints with
+            # $file_name_encoding
+            $self->_command_error($current, $source_info,
+                            __("\@%s: could not open %s: %s"),
+                            $command, $text, $!);
+          }
+        } else {
+          $self->_command_error($current, $source_info,
+                            __("\@%s: could not find %s"),
+                           $command, $text);
+        }
+      } elsif ($command eq 'verbatiminclude') {
+        $current->{'extra'}->{'input_perl_encoding'}
+                        = $self->{'info'}->{'input_perl_encoding'}
+          if defined $self->{'info'}->{'input_perl_encoding'};
+      } elsif ($command eq 'documentencoding') {
+        my ($texinfo_encoding, $perl_encoding, $input_encoding)
+           = _encoding_alias($text);
+        $self->_command_warn($current, $source_info,
+               __("encoding `%s' is not a canonical texinfo encoding"),
+                             $text)
+          if (!$texinfo_encoding or $texinfo_encoding ne lc($text));
+        if ($input_encoding) {
+          $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
+        }
+        if (!$perl_encoding) {
+          $self->_command_warn($current, $source_info,
+               __("unrecognized encoding name `%s'"), $text);
+        } else {
+          $current->{'extra'}->{'input_perl_encoding'} = $perl_encoding;
+
+          if ($input_encoding) {
+            $self->{'info'}->{'input_encoding_name'} = $input_encoding;
+          }
+
+          $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
+          foreach my $input (@{$self->{'input'}}) {
+            binmode($input->{'fh'}, ":encoding($perl_encoding)")
+              if ($input->{'fh'});
+          }
+        }
+      } elsif ($command eq 'documentlanguage') {
+        my @messages = Texinfo::Common::warn_unknown_language($text);
+        foreach my $message(@messages) {
+          $self->_command_warn($current, $source_info, $message);
+        }
+        if (!$self->{'set'}->{'documentlanguage'}) {
+           $self->{'documentlanguage'} = $text;
+        }
+      }
+    }
+    if ($superfluous_arg) {
+      # note that the argument to expand replaced @-commands is
+      # set, such that @include that are removed from the tree
+      # with type set to replaced are still shown in error messages.
+      my $texi_line
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
+      $texi_line =~ s/^\s*//;
+      $texi_line =~ s/\s*$//;
+
+      $self->_command_error($current, $source_info,
+                     __("bad argument to \@%s: %s"),
+                     $command, $texi_line);
+    }
+  } elsif ($command eq 'node') {
+    #$current->{'extra'} = {} if (!$current->{'extra'});
+    foreach my $arg (@{$current->{'args'}}) {
+      my $node = _parse_node_manual($arg);
+      push @{$current->{'extra'}->{'nodes_manuals'}}, $node;
+    }
+    _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
+                         $source_info);
+    _register_label($self->{'targets'}, $current,
+                 $current->{'extra'}->{'nodes_manuals'}->[0]);
+    if ($self->{'current_part'}) {
+      my $part = $self->{'current_part'};
+      if (not $part->{'extra'}
+         or not $part->{'extra'}->{'part_associated_section'}) {
+        # we only associate a part to the following node if the
+        # part is not already associate to a sectioning command,
+        # but the part can be associated to the sectioning command later
+        # if a sectioning command follows the node.
+        $current->{'extra'}->{'node_preceding_part'} = $part;
+        $part->{'extra'}->{'part_following_node'} = $current;
+      }
+    }
+    $self->{'current_node'} = $current;
+  } elsif ($command eq 'listoffloats') {
+    _parse_float_type($current);
+  } else {
+    # Handle all the other 'line' commands.  Here just check that they
+    # have an argument.  Empty @top is allowed
+    if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
+      $self->_command_warn($current, $source_info,
+             __("\@%s missing argument"), $command);
+      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'}->{'missing_argument'} = 1;
+    } else {
+      if (($command eq 'item' or $command eq 'itemx')
+          and $current->{'parent'}->{'cmdname'}
+          and $self->{'command_index'}->{$current->{'parent'}->{'cmdname'}}) {
+        _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
+                           $command, $current,
+                           $current->{'args'}->[0]->{'contents'},
+                           undef, $source_info);
+      } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
+        _enter_index_entry($self, $current->{'cmdname'},
+                           $current->{'cmdname'}, $current,
+                           $current->{'args'}->[0]->{'contents'},
+                           undef, $source_info);
+        $current->{'type'} = 'index_entry_command';
+      }
+      # if there is a brace command interrupting an index or subentry
+      # command, replace the internal internal_spaces_before_brace_in_index
+      # text type with its final type depending on whether there is
+      # text after the brace command.
+      if (_is_index_element($self, $current)) {
+        if (defined($current->{'extra'}->{'sortas'})
+            or defined($current->{'extra'}->{'seealso'})
+            or defined($current->{'extra'}->{'seeentry'})) {
+          _set_non_ignored_space_in_index_before_command(
+                         $current->{'args'}->[0]->{'contents'});
+        }
+      }
+    }
+  }
+  $current = $current->{'parent'};
+  if ($end_command) {
+    print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
+    # reparent to block command
+    my $end = _pop_element_from_contents($current);
+    if ($block_commands{$end_command} ne 'conditional') {
+      # here close some empty types.  Typically empty preformatted
+      # that would have been closed anyway in _close_commands, but
+      # also other types (rawpreformatted, before_item), some which
+      # may also have been closed anyway.
+      if (not defined($current->{'cmdname'}) and $current->{'type'}
+          and !$current->{'contents'}
+          and $current->{'parent'}) {
+        my $removed = pop @{$current->{'parent'}->{'contents'}};
+        print STDERR "popping at end command $end_command: $removed->{'type'}\n"
+         if ($self->{'DEBUG'});
+        $current = $current->{'parent'};
+      }
+      my $closed_command;
+      ($closed_command, $current)
+         = _close_commands($self, $current, $source_info, $end_command);
+      if ($closed_command) {
+        _close_command_cleanup($self, $closed_command);
+        $end->{'parent'} = $closed_command;
+        push @{$closed_command->{'contents'}}, $end;
+      } else {
+        # block command not found for @end
+      }
+      # closing a menu command, but still in a menu. Open a menu_comment
+      if ($closed_command
+          and $block_commands{$closed_command->{'cmdname'}} eq 'menu'
+          and defined($self->_top_context_command())
+          and $block_commands{$self->_top_context_command()} eq 'menu') {
+        print STDERR "CLOSE MENU but still in menu context\n"
+          if ($self->{'DEBUG'});
+        push @{$current->{'contents'}}, {'type' => 'menu_comment',
+                                         'parent' => $current,
+                                         'contents' => [] };
+        $current = $current->{'contents'}->[-1];
+      }
+
+      $current = _begin_preformatted($self, $current)
+        if ($close_preformatted_commands{$end_command});
+    }
+  } else {
+    $current = _begin_preformatted($self, $current)
+      if ($close_preformatted_commands{$command});
+  }
+  # Ignore @setfilename in included file, as said in the manual.
+  if (($command eq 'setfilename'
+         and scalar(@{$self->{'input'}}) > 1)
+    # TODO remove this condition if/when the XS parser has been updated
+    # to output @include with type replaced when the file was found
+      or ($current->{'contents'} and scalar(@{$current->{'contents'}})
+           and exists($current->{'contents'}->[-1]->{'type'})
+           and $current->{'contents'}->[-1]->{'type'} eq 'replaced')) {
+    # TODO keep the information
+    pop @{$current->{'contents'}};
+  } elsif ($command eq 'setfilename'
+           and ($self->{'current_node'} or $self->{'current_section'})) {
+    $self->_command_warn($misc_cmd, $source_info,
+             __("\@%s after the first element"), $command);
+  # columnfractions
+  } elsif ($command eq 'columnfractions') {
+    # in a multitable, we are in a block_line_arg
+    if (!$current->{'parent'} or !$current->{'parent'}->{'cmdname'}
+                 or $current->{'parent'}->{'cmdname'} ne 'multitable') {
+      $self->_command_error($current, $source_info,
+             __("\@%s only meaningful on a \@multitable line"),
+             $command);
+    } else {
+      # This is the multitable block_line_arg line context
+      $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
+      $current = $current->{'parent'};
+      $current->{'extra'}->{'max_columns'} = 0;
+      if ($misc_cmd->{'extra'}
+          and defined($misc_cmd->{'extra'}->{'misc_args'})) {
+        $current->{'extra'}->{'max_columns'}
+            = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
+        $current->{'extra'}->{'columnfractions'} = $misc_cmd;
+      }
+      push @{$current->{'contents'}}, { 'type' => 'before_item',
+                                      'contents' => [], 'parent', $current };
+      $current = $current->{'contents'}->[-1];
+    }
+  } elsif ($root_commands{$command}) {
+    $current = $current->{'contents'}->[-1];
+    delete $current->{'remaining_args'};
+
+    # associate the section (not part) with the current node.
+    if ($command ne 'node' and $command ne 'part') {
+      if ($self->{'current_node'}
+         and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
+        $self->{'current_node'}->{'extra'}->{'associated_section'} = $current;
+        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'}->{'associated_node'} = $self->{'current_node'};
+      }
+      if ($self->{'current_part'}) {
+        $current->{'extra'}->{'associated_part'} = $self->{'current_part'};
+        $self->{'current_part'}->{'extra'}->{'part_associated_section'}
+                                                 = $current;
+        if ($current->{'cmdname'} eq 'top') {
+          $self->_line_warn("\@part should not be associated with \@top",
+                           $self->{'current_part'}->{'source_info'});
+        }
+        delete $self->{'current_part'};
+      }
+      $self->{'current_section'} = $current;
+    } elsif ($command eq 'part') {
+      $self->{'current_part'} = $current;
+      if ($self->{'current_node'}
+         and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
+        $self->_line_warn(sprintf(__(
+         "\@node precedes \@%s, but parts may not be associated with nodes"),
+                                  $command), $source_info);
+      }
+    }
+  }
+  return $current;
+}
+
 # close constructs and do stuff at end of line (or end of the document)
 sub _end_line($$$);
 sub _end_line($$$)
@@ -3352,345 +3711,7 @@ sub _end_line($$$)
   # misc command line arguments
   # Never go here if skipline/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
-    $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
-    _isolate_last_space($self, $current);
-
-    # first parent is the @command, second is the parent
-    $current = $current->{'parent'};
-    my $misc_cmd = $current;
-    my $command = $current->{'cmdname'};
-    my $end_command;
-    print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
-       if ($self->{'DEBUG'});
-
-    if ($self->{'line_commands'}->{$command} eq 'specific') {
-      my $args = _parse_line_command_args($self, $current, $source_info);
-      $current->{'extra'}->{'misc_args'} = $args if (defined($args));
-    } elsif ($self->{'line_commands'}->{$command} eq 'text') {
-      my ($text, $superfluous_arg)
-        = _convert_to_text($current->{'args'}->[0]);
-
-      #$current->{'extra'} = {} if (!$current->{'extra'});
-      if ($text eq '') {
-        if (not $superfluous_arg) {
-          $self->_command_warn($current, $source_info,
-                               __("\@%s missing argument"), $command);
-        }
-        # if there is superfluous arg, a more suitable error is issued below.
-        $current->{'extra'}->{'missing_argument'} = 1;
-      } else {
-        $current->{'extra'}->{'text_arg'} = $text;
-        if ($command eq 'end') {
-          # REMACRO
-          my $remaining_on_line = $text;
-          if ($remaining_on_line =~ s/^([[:alnum:]][[:alnum:]-]*)//) {
-            $end_command = $1;
-
-            if (!exists $block_commands{$end_command}) {
-              $self->_command_warn($current, $source_info,
-                                   __("unknown \@end %s"), $end_command);
-              $end_command = undef;
-            } else {
-              print STDERR "END BLOCK $end_command\n" if ($self->{'DEBUG'});
-              if ($block_commands{$end_command} eq 'conditional') {
-                if (@{$self->{'conditionals_stack'}}
-                  and $self->{'conditionals_stack'}->[-1] eq $end_command) {
-                  pop @{$self->{'conditionals_stack'}};
-                } else {
-                  $self->_command_error($current, $source_info,
-                                    __("unmatched `%c%s'"), ord('@'), 'end');
-                  $end_command = undef;
-                }
-              }
-            }
-            # non-ASCII spaces are also superfluous arguments.
-            # If there is superfluous text after @end argument, set
-            # $superfluous_arg such that the error message triggered by an
-            # unexpected @-command on the @end line is issued below.  Note
-            # that $superfluous_arg may also be true if it was set above.
-            if ($end_command and $remaining_on_line =~ /\S/) {
-              $superfluous_arg = 1;
-            }
-          # if $superfluous_arg is set there is a similar and somewhat
-          # better error message below
-          } elsif (!$superfluous_arg) {
-            $self->_command_error($current, $source_info,
-                              __("bad argument to \@%s: %s"),
-                              $command, $remaining_on_line);
-          }
-        } elsif ($superfluous_arg) {
-          # @-command effects are ignored, an error message is issued below.
-        } elsif ($command eq 'include') {
-          # We want Perl binary strings representing sequences of bytes,
-          # not character strings of codepoints in the internal perl encoding.
-          my ($file_name, $file_name_encoding) = _encode_file_name($self, $text);
-          my $file = Texinfo::Common::locate_include_file($self, $file_name);
-          if (defined($file)) {
-            my $filehandle = do { local *FH };
-            if (_open_in ($self, $filehandle, $file)) {
-              print STDERR "Included $file($filehandle)\n" if ($self->{'DEBUG'});
-              my ($directories, $suffix);
-              ($file, $directories, $suffix) = fileparse($file);
-              unshift @{$self->{'input'}}, {
-                'input_file_info' => {'file_name' => $file,
-                                      'line_nr' => 0,
-                                     },
-                'file_name_encoding' => $file_name_encoding,
-                'pending' => [],
-                'fh' => $filehandle };
-              # TODO note that it is bytes.  No reason to have it used much
-              # Make sure to document that it is bytes.
-              # TODO add $file_name_encoding information?
-              $current->{'extra'}->{'file'} = $file;
-              # we set the type to replaced to tell converters not to
-              # expand the @-command
-              $current->{'type'} = 'replaced';
-            } else {
-              # FIXME $text does not show the include directory.  Using $file
-              # would require to decode it to perl internal codepoints with
-              # $file_name_encoding
-              $self->_command_error($current, $source_info,
-                              __("\@%s: could not open %s: %s"),
-                              $command, $text, $!);
-            }
-          } else {
-            $self->_command_error($current, $source_info,
-                              __("\@%s: could not find %s"),
-                              $command, $text);
-          }
-        } elsif ($command eq 'verbatiminclude') {
-          $current->{'extra'}->{'input_perl_encoding'}
-                          = $self->{'info'}->{'input_perl_encoding'}
-            if defined $self->{'info'}->{'input_perl_encoding'};
-        } elsif ($command eq 'documentencoding') {
-          my ($texinfo_encoding, $perl_encoding, $input_encoding)
-             = _encoding_alias($text);
-          $self->_command_warn($current, $source_info,
-                 __("encoding `%s' is not a canonical texinfo encoding"),
-                               $text)
-            if (!$texinfo_encoding or $texinfo_encoding ne lc($text));
-          if ($input_encoding) {
-            $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
-          }
-          if (!$perl_encoding) {
-            $self->_command_warn($current, $source_info,
-                 __("unrecognized encoding name `%s'"), $text);
-          } else {
-            $current->{'extra'}->{'input_perl_encoding'} = $perl_encoding;
-
-            if ($input_encoding) {
-              $self->{'info'}->{'input_encoding_name'} = $input_encoding;
-            }
-
-            $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
-            foreach my $input (@{$self->{'input'}}) {
-              binmode($input->{'fh'}, ":encoding($perl_encoding)")
-                if ($input->{'fh'});
-            }
-          }
-        } elsif ($command eq 'documentlanguage') {
-          my @messages = Texinfo::Common::warn_unknown_language($text);
-          foreach my $message(@messages) {
-            $self->_command_warn($current, $source_info, $message);
-          }
-          if (!$self->{'set'}->{'documentlanguage'}) {
-            $self->{'documentlanguage'} = $text;
-          }
-        }
-      }
-      if ($superfluous_arg) {
-        # note that the argument to expand replaced @-commands is
-        # set, such that @include that are removed from the tree
-        # with type set to replaced are still shown in error messages.
-        my $texi_line
-          = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
-        $texi_line =~ s/^\s*//;
-        $texi_line =~ s/\s*$//;
-
-        $self->_command_error($current, $source_info,
-                       __("bad argument to \@%s: %s"),
-                       $command, $texi_line);
-      }
-    } elsif ($command eq 'node') {
-      #$current->{'extra'} = {} if (!$current->{'extra'});
-      foreach my $arg (@{$current->{'args'}}) {
-        my $node = _parse_node_manual($arg);
-        push @{$current->{'extra'}->{'nodes_manuals'}}, $node;
-      }
-      _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
-                           $source_info);
-      _register_label($self->{'targets'}, $current,
-                   $current->{'extra'}->{'nodes_manuals'}->[0]);
-      if ($self->{'current_part'}) {
-        my $part = $self->{'current_part'};
-        if (not $part->{'extra'}
-           or not $part->{'extra'}->{'part_associated_section'}) {
-          # we only associate a part to the following node if the
-          # part is not already associate to a sectioning command,
-          # but the part can be associated to the sectioning command later
-          # if a sectioning command follows the node.
-          $current->{'extra'}->{'node_preceding_part'} = $part;
-          $part->{'extra'}->{'part_following_node'} = $current;
-        }
-      }
-      $self->{'current_node'} = $current;
-    } elsif ($command eq 'listoffloats') {
-      _parse_float_type($current);
-    } else {
-      # Handle all the other 'line' commands.  Here just check that they
-      # have an argument.  Empty @top is allowed
-      if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
-        $self->_command_warn($current, $source_info,
-               __("\@%s missing argument"), $command);
-        #$current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'missing_argument'} = 1;
-      } else {
-        if (($command eq 'item' or $command eq 'itemx')
-            and $current->{'parent'}->{'cmdname'}
-            and $self->{'command_index'}->{$current->{'parent'}->{'cmdname'}}) {
-          _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
-                             $command, $current,
-                             $current->{'args'}->[0]->{'contents'},
-                             undef, $source_info);
-        } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
-          _enter_index_entry($self, $current->{'cmdname'},
-                             $current->{'cmdname'}, $current,
-                             $current->{'args'}->[0]->{'contents'},
-                             undef, $source_info);
-          $current->{'type'} = 'index_entry_command';
-        }
-        # if there is a brace command interrupting an index or subentry
-        # command, replace the internal internal_spaces_before_brace_in_index
-        # text type with its final type depending on whether there is
-        # text after the brace command.
-        if (_is_index_element($self, $current)) {
-          if (defined($current->{'extra'}->{'sortas'})
-              or defined($current->{'extra'}->{'seealso'})
-              or defined($current->{'extra'}->{'seeentry'})) {
-            _set_non_ignored_space_in_index_before_command(
-                           $current->{'args'}->[0]->{'contents'});
-          }
-        }
-      }
-    }
-    $current = $current->{'parent'};
-    if ($end_command) {
-      print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
-      # reparent to block command
-      my $end = _pop_element_from_contents($current);
-      if ($block_commands{$end_command} ne 'conditional') {
-        # here close some empty types.  Typically empty preformatted
-        # that would have been closed anyway in _close_commands, but
-        # also other types (rawpreformatted, before_item), some which
-        # may also have been closed anyway.
-        if (not defined($current->{'cmdname'}) and $current->{'type'}
-            and !$current->{'contents'}
-            and $current->{'parent'}) {
-           my $removed = pop @{$current->{'parent'}->{'contents'}};
-           print STDERR "popping at end command $end_command: $removed->{'type'}\n"
-              if ($self->{'DEBUG'});
-           $current = $current->{'parent'};
-        }
-        my $closed_command;
-        ($closed_command, $current)
-          = _close_commands($self, $current, $source_info, $end_command);
-        if ($closed_command) {
-          _close_command_cleanup($self, $closed_command);
-          $end->{'parent'} = $closed_command;
-
-          push @{$closed_command->{'contents'}}, $end;
-
-          # closing a menu command, but still in a menu. Open a menu_comment
-          if ($block_commands{$closed_command->{'cmdname'}} eq 'menu'
-              and defined($self->_top_context_command())
-              and $block_commands{$self->_top_context_command()} eq 'menu') {
-            print STDERR "CLOSE MENU but still in menu context\n"
-              if ($self->{'DEBUG'});
-            push @{$current->{'contents'}}, {'type' => 'menu_comment',
-                                             'parent' => $current,
-                                             'contents' => [] };
-            $current = $current->{'contents'}->[-1];
-          }
-        } else {
-          # block command not found for @end
-        }
-        $current = _begin_preformatted($self, $current)
-          if ($close_preformatted_commands{$end_command});
-      }
-    } else {
-      $current = _begin_preformatted($self, $current)
-        if ($close_preformatted_commands{$command});
-    }
-    # Ignore @setfilename in included file, as said in the manual.
-    if (($command eq 'setfilename'
-           and scalar(@{$self->{'input'}}) > 1)
-      # TODO remove this condition if/when the XS parser has been updated
-      # to output @include with type replaced when the file was found
-        or ($current->{'contents'} and scalar(@{$current->{'contents'}})
-             and exists($current->{'contents'}->[-1]->{'type'})
-             and $current->{'contents'}->[-1]->{'type'} eq 'replaced')) {
-      # TODO keep the information
-      pop @{$current->{'contents'}};
-    } elsif ($command eq 'setfilename'
-             and ($self->{'current_node'} or $self->{'current_section'})) {
-      $self->_command_warn($misc_cmd, $source_info,
-               __("\@%s after the first element"), $command);
-    # columnfractions
-    } elsif ($command eq 'columnfractions') {
-      # in a multitable, we are in a block_line_arg
-      if (!$current->{'parent'} or !$current->{'parent'}->{'cmdname'}
-                   or $current->{'parent'}->{'cmdname'} ne 'multitable') {
-        $self->_command_error($current, $source_info,
-               __("\@%s only meaningful on a \@multitable line"),
-               $command);
-      } else {
-        # This is the multitable block_line_arg line context
-        $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
-        $current = $current->{'parent'};
-        $current->{'extra'}->{'max_columns'} = 0;
-        if ($misc_cmd->{'extra'}
-            and defined($misc_cmd->{'extra'}->{'misc_args'})) {
-          $current->{'extra'}->{'max_columns'}
-              = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
-          $current->{'extra'}->{'columnfractions'} = $misc_cmd;
-        }
-        push @{$current->{'contents'}}, { 'type' => 'before_item',
-                                        'contents' => [], 'parent', $current };
-        $current = $current->{'contents'}->[-1];
-      }
-    } elsif ($root_commands{$command}) {
-      $current = $current->{'contents'}->[-1];
-      delete $current->{'remaining_args'};
-
-      # associate the section (not part) with the current node.
-      if ($command ne 'node' and $command ne 'part') {
-        if ($self->{'current_node'}
-           and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
-          $self->{'current_node'}->{'extra'}->{'associated_section'} = $current;
-          #$current->{'extra'} = {} if (!$current->{'extra'});
-          $current->{'extra'}->{'associated_node'} = $self->{'current_node'};
-        }
-        if ($self->{'current_part'}) {
-          $current->{'extra'}->{'associated_part'} = $self->{'current_part'};
-          $self->{'current_part'}->{'extra'}->{'part_associated_section'}
-                                                   = $current;
-          if ($current->{'cmdname'} eq 'top') {
-            $self->_line_warn("\@part should not be associated with \@top",
-                             $self->{'current_part'}->{'source_info'});
-          }
-          delete $self->{'current_part'};
-        }
-        $self->{'current_section'} = $current;
-      } elsif ($command eq 'part') {
-        $self->{'current_part'} = $current;
-        if ($self->{'current_node'}
-           and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
-          $self->_line_warn(sprintf(__(
-           "\@node precedes \@%s, but parts may not be associated with nodes"),
-                                    $command), $source_info);
-        }
-      }
-    }
+    $current = _end_line_misc_line($self, $current, $source_info);
   }
 
   # this happens if there is a nesting of line @-commands on a line.

@@ -26,30 +26,33 @@ $result_trees{'bye_on_end_command_line'} = {
                 {
                   'text' => 'in cartouche.
 '
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cartouche'
-                        }
-                      ],
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 3,
-                    'macro' => ''
-                  }
                 }
               ],
               'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'cartouche'
+                    }
+                  ],
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'cartouche'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'source_info' => {
@@ -129,7 +132,7 @@ $result_converted{'html_text'}->{'bye_on_end_command_line'} = '<table class="car
 ';
 
 
-$result_converted{'xml'}->{'bye_on_end_command_line'} = '<cartouche>
+$result_converted{'xml'}->{'bye_on_end_command_line'} = '<cartouche endspaces=" ">
 <para>in cartouche.
 </para></cartouche><bye></bye>
 ';

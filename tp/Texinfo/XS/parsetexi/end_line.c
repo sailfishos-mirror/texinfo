@@ -1298,7 +1298,7 @@ end_line_starting_block (ELEMENT *current)
 
 /* Actions to be taken at the end of an argument to a line command
    not starting a block.  @end is processed in here. */
-static ELEMENT *
+ELEMENT *
 end_line_misc_line (ELEMENT *current)
 {
   enum command_id cmd;
@@ -1318,10 +1318,10 @@ end_line_misc_line (ELEMENT *current)
 
   arg_type = command_data(cmd).data;
    
+  debug ("MISC END %s", command_name(cmd));
+
   if (pop_context () != ct_line)
     fatal ("line context expected");
-
-  debug ("MISC END %s", command_name(cmd));
 
   if (arg_type == LINE_specific)
     {

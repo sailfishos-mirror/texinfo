@@ -40,6 +40,19 @@ $result_trees{'raw_block_on_line'} = {
             }
           ],
           'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_number' => 1,
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex'
+            }
+          },
           'info' => {
             'spaces_before_argument' => ' '
           },
@@ -47,7 +60,8 @@ $result_trees{'raw_block_on_line'} = {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          }
+          },
+          'type' => 'index_entry_command'
         }
       ],
       'type' => 'before_node_section'
@@ -55,6 +69,9 @@ $result_trees{'raw_block_on_line'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0];
 
 $result_texis{'raw_block_on_line'} = '@cindex @tex
 ';
@@ -71,11 +88,32 @@ $result_errors{'raw_block_on_line'} = [
     'macro' => '',
     'text' => 'no matching `@end tex\'',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' outside of any node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'entry for index `cp\' outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'empty index key in @cindex',
+    'type' => 'warning'
   }
 ];
 
 
 $result_floats{'raw_block_on_line'} = {};
+
+
+$result_indices_sort_strings{'raw_block_on_line'} = {};
 
 
 1;

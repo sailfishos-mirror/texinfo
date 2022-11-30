@@ -15,13 +15,30 @@ $result_trees{'ignored_text'} = {
         {
           'contents' => [
             {
-              'text' => 'before ignore '
+              'text' => 'before ignore'
             }
           ],
+          'info' => {
+            'spaces_after_argument' => ' '
+          },
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'before-ignore'
+          }
+        ],
+        'normalized' => 'before-ignore'
+      },
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -34,11 +51,29 @@ $result_trees{'ignored_text'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ignored_text'} = '@node before ignore ';
 
 
 $result_texts{'ignored_text'} = '';
+
+$result_nodes{'ignored_text'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'normalized' => 'before-ignore'
+  },
+  'info' => {}
+};
+
+$result_menus{'ignored_text'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'normalized' => 'before-ignore'
+  },
+  'info' => {}
+};
 
 $result_errors{'ignored_text'} = [
   {

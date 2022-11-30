@@ -44,6 +44,9 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
             }
           ],
           'cmdname' => 'setfilename',
+          'extra' => {
+            'text_arg' => 'name '
+          },
           'info' => {
             'spaces_before_argument' => ' '
           },
@@ -92,6 +95,17 @@ $result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
     'line_nr' => 1,
     'macro' => '',
     'text' => '@verb missing closing brace',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'bad argument to @setfilename: name @verb{
+}
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'bad argument to @setfilename: name @verb{
+}',
     'type' => 'error'
   }
 ];
