@@ -1,3 +1,7 @@
+2022-11-30  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* NEWS: Add 7.0.1 news.
+
 2022-11-29  Per Bothner  <per@bothner.com>
 
 	* js/info.css (cache_index_links): Fix index entry processing.
