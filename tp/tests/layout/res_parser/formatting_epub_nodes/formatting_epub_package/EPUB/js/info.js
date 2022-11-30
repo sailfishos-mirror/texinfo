@@ -146,10 +146,32 @@
     /** @arg {NodeListOf<Element>} links */
     cache_index_links: function (links) {
       var dict = {};
+      var text0 = "", text1 = ""; // for subentries
       for (var i = 0; i < links.length; i += 1)
         {
           var link = links[i];
-          dict[link.textContent] = href_hash (link_href (link));
+          var link_cl = link.classList;
+          var text = link.textContent;
+          if (link_cl.contains("index-entry-level-2"))
+            {
+                text = text0 + "; " + text1 + "; " + text;
+            }
+          else if (link_cl.contains("index-entry-level-1"))
+            {
+              text1 = text;
+                text = text0 + "; " + text;
+            }
+          else
+            {
+              text0 = text;
+            }
+
+          if ((link = link.nextSibling)
+              && link.classList.contains("printindex-index-section")
+              && (link = link.firstChild))
+            {
+              dict[text] = href_hash (link_href (link));
+            }
         }
       return { type: "cache-index-links", links: dict };
     },
@@ -1457,9 +1479,9 @@
       if (linkid_contains_index (linkid))
         {
           /* Scan links that should be added to the index.  */
-          var index_links = document.querySelectorAll
-            ("td.printindex-index-entry a");
-          store.dispatch (actions.cache_index_links (index_links));
+          var index_entries = document.querySelectorAll
+            ("td.printindex-index-entry");
+          store.dispatch (actions.cache_index_links (index_entries));
         }
 
       add_icons ();
