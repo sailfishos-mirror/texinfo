@@ -235,4 +235,30 @@ $result_errors{'section_in_nested_block_commands'} = [
 $result_floats{'section_in_nested_block_commands'} = {};
 
 
+
+$result_converted{'plaintext'}->{'section_in_nested_block_commands'} = '*item*
+     table line
+
+          in quotation
+
+1 a section
+===========
+
+';
+
+
+$result_converted{'xml'}->{'section_in_nested_block_commands'} = '<table commandarg="strong" spaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="strong">item</itemformat></item>
+</tableterm><tableitem><para>table line
+</para>
+<quotation>
+
+<para>in quotation
+</para>
+</quotation>
+</tableitem></tableentry></table>
+<section spaces=" "><sectiontitle>a section</sectiontitle>
+</section>
+';
+
 1;

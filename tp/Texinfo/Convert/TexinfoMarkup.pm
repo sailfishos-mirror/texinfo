@@ -1590,6 +1590,9 @@ sub _convert($$;$)
         my $end_command = $element->{'contents'}->[-1];
         $result .= _end_line_spaces($self, $end_command);
         $result .= $self->format_comment_or_return_end_line($end_command);
+      } else {
+        # missing @end, add an end of line after the closing markup element.
+        $result .= "\n";
       }
     }
     if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {

@@ -322,17 +322,6 @@ in copying
 
 @section section
 '],
-['section_in_nested_block_commands',
-'@table @strong
-@item item
-table line
-
-@quotation
-
-in quotation
-
-@section a section
-'],
 ['section_in_footnote',
 '
 Text@footnote{
@@ -560,10 +549,22 @@ text
 @end table
 }
 '],
+['section_in_nested_block_commands',
+'@table @strong
+@item item
+table line
+
+@quotation
+
+in quotation
+
+@section a section
+'],
 );
 
 foreach my $test (@formatted_cases) {
-  $test->[2]->{'test_formats'} = ['plaintext'];
+  push @{$test->[2]->{'test_formats'}}, 'plaintext';
+  push @{$test->[2]->{'test_formats'}}, 'xml';
 }
 
 run_all('invalid_nestings', [@test_cases, @formatted_cases]);

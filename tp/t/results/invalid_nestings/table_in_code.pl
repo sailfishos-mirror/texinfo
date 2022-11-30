@@ -220,4 +220,14 @@ _line_
 
 ';
 
+
+$result_converted{'xml'}->{'table_in_code'} = '<para><code>
+in code
+</code></para><table commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph">line</itemformat></item>
+</tableterm><tableitem><para>text
+</para></tableitem></tableentry></table>
+
+';
+
 1;
