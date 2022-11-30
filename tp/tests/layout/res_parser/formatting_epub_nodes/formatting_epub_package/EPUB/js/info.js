@@ -120,7 +120,7 @@
         @arg {string} linkid - link identifier
         @arg {string|false} [history] - method name that will be applied on
         the 'window.history' object.  */
-    set_current_url: function (linkid, history, clicked = false) {
+    set_current_url: function (linkid, history, clicked) {
       if (undef_or_null (history))
         history = "pushState";
       return { type: "current-url", url: linkid,
@@ -166,7 +166,7 @@
               text0 = text;
             }
 
-          if ((link = link.nextSibling)
+          if ((link = link.parentElement.parentElement.lastChild)
               && link.classList.contains("printindex-index-section")
               && (link = link.firstChild))
             {
@@ -1480,7 +1480,7 @@
         {
           /* Scan links that should be added to the index.  */
           var index_entries = document.querySelectorAll
-            ("td.printindex-index-entry");
+            ("td.printindex-index-entry a");
           store.dispatch (actions.cache_index_links (index_entries));
         }
 

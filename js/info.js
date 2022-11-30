@@ -166,7 +166,7 @@
               text0 = text;
             }
 
-          if ((link = link.nextSibling)
+          if ((link = link.parentElement.parentElement.lastChild)
               && link.classList.contains("printindex-index-section")
               && (link = link.firstChild))
             {
@@ -1480,7 +1480,7 @@
         {
           /* Scan links that should be added to the index.  */
           var index_entries = document.querySelectorAll
-            ("td.printindex-index-entry");
+            ("td.printindex-index-entry a");
           store.dispatch (actions.cache_index_links (index_entries));
         }
 

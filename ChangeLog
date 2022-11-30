@@ -1,3 +1,13 @@
+2022-11-30  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix info.js for release branch.
+
+	* js/info.js (cache_index_links),
+	(init_iframe) <on_load>:
+	Change how 'printindex-index-entry' and 'printindex-index-section'
+	links are found to match structure of HTML in index, which
+	has been changed on the master branch.
+
 2022-11-27  Per Bothner  <per@bothner.com>
 
 	* js/info.js (set_current)url): Don't set parameter default.
