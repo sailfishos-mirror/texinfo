@@ -50,7 +50,7 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-
+# TODO protect foormfeeds, end of lines and other special spaces as in TexinfoXML?
 sub txi_markup_protect_text($$)
 {
   my $self = shift;

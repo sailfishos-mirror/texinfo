@@ -84,11 +84,11 @@ my %special_xml_attributes = (
 #			|  "'" ([^<&'] | Reference)* "'"
 # Reference as https://www.w3.org/TR/REC-xml/#NT-Reference
 # Reference	   ::=   	EntityRef | CharRef
-# Next CharRef is defined as https://www.w3.org/TR/REC-xml/#NT-CharRef
+# CharRef is defined as https://www.w3.org/TR/REC-xml/#NT-CharRef
 # CharRef	   ::=   	'&#' [0-9]+ ';'
 #			| '&#x' [0-9a-fA-F]+ ';'
 # With the additional constraint that
-# Characters referred to using character references MUST match the production for Char.
+#   Characters referred to using character references MUST match the production for Char.
 # Which means that numerical entities used in attributes should correspond to
 # characters in the range of acceptable characters.  For example form feed is not
 # in that range, such that both \f and &#12; are invalid.
@@ -119,6 +119,15 @@ sub _xml_attributes($$)
       $text =~ s/\N{U+000B}/&attrverticaltab;/g;
       # &attrformfeed; and similar resolves to \f and similar so \ are doubled.
       $text =~ s/\\/\\\\/g;
+    } else {
+      $text =~ s/\n/\\n/g;
+      # protect formfeed in space attributes.  It is necessary for XML 1.0
+      # (and most likely XML 1.1).
+      $text =~ s/\f/\\f/g;
+      # \v does not match U+000B vertical tab, but matches diverse vertical
+      # spaces in  perl.  We nevertheless use \v here to represent ^K as
+      # is customarily done in other contexts.
+      $text =~ s/\N{U+000B}/\\v/g;
     }
     my $attribute_name = $attribute_spec->[0];
     if ($special_xml_attributes{$format_element}

@@ -1,3 +1,11 @@
+2022-12-01  Patrice Dumas  <pertusus@free.fr>
+
+	Protect spaces in space attributes in XML specific code
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm (_xml_attributes): protect spaces
+	in space attributes in format specific code.
+
 2022-11-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),

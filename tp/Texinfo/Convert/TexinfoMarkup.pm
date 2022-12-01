@@ -446,29 +446,12 @@ sub convert_tree($$)
   return $self->_convert($root);
 }
 
-# FIXME that function is markup format specific, it only works if \ is not
-# special in the markup language
-sub _protect_in_spaces_attribute_text($)
-{
-  my $text = shift;
-  $text =~ s/\n/\\n/g;
-  # protect formfeed in space attributes.  It is necessary for XML 1.0
-  # (and most likely XML 1.1) and probably a good thing in other formats.
-  $text =~ s/\f/\\f/g;
-  # \v does not match U+000B vertical tab, but matches diverse vertical spaces.
-  # We nevertheless use \v here to represent ^K as is customarily done in other
-  # contexts.
-  $text =~ s/\N{U+000B}/\\v/g;
-  return $text;
-}
-
 sub _leading_spaces_arg($)
 {
   my $element = shift;
   if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'}
       and $element->{'info'}->{'spaces_before_argument'} ne '') {
-    return ['spaces', _protect_in_spaces_attribute_text(
-                            $element->{'info'}->{'spaces_before_argument'})];
+    return ['spaces', $element->{'info'}->{'spaces_before_argument'}];
   } else {
     return ();
   }
@@ -518,7 +501,7 @@ sub _trailing_spaces_arg($)
     my $spaces = $element->{'info'}->{'spaces_after_argument'};
     chomp($spaces);
     if ($spaces ne '') {
-      return ['trailingspaces', _protect_in_spaces_attribute_text($spaces)];
+      return ['trailingspaces', $spaces];
     }
   }
   return ();
@@ -638,8 +621,7 @@ sub _convert($$;$)
           if ($element->{'info'}
               and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
             push @$attributes, ['spaces',
-               _protect_in_spaces_attribute_text(
-                    $element->{'info'}->{'spaces_after_cmd_before_arg'})];
+                    $element->{'info'}->{'spaces_after_cmd_before_arg'}];
           }
           if ($element->{'args'}->[0]->{'type'} eq 'following_arg') {
              push @$attributes, ['bracketed', 'off'];
@@ -758,7 +740,6 @@ sub _convert($$;$)
         my $attribute;
         if ($line_command_line_attributes{$cmdname}) {
           if ($element->{'extra'} and defined($element->{'extra'}->{'text_arg'})) {
-            # FIXME use _protect_in_spaces_attribute_text?
             push @$attribute, [$line_command_line_attributes{$cmdname},
                   $element->{'extra'}->{'text_arg'}];
           }
@@ -1046,8 +1027,7 @@ sub _convert($$;$)
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
         $space_after_command_attribute = ['spacesaftercmd',
-              _protect_in_spaces_attribute_text(
-                $element->{'info'}->{'spaces_after_cmd_before_arg'})];
+                $element->{'info'}->{'spaces_after_cmd_before_arg'}];
       }
 
       my @format_elements;
@@ -1481,8 +1461,7 @@ sub _convert($$;$)
           my $leading_spaces = $element->{'info'}->{'spaces_before_argument'};
           # may happen without any argument, remove as a \n is added below
           $leading_spaces =~ s/\n//;
-          $leading_spaces_attribute_spec = [['spaces',
-                          _protect_in_spaces_attribute_text($leading_spaces)]]
+          $leading_spaces_attribute_spec = [['spaces', $leading_spaces]]
             if ($leading_spaces ne '');
         }
         $result .= $self->txi_markup_open_element($element->{'cmdname'},
