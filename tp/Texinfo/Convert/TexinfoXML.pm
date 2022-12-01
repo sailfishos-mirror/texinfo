@@ -113,10 +113,11 @@ sub _xml_attributes($$)
     # even protected (and even in xml 1.1 in contrast to what is said on
     # internet).  Cf above the full explanation for XML 1.0.
     if ($attribute_spec->[0] ne 'spaces'
-        and $attribute_spec->[0] ne 'trailingspaces') {
+        and $attribute_spec->[0] ne 'trailingspaces'
+        and $attribute_spec->[0] ne 'spacesaftercmd') {
       $text =~ s/\f/&attrformfeed;/g;
       $text =~ s/\N{U+000B}/&attrverticaltab;/g;
-      # &attrformfeed; and similar resolves to \f and similar so \ are doubled
+      # &attrformfeed; and similar resolves to \f and similar so \ are doubled.
       $text =~ s/\\/\\\\/g;
     }
     my $attribute_name = $attribute_spec->[0];

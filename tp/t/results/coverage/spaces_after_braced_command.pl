@@ -302,4 +302,72 @@ $result_errors{'spaces_after_braced_command'} = [
 $result_floats{'spaces_after_braced_command'} = {};
 
 
+
+$result_converted{'plaintext'}->{'spaces_after_braced_command'} = '‘b’
+
+   ‘v’
+
+   Å
+
+   b <a>
+
+   TeX
+';
+
+
+$result_converted{'html_text'}->{'spaces_after_braced_command'} = '<p><code class="code">b</code>
+</p>
+<p>&lsquo;<samp class="samp">v</samp>&rsquo;
+</p>
+<p>&Aring;
+</p>
+<p><a class="email" href="mailto:a">b 
+</a>
+</p>
+<p>TeX
+
+</p>';
+
+
+$result_converted{'xml'}->{'spaces_after_braced_command'} = '<para><code spacesaftercmd=" ">b</code>
+</para>
+<para><samp spacesaftercmd="\\n">v</samp>
+</para>
+<para>&Aring;
+</para>
+<para><email spacesaftercmd="\\n"><emailaddress>a</emailaddress><emailname spaces=" ">b 
+ </emailname></email>
+</para>
+<para>&tex;
+
+</para>';
+
+
+$result_converted{'latex_text'}->{'spaces_after_braced_command'} = '\\texttt{b}
+
+`\\texttt{v}\'
+
+\\AA{}
+
+\\href{mailto:a}{b 
+}
+
+\\TeX{}
+
+';
+
+
+$result_converted{'docbook'}->{'spaces_after_braced_command'} = '<para><literal>b</literal>
+</para>
+<para>&#8216;<literal>v</literal>&#8217;
+</para>
+<para>&#197;
+</para>
+<para><ulink url="mailto:a">b 
+</ulink>
+</para>
+<para>&tex;
+
+</para>';
+
 1;

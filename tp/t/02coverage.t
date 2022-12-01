@@ -585,6 +585,23 @@ In float with caption.
 ['at_after_accent_command',
 '@ringaccent @@. @^@@.
 '],
+['spaces_after_braced_command',
+'@code {b}
+
+@samp
+{v}
+
+@AA
+ {}
+
+@email
+{a, b 
+ }
+
+@TeX
+
+{}
+'],
 ['setfilename_in_paragraph',
 'Some text
 @setfilename setfilename_in_paragraph.info
@@ -690,23 +707,6 @@ continue on other line}
 @indicateurl{http://begin2
 
 cut by blank line}
-'],
-['spaces_after_braced_command',
-'@code {b}
-
-@samp
-{v}
-
-@AA
- {}
-
-@email
-{a, b 
- }
-
-@TeX
-
-{}
 '],
 ['spaces_no_brace_after_braced_command',
 '@code b

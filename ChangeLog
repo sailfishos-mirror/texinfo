@@ -1,5 +1,13 @@
 2022-11-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/TexinfoXML.pm (_xml_attributes),
+	util/txixml2texi.pl (unprotect_spaces): add attribute for
+	spaces_after_cmd_before_arg info, protect special spaces in it
+	and unprotect in txixml2texi.pl.
+
+2022-11-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add end lines
 	after the closing markup element when @end is missing.
 

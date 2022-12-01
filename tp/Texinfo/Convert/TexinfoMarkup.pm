@@ -638,7 +638,8 @@ sub _convert($$;$)
           if ($element->{'info'}
               and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
             push @$attributes, ['spaces',
-                      $element->{'info'}->{'spaces_after_cmd_before_arg'}];
+               _protect_in_spaces_attribute_text(
+                    $element->{'info'}->{'spaces_after_cmd_before_arg'})];
           }
           if ($element->{'args'}->[0]->{'type'} eq 'following_arg') {
              push @$attributes, ['bracketed', 'off'];
@@ -1041,6 +1042,14 @@ sub _convert($$;$)
         push @$attribute, ['name', $anchor_name];
       }
 
+      my $space_after_command_attribute;
+      if ($element->{'info'}
+          and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+        $space_after_command_attribute = ['spacesaftercmd',
+              _protect_in_spaces_attribute_text(
+                $element->{'info'}->{'spaces_after_cmd_before_arg'})];
+      }
+
       my @format_elements;
       my $main_cmdname;
       if ($commands_args_elements{$element->{'cmdname'}}) {
@@ -1055,6 +1064,8 @@ sub _convert($$;$)
         # leading spaces are directly associated to the @-command for @-command
         # in context brace_commands
         push @$attribute, _leading_spaces_arg($element);
+        push @$attribute, $space_after_command_attribute
+           if (defined($space_after_command_attribute));
       }
 
       if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
@@ -1104,8 +1115,9 @@ sub _convert($$;$)
           # inline conditional arguments.
           } elsif (defined($main_cmdname)
                    and not $brace_commands{$element->{'cmdname'}} eq 'inline') {
-            $last_empty_element = $self->txi_markup_open_element($format_element)
-                                  .$self->txi_markup_close_element($format_element);
+            $last_empty_element
+               = $self->txi_markup_open_element($format_element)
+                           .$self->txi_markup_close_element($format_element);
           }
           $attribute = [];
         } else {
@@ -1125,6 +1137,8 @@ sub _convert($$;$)
       }
       # This is for the main command
       $attribute = [];
+      push @$attribute, $space_after_command_attribute
+           if (defined($space_after_command_attribute));
       if ($element->{'cmdname'} eq 'image') {
         if (Texinfo::Common::element_is_inline($element)) {
           push @$attribute, ['where', 'inline'];

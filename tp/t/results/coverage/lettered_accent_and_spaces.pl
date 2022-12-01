@@ -440,22 +440,17 @@ circ;
 
 $result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="ring" spaces="    " bracketed="off">a</accent>
 </para>
-<para><accent type="ring" spaces="
-">a</accent>
+<para><accent type="ring" spaces="\\n">a</accent>
 </para>
-<para><accent type="ring" spaces="
-" bracketed="off">a</accent>
+<para><accent type="ring" spaces="\\n" bracketed="off">a</accent>
 </para>
-<para><accent type="ring" spaces="
-  " bracketed="off">a</accent>
+<para><accent type="ring" spaces="\\n  " bracketed="off">a</accent>
 </para>
 <para><accent type="circ" spaces=" " bracketed="off">a</accent>
 </para>
-<para><accent type="circ" spaces="
-" bracketed="off">a</accent>
+<para><accent type="circ" spaces="\\n" bracketed="off">a</accent>
 </para>
-<para><accent type="circ" spaces="
- " bracketed="off">a</accent>
+<para><accent type="circ" spaces="\\n " bracketed="off">a</accent>
 </para>
 <para><accent type="circ" spaces=" ">a
 </accent>

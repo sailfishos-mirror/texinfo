@@ -233,6 +233,21 @@ sub skip_until_end($$)
   }
 }
 
+sub unprotect_spaces($)
+{
+  my $spaces = shift;
+
+  if (defined($spaces)) {
+    $spaces =~ s/\\n/\n/g;
+    # convert back formfeed and other special characters
+    $spaces =~ s/\\f/\f/g;
+    $spaces =~ s/\\v/\x{000B}/g;
+    return $spaces;
+  } else {
+    return '';
+  }
+}
+
 my $eat_space = 0;
 my $skip_comment = 0;
 my @commands_with_args_stack;
@@ -287,20 +302,14 @@ while ($reader->read) {
     if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
       push @commands_with_args_stack, [$name, 0];
     }
-    my $spaces = $reader->getAttribute('spaces');
-    if (defined($spaces)) {
-      $spaces =~ s/\\n/\n/g;
-      # convert back formfeed and other special characters
-      $spaces =~ s/\\f/\f/g;
-      $spaces =~ s/\\v/\x{000B}/g;
-    } else {
-      $spaces = '';
-    }
+    my $spaces = unprotect_spaces($reader->getAttribute('spaces'));
+    my $spaces_after_command
+      = unprotect_spaces($reader->getAttribute('spacesaftercmd'));
     if ($name eq 'accent') {
       if ($reader->hasAttributes()) {
         if (defined($reader->getAttribute('type'))) {
           my $command = $accent_type_command{$reader->getAttribute('type')};
-          print "\@$command"
+          print "\@${command}${spaces_after_command}"
             if (defined($command));
         }
         print "$spaces";
@@ -319,11 +328,12 @@ while ($reader->read) {
         if ($reader->hasAttributes()
             and defined($reader->getAttribute($attribute))) {
           print
-            $element_at_commands{$name}->{$attribute}->{$reader->getAttribute($attribute)};
+            $element_at_commands{$name}->{$attribute}->{
+                             $reader->getAttribute($attribute)};
         }
       }
     } elsif (exists($Texinfo::Commands::brace_commands{$name})) {
-      print "\@${name}\{";
+      print "\@${name}${spaces_after_command}\{";
       if ($name eq 'verb' and $reader->hasAttributes()
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
@@ -490,8 +500,8 @@ while ($reader->read) {
     my $trailingspaces = '';
     if ($reader->hasAttributes()
         and defined($reader->getAttribute('trailingspaces'))) {
-      $trailingspaces = $reader->getAttribute('trailingspaces');
-      $trailingspaces =~ s/\\f/\f/g;
+      $trailingspaces
+         = unprotect_spaces($reader->getAttribute('trailingspaces'));
     }
     if ($reader->hasAttributes()) {
       if (defined($reader->getAttribute('bracketed'))
