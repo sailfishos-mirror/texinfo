@@ -312,7 +312,6 @@ while ($reader->read) {
           print "\@${command}${spaces_after_command}"
             if (defined($command));
         }
-        print "$spaces";
         if (!(defined($reader->getAttribute('bracketed'))
               and $reader->getAttribute('bracketed') eq 'off')) {
           print '{';

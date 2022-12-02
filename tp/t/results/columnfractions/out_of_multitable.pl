@@ -73,4 +73,10 @@ $result_errors{'out_of_multitable'} = [
 $result_floats{'out_of_multitable'} = {};
 
 
+
+$result_converted{'xml'}->{'out_of_multitable'} = '<columnfractions spaces=" " line="0.6 0.4 aaa"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>';
+
+
+$result_converted{'latex_text'}->{'out_of_multitable'} = '';
+
 1;

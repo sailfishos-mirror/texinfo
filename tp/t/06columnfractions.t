@@ -10,7 +10,6 @@ my @test_tree = (
 @end multitable' ],
 [ 'invalid','@multitable @columnfractions 2x.2 2.23x
 @end multitable' ],
-[ 'out_of_multitable', '@columnfractions 0.6 0.4 aaa' ],
 );
 
 my @test_cases = (
@@ -27,7 +26,8 @@ my @test_cases = (
 [ 'wrong_command', '@multitable @columnfractions @b{3.4} 
 @end multitable' ],
 [ 'something_before_columnfractions', '@multitable aaa @columnfractions 0.3 0.7
-@end multitable' ]
+@end multitable' ],
+[ 'out_of_multitable', '@columnfractions 0.6 0.4 aaa' ],
 );
 
 foreach my $test (@test_cases) {

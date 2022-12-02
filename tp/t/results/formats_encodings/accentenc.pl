@@ -2542,25 +2542,25 @@ $result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-
 </para>
 <para>should be e=: <accent type="macr">e</accent> <accent type="macr" bracketed="off">e</accent>
 </para>
-<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="doubleacute">e</accent> <accent type="doubleacute" spaces=" " bracketed="off">e</accent>
+<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="doubleacute">e</accent> <accent type="doubleacute" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be e.: <accent type="dotaccent">e</accent> <accent type="dotaccent" spaces=" " bracketed="off">e</accent>
+<para>should be e.: <accent type="dotaccent">e</accent> <accent type="dotaccent" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be e*: <accent type="ring">e</accent> <accent type="ring" spaces=" " bracketed="off">e</accent>
+<para>should be e*: <accent type="ring">e</accent> <accent type="ring" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
 <para>should be ee[: <accent type="tieaccent">ee</accent>
 </para>
-<para>should be e(: <accent type="breve">e</accent> <accent type="breve" spaces=" " bracketed="off">e</accent>
+<para>should be e(: <accent type="breve">e</accent> <accent type="breve" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be e_: <accent type="ubaraccent">e</accent> <accent type="ubaraccent" spaces=" " bracketed="off">e</accent>
+<para>should be e_: <accent type="ubaraccent">e</accent> <accent type="ubaraccent" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be .e: <accent type="udotaccent">e</accent> <accent type="udotaccent" spaces=" " bracketed="off">e</accent>
+<para>should be .e: <accent type="udotaccent">e</accent> <accent type="udotaccent" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be e&lt;: <accent type="caron">e</accent> <accent type="caron" spaces=" " bracketed="off">e</accent>
+<para>should be e&lt;: <accent type="caron">e</accent> <accent type="caron" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be a; : <accent type="ogon">a</accent> <accent type="ogon" spaces=" " bracketed="off">a</accent>
+<para>should be a; : <accent type="ogon">a</accent> <accent type="ogon" spacesaftercmd=" " bracketed="off">a</accent>
 </para>
-<para>should be e; : <accent type="ogon">e</accent> <accent type="ogon" spaces=" " bracketed="off">e</accent>
+<para>should be e; : <accent type="ogon">e</accent> <accent type="ogon" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
 <para>upside down: &iquest; &iexcl;
 </para>
