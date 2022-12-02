@@ -8554,7 +8554,7 @@ names (such as entry points of libraries).
 defined in header files).
 @cindex @code{vr} (variable) index
 @findex vindex
-@findex vrvindex
+@findex vrindex
 @item vr
 (@code{@@vindex}) Variable index, for variable names (such as library global
 variables).
