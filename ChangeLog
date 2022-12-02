@@ -1,5 +1,12 @@
 2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/window.h: Eliminate #define used to use the same three fields
+	in two different structures, as the comment explaining it took
+	more space up than it would have taken simply to write the lines
+	twice.
+
+2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/session.c (info_beginning_of_line): Avoid freezing
 	at beginning of a file when 'nodeline' is set to 'pointers' (the
 	default).  Report from Justin Anthony LaPolla <justin.lapolla@hpe.com>.
