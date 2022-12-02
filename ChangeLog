@@ -1,3 +1,9 @@
+2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/session.c (info_beginning_of_line): Avoid freezing
+	at beginning of a file when 'nodeline' is set to 'pointers' (the
+	default).  Report from Justin Anthony LaPolla <justin.lapolla@hpe.com>.
+
 2022-12-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_format_columnfractions)
