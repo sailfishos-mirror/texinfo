@@ -538,10 +538,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/defcondx_Dbar/res_html/defxcond.html \
   t/results/formatting/defcondx_Ubar.pl \
   t/results/formatting/defcondx_Ubar/res_html/defxcond.html \
-  t/results/formatting/direntry_dircategory_info_split.pl \
-  t/results/formatting/direntry_dircategory_info_split/res_info/direntry_dircategory.info \
-  t/results/formatting/direntry_dircategory_info_split/res_info/direntry_dircategory.info-1 \
-  t/results/formatting/direntry_dircategory_info_split/res_info/direntry_dircategory.info-2 \
+  t/results/formatting/direntry_dircategory.pl \
+  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info \
+  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-1 \
+  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-2 \
   t/results/formatting/documentlanguage_set_option.pl \
   t/results/formatting/documentlanguage_set_option/res_html/documentlanguage_set.html \
   t/results/formatting/documentlanguage_set_option_info.pl \
@@ -556,6 +556,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/float_copying/res_html/index.html \
   t/results/formatting/float_copying/res_html/public-domain-anchor.html \
   t/results/formatting/float_copying/res_html/public-domain.html \
+  t/results/formatting/glossary.pl \
   t/results/formatting/one_line.pl \
   t/results/formatting/one_line_no_content.pl \
   t/results/formatting/simplest_test_date_in_header.pl \
@@ -567,14 +568,13 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/split_for_format_not_split.pl \
   t/results/formatting/split_for_format_not_split/res_xml/simplest.xml \
   t/results/formatting/split_nocopying.pl \
-  t/results/formatting/split_nocopying/res_info/split-nocopying.info \
+  t/results/formatting/split_nocopying/res_info/split_nocopying.info \
   t/results/formatting/split_nocopying_split.pl \
-  t/results/formatting/split_nocopying_split/res_info/split-nocopying.info \
-  t/results/formatting/split_nocopying_split/res_info/split-nocopying.info-1 \
-  t/results/formatting/split_nocopying_split/res_info/split-nocopying.info-2 \
+  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info \
+  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-1 \
+  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-2 \
   t/results/formatting/texi_bib_example.pl \
   t/results/formatting/texi_cond.pl \
-  t/results/formatting/texi_glossary.pl \
   t/results/heading/heading_in_copying.pl \
   t/results/heading/heading_in_example.pl \
   t/results/heading/heading_in_quotation.pl \
@@ -855,9 +855,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/split_test_before_first_node/res_info/split_test_before_first_node.info-1 \
   t/results/info_tests/split_test_before_first_node/res_info/split_test_before_first_node.info-2 \
   t/results/info_tests/split_test_before_first_node_no_empty_line.pl \
-  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node.info \
-  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node.info-1 \
-  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node.info-2 \
+  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node_no_empty_line.info \
+  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node_no_empty_line.info-1 \
+  t/results/info_tests/split_test_before_first_node_no_empty_line/res_info/split_test_before_first_node_no_empty_line.info-2 \
   t/results/info_tests/test_index.pl \
   t/results/info_tests/text_before_node.pl \
   t/results/info_tests/top_node_normalization.pl \
@@ -1366,8 +1366,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/nodes_before_top/res_html/node-in-menu-before-top.html \
   t/results/moreindices/nodes_before_top/res_html/nodes_before_top_abt.html \
   t/results/moreindices/nodes_before_top/res_html/second.html \
-  t/results/moreindices/nodes_before_top_and_sections_monolithic.pl \
-  t/results/moreindices/nodes_before_top_and_sections_monolithic/res_html/nodes_before_top_and_sections.html \
+  t/results/moreindices/nodes_before_top_and_sections.pl \
+  t/results/moreindices/nodes_before_top_and_sections/res_html/nodes_before_top_and_sections.html \
   t/results/moreindices/nodes_before_top_no_nodes.pl \
   t/results/moreindices/nodes_before_top_no_nodes/res_html/a-node.html \
   t/results/moreindices/nodes_before_top_no_nodes/res_html/another.html \
