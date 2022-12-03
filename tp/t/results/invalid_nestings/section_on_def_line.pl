@@ -172,4 +172,22 @@ $result_errors{'section_on_def_line'} = [
 $result_floats{'section_on_def_line'} = {};
 
 
+
+$result_converted{'plaintext'}->{'section_on_def_line'} = '1 s
+===
+
+Something
+
+';
+
+
+$result_converted{'xml'}->{'section_on_def_line'} = '<deffn spaces=" "><definitionterm></definitionterm>
+</deffn>
+<section spaces=" "><sectiontitle>s</sectiontitle>
+
+<para>Something
+</para>
+</section>
+';
+
 1;

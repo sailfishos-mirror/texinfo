@@ -99,13 +99,6 @@ Somethin
 
 Content
 '],
-['section_on_def_line',
-'@deffn a b @section s
-
-Something
-
-@end deffn
-'],
 ['section_on_defx_line',
 '@deffn h j k l 
 @deffnx a b @section s
@@ -559,6 +552,13 @@ table line
 in quotation
 
 @section a section
+'],
+['section_on_def_line',
+'@deffn a b @section s
+
+Something
+
+@end deffn
 '],
 );
 

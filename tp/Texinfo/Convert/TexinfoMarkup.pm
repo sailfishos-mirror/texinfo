@@ -1480,21 +1480,24 @@ sub _convert($$;$)
       $result .= $self->txi_markup_open_element('definitionterm');
       $result .= $self->_index_entry($element);
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+      my $def_command = $element->{'extra'}->{'def_command'};
       if ($element->{'args'} and @{$element->{'args'}}
           and $element->{'args'}->[0]->{'contents'}) {
         my $main_command;
         my $alias;
-        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+        if ($Texinfo::Common::def_aliases{$def_command}) {
           $main_command
-            = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+            = $Texinfo::Common::def_aliases{$def_command};
           $alias = 1;
         } else {
-          $main_command = $element->{'extra'}->{'def_command'};
+          $main_command = $def_command;
           $alias = 0;
         }
         foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+          # should only happen for dubious trees in which the def line
+          # was not split in def roles
+          next if (not $arg->{'extra'} or not $arg->{'extra'}->{'def_role'});
           my $type = $arg->{'extra'}->{'def_role'};
-          next if !$type and $arg->{'type'} eq 'spaces';
           my $content = $self->_convert($arg);
           if ($type eq 'spaces') {
             $content =~ s/\n$//;

@@ -165,4 +165,10 @@ $result_indices_sort_strings{'end_of_line_protect_at_end'} = {
 };
 
 
+
+$result_converted{'xml'}->{'end_of_line_protect_at_end'} = '
+<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">deffn_name2</indexterm><defcategory>category2</defcategory> <deffunction>deffn_name2</deffunction> <defparam>arguments2</defparam> </definitionterm>
+</deffn>
+';
+
 1;

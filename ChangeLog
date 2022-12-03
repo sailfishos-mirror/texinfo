@@ -1,3 +1,9 @@
+2022-12-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): ignore @def*
+	arguments that have not been split off with a role added from the @def
+	line args.
+
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Run gnulib-tool --add-import mkstemp.

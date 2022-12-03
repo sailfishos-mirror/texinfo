@@ -434,10 +434,11 @@ Text in preformatted.
 '],
 ['end_of_line_protect_at_end',
 '
-@deffn category2 deffn_name2 arguments2 @'],
+@deffn category2 deffn_name2 arguments2 @',
+{'test_formats' => ['xml'],},],
 ['end_of_line_end_file',
 '@deffn category deffn_name arguments @
-'],
+', {'test_formats' => ['xml'],},],
 # the command with type is compared with the corresponding command without type
 ['empty_deftype',
 '@deftypefun {} f (const type& x)

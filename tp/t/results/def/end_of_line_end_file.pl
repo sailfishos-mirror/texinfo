@@ -72,4 +72,9 @@ $result_errors{'end_of_line_end_file'} = [
 $result_floats{'end_of_line_end_file'} = {};
 
 
+
+$result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn spaces=" "><definitionterm></definitionterm>
+</deffn>
+';
+
 1;
