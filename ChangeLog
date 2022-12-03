@@ -1,3 +1,22 @@
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Clickable section title in @contents for PDF
+
+	* doc/texinfo.tex
+	(\pdflinkpage): Generalise definition of \pdflink to take
+	a link contents as well as a page number.
+	(\iflinkentrytext): New conditional.
+	(\startcontents): Set it.
+	(\finishentry) [pdfTeX, XeTeX]: Use \pdflinkpage if \iflinkentrytext
+	is true to allow clicking on the section title as well as the page
+	number.
+
+	(\shortchapentry, \shortunnchapentry, \dochapentry, \dosecentry,
+	(\dosubsecentry, \dosubsubsecentry): Do not call \dopageno or
+	\doshortpageno, as these surround the page number with TeX commands
+	that get in the way in \pdflinkpage and appear to be unnecessary.
+	(\dopageno, \doshortpageno): Remove.
+
 2022-12-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): ignore @def*
