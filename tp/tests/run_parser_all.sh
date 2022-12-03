@@ -118,6 +118,7 @@ post_process_output ()
   elif test "$use_latex2html" = 'yes' ; then
     sed -e 's/^texexpand.*/texexpand /' \
         -e '/is no longer supported at.*line/d' \
+        -e '/^could not open/d' \
         -e 's/^htmlxref/.\/htmlxref/' \
         $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
     # "*"_images.pl" files are not guaranteed to be present
@@ -146,9 +147,11 @@ post_process_output ()
     rm -f ${outdir}$dir/*.aux ${outdir}$dir/*_images.out \
           ${outdir}$dir/*_l2h.css ${outdir}$dir/*_l2h_images.pl
   else
-    # Account for variant output under MS-Windows.  This transformation
-    # is also done above.
-    sed -e 's/^htmlxref/.\/htmlxref/' \
+    # Delete error message that may have directories in file name and
+    # account for variant output under MS-Windows.  These transformations
+    # are also done above.
+    sed -e '/^could not open/d' \
+        -e 's/^htmlxref/.\/htmlxref/' \
         $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
   fi
 }
