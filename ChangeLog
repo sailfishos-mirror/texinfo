@@ -1,3 +1,10 @@
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/texi2any.pl: Give a warning if input filename ends in '.info'.
+	* NEWS, TODO: Update.
+	* tp/tests/formatting/list-of-tests (info_extension_warning):
+	New test.
+
 2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* NEWS, doc/texinfo.texi (Heading Generation, @headings)

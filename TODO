@@ -42,7 +42,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     for extensible documents (Mallard format ideas)
 
 * texi2any:
-  - give a warning for "makeinfo FOO.info" when "makeinfo FOO.texi" was meant
   - HTML: support thumbnails.
   - HTML: have a library of different CSS styles.
     http://mail.gnu.org/archive/html/bug-texinfo/2004-01/msg00025.html

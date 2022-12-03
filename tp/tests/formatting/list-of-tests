@@ -43,3 +43,5 @@ manual_include_accented_file_name_latin1_explicit_encoding manual_include_accent
 # of the test suite is utf8
 manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -D 'needrecodedfilenames Need recoded file names' -c MESSAGE_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8
 
+info_extension_warning foo.info
+

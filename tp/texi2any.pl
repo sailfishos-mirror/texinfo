@@ -1342,6 +1342,12 @@ while(@input_files) {
   $file_number++;
   my $input_file_arg = shift(@input_files);
   my $input_file_name;
+  if ($input_file_arg =~ /\.info$/) {
+      document_warn(sprintf(
+          __('input file `%s\'; did you mean `%s\'?'),
+          $input_file_arg,
+          ($input_file_arg =~ s/\.info$/.texi/r)));
+  }
   # try to concatenate with different suffixes. The last suffix is ''
   # such that the plain file name is checked.
   foreach my $suffix (@input_file_suffixes) {
