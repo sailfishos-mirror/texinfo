@@ -1931,6 +1931,108 @@ end_line_misc_line (ELEMENT *current)
   return current;
 }
 
+ELEMENT *
+end_line_def_line (ELEMENT *current)
+{
+  enum command_id def_command, original_def_command;
+  DEF_INFO *def_info = 0;
+  static DEF_INFO zero_def_info; /* always stays zeroed */
+  KEY_PAIR *k;
+
+  if (pop_context () != ct_def)
+    fatal ("def context expected");
+
+  k = lookup_extra (current->parent, "original_def_cmdname");
+  if (k)
+    original_def_command = lookup_command ((char *) k->value);
+  else
+    original_def_command = current->parent->parent->cmd;
+
+  def_command = original_def_command;
+  /* Strip an trailing x from the command, e.g. @deffnx -> @deffn */
+  if (command_data(def_command).flags & CF_line)
+    {
+      char *stripped = strdup (command_name(def_command));
+      stripped[strlen (stripped) - 1] = '\0';
+      def_command = lookup_command (stripped);
+      free (stripped);
+    }
+
+  /* in case there are no arguments at all, it needs to be called here. */
+  abort_empty_line (&current, NULL);
+
+  def_info = parse_def (def_command, current);
+
+  /* Record the index entry if def_info is not empty. */
+  if (!memcmp(def_info, &zero_def_info, sizeof (DEF_INFO)))
+    {
+      free (def_info);
+      command_warn (current->parent, "missing category for @%s",
+                    command_name (original_def_command));
+    }
+  else
+    {
+      ELEMENT *index_entry = 0; /* Index entry text. */
+
+      add_extra_def_info (current->parent, "def_parsed_hash", def_info);
+
+      if (def_info->name)
+        {
+          char *t;
+          /* Set index_entry unless an empty ET_bracketed_def_content. */
+          if (def_info->name->type == ET_bracketed_def_content
+              && (def_info->name->contents.number == 0
+                  || (def_info->name->contents.number == 1
+                      && (t = def_info->name->contents.list[0]->text.text)
+                      && t[strspn (t, whitespace_chars)] == '\0')))
+            {
+            }
+          else
+            index_entry = def_info->name;
+        }
+
+      if (index_entry)
+        {
+          ELEMENT *index_contents = 0;
+
+          if (def_info->class &&
+              (def_command == CM_defop
+                  || def_command == CM_deftypeop
+                  || def_command == CM_defmethod
+                  || def_command == CM_deftypemethod
+                  || def_command == CM_defivar
+                  || def_command == CM_deftypeivar
+                  || def_command == CM_deftypecv))
+            {
+              if (global_documentlanguage)
+                add_extra_string_dup (current->parent, "documentlanguage",
+                                      global_documentlanguage);
+            }
+          else
+            {
+              index_contents = new_element (ET_NONE);
+              if (index_contents->contents.number == 0)
+                add_to_contents_as_array (index_contents, index_entry);
+            }
+
+          enter_index_entry (def_command,
+                             original_def_command,
+                             current->parent,
+                             index_contents);
+        }
+      else
+        {
+          command_warn (current->parent, "missing name for @%s",
+                        command_name (original_def_command));
+        }
+    }
+
+  current = current->parent->parent;
+  current = begin_preformatted (current);
+
+  return current;
+}
+
 /* Actions to be taken when a whole line of input has been processed */
 ELEMENT *
 end_line (ELEMENT *current)
@@ -2126,101 +2228,7 @@ end_line (ELEMENT *current)
   /* End of a definition line, like @deffn */
   else if (current->parent && current->parent->type == ET_def_line)
     {
-      enum command_id def_command, original_def_command;
-      DEF_INFO *def_info = 0;
-      static DEF_INFO zero_def_info; /* always stays zeroed */
-      KEY_PAIR *k;
-
-      if (pop_context () != ct_def)
-        fatal ("def context expected");
-
-      k = lookup_extra (current->parent, "original_def_cmdname");
-      if (k)
-        original_def_command = lookup_command ((char *) k->value);
-      else
-        original_def_command = current->parent->parent->cmd;
-
-      def_command = original_def_command;
-      /* Strip an trailing x from the command, e.g. @deffnx -> @deffn */
-      if (command_data(def_command).flags & CF_line)
-        {
-          char *stripped = strdup (command_name(def_command));
-          stripped[strlen (stripped) - 1] = '\0';
-          def_command = lookup_command (stripped);
-          free (stripped);
-        }
-
-      /* in case there are no arguments at all, it needs to be called here. */
-      abort_empty_line (&current, NULL);
-
-      def_info = parse_def (def_command, current);
-
-      /* Record the index entry if def_info is not empty. */
-      if (!memcmp(def_info, &zero_def_info, sizeof (DEF_INFO)))
-        {
-          free (def_info);
-          command_warn (current->parent, "missing category for @%s",
-                        command_name (original_def_command));
-        }
-      else
-        {
-          ELEMENT *index_entry = 0; /* Index entry text. */
-
-          add_extra_def_info (current->parent, "def_parsed_hash", def_info);
-
-          if (def_info->name)
-            {
-              char *t;
-              /* Set index_entry unless an empty ET_bracketed_def_content. */
-              if (def_info->name->type == ET_bracketed_def_content
-                  && (def_info->name->contents.number == 0
-                      || (def_info->name->contents.number == 1
-                          && (t = def_info->name->contents.list[0]->text.text)
-                          && t[strspn (t, whitespace_chars)] == '\0')))
-                {
-                }
-              else
-                index_entry = def_info->name;
-            }
-
-          if (index_entry)
-            {
-              ELEMENT *index_contents = 0;
-
-              if (def_info->class &&
-                  (def_command == CM_defop
-                      || def_command == CM_deftypeop
-                      || def_command == CM_defmethod
-                      || def_command == CM_deftypemethod
-                      || def_command == CM_defivar
-                      || def_command == CM_deftypeivar
-                      || def_command == CM_deftypecv))
-                {
-                  if (global_documentlanguage)
-                    add_extra_string_dup (current->parent, "documentlanguage",
-                                          global_documentlanguage);
-                }
-              else
-                {
-                  index_contents = new_element (ET_NONE);
-                  if (index_contents->contents.number == 0)
-                    add_to_contents_as_array (index_contents, index_entry);
-                }
-
-              enter_index_entry (def_command,
-                                 original_def_command,
-                                 current->parent,
-                                 index_contents);
-            }
-          else
-            {
-              command_warn (current->parent, "missing name for @%s",
-                            command_name (original_def_command));
-            }
-        }
-
-      current = current->parent->parent;
-      current = begin_preformatted (current);
+      current = end_line_def_line (current);
     }
   /* End of a line starting a block. */
   else if (current->type == ET_block_line_arg)

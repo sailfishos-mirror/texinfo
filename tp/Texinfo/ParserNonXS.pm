@@ -1940,19 +1940,17 @@ sub _close_current($$$;$$)
           and !@{$current->{'contents'}}) {
         pop @{$current->{'parent'}->{'contents'}};
       }
+    } elsif ($current->{'parent'}
+             and $current->{'parent'}->{'type'}
+             and $current->{'parent'}->{'type'} eq 'def_line') {
+      _end_line_def_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'line_arg') {
-      if ($current->{'parent'}
-          and $current->{'parent'}->{'type'}
-          and $current->{'parent'}->{'type'} eq 'def_line') {
-        $self->_pop_context(['ct_def'], $source_info, $current);
-      } else {
-        #$current = _end_line_misc_line($self, $current, $source_info);
-        # We ignore the current returned $current, to be sure that
-        # we close the command too.
-        _end_line_misc_line($self, $current, $source_info);
-      }
+      #$current = _end_line_misc_line($self, $current, $source_info);
+      # We ignore the current returned $current, to be sure that
+      # we close the command too.
+      _end_line_misc_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'block_line_arg') {
-      $self->_pop_context(['ct_line', 'ct_def'], $source_info, $current);
+      $self->_pop_context(['ct_line'], $source_info, $current);
     }
     # empty types, not closed or associated to a command that is not closed
     delete $current->{'contents'}
@@ -3265,6 +3263,85 @@ sub _end_line_misc_line($$$)
   return $current;
 }
 
+sub _end_line_def_line($$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $source_info = shift;
+
+  $self->_pop_context(['ct_def'], $source_info, $current);
+  # in case there are no arguments at all, it needs to be called here.
+  _abort_empty_line($self, $current);
+  my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
+  my $arguments = _parse_def($self, $def_command, $current);
+  if (scalar(@$arguments)) {
+    #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
+    my $def_parsed_hash = {};
+    foreach my $arg (@$arguments) {
+      die if (!defined($arg->[0]));
+      last if ($arg->[0] eq 'arg' or $arg->[0] eq 'typearg'
+               or $arg->[0] eq 'delimiter');
+      next if ($arg->[0] eq 'spaces');
+      $def_parsed_hash->{$arg->[0]} = $arg->[1];
+    }
+    $current->{'parent'}->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
+    # do a standard index entry tree
+    my $index_entry;
+    if (defined($def_parsed_hash->{'name'})) {
+      $index_entry = $def_parsed_hash->{'name'}
+       # empty bracketed
+        unless ($def_parsed_hash->{'name'}->{'type'}
+                and $def_parsed_hash->{'name'}->{'type'} eq 'bracketed_def_content'
+                and (!$def_parsed_hash->{'name'}->{'contents'}
+                     or (!scalar(@{$def_parsed_hash->{'name'}->{'contents'}}))
+                     or (scalar(@{$def_parsed_hash->{'name'}->{'contents'}}) == 1
+                        and defined($def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'})
+                        and $def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'} !~ /\S/)));
+    }
+    if (defined($index_entry)) {
+      my $index_contents_normalized;
+      if ($def_parsed_hash->{'class'}) {
+        # Delay getting the text until Texinfo::Structuring::sort_index_keys
+        # in order to avoid using gdt.
+        # We need to store the language as well in case there are multiple
+        # languages in the document.
+        if ($command_index{$def_command} eq 'fn'
+            or $command_index{$def_command} eq 'vr'
+                and $def_command ne 'defcv') {
+          undef $index_entry;
+          if (defined($self->{'documentlanguage'})) {
+            $current->{'parent'}->{'extra'}->{'documentlanguage'}
+                   = $self->{'documentlanguage'};
+          }
+        }
+      }
+      my $index_contents;
+      if ($index_entry) {
+        $index_contents_normalized = [$index_entry];
+        $index_contents = [$index_entry];
+      }
+
+      _enter_index_entry($self,
+        $current->{'parent'}->{'extra'}->{'def_command'},
+        $current->{'parent'}->{'extra'}->{'original_def_cmdname'},
+        $current->{'parent'}, $index_contents,
+        $index_contents_normalized, $source_info);
+    } else {
+      $self->_command_warn($current->{'parent'}, $source_info,
+                           __('missing name for @%s'),
+         $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
+    }
+  } else {
+    $self->_command_warn($current->{'parent'}, $source_info,
+                         __('missing category for @%s'),
+       $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
+  }
+  $current = $current->{'parent'}->{'parent'};
+  $current = _begin_preformatted($self, $current);
+
+  return $current;
+}
+
 # close constructs and do stuff at end of line (or end of the document)
 sub _end_line($$$);
 sub _end_line($$$)
@@ -3424,76 +3501,7 @@ sub _end_line($$$)
   } elsif ($current->{'parent'}
             and $current->{'parent'}->{'type'}
             and $current->{'parent'}->{'type'} eq 'def_line') {
-    $self->_pop_context(['ct_def'], $source_info, $current);
-    # in case there are no arguments at all, it needs to be called here.
-    _abort_empty_line($self, $current);
-    my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
-    my $arguments = _parse_def($self, $def_command, $current);
-    if (scalar(@$arguments)) {
-      #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
-      my $def_parsed_hash = {};
-      foreach my $arg (@$arguments) {
-        die if (!defined($arg->[0]));
-        last if ($arg->[0] eq 'arg' or $arg->[0] eq 'typearg'
-                 or $arg->[0] eq 'delimiter');
-        next if ($arg->[0] eq 'spaces');
-        $def_parsed_hash->{$arg->[0]} = $arg->[1];
-      }
-      $current->{'parent'}->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
-      # do a standard index entry tree
-      my $index_entry;
-      if (defined($def_parsed_hash->{'name'})) {
-        $index_entry = $def_parsed_hash->{'name'}
-         # empty bracketed
-          unless ($def_parsed_hash->{'name'}->{'type'}
-                  and $def_parsed_hash->{'name'}->{'type'} eq 'bracketed_def_content'
-                  and (!$def_parsed_hash->{'name'}->{'contents'}
-                       or (!scalar(@{$def_parsed_hash->{'name'}->{'contents'}}))
-                       or (scalar(@{$def_parsed_hash->{'name'}->{'contents'}}) == 1
-                          and defined($def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'})
-                          and $def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'} !~ /\S/)));
-      }
-      if (defined($index_entry)) {
-        my $index_contents_normalized;
-        if ($def_parsed_hash->{'class'}) {
-          # Delay getting the text until Texinfo::Structuring::sort_index_keys
-          # in order to avoid using gdt.
-          # We need to store the language as well in case there are multiple
-          # languages in the document.
-          if ($command_index{$def_command} eq 'fn'
-              or $command_index{$def_command} eq 'vr'
-                  and $def_command ne 'defcv') {
-            undef $index_entry;
-            if (defined($self->{'documentlanguage'})) {
-              $current->{'parent'}->{'extra'}->{'documentlanguage'}
-                     = $self->{'documentlanguage'};
-            }
-          }
-        }
-        my $index_contents;
-        if ($index_entry) {
-          $index_contents_normalized = [$index_entry];
-          $index_contents = [$index_entry];
-        }
-
-        _enter_index_entry($self,
-          $current->{'parent'}->{'extra'}->{'def_command'},
-          $current->{'parent'}->{'extra'}->{'original_def_cmdname'},
-          $current->{'parent'}, $index_contents,
-          $index_contents_normalized, $source_info);
-      } else {
-        $self->_command_warn($current->{'parent'}, $source_info,
-                             __('missing name for @%s'),
-           $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
-      }
-    } else {
-      $self->_command_warn($current->{'parent'}, $source_info,
-                           __('missing category for @%s'),
-         $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
-    }
-    $current = $current->{'parent'}->{'parent'};
-    $current = _begin_preformatted($self, $current);
-
+    $current = _end_line_def_line($self, $current, $source_info);
   # other block command lines
   } elsif ($current->{'type'}
             and $current->{'type'} eq 'block_line_arg') {

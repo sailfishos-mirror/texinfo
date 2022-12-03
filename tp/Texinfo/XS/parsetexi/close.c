@@ -357,14 +357,10 @@ close_current (ELEMENT *current,
 
           break;
         case ET_line_arg:
+          /* @-commands like @deffnx */
           if (current->parent && current->parent->type == ET_def_line)
             {
-              c = pop_context ();
-              if (c != ct_def)
-                {
-                  /* error */
-                  fatal ("def context expected");
-                }
+              end_line_def_line (current);
             }
           else
             {
@@ -376,11 +372,19 @@ close_current (ELEMENT *current,
 
           break;
         case ET_block_line_arg:
-          c = pop_context ();
-          if (c != ct_line && c != ct_def)
+          /* @-commands like @deffn */
+          if (current->parent && current->parent->type == ET_def_line)
             {
-              /* error */
-              fatal ("line or def context expected");
+              end_line_def_line (current);
+            }
+          else
+            {
+              c = pop_context ();
+              if (c != ct_line)
+                {
+                  /* error */
+                  fatal ("line context expected");
+                }
             }
           current = current->parent;
           break;

@@ -17,7 +17,43 @@ $result_trees{'end_of_line_end_file'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'category deffn_name arguments '
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'text' => 'category'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'text' => 'deffn_name'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'text' => 'arguments'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -25,6 +61,25 @@ $result_trees{'end_of_line_end_file'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'entry_content' => [
+                    {}
+                  ],
+                  'entry_element' => {},
+                  'entry_number' => 1,
+                  'in_code' => 1,
+                  'index_at_command' => 'deffn',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deffn'
+                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -50,13 +105,28 @@ $result_trees{'end_of_line_end_file'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'end_of_line_end_file'} = '@deffn category deffn_name arguments ';
 
 
-$result_texts{'end_of_line_end_file'} = '';
+$result_texts{'end_of_line_end_file'} = 'category: deffn_name arguments 
+';
 
 $result_errors{'end_of_line_end_file'} = [
+  {
+    'error_line' => 'warning: entry for index `fn\' outside of any node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'entry for index `fn\' outside of any node',
+    'type' => 'warning'
+  },
   {
     'error_line' => 'no matching `@end deffn\'
 ',
@@ -72,8 +142,15 @@ $result_errors{'end_of_line_end_file'} = [
 $result_floats{'end_of_line_end_file'} = {};
 
 
+$result_indices_sort_strings{'end_of_line_end_file'} = {
+  'fn' => [
+    'deffn_name'
+  ]
+};
 
-$result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn spaces=" "><definitionterm></definitionterm>
+
+
+$result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">deffn_name</indexterm><defcategory>category</defcategory> <deffunction>deffn_name</deffunction> <defparam>arguments</defparam> </definitionterm>
 </deffn>
 ';
 

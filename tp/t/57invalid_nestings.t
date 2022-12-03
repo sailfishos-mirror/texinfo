@@ -99,14 +99,6 @@ Somethin
 
 Content
 '],
-['section_on_defx_line',
-'@deffn h j k l 
-@deffnx a b @section s
-
-Something
-
-@end deffn
-'],
 ['center',
 '@center @indent @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote}
 
@@ -555,6 +547,14 @@ in quotation
 '],
 ['section_on_def_line',
 '@deffn a b @section s
+
+Something
+
+@end deffn
+'],
+['section_on_defx_line',
+'@deffn h j k l 
+@deffnx a b @section s
 
 Something
 
