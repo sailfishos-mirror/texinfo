@@ -2484,17 +2484,7 @@ output in the same place.
 @subsection Heading Generation
 
 @anchor{end titlepage}@c old name
-@cindex Headings, page, begin to appear
-@cindex Titlepage end starts headings
-@cindex End titlepage starts headings
 @cindex Generating page headings
-
-Like all @code{@@end} commands (@pxref{Quotations and Examples}), the
-@code{@@end titlepage} command must be written at the beginning of a
-line by itself, with only one space between the @code{@@end} and the
-@code{titlepage}.  It not only marks the end of the title and
-copyright pages, but also causes @TeX{} to start generating page
-headings and page numbers.
 
 Texinfo has two standard page heading formats, one for documents
 printed on one side of each sheet of paper (single-sided printing),
@@ -2506,9 +2496,7 @@ In full generality, you can control the headings in different ways:
 @itemize @bullet
 @item
 The conventional way is to write a @code{@@setchapternewpage} command
-before the title page commands, if required, and then have the
-@code{@@end titlepage} command start generating page headings in the
-manner desired.
+before the title page commands.
 
 Most documents are formatted with the standard single-sided or
 double-sided headings, (sometimes) using @code{@@setchapternewpage
@@ -2519,9 +2507,8 @@ odd} for double-sided printing and (almost always) no
 @item
 Alternatively, you can use the @code{@@headings} command to prevent
 page headings from being generated or to start them for either single
-or double-sided printing.  Write a @code{@@headings} command
-immediately after the @code{@@end titlepage} command.  To turn off
-headings, write @code{@@headings off}.  @xref{@code{@@headings}}.
+or double-sided printing. To turn off headings, write @code{@@headings off}.
+@xref{@code{@@headings}}.
 
 @item
 Or, you may specify your own page heading and footing format.
@@ -23207,10 +23194,8 @@ and footers for even-numbered (left-hand) pages.
 for odd-numbered (right-hand) pages.
 @end itemize
 
-Write custom heading specifications in the Texinfo file immediately
-after the @code{@@end titlepage} command.  You must cancel the
-predefined heading commands with the @code{@@headings off} command
-before defining your own specifications.
+You must cancel the predefined heading commands with the
+@code{@@headings off} command before defining your own specifications.
 
 @need 1000
 Here is how to place the chapter name at the left, the page number in

@@ -1,5 +1,11 @@
 2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* NEWS, doc/texinfo.texi (Heading Generation, @headings)
+	(Custom Headings): Update now that @titlepage does not do
+	"@headings on".
+
+2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Make texi2dvi -t '@headings double' work
 
 	* doc/texinfo.tex (\setchapternewpage): Call \HEADINGSon as

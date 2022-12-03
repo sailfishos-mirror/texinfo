@@ -24,6 +24,9 @@ See the manual for detailed information.
  . macro expansion with texi2any requires at least version 5.0 (only
    happens with --expand option or with very old texinfo.tex)
 
+* texinfo.tex
+ . page headings generation is no longer linked to the @titlepage command
+
 
 7.0.1 (30 November 2022)
 This is a bug-fix release with minimal changes.
