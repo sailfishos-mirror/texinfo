@@ -1,5 +1,13 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Atomic dir update
+
+	* install-info/install-info.c (output_dirfile):
+	If rename to dir file failed, try deleting target file
+	and try again.  From Eli.
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Clickable section title in @contents for PDF
 
 	* doc/texinfo.tex

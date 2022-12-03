@@ -1054,7 +1054,20 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   /* Update dir file atomically.  This stops the dir file being corrupted
      if install-info is interrupted. */
   if (rename (tempname, dirfile) == -1)
-    perror (tempname);
+    {
+      /* Try to delete target file and try again.  On some platforms you
+         may not rename to an existing file. */
+      if (remove (dirfile) == -1)
+        {
+          perror (dirfile);
+          remove (tempname);
+        }
+      else if (rename (tempname, dirfile) == -1)
+        {
+          perror (tempname);
+          remove (tempname);
+        }
+    }
 }
 
 /* Read through the input LINES, to find the section names and the
