@@ -1,5 +1,9 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* TODO: add @node and HTML splitting
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Atomic dir update
 
 	* install-info/install-info.c (output_dirfile):
