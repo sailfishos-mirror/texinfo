@@ -1,5 +1,11 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/maintain/regenerate_file_lists.pl: Hardcode script name
+	to be placed in Makefile.tres, so it will not change depending
+	on where it was run from, e.g. from autogen.sh.
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* configure.ac, util/texi2pdf, js/info.js: bump version to 7.0dev.
 	* README-hacking: remove duplicate instruction
 
