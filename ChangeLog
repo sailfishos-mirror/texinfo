@@ -1,5 +1,16 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Atomic dir update
+
+	* install-info/install-info.c (output_dirfile): Write to
+	file created by mkstemp first, then rename this to the real
+	output file. 
+	* TODO: Remove item.
+
+	Report from Pedrum Mohageri, bug-texinfo, November 2015.
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Directory Category), TODO: Do not refer
 	to Free Software Directory categories.
 

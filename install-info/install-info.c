@@ -923,14 +923,19 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   int n_entries_added = 0;
   int i;
   FILE *output;
+  int tempfile; /* moved to dirfile when finished */
+  char tempname[] = "infodirXXXXXX";
 
+  tempfile = mkstemp (tempname);
   if (compression_program)
     {
-      char *command = concat (compression_program, ">", dirfile);
+      char *command;
+      close (tempfile);
+      command = concat (compression_program, ">", tempname);
       output = popen (command, "w");
     }
   else
-    output = fopen (dirfile, "w");
+    output = fdopen (tempfile, "w");
 
   if (!output)
     {
@@ -1045,6 +1050,11 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
     pclose (output);
   else
     fclose (output);
+
+  /* Update dir file atomically.  This stops the dir file being corrupted
+     if install-info is interrupted. */
+  if (rename (tempname, dirfile) == -1)
+    perror (tempname);
 }
 
 /* Read through the input LINES, to find the section names and the
