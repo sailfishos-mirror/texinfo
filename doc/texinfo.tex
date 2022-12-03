@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-11-13.08}
+\def\texinfoversion{2022-12-03.01}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -3747,6 +3747,7 @@ $$%
   % Open one extra group, as we want to close it in the middle of \Etitlepage.
   \begingroup
     \parindent=0pt \textfonts
+    \headingsoff
     % Leave some space at the very top of the page.
     \vglue\titlepagetopglue
     % No rule at page bottom unless we print one at the top with @title.
@@ -3774,11 +3775,9 @@ $$%
     % If we use the new definition of \page, we always get a blank page
     % after the title page, which we certainly don't want.
     \oldpage
+    \pageone
   \endgroup
   %
-  % Need this before the \...aftertitlepage checks so that if they are
-  % in effect the toc pages will come out with page numbers.
-  \HEADINGSon
 }
 
 \def\finishtitlepage{%
@@ -3947,7 +3946,6 @@ $$%
 }
 
 \def\HEADINGSoff{{\globaldefs=1 \headingsoff}} % global setting
-\HEADINGSoff  % it's the default
 
 % When we turn headings on, set the page number to 1.
 \def\pageone{
@@ -3971,7 +3969,7 @@ $$%
 \pageone
 \HEADINGSsinglex
 }
-\def\HEADINGSon{\HEADINGSdouble}
+% \def\HEADINGSon{\HEADINGSdouble} % defined by \CHAPPAGon
 
 \def\HEADINGSafter{\let\HEADINGShook=\HEADINGSdoublex}
 \let\HEADINGSdoubleafter=\HEADINGSafter
@@ -6392,7 +6390,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \global\let\pchapsepmacro=\chapoddpage
 \global\def\HEADINGSon{\HEADINGSdouble}}
 
-\CHAPPAGon
+\CHAPPAGon \HEADINGSon % default
 
 % \chapmacro - Chapter opening.
 %

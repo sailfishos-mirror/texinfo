@@ -1,5 +1,16 @@
 2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Make texi2dvi -t '@headings double' work
+
+	* doc/texinfo.tex: Call \HEADINGSon to set headings from very start
+	of file.
+	(\titlepage): Call \headingsoff to turn off headings temporarily.
+	Do not call \HEADINGSon as this may override a
+	texi2dvi -t '@headings double' setting.  Reset page number with
+	\pageone.
+
+2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/window.h: Eliminate #define used to use the same three fields
 	in two different structures, as the comment explaining it took
 	more space up than it would have taken simply to write the lines
