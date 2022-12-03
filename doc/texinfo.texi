@@ -1953,19 +1953,13 @@ specification, which is why they are implemented with comments.
 @section Directory Category
 
 @findex dircategory
-@cindex Free Software Directory
 @cindex Dir categories, choosing
 @cindex Categories, choosing
 Use the @code{@@dircategory} command to specify a category
-for the manual.  When choosing the name of the category, we
-recommend consulting the @uref{http://www.gnu.org/directory,
-Free Software Directory}.  If your program is not listed there,
-or listed incorrectly or incompletely, please report the situation to
-the directory maintainers (@url{http://directory.fsf.org}) so that the
-category names can be kept in sync.
-
-Here are a few examples of category names:
+for the manual.  Here are a few examples of category names:
 @c from util/dir-example
+@c we used to recommend looking at Free Software Directory categories
+@c but these have changed
 
 @display
 Basics

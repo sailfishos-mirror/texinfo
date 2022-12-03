@@ -1,5 +1,10 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Directory Category), TODO: Do not refer
+	to Free Software Directory categories.
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* configure.ac: Do not add js/node_modules/.bin/ to program
 	search path if the directory does not exist.
 
