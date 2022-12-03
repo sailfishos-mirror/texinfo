@@ -1343,10 +1343,10 @@ while(@input_files) {
   my $input_file_arg = shift(@input_files);
   my $input_file_name;
   if ($input_file_arg =~ /\.info$/) {
+      my $basename = ($input_file_arg =~ s|.*/||r);
       document_warn(sprintf(
-          __('input file `%s\'; did you mean `%s\'?'),
-          $input_file_arg,
-          ($input_file_arg =~ s/\.info$/.texi/r)));
+          __('input file %s; did you mean %s?'),
+          $basename, ($basename =~ s/\.info$/.texi/r)));
   }
   # try to concatenate with different suffixes. The last suffix is ''
   # such that the plain file name is checked.
