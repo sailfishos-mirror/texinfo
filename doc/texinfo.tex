@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-03.01}
+\def\texinfoversion{2022-12-03.02}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -6373,7 +6373,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi
 }
 
-\parseargdef\setchapternewpage{\csname CHAPPAG#1\endcsname}
+\parseargdef\setchapternewpage{\csname CHAPPAG#1\endcsname\HEADINGSon}
 
 \def\CHAPPAGoff{%
 \global\let\contentsalignmacro = \chappager
@@ -6390,7 +6390,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \global\let\pchapsepmacro=\chapoddpage
 \global\def\HEADINGSon{\HEADINGSdouble}}
 
-\CHAPPAGon \HEADINGSon % default
+\setchapternewpage on
 
 % \chapmacro - Chapter opening.
 %

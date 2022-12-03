@@ -2,6 +2,13 @@
 
 	Make texi2dvi -t '@headings double' work
 
+	* doc/texinfo.tex (\setchapternewpage): Call \HEADINGSon as
+	we are not relying on it being called inside @titlepage any more.
+
+2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Make texi2dvi -t '@headings double' work
+
 	* doc/texinfo.tex: Call \HEADINGSon to set headings from very start
 	of file.
 	(\titlepage): Call \headingsoff to turn off headings temporarily.
