@@ -46,6 +46,7 @@
 #  mbsstr \
 #  mbswidth \
 #  memrchr \
+#  mkstemp \
 #  regex \
 #  stdarg \
 #  strcasestr \
@@ -231,6 +232,16 @@ endif
 
 endif
 ## end   gnulib module close
+
+## begin gnulib module dirname-lgpl
+
+if gl_GNULIB_ENABLED_a691da99c1d83b83238e45f41a696f5c
+libgnu_a_SOURCES += dirname-lgpl.c stripslash.c
+
+endif
+EXTRA_DIST += dirname.h
+
+## end   gnulib module dirname-lgpl
 
 ## begin gnulib module dup2
 
@@ -532,6 +543,16 @@ libgnu_a_SOURCES += getprogname.h getprogname.c
 
 ## end   gnulib module getprogname
 
+## begin gnulib module getrandom
+
+if gl_GNULIB_ENABLED_getrandom
+if GL_COND_OBJ_GETRANDOM
+libgnu_a_SOURCES += getrandom.c
+endif
+
+endif
+## end   gnulib module getrandom
+
 ## begin gnulib module gettext-h
 
 libgnu_a_SOURCES += gettext.h
@@ -782,6 +803,16 @@ libgnu_a_SOURCES += glthread/lock.h glthread/lock.c
 endif
 ## end   gnulib module lock
 
+## begin gnulib module lstat
+
+if gl_GNULIB_ENABLED_lstat
+if GL_COND_OBJ_LSTAT
+libgnu_a_SOURCES += lstat.c
+endif
+
+endif
+## end   gnulib module lstat
+
 ## begin gnulib module malloc-gnu
 
 
@@ -931,6 +962,24 @@ endif
 libgnu_a_SOURCES += minmax.h
 
 ## end   gnulib module minmax
+
+## begin gnulib module mkdir
+
+if gl_GNULIB_ENABLED_mkdir
+if GL_COND_OBJ_MKDIR
+libgnu_a_SOURCES += mkdir.c
+endif
+
+endif
+## end   gnulib module mkdir
+
+## begin gnulib module mkstemp
+
+if GL_COND_OBJ_MKSTEMP
+libgnu_a_SOURCES += mkstemp.c
+endif
+
+## end   gnulib module mkstemp
 
 ## begin gnulib module msvc-inval
 
@@ -1797,6 +1846,38 @@ EXTRA_libgnu_a_SOURCES += strstr.c
 
 ## end   gnulib module strstr-simple
 
+## begin gnulib module sys_random
+
+if gl_GNULIB_ENABLED_sys_random
+BUILT_SOURCES += sys/random.h
+
+# We need the following in order to create <sys/random.h> when the system
+# doesn't have one.
+sys/random.h: sys_random.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
+	$(AM_V_GEN)$(MKDIR_P) '%reldir%/sys'
+	$(AM_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_SYS_RANDOM_H''@|$(NEXT_SYS_RANDOM_H)|g' \
+	      -e 's|@''HAVE_SYS_RANDOM_H''@|$(HAVE_SYS_RANDOM_H)|g' \
+	      -e 's/@''GNULIB_GETRANDOM''@/$(GL_GNULIB_GETRANDOM)/g' \
+	      -e 's/@''HAVE_GETRANDOM''@/$(HAVE_GETRANDOM)/g' \
+	      -e 's/@''REPLACE_GETRANDOM''@/$(REPLACE_GETRANDOM)/g' \
+	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
+	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
+	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
+	      $(srcdir)/sys_random.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += sys/random.h sys/random.h-t
+MOSTLYCLEANDIRS += sys
+
+endif
+EXTRA_DIST += sys_random.in.h
+
+## end   gnulib module sys_random
+
 ## begin gnulib module sys_stat
 
 if gl_GNULIB_ENABLED_sys_stat
@@ -1895,6 +1976,16 @@ MOSTLYCLEANFILES += sys/types.h sys/types.h-t
 EXTRA_DIST += sys_types.in.h
 
 ## end   gnulib module sys_types
+
+## begin gnulib module tempname
+
+if gl_GNULIB_ENABLED_tempname
+libgnu_a_SOURCES += tempname.c
+
+endif
+EXTRA_DIST += tempname.h
+
+## end   gnulib module tempname
 
 ## begin gnulib module threadlib
 

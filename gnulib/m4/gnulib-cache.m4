@@ -51,6 +51,7 @@
 #  mbsstr \
 #  mbswidth \
 #  memrchr \
+#  mkstemp \
 #  regex \
 #  stdarg \
 #  strcasestr \
@@ -75,6 +76,7 @@ gl_MODULES([
   mbsstr
   mbswidth
   memrchr
+  mkstemp
   regex
   stdarg
   strcasestr
