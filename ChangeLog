@@ -1,5 +1,10 @@
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* configure.ac (AM_INIT_AUTOMAKE): Remove dist-xz option for
+	development as it is too slow.
+
+2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/texi2any.pl: Give a warning if input filename ends in '.info'.
 	* NEWS, TODO: Update.
 	* tp/tests/formatting/list-of-tests (info_extension_warning):
