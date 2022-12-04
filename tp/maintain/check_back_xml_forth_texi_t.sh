@@ -35,10 +35,18 @@ if test -n "$1"; then
   if test -n "$2" ; then
     one_test=yes
     the_test=$2
-    perl -w t/??$the_directory.t -c $the_test
+    if test -f t/$the_directory.t ; then
+      perl -w t/$the_directory.t -c $the_test
+    else
+      perl -w t/??$the_directory.t -c $the_test
+    fi
   else
     rm -rf $mdir/backforth_xmltexi/$the_directory $mdir/backforth_checktexi/$the_directory $mdir/backforth_plaintexi/$the_directory $mdir/backforth_logs/$the_directory.log
-    perl -w t/??$the_directory.t -c
+    if test -f t/$the_directory.t ; then
+      perl -w t/$the_directory.t -c
+    else
+      perl -w t/??$the_directory.t -c
+    fi
   fi
 else
   rm -rf $mdir/backforth_xmltexi $mdir/backforth_checktexi $mdir/backforth_plaintexi $mdir/backforth_logs
@@ -91,10 +99,11 @@ for dir in `find t_texis/ -type d` ; do
   ) > $logfile 2>&1
 done
 
+head -1000 check_back_xml_forth_texi/xmllint/*/*.2 > $mdir/xmllint_all.log
+
 diff -u -r t_texis/ $mdir/backforth_checktexi/ > $mdir/orig_texi.diff
 diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_texi.diff
 
 # To find XML parsing errors
 # grep --color 'parser error' check_back_xml_forth_texi/backforth_logs/*
 
-# head -1000 check_back_xml_forth_texi/xmllint/*/*.2 > xmllint_all.log
