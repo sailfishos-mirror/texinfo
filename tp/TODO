@@ -681,16 +681,6 @@ Misc notes
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 
-(
-for file in check_back_xml_forth_texi/backforth_xmltexi/*/*.xml; do
-  dir=`dirname "$file" | sed 's;check_back_xml_forth_texi/backforth_xmltexi/;;'`
-  bfile=`basename "$file" .xml`
-  echo $dir "$bfile"
-  mkdir -p check_back_xml_forth_texi/xmllint/$dir
-  xmllint --nonet --noout --valid $file > "check_back_xml_forth_texi/xmllint/$dir/${bfile}_lint.1" 2>"check_back_xml_forth_texi/xmllint/$dir/${bfile}_lint.2"
-done
-) > check_back_xml_forth_texi/check_xmllint.log 2>&1
-
 tidy -qe *.html
 
 profiling: package on debian:

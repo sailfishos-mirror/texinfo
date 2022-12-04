@@ -57,7 +57,7 @@ for dir in `find t_texis/ -type d` ; do
     continue
   fi
   echo "doing $bdir"
-  mkdir -p $mdir/backforth_plaintexi/$bdir $mdir/backforth_xmltexi/$bdir $mdir/backforth_checktexi/$bdir
+  mkdir -p $mdir/backforth_plaintexi/$bdir $mdir/backforth_xmltexi/$bdir $mdir/backforth_checktexi/$bdir $mdir/xmllint/$bdir
   if test $one_test = 'yes' ; then
     mkdir -p $mdir/onetest_logs
     logfile=$mdir/onetest_logs/$the_test.log
@@ -83,6 +83,8 @@ for dir in `find t_texis/ -type d` ; do
     ./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
     echo "              Texinfo XML"
     ./texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
+    echo "              xmllint"
+    xmllint --nonet --noout --valid $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/xmllint/$bdir/${bfile}_lint.1 2>$mdir/xmllint/$bdir/${bfile}_lint.2
     echo "              Back"
     ../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
   done
