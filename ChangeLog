@@ -1,5 +1,9 @@
 2022-12-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (\pdflink) <XeTeX>: Fix definition.
+
+2022-12-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@verb>:
 	Check \verb delimiter character is not used in contents,
 	and change newlines to spaces.

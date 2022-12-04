@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-04.12}
+\def\texinfoversion{2022-12-04.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -1787,7 +1787,7 @@ output) for that.)}
     \next}
   \def\makelink{\addtokens{\toksB}%
     {\noexpand\pdflink{\the\toksC}}\toksC={}\global\countA=0}
-  \def\pdflink#1{\pdflinkpage{#1}{#1}%
+  \def\pdflink#1{\pdflinkpage{#1}{#1}}%
   \def\pdflinkpage#1#2{%
     \special{pdf:bann << /Border [0 0 0]
       /Type /Annot /Subtype /Link /A << /S /GoTo /D (#1) >> >>}%
