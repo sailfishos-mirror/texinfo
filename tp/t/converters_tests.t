@@ -501,6 +501,15 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 ',
 {'EXPANDED_FORMATS' => []}
 ],
+# similar tests without leading/trailing spaces in t/*raw.t
+['inlinefmtspaces',
+'A @inlinefmt { plaintext , plaintext `` @lbracechar{} } a.  Now html
+@inlinefmt{ html , in <i>@acronym{HTML}</i>}.
+'],
+['inlinerawspaces',
+'A @inlineraw{ plaintext , plaintext `` @lbracechar{} } a.  Now html
+@inlineraw { html , in <i>@acronym{HTML}</i>}.
+'],
 ['inlineifsetifclear',
 '@inlineifclear{aaa, iclear first }.
 
@@ -511,6 +520,19 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 @inlineifclear{aaa, ifclear second }.
 
 @inlineifset{aaa, ifset second }.
+'],
+['inlineifsetifclearspaces',
+'@inlineifclear
+{ aaa , iclear first }.
+
+@inlineifset
+{ aaa , ifset first }.
+
+@set aaa
+
+@inlineifclear { aaa , ifclear second }.
+
+@inlineifset { aaa , ifset second }.
 '],
 ['table_in_display_in_example',
 '@example

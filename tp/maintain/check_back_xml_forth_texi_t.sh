@@ -97,3 +97,4 @@ diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_t
 # To find XML parsing errors
 # grep --color 'parser error' check_back_xml_forth_texi/backforth_logs/*
 
+# head -1000 check_back_xml_forth_texi/xmllint/*/*.2 > xmllint_all.log

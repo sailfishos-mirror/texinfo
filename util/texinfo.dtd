@@ -1059,7 +1059,7 @@
 
 <!ELEMENT hyphenation (#PCDATA)>
 <!ATTLIST hyphenation
-          %spacesaftercmdattr;>
+          %spacesafterincmdattr;>
 
 <!-- emphasize -->
 <!ELEMENT strong (#PCDATA | %Inline.phraseormark;)*>
@@ -1131,7 +1131,7 @@
           %spacesaftercmdattr;>
 <!ELEMENT indicateurl   (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST indicateurl
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT clicksequence (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST clicksequence
           %spacesaftercmdattr;>
@@ -1185,42 +1185,52 @@
           %spacesafterincmdattr;>
 
 <!-- inline conditionals -->
-<!ELEMENT inlineraw (inlinerawformat, inlinerawcontent)>
+<!ELEMENT inlineraw (inlinerawformat, inlinerawcontent?)>
 <!ATTLIST inlineraw
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT inlinerawformat (#PCDATA)>
+<!ATTLIST inlinerawformat
+          %spacesattr;>
 <!ELEMENT inlinerawcontent (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST inlinerawcontent
           %spacesattr;>
 
-<!ELEMENT inlinefmt (inlinefmtformat, inlinefmtcontent)>
+<!ELEMENT inlinefmt (inlinefmtformat, inlinefmtcontent?)>
 <!ATTLIST inlinefmt
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT inlinefmtformat (#PCDATA)>
+<!ATTLIST inlinefmtformat
+          %spacesattr;>
 <!ELEMENT inlinefmtcontent (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST inlinefmtcontent
           %spacesattr;>
 
-<!ELEMENT inlineifclear (inlineifclearformat, inlineifclearcontent)>
+<!ELEMENT inlineifclear (inlineifclearformat, inlineifclearcontent?)>
 <!ATTLIST inlineifclear
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT inlineifclearformat (#PCDATA)>
+<!ATTLIST inlineifclearformat
+          %spacesattr;>
 <!ELEMENT inlineifclearcontent (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST inlineifclearcontent
           %spacesattr;>
 
-<!ELEMENT inlineifset (inlineifsetformat, inlineifsetcontent)>
+<!ELEMENT inlineifset (inlineifsetformat, inlineifsetcontent?)>
 <!ATTLIST inlineifset
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT inlineifsetformat (#PCDATA)>
+<!ATTLIST inlineifsetformat
+          %spacesattr;>
 <!ELEMENT inlineifsetcontent (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST inlineifsetcontent
           %spacesattr;>
 
 <!ELEMENT inlinefmtifelse (inlinefmtifelseformat, inlinefmtifelsecontentif?, inlinefmtifelsecontentelse?)>
 <!ATTLIST inlinefmtifelse
-          %spacesafterincmdattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT inlinefmtifelseformat (#PCDATA)>
+<!ATTLIST inlinefmtifelseformat
+          %spacesattr;>
 <!ELEMENT inlinefmtifelsecontentif (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST inlinefmtifelsecontentif
           %spacesattr;>

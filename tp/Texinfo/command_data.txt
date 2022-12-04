@@ -405,10 +405,10 @@ shortcaption            brace,close_paragraph,contain_simple_text    BRACE_conte
 # main document context.
 math                    brace,math,contain_simple_text  BRACE_context
 
-# in this category, the leading and trailing spaces are put in specific
-# text with type, but commas do not delimitate arguments.
-# As other arguments brace_commands, they can only contain simple text,
-# ie not ref, footnote, titlefont, anchor, verb or even plain text,
+# in this category, the leading and trailing spaces are separated from
+# the arguments and commas do not delimitate arguments.
+# Similar with other arguments brace_commands, they can only contain
+# simple text (no ref, footnote, titlefont, anchor, verb) or even plain text,
 # without even indicatric @-commands.
 # Parsers have specific checks for U content.
 U                       brace                                      BRACE_arguments     1
