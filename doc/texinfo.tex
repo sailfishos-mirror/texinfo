@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-03.17}
+\def\texinfoversion{2022-12-04.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7424,15 +7424,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \endgroup
 %
 \def\setupverb{%
-  \tt  % easiest (and conventionally used) font for verbatim
+  \tt
   \def\par{\leavevmode\endgraf}%
   \setcodequotes
   \tabeightspaces
-  % Respect line breaks,
-  % print special symbols as themselves, and
-  % make each space count
-  % must do in this order:
-  \obeylines \uncatcodespecials \sepspaces
+  \nohyphenation
+  % print special symbols as themselves, and make each space count
+  \uncatcodespecials \obeyspaces
 }
 
 % Setup for the @verbatim environment

@@ -1,3 +1,11 @@
+2022-12-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\verb): Turn off hyphenation as this can
+	introduce spurious hyphen glyphs in the output.  Allow breaking
+	at spaces by using \obeyspaces rather than \sepspaces.  Do not
+	obey line breaks, for consistency with HTML output.  Report from
+	Werner.
+
 2022-12-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* TODO: add @node and HTML splitting
