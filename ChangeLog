@@ -9,6 +9,11 @@
 
 2022-12-04  Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd: allow mixing *caption within float contents.  Fix
+	email spaces attributes.
+
+2022-12-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/converters_tests.t: add inlinefmtspaces, inlinerawspaces
 	and inlineifsetifclearspaces, similar with other formatted tests but
 	with soaces around arguments.

@@ -787,8 +787,7 @@
           %spacesattr;>
 
 <!-- Floating displays -->
-<!ELEMENT float (floattype?, floatname?, (%block;)*,
-                (caption | shortcaption)*)>
+<!ELEMENT float (floattype?, floatname?, (%block; | caption | shortcaption)*)>
 <!ATTLIST float
           %spacesblockattr;
           number CDATA #IMPLIED
@@ -1295,7 +1294,7 @@
 
 <!ELEMENT email (emailaddress, emailname?)>
 <!ATTLIST email
-          %spacesattr;>
+          %spacesaftercmdattr;>
 <!ELEMENT emailaddress (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST emailaddress
           %spacesattr;>
