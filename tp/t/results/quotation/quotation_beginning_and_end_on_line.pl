@@ -14,9 +14,12 @@ $result_trees{'quotation_beginning_and_end_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'in quotation '
+                  'text' => 'in quotation'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'block_line_arg'
             }
           ],
@@ -71,7 +74,7 @@ $result_texis{'quotation_beginning_and_end_on_line'} = '@quotation in quotation 
 ';
 
 
-$result_texts{'quotation_beginning_and_end_on_line'} = 'in quotation 
+$result_texts{'quotation_beginning_and_end_on_line'} = 'in quotation
 ';
 
 $result_errors{'quotation_beginning_and_end_on_line'} = [
@@ -91,7 +94,7 @@ $result_floats{'quotation_beginning_and_end_on_line'} = {};
 
 
 
-$result_converted{'plaintext'}->{'quotation_beginning_and_end_on_line'} = '     in quotation : ';
+$result_converted{'plaintext'}->{'quotation_beginning_and_end_on_line'} = '     in quotation: ';
 
 
 $result_converted{'html_text'}->{'quotation_beginning_and_end_on_line'} = '<blockquote class="quotation">

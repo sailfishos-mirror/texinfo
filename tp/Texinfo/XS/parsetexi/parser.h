@@ -121,6 +121,7 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node);
 ELEMENT *end_line (ELEMENT *current);
 ELEMENT *end_line_def_line (ELEMENT *current);
 ELEMENT *end_line_misc_line (ELEMENT *current);
+ELEMENT *end_line_starting_block (ELEMENT *current);
 ELEMENT *parse_special_misc_command (char *line, enum command_id cmd,
                                      int *has_commment);
 int check_node_label (NODE_SPEC_EXTRA *nse, enum command_id cmd);

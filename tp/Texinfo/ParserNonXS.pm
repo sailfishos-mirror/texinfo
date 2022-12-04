@@ -1950,7 +1950,7 @@ sub _close_current($$$;$$)
       # we close the command too.
       _end_line_misc_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'block_line_arg') {
-      $self->_pop_context(['ct_line'], $source_info, $current);
+      _end_line_starting_block($self, $current, $source_info);
     }
     # empty types, not closed or associated to a command that is not closed
     delete $current->{'contents'}
@@ -3342,6 +3342,226 @@ sub _end_line_def_line($$$)
   return $current;
 }
 
+sub _end_line_starting_block($$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $source_info = shift;
+
+  my $empty_text;
+  $self->_pop_context(['ct_line'], $source_info, $current,
+                      'in block_line_arg');
+  # @multitable args
+  if ($current->{'parent'}->{'cmdname'}
+             and $current->{'parent'}->{'cmdname'} eq 'multitable') {
+    # parse the prototypes and put them in a special arg
+    my @prototype_row;
+    foreach my $content (@{$current->{'contents'}}) {
+      if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+        # TODO the 'extra' information in $content is not copied over,
+        # at least leading/trailing spaces (something else?).
+        my $bracketed_prototype
+          = { 'type' => 'bracketed_multitable_prototype' };
+        $bracketed_prototype->{'contents'} = $content->{'contents'}
+          if ($content->{'contents'});
+        push @prototype_row, $bracketed_prototype;
+      } elsif ($content->{'text'}) {
+        # TODO: this should be a warning or an error - all prototypes
+        # on a @multitable line should be in braces, as documented in the
+        # Texinfo manual.
+        if ($content->{'text'} =~ /\S/) {
+          foreach my $prototype (split /\s+/, $content->{'text'}) {
+            push @prototype_row, { 'text' => $prototype,
+                                   'type' => 'row_prototype' }
+              unless ($prototype eq '');
+          }
+        }
+      } else {
+        if (!$content->{'cmdname'}
+              or ($content->{'cmdname'} ne 'c'
+                  and $content->{'cmdname'} ne 'comment')) {
+          $self->_command_warn($current, $source_info,
+              __("unexpected argument on \@%s line: %s"),
+                   $current->{'parent'}->{'cmdname'},
+                   Texinfo::Convert::Texinfo::convert_to_texinfo($content));
+        }
+      }
+    }
+    my $multitable = $current->{'parent'};
+    #$multitable->{'extra'} = {} if (!$multitable->{'extra'});
+    $multitable->{'extra'}->{'max_columns'} = scalar(@prototype_row);
+    if (!scalar(@prototype_row)) {
+      $self->_command_warn($multitable, $source_info,
+                           __("empty multitable"));
+    }
+    $multitable->{'extra'}->{'prototypes'} = \@prototype_row;
+  }
+  _isolate_last_space($self, $current);
+  $current = $current->{'parent'};
+  delete $current->{'remaining_args'};
+
+  # @float args
+  if ($current->{'cmdname'} and $current->{'cmdname'} eq 'float') {
+    $current->{'source_info'} = $source_info;
+    my $type = '';
+    my $float_label;
+    if ($current->{'args'} and $current->{'args'}->[1]) {
+      $float_label = _parse_node_manual($current->{'args'}->[1]);
+      _check_internal_node($self, $float_label, $source_info);
+    }
+    _register_label($self->{'targets'}, $current, $float_label);
+    _parse_float_type($current);
+    $type = $current->{'extra'}->{'type'}->{'normalized'};
+    push @{$self->{'floats'}->{$type}}, $current;
+    $current->{'extra'}->{'float_section'} = $self->{'current_section'}
+      if (defined($self->{'current_section'}));
+  }
+
+  # all the commands with @item
+  if ($current->{'cmdname'}
+      and $blockitem_commands{$current->{'cmdname'}}) {
+    if ($current->{'cmdname'} eq 'enumerate') {
+      my $spec = '1';
+      if ($current->{'args'} and $current->{'args'}->[0]
+          and $current->{'args'}->[0]->{'contents'}
+          and @{$current->{'args'}->[0]->{'contents'}}) {
+        if (scalar(@{$current->{'args'}->[0]->{'contents'}}) > 1) {
+          $self->_command_error($current, $source_info,
+                      __("superfluous argument to \@%s"),
+                      $current->{'cmdname'});
+        }
+        my $arg = $current->{'args'}->[0]->{'contents'}->[0];
+        if (!defined($arg->{'text'})
+            or $arg->{'text'} !~ /^(([[:digit:]]+)|([[:alpha:]]+))$/) {
+          $self->_command_error($current, $source_info,
+                      __("bad argument to \@%s"),
+                      $current->{'cmdname'});
+        } else {
+          $spec = $arg->{'text'};
+        }
+      }
+      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'}->{'enumerate_specification'} = $spec;
+    } elsif ($block_commands{$current->{'cmdname'}} eq 'item_line') {
+      if (!$current->{'extra'}
+          or !$current->{'extra'}->{'command_as_argument'}) {
+        $self->_command_error($current, $source_info,
+            __("%s requires an argument: the formatter for %citem"),
+            $current->{'cmdname'}, ord('@'));
+      } elsif ($self->{'brace_commands'}->{
+    $current->{'extra'}->{'command_as_argument'}->{'cmdname'}} eq 'noarg') {
+        $self->_command_error($current, $source_info,
+            __("command \@%s not accepting argument in brace should not be on \@%s line"),
+            $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
+            $current->{'cmdname'});
+        delete $current->{'extra'}->{'command_as_argument'};
+        if (scalar(keys(%{$current->{'extra'}})) == 0) {
+          delete $current->{'extra'};
+        }
+      }
+    } elsif ($current->{'cmdname'} eq 'itemize'
+             and $current->{'extra'}
+             and $current->{'extra'}->{'command_as_argument'}) {
+      # This code checks that the command_as_argument of the @itemize
+      # is alone on the line, otherwise it is not a command_as_argument.
+      my @args = @{$current->{'args'}->[0]->{'contents'}};
+      while (@args) {
+        my $arg = shift @args;
+        last if ($arg eq $current->{'extra'}->{'command_as_argument'});
+      }
+      while (@args) {
+        my $arg = shift @args;
+        if (!(($arg->{'cmdname'}
+               and ($arg->{'cmdname'} eq 'c'
+                    or $arg->{'cmdname'} eq 'comment'))
+              or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
+          delete $current->{'extra'}->{'command_as_argument'}->{'type'};
+          delete $current->{'extra'}->{'command_as_argument'};
+          if (scalar(keys(%{$current->{'extra'}})) == 0) {
+            delete $current->{'extra'};
+          }
+          last;
+        }
+      }
+    }
+    if ($current->{'extra'}
+        and $current->{'extra'}->{'command_as_argument'}
+        and $accent_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}
+        and ($current->{'cmdname'} eq 'itemize'
+             or ($block_commands{$current->{'cmdname'}}
+                 and $block_commands{$current->{'cmdname'}} eq 'item_line'))) {
+      # this can only happen to an accent command with brace, if without
+      # brace it is not set as command_as_argument to begin with.
+      $self->_command_warn($current, $source_info,
+            __("accent command `\@%s' not allowed as \@%s argument"),
+            $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
+            $current->{'cmdname'});
+      delete $current->{'extra'}->{'command_as_argument'};
+      if (scalar(keys(%{$current->{'extra'}})) == 0) {
+        delete $current->{'extra'};
+      }
+    }
+    if ($current->{'cmdname'} eq 'itemize') {
+      if ((!$current->{'args'}
+          or !$current->{'args'}->[0]
+          or !$current->{'args'}->[0]->{'contents'}
+          or !@{$current->{'args'}->[0]->{'contents'}})) {
+        my $block_line_arg;
+        if ($current->{'args'} and $current->{'args'}->[-1]
+            and $current->{'args'}->[-1]->{'type'}
+            and $current->{'args'}->[-1]->{'type'} eq 'block_line_arg') {
+          $block_line_arg = $current->{'args'}->[-1];
+        } else {
+          $block_line_arg = { 'type' => 'block_line_arg',
+                              'parent' => $current,
+                              'contents' => [] };
+          unshift @{$current->{'args'}}, $block_line_arg;
+        }
+        my $inserted = { 'cmdname' => 'bullet',
+                         'type' => 'command_as_argument_inserted',
+                         'parent' => $block_line_arg };
+        unshift @{$block_line_arg->{'contents'}}, $inserted;
+        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'}->{'command_as_argument'} = $inserted;
+      }
+    } elsif ($block_commands{$current->{'cmdname'}}
+             and $block_commands{$current->{'cmdname'}} eq 'item_line') {
+      #$current->{'extra'} = {} if (!$current->{'extra'});
+      if (!$current->{'extra'}->{'command_as_argument'}) {
+        my $inserted =  { 'cmdname' => 'asis',
+                          'type' => 'command_as_argument_inserted',
+                          'parent' => $current };
+        unshift @{$current->{'args'}}, $inserted;
+        $current->{'extra'}->{'command_as_argument'} = $inserted;
+      }
+    }
+    push @{$current->{'contents'}}, { 'type' => 'before_item',
+                                      'parent', $current };
+    $current = $current->{'contents'}->[-1];
+  }
+  if ($current->{'cmdname'}
+      and $block_commands{$current->{'cmdname'}} eq 'menu') {
+    push @{$current->{'contents'}}, {'type' => 'menu_comment',
+                                     'parent' => $current,
+                                     'contents' => [] };
+    $current = $current->{'contents'}->[-1];
+    print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
+  }
+  if ($current->{'cmdname'}
+      and $block_commands{$current->{'cmdname'}} eq 'format_raw'
+      and $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
+    push @{$current->{'contents'}},
+        { 'type' => 'rawpreformatted',
+          'parent' => $current };
+    $current = $current->{'contents'}->[-1];
+  }
+  $current = _begin_preformatted($self, $current)
+    unless ($current->{'cmdname'}
+            and $block_commands{$current->{'cmdname'}} eq 'raw');
+
+  return $current;
+}
+
 # close constructs and do stuff at end of line (or end of the document)
 sub _end_line($$$);
 sub _end_line($$$)
@@ -3505,216 +3725,7 @@ sub _end_line($$$)
   # other block command lines
   } elsif ($current->{'type'}
             and $current->{'type'} eq 'block_line_arg') {
-    my $empty_text;
-    $self->_pop_context(['ct_line'], $source_info, $current,
-                        'in block_line_arg');
-    # @multitable args
-    if ($current->{'parent'}->{'cmdname'}
-               and $current->{'parent'}->{'cmdname'} eq 'multitable') {
-      # parse the prototypes and put them in a special arg
-      my @prototype_row;
-      foreach my $content (@{$current->{'contents'}}) {
-        if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
-          # TODO the 'extra' information in $content is not copied over,
-          # at least leading/trailing spaces (something else?).
-          my $bracketed_prototype
-            = { 'type' => 'bracketed_multitable_prototype' };
-          $bracketed_prototype->{'contents'} = $content->{'contents'}
-            if ($content->{'contents'});
-          push @prototype_row, $bracketed_prototype;
-        } elsif ($content->{'text'}) {
-          # TODO: this should be a warning or an error - all prototypes
-          # on a @multitable line should be in braces, as documented in the
-          # Texinfo manual.
-          if ($content->{'text'} =~ /\S/) {
-            foreach my $prototype (split /\s+/, $content->{'text'}) {
-              push @prototype_row, { 'text' => $prototype,
-                                     'type' => 'row_prototype' }
-                unless ($prototype eq '');
-            }
-          }
-        } else {
-          if (!$content->{'cmdname'}
-                or ($content->{'cmdname'} ne 'c'
-                    and $content->{'cmdname'} ne 'comment')) {
-            $self->_command_warn($current, $source_info,
-                __("unexpected argument on \@%s line: %s"),
-                     $current->{'parent'}->{'cmdname'},
-                     Texinfo::Convert::Texinfo::convert_to_texinfo($content));
-          }
-        }
-      }
-      my $multitable = $current->{'parent'};
-      #$multitable->{'extra'} = {} if (!$multitable->{'extra'});
-      $multitable->{'extra'}->{'max_columns'} = scalar(@prototype_row);
-      if (!scalar(@prototype_row)) {
-        $self->_command_warn($multitable, $source_info,
-                             __("empty multitable"));
-      }
-      $multitable->{'extra'}->{'prototypes'} = \@prototype_row;
-    }
-    _isolate_last_space($self, $current);
-    $current = $current->{'parent'};
-    delete $current->{'remaining_args'};
-
-    # @float args
-    if ($current->{'cmdname'} and $current->{'cmdname'} eq 'float') {
-      $current->{'source_info'} = $source_info;
-      my $type = '';
-      my $float_label;
-      if ($current->{'args'} and $current->{'args'}->[1]) {
-        $float_label = _parse_node_manual($current->{'args'}->[1]);
-        _check_internal_node($self, $float_label, $source_info);
-      }
-      _register_label($self->{'targets'}, $current, $float_label);
-      _parse_float_type($current);
-      $type = $current->{'extra'}->{'type'}->{'normalized'};
-      push @{$self->{'floats'}->{$type}}, $current;
-      $current->{'extra'}->{'float_section'} = $self->{'current_section'}
-        if (defined($self->{'current_section'}));
-    }
-
-    # all the commands with @item
-    if ($current->{'cmdname'}
-        and $blockitem_commands{$current->{'cmdname'}}) {
-      if ($current->{'cmdname'} eq 'enumerate') {
-        my $spec = '1';
-        if ($current->{'args'} and $current->{'args'}->[0]
-            and $current->{'args'}->[0]->{'contents'}
-            and @{$current->{'args'}->[0]->{'contents'}}) {
-          if (scalar(@{$current->{'args'}->[0]->{'contents'}}) > 1) {
-            $self->_command_error($current, $source_info,
-                        __("superfluous argument to \@%s"),
-                        $current->{'cmdname'});
-          }
-          my $arg = $current->{'args'}->[0]->{'contents'}->[0];
-          if (!defined($arg->{'text'})
-              or $arg->{'text'} !~ /^(([[:digit:]]+)|([[:alpha:]]+))$/) {
-            $self->_command_error($current, $source_info,
-                        __("bad argument to \@%s"),
-                        $current->{'cmdname'});
-          } else {
-            $spec = $arg->{'text'};
-          }
-        }
-        #$current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'enumerate_specification'} = $spec;
-      } elsif ($block_commands{$current->{'cmdname'}} eq 'item_line') {
-        if (!$current->{'extra'}
-            or !$current->{'extra'}->{'command_as_argument'}) {
-          $self->_command_error($current, $source_info,
-              __("%s requires an argument: the formatter for %citem"),
-              $current->{'cmdname'}, ord('@'));
-        } elsif ($self->{'brace_commands'}->{
-      $current->{'extra'}->{'command_as_argument'}->{'cmdname'}} eq 'noarg') {
-          $self->_command_error($current, $source_info,
-              __("command \@%s not accepting argument in brace should not be on \@%s line"),
-              $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
-              $current->{'cmdname'});
-          delete $current->{'extra'}->{'command_as_argument'};
-          if (scalar(keys(%{$current->{'extra'}})) == 0) {
-            delete $current->{'extra'};
-          }
-        }
-      } elsif ($current->{'cmdname'} eq 'itemize'
-               and $current->{'extra'}
-               and $current->{'extra'}->{'command_as_argument'}) {
-        # This code checks that the command_as_argument of the @itemize
-        # is alone on the line, otherwise it is not a command_as_argument.
-        my @args = @{$current->{'args'}->[0]->{'contents'}};
-        while (@args) {
-          my $arg = shift @args;
-          last if ($arg eq $current->{'extra'}->{'command_as_argument'});
-        }
-        while (@args) {
-          my $arg = shift @args;
-          if (!(($arg->{'cmdname'}
-                 and ($arg->{'cmdname'} eq 'c'
-                      or $arg->{'cmdname'} eq 'comment'))
-                or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
-            delete $current->{'extra'}->{'command_as_argument'}->{'type'};
-            delete $current->{'extra'}->{'command_as_argument'};
-            if (scalar(keys(%{$current->{'extra'}})) == 0) {
-              delete $current->{'extra'};
-            }
-            last;
-          }
-        }
-      }
-      if ($current->{'extra'}
-          and $current->{'extra'}->{'command_as_argument'}
-          and $accent_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}
-          and ($current->{'cmdname'} eq 'itemize'
-               or ($block_commands{$current->{'cmdname'}}
-                   and $block_commands{$current->{'cmdname'}} eq 'item_line'))) {
-        # this can only happen to an accent command with brace, if without
-        # brace it is not set as command_as_argument to begin with.
-        $self->_command_warn($current, $source_info,
-              __("accent command `\@%s' not allowed as \@%s argument"),
-              $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
-              $current->{'cmdname'});
-        delete $current->{'extra'}->{'command_as_argument'};
-        if (scalar(keys(%{$current->{'extra'}})) == 0) {
-          delete $current->{'extra'};
-        }
-      }
-      if ($current->{'cmdname'} eq 'itemize') {
-        if ((!$current->{'args'}
-            or !$current->{'args'}->[0]
-            or !$current->{'args'}->[0]->{'contents'}
-            or !@{$current->{'args'}->[0]->{'contents'}})) {
-          my $block_line_arg;
-          if ($current->{'args'} and $current->{'args'}->[-1]
-              and $current->{'args'}->[-1]->{'type'}
-              and $current->{'args'}->[-1]->{'type'} eq 'block_line_arg') {
-            $block_line_arg = $current->{'args'}->[-1];
-          } else {
-            $block_line_arg = { 'type' => 'block_line_arg',
-                                'parent' => $current,
-                                'contents' => [] };
-            unshift @{$current->{'args'}}, $block_line_arg;
-          }
-          my $inserted = { 'cmdname' => 'bullet',
-                           'type' => 'command_as_argument_inserted',
-                           'parent' => $block_line_arg };
-          unshift @{$block_line_arg->{'contents'}}, $inserted;
-          #$current->{'extra'} = {} if (!$current->{'extra'});
-          $current->{'extra'}->{'command_as_argument'} = $inserted;
-        }
-      } elsif ($block_commands{$current->{'cmdname'}}
-               and $block_commands{$current->{'cmdname'}} eq 'item_line') {
-        #$current->{'extra'} = {} if (!$current->{'extra'});
-        if (!$current->{'extra'}->{'command_as_argument'}) {
-          my $inserted =  { 'cmdname' => 'asis',
-                            'type' => 'command_as_argument_inserted',
-                            'parent' => $current };
-          unshift @{$current->{'args'}}, $inserted;
-          $current->{'extra'}->{'command_as_argument'} = $inserted;
-        }
-      }
-      push @{$current->{'contents'}}, { 'type' => 'before_item',
-                                        'parent', $current };
-      $current = $current->{'contents'}->[-1];
-    }
-    if ($current->{'cmdname'}
-        and $block_commands{$current->{'cmdname'}} eq 'menu') {
-      push @{$current->{'contents'}}, {'type' => 'menu_comment',
-                                       'parent' => $current,
-                                       'contents' => [] };
-      $current = $current->{'contents'}->[-1];
-      print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
-    }
-    if ($current->{'cmdname'}
-        and $block_commands{$current->{'cmdname'}} eq 'format_raw'
-        and $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
-      push @{$current->{'contents'}},
-          { 'type' => 'rawpreformatted',
-            'parent' => $current };
-      $current = $current->{'contents'}->[-1];
-    }
-    $current = _begin_preformatted($self, $current)
-      unless ($current->{'cmdname'}
-              and $block_commands{$current->{'cmdname'}} eq 'raw');
+    $current = _end_line_starting_block($self, $current, $source_info);
 
   # misc command line arguments
   # Never go here if skipline/noarg/...

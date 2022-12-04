@@ -14,9 +14,12 @@ $result_trees{'group_beginning_and_end_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'within '
+                  'text' => 'within'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'block_line_arg'
             }
           ],

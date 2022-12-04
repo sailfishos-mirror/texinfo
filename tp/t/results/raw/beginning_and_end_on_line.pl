@@ -19,14 +19,20 @@ $result_trees{'beginning_and_end_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'in tex '
+                  'text' => 'in tex'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'tex',
           'contents' => [
+            {
+              'type' => 'rawpreformatted'
+            },
             {
               'args' => [
                 {
@@ -75,9 +81,12 @@ $result_trees{'beginning_and_end_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'in verbatim '
+                  'text' => 'in verbatim'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'block_line_arg'
             }
           ],
@@ -131,9 +140,12 @@ $result_trees{'beginning_and_end_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'in html '
+                  'text' => 'in html'
                 }
               ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
               'type' => 'block_line_arg'
             }
           ],

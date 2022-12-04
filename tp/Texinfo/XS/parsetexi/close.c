@@ -379,12 +379,7 @@ close_current (ELEMENT *current,
             }
           else
             {
-              c = pop_context ();
-              if (c != ct_line)
-                {
-                  /* error */
-                  fatal ("line context expected");
-                }
+              end_line_starting_block (current);
             }
           current = current->parent;
           break;
