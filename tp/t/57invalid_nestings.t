@@ -560,6 +560,39 @@ Something
 
 @end deffn
 '],
+['section_on_multitable_line',
+'@multitable @section first
+
+@multitable @code{this} @section second
+
+@multitable {aaa} {bbb} @section third
+'],
+['section_on_float_line',
+'@float t, l @section first
+'],
+['section_on_enumerate_line',
+'@enumerate something @section first
+
+@enumerate 4 @section second
+'],
+['section_on_xtable_line',
+'@vtable @section first
+
+@table @TeX @section second
+
+@table @code @section third
+
+@ftable @ringaccent @section fourth
+'],
+['section_on_itemize_line',
+'@itemize @minus{} @section first
+
+@itemize @minus{} aa @section second
+
+@itemize @section third
+
+@itemize @ringaccent @section fourth
+'],
 );
 
 foreach my $test (@formatted_cases) {
