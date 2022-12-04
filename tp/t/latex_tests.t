@@ -561,6 +561,16 @@ New para
 @end example
 @end cartouche
 '],
+['verb',
+'@verb{!a!}
+
+@verb{!a!a!}
+
+@verb{!a
+b!}
+
+@verb{%a%|!:@b%}
+'],
 ['nested_itemize',
 '@itemize
    @item First level item

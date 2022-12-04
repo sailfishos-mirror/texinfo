@@ -2614,15 +2614,30 @@ sub _convert($$)
       # whether we are in another LaTeX macro would probably be a pain.
       # It should be ok, though, as it is described as an error in the manual:
       #   It is not reliable to use @verb inside other Texinfo constructs
-      $result .= "\\verb" .$element->{'info'}->{'delimiter'};
+      my $delim = $element->{'info'}->{'delimiter'};
+      my $contents = '';
+
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       if ($element->{'args'}) {
-        $result .= _convert($self, $element->{'args'}->[0]);
+        $contents = _convert($self, $element->{'args'}->[0]);
+        $contents =~ s/\n/ /;
       }
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_raw');
-      $result .= $element->{'info'}->{'delimiter'};
-      return $result;
+
+      # Check delimiter is not in contents.  If it is, try other characters.
+      for my $char ($delim, '|', '!', ':', '@') {
+        if (index($contents, $char) == -1) {
+          $result .= "\\verb$char$contents$char";
+          return $result;
+        }
+      }
+      $self->line_warn($self,
+         sprintf(__("\\verb delimiter `%s' (for LaTeX) used in text `%s'"),
+                    $delim, $contents),
+         $element->{'source_info'});
+      return "\\verb$delim$delim";
+
     } elsif ($cmdname eq 'image') {
       if (defined($element->{'args'}->[0])
           and $element->{'args'}->[0]->{'contents'}
