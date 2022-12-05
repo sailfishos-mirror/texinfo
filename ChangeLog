@@ -1,5 +1,10 @@
 2022-12-05  Patrice Dumas  <pertusus@free.fr>
 
+	* layout/list-of-tests: add layout formatting_info_disable_encoding
+	test, testing Info output coverage with --disable-encoding.
+
+2022-12-05  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (TEXI2DVI, TEXI2DVI_ENVIRONMENT),
 	doc/tp_api/Makefile.am (TEXI2DVI, TEXI2DVI_ENVIRONMENT): use in-source
 	texindex and texi2dvi.
