@@ -1,3 +1,11 @@
+2022-12-05  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/Makefile.am (TEXI2DVI, TEXI2DVI_ENVIRONMENT),
+	doc/tp_api/Makefile.am (TEXI2DVI, TEXI2DVI_ENVIRONMENT): use in-source
+	texindex and texi2dvi.
+
+	* tp/Makefile.tres: update.
+
 2022-12-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/57invalid_nestings.t: add tests of section command interrupting

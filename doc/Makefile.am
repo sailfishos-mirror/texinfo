@@ -23,7 +23,12 @@ MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
                        top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
                        top_builddir="$(top_builddir)" ; export top_builddir ;
 MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tp/texi2any
-TEXI2DVI = $(top_srcdir)/util/texi2dvi
+
+# NOTE the four ../ are needed because texi2dvi runs texindex from the build dir
+# texi2any_internals.t2d/texi2any_internals.t2d/dvi/build/
+TEXI2DVI_ENVIRONMENT = TEXINDEX=$(top_builddir)/../../../../texindex/texindex ; export TEXINDEX ; \
+                       TEXINDEX_SCRIPT=$(top_srcdir)/../../../../texindex/texindex.awk ; export TEXINDEX_SCRIPT ;
+TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
 
 # include pod2texi in the main manual
 pod2texi_pl = $(abs_top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl

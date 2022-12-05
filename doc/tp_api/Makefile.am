@@ -17,6 +17,12 @@ AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 # out-of-source builds.
 MAKEINFO = $(PERL) -I $(top_builddir)/tp/ -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 
+# NOTE the four ../ are needed because texi2dvi runs texindex from the build dir
+# texi2any_internals.t2d/texi2any_internals.t2d/dvi/build/
+TEXI2DVI_ENVIRONMENT = TEXINDEX=$(top_builddir)/../../../../texindex/texindex ; export TEXINDEX ; \
+                       TEXINDEX_SCRIPT=$(top_srcdir)/../../../../texindex/texindex.awk ; export TEXINDEX_SCRIPT ;
+TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
+
 # the pod files are formatted like man pages.  If HTML is split at node
 # or section, this results in some very short sections at the beginning
 # of each module, so split at chapters.
@@ -28,10 +34,12 @@ info_TEXINFOS = texi2any_internals.texi
 
 TEXINFO_TEX = ../texinfo.tex
 
-# dependencies are in api_includes/ directory but we do not want to list
-# them explicitly
+# Most dependencies are in api_includes/ directory but we do not want
+# to list them explicitly
 texi2any_internals_TEXINFOS = texi2any_internals_indices.texi
-#dist_texi2any_internals_TEXINFOS = 
+
+# texi2any_internals_preamble.texi is not included but passed on the
+# standard input when building texi2any_internals.texi.
 EXTRA_DIST = texi2any_internals_preamble.texi api_includes
 
 if BUILD_PERL_API_TEXI

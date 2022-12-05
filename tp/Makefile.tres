@@ -160,7 +160,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/inline.pl \
   t/results/converters_tests/inline_expand_tex.pl \
   t/results/converters_tests/inlinefmtifelse.pl \
+  t/results/converters_tests/inlinefmtspaces.pl \
   t/results/converters_tests/inlineifsetifclear.pl \
+  t/results/converters_tests/inlineifsetifclearspaces.pl \
+  t/results/converters_tests/inlinerawspaces.pl \
   t/results/converters_tests/line_breaks.pl \
   t/results/converters_tests/minimal_empty_empty.pl \
   t/results/converters_tests/minimal_empty_empty/res_docbook/minimal_empty_empty.xml \
@@ -935,7 +938,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/invalid_nestings/section_in_table.pl \
   t/results/invalid_nestings/section_on_def_line.pl \
   t/results/invalid_nestings/section_on_defx_line.pl \
+  t/results/invalid_nestings/section_on_enumerate_line.pl \
+  t/results/invalid_nestings/section_on_float_line.pl \
   t/results/invalid_nestings/section_on_index_entry_line.pl \
+  t/results/invalid_nestings/section_on_itemize_line.pl \
+  t/results/invalid_nestings/section_on_multitable_line.pl \
+  t/results/invalid_nestings/section_on_xtable_line.pl \
   t/results/invalid_nestings/style_not_closed_before_first_node.pl \
   t/results/invalid_nestings/style_not_closed_in_block_command.pl \
   t/results/invalid_nestings/style_not_closed_in_table_line.pl \
@@ -1064,6 +1072,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/two_setchapternewpage_on_odd/res_latex/two_setchapternewpage_on_odd.tex \
   t/results/latex_tests/vbar_in_index.pl \
   t/results/latex_tests/vbar_in_index/res_latex/vbar_in_index.tex \
+  t/results/latex_tests/verb.pl \
+  t/results/latex_tests/verb/res_latex/verb.tex \
   t/results/latex_tests/verbatim_in_smallformat.pl \
   t/results/latex_tests/verbatim_in_smallformat/res_latex/verbatim_in_smallformat.tex \
   t/results/layout/navigation.pl \
