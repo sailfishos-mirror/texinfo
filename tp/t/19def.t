@@ -386,6 +386,34 @@ my @test_info = (
 
 @printindex fn
 '],
+['all_empty_def',
+'@deffn
+@end deffn
+
+@defvr
+@end defvr
+
+@deftypefn
+@end deftypefn
+
+@deftypeop
+@end deftypeop
+
+@deftypevr
+@end deftypevr
+
+@defcv
+@end defcv
+
+@deftypecv
+@end deftypecv
+
+@defop
+@end defop
+
+@deftp
+@end deftp
+'],
 );
 
 my @test_invalid = (
@@ -500,34 +528,6 @@ deffn with @}
 @deffnx{} {}
 @end deffn
 '],
-['all_empty_def',
-'@deffn
-@end deffn
-
-@defvr
-@end defvr
-
-@deftypefn
-@end deftypefn
-
-@deftypeop
-@end deftypeop
-
-@deftypevr
-@end deftypevr
-
-@defcv
-@end defcv
-
-@deftypecv
-@end deftypecv
-
-@defop
-@end defop
-
-@deftp
-@end deftp
-'],
 ['empty_deftypeop_name',
 '@deftypeop Command@code{com} {Window@code{int}} expose@var{exp}
 @end deftypeop
@@ -601,7 +601,7 @@ foreach my $test (@test_cases) {
 }
 
 foreach my $test (@test_info) {
-  $test->[2]->{'test_formats'} = ['info', 'html'];
+  $test->[2]->{'test_formats'} = ['info', 'html', 'xml'];
 }
 
 run_all('def', [@test_cases, @test_info, @test_invalid, @test_printindex]);

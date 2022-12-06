@@ -714,4 +714,129 @@ $result_errors{'all_empty_def'} = [
 $result_floats{'all_empty_def'} = {};
 
 
+
+$result_converted{'info'}->{'all_empty_def'} = 'This is , produced from .
+
+
+
+Tag Table:
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+$result_converted_errors{'info'}->{'all_empty_def'} = [
+  {
+    'error_line' => 'warning: document without nodes
+',
+    'text' => 'document without nodes',
+    'type' => 'warning'
+  }
+];
+
+
+
+$result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+
+</head>
+
+<body lang="en">
+<dl class="first-deffn">
+<dt class="deffn"></dt>
+</dl>
+
+<dl class="first-defvr">
+<dt class="defvr"></dt>
+</dl>
+
+<dl class="first-deftypefn">
+<dt class="deftypefn"></dt>
+</dl>
+
+<dl class="first-deftypeop">
+<dt class="deftypeop"></dt>
+</dl>
+
+<dl class="first-deftypevr">
+<dt class="deftypevr"></dt>
+</dl>
+
+<dl class="first-defcv">
+<dt class="defcv"></dt>
+</dl>
+
+<dl class="first-deftypecv">
+<dt class="deftypecv"></dt>
+</dl>
+
+<dl class="first-defop">
+<dt class="defop"></dt>
+</dl>
+
+<dl class="first-deftp">
+<dt class="deftp"></dt>
+</dl>
+
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'all_empty_def'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
+
+
+$result_converted{'xml'}->{'all_empty_def'} = '<deffn endspaces=" "><definitionterm></definitionterm>
+</deffn>
+
+<defvr endspaces=" "><definitionterm></definitionterm>
+</defvr>
+
+<deftypefn endspaces=" "><definitionterm></definitionterm>
+</deftypefn>
+
+<deftypeop endspaces=" "><definitionterm></definitionterm>
+</deftypeop>
+
+<deftypevr endspaces=" "><definitionterm></definitionterm>
+</deftypevr>
+
+<defcv endspaces=" "><definitionterm></definitionterm>
+</defcv>
+
+<deftypecv endspaces=" "><definitionterm></definitionterm>
+</deftypecv>
+
+<defop endspaces=" "><definitionterm></definitionterm>
+</defop>
+
+<deftp endspaces=" "><definitionterm></definitionterm>
+</deftp>
+';
+
 1;
