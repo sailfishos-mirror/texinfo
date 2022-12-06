@@ -87,16 +87,12 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                             'def_role' => 'arg'
                           },
                           'text' => 'g'
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -227,16 +223,12 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                             'def_role' => 'arg'
                           },
                           'text' => 'machin...'
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'line_arg'
                     }
                   ],

@@ -116,16 +116,12 @@ $result_trees{'multiple_in_preamble'} = {
                                 'def_role' => 'arg'
                               },
                               'text' => 'b'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => '
-',
-                              'type' => 'spaces_at_end'
                             }
                           ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'type' => 'block_line_arg'
                         }
                       ],
@@ -507,16 +503,12 @@ $result_trees{'multiple_in_preamble'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'CCC'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -724,16 +716,12 @@ $result_trees{'multiple_in_preamble'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'GGG'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

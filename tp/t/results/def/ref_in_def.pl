@@ -248,16 +248,12 @@ $result_trees{'ref_in_def'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -475,16 +471,12 @@ $result_trees{'ref_in_def'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

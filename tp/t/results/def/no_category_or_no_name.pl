@@ -109,16 +109,12 @@ $result_trees{'no_category_or_no_name'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -244,16 +240,12 @@ $result_trees{'no_category_or_no_name'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'd'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' 
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -296,16 +288,12 @@ $result_trees{'no_category_or_no_name'} = {
                         'def_role' => 'category'
                       },
                       'text' => 'deffnx_category'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

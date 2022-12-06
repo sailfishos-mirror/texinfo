@@ -34,15 +34,11 @@ $result_trees{'section_on_def_line'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'b'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' '
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

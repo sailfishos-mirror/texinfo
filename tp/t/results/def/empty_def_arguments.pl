@@ -75,16 +75,12 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'g'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -163,16 +159,12 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '    
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '    
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -225,16 +217,12 @@ $result_trees{'empty_def_arguments'} = {
                         'def_role' => 'category'
                       },
                       'text' => 'aaa'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -288,16 +276,12 @@ $result_trees{'empty_def_arguments'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -334,16 +318,12 @@ $result_trees{'empty_def_arguments'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -402,16 +382,12 @@ $result_trees{'empty_def_arguments'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -450,16 +426,12 @@ $result_trees{'empty_def_arguments'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -510,16 +482,12 @@ $result_trees{'empty_def_arguments'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

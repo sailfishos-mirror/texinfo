@@ -47,15 +47,11 @@ $result_trees{'end_of_line_end_file'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'arguments'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' '
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -114,7 +110,7 @@ $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[
 $result_texis{'end_of_line_end_file'} = '@deffn category deffn_name arguments ';
 
 
-$result_texts{'end_of_line_end_file'} = 'category: deffn_name arguments 
+$result_texts{'end_of_line_end_file'} = 'category: deffn_name arguments
 ';
 
 $result_errors{'end_of_line_end_file'} = [

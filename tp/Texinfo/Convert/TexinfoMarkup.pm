@@ -1464,6 +1464,7 @@ sub _convert($$;$)
     }
     if ($element->{'type'} eq 'def_line') {
       if ($element->{'cmdname'}) {
+        # @def*x command has the command associated with def_line.
         my $leading_spaces_attribute_spec = [];
         if ($element->{'info'}
             and $element->{'info'}->{'spaces_before_argument'}
@@ -1531,6 +1532,7 @@ sub _convert($$;$)
         }
       }
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+      $result .= _end_line_spaces($self, $element);
       $result .= $self->txi_markup_close_element('definitionterm');
       if ($element->{'cmdname'}) {
         $result .= $self->txi_markup_close_element($element->{'cmdname'});

@@ -1960,6 +1960,7 @@ end_line_def_line (ELEMENT *current)
 
   /* in case there are no arguments at all, it needs to be called here. */
   abort_empty_line (&current, NULL);
+  isolate_last_space (current);
 
   def_info = parse_def (def_command, current);
 

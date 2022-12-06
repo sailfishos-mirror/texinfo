@@ -269,16 +269,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'typearg'
                       },
                       'text' => 'arguments...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -409,16 +405,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypefn_name'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -575,16 +567,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'typearg'
                       },
                       'text' => 'a--rguments...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -737,16 +725,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypeop_name'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -899,16 +883,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypecv_name'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1074,16 +1054,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'a--rguments...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1210,16 +1186,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1402,16 +1374,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'typearg'
                       },
                       'text' => 'arguments2...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1542,16 +1510,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypefn_name2'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1708,16 +1672,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'typearg'
                       },
                       'text' => 'a--rguments2...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1870,16 +1830,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypeop_name2'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -2032,16 +1988,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'd--eftypecv_name2'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -2207,16 +2159,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'a--rguments2...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -2343,16 +2291,12 @@ $result_trees{'test_deftypefnnewline'} = {
                         'def_role' => 'name'
                       },
                       'text' => 'arg2'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

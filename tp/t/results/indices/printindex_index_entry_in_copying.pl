@@ -116,16 +116,12 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                                 'def_role' => 'arg'
                               },
                               'text' => 'arg'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => '
-',
-                              'type' => 'spaces_at_end'
                             }
                           ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'type' => 'block_line_arg'
                         }
                       ],
@@ -200,16 +196,12 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                                 'def_role' => 'arg'
                               },
                               'text' => 'arg'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => '
-',
-                              'type' => 'spaces_at_end'
                             }
                           ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'type' => 'line_arg'
                         }
                       ],

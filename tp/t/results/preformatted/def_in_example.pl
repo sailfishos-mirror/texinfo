@@ -64,16 +64,12 @@ $result_trees{'def_in_example'} = {
                             'def_role' => 'arg'
                           },
                           'text' => 'arg'
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'block_line_arg'
                     }
                   ],

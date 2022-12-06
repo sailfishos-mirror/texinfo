@@ -125,16 +125,12 @@ $result_trees{'space_in_def_for_index'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'argument2...'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -224,16 +220,12 @@ $result_trees{'space_in_def_for_index'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'arg3'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

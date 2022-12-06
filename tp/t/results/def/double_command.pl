@@ -258,16 +258,12 @@ $result_trees{'double_command'} = {
                               },
                               'text' => ')',
                               'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => '
-',
-                              'type' => 'spaces_at_end'
                             }
                           ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'type' => 'line_arg'
                         }
                       ],
@@ -469,16 +465,12 @@ $result_trees{'double_command'} = {
                                     'def_role' => 'name'
                                   },
                                   'text' => 'd--efvr_name'
-                                },
-                                {
-                                  'extra' => {
-                                    'def_role' => 'spaces'
-                                  },
-                                  'text' => '
-',
-                                  'type' => 'spaces_at_end'
                                 }
                               ],
+                              'info' => {
+                                'spaces_after_argument' => '
+'
+                              },
                               'type' => 'block_line_arg'
                             }
                           ],

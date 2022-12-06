@@ -132,16 +132,12 @@ $result_trees{'simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'CCC'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

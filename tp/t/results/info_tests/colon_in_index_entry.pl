@@ -302,16 +302,12 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'f'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -427,16 +423,12 @@ $result_trees{'colon_in_index_entry'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'o'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

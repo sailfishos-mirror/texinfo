@@ -268,16 +268,12 @@ $result_trees{'complex_nestings'} = {
                             'line_nr' => 9,
                             'macro' => ''
                           }
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -375,16 +371,12 @@ $result_trees{'complex_nestings'} = {
                             'def_role' => 'arg'
                           },
                           'text' => 'args'
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'line_arg'
                     }
                   ],
@@ -522,16 +514,12 @@ $result_trees{'complex_nestings'} = {
                                     'def_role' => 'arg'
                                   },
                                   'text' => 'args'
-                                },
-                                {
-                                  'extra' => {
-                                    'def_role' => 'spaces'
-                                  },
-                                  'text' => '
-',
-                                  'type' => 'spaces_at_end'
                                 }
                               ],
+                              'info' => {
+                                'spaces_after_argument' => '
+'
+                              },
                               'type' => 'block_line_arg'
                             }
                           ],
@@ -621,16 +609,12 @@ $result_trees{'complex_nestings'} = {
                                             'def_role' => 'arg'
                                           },
                                           'text' => 'variable-name'
-                                        },
-                                        {
-                                          'extra' => {
-                                            'def_role' => 'spaces'
-                                          },
-                                          'text' => '
-',
-                                          'type' => 'spaces_at_end'
                                         }
                                       ],
+                                      'info' => {
+                                        'spaces_after_argument' => '
+'
+                                      },
                                       'type' => 'block_line_arg'
                                     }
                                   ],
@@ -730,16 +714,12 @@ $result_trees{'complex_nestings'} = {
                                             'def_role' => 'arg'
                                           },
                                           'text' => 'other-variable'
-                                        },
-                                        {
-                                          'extra' => {
-                                            'def_role' => 'spaces'
-                                          },
-                                          'text' => '
-',
-                                          'type' => 'spaces_at_end'
                                         }
                                       ],
+                                      'info' => {
+                                        'spaces_after_argument' => '
+'
+                                      },
                                       'type' => 'line_arg'
                                     }
                                   ],

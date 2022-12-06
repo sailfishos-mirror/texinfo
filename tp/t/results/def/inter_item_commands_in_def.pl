@@ -75,16 +75,12 @@ $result_trees{'inter_item_commands_in_def'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'g'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -197,16 +193,12 @@ $result_trees{'inter_item_commands_in_def'} = {
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '  
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '  
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -359,16 +351,12 @@ $result_trees{'inter_item_commands_in_def'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'truc'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

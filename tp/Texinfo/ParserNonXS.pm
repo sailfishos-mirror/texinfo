@@ -2060,7 +2060,10 @@ sub _merge_text {
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
     $current->{'contents'}->[-1]->{'text'} .= $text;
-    print STDERR "MERGED TEXT: $text|||\n" if ($self->{'DEBUG'});
+    print STDERR "MERGED TEXT: $text|||in "
+      .Texinfo::Common::debug_print_element_short($current->{'contents'}->[-1])
+      ." last of: ".Texinfo::Common::debug_print_element_short($current)."\n"
+         if ($self->{'DEBUG'});
   } else {
     push @{$current->{'contents'}}, { 'text' => $text, 'parent' => $current };
     print STDERR "NEW TEXT: $text|||\n" if ($self->{'DEBUG'});
@@ -2501,6 +2504,7 @@ sub _isolate_last_space
   }
 
   return if !$current->{'contents'}
+            or !scalar(@{$current->{'contents'}})
             or !defined($current->{'contents'}->[-1]->{'text'})
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
@@ -3270,9 +3274,12 @@ sub _end_line_def_line($$$)
   my $source_info = shift;
 
   $self->_pop_context(['ct_def'], $source_info, $current);
+  my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
+  print STDERR "END DEF LINE: $def_command\n"
+    if ($self->{'DEBUG'});
   # in case there are no arguments at all, it needs to be called here.
   _abort_empty_line($self, $current);
-  my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
+  _isolate_last_space($self, $current);
   my $arguments = _parse_def($self, $def_command, $current);
   if (scalar(@$arguments)) {
     #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
@@ -3351,6 +3358,9 @@ sub _end_line_starting_block($$$)
   my $empty_text;
   $self->_pop_context(['ct_line'], $source_info, $current,
                       'in block_line_arg');
+  print STDERR "END BLOCK LINE: "
+     .Texinfo::Common::debug_print_element_short($current, 1)."\n"
+       if ($self->{'DEBUG'});
   # @multitable args
   if ($current->{'parent'}->{'cmdname'}
              and $current->{'parent'}->{'cmdname'} eq 'multitable') {
@@ -5866,8 +5876,9 @@ sub _process_remaining_on_line($$$$)
     $current = _merge_text($self, $current, $new_text);
   # end of line
   } else {
-    print STDERR "END LINE: ". _print_current($current)."\n"
-      if ($self->{'DEBUG'});
+    print STDERR "END LINE: "
+        .Texinfo::Common::debug_print_element_short($current, 1)."\n"
+          if ($self->{'DEBUG'});
     if ($line =~ s/^(\n)//) {
       $current = _merge_text($self, $current, $1);
     } else {

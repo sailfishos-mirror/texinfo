@@ -70,16 +70,12 @@ $result_trees{'menu_in_deffn'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'c'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' 
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

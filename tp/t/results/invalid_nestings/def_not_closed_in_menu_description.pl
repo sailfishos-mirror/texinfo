@@ -93,16 +93,12 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                     'def_role' => 'arg'
                                   },
                                   'text' => 'chose'
-                                },
-                                {
-                                  'extra' => {
-                                    'def_role' => 'spaces'
-                                  },
-                                  'text' => '
-',
-                                  'type' => 'spaces_at_end'
                                 }
                               ],
+                              'info' => {
+                                'spaces_after_argument' => '
+'
+                              },
                               'type' => 'block_line_arg'
                             }
                           ],

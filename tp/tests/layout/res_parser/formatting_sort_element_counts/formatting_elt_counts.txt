@@ -1,5 +1,5 @@
-1728  @chapter chapter
-1688  @top Top section
+1734  @chapter chapter
+1694  @top Top section
   10  @section A section
    7  @subsection subsection
    4  @centerchap chapter 2

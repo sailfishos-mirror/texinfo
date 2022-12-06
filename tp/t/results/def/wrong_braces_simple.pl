@@ -73,16 +73,12 @@ $result_trees{'wrong_braces_simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'and'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' 
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -236,16 +232,12 @@ $result_trees{'wrong_braces_simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'after'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -720,16 +712,12 @@ $result_trees{'wrong_braces_simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'e'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -824,16 +812,12 @@ $result_trees{'wrong_braces_simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'and'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' 
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -945,16 +929,12 @@ $result_trees{'wrong_braces_simple'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'after'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

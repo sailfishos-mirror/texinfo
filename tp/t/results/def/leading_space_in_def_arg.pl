@@ -60,16 +60,12 @@ $result_trees{'leading_space_in_def_arg'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

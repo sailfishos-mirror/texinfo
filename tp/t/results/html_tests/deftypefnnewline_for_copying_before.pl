@@ -117,16 +117,12 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                             'def_role' => 'typearg'
                           },
                           'text' => 'ARGUMENTS...'
-                        },
-                        {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
-                          'text' => '
-',
-                          'type' => 'spaces_at_end'
                         }
                       ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -374,16 +370,12 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                         'def_role' => 'typearg'
                       },
                       'text' => 'input'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],

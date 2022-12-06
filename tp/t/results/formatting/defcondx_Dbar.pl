@@ -115,16 +115,12 @@ $result_trees{'defcondx_Dbar'} = {
                         'def_role' => 'category'
                       },
                       'text' => 'foo'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -161,16 +157,12 @@ $result_trees{'defcondx_Dbar'} = {
                         'def_role' => 'category'
                       },
                       'text' => 'bar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],

@@ -1,5 +1,21 @@
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line)
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert): isolate last space
+	on @def* command line similarly to other formats with
+	isolate_last_space.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space): check that there
+	is content before trying to isolate last space.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text, _end_line_def_line)
+	(_end_line_starting_block, _process_remaining_on_line): improve/add
+	debug messages.
+
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_parent_string, debug_print_element_short)
 	(debug_print_element): add an optional argument to
 	debug_print_element_short to show the parent element name or type.

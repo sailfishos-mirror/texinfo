@@ -121,16 +121,12 @@ $result_trees{'empty_deftypeop_name'} = {
                         'def_role' => 'type'
                       },
                       'type' => 'def_aggregate'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
                     }
                   ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
