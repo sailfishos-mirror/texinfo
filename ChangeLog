@@ -1,5 +1,12 @@
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_merge_text): use explicitely scalar()
+	for clearer code.
+
+	(_isolate_last_space, _end_line_def_line): better debugging output.
+
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/01use.t: update tree.  Do not use 'use vars'.
 
 2022-12-06  Patrice Dumas  <pertusus@free.fr>

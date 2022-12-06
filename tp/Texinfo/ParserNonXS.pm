@@ -2029,7 +2029,7 @@ sub _merge_text {
     if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
-    if ($current->{'contents'} and @{$current->{'contents'}}
+    if ($current->{'contents'} and scalar(@{$current->{'contents'}})
       and $current->{'contents'}->[-1]->{'type'}
       and ($current->{'contents'}->[-1]->{'type'} eq 'ignorable_spaces_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
@@ -2046,17 +2046,12 @@ sub _merge_text {
   }
 
   if (!defined($current->{'contents'})) {
-    # this can happen for preformatted since they do not have an initialized
-    # contents to match better the XS parser
-    #$self->_bug_message("No contents in _merge_text",
-    #                        undef, $current);
-    #cluck;
-    #die;
+    # this can happen at least for preformatted.
     $current->{'contents'} = [];
   }
 
   if (!$no_merge_with_following_text
-      and @{$current->{'contents'}}
+      and scalar(@{$current->{'contents'}})
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
     $current->{'contents'}->[-1]->{'text'} .= $text;
@@ -2503,14 +2498,36 @@ sub _isolate_last_space
     # as this would be difficult to implement properly in TeX.
   }
 
-  return if !$current->{'contents'}
+  my $debug_str;
+  if ($self->{'DEBUG'}) {
+    $debug_str = 'p: '
+         .Texinfo::Common::debug_print_element_short($current)."; c ";
+    if (scalar(@{$current->{'contents'}})) {
+      if ($current->{'contents'}->[-1]->{'type'}) {
+        $debug_str .= "($current->{'contents'}->[-1]->{'type'})";
+      }
+      if (defined($current->{'contents'}->[-1]->{'text'})) {
+        $debug_str .= "[T: $current->{'contents'}->[-1]->{'text'}]";
+      }
+    }
+    $debug_str .= "\n";
+  }
+
+  if (!$current->{'contents'}
             or !scalar(@{$current->{'contents'}})
             or !defined($current->{'contents'}->[-1]->{'text'})
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
                         or ($current->{'type'} ne 'line_arg'
                             and $current->{'type'} ne 'block_line_arg')))
-            or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/;
+            or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/) {
+    print STDERR "NOT ISOLATING ".$debug_str
+       if ($self->{'DEBUG'});
+    return;
+  }
+
+  print STDERR "ISOLATE SPACE ".$debug_str
+    if ($self->{'DEBUG'});
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
     _isolate_trailing_space($current, 'space_at_end_menu_node');
@@ -3269,11 +3286,14 @@ sub _end_line_def_line($$$)
 
   $self->_pop_context(['ct_def'], $source_info, $current);
   my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
-  print STDERR "END DEF LINE: $def_command\n"
-    if ($self->{'DEBUG'});
-  # in case there are no arguments at all, it needs to be called here.
+
+  print STDERR "END DEF LINE $def_command; current: "
+    .Texinfo::Common::debug_print_element_short($current)."\n"
+      if ($self->{'DEBUG'});
+
   _abort_empty_line($self, $current);
   _isolate_last_space($self, $current);
+
   my $arguments = _parse_def($self, $def_command, $current);
   if (scalar(@$arguments)) {
     #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
