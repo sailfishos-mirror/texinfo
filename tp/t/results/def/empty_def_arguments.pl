@@ -189,6 +189,10 @@ $result_trees{'empty_def_arguments'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -196,10 +200,6 @@ $result_trees{'empty_def_arguments'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => ' 
-'
               },
               'source_info' => {
                 'file_name' => '',

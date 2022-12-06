@@ -15,6 +15,10 @@ $result_trees{'no_category_or_no_name'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -72,10 +76,6 @@ $result_trees{'no_category_or_no_name'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -318,6 +318,10 @@ $result_trees{'no_category_or_no_name'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -325,10 +329,6 @@ $result_trees{'no_category_or_no_name'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => ' 
-'
               },
               'source_info' => {
                 'file_name' => '',

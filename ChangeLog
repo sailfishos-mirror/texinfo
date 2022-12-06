@@ -1,5 +1,12 @@
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): do not call
+	abort_empty_line when processing the @def* line, there is no empty
+	line to abort.
+
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_merge_text): use explicitely scalar()
 	for clearer code.
 

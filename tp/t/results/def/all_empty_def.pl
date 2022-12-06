@@ -15,6 +15,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -58,10 +62,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -79,6 +79,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -122,10 +126,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -143,6 +143,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -186,10 +190,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -207,6 +207,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -250,10 +254,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
@@ -271,6 +271,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -314,10 +318,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -335,6 +335,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -378,10 +382,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
@@ -399,6 +399,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -442,10 +446,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
@@ -463,6 +463,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -506,10 +510,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 22,
@@ -527,6 +527,10 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'type' => 'block_line_arg'
                 }
               ],
@@ -570,10 +574,6 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'info' => {
-            'spaces_before_argument' => '
-'
-          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 25,

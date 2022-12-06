@@ -3291,7 +3291,6 @@ sub _end_line_def_line($$$)
     .Texinfo::Common::debug_print_element_short($current)."\n"
       if ($self->{'DEBUG'});
 
-  _abort_empty_line($self, $current);
   _isolate_last_space($self, $current);
 
   my $arguments = _parse_def($self, $def_command, $current);
