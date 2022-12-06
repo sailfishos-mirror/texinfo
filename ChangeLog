@@ -1,5 +1,10 @@
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning): tree
+	element added for new section more in line with current tree elements.
+
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block): allow only
 	one letter as @enumerate argument (same as XS parser).
 

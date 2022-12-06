@@ -116,28 +116,22 @@ sub fill_gaps_in_sectioning($)
         while ($next_section_level - $current_section_level > 1) {
           $current_section_level++;
           my $new_section = {'cmdname' =>
-            $Texinfo::Common::level_to_structuring_command{'unnumbered'}->[$current_section_level],
+            $Texinfo::Common::level_to_structuring_command{'unnumbered'}
+                                                  ->[$current_section_level],
             'parent' => $root,
+            'info' => {'spaces_before_argument' => ' '},
           };
+          my $line_arg = {'type' => 'line_arg', 'parent' => $new_section,
+                          'info' => {'spaces_after_argument' => "\n"}};
+          $new_section->{'args'} = [$line_arg];
+          my $asis_command = {'cmdname' => 'asis',
+                              'parent' => $line_arg};
+          $line_arg->{'contents'} = [$asis_command];
+          $asis_command->{'args'} = [{'type' => 'brace_command_arg',
+                                      'parent' => $asis_command}];
           $new_section->{'contents'} = [{'type' => 'empty_line',
                                          'text' => "\n",
                                          'parent' => $new_section}];
-          $new_section->{'args'} = [{'type' => 'line_arg',
-                                     'parent' => $new_section}];
-          $new_section->{'args'}->[0]->{'contents'} = [
-             {'cmdname' => 'asis',
-              'parent' => $new_section->{'args'}->[0]
-             },
-             {'type' => 'spaces_at_end',
-              'text' => "\n",
-              'parent' => $new_section->{'args'}->[0]
-             }];
-          $new_section->{'args'}->[0]->{'info'}
-            = {'spaces_before_argument' => ' '};
-          $new_section->{'args'}->[0]->{'contents'}->[0]->{'args'}
-             = [{'type' => 'brace_command_arg',
-                 'contents' => [],
-                 'parent' => $new_section->{'args'}->[0]->{'contents'}->[1]}];
           push @contents, $new_section;
           push @added_sections, $new_section;
         }
