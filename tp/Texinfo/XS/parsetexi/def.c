@@ -66,23 +66,6 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
 /* Starting at I in the contents, return the next non-whitespace element,
    incrementing I.  Return null if no more elements. */
 ELEMENT *
-next_bracketed_or_word (ELEMENT *current, int *i)
-{
-  while (1)
-    {
-      if (*i == current->contents.number)
-        return 0;
-      if (current->contents.list[*i]->type != ET_spaces
-          && current->contents.list[*i]->type != ET_spaces_inserted
-          && current->contents.list[*i]->type != ET_spaces_at_end
-          && current->contents.list[*i]->type != ET_delimiter)
-        break;
-      (*i)++;
-    }
-  return current->contents.list[(*i)++];
-}
-
-ELEMENT *
 next_bracketed_or_word_agg (ELEMENT *current, int *i)
 {
   int num = 0;
@@ -96,7 +79,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
       e = current->contents.list[*i];
       if (e->type == ET_spaces
           || e->type == ET_spaces_inserted
-          || e->type == ET_spaces_at_end
           || e->type == ET_delimiter)
         {
           if (num > 0)
@@ -238,12 +220,7 @@ split_def_args (ELEMENT *current, int starting_idx)
               insert_into_contents (current, new, i++);
               add_extra_string_dup (new, "def_role", "spaces");
               if (!*(p += len))
-                {
-                  if (new->text.end > 0
-                      && new->text.text[new->text.end - 1] == '\n')
-                    new->type = ET_spaces_at_end;
                   break;
-                }
             }
             
           len = strcspn (p, whitespace_chars);
@@ -375,8 +352,7 @@ found:
     {
       e = contents_child_by_index (current, i);
       if (e->type == ET_spaces
-          || e->type == ET_spaces_inserted
-          || e->type == ET_spaces_at_end)
+          || e->type == ET_spaces_inserted)
         {
           continue;
         }

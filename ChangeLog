@@ -1,5 +1,16 @@
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_def),
+	tp/Texinfo/XS/parsetexi/def.c (next_bracketed_or_word_agg)
+	(split_def_args, parse_def): remove code setting spaces_at_end on
+	@def* lines, as it cannot happen anymore.  Remove use of spaces_at_end
+	def line type.
+
+	* tp/Texinfo/XS/parsetexi/def.c: remove unused next_bracketed_or_word
+	function.
+
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning): tree
 	element added for new section more in line with current tree elements.
 

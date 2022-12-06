@@ -2730,9 +2730,6 @@ sub _parse_def($$$)
         and ($token->{'type'} eq 'spaces'
                or $token->{'type'} eq 'spaces_inserted')) {
       if ($token->{'text'}) {
-        if ($token->{'text'} =~ /\n$/) {
-          $token->{'type'} = 'spaces_at_end';
-        }
         push @result, ['spaces', $token];
         shift @contents;
       } else {
@@ -2776,9 +2773,6 @@ sub _parse_def($$$)
       $next_token = shift @contents;
     }
     if (defined($spaces)) {
-      if ($spaces->{'text'} =~ /\n$/) {
-        $spaces->{'type'} = 'spaces_at_end';
-      }
       push @args_results, ['spaces', $spaces]
     }
     last if (!defined($next_token));
@@ -7200,8 +7194,7 @@ C<@verb>, C<@macro> body).
 =item spaces_at_end
 
 Space within an index @-command before an @-command interrupting the
-index command, or at the end of line and end of bracketed content
-on a definition line.
+index command.
 
 =item text_before_beginning
 
