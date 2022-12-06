@@ -3442,7 +3442,7 @@ sub _end_line_starting_block($$$)
         }
         my $arg = $current->{'args'}->[0]->{'contents'}->[0];
         if (!defined($arg->{'text'})
-            or $arg->{'text'} !~ /^(([[:digit:]]+)|([[:alpha:]]+))$/) {
+            or $arg->{'text'} !~ /^(([[:digit:]]+)|([[:alpha:]]))$/) {
           $self->_command_error($current, $source_info,
                       __("bad argument to \@%s"),
                       $current->{'cmdname'});
