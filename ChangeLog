@@ -1,3 +1,9 @@
+2022-12-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (_parent_string, debug_print_element_short)
+	(debug_print_element): add an optional argument to
+	debug_print_element_short to show the parent element name or type.
+
 2022-12-05  Patrice Dumas  <pertusus@free.fr>
 
 	* layout/list-of-tests: add layout formatting_info_disable_encoding

@@ -2200,10 +2200,26 @@ sub register_label($$$)
 # functions used for debugging.  May be used in other modules.
 # Not documented.
 
-# informations on a tree element, short version
-sub debug_print_element_short($)
+sub _parent_string($)
 {
   my $current = shift;
+  my $parent_string;
+  if ($current->{'parent'}) {
+    my $parent = $current->{'parent'};
+    my $parent_cmd = '';
+    my $parent_type = '';
+    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
+    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
+    $parent_string = " <- $parent_cmd$parent_type";
+  }
+  return $parent_string
+}
+
+# informations on a tree element, short version
+sub debug_print_element_short($;$)
+{
+  my $current = shift;
+  my $print_parent = shift;
 
   if (!defined($current)) {
     return "debug_print_element_simply: UNDEF\n";
@@ -2213,7 +2229,6 @@ sub debug_print_element_short($)
   }
   my $type = '';
   my $cmd = '';
-  my $parent_string = '';
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
   # specific of HTML
@@ -2227,7 +2242,12 @@ sub debug_print_element_short($)
   $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
   $contents = "[C".scalar(@{$current->{'contents'}}).']'
     if $current->{'contents'};
-  return "$cmd$type$text$args$contents";
+  my $parent_string = '';
+  if ($print_parent) {
+    $parent_string = _parent_string($current);
+    $parent_string = '' if (!defined($parent_string));
+  }
+  return "$cmd$type$text$args$contents$parent_string";
 }
 
 # informations on a tree element, long version
@@ -2239,7 +2259,6 @@ sub debug_print_element($)
   }
   my $type = '';
   my $cmd = '';
-  my $parent_string = '';
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
   # specific of HTML
@@ -2254,13 +2273,11 @@ sub debug_print_element($)
     $text_str =~ s/\n/\\n/g;
     $text = "[T: $text_str]";
   }
-  if ($current->{'parent'}) {
-    my $parent = $current->{'parent'};
-    my $parent_cmd = '';
-    my $parent_type = '';
-    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
-    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
-    $parent_string = " <- $parent_cmd$parent_type\n";
+  my $parent_string = _parent_string($current);
+  if (defined($parent_string)) {
+    $parent_string .= "\n";
+  } else {
+    $parent_string = '';
   }
   my $args = '';
   my $contents = '';
