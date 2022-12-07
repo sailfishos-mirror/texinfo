@@ -132,4 +132,10 @@ $result_converted{'html_text'}->{'asis_as_itemize_argument'} = '<ul class="itemi
 </li></ul>
 ';
 
+
+$result_converted{'xml'}->{'asis_as_itemize_argument'} = '<itemize commandarg="asis" spaces=" " endspaces=" ">
+<listitem><prepend></prepend> <para>as is
+</para></listitem></itemize>
+';
+
 1;

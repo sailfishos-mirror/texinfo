@@ -204,6 +204,13 @@ $result_converted{'html_text'}->{'w_argument'} = '<ul class="itemize mark-none">
 ';
 
 
+$result_converted{'xml'}->{'w_argument'} = '<itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+<listitem><prepend><w></w></prepend> <para><option>--build=</option> platform on which the program is compiled,
+</para></listitem><listitem><prepend><w></w></prepend> <para><option>--target=</option> target platform on which the program is processed.
+</para></listitem></itemize>
+';
+
+
 $result_converted{'latex_text'}->{'w_argument'} = '\\begin{itemize}[label={}]
 \\item \\texttt{{-}{-}build=} platform on which the program is compiled,
 \\item \\texttt{{-}{-}target=} target platform on which the program is processed.

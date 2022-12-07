@@ -383,4 +383,18 @@ $result_converted{'html_text'}->{'empty_accent_argument'} = '<ul class="itemize"
 </li></ul>
 ';
 
+
+$result_converted{'xml'}->{'empty_accent_argument'} = '<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend><!-- comment -->
+<listitem><prepend><accent type="tilde"></accent></prepend> <para>item
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend>
+<listitem><prepend><accent type="tilde"></accent></prepend> <para>item
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend>
+<listitem><prepend><accent type="tilde"></accent></prepend> <para>item
+</para></listitem></itemize>
+';
+
 1;

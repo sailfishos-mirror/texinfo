@@ -1616,4 +1616,87 @@ b b bbbbbbbbbbbbbbbbbbbbbbb.
 </li></ul>
 ';
 
+
+$result_converted{'xml'}->{'itemize_and_empty_lines'} = '<itemize spaces=" " endspaces=" "><itemprepend>youhou</itemprepend>
+<listitem><prepend>youhou</prepend> <para>first item
+</para></listitem><listitem><prepend>youhou</prepend>
+<example endspaces=" ">
+<pre xml:space="preserve">In example
+
+end example.
+</pre></example>
+</listitem><listitem><prepend>youhou</prepend>
+
+<para>empty line.
+</para></listitem><listitem><prepend>youhou</prepend>
+
+<example endspaces=" ">
+<pre xml:space="preserve">In second example
+</pre></example>
+<quotation endspaces=" ">
+<para>Quotation
+</para></quotation>
+
+</listitem><listitem><prepend>youhou</prepend>
+
+<quotation endspaces=" ">
+<para>quotation after a blank line
+</para></quotation>
+</listitem></itemize>
+
+<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<listitem><prepend>&bullet;</prepend> <para>first item
+</para></listitem><listitem><prepend>&bullet;</prepend>
+<example endspaces=" ">
+<pre xml:space="preserve">In example
+
+end example.
+</pre></example>
+</listitem><listitem><prepend>&bullet;</prepend>
+
+<para>empty line.
+</para></listitem><listitem><prepend>&bullet;</prepend>
+
+<example endspaces=" ">
+<pre xml:space="preserve">In second example
+</pre></example>
+</listitem><listitem><prepend>&bullet;</prepend>
+<quotation endspaces=" ">
+<para>Quotation
+</para></quotation>
+
+</listitem><listitem><prepend>&bullet;</prepend>
+
+<quotation endspaces=" ">
+<para>quotation after a blank line
+</para></quotation>
+</listitem></itemize>
+
+<para>An itemize
+</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+<listitem><prepend>&minus;</prepend> <para>truc 
+line
+</para></listitem></itemize>
+<para>After itemize
+</para>
+
+<para>A nested itemize
+</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+<listitem><prepend>&minus;</prepend> <para>truc 
+line
+</para><itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<listitem><prepend>&bullet;</prepend> <para>in nested itemize
+</para></listitem></itemize>
+<para>After inside nested itemize.
+</para></listitem></itemize>
+<para>After nested itemize
+</para>
+<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<listitem><prepend>&bullet;</prepend> <para>the version number of Texinfo and the program(s) or manual(s) involved.
+</para></listitem><listitem><prepend>&bullet;</prepend> <para>hardware and operating system names and versions.
+</para></listitem><listitem><prepend>&bullet;</prepend> <para>something aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa
+b b bbbbbbbbbbbbbbbbbbbbbbb.
+</para></listitem></itemize>
+';
+
 1;

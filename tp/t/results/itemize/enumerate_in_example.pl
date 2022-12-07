@@ -224,6 +224,18 @@ still second
 ';
 
 
+$result_converted{'xml'}->{'enumerate_in_example'} = '
+<example endspaces=" ">
+<enumerate first="1" endspaces=" ">
+<listitem><pre xml:space="preserve"> first item
+</pre></listitem><listitem><pre xml:space="preserve"> second  item
+
+still second
+</pre></listitem></enumerate>
+</example>
+';
+
+
 $result_converted{'latex_text'}->{'enumerate_in_example'} = '
 \\begin{Texinfoindented}
 \\begin{enumerate}[start=1]

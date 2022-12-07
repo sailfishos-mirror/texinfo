@@ -258,4 +258,15 @@ $result_converted{'html_text'}->{'enumerate_argument'} = '
 
 ';
 
+
+$result_converted{'xml'}->{'enumerate_argument'} = '<enumerate first="1" spaces=" " endspaces=" "><enumeratefirst>1</enumeratefirst>
+</enumerate>
+
+<enumerate first="A" spaces=" " endspaces=" "><enumeratefirst>A</enumeratefirst><!-- c comment -->
+</enumerate>
+
+<enumerate first="z" spaces=" " endspaces=" "><enumeratefirst>z </enumeratefirst><!-- c comment -->
+</enumerate>
+';
+
 1;

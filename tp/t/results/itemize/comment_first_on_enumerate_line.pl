@@ -134,4 +134,10 @@ $result_converted{'html_text'}->{'comment_first_on_enumerate_line'} = '<ol class
 </li></ol>
 ';
 
+
+$result_converted{'xml'}->{'comment_first_on_enumerate_line'} = '<enumerate first="1" spaces=" " endspaces=" "><!-- c comment on enumerate line -->
+<listitem> <para>first
+</para></listitem></enumerate>
+';
+
 1;

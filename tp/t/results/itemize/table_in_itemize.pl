@@ -405,4 +405,21 @@ $result_converted{'html_text'}->{'table_in_itemize'} = '<ul class="itemize mark-
 </li></ul>
 ';
 
+
+$result_converted{'xml'}->{'table_in_itemize'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<listitem><prepend>&bullet;</prepend> <para>item one
+</para></listitem><listitem><prepend>&bullet;</prepend>
+<table commandarg="asis" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="asis">table one</itemformat></item>
+</tableterm><tableitem><para>aaaaa
+</para>
+<para>New para.
+</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">table two</itemformat></item>
+</tableterm><tableitem><para>Five
+</para>
+<para>New para.
+</para></tableitem></tableentry></table>
+</listitem><listitem><prepend>&bullet;</prepend> <para>item three
+</para></listitem></itemize>';
+
 1;

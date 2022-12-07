@@ -46,7 +46,7 @@ currently supported in Texinfo.
 @node @mybibnode{}
 @chapter References
 
-@itemize @asis
+@itemize @w{}
 
 @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User's Guide and
 Reference Manual, 2nd edition, Addison-Wesley, Reading,

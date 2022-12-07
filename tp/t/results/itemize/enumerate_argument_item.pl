@@ -446,4 +446,21 @@ $result_converted{'html_text'}->{'enumerate_argument_item'} = '<ol class="enumer
 </li></ol>
 ';
 
+
+$result_converted{'xml'}->{'enumerate_argument_item'} = '<enumerate first="1" spaces=" " endspaces=" "><enumeratefirst>1</enumeratefirst>
+<listitem> <para>numeric first
+</para></listitem><listitem> <para>numeric second
+</para></listitem></enumerate>
+
+<enumerate first="A" spaces=" " endspaces=" "><enumeratefirst>A</enumeratefirst><!-- c comment -->
+<listitem> <para>upper case first
+</para></listitem><listitem> <para>upper case second
+</para></listitem></enumerate>
+
+<enumerate first="z" spaces=" " endspaces=" "><enumeratefirst>z </enumeratefirst><!-- c comment -->
+<listitem> <para>lower case first
+</para></listitem><listitem> <para>lower case second
+</para></listitem></enumerate>
+';
+
 1;

@@ -250,4 +250,14 @@ $result_converted{'html_text'}->{'itemize_line_commands_with_brace'} = '<ul clas
 </li></ul>
 ';
 
+
+$result_converted{'xml'}->{'itemize_line_commands_with_brace'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend>&bullet;</itemprepend>
+<listitem><prepend>&bullet;</prepend> <para>bullet
+</para></listitem></itemize>
+
+<itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend>&minus;</itemprepend>
+<listitem><prepend>&minus;</prepend> <para>minus
+</para></listitem></itemize>
+';
+
 1;

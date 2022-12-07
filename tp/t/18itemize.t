@@ -618,6 +618,7 @@ my @latex_tests_cases_tests = ('w_argument', 'enumerate_in_example',
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'latex_text'
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
 }

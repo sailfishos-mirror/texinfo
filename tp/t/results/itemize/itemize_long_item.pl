@@ -542,6 +542,36 @@ empty line.
 ';
 
 
+$result_converted{'xml'}->{'itemize_long_item'} = '<itemize spaces=" " endspaces=" "><itemprepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</itemprepend>
+<listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend> <para>first item
+</para></listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
+<example endspaces=" ">
+<pre xml:space="preserve">In example
+
+end example.
+</pre></example>
+</listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
+
+<para>empty line.
+</para></listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
+
+<example endspaces=" ">
+<pre xml:space="preserve">In second example
+</pre></example>
+</listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
+<quotation endspaces=" ">
+<para>Quotation
+</para></quotation>
+
+</listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
+
+<quotation endspaces=" ">
+<para>quotation after a blank line
+</para></quotation>
+</listitem></itemize>
+';
+
+
 $result_converted{'latex_text'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
 \\item first item
 \\item \\begin{Texinfoindented}

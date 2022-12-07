@@ -3866,7 +3866,12 @@ $result_trees{'texi_bib_example'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => 'asis',
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'w',
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
                     'line_nr' => 49,
@@ -4345,7 +4350,7 @@ currently supported in Texinfo.
 @node References
 @chapter References
 
-@itemize @asis
+@itemize @w{}
 
 @item
 @anchor{LaTeX2e}[LaTeX2e]
@@ -4663,6 +4668,7 @@ td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 td.name-direction-about {text-align:center}
 th.menu-comment {text-align:left}
+ul.mark-none {list-style-type: none}
 -->
 </style>
 
@@ -4787,7 +4793,7 @@ currently supported in Texinfo.
 </tr></table>
 <h1 class="chapter" id="References-1">2 References</h1>
 
-<ul class="itemize">
+<ul class="itemize mark-none">
 <li><a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
  Leslie Lamport, LaTeX User&rsquo;s Guide and
 Reference Manual, 2nd edition, Addison-Wesley, Reading,

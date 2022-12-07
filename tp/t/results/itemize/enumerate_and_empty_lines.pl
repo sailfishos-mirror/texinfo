@@ -628,4 +628,38 @@ empty line.
 </li></ol>
 ';
 
+
+$result_converted{'xml'}->{'enumerate_and_empty_lines'} = '<enumerate first="1" endspaces=" ">
+<listitem> <para>first item
+</para></listitem><listitem> 
+<example endspaces=" ">
+<pre xml:space="preserve">In example
+
+end example.
+</pre></example>
+</listitem><listitem> 
+
+<para>empty line.
+</para></listitem><listitem>
+
+<example endspaces=" ">
+<pre xml:space="preserve">In second example
+</pre></example>
+</listitem><listitem> 
+<quotation endspaces=" ">
+<para>Quotation
+</para></quotation>
+
+</listitem><listitem>
+
+<quotation endspaces=" ">
+<para>quotation after a blank line
+</para></quotation>
+</listitem></enumerate>
+
+<enumerate first="1" endspaces=" ">
+<listitem> <para>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa fffffffff ggggggggg vvvvvvvvv ggggggggg h
+</para></listitem></enumerate>
+';
+
 1;

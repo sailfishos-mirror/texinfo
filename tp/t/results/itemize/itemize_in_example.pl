@@ -640,6 +640,32 @@ more.
 ';
 
 
+$result_converted{'xml'}->{'itemize_in_example'} = '<example endspaces=" ">
+<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> first
+
+more.
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize commandarg="asis" spaces=" " endspaces=" ">
+<listitem><prepend></prepend><pre xml:space="preserve"> as is
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
+<listitem><prepend>+</prepend><pre xml:space="preserve"> item +
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize spaces=" " endspaces=" "><itemprepend>m--n</itemprepend>
+<listitem><prepend>m--n</prepend><pre xml:space="preserve"> with m--n
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize spaces=" " endspaces=" "><itemprepend>&bullet; a--n itemize line</itemprepend>
+<listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> in an itemize line
+</pre></listitem></itemize>
+</example>
+';
+
+
 $result_converted{'latex_text'}->{'itemize_in_example'} = '\\begin{Texinfoindented}
 \\begin{itemize}[label=\\textbullet{}]
 \\item \\begin{Texinfopreformatted}%
