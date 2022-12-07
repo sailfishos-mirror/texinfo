@@ -1474,8 +1474,9 @@ Use exactly what is on the XML specification
      LibXML error: invalid redeclaration of predefined entity
 <!ENTITY amp        "&#x26;">
 Use exactly what is on the XML specification
--->
 <!ENTITY amp        "&#38;#38;">
+-->
+<!ENTITY ampsymbol  "&amp;"> <!-- same expansion as ampchar -->
 <!ENTITY lsquo      "&#x2018;">
 <!ENTITY textlsquo      "&#x2018;">
 <!ENTITY rsquo      "&#x2019;">

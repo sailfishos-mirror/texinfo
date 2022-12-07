@@ -93,6 +93,7 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @code{@@!} @!
 @code{@@?} @?
 @code{@@.} @.
+@code{@@&amp;} @&amp;
 @code{@@@@} @@
 @code{@@@}} @}
 @code{@@@{} @{
@@ -1300,6 +1301,7 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <code>&arobase;!</code> &eosexcl;
 <code>&arobase;?</code> &eosquest;
 <code>&arobase;.</code> &eosperiod;
+<code>&arobase;&amp;</code> &ampsymbol;
 <code>&arobase;&arobase;</code> &arobase;
 <code>&arobase;&rbrace;</code> &rbrace;
 <code>&arobase;&lbrace;</code> &lbrace;
@@ -2449,6 +2451,7 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <code>&arobase;!</code> &eosexcl;
 <code>&arobase;?</code> &eosquest;
 <code>&arobase;.</code> &eosperiod;
+<code>&arobase;&amp;</code> &ampsymbol;
 <code>&arobase;&arobase;</code> &arobase;
 <code>&arobase;&rbrace;</code> &rbrace;
 <code>&arobase;&lbrace;</code> &lbrace;
@@ -3628,6 +3631,7 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <code>&arobase;!</code> &eosexcl;
 <code>&arobase;?</code> &eosquest;
 <code>&arobase;.</code> &eosperiod;
+<code>&arobase;&amp;</code> &ampsymbol;
 <code>&arobase;&arobase;</code> &arobase;
 <code>&arobase;&rbrace;</code> &rbrace;
 <code>&arobase;&lbrace;</code> &lbrace;
@@ -4772,6 +4776,7 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 <code>&arobase;!</code> &eosexcl;
 <code>&arobase;?</code> &eosquest;
 <code>&arobase;.</code> &eosperiod;
+<code>&arobase;&amp;</code> &ampsymbol;
 <code>&arobase;&arobase;</code> &arobase;
 <code>&arobase;&rbrace;</code> &rbrace;
 <code>&arobase;&lbrace;</code> &lbrace;

@@ -111,6 +111,7 @@ kbd: ``simple-double--three---four----''
 @! !
 @? ?
 @. .
+@& &
 @@ @
 @} }
 @{ {
@@ -952,6 +953,7 @@ kbd: ``simple-double--three---four----''
 @! !
 @? ?
 @. .
+@& &
 @@ @
 @} }
 @{ {

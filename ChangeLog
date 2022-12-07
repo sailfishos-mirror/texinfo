@@ -1,3 +1,12 @@
+2022-12-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (%no_arg_commands_formatting),
+	util/texinfo.dtd: use &ampsymbol; for @& to avoid using the &amp;
+	entity already used for & in text in XML.  &ampsymbol; ultimately maps
+	to &amp; in DTD.
+
+	* tp/tests/coverage_macro.texi: add @&.
+
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/19def.t: move all_empty_def to @test_info and format to xml

@@ -98,6 +98,7 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <literal>@!</literal> !
 <literal>@?</literal> ?
 <literal>@.</literal> .
+<literal>@&amp;</literal> &amp;
 <literal>@@</literal> @
 <literal>@}</literal> }
 <literal>@{</literal> {
@@ -1024,6 +1025,7 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <literal>@!</literal> !
 <literal>@?</literal> ?
 <literal>@.</literal> .
+<literal>@&amp;</literal> &amp;
 <literal>@@</literal> @
 <literal>@}</literal> }
 <literal>@{</literal> {
@@ -1937,6 +1939,7 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <literal>@!</literal> !
 <literal>@?</literal> ?
 <literal>@.</literal> .
+<literal>@&amp;</literal> &amp;
 <literal>@@</literal> @
 <literal>@}</literal> }
 <literal>@{</literal> {
@@ -2846,6 +2849,7 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <literal>@!</literal> !
 <literal>@?</literal> ?
 <literal>@.</literal> .
+<literal>@&amp;</literal> &amp;
 <literal>@@</literal> @
 <literal>@}</literal> }
 <literal>@{</literal> {

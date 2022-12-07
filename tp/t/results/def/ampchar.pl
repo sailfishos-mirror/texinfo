@@ -338,9 +338,9 @@ $result_converted_errors{'html'}->{'ampchar'} = [
 
 
 
-$result_converted{'xml'}->{'ampchar'} = '<defop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">b on a</indexterm><defcategory bracketed="on">Constructor</defcategory> <defclass>a</defclass> <defoperation>b</defoperation> <defdelimiter>(</defdelimiter><defparam><code>const std::vector&lt;int&gt;&amp;</code></defparam><defdelimiter>)</defdelimiter></definitionterm>
+$result_converted{'xml'}->{'ampchar'} = '<defop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">b on a</indexterm><defcategory bracketed="on">Constructor</defcategory> <defclass>a</defclass> <defoperation>b</defoperation> <defdelimiter>(</defdelimiter><defparam><code>const std::vector&lt;int&gt;&ampsymbol;</code></defparam><defdelimiter>)</defdelimiter></definitionterm>
 </defop>
-<para>&amp; &amp; &ampchar; &lbrace; &rbrace; &arobase;
+<para>&amp; &ampsymbol; &ampchar; &lbrace; &rbrace; &arobase;
 </para>';
 
 

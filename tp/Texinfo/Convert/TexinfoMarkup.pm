@@ -66,7 +66,8 @@ our %no_arg_commands_formatting = (
            '@' => 'arobase',
            '{' => 'lbrace',
            '}' => 'rbrace',
-           '&' => 'amp',
+           '&' => 'ampsymbol',  # avoid amp as it is already the entity for
+                                # & in text in XML
            '\\' => 'backslash',  # should only appear in math
 
            'TeX' => 'tex',

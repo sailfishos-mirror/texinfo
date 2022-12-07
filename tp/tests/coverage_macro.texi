@@ -73,6 +73,7 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @code{@@!} @!
 @code{@@?} @?
 @code{@@.} @.
+@code{@@&} @&
 @code{@@@@} @@
 @code{@@@}} @}
 @code{@@@{} @{
