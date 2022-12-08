@@ -201,17 +201,16 @@ $result_trees{'section_on_xtable_line'} = {
               'contents' => [
                 {
                   'cmdname' => 'ringaccent',
+                  'info' => {
+                    'spaces_after_cmd_before_arg' => ' '
+                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
                     'macro' => ''
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => ' '
-              },
               'type' => 'block_line_arg'
             }
           ],
@@ -446,6 +445,15 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'error'
   },
   {
+    'error_line' => '@ringaccent expected braces
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@ringaccent expected braces',
+    'type' => 'error'
+  },
+  {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
     'file_name' => '',
@@ -464,13 +472,13 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: accent command `@ringaccent\' not allowed as @ftable argument
+    'error_line' => 'ftable requires an argument: the formatter for @item
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'accent command `@ringaccent\' not allowed as @ftable argument',
-    'type' => 'warning'
+    'text' => 'ftable requires an argument: the formatter for @item',
+    'type' => 'error'
   },
   {
     'error_line' => '@section seen before @end ftable
@@ -514,7 +522,7 @@ $result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable commandarg="asis
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 
-<ftable commandarg="asis" spaces=" "> </ftable>
+<ftable commandarg="asis" spaces=" "></ftable>
 </section>
 <section spaces=" "><sectiontitle>fourth</sectiontitle>
 </section>

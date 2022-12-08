@@ -204,17 +204,16 @@ $result_trees{'section_on_itemize_line'} = {
               'contents' => [
                 {
                   'cmdname' => 'ringaccent',
+                  'info' => {
+                    'spaces_after_cmd_before_arg' => ' '
+                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
                     'macro' => ''
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => ' '
-              },
               'type' => 'block_line_arg'
             }
           ],
@@ -426,6 +425,15 @@ $result_errors{'section_on_itemize_line'} = [
     'type' => 'error'
   },
   {
+    'error_line' => '@ringaccent expected braces
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@ringaccent expected braces',
+    'type' => 'error'
+  },
+  {
     'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
     'file_name' => '',
@@ -441,15 +449,6 @@ $result_errors{'section_on_itemize_line'} = [
     'line_nr' => 7,
     'macro' => '',
     'text' => '@section should not appear in @itemize',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: accent command `@ringaccent\' not allowed as @itemize argument
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => 'accent command `@ringaccent\' not allowed as @itemize argument',
     'type' => 'warning'
   },
   {
@@ -494,7 +493,7 @@ $result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="mi
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 
-<itemize spaces=" "><itemprepend><accent type="ring"></accent> </itemprepend></itemize>
+<itemize spaces=" "><itemprepend><accent type="ring"></accent></itemprepend></itemize>
 </section>
 <section spaces=" "><sectiontitle>fourth</sectiontitle>
 </section>

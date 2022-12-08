@@ -1943,6 +1943,16 @@ $result_trees{'itemize_arguments'} = {
             {
               'contents' => [
                 {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
+                      'type' => 'following_arg'
+                    }
+                  ],
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => '',
@@ -1951,7 +1961,7 @@ $result_trees{'itemize_arguments'} = {
                   }
                 },
                 {
-                  'text' => 'e '
+                  'text' => ' '
                 },
                 {
                   'args' => [
@@ -2127,6 +2137,16 @@ $result_trees{'itemize_arguments'} = {
             {
               'contents' => [
                 {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'E'
+                        }
+                      ],
+                      'type' => 'following_arg'
+                    }
+                  ],
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => '',
@@ -2135,7 +2155,7 @@ $result_trees{'itemize_arguments'} = {
                   }
                 },
                 {
-                  'text' => 'E '
+                  'text' => ' '
                 },
                 {
                   'args' => [

@@ -1509,6 +1509,7 @@ superfluous_arg:
      Need to be done as early as possible such that no other condition
      prevail and lead to a missed command */
   if (command_flags(current) & CF_brace && *line != '{'
+      && command_data(current->cmd).data != BRACE_accent
       && parent_of_command_as_argument (current->parent))
     {
       register_command_as_argument (current);
@@ -1575,6 +1576,24 @@ superfluous_arg:
                  {
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->cmd));
+                   if (current_context() == ct_def
+                       || current_context() == ct_line)
+                     {
+                    /* do not consider the end of line to be possibly between
+                       the @-command and the argument if at the end of a
+                       line or block @-command. */
+                       char saved; /* TODO: Have a length argument to merge_text? */
+                       current = current->parent;
+                       saved = line[whitespaces_len];
+                       line[whitespaces_len] = '\0';
+                       current = merge_text (current, line);
+                       line += whitespaces_len;
+                       *line = saved;
+                       isolate_last_space (current);
+                       current = end_line (current);
+                       retval = GET_A_NEW_LINE;
+                       goto funexit;
+                     }
                    additional_newline = 1;
                    break;
                  }

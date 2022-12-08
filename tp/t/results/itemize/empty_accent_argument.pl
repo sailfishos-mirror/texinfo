@@ -19,8 +19,7 @@ $result_trees{'empty_accent_argument'} = {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -125,8 +124,7 @@ $result_trees{'empty_accent_argument'} = {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -329,21 +327,21 @@ item
 
 $result_errors{'empty_accent_argument'} = [
   {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
+    'error_line' => '@~ expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
-    'type' => 'warning'
+    'text' => '@~ expected braces',
+    'type' => 'error'
   },
   {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
+    'error_line' => 'warning: command `@~\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
+    'text' => 'command `@~\' must not be followed by new line',
     'type' => 'warning'
   },
   {

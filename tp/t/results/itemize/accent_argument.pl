@@ -14,15 +14,22 @@ $result_trees{'accent_argument'} = {
             {
               'contents' => [
                 {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
+                      'type' => 'following_arg'
+                    }
+                  ],
                   'cmdname' => '~',
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
                   }
-                },
-                {
-                  'text' => 'e'
                 }
               ],
               'info' => {
@@ -228,13 +235,13 @@ $result_floats{'accent_argument'} = {};
 
 
 
-$result_converted{'plaintext'}->{'accent_argument'} = '   ̃e item
+$result_converted{'plaintext'}->{'accent_argument'} = '   ẽ item
 
    ẽ item
 ';
 
 
-$result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\0303 e\'">
+$result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\1EBD \'">
 <li>item
 </li></ul>
 
@@ -244,8 +251,8 @@ $result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style
 ';
 
 
-$result_converted{'xml'}->{'accent_argument'} = '<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent>e</itemprepend>
-<listitem><prepend><accent type="tilde"></accent>e</prepend> <para>item
+$result_converted{'xml'}->{'accent_argument'} = '<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde" bracketed="off">e</accent></itemprepend>
+<listitem><prepend><accent type="tilde" bracketed="off">e</accent></prepend> <para>item
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde">e</accent></itemprepend>

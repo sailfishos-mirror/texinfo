@@ -4408,6 +4408,7 @@ sub _process_remaining_on_line($$$$)
   # prevail and lead to a missed command
   if ($current->{'cmdname'}
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
+      and not $self->{'brace_commands'}->{$current->{'cmdname'}} eq 'accent'
       and !$open_brace
       and _parent_of_command_as_argument($current->{'parent'})) {
     _register_command_as_argument($self, $current);
@@ -4471,6 +4472,18 @@ sub _process_remaining_on_line($$$$)
         $self->_line_warn(sprintf(
            __("command `\@%s' must not be followed by new line"),
            $current->{'cmdname'}), $source_info);
+        my $top_context = $self->_top_context();
+        if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
+          # do not consider the end of line to be possibly between
+          # the @-command and the argument if at the end of a
+          # line or block @-command.
+          $current = $current->{'parent'};
+          $current = _merge_text($self, $current, $added_space);
+          _isolate_last_space($self, $current);
+          $current = _end_line($self, $current, $source_info);
+          $retval = $GET_A_NEW_LINE;
+          goto funexit;
+        }
         $additional_newline = 1;
       }
       #$current->{'info'} = {} if (!$current->{'info'});
@@ -5323,6 +5336,8 @@ sub _process_remaining_on_line($$$$)
         $line = _start_empty_line_after_command($line, $current, $block);
       }
     } elsif (defined($self->{'brace_commands'}->{$command})) {
+      print STDERR "OPEN BRACE \@$command\n"
+         if ($self->{'DEBUG'});
       push @{$current->{'contents'}}, { 'cmdname' => $command,
                                         'parent' => $current,
                                         };
