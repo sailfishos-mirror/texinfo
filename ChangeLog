@@ -1,3 +1,11 @@
+2022-12-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/18itemize.t (@test_cases): add more tests of accents
+	on @itemize lines in empty_accent_argument and accent_argument.
+
+	* tp/t/22xtable.t (@test_cases): add more tests of accents
+	on @table line in accent_on_table_line.
+
 2022-12-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

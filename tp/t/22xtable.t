@@ -16,6 +16,26 @@ my @test_cases = (
 @item acc brace first item
 @item no at-command @code{code acc brace}
 @end table
+
+@table @~@comment
+@item acc comment first item
+@end table
+
+@table @~ 
+@item acc space first item
+@end table
+
+@table @ringaccent
+@item cmdacc first item
+@end table
+
+@table @ringaccent{}
+@item cmdacc braces first item
+@end table
+
+@table @ringaccent{a}
+@item cmdacc braces arg first item
+@end table
 '],
 ['definfoenclose_on_table_line',
 '@definfoenclose phi,:,:

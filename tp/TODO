@@ -13,8 +13,6 @@ Before next release
 Bugs
 ====
 
-check that there are tests of @^{} and @ringaccent{?} on @itemize and @table lines.
-
 HTML API
 ========
 

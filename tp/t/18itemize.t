@@ -24,6 +24,10 @@ my @test_cases = (
 @itemize @~{}
 @item item
 @end itemize
+
+@itemize @~ 
+@item item
+@end itemize
 '],
 ['accent_argument',
 '@itemize @~e
@@ -31,6 +35,10 @@ my @test_cases = (
 @end itemize
 
 @itemize @~{e}
+@item item
+@end itemize
+
+@itemize @ringaccent a
 @item item
 @end itemize
 '],

@@ -296,6 +296,97 @@ $result_trees{'empty_accent_argument'} = {
             'line_nr' => 9,
             'macro' => ''
           }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'cmdname' => '~',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' 
+'
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'itemize',
+          'contents' => [
+            {
+              'cmdname' => 'item',
+              'contents' => [
+                {
+                  'text' => ' ',
+                  'type' => 'ignorable_spaces_after_command'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'item
+'
+                    }
+                  ],
+                  'type' => 'paragraph'
+                }
+              ],
+              'extra' => {
+                'item_number' => 1
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              }
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'itemize'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => ''
+              }
+            }
+          ],
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 13,
+            'macro' => ''
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -315,10 +406,16 @@ $result_texis{'empty_accent_argument'} = '@itemize @~@comment
 @itemize @~{}
 @item item
 @end itemize
+
+@itemize @~ 
+@item item
+@end itemize
 ';
 
 
 $result_texts{'empty_accent_argument'} = 'item
+
+item
 
 item
 
@@ -352,6 +449,15 @@ $result_errors{'empty_accent_argument'} = [
     'macro' => '',
     'text' => 'accent command `@~\' not allowed as @itemize argument',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command `@~\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => 'command `@~\' must not be followed by new line',
+    'type' => 'warning'
   }
 ];
 
@@ -365,10 +471,16 @@ $result_converted{'plaintext'}->{'empty_accent_argument'} = '   ̃  item
    ̃  item
 
    ̃  item
+
+   ̃  item
 ';
 
 
 $result_converted{'html_text'}->{'empty_accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\0303 \'">
+<li>item
+</li></ul>
+
+<ul class="itemize" style="list-style-type: \'\\0303 \'">
 <li>item
 </li></ul>
 
@@ -391,6 +503,10 @@ $result_converted{'xml'}->{'empty_accent_argument'} = '<itemize spaces=" " endsp
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend>
+<listitem><prepend><accent type="tilde"></accent></prepend> <para>item
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent> </itemprepend>
 <listitem><prepend><accent type="tilde"></accent></prepend> <para>item
 </para></listitem></itemize>
 ';
