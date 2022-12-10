@@ -1,3 +1,9 @@
+2022-12-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@tie>:
+	Use add_next instead of add_text to add space, and do not
+	use 'w' formatter stack or call set_space_protection.
+
 2022-12-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert_argument_and_end_line)

@@ -1845,14 +1845,8 @@ sub _convert($$)
                     add_next($formatter->{'container'}, $text));
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($command eq 'tie') {
-        $formatter->{'w'}++;
-        set_space_protection($formatter->{'container'}, 1, undef)
-          if ($formatter->{'w'} == 1);
         $result .= _count_added($self, $formatter->{'container'}, 
-                       add_text($formatter->{'container'}, $text));
-        $formatter->{'w'}--;
-        set_space_protection($formatter->{'container'}, 0, undef)
-          if ($formatter->{'w'} == 0);
+                       add_next($formatter->{'container'}, $text));
       } else {
         $result .= _count_added($self, $formatter->{'container'}, 
                        add_text($formatter->{'container'}, $text));
