@@ -294,4 +294,26 @@ in verbatim
    End.
 ';
 
+
+$result_converted{'xml'}->{'raw_in_para'} = '<para>para
+</para><verbatim xml:space="preserve" endspaces=" ">
+in verbatim
+</verbatim>
+
+<para>para b html
+<html endspaces=" ">
+in html
+</html>
+in para
+</para>
+<para>para b tex
+<tex endspaces=" ">
+in tex1
+
+in tex2
+</tex>
+</para>
+<para>End.
+</para>';
+
 1;

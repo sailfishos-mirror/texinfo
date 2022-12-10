@@ -33,12 +33,6 @@ my @test_cases = (
 ',
 {'EXPANDED_FORMATS' => ['tex']}
 ],
-['ignored_text',
-'@node before ignore @ifinfo
-in ifinfo
-@end ifinfo on the node line',
-{'EXPANDED_FORMATS' => []}
-],
 ['in_table',
 '
 @node Top
@@ -593,6 +587,12 @@ Something
 
 @itemize @ringaccent @section fourth
 '],
+['ignored_text',
+'@node before ignore @ifinfo
+in ifinfo
+@end ifinfo on the node line',
+{'EXPANDED_FORMATS' => []}
+],
 );
 
 foreach my $test (@formatted_cases) {

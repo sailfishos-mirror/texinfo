@@ -239,4 +239,23 @@ $result_errors{'spurious_arg_on_line'} = [];
 $result_floats{'spurious_arg_on_line'} = {};
 
 
+
+$result_converted{'plaintext'}->{'spurious_arg_on_line'} = 'in verbatim
+
+';
+
+
+$result_converted{'xml'}->{'spurious_arg_on_line'} = '
+<tex spaces=" " endspaces=" ">
+in tex
+</tex>
+
+<verbatim xml:space="preserve" spaces=" " endspaces=" ">
+in verbatim
+</verbatim>
+
+<html spaces=" " endspaces=" ">
+</html>
+';
+
 1;

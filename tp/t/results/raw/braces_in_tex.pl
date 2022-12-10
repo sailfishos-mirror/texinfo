@@ -283,4 +283,27 @@ $result_floats{'braces_in_tex'} = {};
 $result_converted{'plaintext'}->{'braces_in_tex'} = '
 ';
 
+
+$result_converted{'xml'}->{'braces_in_tex'} = '
+<tex endspaces=" ">
+$$ 
+\\chi^2 = \\sum_{i=1}^N
+\\left(y_i - (a + b x_i)
+\\over \\sigma_i\\right)^2 
+$$
+</tex>
+
+
+<example endspaces=" ">
+<pre xml:space="preserve"><tex endspaces=" ">
+$$ 
+\\chi^2 = \\sum_{i=1}^N
+\\left(y_i - (a + b x_i)
+\\over \\sigma_i\\right)^2 
+$$
+</tex>
+</pre></example>
+
+';
+
 1;

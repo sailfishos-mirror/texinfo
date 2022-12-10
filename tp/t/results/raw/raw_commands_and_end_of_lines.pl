@@ -1605,4 +1605,92 @@ in block
 in block
 ';
 
+
+$result_converted{'xml'}->{'raw_commands_and_end_of_lines'} = '
+<html endspaces=" ">
+Surrounded by empty lines.
+</html>
+
+<para>Block commands on a line
+<html endspaces=" ">
+in block
+in block l2
+</html>
+end commands on a line.
+</para>
+<para>Before the opening command <html endspaces=" ">
+in block
+</html>
+end commands on a line.
+</para>
+<para>Before the opening command <html endspaces=" ">
+in block
+</html>
+</para>
+<para>Before the opening command <html endspaces=" ">
+in block
+</html>
+. A symbol on a line.
+</para>
+<para>Before the opening command <html endspaces=" ">
+in block
+</html>
+</para>
+<tex endspaces=" ">
+Surrounded by empty lines.
+</tex>
+
+<para>Block commands on a line
+<tex endspaces=" ">
+in block
+</tex>
+end commands on a line.
+</para>
+<para>Before the opening command <tex endspaces=" ">
+in block
+</tex>
+end commands on a line.
+</para>
+<para>Before the opening command <tex endspaces=" ">
+in block
+</tex>
+</para>
+<para>Before the opening command <tex endspaces=" ">
+in block
+</tex>
+. A symbol on a line.
+</para>
+<para>Before the opening command <tex endspaces=" ">
+in block
+</tex>
+</para>
+<verbatim xml:space="preserve" endspaces=" ">
+Surrounded by empty lines.
+</verbatim>
+
+<para>Block commands on a line
+</para><verbatim xml:space="preserve" endspaces=" ">
+in block
+</verbatim>
+<para>end commands on a line.
+</para>
+<para>Before the opening command </para><verbatim xml:space="preserve" endspaces=" ">
+in block
+</verbatim>
+<para>end commands on a line.
+</para>
+<para>Before the opening command </para><verbatim xml:space="preserve" endspaces=" ">
+in block
+</verbatim>
+
+<para>Before the opening command </para><verbatim xml:space="preserve" endspaces=" ">
+in block
+</verbatim>
+<para>. A symbol on a line.
+</para>
+<para>Before the opening command </para><verbatim xml:space="preserve" endspaces=" ">
+in block
+</verbatim>
+';
+
 1;

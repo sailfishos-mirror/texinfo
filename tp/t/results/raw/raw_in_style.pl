@@ -117,6 +117,13 @@ $result_converted{'plaintext'}->{'raw_in_style'} = '‘ ’
 ';
 
 
+$result_converted{'xml'}->{'raw_in_style'} = '<para><code>
+<html endspaces=" ">
+in html
+</html>
+</code></para>';
+
+
 $result_converted{'html_text'}->{'raw_in_style'} = '<p><code class="code">
 in html
 </code></p>';

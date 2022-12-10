@@ -100,4 +100,10 @@ $result_errors{'ignored_text'} = [
 $result_floats{'ignored_text'} = {};
 
 
+
+$result_converted{'plaintext'}->{'ignored_text'} = '';
+
+
+$result_converted{'xml'}->{'ignored_text'} = '<node name="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node>';
+
 1;

@@ -342,6 +342,47 @@ after
 {'test_formats' => ['html', 'docbook']},
 {'HTML_MATH' => 'mathjax'}
 ],
+['spurious_arg_on_line',
+'
+@tex argt
+in tex
+@end tex
+
+@verbatim argverbatim
+in verbatim
+@end verbatim
+
+@html argh
+in html
+@end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
+['beginning_and_end_on_line',
+'
+@tex in tex @end tex
+
+@verbatim in verbatim @end verbatim
+
+@html in html @end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
+['space_before_end',
+'@tex
+in tex
+    @end  tex
+
+@verbatim
+in verbatim
+    @end  verbatim
+
+@html
+in html
+   @end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
 );
 
 my @test_invalid = (
@@ -389,47 +430,6 @@ in displaymath
 ['inline_missing_first_arg',
 '@inlinefmt{ , aaa}. @inlineraw{, bbb}.
 '],
-['spurious_arg_on_line',
-'
-@tex argt
-in tex
-@end tex
-
-@verbatim argverbatim
-in verbatim
-@end verbatim
-
-@html argh
-in html
-@end html
-',
-{'EXPANDED_FORMATS' => ['tex']}
-],
-['beginning_and_end_on_line',
-'
-@tex in tex @end tex
-
-@verbatim in verbatim @end verbatim
-
-@html in html @end html
-',
-{'EXPANDED_FORMATS' => ['tex']}
-],
-['space_before_end',
-'@tex
-in tex
-    @end  tex
-
-@verbatim
-in verbatim
-    @end  verbatim
-
-@html
-in html
-   @end html
-',
-{'EXPANDED_FORMATS' => ['tex']}
-],
 );
 
 my %html_tests = (
@@ -442,6 +442,7 @@ my %html_tests = (
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
+  push @{$test->[2]->{'test_formats'}}, 'xml';
   if ($html_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'html_text';
   }

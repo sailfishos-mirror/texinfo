@@ -228,4 +228,23 @@ $result_errors{'space_before_end'} = [
 $result_floats{'space_before_end'} = {};
 
 
+
+$result_converted{'plaintext'}->{'space_before_end'} = 'in verbatim
+    
+
+';
+
+
+$result_converted{'xml'}->{'space_before_end'} = '<tex endspaces="  ">
+in tex
+    </tex>
+
+<verbatim xml:space="preserve" endspaces="  ">
+in verbatim
+    </verbatim>
+
+<html endspaces=" ">
+   </html>
+';
+
 1;

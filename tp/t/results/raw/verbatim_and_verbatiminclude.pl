@@ -1078,4 +1078,70 @@ $result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'verbatim_and_verbatiminclude'} = '<verbatim xml:space="preserve" endspaces=" ">
+In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+</verbatim>
+
+<para>Text before
+</para><verbatim xml:space="preserve" endspaces=" ">
+in verbatime
+</verbatim>
+<para>Text after
+</para>
+<quotation endspaces=" ">
+<para>In quotation
+</para><verbatim xml:space="preserve" endspaces=" ">
+In verbatim in quotation
+In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+</verbatim>
+</quotation>
+
+<para>Before
+</para><verbatim xml:space="preserve" endspaces=" ">
+In verbatim test text
+</verbatim>
+<para>After
+</para>
+<verbatiminclude file="verb.txt" spaces=" ">verb.txt</verbatiminclude>
+
+<quotation endspaces=" ">
+<para>In quotation include 
+</para><verbatiminclude file="verb.txt" spaces=" ">verb.txt</verbatiminclude>
+</quotation>
+
+<para>Before include
+</para><verbatiminclude file="verb.txt" spaces=" ">verb.txt</verbatiminclude>
+<para>After
+</para>
+<example endspaces=" ">
+<pre xml:space="preserve">In example
+
+</pre><verbatim xml:space="preserve" endspaces=" ">
+In verbatim in example
+In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+</verbatim>
+<pre xml:space="preserve">
+</pre></example>
+
+<quotation endspaces=" ">
+<para>In quotation with spaces
+</para>
+<verbatim xml:space="preserve" endspaces=" ">
+In verbatim in quotation with spaces
+In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+</verbatim>
+
+</quotation>
+
+<quotation endspaces=" ">
+<para>In quotation 
+</para>
+<verbatim xml:space="preserve" endspaces=" ">
+In verbatim in quotation
+</verbatim>
+<para>in quotation after end verbaatim
+</para></quotation>
+';
+
 1;

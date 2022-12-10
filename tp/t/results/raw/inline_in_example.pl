@@ -280,4 +280,17 @@ $result_converted{'plaintext'}->{'inline_in_example'} = '     A plaintext
      .
 ';
 
+
+$result_converted{'xml'}->{'inline_in_example'} = '<example endspaces=" ">
+<pre xml:space="preserve">A <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent spaces=" ">plaintext 
+
+`` &lbracechar; </inlinerawcontent></inlineraw> a.
+<inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">`` </inlinefmtcontent></inlinefmt>.
+
+  Now html
+<inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent spaces=" \\n">
+in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinerawcontent></inlineraw>.
+</pre></example>
+';
+
 1;

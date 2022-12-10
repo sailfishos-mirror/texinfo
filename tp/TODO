@@ -14,7 +14,6 @@ Bugs
 ====
 
 check float type normalization, cf float comment_space_comand_in_float test
-Test form feed in float label
 
 HTML API
 ========

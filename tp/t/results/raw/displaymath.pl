@@ -297,4 +297,16 @@ $result_converted{'plaintext'}->{'displaymath'} = '\\int_D ({\\nabla\\cdot} F)dV
    after
 ';
 
+
+$result_converted{'xml'}->{'displaymath'} = '<displaymath endspaces=" ">
+\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
+</displaymath>
+
+<para>before
+</para><displaymath endspaces=" ">
+\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
+</displaymath>
+<para>after
+</para>';
+
 1;

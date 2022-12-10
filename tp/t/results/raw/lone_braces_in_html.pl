@@ -156,6 +156,16 @@ $result_floats{'lone_braces_in_html'} = {};
 $result_converted{'plaintext'}->{'lone_braces_in_html'} = '';
 
 
+$result_converted{'xml'}->{'lone_braces_in_html'} = '<html endspaces=" ">
+}
+</html>
+
+<html endspaces=" ">
+{
+</html>
+';
+
+
 $result_converted{'html_text'}->{'lone_braces_in_html'} = '}
 
 {

@@ -1882,7 +1882,7 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" line="  foo
 <para>Q
 </para></quotation>
 
-<float name="b" type="ff" number="1" spaces="  " endspaces=" "><floattype>ff</floattype><floatname spaces=" ">b   </floatname>
+<float name="b" type="ff" number="1" spaces="  " endspaces=" "><floattype trailingspaces=" ">ff</floattype><floatname spaces=" ">b   </floatname>
 <para>f
 </para><caption spaces=" "><para>In caption </para></caption><para>j.
 </para><shortcaption><para>Short</para></shortcaption><para>  g.

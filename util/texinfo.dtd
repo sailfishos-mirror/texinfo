@@ -628,6 +628,8 @@
 <!ATTLIST example
           %spacesblockattr;>
 <!ELEMENT examplelanguage (#PCDATA | %Inline.line;)*>
+<!ATTLIST examplelanguage
+          %trailingspacesattr;>
 <!ELEMENT examplearg (#PCDATA | %Inline.line;)*>
 <!ATTLIST examplearg
           %spacesattr;>
@@ -794,6 +796,8 @@
           name CDATA #IMPLIED
           type CDATA #IMPLIED>
 <!ELEMENT floattype (#PCDATA | %Inline.line;)*>
+<!ATTLIST floattype
+          %trailingspacesattr;>
 <!ELEMENT floatname (#PCDATA | %Inline.line;)*>
 <!ATTLIST floatname
           %spacesattr;>

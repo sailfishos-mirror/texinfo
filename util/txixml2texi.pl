@@ -506,6 +506,9 @@ while ($reader->read) {
       if (defined($reader->getAttribute('bracketed'))
           and $reader->getAttribute('bracketed') eq 'on') {
         print "$trailingspaces";
+        # such that spaces are not prepended below when prepended
+        # for elements without bracketed attribute below
+        $trailingspaces = '';
         print '}';
       }
     }
@@ -548,6 +551,7 @@ while ($reader->read) {
       $eat_space = 1;
     } else {
       print STDERR "END UNKNOWN $name\n" if ($debug);
+      print "$trailingspaces";
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_ENTITY_REFERENCE) {
     # for some reason XML_READER_TYPE_ENTITY is never emitted

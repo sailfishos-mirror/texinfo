@@ -149,4 +149,12 @@ in verbatim
 
 ';
 
+
+$result_converted{'xml'}->{'verbatim_in_brace_command'} = '<para><samp>
+</samp></para><verbatim xml:space="preserve" endspaces=" ">
+in verbatim
+</verbatim>
+
+';
+
 1;

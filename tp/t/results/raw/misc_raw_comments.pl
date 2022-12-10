@@ -286,4 +286,18 @@ $result_converted{'plaintext'}->{'misc_raw_comments'} = 'in verbatim @c in verba
 in verbatim2
 ';
 
+
+$result_converted{'xml'}->{'misc_raw_comments'} = '
+<html spaces=" " endspaces=" "><!-- c comment space -->
+in html </html><!-- c comment no space -->
+
+<tex spaces=" " endspaces=" ">
+</tex>    <!-- c comment after end tex -->
+
+<verbatim xml:space="preserve" endspaces=" ">
+in verbatim @c in verbatim
+in verbatim2
+</verbatim>
+';
+
 1;

@@ -345,7 +345,7 @@ $result_converted{'docbook'}->{'example_multi_class'} = '<screen>void StateManag
 </screen>';
 
 
-$result_converted{'xml'}->{'example_multi_class'} = '<example spaces=" " endspaces=" "><examplelanguage>C++</examplelanguage><examplearg spaces=" ">gothic</examplearg><examplearg spaces=" ">purple</examplearg><examplearg spaces=" ">embed</examplearg>
+$result_converted{'xml'}->{'example_multi_class'} = '<example spaces=" " endspaces=" "><examplelanguage trailingspaces=" ">C++</examplelanguage><examplearg spaces=" ">gothic</examplearg><examplearg spaces=" ">purple</examplearg><examplearg spaces=" ">embed</examplearg>
 <pre xml:space="preserve">void StateManager::deallocate() &lbrace;
     if(buffer) &lbrace;
         delete [] buffer;

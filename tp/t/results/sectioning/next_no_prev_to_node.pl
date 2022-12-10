@@ -474,4 +474,17 @@ $result_errors{'next_no_prev_to_node'} = [];
 $result_floats{'next_no_prev_to_node'} = {};
 
 
+
+$result_converted{'xml'}->{'next_no_prev_to_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first node</nodenext></node>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>first node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>no return</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<node name="first-node" spaces=" "><nodename>first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+
+<node name="no-return" spaces=" "><nodename>no return</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup spaces=" " trailingspaces=" ">Top</nodeup></node>
+';
+
 1;

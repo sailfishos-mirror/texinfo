@@ -406,6 +406,35 @@ $result_converted{'plaintext'}->{'raw_in_example'} = '
 ';
 
 
+$result_converted{'xml'}->{'raw_in_example'} = '<example endspaces=" ">
+<pre xml:space="preserve"><html endspaces=" ">
+in html
+</html>
+</pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">
+<html endspaces=" ">
+
+Some html &lt;code&gt;some code&lt;/code&gt;.
+
+</html>
+
+<tex endspaces=" ">
+
+$$ 
+\\chi^2 = \\sum_{i=1}^N
+\\left(y_i - (a + b x_i)
+\\over \\sigma_i\\right)^2 
+$$
+
+</tex>
+
+</pre></example>
+
+';
+
+
 $result_converted{'html_text'}->{'raw_in_example'} = '<div class="example">
 <pre class="example-preformatted">in html
 </pre></div>

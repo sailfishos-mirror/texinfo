@@ -1314,18 +1314,19 @@ sub _convert($$;$)
                                                                ->[$arg_index]);
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
                   if ($in_code);
+                if ($arg_index != 0) {
+                  push @$spaces, _leading_spaces_arg($arg_element);
+                }
                 if ($arg_index+1 eq scalar(@{$element->{'args'}})) {
                   # last argument
                   ($arg, $end_space, $end_line)
                     = $self->_convert_argument_and_end_line($element);
                 } else {
                   $arg = $self->_convert($arg_element);
+                  push @$spaces, _trailing_spaces_arg($arg_element);
                 }
                 pop @{$self->{'document_context'}->[-1]->{'monospace'}}
                   if ($in_code);
-                if ($arg_index != 0) {
-                  push @$spaces, _leading_spaces_arg($arg_element);
-                }
               }
               # must add every variadic argument even if empty to get the correct count
               if ($arg ne '' or scalar(@$spaces) or $variadic_element) {

@@ -154,4 +154,9 @@ $result_floats{'inlinefmt'} = {};
 $result_converted{'plaintext'}->{'inlinefmt'} = 'A plaintext “ { a.  Now html .
 ';
 
+
+$result_converted{'xml'}->{'inlinefmt'} = '<para>A <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo; &lbracechar; </inlinefmtcontent></inlinefmt> a.  Now html
+<inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent spaces=" ">in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinefmtcontent></inlinefmt>.
+</para>';
+
 1;

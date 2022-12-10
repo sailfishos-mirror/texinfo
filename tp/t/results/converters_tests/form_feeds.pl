@@ -851,6 +851,137 @@ $result_trees{'form_feeds'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'type'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
+              'type' => 'block_line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'fl'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' 
+',
+                'spaces_before_argument' => ' '
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'float',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'in float
+'
+                }
+              ],
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'float'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 40,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'fl',
+            'type' => {
+              'content' => [
+                {}
+              ],
+              'normalized' => 'type'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 38,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'type'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' 
+'
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'listoffloats',
+          'extra' => {
+            'type' => {
+              'content' => [
+                {}
+              ],
+              'normalized' => 'type'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 42,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'extra' => {
@@ -893,6 +1024,9 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'extra
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'args'}[1]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'extra'}{'type'}{'content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'type'}{'content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
@@ -933,6 +1067,12 @@ a float
 @shortcaption{ shc within  shortcaption }  After shc
 @end float 
 
+@float type , fl 
+in float
+@end float
+
+@listoffloats type 
+
 ';
 
 
@@ -965,6 +1105,10 @@ T
 a float
 Toto
 After shc
+
+type, fl
+in float
+
 
 ';
 
@@ -1025,6 +1169,26 @@ $result_floats{'form_feeds'} = {
         }
       }
     }
+  ],
+  'type' => [
+    {
+      'cmdname' => 'float',
+      'extra' => {
+        'normalized' => 'fl',
+        'type' => {
+          'content' => [
+            {
+              'text' => 'type'
+            }
+          ],
+          'normalized' => 'type'
+        }
+      },
+      'info' => {},
+      'structure' => {
+        'float_number' => 1
+      }
+    }
   ]
 };
 $result_floats{'form_feeds'}{''}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'form_feeds'}{''}[0];
@@ -1073,6 +1237,13 @@ within
 
 cation
 
+in float
+
+type 1
+* Menu:
+
+* type 1: fl.                            
+
 ';
 
 
@@ -1122,6 +1293,13 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 </p><p>Toto
 </p><p>After shc
 </p><div class="caption"><p>within </p>&#12;<p>cation </p>&#12;</div></div>
+<div class="float" id="fl">
+<p>in float
+</p><div class="type-number-float"><p><strong class="strong">type 1</strong></p></div></div>
+<dl class="listoffloats">
+<dt><a href="#fl">type 1</a></dt><dd></dd>
+</dl>
+
 ';
 
 
@@ -1162,6 +1340,12 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 </para><shortcaption spaces="\\f "><para>shc within </para>&formfeed; <para>shortcaption </para>&formfeed;</shortcaption> &formfeed; <para>After shc
 </para></float> &formfeed;
 
+<float name="fl" type="type" number="1" spaces=" " endspaces=" "><floattype trailingspaces=" \\f">type</floattype><floatname spaces=" ">fl &formfeed;</floatname>
+<para>in float
+</para></float>
+
+<listoffloats type="type" spaces=" ">type &formfeed;</listoffloats>
+
 ';
 
 
@@ -1195,6 +1379,10 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 </para><para>Toto
 </para><para>After shc
 </para>
+<anchor id="fl"/>
+<para>in float
+</para>
+
 ';
 
 
@@ -1254,6 +1442,13 @@ a float
 \\par{}Toto
 \\par{}After shc
 \\end{TexinfoFloat}
+
+\\begin{TexinfoFloattype}
+in float
+\\label{anchor:fl}%
+\\end{TexinfoFloattype}
+
+\\listof{TexinfoFloattype}{}
 
 ';
 

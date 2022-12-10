@@ -182,6 +182,12 @@ a float
 @shortcaption{'."\f".' shc within '."\f".' shortcaption '."\f".'} '."\f".' After shc
 @end float '."\f".'
 
+@float type '."\f".', fl '."\f".'
+in float
+@end float
+
+@listoffloats type '."\f".'
+
 '],
 ['some_at_commands_in_ref_nodes',
 '

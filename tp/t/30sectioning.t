@@ -2110,7 +2110,7 @@ foreach my $test (@test_out_files) {
 my @xml_tests_converted_tests = ('section_before_part', 'chapter_before_part',
   'part_before_top', 'double_part', 'section_in_unnumbered_plaintext',
   'two_unnumbered_no_argument', 'two_nodes_between_chapters',
-  'chapter_before_and_after_part');
+  'chapter_before_and_after_part', 'node_up_external_node');
 
 my @docbook_tests_converted_tests = ('node_sectop_before_chapter_no_node',
   'node_sectop_before_lone_node_Top');
@@ -2149,7 +2149,7 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'part_node_part_appendix', 'part_node_chapter_node_appendix',
   'part_node_part_node_appendix', 'part_node_node_part_appendix',
   'explicit_node_directions', 'nodes_after_top_before_chapter_nodes',
-  'double_node_anchor_float');
+  'double_node_anchor_float', 'space_in_node');
 
 my @docbook_tests_info_tests = ('character_and_spaces_in_refs',
   'chapter_between_nodes', 'section_before_after_top_node_last_node',
@@ -2197,7 +2197,7 @@ my @xml_tests_cases_tests = ('part_before_section',
 'section_chapter_before_top', 'sectioning_part_appendix',
 'part_chapter_appendix', 'sectioning_part_appendix_no_top',
 'top_chapter_sections', 'chapter_sections',
-'more_sections_than_nodes');
+'more_sections_than_nodes', 'next_no_prev_to_node');
 
 my @docbook_tests_cases_tests = ('hole_in_sectioning');
 

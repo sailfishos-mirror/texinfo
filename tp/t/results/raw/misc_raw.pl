@@ -240,4 +240,18 @@ $result_converted{'plaintext'}->{'misc_raw'} = 'in  v---erbatim`` <>
 in verbatim2
 ';
 
+
+$result_converted{'xml'}->{'misc_raw'} = '
+<html endspaces=" "> 
+in html &lt;br&gt; </html>
+
+<tex spaces=" " endspaces=" ">
+</tex>
+
+<verbatim xml:space="preserve" endspaces=" ">
+in  v---erbatim`` &lt;&gt;
+in verbatim2
+</verbatim>
+';
+
 1;

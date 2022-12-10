@@ -119,6 +119,11 @@ in html
 ';
 
 
+$result_converted{'xml'}->{'raw_expanded_in_style'} = '<para><code>
+in html
+</code></para>';
+
+
 $result_converted{'html_text'}->{'raw_expanded_in_style'} = '<p><code class="code">
 in html
 </code></p>';

@@ -17,6 +17,28 @@
 
 2022-12-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert), util/texinfo.dtd,
+	util/txixml2texi.pl: add trailing spaces in block commands arguments.
+
+	* tp/t/converters_tests.t (@test_cases):  add form feeds on @float
+	line in form_feeds test.
+
+	* tp/t/16raw.t: move spurious_arg_on_line, beginning_and_end_on_line
+	and space_before_end from @test_invalid to @test_cases.  Output
+	XML in @test_cases.
+
+	* tp/t/08misc_commands.t: add XML output for
+	codequoteundirected_codequotebacktick and
+	comment_space_command_on_line tests.
+
+	* tp/t/57invalid_nestings.t: move ignored_text from @test_cases
+	to @formatted_cases.
+
+	* tp/t/30sectioning.t: add XML output for node_up_external_node,
+	space_in_node and next_no_prev_to_node.
+
+2022-12-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): associate end
 	space to the last empty argument if possible.
 
