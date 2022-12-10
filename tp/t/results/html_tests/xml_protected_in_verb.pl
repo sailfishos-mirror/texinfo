@@ -181,7 +181,7 @@ $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 <body lang="en">
 <pre class="verbatim">&lt;a&gt;
 </pre>
-<p><code class="verb"> &lt;i&gt; </code>.
+<p><code class="verb">&nbsp;&lt;i&gt;&nbsp;</code>.
 </p>
 <pre class="verbatim">&lt;bidule truc=&quot;ff &amp;amp;&quot;&gt; &amp; &lt;/bidule&gt;
 </pre>

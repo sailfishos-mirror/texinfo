@@ -391,9 +391,7 @@ th.menu-comment {text-align:left}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-<code class="verb"> in verb
-
-</code>
+<code class="verb">&nbsp;in&nbsp;verb&nbsp;&nbsp;</code>
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 

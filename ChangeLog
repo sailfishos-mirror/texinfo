@@ -1,5 +1,15 @@
 2022-12-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	&nbsp; for @verb
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert): Use 'space_protected' context for @verb as
+	well as for @w.  Do not use 'verbatim' context for @verb.
+	This means that in _convert_text, spaces in the argument
+	to @verb will be converted to &nbsp;.
+
+2022-12-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\verb): Revert recent change, so that
 	line breaks at spaces are not possible, for agreement with
 	LaTeX \verb command and so that spaces in argument will always be

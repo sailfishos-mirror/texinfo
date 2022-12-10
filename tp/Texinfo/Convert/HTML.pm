@@ -6191,7 +6191,8 @@ sub _convert_text($$$)
       my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
       if ($open ne '') {
         $open .= '>';
-        # Protect spaces in the html leading attribute in case we are in 'w'
+        # Protect spaces in the html leading attribute in case we are
+        # in 'w' or 'verb'.
         $open =~ s/ /\x{1F}/g;
         # Special span to avoid breaking at _-
         $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
@@ -11128,7 +11129,7 @@ sub _convert($$;$)
       }
       if ($format_raw_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'raw'}++;
-      } elsif ($command_name eq 'verb' or $command_name eq 'verbatim') {
+      } elsif ($command_name eq 'verbatim') {
         $self->{'document_context'}->[-1]->{'verbatim'}++;
       }
       if ($brace_code_commands{$command_name} or
@@ -11143,7 +11144,8 @@ sub _convert($$;$)
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}++;
         $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
-      } elsif ($command_name eq 'w') {
+      }
+      if ($command_name eq 'w' or $command_name eq 'verb') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                         ->{'space_protected'}++;
       }
@@ -11255,13 +11257,15 @@ sub _convert($$;$)
                                                         ->{'upper_case'}--;
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}--;
-      } elsif ($command_name eq 'w') {
+      }
+      if ($command_name eq 'w'
+                or $command_name eq 'verb') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                    ->{'space_protected'}--;
       }
       if ($format_raw_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'raw'}--;
-      } elsif ($command_name eq 'verb' or $command_name eq 'verbatim') {
+      } elsif ($command_name eq 'verbatim') {
         $self->{'document_context'}->[-1]->{'verbatim'}--;
       }
       if (exists($block_commands{$command_name})) {
