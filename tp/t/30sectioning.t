@@ -2197,7 +2197,8 @@ my @xml_tests_cases_tests = ('part_before_section',
 'section_chapter_before_top', 'sectioning_part_appendix',
 'part_chapter_appendix', 'sectioning_part_appendix_no_top',
 'top_chapter_sections', 'chapter_sections',
-'more_sections_than_nodes', 'next_no_prev_to_node');
+'more_sections_than_nodes', 'next_no_prev_to_node',
+'empty_ref_arg');
 
 my @docbook_tests_cases_tests = ('hole_in_sectioning');
 

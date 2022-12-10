@@ -567,6 +567,21 @@ sub _convert_argument_and_end_line($$)
   return ($converted, $end_space, $end_line);
 }
 
+# used in brace commands
+sub _convert_comment_at_end
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $comment = $element->{'info'}->{'comment_at_end'}
+    if $element->{'info'};
+
+  if ($comment) {
+    return $self->convert_tree($comment);
+  }
+  return '';
+}
+
 my @node_directions = ('Next', 'Prev', 'Up');
 
 # not used here, but it is consistent with other %commands_args_elements
@@ -1007,7 +1022,8 @@ sub _convert($$;$)
       my $command_result = $self->txi_markup_open_element('infoenclose',
                                           [['command', $element->{'cmdname'}],
                                        $self->_infoenclose_attribute($element)])
-                 .$arg.$self->txi_markup_close_element('infoenclose');
+                 .$arg.$self->_convert_comment_at_end($element->{'args'}->[0]).
+                 $self->txi_markup_close_element('infoenclose');
       return $command_result;
     } elsif ($element->{'args'}
              and exists($brace_commands{$element->{'cmdname'}})) {
@@ -1098,6 +1114,8 @@ sub _convert($$;$)
             $in_monospace_not_normal
               if (defined($in_monospace_not_normal));
           my $arg = $self->_convert($element->{'args'}->[$arg_index]);
+          my $comment_at_end
+            = $self->_convert_comment_at_end($element->{'args'}->[$arg_index]);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}}
             if (defined($in_monospace_not_normal));
 
@@ -1108,9 +1126,11 @@ sub _convert($$;$)
                    ->{'info'}->{'spaces_after_argument'};
           }
 
-          if (!defined($main_cmdname) or $arg ne '' or scalar(@$attribute) > 0) {
+          if (!defined($main_cmdname) or $arg ne '' or scalar(@$attribute) > 0
+              or $comment_at_end ne '') {
             $args_or_one_arg_cmd .=
                  $self->txi_markup_open_element($format_element, $attribute).$arg
+                      .$comment_at_end
                       .$self->txi_markup_close_element($format_element);
             $last_empty_element = undef;
           # we keep the last empty argument to be able to prepend it to be able
@@ -1388,7 +1408,7 @@ sub _convert($$;$)
                     } elsif ($content->{'cmdname'} eq 'c'
                              or $content->{'cmdname'} eq 'comment') {
                       # NOTE it does not happen right now, because a comment
-                      # will be in info comment_at_end.  If comments are back
+                      # here will be in info comment_at_end.  If comments are back
                       # in the tree, they should be ignored here, as they would
                       # better be handled in format_comment_or_return_end_line
                     } else { # a command

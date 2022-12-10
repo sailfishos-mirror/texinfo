@@ -439,4 +439,18 @@ $result_errors{'empty_ref_arg'} = [
 $result_floats{'empty_ref_arg'} = {};
 
 
+
+$result_converted{'xml'}->{'empty_ref_arg'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<para><ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname></ref>
+<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "></xrefinfoname><xrefprinteddesc spaces=" "><spacecmd type="spc"/></xrefprinteddesc></ref>
+<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname><xrefprinteddesc spaces=" ">&noeos;</xrefprinteddesc></ref>
+<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><!-- c aaa -->
+ <spacecmd type="spc"/>
+<!-- c ggg -->
+</xrefinfoname><xrefprinteddesc spaces=" "><!-- c fff -->
+<!-- c -->
+</xrefprinteddesc></ref>
+</para>';
+
 1;
