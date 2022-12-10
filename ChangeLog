@@ -1,3 +1,10 @@
+2022-12-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (error): Declare as static to
+	avoid clash with error function from glibc, called from gnulib.
+	Report from Sam James <sam@gentoo.org> and suggested solution
+	from Arsen Arsenović <arsen@aarsen.me>.
+
 2022-11-30  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	7.0.1 release

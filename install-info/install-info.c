@@ -214,7 +214,9 @@ vdiag (const char *fmt, const char *diagtype, va_list ap)
   putc ('\n', stderr);
 }
 
-void
+/* declare as static to avoid clash with glibc error function, called from
+   gnulib. */
+static void
 error (const char *fmt, ...)
 {
   va_list ap;
