@@ -556,6 +556,7 @@ foreach my $test (@test_cases) {
     push @{$test->[2]->{'test_formats'}}, 'info';
   }
   push @{$test->[2]->{'test_formats'}}, 'html';
+  push @{$test->[2]->{'test_formats'}}, 'xml';
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 

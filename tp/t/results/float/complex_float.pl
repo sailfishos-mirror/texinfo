@@ -4087,4 +4087,134 @@ A footnote 2.
 </html>
 ';
 
+
+$result_converted{'xml'}->{'complex_float'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>Test floats</sectiontitle>
+
+<para>A list of floats at the beginning.
+</para><listoffloats type="Text" spaces=" ">Text</listoffloats>
+
+<para>After the listoffloats.
+</para><menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<float name="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
+<para>An example of float &enddots;
+</para>
+<!-- c makeinfo -docbook segfaults -->
+
+<para>An index entry
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">float example</indexterm></cindex>
+</para>
+<para>A table.
+</para><table commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc </itemformat></item>
+</tableterm><tableitem><para>line
+</para></tableitem></tableentry></table>
+
+<para>An itemize.
+</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+<listitem><prepend>&minus;</prepend> <para>truc 
+line
+</para></listitem></itemize>
+
+<para>A ref.
+<xref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>xref Text with features</xrefinfoname></xref>.
+A footnote.
+<footnote><para>footnote Text with features</para></footnote>.
+</para>
+<para>&tex; and <emph><b>t<accent type="acute" bracketed="off">e</accent><accent type="circ"><dotless>i</dotless></accent></b><url><urefurl>an_url</urefurl></url></emph> <sc>and</sc> <verb delimiter="!">it is @verb</verb> <spacecmd type="spc"/>a wo&hyphenbreak;rd &eosexcl;&arobase; &AElig;.
+</para>
+<caption spaces=" "><para>An example of float caption&enddots;
+An example.
+</para><example endspaces=" "> 
+<pre xml:space="preserve">example
+</pre></example>
+
+<anchor name="Anchor-in-caption">Anchor in caption</anchor>
+
+<para>A table.
+</para><table commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc </itemformat></item>
+</tableterm><tableitem><para>line
+</para></tableitem></tableentry></table>
+
+<para>A multitable.
+</para><multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
+<tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
+</para></entry></row><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
+</para></entry></row></tbody></multitable>
+<para>An index entry
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">float example in caption</indexterm></cindex>
+</para>
+<para>An itemize.
+</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+<listitem><prepend>&minus;</prepend> <para>truc 
+line
+</para></listitem></itemize>
+
+<para>A ref.
+<xref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>xref Text with features caption</xrefinfoname></xref>.
+A footnote.
+<footnote><para>footnote Text with features caption</para></footnote>.
+</para>
+<para>&tex; and <emph><b>t<accent type="acute" bracketed="off">e</accent><accent type="circ"><dotless>i</dotless></accent></b><url><urefurl>an_url</urefurl></url></emph> <sc>and</sc> <verb delimiter="!">it is @verb</verb> <spacecmd type="spc"/>a wo&hyphenbreak;rd &eosexcl;&arobase; &AElig;.
+</para></caption>
+
+<shortcaption><para>&tex; and <emph><b>t<accent type="acute" bracketed="off">e</accent><accent type="circ"><dotless>i</dotless></accent></b><url><urefurl>an_url</urefurl></url></emph> <sc>and</sc> <verb delimiter="!">it is @verb</verb> <spacecmd type="spc"/>a wo&hyphenbreak;rd &eosexcl;&arobase; &AElig;.</para></shortcaption>
+
+</float>
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>A chapter</sectiontitle>
+
+<float name="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
+
+<para>Float text of a float with a lot of features.
+</para>
+<caption spaces=" "><para>An example of float caption&enddots; 2
+An example 2.
+</para><example endspaces=" "> 
+<pre xml:space="preserve">example 2
+</pre></example>
+
+<para>A table 2.
+</para><table commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc 2 </itemformat></item>
+</tableterm><tableitem><para>line 2
+</para></tableitem></tableentry></table>
+
+<para>A multitable 2.
+</para><multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
+<tbody><row><entry command="item"> <para>truc 2 </para></entry><entry command="tab"> <para>bidule
+</para></entry></row><row><entry command="item"> <para>truc 2 </para></entry><entry command="tab"> <para>bidule
+</para></entry></row></tbody></multitable>
+<para>An index entry 2
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">float example in caption 2</indexterm></cindex>
+</para>
+<para>An itemize 2.
+</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+<listitem><prepend>&minus;</prepend> <para>truc 2
+line
+</para></listitem></itemize>
+
+<anchor name="Anchor-in-caption-2">Anchor in caption 2</anchor>
+
+<para>A ref 2.
+<xref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>xref Text with features caption</xrefinfoname></xref>.
+A footnote 2.
+<footnote><para>footnote Text with features caption 2</para></footnote>.
+</para>
+<para>&tex; and <emph><b>t<accent type="acute" bracketed="off">e</accent><accent type="circ"><dotless>i</dotless></accent></b><url><urefurl>an_url</urefurl></url></emph> <sc>and</sc> <verb delimiter="!">it is @verb</verb> <spacecmd type="spc"/>a wo&hyphenbreak;rd &eosexcl;&arobase; &AElig;.
+</para></caption>
+
+</float>
+
+<para><xref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename></xref>.
+</para>
+</chapter>
+';
+
 1;

@@ -595,4 +595,27 @@ $result_converted_errors{'html'}->{'empty_listoffloats_with_floats'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'empty_listoffloats_with_floats'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><float name="label1" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">label1</floatname>
+<para>Label no caption.
+</para></float>
+
+<float name="label2" type="" number="2" spaces=" " endspaces=" "><floatname spaces=" ">label2</floatname>
+<para>Label and caption.
+</para><caption><para>caption with label</para></caption>
+</float>
+
+<float type="" endspaces=" ">
+<para>no label no caption
+</para></float>
+
+<float type="" endspaces=" ">
+<para>no label caption
+</para><caption><para>caption no label</para></caption>
+</float>
+
+<listoffloats type=""></listoffloats>
+';
+
 1;

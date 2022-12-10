@@ -93,4 +93,8 @@ $result_converted_errors{'html'}->{'empty_listoffloats'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'empty_listoffloats'} = '<listoffloats type=""></listoffloats>
+';
+
 1;

@@ -155,4 +155,8 @@ $result_converted_errors{'html'}->{'listoffloats_with_commands'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="th@\'eor@`eme" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+';
+
 1;

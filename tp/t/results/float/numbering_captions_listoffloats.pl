@@ -7018,4 +7018,214 @@ See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 </html>
 ';
 
+
+$result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>Test floats</sectiontitle>
+
+<float name="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
+
+<caption spaces=" "><para>An example of float caption&enddots;</para></caption>
+<shortcaption><para>&tex; and someething</para></shortcaption>
+</float>
+
+<float type="Text" spaces=" " endspaces=" "><floattype>Text</floattype>
+<para>No label but caption and shortcaption.
+</para>
+<caption><para>C No label</para></caption>
+<shortcaption><para>SC No label</para></shortcaption>
+</float>
+
+<float name="label-but-no-type" type="" number="1" spaces=" " endspaces=" "><floatname>label but no type</floatname>
+<para>No type but caption and shortcaption.
+</para>
+<caption><para>C No type</para></caption>
+<shortcaption><para>SC No type</para></shortcaption>
+</float>
+
+
+<float name="label-but-no-type-and-no-caption" type="" number="2" spaces=" " endspaces=" "><floatname>label but no type and no caption</floatname>
+<para>No type but label and no caption nor shortcaption.
+</para>
+</float>
+
+
+<float type="" endspaces=" ">
+<para>No label, no type, no caption no shortcaption.
+</para>
+</float>
+
+<float type="" endspaces=" ">
+<para>No label, no type, but caption and shortcaption.
+</para><caption><para>C No label, no type, but caption and shortcaption.</para></caption>
+<shortcaption><para>SC No label, no type, but caption and shortcaption.</para></shortcaption>
+</float>
+
+<float name="label-but-no-type-2" type="" number="3" spaces=" " endspaces=" "><floatname>label but no type 2</floatname>
+<para>Second float with no type.
+</para>
+<caption><para>C No type 2</para></caption>
+<shortcaption><para>SC No type 2</para></shortcaption>
+</float>
+
+<float name="warning-in-top" type="Warning" number="1" spaces=" " endspaces=" "><floattype>Warning</floattype><floatname spaces=" ">warning in top</floatname>
+<para>A warning
+</para>
+<caption><para>C A warning</para></caption>
+<shortcaption><para>SC A warning</para></shortcaption>
+</float>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>Unnumbered</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>Chapter with unnumbsubsec</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>Appendix for float</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>list of floats</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">Unnumbered</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>A chapter</sectiontitle>
+
+<float name="text-in-chapter" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text in chapter</floatname>
+<para>Text in chapter
+</para>
+<caption><para>C Text in chapter</para></caption>
+</float>
+
+<float name="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
+<caption spaces=" "><para>An example of float caption, no shortcaption&enddots;</para></caption>
+</float>
+
+<float name="theoreme" type="th@\'eor@`eme" number="1.1" spaces=" " endspaces=" "><floattype>th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname spaces=" ">theoreme</floatname>
+<para>A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me
+</para>
+<caption><para>C A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</para></caption>
+</float>
+
+<float name="label-but-no-type-in-chapter" type="" number="1.1" spaces=" " endspaces=" "><floatname>label but no type in chapter</floatname>
+<para>float with no type.
+</para>
+<caption><para>C No type in chapter</para></caption>
+<shortcaption><para>SC No type in chapter</para></shortcaption>
+</float>
+
+<float name="warning-in-chapter" type="Warning" number="1.1" spaces=" " endspaces=" "><floattype>Warning</floattype><floatname spaces=" ">warning in chapter</floatname>
+<para>A warning
+</para>
+<caption><para>C A warning in chapter</para></caption>
+<shortcaption><para>SC A warning in chapter</para></shortcaption>
+</float>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>section</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<node name="section" spaces=" "><nodename>section</nodename><nodeup automatic="on">chapter</nodeup></node>
+<section spaces=" "><sectiontitle>A section</sectiontitle>
+
+<float name="text-in-section" type="Text" number="1.3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text in section</floatname>
+
+<para>A text in float no caption a label a type.
+</para>
+</float>
+
+</section>
+</chapter>
+<node name="Unnumbered" spaces=" "><nodename>Unnumbered</nodename><nodenext automatic="on">Chapter with unnumbsubsec</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<unnumbered spaces=" "><sectiontitle>Unnumbered</sectiontitle>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>Section within unnumbered</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+<float name="unnumbered-float" type="Text" number="5" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">unnumbered float</floatname>
+<para>unnum
+</para><shortcaption><para>SC unnumbered float</para></shortcaption>
+<caption><para>C unnumbered float</para></caption>
+</float>
+<float name="label-but-no-type-in-unnumbered" type="" number="5" spaces=" " endspaces=" "><floatname>label but no type in unnumbered</floatname>
+<para>float with no type.
+</para>
+<caption><para>C No type in unnumbered</para></caption>
+<shortcaption><para>SC No type in unnumbered</para></shortcaption>
+</float>
+
+
+<node name="Section-within-unnumbered" spaces=" "><nodename>Section within unnumbered</nodename><nodeup automatic="on">Unnumbered</nodeup></node>
+<section spaces=" "><sectiontitle>Section within unnumbered</sectiontitle>
+
+
+<float name="Section-within-unnumbered-float" type="Text" number="6" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Section within unnumbered float</floatname>
+<para>Section within unnumbered
+</para><shortcaption><para>SC Section within unnumbered</para></shortcaption>
+<caption><para>C Section within unnumbered</para></caption>
+</float>
+
+</section>
+</unnumbered>
+<node name="Chapter-with-unnumbsubsec" spaces=" "><nodename>Chapter with unnumbsubsec</nodename><nodenext automatic="on">Appendix for float</nodenext><nodeprev automatic="on">Unnumbered</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chapter with unnumbsubsec</sectiontitle>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumbered sec</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+<float name="Chapter-with-subsec-float" type="Text" number="2.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Chapter with subsec float</floatname>
+<para>Chap
+</para><shortcaption><para>SC Chapter with subsec</para></shortcaption>
+<caption><para>C Chapter with subsec</para></caption>
+</float>
+
+<node name="unnumbered-sec" spaces=" "><nodename>unnumbered sec</nodename><nodeup automatic="on">Chapter with unnumbsubsec</nodeup></node>
+<unnumberedsec spaces=" "><sectiontitle>unnumbered sec</sectiontitle>
+
+<float name="unnumbered-sec-float" type="Text" number="2.2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">unnumbered sec float</floatname>
+<para>Chap
+</para><shortcaption><para>SC unnumbered sec float</para></shortcaption>
+<caption><para>C unnumbered sec float</para></caption>
+</float>
+
+<float name="label-but-no-type-in-unnumbered-subsec-in-chapter" type="" number="2.1" spaces=" " endspaces=" "><floatname>label but no type in unnumbered subsec in chapter</floatname>
+<para>float with no type.
+</para>
+<caption><para>C No type in unnumbered subsec in chapter</para></caption>
+<shortcaption><para>SC No type in unnumbered subsec in chapter</para></shortcaption>
+</float>
+
+</unnumberedsec>
+</chapter>
+<node name="Appendix-for-float" spaces=" "><nodename>Appendix for float</nodename><nodenext automatic="on">list of floats</nodenext><nodeprev automatic="on">Chapter with unnumbsubsec</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<appendix spaces=" "><sectiontitle>Appendix for float</sectiontitle>
+
+<float name="appendix-sec-float" type="Text" number="A.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">appendix sec float</floatname>
+
+<para>Appendix
+</para><shortcaption><para>SC appendix sec float</para></shortcaption>
+<caption><para>C appendix sec float</para></caption>
+</float>
+
+</appendix>
+<node name="list-of-floats" spaces=" "><nodename>list of floats</nodename><nodeprev automatic="on">Appendix for float</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<unnumbered spaces=" "><sectiontitle>list of floats</sectiontitle>
+
+<para>See <ref label="text-in-section"><xrefnodename>text in section</xrefnodename></ref>.
+And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename></pxref>).
+<xref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename></xref>.
+</para>
+<para>And now a ref (without manual or printed manual)
+<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc></ref>.
+</para>
+<para>And now a ref (with manual without printed manual)
+<ref label="text-with-a-lot-of-features" manual="manual"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">manual</xrefinfofile></ref>.
+</para>
+<para>And now a ref (without manual with a printed manual)
+<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefprintedname spaces=" ">printed manual title</xrefprintedname></ref>.
+</para>
+<para>A ref to float without type <ref label="label-but-no-type"><xrefnodename>label but no type</xrefnodename></ref>.
+</para>
+<listoffloats type="Text" spaces=" ">Text</listoffloats>
+<listoffloats type="th@\'eor@`eme" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+
+</unnumbered>
+<bye></bye>
+';
+
 1;

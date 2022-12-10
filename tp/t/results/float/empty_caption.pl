@@ -512,4 +512,22 @@ $result_converted_errors{'html'}->{'empty_caption'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'empty_caption'} = '<float name="b" type="a" number="1" spaces=" " endspaces=" "><floattype>a</floattype><floatname spaces=" ">b</floatname>
+<para>In float A, B
+</para><caption></caption>
+</float>
+
+<float name="c" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">c</floatname>
+<para>In float , C
+</para><shortcaption></shortcaption>
+</float>
+
+<float type="" endspaces=" ">
+<para>In float
+</para><shortcaption></shortcaption>
+<caption></caption>
+</float>
+';
+
 1;

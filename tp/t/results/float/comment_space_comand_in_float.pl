@@ -381,4 +381,14 @@ $result_converted_errors{'html'}->{'comment_space_comand_in_float'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'comment_space_comand_in_float'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<float name="label-" type="Text @ " number="1" spaces=" " endspaces=" "><floattype>Text <spacecmd type="spc"/></floattype><floatname spaces=" ">label <spacecmd type="spc"/></floatname><!-- c float -->
+<para>Float
+</para></float>
+
+<listoffloats type="Text @ " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
+';
+
 1;

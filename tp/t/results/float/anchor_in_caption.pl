@@ -406,4 +406,15 @@ $result_converted_errors{'html'}->{'anchor_in_caption'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'anchor_in_caption'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<listoffloats type="fl" spaces=" ">fl</listoffloats>
+
+<float name="label" type="fl" number="1" spaces=" " endspaces=" "><floattype>fl</floattype><floatname spaces=" ">label</floatname>
+<para>In float.
+</para><caption><para>in caption<anchor name="in-anchor">in anchor</anchor></para></caption>
+</float>
+';
+
 1;

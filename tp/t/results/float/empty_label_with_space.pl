@@ -158,4 +158,9 @@ $result_converted_errors{'html'}->{'empty_label_with_space'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'empty_label_with_space'} = '<float type="Type" spaces=" " endspaces=" "><floattype>Type</floattype><floatname spaces=" "></floatname>
+</float>
+';
+
 1;

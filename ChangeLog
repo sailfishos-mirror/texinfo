@@ -1,3 +1,10 @@
+2022-12-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): associate end
+	space to the last empty argument if possible.
+
+	* tp/t/27float.t: add XML output format to the tests.
+
 2022-12-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (error): Declare as static to

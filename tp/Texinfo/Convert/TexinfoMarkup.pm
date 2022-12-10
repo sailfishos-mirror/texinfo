@@ -1334,12 +1334,18 @@ sub _convert($$;$)
                                    .$self->txi_markup_close_element($format_element);
                 $last_empty_element = undef;
               } else {
-                $result .= $end_space;
                 if ($arg_index > 0) {
-                  # we keep the last empty argument to be able to prepend it to be able
-                  # to reconstitute trailing empty arguments in the original Texinfo code.
-                  $last_empty_element = $self->txi_markup_open_element($format_element)
-                                .$self->txi_markup_close_element($format_element);
+                  if ($end_space ne '') {
+                    push @$spaces, ['spaces', $end_space];
+                  }
+                  # we keep the last empty argument to be able to prepend
+                  # it to be able to reconstitute trailing empty arguments
+                  # in the original Texinfo code.
+                  $last_empty_element
+                     = $self->txi_markup_open_element($format_element, $spaces)
+                              .$self->txi_markup_close_element($format_element);
+                } else {
+                  $result .= $end_space;
                 }
               }
               $arg_index++;

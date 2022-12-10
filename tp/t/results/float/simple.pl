@@ -235,4 +235,11 @@ $result_converted_errors{'html'}->{'simple'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'simple'} = '<float name="Label" type="Type" number="1" spaces=" " endspaces=" "><floattype>Type</floattype><floatname spaces=" ">Label</floatname>
+
+<para>In float.
+</para><caption><para>Caption.</para></caption>
+</float>';
+
 1;

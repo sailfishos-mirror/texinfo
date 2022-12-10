@@ -172,4 +172,9 @@ $result_converted_errors{'html'}->{'empty_label_no_space_comment'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'empty_label_no_space_comment'} = '<float type="Type" spaces=" " endspaces=" "><floattype>Type</floattype><floatname></floatname><!-- c comment -->
+</float>
+';
+
 1;
