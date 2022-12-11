@@ -63,7 +63,11 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
   if (cmd)
     {
+      KEY_PAIR *k;
       ADD("@");  ADD(command_name(cmd));
+      k = lookup_info (e, "spaces_after_cmd_before_arg");
+      if (k)
+        ADD((char *)k->value);
     }
 
   // TODO extra spaces

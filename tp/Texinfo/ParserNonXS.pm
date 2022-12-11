@@ -3473,9 +3473,20 @@ sub _end_line_starting_block($$$)
     } elsif ($block_commands{$current->{'cmdname'}} eq 'item_line') {
       if (!$current->{'extra'}
           or !$current->{'extra'}->{'command_as_argument'}) {
-        $self->_command_error($current, $source_info,
-            __("%s requires an argument: the formatter for %citem"),
-            $current->{'cmdname'}, ord('@'));
+        if ($current->{'args'}->[0]->{'contents'}
+            and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
+          # expand the contents to avoid surrounding spaces
+          my $texi_arg
+            = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                    {'contents' => $current->{'args'}->[0]->{'contents'}});
+          $self->_command_error($current, $source_info,
+                                __("bad argument to \@%s: %s"),
+                                $current->{'cmdname'}, $texi_arg);
+        } else {
+          $self->_command_error($current, $source_info,
+                                __("missing \@%s argument"),
+                                $current->{'cmdname'});
+        }
       } elsif ($self->{'brace_commands'}->{
     $current->{'extra'}->{'command_as_argument'}->{'cmdname'}} eq 'noarg') {
         $self->_command_error($current, $source_info,

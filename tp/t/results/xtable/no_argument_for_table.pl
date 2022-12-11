@@ -133,12 +133,12 @@ In item.
 
 $result_errors{'no_argument_for_table'} = [
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'missing @table argument
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'missing @table argument',
     'type' => 'error'
   }
 ];

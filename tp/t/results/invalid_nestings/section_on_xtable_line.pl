@@ -364,12 +364,12 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'vtable requires an argument: the formatter for @item
+    'error_line' => 'missing @vtable argument
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'vtable requires an argument: the formatter for @item',
+    'text' => 'missing @vtable argument',
     'type' => 'error'
   },
   {
@@ -472,12 +472,12 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'ftable requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @ftable: @ringaccent 
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'ftable requires an argument: the formatter for @item',
+    'text' => 'bad argument to @ftable: @ringaccent ',
     'type' => 'error'
   },
   {

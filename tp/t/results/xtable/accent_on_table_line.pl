@@ -969,12 +969,12 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @table: @~
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'bad argument to @table: @~',
     'type' => 'error'
   },
   {
@@ -996,12 +996,12 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @table: @~
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'bad argument to @table: @~',
     'type' => 'error'
   },
   {
@@ -1014,12 +1014,12 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @table: @~
 ',
     'file_name' => '',
     'line_nr' => 15,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'bad argument to @table: @~',
     'type' => 'error'
   },
   {
@@ -1032,12 +1032,12 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @table: @ringaccent
 ',
     'file_name' => '',
     'line_nr' => 19,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'bad argument to @table: @ringaccent',
     'type' => 'error'
   },
   {
@@ -1050,12 +1050,12 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'table requires an argument: the formatter for @item
+    'error_line' => 'bad argument to @table: @ringaccent{a}
 ',
     'file_name' => '',
     'line_nr' => 27,
     'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
+    'text' => 'bad argument to @table: @ringaccent{a}',
     'type' => 'error'
   }
 ];

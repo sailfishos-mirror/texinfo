@@ -1152,9 +1152,26 @@ end_line_starting_block (ELEMENT *current)
           KEY_PAIR *k;
           k = lookup_extra (current, "command_as_argument");
           if (!k)
-            command_error (current,
-                           "%s requires an argument: the formatter for @item",
-                           command_name(current->cmd));
+            {
+              if (current->args.number > 0
+                  && current->args.list[0]->contents.number > 0)
+                {
+                  ELEMENT tmp;
+                  char *texi_arg;
+
+                  /* expand the contents to avoid surrounding spaces */
+                  memset (&tmp, 0, sizeof (ELEMENT));
+                  tmp.contents = current->args.list[0]->contents;
+                  texi_arg = convert_to_texinfo (&tmp);
+                  command_error (current, "bad argument to @%s: %s",
+                                 command_name(current->cmd), texi_arg);
+                }
+              else
+                {
+                  command_error (current, "missing @%s argument",
+                                 command_name(current->cmd));
+                }
+            }
           else
             {
               ELEMENT *e = k->value;

@@ -1,3 +1,14 @@
+2022-12-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
+	more generic message when @*table argument is incorrect, separating
+	missing and bad argument, and showing the argument in case of bad
+	argument.
+
+	* tp/Texinfo/XS/parsetexi/convert.c (expand_cmd_args_to_texi):
+	add spaces_after_cmd_before_arg expansion.
+
 2022-12-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@tie>:
