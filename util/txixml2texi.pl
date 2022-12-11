@@ -332,7 +332,7 @@ while ($reader->read) {
         }
       }
     } elsif (exists($Texinfo::Commands::brace_commands{$name})) {
-      print "\@${name}${spaces_after_command}\{";
+      print "\@${name}${spaces_after_command}".'{';
       if ($name eq 'verb' and $reader->hasAttributes()
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
@@ -368,8 +368,7 @@ while ($reader->read) {
           binmode(STDOUT, ":encoding($perl_encoding)");
         }
       }
-      print "\@$name";
-      print "$spaces";
+      print "\@$name$spaces";
       if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
         my $line = $reader->getAttribute('line');
         $line =~ s/\\\\/\x{1F}/g;
@@ -463,6 +462,12 @@ while ($reader->read) {
           print '@'.$reader->getAttribute('command');
         }
       }
+    } elsif ($name eq 'infoenclose') {
+      if ($reader->hasAttributes()
+          and defined($reader->getAttribute('command'))) {
+        my $command = $reader->getAttribute('command');
+        print "\@${command}${spaces_after_command}".'{'."$spaces";
+      }
     # def* automatic
     } elsif ($reader->hasAttributes()
              and defined($reader->getAttribute('automatic'))
@@ -478,8 +483,7 @@ while ($reader->read) {
     if ($reader->hasAttributes()) {
       if (defined($reader->getAttribute('bracketed'))
           and $reader->getAttribute('bracketed') eq 'on') {
-        print '{';
-        print "$spaces";
+        print '{'."$spaces";
       }
       # menus 'star' and following spaces
       if (defined($reader->getAttribute('leadingtext'))) {
@@ -547,6 +551,8 @@ while ($reader->read) {
         print $reader->getAttribute('separator');
         print "$trailingspaces";
       }
+    } elsif ($name eq 'infoenclose') {
+      print "$trailingspaces".'}';
     } elsif ($eat_space_elements{$name}) {
       $eat_space = 1;
     } else {
