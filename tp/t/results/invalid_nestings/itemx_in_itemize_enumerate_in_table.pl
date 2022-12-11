@@ -380,4 +380,28 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 $result_floats{'itemx_in_itemize_enumerate_in_table'} = {};
 
 
+
+$result_converted{'plaintext'}->{'itemx_in_itemize_enumerate_in_table'} = '*item*
+
+     In item, nested itemize
+     in nested itemize itemx
+
+     in nested enumerate itemx
+
+';
+
+
+$result_converted{'xml'}->{'itemx_in_itemize_enumerate_in_table'} = '<table commandarg="strong" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="strong">item</itemformat></item>
+</tableterm><tableitem>
+<para>In item, nested itemize
+</para><itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<beforefirstitem></beforefirstitem></itemize>
+
+<enumerate first="1" endspaces=" ">
+<beforefirstitem></beforefirstitem></enumerate>
+
+</tableitem></tableentry></table>
+';
+
 1;

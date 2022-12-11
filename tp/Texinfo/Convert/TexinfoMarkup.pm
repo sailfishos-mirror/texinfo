@@ -674,7 +674,8 @@ sub _convert($$;$)
         }
         return $self->_accent($arg, $element, undef, $attributes);
       }
-    } elsif ($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx'
+    } elsif ($element->{'cmdname'} eq 'item'
+             or $element->{'cmdname'} eq 'itemx'
              or $element->{'cmdname'} eq 'headitem'
              or $element->{'cmdname'} eq 'tab') {
       if ($element->{'cmdname'} eq 'item'
@@ -691,7 +692,8 @@ sub _convert($$;$)
             .$self->txi_markup_close_element('prepend');
         }
         unshift @close_format_elements, 'listitem';
-      } elsif (($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx')
+      } elsif (($element->{'cmdname'} eq 'item'
+                or $element->{'cmdname'} eq 'itemx')
                and $element->{'parent'}->{'type'}
                and $element->{'parent'}->{'type'} eq 'table_term') {
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
@@ -702,13 +704,15 @@ sub _convert($$;$)
           $format_item_command
             = $table_command->{'extra'}->{'command_as_argument'}->{'cmdname'};
           $attribute
-           = [$self->_infoenclose_attribute($table_command->{'extra'}->{'command_as_argument'})];
+           = [$self->_infoenclose_attribute(
+                $table_command->{'extra'}->{'command_as_argument'})];
         }
-        my $line_item_result = $self->txi_markup_open_element($element->{'cmdname'},
-                                                     [_leading_spaces_arg($element)]);
+        my $line_item_result
+          = $self->txi_markup_open_element($element->{'cmdname'},
+                                            [_leading_spaces_arg($element)]);
         if ($format_item_command) {
           $line_item_result .= $self->txi_markup_open_element('itemformat',
-                                         [['command', $format_item_command], @$attribute]);
+                              [['command', $format_item_command], @$attribute]);
         }
         $line_item_result .= $self->_index_entry($element);
         my $in_code;
@@ -743,21 +747,17 @@ sub _convert($$;$)
         $line_item_result
            .= $self->txi_markup_close_element($element->{'cmdname'}).$end_line;
         return $line_item_result;
-      } else {
-        unless (($element->{'cmdname'} eq 'item'
-                     or $element->{'cmdname'} eq 'headitem'
-                     or $element->{'cmdname'} eq 'tab')
-                    and $element->{'parent'}->{'type'}
-                    and $element->{'parent'}->{'type'} eq 'row') {
-          print STDERR "BUG: multitable cell command not in a row "
-            .Texinfo::Common::debug_print_element($element);
-        }
-
+      } elsif (($element->{'cmdname'} eq 'item'
+                or $element->{'cmdname'} eq 'headitem'
+                or $element->{'cmdname'} eq 'tab')
+               and $element->{'parent'}->{'type'}
+               and $element->{'parent'}->{'type'} eq 'row') {
         $result .= $self->txi_markup_open_element('entry',
                                           [['command', $element->{'cmdname'}],
                                                 _leading_spaces_arg($element)]);
         unshift @close_format_elements, 'entry';
-      }
+      } # otherwise we have an incorrect construct, for instance
+        # out of block commands @item, @itemx in enumerate or multitable...
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $format_element;
       my $attribute = [];

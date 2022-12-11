@@ -314,21 +314,6 @@ More @math{ in math
 
 @section sec2
 '],
-['itemx_in_itemize_enumerate_in_table',
-'@table @strong
-@item item
-
-In item, nested itemize
-@itemize
-@itemx in nested itemize itemx
-@end itemize
-
-@enumerate
-@itemx in nested enumerate itemx
-@end enumerate
-
-@end table
-'],
 ['item_tab_outside_of_table_lists',
 '@itemx itemx outside.
 @headitem headitem outside.
@@ -593,6 +578,21 @@ in ifinfo
 @end ifinfo on the node line',
 {'EXPANDED_FORMATS' => []}
 ],
+['itemx_in_itemize_enumerate_in_table',
+'@table @strong
+@item item
+
+In item, nested itemize
+@itemize
+@itemx in nested itemize itemx
+@end itemize
+
+@enumerate
+@itemx in nested enumerate itemx
+@end enumerate
+
+@end table
+'],
 );
 
 foreach my $test (@formatted_cases) {
