@@ -2340,7 +2340,6 @@ my %css_element_class_styles = (
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
-     'span.w-nolinebreak-text'   => 'white-space: nowrap',
      'td.index-entry-level-1'  => 'padding-left: 1.5em',
      'td.index-entry-level-2'  => 'padding-left: 3.0em',
      'kbd.key'            => 'font-style: normal',
@@ -6187,17 +6186,6 @@ sub _convert_text($$$)
   # API info: in_non_breakable_space() API code conforming would be:
   #if ($self->in_non_breakable_space()) {
   if ($formatting_context->{'space_protected'}) {
-    if ($text =~ /(\S*[_-]\S*)/) {
-      my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
-      if ($open ne '') {
-        $open .= '>';
-        # Protect spaces in the html leading attribute in case we are
-        # in 'w' or 'verb'.
-        $open =~ s/ /\x{1F}/g;
-        # Special span to avoid breaking at _-
-        $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
-      }
-    }
     $text .= $self->get_info('non_breaking_space') if (chomp($text));
     # Protect spaces within text
     my $non_breaking_space = $self->get_info('non_breaking_space');

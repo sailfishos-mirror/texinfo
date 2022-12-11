@@ -391,7 +391,7 @@ $result_converted{'plaintext'}->{'w_lines_count'} = 'xzcompilationxdmbufferxmsub
 $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 <p>xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
-<code class="code"><span class="w-nolinebreak-text">C-u</span></code><!-- /@w --> starts again from the beginning
+<code class="code">C-u</code><!-- /@w --> starts again from the beginning
 </p>
 <a class="index-entry-id" id="index-compilation_002dnext_002derror"></a>
 <p>Compilation mode also defines the keys <kbd class="key">SPC</kbd> and <kbd class="key">DEL</kbd> to
