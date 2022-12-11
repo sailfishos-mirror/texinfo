@@ -37,15 +37,19 @@ if test -n "$1"; then
     the_test=$2
     if test -f t/$the_directory.t ; then
       perl -w t/$the_directory.t -c $the_test
-    else
+    elif test -f t/??$the_directory.t ; then
       perl -w t/??$the_directory.t -c $the_test
+    else
+      perl -w t/???$the_directory.t -c $the_test
     fi
   else
     rm -rf $mdir/backforth_xmltexi/$the_directory $mdir/backforth_checktexi/$the_directory $mdir/backforth_plaintexi/$the_directory $mdir/backforth_logs/$the_directory.log
     if test -f t/$the_directory.t ; then
       perl -w t/$the_directory.t -c
-    else
+    elif test -f t/??$the_directory.t ; then
       perl -w t/??$the_directory.t -c
+    else
+      perl -w t/???$the_directory.t -c
     fi
   fi
 else

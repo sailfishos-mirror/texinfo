@@ -11,6 +11,11 @@
 
 2022-12-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/check_back_xml_forth_texi_t.sh: handle 3 digits in
+	front of .t test file name.
+
+2022-12-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): use directly
 	the @node direction explicit args, reconstitute node and manual name
 	only for automatic directions.
