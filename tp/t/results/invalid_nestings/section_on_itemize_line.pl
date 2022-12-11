@@ -482,18 +482,22 @@ $result_converted{'plaintext'}->{'section_on_itemize_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="minus" spaces=" "><itemprepend>&minus; </itemprepend></itemize>
+$result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="minus" spaces=" "><itemprepend>&minus; </itemprepend>
+</itemize>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<itemize spaces=" "><itemprepend>&minus; aa </itemprepend></itemize>
+<itemize spaces=" "><itemprepend>&minus; aa </itemprepend>
+</itemize>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 
-<itemize commandarg="bullet" spaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend></itemize>
+<itemize commandarg="bullet" spaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</itemize>
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 
-<itemize spaces=" "><itemprepend><accent type="ring"></accent></itemprepend></itemize>
+<itemize spaces=" "><itemprepend><accent type="ring"></accent></itemprepend>
+</itemize>
 </section>
 <section spaces=" "><sectiontitle>fourth</sectiontitle>
 </section>

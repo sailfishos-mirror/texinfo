@@ -252,10 +252,12 @@ $result_converted{'plaintext'}->{'section_on_enumerate_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_enumerate_line'} = '<enumerate first="1" spaces=" "><enumeratefirst>something </enumeratefirst></enumerate>
+$result_converted{'xml'}->{'section_on_enumerate_line'} = '<enumerate first="1" spaces=" "><enumeratefirst>something </enumeratefirst>
+</enumerate>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<enumerate first="4" spaces=" "><enumeratefirst>4 </enumeratefirst></enumerate>
+<enumerate first="4" spaces=" "><enumeratefirst>4 </enumeratefirst>
+</enumerate>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 </section>

@@ -1578,7 +1578,8 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <para>The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype><para>A &arobase; at the end of the &arobase;quotation line.
+<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype>
+<para>A &arobase; at the end of the &arobase;quotation line.
 </para></quotation>
 
 <quotation spaces=" " endspaces=" "><quotationtype>something, other thing</quotationtype>
@@ -1741,7 +1742,8 @@ quotation
 <pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage>
+<pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
 <example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
@@ -2728,7 +2730,8 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <para>The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype><para>A &arobase; at the end of the &arobase;quotation line.
+<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype>
+<para>A &arobase; at the end of the &arobase;quotation line.
 </para></quotation>
 
 <quotation spaces=" " endspaces=" "><quotationtype>something, other thing</quotationtype>
@@ -2891,7 +2894,8 @@ quotation
 <pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage>
+<pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
 <example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
@@ -3908,7 +3912,8 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <para>The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype><para>A &arobase; at the end of the &arobase;quotation line.
+<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype>
+<para>A &arobase; at the end of the &arobase;quotation line.
 </para></quotation>
 
 <quotation spaces=" " endspaces=" "><quotationtype>something, other thing</quotationtype>
@@ -4071,7 +4076,8 @@ quotation
 <pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage>
+<pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
 <example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
@@ -5053,7 +5059,8 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </pre></quotation>
 <pre xml:space="preserve">
-</pre><quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype><pre xml:space="preserve">A &arobase; at the end of the &arobase;quotation line.
+</pre><quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype>
+<pre xml:space="preserve">A &arobase; at the end of the &arobase;quotation line.
 </pre></quotation>
 <pre xml:space="preserve">
 </pre><quotation spaces=" " endspaces=" "><quotationtype>something, other thing</quotationtype>
@@ -5216,7 +5223,8 @@ indent in quotation
 <pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
 </pre></example>
 <pre xml:space="preserve">
-</pre><example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+</pre><example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage>
+<pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 <pre xml:space="preserve">
 </pre><example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>

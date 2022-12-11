@@ -1372,6 +1372,9 @@ sub _convert($$;$)
                   # last argument
                   ($arg, $end_space, $end_line)
                     = $self->_convert_argument_and_end_line($element);
+                  # happens for @-commands interrupted by other commands
+                  # incorrectly present on the line
+                  $end_line = "\n" if ($end_line eq '');
                 } else {
                   $arg = $self->_convert($arg_element);
                   push @$spaces, _trailing_spaces_arg($arg_element);
