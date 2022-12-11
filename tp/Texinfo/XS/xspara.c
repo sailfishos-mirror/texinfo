@@ -842,8 +842,22 @@ xspara_add_text (char *text)
         {
           state.last_letter = L'\0';
 
-          /* If protect_spaces is on, ... */
-          if (state.protect_spaces)
+          if (state.unfilled)
+            {
+              xspara__add_pending_word (&result, 0);
+              if (*p == '\n')
+                {
+                   xspara__add_pending_word (&result, 0);
+                   xspara__end_line ();
+                   text_append (&result, "\n");
+                }
+              else
+                {
+                  text_append_n (&state.space, p, char_len);
+                  state.space_counter++;
+                }
+            }
+          else if (state.protect_spaces)
             {
               /* Append the spaces to the pending word. */
               text_append_n (&state.word, p, char_len);
@@ -874,13 +888,12 @@ xspara_add_text (char *text)
               int pending = state.invisible_pending_word;
               xspara__add_pending_word (&result, 0);
 
-              if (state.counter != 0 || state.unfilled || pending)
+              if (state.counter != 0 || pending)
                 {
                   /* If we are at the end of a sentence where two spaces
                      are required. */
                   if (state.end_sentence == 1
-                      && !state.french_spacing
-                      && !state.unfilled)
+                      && !state.french_spacing)
                     {
                       state.space.end = 0;
                       text_append_n (&state.space, "  ", 2);
@@ -889,21 +902,12 @@ xspara_add_text (char *text)
                   else /* Not at end of sentence. */
                     {
                       /* Only save the first space. */
-                      if (state.unfilled || state.space_counter < 1)
+                      if (state.space_counter < 1)
                         {
                           if (*p == '\n')
                             {
-                              if (!state.unfilled)
-                                {
-                                  text_append_n (&state.space, " ", 1);
-                                  state.space_counter++;
-                                }
-                              else
-                                {
-                                  xspara__add_pending_word (&result, 0);
-                                  xspara__end_line ();
-                                  text_append (&result, "\n");
-                                }
+                              text_append_n (&state.space, " ", 1);
+                              state.space_counter++;
                             }
                           else
                             {
