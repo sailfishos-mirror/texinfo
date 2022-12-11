@@ -329,7 +329,15 @@ sub add_text($$)
     if (defined $spaces) {
       print STDERR "SPACES($paragraph->{'counter'}) `"
           ._print_escaped_spaces($spaces)."'\n" if $debug_flag;
-      if ($protect_spaces_flag) {
+      if ($paragraph->{'unfilled'}) {
+        $result .= _add_pending_word($paragraph);
+        if ($spaces =~ /\n/) {
+          $result .= _add_pending_word ($paragraph);
+          $result .= _end_line ($paragraph);
+        } else {
+          $paragraph->{'space'} .= $spaces;
+        }
+      } elsif ($protect_spaces_flag) {
         $paragraph->{'word'} .= $spaces;
         $paragraph->{'last_char'} = substr($spaces, -1);
         $paragraph->{'word_counter'} += length($spaces);
@@ -344,32 +352,20 @@ sub add_text($$)
         }
       } else {
         my $pending_word = $paragraph->{'word'};
-
         $result .= _add_pending_word($paragraph);
-        if ($paragraph->{'counter'} != 0 or $paragraph->{'unfilled'}
+        if ($paragraph->{'counter'} != 0
             or (defined $pending_word)) {
           if ($paragraph->{'end_sentence'} 
               and $paragraph->{'end_sentence'} > 0
-              and !$paragraph->{'frenchspacing'}
-              and !$paragraph->{'unfilled'}) {
+              and !$paragraph->{'frenchspacing'}) {
             $paragraph->{'space'} = '  ';
           } else {
             # Only save the first space
-            if ($paragraph->{'unfilled'}
-                or length($paragraph->{'space'}) < 1) {
+            if (length($paragraph->{'space'}) < 1) {
               if ($spaces =~ /\n/) {
-                if (!$paragraph->{'unfilled'}) {
-                  $paragraph->{'space'} = ' ';
-                } else {
-                  $result .= _add_pending_word ($paragraph);
-                  $result .= _end_line ($paragraph);
-                }
+                $paragraph->{'space'} = ' ';
               } else {
-                if (!$paragraph->{'unfilled'}) {
-                  $paragraph->{'space'} .= substr ($spaces, 0, 1);
-                } else {
-                  $paragraph->{'space'} .= $spaces;
-                }
+                $paragraph->{'space'} .= substr ($spaces, 0, 1);
               }
             }
           }

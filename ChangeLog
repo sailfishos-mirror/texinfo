@@ -1,3 +1,9 @@
+2022-12-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text) <spaces>:
+	Separate out code for 'unfilled' to make the rest of the code
+	easier to understand.
+
 2022-12-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): use directly
