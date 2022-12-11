@@ -2320,7 +2320,7 @@ $result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize comman
 <tbody><row><entry command="item"> <para>a </para></entry><entry command="tab"> <para>b
 </para></entry></row></tbody></multitable>
 
-<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">aaa</columnprototype> <columnprototype bracketed="on">bbb</columnprototype></columnprototypes><!-- c c -->
+<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">aaa</columnprototype> <columnprototype bracketed="on">bbb</columnprototype></columnprototypes> <!-- c c -->
 <tbody><row><entry command="item"> <para>aaa </para></entry><entry command="tab"> <para>bbb
 </para></entry></row></tbody></multitable>
 

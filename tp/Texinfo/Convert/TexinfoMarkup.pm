@@ -1481,7 +1481,10 @@ sub _convert($$;$)
                   $first_proto = 0;
                 }
                 $result .= $self->txi_markup_close_element('columnprototypes');
-                $result .= $self->format_comment_or_return_end_line($element);
+                my $end_space
+                  = _end_line_spaces($self, $element);
+                $result .= $end_space
+                          .$self->format_comment_or_return_end_line($element);
               } elsif ($element->{'args'} and $element->{'args'}->[0]
                        and $element->{'args'}->[0]->{'contents'}
                        and (($element->{'extra'}
