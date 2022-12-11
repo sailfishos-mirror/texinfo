@@ -2486,8 +2486,13 @@ sub _isolate_last_space
 
   return if (!$current->{'contents'});
 
-  # Store a final comment command in the 'info' hash.
-  if (scalar(@{$current->{'contents'}}) >= 1
+  # $current->{'type'} is always set, to line_arg, block_line_arg,
+  # brace_command_arg, bracketed or menu_entry_node
+
+  # Store a final comment command in the 'info' hash, except for brace
+  # commands
+  if (not ($current->{'type'} and $current->{'type'} eq 'brace_command_arg')
+      and scalar(@{$current->{'contents'}}) >= 1
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {

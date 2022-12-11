@@ -761,8 +761,11 @@ isolate_last_space (ELEMENT *current)
   if (current->contents.number == 0)
     return;
 
-  if (last_contents_child(current)->cmd == CM_c
-      || last_contents_child(current)->cmd == CM_comment)
+  /* Store a final comment command in the 'info' hash, except for brace
+     commands */
+  if (current->type != ET_brace_command_arg
+      && (last_contents_child(current)->cmd == CM_c
+          || last_contents_child(current)->cmd == CM_comment))
     {
       add_info_element_oot (current, "comment_at_end",
                              pop_element_from_contents (current));

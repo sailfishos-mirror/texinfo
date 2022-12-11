@@ -568,6 +568,8 @@ sub _convert_argument_and_end_line($$)
 }
 
 # used in brace commands
+# NOTE not really needed now that comment_at_end are not generated
+# for brace commands.
 sub _convert_comment_at_end
 {
   my $self = shift;

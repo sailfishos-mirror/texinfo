@@ -210,10 +210,12 @@ $result_trees{'empty_ref_arg'} = {
                     },
                     {
                       'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
+                    },
+                    {
+                      'text' => '
+'
+                    },
+                    {
                       'args' => [
                         {
                           'text' => ' ggg
@@ -228,9 +230,9 @@ $result_trees{'empty_ref_arg'} = {
 '
                         ]
                       }
-                    },
-                    'spaces_after_argument' => '
-',
+                    }
+                  ],
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -252,10 +254,8 @@ $result_trees{'empty_ref_arg'} = {
 '
                         ]
                       }
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
+                    },
+                    {
                       'args' => [
                         {
                           'text' => '
@@ -270,7 +270,9 @@ $result_trees{'empty_ref_arg'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  ],
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -413,23 +415,29 @@ $result_errors{'empty_ref_arg'} = [
   },
   {
     'error_line' => 'warning: in @ref empty cross reference name after expansion `@c aaa
- @ \'
+ @ 
+@c ggg
+\'
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => '',
     'text' => 'in @ref empty cross reference name after expansion `@c aaa
- @ \'',
+ @ 
+@c ggg
+\'',
     'type' => 'warning'
   },
   {
     'error_line' => 'warning: in @ref empty cross reference title after expansion `@c fff
+@c
 \'
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => '',
     'text' => 'in @ref empty cross reference title after expansion `@c fff
+@c
 \'',
     'type' => 'warning'
   }
