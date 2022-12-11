@@ -336,35 +336,41 @@ sub add_text($$)
         } else {
           $paragraph->{'space'} .= $spaces;
         }
-      } elsif ($protect_spaces_flag) {
-        $paragraph->{'word'} .= $spaces;
-        $paragraph->{'last_char'} = substr($spaces, -1);
-        $paragraph->{'word_counter'} += length($spaces);
-        $paragraph->{'word'} =~ s/\n/ /g;
-
-        # The $paragraph->{'counter'} != 0 is here to avoid having an
-        # additional line output when the text is longer than the max.
-        if ($paragraph->{'counter'} != 0 and 
-            $paragraph->{'counter'} + $paragraph->{'word_counter'} + 
-               length($paragraph->{'space'}) > $paragraph->{'max'}) {
-          $result .= _cut_line($paragraph);
-        }
       } else {
-        my $pending_word = $paragraph->{'word'};
-        $result .= _add_pending_word($paragraph);
-        if ($paragraph->{'counter'} != 0
-            or (defined $pending_word)) {
-          if ($paragraph->{'end_sentence'} 
-              and $paragraph->{'end_sentence'} > 0
-              and !$paragraph->{'frenchspacing'}) {
-            $paragraph->{'space'} = '  ';
-          } else {
-            # Only save the first space
-            if (length($paragraph->{'space'}) < 1) {
-              if ($spaces =~ /\n/) {
-                $paragraph->{'space'} = ' ';
-              } else {
-                $paragraph->{'space'} .= substr ($spaces, 0, 1);
+        my $at_end_sentence = 0;
+        $at_end_sentence = 1 if ($paragraph->{'end_sentence'} 
+                                   and $paragraph->{'end_sentence'} > 0
+                                   and !$paragraph->{'frenchspacing'});
+        if ($protect_spaces_flag) {
+          if (substr($paragraph->{'word'}, -1) ne ' ') {
+            my $new_spaces = $at_end_sentence ? '  ' : ' ';
+            $paragraph->{'word'} .= $new_spaces;
+            $paragraph->{'last_char'} = ' ';
+            $paragraph->{'word_counter'} += length($new_spaces);
+
+            # The $paragraph->{'counter'} != 0 is here to avoid having an
+            # additional line output when the text is longer than the max.
+            if ($paragraph->{'counter'} != 0 and 
+                $paragraph->{'counter'} + $paragraph->{'word_counter'} + 
+                   length($paragraph->{'space'}) > $paragraph->{'max'}) {
+              $result .= _cut_line($paragraph);
+            }
+          }
+        } else {
+          my $pending_word = $paragraph->{'word'};
+          $result .= _add_pending_word($paragraph);
+          if ($paragraph->{'counter'} != 0
+              or (defined $pending_word)) {
+            if ($at_end_sentence) {
+              $paragraph->{'space'} = '  ';
+            } else {
+              # Only save the first space
+              if (length($paragraph->{'space'}) < 1) {
+                if ($spaces =~ /\n/) {
+                  $paragraph->{'space'} = ' ';
+                } else {
+                  $paragraph->{'space'} .= substr ($spaces, 0, 1);
+                }
               }
             }
           }

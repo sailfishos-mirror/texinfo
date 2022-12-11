@@ -859,27 +859,27 @@ xspara_add_text (char *text)
           else if (state.protect_spaces)
             {
               /* Append the spaces to the pending word. */
-              text_append_n (&state.word, p, char_len);
-              state.word_counter++;
-
-              if (strchr (state.word.text, '\n'))
+              if (state.word.end == 0
+                  || state.word.text[state.word.end - 1] != ' ')
                 {
-                  /* Replace any '\n' with a ' '. Note that state.word_counter 
-                     will still be correct after this. */
-                  char *ptr = state.word.text;
-                  while (*ptr)
+                  if (state.end_sentence == 1 && !state.french_spacing)
                     {
-                      if (*ptr == '\n')
-                        *ptr = ' ';
-                      ptr++;
+                      text_append_n (&state.word, "  ", 2);
+                      state.word_counter += 2;
                     }
-                }
+                  else
+                    {
+                      text_append_n (&state.word, " ", 1);
+                      state.word_counter += 1;
+                    }
+                  state.last_letter = ' ';
 
-              if (state.counter != 0
-                  && state.counter + state.word_counter + state.space_counter
-                     > state.max)
-                {
-                  xspara__cut_line (&result);
+                  if (state.counter != 0
+                      && state.counter + state.word_counter
+                          + state.space_counter > state.max)
+                    {
+                      xspara__cut_line (&result);
+                    }
                 }
             }
           else /* protect_spaces off */

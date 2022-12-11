@@ -785,7 +785,7 @@ $result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '*note   ::
 
    *note   ::
 
-   *note   ::
+   *note  ::
 ';
 
 
@@ -885,7 +885,7 @@ File: ,  Node: Top,  Up: (dir)
 
    *note   ::
 
-   *note   ::
+   *note  ::
 
 
 Tag Table:

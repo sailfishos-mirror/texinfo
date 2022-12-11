@@ -232,7 +232,7 @@ $result .= add_text($para, "In w:\n");
 set_space_protection($para, 1,1);
 $result .= add_text($para, "Out of code -- out-of-code.   ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
 $result .= Texinfo::Convert::Paragraph::end($para);
-is ($result, "In w: Out of code -- out-of-code.   ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg\n", 'space protection after end sentence');
+is ($result, "In w: Out of code -- out-of-code.  ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg\n", 'space protection after end sentence');
 
 $para = Texinfo::Convert::Paragraph->new();
 $result = '';
@@ -371,7 +371,7 @@ $result .= add_text($para, "a");
 $result .= add_text($para, '  ');
 set_space_protection($para, 0,0);
 $result .= add_text($para, "c ");
-is ($result, "aa.)    bb  eee    .)_ aa  . gg.  a  c\n", "protected spaces many inputs");
+is ($result, "aa.)  bb eee .)_  aa .  gg.  a c\n", "protected spaces many inputs");
 Texinfo::Convert::Paragraph::end($para);
 
 $para = Texinfo::Convert::Paragraph->new({'max' => 10});
@@ -404,7 +404,7 @@ $result .= add_text($para,  "ccc dddd");
 set_space_protection($para, 0,0);
 $result .= add_text($para,  "gg.\n");
 $result .= Texinfo::Convert::Paragraph::end($para);
-is ($result, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb . ccc ddddgg.\n", 'long text followed by text protected'); 
+is ($result, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .  ccc ddddgg.\n", 'long text followed by text protected'); 
 
 $para = Texinfo::Convert::Paragraph->new();
 $result = '';
@@ -413,7 +413,7 @@ set_space_protection($para, 1,1);
 $result .= add_text($para, '  f  f');
 set_space_protection($para, 0,0);
 $result .= add_text($para, "ggg\n");
-is ($result, 'aa  f  fggg', 'protected space within words');
+is ($result, 'aa f fggg', 'protected space within words');
 Texinfo::Convert::Paragraph::end($para);
 
 $para = Texinfo::Convert::Paragraph->new();
@@ -423,7 +423,7 @@ set_space_protection($para, 1,1);
 $result .= add_text($para, '  f  f ');
 set_space_protection($para, 0,0);
 $result .= add_text($para, "ggg\n");
-is ($result, 'aa  f  f ggg', 'protected space and space within words');
+is ($result, 'aa f f ggg', 'protected space and space within words');
 Texinfo::Convert::Paragraph::end($para);
 
 $para = Texinfo::Convert::Paragraph->new();
@@ -433,7 +433,7 @@ set_space_protection($para, 1,1);
 $result .= add_text($para, '  f  f ');
 set_space_protection($para, 0,0);
 $result .= add_text($para, "ggg\n");
-is ($result, 'aa   f  f ggg', 'text space protected space and space within words');
+is ($result, 'aa  f f ggg', 'text space protected space and space within words');
 Texinfo::Convert::Paragraph::end($para);
 
 $para = Texinfo::Convert::Paragraph->new();
@@ -443,7 +443,7 @@ set_space_protection($para, 1,1);
 $result .= add_text($para, '  f  f ');
 set_space_protection($para, 0,0);
 $result .= add_text($para, " ggg\n");
-is ($result, 'aa   f  f  ggg', 'text space protected space and space after');
+is ($result, 'aa  f f  ggg', 'text space protected space and space after');
 Texinfo::Convert::Paragraph::end($para);
 
 $para = Texinfo::Convert::Paragraph->new();
@@ -649,7 +649,7 @@ $result .= add_text($line, 'then');
 $result .= add_text($line, 'fff     g');
 set_space_protection($line, 0,0);
 $result .= Texinfo::Convert::Paragraph::end($line);
-is ($result, " aa.) thenfff     g", 'line space_protection and spaces');
+is ($result, " aa.)  thenfff g", 'line space_protection and spaces');
 
 $line = _new_line_formatter();
 $result = '';
@@ -678,7 +678,7 @@ $result .= add_text($line, "protected. B");
 set_space_protection($line, 0,0);
 $result .= add_text($line, "  after");
 $result .= Texinfo::Convert::Paragraph::end($line);
-is ($result, "protected. B after", 'line 2 spaces after end space protection');
+is ($result, "protected.  B after", 'line 2 spaces after end space protection');
 
 $line = _new_line_formatter();
 $result = '';

@@ -1,3 +1,19 @@
+2022-12-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Do not copy spaces exactly for @w
+
+	* tp/Texinfo/XS/xspara.c (xspara_add_text) <protect_spaces>
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text) <protect_spaces>:
+	Change the meaning of this flag to match what @w does in
+	texinfo.tex, which simply uses an \hbox for the content, but does
+	not protect the spaces.  Do not use exactly the same spaces that
+	were given in the input.  Accumulate spaces onto the end of the
+	current word so that all spaces and words will be stuck together
+	while in the mode and output together in the same line.
+	* tp/t/paragraph.t: Manually update reference test results.
+
+	The 'protect_spaces' flag is probably now misnamed.
+
 2022-12-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add multitable

@@ -213,9 +213,9 @@ $result_floats{'protect_spaces_on_line'} = {};
 
 
 
-$result_converted{'plaintext'}->{'protect_spaces_on_line'} = 'Before samp.  ‘a’.  after samp, w in   w. after dot afterw
+$result_converted{'plaintext'}->{'protect_spaces_on_line'} = 'Before samp.  ‘a’.  after samp, w in w.  after dot afterw
 
-before samp.  ‘a’.  after samp, w in   w. after dot afterw
+before samp.  ‘a’.  after samp, w in w.  after dot afterw
 ';
 
 1;

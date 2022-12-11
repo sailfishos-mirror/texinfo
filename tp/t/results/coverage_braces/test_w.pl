@@ -680,26 +680,26 @@ $result_floats{'test_w'} = {};
 
 
 
-$result_converted{'plaintext'}->{'test_w'} = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb . ccc dddd.
+$result_converted{'plaintext'}->{'test_w'} = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .  ccc dddd.
 
    a a a a a a a a a a a a a a a a a a a a a a a a a a a a
 b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
 
    
 
-    a rr      ggg.
+    a rr ggg.
 
    AAbbb.
 
    FFdnnn.
 
-   aa  f  fggg.
+   aa f fggg.
 
-   aa2  f  f ggg2.
+   aa2 f f ggg2.
 
-   aa3   f  f ggg3.
+   aa3  f f ggg3.
 
-   aa4   f  f  ggg4.
+   aa4  f f  ggg4.
 
    aa5  ggg5.
 

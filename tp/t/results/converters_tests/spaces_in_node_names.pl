@@ -878,7 +878,7 @@ $result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note a  ::
 
    *note b  ::
 
-   *note c  ::
+   *note c ::
 ';
 
 
@@ -984,23 +984,23 @@ File: ,  Node: Top,  Next: a  ,  Up: (dir)
 File: ,  Node: a  ,  Next: b  ,  Prev: Top,  Up: Top
 
 
-File: ,  Node: b  ,  Next: c  ,  Prev: a  ,  Up: Top
+File: ,  Node: b  ,  Next: c ,  Prev: a  ,  Up: Top
 
 
-File: ,  Node: c  ,  Prev: b  ,  Up: Top
+File: ,  Node: c ,  Prev: b  ,  Up: Top
 
 *note a  ::
 
    *note b  ::
 
-   *note c  ::
+   *note c ::
 
 
 Tag Table:
 Node: Top27
 Node: a  106
 Node: b  162
-Node: c  218
+Node: c 217
 
 End Tag Table
 
