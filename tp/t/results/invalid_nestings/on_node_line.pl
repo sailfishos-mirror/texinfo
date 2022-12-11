@@ -361,4 +361,11 @@ $result_errors{'on_node_line'} = [
 $result_floats{'on_node_line'} = {};
 
 
+
+$result_converted{'plaintext'}->{'on_node_line'} = '';
+
+
+$result_converted{'xml'}->{'on_node_line'} = '<node name="a" spaces=" "><nodename><ref label="a" manual="filename"><xrefnodename>a</xrefnodename><xrefinfoname spaces=" ">b</xrefinfoname><xrefprinteddesc spaces=" ">c</xrefprinteddesc><xrefinfofile spaces=" ">filename</xrefinfofile></ref></nodename><nodenext spaces=" ">(<pxref label="Top" manual="somemanual"><xrefnodename>(somemanual)Top</xrefnodename></pxref>) <anchor name="in-anchor">in anchor</anchor><footnote><para>footnote</para></footnote> <exdent spaces=" ">exdent</exdent>
+</nodenext></node>';
+
 1;

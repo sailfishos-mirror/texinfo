@@ -811,28 +811,36 @@ sub _convert($$;$)
           foreach my $direction(@node_directions) {
             my $format_element = 'node'.lc($direction);
             if ($element->{'structure'}->{'node_'.lc($direction)}) {
-              my $node_direction = $element->{'structure'}->{'node_'.lc($direction)};
+              my $node_direction
+                     = $element->{'structure'}->{'node_'.lc($direction)};
               my $node_name = '';
               my $attributes = [];
-              if (! defined($element->{'extra'}->{'nodes_manuals'}->[$direction_index])) {
-                push @$attributes, ['automatic', 'on'];
-              }
               if ($element->{'args'}->[$direction_index]) {
                 push @$attributes, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
-              if ($node_direction->{'extra'}->{'manual_content'}) {
-                $node_name .= $self->_convert({
-                             'contents' => [{'text' => '('},
-                             @{$node_direction->{'extra'}->{'manual_content'}},
-                                          {'text' => ')'}]});
-              }
-              if ($node_direction->{'extra'}->{'node_content'}) {
-                $node_name .= Texinfo::Common::normalize_top_node_name($self->_convert({
-                  'contents' => $node_direction->{'extra'}->{'node_content'}}));
+              if (! defined($element->{'extra'}->{'nodes_manuals'}
+                                                        ->[$direction_index])) {
+                push @$attributes, ['automatic', 'on'];
+
+                if ($node_direction->{'extra'}->{'manual_content'}) {
+                  $node_name .= $self->_convert({
+                               'contents' => [{'text' => '('},
+                              @{$node_direction->{'extra'}->{'manual_content'}},
+                                            {'text' => ')'}]});
+                }
+                if ($node_direction->{'extra'}->{'node_content'}) {
+                  $node_name .= Texinfo::Common::normalize_top_node_name(
+                    $self->_convert({'contents'
+                             => $node_direction->{'extra'}->{'node_content'}}));
+                }
+              } else {
+                $node_name
+                  = $self->_convert($element->{'args'}->[$direction_index]);
               }
               $result .= "$pending_empty_directions".
-                $self->txi_markup_open_element($format_element, $attributes).$node_name.
+                $self->txi_markup_open_element($format_element, $attributes)
+                .$node_name.
                 $self->txi_markup_close_element($format_element);
               $pending_empty_directions = '';
             } else {

@@ -9,9 +9,6 @@ my @test_cases = (
 ['on_section_line',
 '@section @noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
 '],
-['on_node_line',
-'@node @ref{a, b, c, filename}, (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
-'],
 ['on_subheading_line',
 '@subheading @noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
 '],
@@ -519,6 +516,9 @@ Text. @errormsg{@anchor{in anchor} @ref{in ref}}
 );
 
 my @formatted_cases = (
+['on_node_line',
+'@node @ref{a, b, c, filename}, (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
+'],
 ['table_in_code',
 '@code{
 in code

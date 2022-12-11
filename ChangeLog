@@ -1,5 +1,14 @@
 2022-12-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): use directly
+	the @node direction explicit args, reconstitute node and manual name
+	only for automatic directions.
+
+	* tp/t/57invalid_nestings.t: move on_node_line to @formatted_cases
+	to output XML.
+
+2022-12-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
 	more generic message when @*table argument is incorrect, separating
