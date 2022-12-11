@@ -873,7 +873,6 @@ pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span.r {font-family: initial; font-weight: normal; font-style: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
-span.w-nolinebreak-text {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.index-entry-level-1 {padding-left: 1.5em}
@@ -1146,8 +1145,8 @@ but , ,
 <code class="code">@url{--a,}</code> <a class="url" href="--a">--a</a>
 <code class="code">@url{,--b}</code> &ndash;b
 <code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
-<code class="code">@verb{:--a:}</code> <code class="verb"><span class="w-nolinebreak-text">--a</span></code>
-<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <code class="verb">a&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;<span class="w-nolinebreak-text">--</span>&nbsp;&nbsp;&nbsp;&nbsp;b</code>
+<code class="code">@verb{:--a:}</code> <code class="verb">--a</code>
+<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <code class="verb">a&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;b</code>
 <code class="code">@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
 <code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
 <code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF1" href="sing_fot.htm#FOOT1"><sup>1</sup></a>
@@ -2008,7 +2007,7 @@ html ''
 <code class="code">@image{,,,3--xt}</code> 
 </p>
 <p><code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 </p>
 <p><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">
@@ -2019,8 +2018,8 @@ html ''
 <code class="code">@image{f--ile,aze,az,alt,</code> <img class="image" src="f--ile.png" alt="alt">
 <code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="f--ile%40..file%20ext%20e--xt%7d" alt="alt">
 </p>
-<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@ in b &quot;">
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;_&quot;&nbsp;%@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 </p>
 
 
@@ -2368,8 +2367,8 @@ but , ,
 <code class="code">@url{--a,}</code> <a class="url" href="--a">--a</a>
 <code class="code">@url{,--b}</code> &ndash;b
 <code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
-<code class="code">@verb{:--a:}</code> <code class="verb"><span class="w-nolinebreak-text">--a</span></code>
-<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <code class="verb">a&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;<span class="w-nolinebreak-text">--</span>&nbsp;&nbsp;&nbsp;&nbsp;b</code>
+<code class="code">@verb{:--a:}</code> <code class="verb">--a</code>
+<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <code class="verb">a&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;b</code>
 <code class="code">@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
 <code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
 <code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF5" href="sing_fot.htm#FOOT5"><sup>3</sup></a>
@@ -3230,7 +3229,7 @@ html ''
 <code class="code">@image{,,,3--xt}</code> 
 </p>
 <p><code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 </p>
 <p><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">
@@ -3241,8 +3240,8 @@ html ''
 <code class="code">@image{f--ile,aze,az,alt,</code> <img class="image" src="f--ile.png" alt="alt">
 <code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="f--ile%40..file%20ext%20e--xt%7d" alt="alt">
 </p>
-<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@ in b &quot;">
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;_&quot;&nbsp;%@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 </p>
 
 
@@ -4594,7 +4593,7 @@ Invalid use of @':
 <code class="code">@image{,,,3--xt}</code> 
 
 <code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 
 <code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">
@@ -4605,8 +4604,8 @@ Invalid use of @':
 <code class="code">@image{f--ile,aze,az,alt,</code> <img class="image" src="f--ile.png" alt="alt">
 <code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="f--ile%40..file%20ext%20e--xt%7d" alt="alt">
 
-<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@ in b &quot;">
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;<span class="w-nolinebreak-text">_&quot;</span>&nbsp;%@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk&nbsp;_&quot;&nbsp;%@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk%20_%22%20%25%40.jpg" alt="altjk&nbsp;_&quot;&nbsp;%@">
 
 
 
