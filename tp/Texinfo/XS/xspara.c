@@ -847,7 +847,6 @@ xspara_add_text (char *text)
               xspara__add_pending_word (&result, 0);
               if (*p == '\n')
                 {
-                   xspara__add_pending_word (&result, 0);
                    xspara__end_line ();
                    text_append (&result, "\n");
                 }

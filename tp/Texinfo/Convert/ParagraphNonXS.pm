@@ -332,7 +332,6 @@ sub add_text($$)
       if ($paragraph->{'unfilled'}) {
         $result .= _add_pending_word($paragraph);
         if ($spaces =~ /\n/) {
-          $result .= _add_pending_word ($paragraph);
           $result .= _end_line ($paragraph);
         } else {
           $paragraph->{'space'} .= $spaces;

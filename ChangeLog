@@ -1,5 +1,11 @@
 2022-12-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara_add_text) <space>,
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text) <space>:
+	Remove extra call to _add_pending_word or xspara__add_pending_word.
+
+2022-12-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text): Make the same change
 	so to mirror the structure of the Perl code.
 
