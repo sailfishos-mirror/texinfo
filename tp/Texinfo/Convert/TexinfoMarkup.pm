@@ -1524,12 +1524,14 @@ sub _convert($$;$)
               $result .= "\n" unless ($result =~ /\n/);
             }
           }
-        } else {
-          # happens for @def* as @def* line args are in
-          # the first def contents, the def_line type.
+        # @def* line args are in the first def contents, the def_line type
+        # and processed below.
+        } elsif (not
+           exists($Texinfo::Commands::def_commands{$element->{'cmdname'}})) {
           # happens for bogus empty @macro immediately followed by
           # newline.
           #print STDERR "no args: $element->{'cmdname'}\n";
+          $result .= "\n";
         }
         unshift @close_format_elements, $element->{'cmdname'};
       }

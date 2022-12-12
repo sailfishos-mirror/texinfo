@@ -6,6 +6,12 @@
 
 2022-12-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add end of line
+	for block commands with missing args key, except for @def*, which have
+	a sêcial processing of their line.
+
+2022-12-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/converters_tests.t: in form_feeds test, add more form feeds for
 	@deffn command and add @deffnx command.
 
