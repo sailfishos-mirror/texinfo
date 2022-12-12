@@ -772,7 +772,7 @@ $result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node name="
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre><itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</pre><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <beforefirstitem><pre xml:space="preserve">
 </pre></beforefirstitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> in item
 

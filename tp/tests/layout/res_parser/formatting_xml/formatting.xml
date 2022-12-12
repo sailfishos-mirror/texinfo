@@ -1645,7 +1645,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -2283,21 +2283,21 @@ in verbatim ''
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" spaces=" " endspaces=" ">
+<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="44">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="7">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="45">b</indexterm>b</itemformat></itemx>
@@ -2797,7 +2797,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -3435,21 +3435,21 @@ in verbatim ''
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" spaces=" " endspaces=" ">
+<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="96">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="14">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="97">b</indexterm>b</itemformat></itemx>
@@ -3979,7 +3979,7 @@ quotation
 <para>something, other thing
 </para></smallquotation>
 
-<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
@@ -4617,21 +4617,21 @@ in verbatim ''
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
-<table commandarg="asis" endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c not style formatting -->
-<ftable commandarg="asis" spaces=" " endspaces=" ">
+<ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="148">a</indexterm>a</itemformat></item>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="21">index entry between item and itemx</indexterm></cindex>
 <itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="149">b</indexterm>b</itemformat></itemx>
@@ -5126,7 +5126,7 @@ indent in quotation
 <pre xml:space="preserve">something, other thing
 </pre></smallquotation>
 <pre xml:space="preserve">
-</pre><itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+</pre><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> i--temize
 </pre></listitem></itemize>
 <pre xml:space="preserve">
@@ -5764,21 +5764,21 @@ Invalid use of &arobase;':&linebreak;
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c not style formatting -->
-</pre><table commandarg="asis" spaces=" " endspaces=" ">
+</pre><table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
 </pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 <!-- c missing style formatting -->
-</pre><table commandarg="asis" endspaces=" ">
+</pre><table commandarg="asis" automaticcommandarg="on" endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
 </pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a--missing style formatting</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 <!-- c not style formatting -->
-</pre><ftable commandarg="asis" spaces=" " endspaces=" ">
+</pre><ftable commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="200">a</indexterm>a</itemformat></item>
 <pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="28">index entry between item and itemx</indexterm></cindex>
 </pre><itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="201">b</indexterm>b</itemformat></itemx>

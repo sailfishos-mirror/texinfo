@@ -355,7 +355,7 @@ $result_converted{'xml'}->{'item_container'} = '
  <para>b&textndash;ullet
 </para></listitem></itemize>
 
-<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>no itemize argument
 </para></listitem></itemize>
 ';

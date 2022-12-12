@@ -142,7 +142,7 @@ $result_converted{'html_text'}->{'comment_first_on_itemize_line'} = '<ul class="
 ';
 
 
-$result_converted{'xml'}->{'comment_first_on_itemize_line'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend><!-- c comment on itemize line -->
+$result_converted{'xml'}->{'comment_first_on_itemize_line'} = '<itemize commandarg="bullet" automaticcommandarg="on" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend><!-- c comment on itemize line -->
 <listitem><prepend>&bullet;</prepend> <para>first
 </para></listitem></itemize>
 ';

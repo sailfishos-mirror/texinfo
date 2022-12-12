@@ -491,7 +491,7 @@ $result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="mi
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 
-<itemize commandarg="bullet" spaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" spaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 </itemize>
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>

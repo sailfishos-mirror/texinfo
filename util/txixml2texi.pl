@@ -494,6 +494,9 @@ while ($reader->read) {
         and $Texinfo::Commands::block_commands{$name} eq 'item_line'
         and $reader->hasAttributes()
         and defined($reader->getAttribute('commandarg'))) {
+      # happens when formatting command argument is missing and there
+      # are no spaces.
+      print ' ' if ($spaces eq '');
       print '@'.$reader->getAttribute('commandarg');
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_END_ELEMENT) {

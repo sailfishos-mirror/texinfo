@@ -1115,33 +1115,33 @@ $result_converted{'html_text'}->{'accent_on_table_line'} = '<dl class="table">
 ';
 
 
-$result_converted{'xml'}->{'accent_on_table_line'} = '<table commandarg="asis" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'accent_on_table_line'} = '<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">first item</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc brace first item</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code acc brace</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" "><!-- comment -->
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" "><!-- comment -->
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc comment first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" "> 
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" "> 
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">acc space first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" automaticcommandarg="on" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces arg first item</itemformat></item>
 </tableterm></tableentry></table>
 ';

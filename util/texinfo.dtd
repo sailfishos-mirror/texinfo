@@ -817,6 +817,7 @@
                    (listitem | %indexentry.cmds;)*)>
 <!ATTLIST itemize
           %spacesblockattr;
+          automaticcommandarg CDATA #IMPLIED
           commandarg CDATA #IMPLIED>
 <!ELEMENT enumerate (enumeratefirst?, beforefirstitem?,
                      (listitem | %indexentry.cmds;)*)>
@@ -842,6 +843,7 @@
 
 <!ENTITY % blocktablearg
          "%spacesblockattr;
+          automaticcommandarg CDATA #IMPLIED
           commandarg CDATA #IMPLIED
           begin CDATA #IMPLIED
           end CDATA #IMPLIED">

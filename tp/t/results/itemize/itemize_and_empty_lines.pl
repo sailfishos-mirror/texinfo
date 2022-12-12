@@ -1644,7 +1644,7 @@ end example.
 </para></quotation>
 </listitem></itemize>
 
-<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
+<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>first item
 </para></listitem><listitem><prepend>&bullet;</prepend>
 <example endspaces=" ">

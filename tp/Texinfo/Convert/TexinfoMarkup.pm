@@ -1265,6 +1265,10 @@ sub _convert($$;$)
         push @$attribute,
          (['commandarg', $command_as_arg->{'cmdname'}],
              $self->_infoenclose_attribute($command_as_arg));
+        if ($command_as_arg->{'type'}
+            and $command_as_arg->{'type'} eq 'command_as_argument_inserted') {
+          push @$attribute, ['automaticcommandarg', 'on'];
+        }
       } elsif ($element->{'extra'}
                and $element->{'extra'}->{'enumerate_specification'}) {
         push @$attribute, ['first',

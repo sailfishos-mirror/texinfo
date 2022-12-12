@@ -1,5 +1,14 @@
 2022-12-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert), util/texinfo.dtd: if
+	the @itemize or @*table command as argument was added, add a
+	automaticcommandarg attribute set to on.
+
+	* util/txixml2texi.pl: add a space after @*table and before the
+	formatting command if there is not already one.
+
+2022-12-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): do not add an
 	entry for erroneous @itemx/@item/@tab constructs.
 
