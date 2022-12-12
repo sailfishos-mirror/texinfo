@@ -572,6 +572,11 @@ Something
 
 @itemize @ringaccent @section fourth
 '],
+['section_on_cartouche_line',
+'@cartouche@section first
+
+@cartouche @section second spaces
+'],
 ['ignored_text',
 '@node before ignore @ifinfo
 in ifinfo

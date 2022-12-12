@@ -20,6 +20,7 @@
 <defcodeindex spaces=" " value="codeidx" line="codeidx"></defcodeindex>
 
 <macro name="mymacro" line=" mymacro" endspaces=" ">
+
 &lt;
 &gt;
 &quot;

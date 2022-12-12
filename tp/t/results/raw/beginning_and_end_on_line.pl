@@ -250,11 +250,14 @@ $result_converted{'plaintext'}->{'beginning_and_end_on_line'} = '
 
 
 $result_converted{'xml'}->{'beginning_and_end_on_line'} = '
-<tex spaces=" " endspaces=" "> </tex>
+<tex spaces=" " endspaces=" "> 
+</tex>
 
-<verbatim xml:space="preserve" spaces=" " endspaces=" "> </verbatim>
+<verbatim xml:space="preserve" spaces=" " endspaces=" "> 
+</verbatim>
 
-<html spaces=" " endspaces=" "> </html>
+<html spaces=" " endspaces=" "> 
+</html>
 ';
 
 1;

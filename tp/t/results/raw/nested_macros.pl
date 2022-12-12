@@ -179,7 +179,8 @@ $result_floats{'nested_macros'} = {};
 $result_converted{'plaintext'}->{'nested_macros'} = '';
 
 
-$result_converted{'xml'}->{'nested_macros'} = '<macro name="truc" line=" truc   { arg,  ex}" endspaces=" "><formalarg>arg</formalarg><formalarg>ex</formalarg>in macro \\arg\\
+$result_converted{'xml'}->{'nested_macros'} = '<macro name="truc" line=" truc   { arg,  ex}" endspaces=" "><formalarg>arg</formalarg><formalarg>ex</formalarg>
+in macro \\arg\\
 <macro line=" othermacro " endspaces=" ">other macro
 </macro>
 <macro endspaces=" "></macro>

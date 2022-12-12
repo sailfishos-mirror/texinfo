@@ -1293,7 +1293,8 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 $result_converted{'xml'}->{'at_commands_in_raw'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
-<macro name="othermacro" line=" othermacro{}" endspaces=" ">Other macro
+<macro name="othermacro" line=" othermacro{}" endspaces=" ">
+Other macro
 </macro>
 
 </top>

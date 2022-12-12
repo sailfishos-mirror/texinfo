@@ -481,6 +481,7 @@ sub _end_line_spaces
   return $end_spaces;
 }
 
+# no end of line
 sub _arg_line($)
 {
   my $self = shift;
@@ -1513,12 +1514,22 @@ sub _convert($$;$)
                 $result .= "\n";
               }
             } else {
-              # get end of lines from @*table and block @-commands with
-              # no argument that have a bogus argument.
+              # get end of lines from @*table and block @-commands that
+              # usually have arguments but with missing or bogus arguments,
+              # and from block @-commands without argument.
               $result .= _end_line_spaces($self, $element);
               $result .= $self->format_comment_or_return_end_line($element);
+              # systematic for @(r)macro as _arg_line removes the end of line,
+              # also happens for commands interrupted on the line
+              $result .= "\n" unless ($result =~ /\n/);
             }
           }
+        } else {
+          # happens for @def* as @def* line args are in
+          # the first def contents, the def_line type.
+          # happens for bogus empty @macro immediately followed by
+          # newline.
+          #print STDERR "no args: $element->{'cmdname'}\n";
         }
         unshift @close_format_elements, $element->{'cmdname'};
       }

@@ -511,18 +511,22 @@ $result_converted{'plaintext'}->{'section_on_xtable_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable commandarg="asis" automaticcommandarg="on" spaces=" "></vtable>
+$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable commandarg="asis" automaticcommandarg="on" spaces=" ">
+</vtable>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<table commandarg="asis" automaticcommandarg="on" spaces=" "> </table>
+<table commandarg="asis" automaticcommandarg="on" spaces=" "> 
+</table>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 
-<table commandarg="code" spaces=" "> </table>
+<table commandarg="code" spaces=" "> 
+</table>
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 
-<ftable commandarg="asis" automaticcommandarg="on" spaces=" "></ftable>
+<ftable commandarg="asis" automaticcommandarg="on" spaces=" ">
+</ftable>
 </section>
 <section spaces=" "><sectiontitle>fourth</sectiontitle>
 </section>

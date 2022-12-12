@@ -4474,7 +4474,8 @@ samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblle
 ';
 
 
-$result_converted{'xml'}->{'codequoteundirected_codequotebacktick'} = '<macro name="quotes" line=" quotes" endspaces=" ">``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*
+$result_converted{'xml'}->{'codequoteundirected_codequotebacktick'} = '<macro name="quotes" line=" quotes" endspaces=" ">
+``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*
 code: @code{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
 asis: @asis{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
 strong: @strong{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
@@ -4482,7 +4483,8 @@ kbd: @kbd{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedb
 samp: @samp{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
 </macro>
 
-<macro name="allquotes" line=" allquotes" endspaces=" ">@quotes{}
+<macro name="allquotes" line=" allquotes" endspaces=" ">
+@quotes{}
 
 @example
 @@codequoteundirected on

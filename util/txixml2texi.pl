@@ -344,7 +344,6 @@ while ($reader->read) {
         if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
           print $reader->getAttribute('line');
         }
-        print "\n";
       } else {
         # leading spaces are already in the line attribute for (r)macro
         print "$spaces";
