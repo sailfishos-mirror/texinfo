@@ -1549,18 +1549,10 @@ sub _convert($$;$)
     if ($element->{'type'} eq 'def_line') {
       if ($element->{'cmdname'}) {
         # @def*x command has the command associated with def_line.
-        my $leading_spaces_attribute_spec = [];
-        if ($element->{'info'}
-            and $element->{'info'}->{'spaces_before_argument'}
-            and $element->{'info'}->{'spaces_before_argument'} ne '') {
-          my $leading_spaces = $element->{'info'}->{'spaces_before_argument'};
-          # may happen without any argument, remove as a \n is added below
-          $leading_spaces =~ s/\n//;
-          $leading_spaces_attribute_spec = [['spaces', $leading_spaces]]
-            if ($leading_spaces ne '');
-        }
+        my $attribute = [];
+        push @$attribute, _leading_spaces_arg($element);
         $result .= $self->txi_markup_open_element($element->{'cmdname'},
-                                                  $leading_spaces_attribute_spec);
+                                                  $attribute);
       }
       $result .= $self->txi_markup_open_element('definitionterm');
       $result .= $self->_index_entry($element);
