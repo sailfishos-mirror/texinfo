@@ -1,3 +1,9 @@
+2022-12-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/util.c (text_buffer_iconv): Correctly update arguments
+	for iconv in loop.  Crash for "info groff" reported by Jakub Wilk
+	via Hilmar Preuße <hille42@web.de>.
+
 2022-12-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (error): Declare as static to
