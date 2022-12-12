@@ -172,7 +172,8 @@ in example
 
 @indicateurl{ '."\f".' in indicateurl}
 
-@deffn { '."\f".'truc } { machin }  { bidule }  { '."\f".' chose '."\f".'} {  arg'."\f".' }
+@deffn '."\f".' { '."\f".'truc } { machin }  { bidule }  { '."\f".' chose '."\f".'} {  arg'."\f".' } '."\f".'
+@deffnx '."\f".' { '."\f".'xtruc } { xmachin }  { xbidule }  { '."\f".' xchose '."\f".'} {  xarg'."\f".' } '."\f".'
 T
 @end deffn
 
