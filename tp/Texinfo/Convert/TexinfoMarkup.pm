@@ -1490,6 +1490,9 @@ sub _convert($$;$)
                   = _end_line_spaces($self, $element);
                 $result .= $end_space
                           .$self->format_comment_or_return_end_line($element);
+                # happens for multitable line with prototypes interrupted
+                # by another @-command
+                $result .= "\n" unless ($result =~ /\n/);
               } elsif ($element->{'args'} and $element->{'args'}->[0]
                        and $element->{'args'}->[0]->{'contents'}
                        and (($element->{'extra'}

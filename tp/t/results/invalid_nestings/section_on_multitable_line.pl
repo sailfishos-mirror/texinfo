@@ -414,11 +414,13 @@ $result_converted{'xml'}->{'section_on_multitable_line'} = '<multitable spaces="
 </multitable>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<multitable spaces=" "><columnprototypes><columnprototype><code>this</code></columnprototype></columnprototypes> </multitable>
+<multitable spaces=" "><columnprototypes><columnprototype><code>this</code></columnprototype></columnprototypes> 
+</multitable>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>
 
-<multitable spaces=" "><columnprototypes><columnprototype bracketed="on">aaa</columnprototype> <columnprototype bracketed="on">bbb</columnprototype></columnprototypes> </multitable>
+<multitable spaces=" "><columnprototypes><columnprototype bracketed="on">aaa</columnprototype> <columnprototype bracketed="on">bbb</columnprototype></columnprototypes> 
+</multitable>
 </section>
 <section spaces=" "><sectiontitle>third</sectiontitle>
 </section>
