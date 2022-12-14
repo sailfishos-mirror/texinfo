@@ -269,13 +269,13 @@ sub allow_end_sentence($)
 sub set_space_protection($$;$$$$)
 {
   my $paragraph = shift;
-  my $space_protection = shift;
+  my $no_break = shift;
   my $ignore_columns = shift;
   my $keep_end_lines = shift;
   my $frenchspacing = shift;
   my $double_width_no_break = shift;
-  $paragraph->{'protect_spaces'} = $space_protection 
-    if defined($space_protection);
+  $paragraph->{'no_break'} = $no_break
+    if defined($no_break);
   $paragraph->{'ignore_columns'} = $ignore_columns
     if defined($ignore_columns);
   $paragraph->{'keep_end_lines'} = $keep_end_lines
@@ -285,7 +285,7 @@ sub set_space_protection($$;$$$$)
   $paragraph->{'double_width_no_break'} = $double_width_no_break
     if defined($double_width_no_break);
   # begin a word, to have something even if empty
-  if ($space_protection) {
+  if ($no_break) {
     _add_next($paragraph, '');
   }
 }
@@ -300,8 +300,6 @@ sub add_text($$)
   my $text = shift;
   $paragraph->{'end_line_count'} = 0;
   my $result = '';
-
-  my $protect_spaces_flag = $paragraph->{'protect_spaces'};
 
   my @segments = split
     /(\s+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}])+)/,
@@ -341,7 +339,7 @@ sub add_text($$)
         $at_end_sentence = 1 if ($paragraph->{'end_sentence'} 
                                    and $paragraph->{'end_sentence'} > 0
                                    and !$paragraph->{'frenchspacing'});
-        if ($protect_spaces_flag) {
+        if ($paragraph->{'no_break'}) {
           if (substr($paragraph->{'word'}, -1) ne ' ') {
             my $new_spaces = $at_end_sentence ? '  ' : ' ';
             $paragraph->{'word'} .= $new_spaces;
@@ -432,7 +430,7 @@ sub add_text($$)
                                > $paragraph->{'max'}) {
         $result .= _cut_line($paragraph);
       }
-      if (!$paragraph->{'protect_spaces'}
+      if (!$paragraph->{'no_break'}
           and !$paragraph->{'double_width_no_break'}) {
         $result .= _add_pending_word($paragraph);
         $paragraph->{'space'} = '';

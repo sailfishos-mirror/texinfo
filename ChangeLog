@@ -1,5 +1,11 @@
 2022-12-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/ParagraphNonXS.pm
+	(set_space_protection, add_text): Rename 'space_protection' flag
+	'no_break' to reflect its function.
+
+2022-12-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/texi2any.pl <.info filename check>: Do not use /r flag
 	for regex to work with older versions of Perl.
 
