@@ -1,5 +1,10 @@
 2022-12-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (PARAGRAPH):
+	Rename 'protect_spaces' to 'no_break'.
+
+2022-12-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm
 	(set_space_protection, add_text): Rename 'space_protection' flag
 	'no_break' to reflect its function.

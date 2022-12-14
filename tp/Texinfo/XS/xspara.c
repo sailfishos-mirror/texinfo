@@ -79,7 +79,7 @@ typedef struct {
                             at the end of a sentence. */
 
     /* Options set with set_space_protection. */
-    int protect_spaces; /* Line break forbidden, as in @w. */
+    int no_break;       /* Line break forbidden, as in @w. */
     int ignore_columns; /* Don't cut line at right margin.  Used by
                            @flushleft and @flushright. */
     int keep_end_lines; /* A newline in the input ends a line in the output.
@@ -432,7 +432,7 @@ xspara_init_state (HV *hash)
   FETCH_INT("lines_counter", state.lines_counter);
   FETCH_INT("end_line_count", state.end_line_count);
 
-  FETCH_INT("protect_spaces", state.protect_spaces);
+  FETCH_INT("no_break", state.no_break);
   FETCH_INT("ignore_columns", state.ignore_columns);
   FETCH_INT("keep_end_lines", state.keep_end_lines);
   FETCH_INT("frenchspacing", state.french_spacing);
@@ -769,14 +769,14 @@ xspara_allow_end_sentence (void)
 
 /* -1 in a parameter means leave that value as it is. */
 void
-xspara_set_space_protection (int protect_spaces,
+xspara_set_space_protection (int no_break,
                              int ignore_columns,
                              int keep_end_lines,
                              int french_spacing,
                              int double_width_no_break)
 {
-  if (protect_spaces != -1)
-    state.protect_spaces = protect_spaces;
+  if (no_break != -1)
+    state.no_break = no_break;
   if (ignore_columns != -1)
     state.ignore_columns = ignore_columns;
   if (keep_end_lines != -1)
@@ -787,12 +787,12 @@ xspara_set_space_protection (int protect_spaces,
     state.french_spacing = french_spacing;
 
   /*fprintf (stderr, "SETTING SPACE (%d, %d, %d, %d)\n",
-                                   protect_spaces,
+                                   no_break,
                                    ignore_columns,
                                    keep_end_lines,
                                    french_spacing);*/
 
- if (protect_spaces != -1 && state.protect_spaces)
+ if (no_break != -1 && state.no_break)
    {
      if (state.word.end == 0)
        {
@@ -856,7 +856,7 @@ xspara_add_text (char *text)
                   state.space_counter++;
                 }
             }
-          else if (state.protect_spaces)
+          else if (state.no_break)
             {
               /* Append the spaces to the pending word. */
               if (state.word.end == 0
@@ -882,7 +882,7 @@ xspara_add_text (char *text)
                     }
                 }
             }
-          else /* protect_spaces off */
+          else /* no_break off */
             {
               int pending = state.invisible_pending_word;
               xspara__add_pending_word (&result, 0);
@@ -954,9 +954,9 @@ xspara_add_text (char *text)
                 {
                   xspara__cut_line (&result);
                 }
-              /* If protect_spaces is on, accumulate the characters so that
-                 they can be pushed onto the next line if necessary. */
-              if (!state.protect_spaces && !state.double_width_no_break)
+              /* Accumulate the characters so that they can be pushed
+                 onto the next line if necessary. */
+              if (!state.no_break && !state.double_width_no_break)
                 {
                   xspara__add_pending_word (&result, 0);
                   state.end_sentence = -2;
