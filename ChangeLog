@@ -1,3 +1,22 @@
+2022-12-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Configurable index for @def* command
+
+	* doc/texinfo.tex (\defindex, \deftext): Define with \newtoks.
+	(\defind): New macro to set \defindex and \deftext.  Call it
+	instead of \doind throughout the definitions with \makedefun.
+	(\printdefunline): Call \doind using the values that were set
+	in \defindex and \deftext.
+	(\useindex): Command to overrwrite \defindex value.
+
+2022-12-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\dodefunx): Inline into use site in definition
+	of \deffoox in \makedefun.  Do not reuse the definition of
+	\deffoo manipulating its expansion with the \gobbledefun macro,
+	as this was confusing and unnecessary.  No functional changes
+	intended.
+
 2022-12-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (PARAGRAPH):

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-15.18}
+\def\texinfoversion{2022-12-15.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7602,6 +7602,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \exdentamount=\defbodyindent
 }
 
+\newtoks\defindex
+\newtoks\deftext
+
+\def\useindex#1{\defindex={#1}\ignorespaces}
+
 % Called as \printdefunline \deffooheader{text}
 %
 \def\printdefunline#1#2{%
@@ -7609,6 +7614,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \plainfrenchspacing
     % call \deffooheader:
     #1#2 \endheader
+    % create the index entry
+    \edef\temp{\noexpand\doind{\the\defindex}{\the\deftext}}%
+    \temp
     % common ending:
     \interlinepenalty = 10000
     \advance\rightskip by 0pt plus 1fil\relax
@@ -7674,18 +7682,23 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi\fi
 }
 
+\def\defind#1#2{
+  \defindex={#1}%
+  \deftext={#2}%
+}
+
 % Untyped functions:
 
 % @deffn category name args
 \makedefun{deffn}#1 #2 #3\endheader{%
-  \doind{fn}{\code{#2}}%
+  \defind{fn}{\code{#2}}%
   \defname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
 }
 
 % @defop category class name args
 \makedefun{defop}#1 {\defopheaderx{#1\ \putwordon}}
 \def\defopheaderx#1#2 #3 #4\endheader{%
-  \doind{fn}{\code{#3}\space\putwordon\ \code{#2}}%
+  \defind{fn}{\code{#3}\space\putwordon\ \code{#2}}%
   \defname{#1\ \code{#2}}{}{#3}\magicamp\defunargs{#4\unskip}%
 }
 
@@ -7693,7 +7706,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % @deftypefn category type name args
 \makedefun{deftypefn}#1 #2 #3 #4\endheader{%
-  \doind{fn}{\code{#3}}%
+  \defind{fn}{\code{#3}}%
   \doingtypefntrue
   \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
 }
@@ -7701,7 +7714,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % @deftypeop category class type name args
 \makedefun{deftypeop}#1 {\deftypeopheaderx{#1\ \putwordon}}
 \def\deftypeopheaderx#1#2 #3 #4 #5\endheader{%
-  \doind{fn}{\code{#4}\space\putwordon\ \code{#1\ \code{#2}}}%
+  \defind{fn}{\code{#4}\space\putwordon\ \code{#1\ \code{#2}}}%
   \doingtypefntrue
   \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
@@ -7710,14 +7723,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % @deftypevr category type var args
 \makedefun{deftypevr}#1 #2 #3 #4\endheader{%
-  \doind{vr}{\code{#3}}%
+  \defind{vr}{\code{#3}}%
   \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
 }
 
 % @deftypecv category class type var args
 \makedefun{deftypecv}#1 {\deftypecvheaderx{#1\ \putwordof}}
 \def\deftypecvheaderx#1#2 #3 #4 #5\endheader{%
-  \doind{vr}{\code{#4}\space\putwordof\ \code{#2}}%
+  \defind{vr}{\code{#4}\space\putwordof\ \code{#2}}%
   \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
 
@@ -7734,7 +7747,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % @deftp category name args
 \makedefun{deftp}#1 #2 #3\endheader{%
-  \doind{tp}{\code{#2}}%
+  \defind{tp}{\code{#2}}%
   \defname{#1}{}{#2}\defunargs{#3\unskip}%
 }
 
