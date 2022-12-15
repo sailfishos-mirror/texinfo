@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-10.11}
+\def\texinfoversion{2022-12-15.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7602,32 +7602,19 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \exdentamount=\defbodyindent
 }
 
-\def\dodefunx#1{%
-  % First, check whether we are in the right environment:
-  \checkenv#1%
-  %
-  % As above, allow line break if we have multiple x headers in a row.
-  % It's not a great place, though.
-  \ifnum\lastpenalty=10002 \penalty3000 \else \defunpenalty=10002 \fi
-  %
-  % And now, it's time to reuse the body of the original defun:
-  \expandafter\gobbledefun#1%
-}
-\def\gobbledefun#1\startdefun{}
-
-% \printdefunline \deffnheader{text}
+% Called as \printdefunline \deffooheader{text}
 %
 \def\printdefunline#1#2{%
   \begingroup
     \plainfrenchspacing
-    % call \deffnheader:
+    % call \deffooheader:
     #1#2 \endheader
     % common ending:
     \interlinepenalty = 10000
     \advance\rightskip by 0pt plus 1fil\relax
     \endgraf
     \nobreak\vskip -\parskip
-    \penalty\defunpenalty  % signal to \startdefun and \dodefunx
+    \penalty\defunpenalty  % signal to \startdefun and \deffoox
     % Some of the @defun-type tags do not enable magic parentheses,
     % rendering the following check redundant.  But we don't optimize.
     \checkparencounts
@@ -7636,7 +7623,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 \def\Edefun{\endgraf\medbreak}
 
-% \makedefun{deffoo}{ (definition of \deffooheader) }
+% \makedefun{deffoo} (\deffooheader parameters) { (\deffooheader expansion) }
 %
 % Define \deffoo, \deffoox  \Edeffoo and \deffooheader.
 \def\makedefun#1{%
@@ -7651,8 +7638,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \doingtypefnfalse    % distinguish typed functions from all else
     \parseargusing\activeparens{\printdefunline#3}%
   }%
-  \def#2{\dodefunx#1}%
-  \def#3%
+  \def#2{%
+    % First, check whether we are in the right environment:
+    \checkenv#1%
+    %
+    % As in \startdefun, allow line break if we have multiple x headers
+    % in a row.  It's not a great place, though.
+    \ifnum\lastpenalty=10002 \penalty3000 \else \defunpenalty=10002 \fi
+    %
+    \doingtypefnfalse    % distinguish typed functions from all else
+    \parseargusing\activeparens{\printdefunline#3}%
+  }%
+  \def#3% definition of \deffooheader follows
 }
 
 \newif\ifdoingtypefn       % doing typed function?
