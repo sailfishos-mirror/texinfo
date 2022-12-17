@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-15.20}
+\def\texinfoversion{2022-12-17.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2136,6 +2136,11 @@ end
     \pdffontattr#1{/ToUnicode \the\pdflastobj\space 0 R}%
   }%
 \fi\fi
+%
+% This is what gets called when #5 of \setfont is empty.
+\let\cmap\gobble
+%
+% (end of cmaps)
 
 
 % Set the font macro #1 to the font named \fontprefix#2.
@@ -2151,11 +2156,10 @@ end
 \def\setfont#1#2#3#4#5{%
   \font#1=\fontprefix#2#3 scaled #4
   \csname cmap#5\endcsname#1%
+  \ifx#2\ttshape\hyphenchar#1=-1 \fi
+  \ifx#2\ttbshape\hyphenchar#1=-1 \fi
+  \ifx#2\ttslshape\hyphenchar#1=-1 \fi
 }
-% This is what gets called when #5 of \setfont is empty.
-\let\cmap\gobble
-%
-% (end of cmaps)
 
 % Use cm as the default font prefix.
 % To specify the font prefix, you must define \fontprefix
@@ -2817,13 +2821,6 @@ end
 % @sansserif, explicit sans.
 \def\sansserif#1{{\sf #1}}
 
-% We can't just use \exhyphenpenalty, because that only has effect at
-% the end of a paragraph.  Restore normal hyphenation at the end of the
-% group within which \nohyphenation is presumably called.
-%
-\def\nohyphenation{\hyphenchar\font = -1  \aftergroup\restorehyphenation}
-\def\restorehyphenation{\hyphenchar\font = `- }
-
 \newif\iffrenchspacing
 \frenchspacingfalse
 
@@ -2894,9 +2891,6 @@ end
     %
     % But `\ ' produces the large typewriter interword space.
     \def\ {{\spaceskip = 0pt{} }}%
-    %
-    % Turn off hyphenation.
-    \nohyphenation
     %
     \plainfrenchspacing
     #1%
@@ -3202,7 +3196,7 @@ end
 
 % definition of @key with no lozenge.
 %
-\def\key#1{{\setregularquotes \nohyphenation \tt #1}\null}
+\def\key#1{{\setregularquotes \tt #1}\null}
 
 % @clicksequence{File @click{} Open ...}
 \def\clicksequence#1{\begingroup #1\endgroup}
@@ -7428,7 +7422,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \def\par{\leavevmode\endgraf}%
   \setcodequotes
   \tabeightspaces
-  \nohyphenation
   % Respect line breaks,
   % print special symbols as themselves, and
   % make each space count

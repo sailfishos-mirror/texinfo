@@ -1,3 +1,15 @@
+2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Turn off hyphenation for tt fonts completely.
+
+	* doc/texinfo.tex (\setfont): Set \hyphenchar to -1 for
+	font styles tt, ttb and ttsl.
+	(\nohyphenation): Remove.
+	(\key, \tclose, \verb): Do not call \nohyphenation.
+
+	Werner reported that the restoration of \hyphenchar in
+	\nohyphenation was wrong as it affected the wrong font.
+
 2022-12-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Configurable index for @def* command
