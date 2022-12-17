@@ -1,5 +1,11 @@
 2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\printdefunline): Call \defcharsdefault
+	before creating the index entry in case it contains an ampersand
+	or bracket.
+
+2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\defindex, \defidx): Rename to
 	\defidx to avoid clash with @defindex command.
 
