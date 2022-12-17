@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-17.17}
+\def\texinfoversion{2022-12-17.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -590,6 +590,9 @@
 
 % @/ allows a line break.
 \let\/=\allowbreak
+
+% @- allows explicit insertion of hyphenation points
+\def\-{\discretionary{\normaldash}{}{}}%
 
 % @. is an end-of-sentence period.
 \def\.{.\spacefactor=\endofsentencespacefactor\space}

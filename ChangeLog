@@ -1,5 +1,10 @@
 2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\-): Provide definition of @- to allow
+	a hyphen to be printed for optional line breaks.  From Werner.
+
+2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\code, \tclose): Comments changed.
 
 2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
