@@ -1,5 +1,10 @@
 2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\defindex, \defidx): Rename to
+	\defidx to avoid clash with @defindex command.
+
+2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Turn off hyphenation for tt fonts completely.
 
 	* doc/texinfo.tex (\setfont): Set \hyphenchar to -1 for

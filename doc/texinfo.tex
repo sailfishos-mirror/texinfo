@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-17.13}
+\def\texinfoversion{2022-12-17.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7595,10 +7595,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \exdentamount=\defbodyindent
 }
 
-\newtoks\defindex
+\newtoks\defidx
 \newtoks\deftext
 
-\def\useindex#1{\defindex={#1}\ignorespaces}
+\def\useindex#1{\defidx={#1}\ignorespaces}
 
 % Called as \printdefunline \deffooheader{text}
 %
@@ -7608,7 +7608,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % call \deffooheader:
     #1#2 \endheader
     % create the index entry
-    \edef\temp{\noexpand\doind{\the\defindex}{\the\deftext}}%
+    \edef\temp{\noexpand\doind{\the\defidx}{\the\deftext}}%
     \temp
     % common ending:
     \interlinepenalty = 10000
@@ -7676,7 +7676,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 
 \def\defind#1#2{
-  \defindex={#1}%
+  \defidx={#1}%
   \deftext={#2}%
 }
 
