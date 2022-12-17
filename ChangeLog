@@ -1,5 +1,9 @@
 2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\code, \tclose): Comments changed.
+
+2022-12-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\printdefunline): Call \defcharsdefault
 	before creating the index entry in case it contains an ampersand
 	or bracket.

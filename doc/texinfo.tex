@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-17.16}
+\def\texinfoversion{2022-12-17.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2889,7 +2889,7 @@ end
     % Switch to typewriter.
     \tt
     %
-    % But `\ ' produces the large typewriter interword space.
+    % `\ ' produces the large typewriter interword space.
     \def\ {{\spaceskip = 0pt{} }}%
     %
     \plainfrenchspacing
@@ -2898,15 +2898,14 @@ end
   \null % reset spacefactor to 1000
 }
 
-% We *must* turn on hyphenation at `-' and `_' in @code.
-% (But see \codedashfinish below.)
+% We must turn on hyphenation at `-' and `_' in @code.
 % Otherwise, it is too hard to avoid overfull hboxes
 % in the Emacs manual, the Library manual, etc.
+% We explicitly allow hyphenation at these characters
+% using \discretionary.
 %
-% Unfortunately, TeX uses one parameter (\hyphenchar) to control
-% both hyphenation at - and hyphenation within words.
-% We must therefore turn them both off (\tclose does that)
-% and arrange explicitly to hyphenate at a dash. -- rms.
+% Hyphenation at - and hyphenation within words was turned off
+% by default for the tt fonts using the \hyphenchar parameter of TeX.
 {
   \catcode`\-=\active \catcode`\_=\active
   \catcode`\'=\active \catcode`\`=\active
