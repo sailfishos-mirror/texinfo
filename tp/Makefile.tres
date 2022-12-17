@@ -936,6 +936,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/invalid_nestings/section_in_math.pl \
   t/results/invalid_nestings/section_in_nested_block_commands.pl \
   t/results/invalid_nestings/section_in_table.pl \
+  t/results/invalid_nestings/section_on_cartouche_line.pl \
   t/results/invalid_nestings/section_on_def_line.pl \
   t/results/invalid_nestings/section_on_defx_line.pl \
   t/results/invalid_nestings/section_on_enumerate_line.pl \
