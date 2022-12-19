@@ -1543,6 +1543,8 @@ sub _convert($$;$)
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
+      } elsif ($element->{'cmdname'} eq 'cartouche') {
+        push @format_elements, 'sidebar';
       } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'format_raw') {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten

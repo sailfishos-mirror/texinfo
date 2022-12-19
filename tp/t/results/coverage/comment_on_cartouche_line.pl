@@ -127,7 +127,7 @@ in cartouche.
 ';
 
 
-$result_converted{'docbook'}->{'comment_on_cartouche_line'} = '<para>in cartouche.
-</para>';
+$result_converted{'docbook'}->{'comment_on_cartouche_line'} = '<sidebar><para>in cartouche.
+</para></sidebar>';
 
 1;

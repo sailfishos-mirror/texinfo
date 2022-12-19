@@ -104,7 +104,7 @@ in cartouche.
 ';
 
 
-$result_converted{'docbook'}->{'cartouche'} = '<para>in cartouche.
-</para>';
+$result_converted{'docbook'}->{'cartouche'} = '<sidebar><para>in cartouche.
+</para></sidebar>';
 
 1;

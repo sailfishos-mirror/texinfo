@@ -683,8 +683,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </term><term>&#8216;<literal>a2--samp</literal>&#8217;
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
-<para>c&#8211;artouche
-</para>
+<sidebar><para>c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -1610,8 +1610,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </term><term>&#8216;<literal>a2--samp</literal>&#8217;
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
-<para>c&#8211;artouche
-</para>
+<sidebar><para>c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -2524,8 +2524,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </term><term>&#8216;<literal>a2--samp</literal>&#8217;
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
-<para>c&#8211;artouche
-</para>
+<sidebar><para>c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -3430,8 +3430,8 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 </term><term>&#8216;<literal>a2--samp</literal>&#8217;
 </term><listitem><screen>Value--table samp
 </screen></listitem></varlistentry></variablelist><screen>
-</screen><screen>c--artouche
-</screen><screen>
+</screen><sidebar><screen>c--artouche
+</screen></sidebar><screen>
 </screen><screen>f--lushleft
 more text
 </screen><screen>

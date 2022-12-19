@@ -202,8 +202,8 @@ $result_converted{'latex_text'}->{'cartouche_in_example'} = '\\begin{Texinfoinde
 
 
 $result_converted{'docbook'}->{'cartouche_in_example'} = '<screen>In example
-</screen><screen>In cartouche in example
-</screen><screen>end example
+</screen><sidebar><screen>In cartouche in example
+</screen></sidebar><screen>end example
 </screen>';
 
 1;

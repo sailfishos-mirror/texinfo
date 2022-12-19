@@ -196,8 +196,8 @@ end quotation
 
 
 $result_converted{'docbook'}->{'cartouche_in_quotation'} = '<blockquote><para>In quotation
-</para><para>In cartouche in quotation
-</para><para>end quotation
+</para><sidebar><para>In cartouche in quotation
+</para></sidebar><para>end quotation
 </para></blockquote>';
 
 1;
