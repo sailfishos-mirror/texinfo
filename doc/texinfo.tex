@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-17.18}
+\def\texinfoversion{2022-12-19.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2901,6 +2901,12 @@ end
   \null % reset spacefactor to 1000
 }
 
+% This is for LuaTeX: It is not sufficient to disable hyphenation at
+% explicit dashes by setting `\hyphenchar` to -1.
+\def\dashnobreak{%
+  \normaldash
+  \penalty 10000 }
+
 % We must turn on hyphenation at `-' and `_' in @code.
 % Otherwise, it is too hard to avoid overfull hboxes
 % in the Emacs manual, the Library manual, etc.
@@ -2921,7 +2927,7 @@ end
      \let-\codedash
      \let_\codeunder
     \else
-     \let-\normaldash
+     \let-\dashnobreak
      \let_\realunder
     \fi
     % Given -foo (with a single dash), we do not want to allow a break

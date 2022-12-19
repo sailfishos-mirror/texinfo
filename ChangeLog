@@ -1,3 +1,8 @@
+2022-11-19  Werner Lemberg  <wl@gnu.org>
+
+	* doc/texinfo.tex (\code, \dashnobreak): Use a \penalty to disable
+	hyphenation for LuaTeX.
+
 2022-12-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (_convert): use <sidebar> for
