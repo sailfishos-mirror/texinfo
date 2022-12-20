@@ -321,7 +321,12 @@ After quotation sp b a
 ['cartouche',
 '@cartouche
 in cartouche.
-@end cartouche'],
+@end cartouche
+
+@cartouche @emph{Title of box}
+Out of main text
+@end cartouche
+'],
 ['indentedblock',
 '@indentedblock
   indented block
@@ -332,6 +337,10 @@ Text
 ['comment_on_cartouche_line',
 '@cartouche @c comment
 in cartouche.
+@end cartouche
+
+@cartouche @emph{Title of box} @c comment
+Out of main text
 @end cartouche
 '],
 ['comment_on_group_line',

@@ -2580,6 +2580,19 @@ sub _convert($$)
         if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
           $result .= $self->_anchor($element);
         }
+      } elsif ($command eq 'cartouche') {
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
+          my $prepended = $self->gdt('@center @b{{cartouche_arg}}', 
+             {'cartouche_arg' => $element->{'args'}->[0]->{'contents'}});
+          $prepended->{'type'} = 'frenchspacing';
+          $result .= $self->convert_line($prepended);
+          $self->{'text_element_context'}->[-1]->{'counter'} +=
+             Texinfo::Convert::Unicode::string_width($result);
+          $self->{'empty_lines_count'} = 0 unless ($result eq '');
+          _add_lines_count($self, 1);
+        }
       }
     } elsif ($command eq 'node') {
       $self->{'current_node'} = $element;

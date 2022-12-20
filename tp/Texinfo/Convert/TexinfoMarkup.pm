@@ -190,6 +190,7 @@ our %commands_args_elements = (
   # * means that the previous element is variadic, ie can appear indefinitely
   'example' => ['examplelanguage', 'examplearg', '*'],
   'quotation' => ['quotationtype'],
+  'cartouche' => ['cartouchetitle'],
   'float' => ['floattype', 'floatname'],
   'itemize' => ['itemprepend'],
   'enumerate' => ['enumeratefirst'],

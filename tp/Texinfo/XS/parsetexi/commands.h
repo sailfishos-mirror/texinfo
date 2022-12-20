@@ -137,6 +137,7 @@ void wipe_user_commands (void);
 #define BLOCK_preformatted -12
 /* not used in code but consistent with type in perl hash */
 #define BLOCK_math -13
+#define BLOCK_other -14
 
 /* Types of brace command (CF_brace). */
 #define BRACE_arguments 1

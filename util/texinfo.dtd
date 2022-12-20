@@ -643,9 +643,10 @@
 <!ELEMENT smalllisp    (%block; | exdent)*>
 <!ATTLIST smalllisp
           %spacesblockattr;>
-<!ELEMENT cartouche    (%block; | exdent)*>
+<!ELEMENT cartouche    (cartouchetitle?, (%block; | exdent))*>
 <!ATTLIST cartouche
           %spacesblockattr;>
+<!ELEMENT cartouchetitle (#PCDATA | %Inline.line;)*>
 <!ELEMENT format       (%block; | exdent)*>
 <!ATTLIST format
           %spacesblockattr;>

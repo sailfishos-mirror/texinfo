@@ -947,6 +947,10 @@ Value--table samp
 c--artouche
 @end cartouche
 
+@cartouche Tit--le @emph{of box}
+With title c--artouche
+@end cartouche
+
 @flushleft
 f--lushleft
 more text
@@ -2108,6 +2112,10 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <para>c&textndash;artouche
 </para></cartouche>
 
+<cartouche spaces=" " endspaces=" "><cartouchetitle>Tit&textndash;le <emph>of box</emph></cartouchetitle>
+<para>With title c&textndash;artouche
+</para></cartouche>
+
 <flushleft endspaces=" ">
 <para>f&textndash;lushleft
 more text
@@ -3258,6 +3266,10 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 
 <cartouche endspaces=" ">
 <para>c&textndash;artouche
+</para></cartouche>
+
+<cartouche spaces=" " endspaces=" "><cartouchetitle>Tit&textndash;le <emph>of box</emph></cartouchetitle>
+<para>With title c&textndash;artouche
 </para></cartouche>
 
 <flushleft endspaces=" ">
@@ -4442,6 +4454,10 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <para>c&textndash;artouche
 </para></cartouche>
 
+<cartouche spaces=" " endspaces=" "><cartouchetitle>Tit&textndash;le <emph>of box</emph></cartouchetitle>
+<para>With title c&textndash;artouche
+</para></cartouche>
+
 <flushleft endspaces=" ">
 <para>f&textndash;lushleft
 more text
@@ -5587,6 +5603,10 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <pre xml:space="preserve">
 </pre><cartouche endspaces=" ">
 <pre xml:space="preserve">c--artouche
+</pre></cartouche>
+<pre xml:space="preserve">
+</pre><cartouche spaces=" " endspaces=" "><cartouchetitle>Tit--le <emph>of box</emph></cartouchetitle>
+<pre xml:space="preserve">With title c--artouche
 </pre></cartouche>
 <pre xml:space="preserve">
 </pre><flushleft endspaces=" ">

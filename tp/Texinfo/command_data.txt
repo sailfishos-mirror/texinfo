@@ -524,7 +524,7 @@ flushright              block,close_paragraph
 indentedblock           block,close_paragraph
 smallindentedblock      block,close_paragraph
 
-cartouche               block,close_paragraph
+cartouche               block,close_paragraph             BLOCK_other    1
 group                   block,close_paragraph
 
 # region commands

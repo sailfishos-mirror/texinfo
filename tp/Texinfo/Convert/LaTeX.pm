@@ -2048,7 +2048,17 @@ sub _set_environment_options($$$)
   my $element = shift;
 
   if (exists($LaTeX_environment_options{$command})) {
-    return $LaTeX_environment_options{$command};
+   my $option = $LaTeX_environment_options{$command};
+   if ($command eq 'cartouche'
+       and $element->{'args'} and $element->{'args'}->[0]
+       and $element->{'args'}->[0]->{'contents'}
+       and @{$element->{'args'}->[0]->{'contents'}}) {
+      $option
+        = {'mdframed' => $option->{'mdframed'}
+                      . ', frametitle={' . $self->_convert({'contents'
+                           => $element->{'args'}->[0]->{'contents'}}) .'}'};
+    }
+    return $option;
   }
 
   if ($command eq 'enumerate') {

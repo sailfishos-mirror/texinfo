@@ -1,3 +1,21 @@
+2022-12-20  Patrice Dumas  <pertusus@free.fr>
+
+	Use @cartouche argument as cartouche title in texi2any
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_cartouche_command, _convert), tp/Texinfo/Convert/LaTeX.pm
+	(_set_environment_options), tp/Texinfo/Convert/Plaintext.pm
+	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(%commands_args_elements), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/command_data.txt, util/texinfo.dtd: add an argument to
+	@cartouche.  Format the @cartouche argument as the cartouche title.
+	Based on a report from Arnold Robbins.
+
+	* tp/t/02coverage.t: add @cartouche argument in cartouche and
+	comment_on_cartouche_line tests.
+
+	* tp/tests/coverage_macro.texi: add @cartouche with argument.
+
 2022-11-19  Werner Lemberg  <wl@gnu.org>
 
 	* doc/texinfo.tex (\code, \dashnobreak): Use a \penalty to disable

@@ -4835,9 +4835,20 @@ sub _convert_cartouche_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  if ($content =~ /\S/ and !$self->in_string()) {
+  return $content if ($self->in_string());
+
+  my $title_content = '';
+  if ($args->[0] and $args->[0]->{'normal'} ne '') {
+    $title_content = "<tr><th>\n". $args->[0]->{'normal'} ."</th></tr>";
+  }
+  my $cartouche_content = '';
+  if ($content =~ /\S/) {
+    $cartouche_content = "<tr><td>\n". $content ."</td></tr>";
+  }
+  if ($cartouche_content ne '' or $title_content ne '') {
     return $self->html_attribute_class('table', [$cmdname])
-       ." border=\"1\"><tr><td>\n". $content ."</td></tr></table>\n";
+       . " border=\"1\">${title_content}${cartouche_content}"
+       . "</table>\n";
   }
   return $content;
 }
@@ -11167,7 +11178,8 @@ sub _convert($$;$)
                     and $element->{'parent'}->{'type'} eq 'table_term'))
           or ($command_name eq 'quotation'
               or $command_name eq 'smallquotation')
-              or ($command_name eq 'float')) {
+          or $command_name eq 'float'
+          or $command_name eq 'cartouche') {
         $args_formatted = [];
         if ($element->{'args'}) {
           my @args_specification;

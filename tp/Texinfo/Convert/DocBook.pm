@@ -1545,6 +1545,15 @@ sub _convert($$;$)
         push @format_elements, $format_element;
       } elsif ($element->{'cmdname'} eq 'cartouche') {
         push @format_elements, 'sidebar';
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
+          my $title = $self->_convert(
+                  {'contents' => $element->{'args'}->[0]->{'contents'}});
+          if ($title ne '') {
+            $appended .= '<title>'.$title.'</title>'."\n";
+          }
+        }
       } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'format_raw') {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten

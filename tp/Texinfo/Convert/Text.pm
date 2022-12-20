@@ -542,7 +542,8 @@ sub _convert($;$)
     # block commands
     } elsif ($element->{'cmdname'} eq 'quotation'
              or $element->{'cmdname'} eq 'smallquotation'
-             or $element->{'cmdname'} eq 'float') {
+             or $element->{'cmdname'} eq 'float'
+             or $element->{'cmdname'} eq 'cartouche') {
       if ($element->{'args'}) {
         foreach my $arg (@{$element->{'args'}}) {
           my $converted_arg = _convert($arg, $options);

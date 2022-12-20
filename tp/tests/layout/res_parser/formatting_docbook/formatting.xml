@@ -685,6 +685,9 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </para></listitem></varlistentry></variablelist>
 <sidebar><para>c&#8211;artouche
 </para></sidebar>
+<sidebar><title>Tit&#8211;le <emphasis>of box</emphasis></title>
+<para>With title c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -1612,6 +1615,9 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </para></listitem></varlistentry></variablelist>
 <sidebar><para>c&#8211;artouche
 </para></sidebar>
+<sidebar><title>Tit&#8211;le <emphasis>of box</emphasis></title>
+<para>With title c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -2526,6 +2532,9 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 </para></listitem></varlistentry></variablelist>
 <sidebar><para>c&#8211;artouche
 </para></sidebar>
+<sidebar><title>Tit&#8211;le <emphasis>of box</emphasis></title>
+<para>With title c&#8211;artouche
+</para></sidebar>
 <para>f&#8211;lushleft
 more text
 </para>
@@ -3431,6 +3440,9 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 </term><listitem><screen>Value--table samp
 </screen></listitem></varlistentry></variablelist><screen>
 </screen><sidebar><screen>c--artouche
+</screen></sidebar><screen>
+</screen><sidebar><title>Tit--le <emphasis>of box</emphasis></title>
+<screen>With title c--artouche
 </screen></sidebar><screen>
 </screen><screen>f--lushleft
 more text

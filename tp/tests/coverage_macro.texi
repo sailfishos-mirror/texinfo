@@ -926,6 +926,10 @@ Value--table samp
 c--artouche
 @end cartouche
 
+@cartouche Tit--le @emph{of box}
+With title c--artouche
+@end cartouche
+
 @flushleft
 f--lushleft
 more text
