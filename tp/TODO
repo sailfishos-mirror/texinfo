@@ -15,6 +15,13 @@ Bugs
 
 check float type normalization, cf float comment_space_comand_in_float test
 
+wrong index lines in printindex
+info tests/layout//out_parser/formatting_info/formatting.info
+for example
+* " <1>:                                 chapter.            (line  701)
+is 5 or 6 lines before the index @-command.
+
+
 HTML API
 ========
 
