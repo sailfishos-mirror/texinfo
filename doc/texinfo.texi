@@ -7075,13 +7075,12 @@ since @code{@@indent} is a command used outside of paragraphs
 
 Where the output format allows, the @code{@@cartouche} command draws a box
 with rounded corners around its contents.  In HTML, a normal rectangle is
-drawn.
+drawn.  You can use this command to isolate a portion of the manual from the
+main flow.  You can also further highlight an example or quotation
+with @code{@@cartouche}.
 
-You can use this command to further highlight an example or quotation.
 For instance, you could write a manual in which one type of example is
-surrounded by a cartouche for emphasis.
-
-For example,
+surrounded by a cartouche for emphasis.  For example,
 
 @example
 @@cartouche
@@ -7104,6 +7103,27 @@ Info, you'll see the @code{@@cartouche} had no effect):
 % pwd
 /usr/local/share/emacs
 @end example
+@end cartouche
+
+@code{@@cartouche} takes one optional argument, given on the remainder
+of the line.  This text, if present, is the cartouche title.  It is
+output in bold or otherwise emphasized at the beginning of the cartouche,
+and is centered in some output formats.
+
+The following example illustrates a cartouche with a title:
+
+@example
+@@cartouche Box title on @@emph@{documentation@}
+Text on documentation explaining something important out of the main
+flow of the text.
+@@end cartouche
+@end example
+
+The cartouche with a title looks like this:
+
+@cartouche Box title on @emph{documentation}
+Text on documentation explaining something important out of the main
+flow of the text.
 @end cartouche
 
 A cartouche is output on a single page in printed output, similarly to
