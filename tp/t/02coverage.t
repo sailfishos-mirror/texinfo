@@ -343,6 +343,12 @@ in cartouche.
 Out of main text
 @end cartouche
 '],
+['cartouche_title_and_content',
+'@cartouche Box title on @emph{documentation}
+Text on documentation explaining something important out of the main
+flow of the text.
+@end cartouche
+',],
 ['comment_on_group_line',
 '@group @c comment
 in group.

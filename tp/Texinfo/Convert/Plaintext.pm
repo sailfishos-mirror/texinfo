@@ -2584,14 +2584,18 @@ sub _convert($$)
         if ($element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
+          # FIXME reset the paragraph count in cartouche and use a
+          # specific format_context?
           my $prepended = $self->gdt('@center @b{{cartouche_arg}}', 
              {'cartouche_arg' => $element->{'args'}->[0]->{'contents'}});
           $prepended->{'type'} = 'frenchspacing';
+          # Do not consider the title to be like a paragraph
+          my $previous_paragraph_count
+              = $self->{'format_context'}->[-1]->{'paragraph_count'};
           $result .= $self->convert_line($prepended);
-          $self->{'text_element_context'}->[-1]->{'counter'} +=
-             Texinfo::Convert::Unicode::string_width($result);
           $self->{'empty_lines_count'} = 0 unless ($result eq '');
-          _add_lines_count($self, 1);
+          $self->{'format_context'}->[-1]->{'paragraph_count'}
+              = $previous_paragraph_count;
         }
       }
     } elsif ($command eq 'node') {

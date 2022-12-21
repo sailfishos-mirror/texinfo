@@ -214,7 +214,7 @@ $result_floats{'comment_on_cartouche_line'} = {};
 $result_converted{'plaintext'}->{'comment_on_cartouche_line'} = 'in cartouche.
 
                             _Title of box_
-Out of main text
+   Out of main text
 ';
 
 

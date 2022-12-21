@@ -236,6 +236,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/cartouche.pl \
   t/results/coverage/cartouche_in_example.pl \
   t/results/coverage/cartouche_in_quotation.pl \
+  t/results/coverage/cartouche_title_and_content.pl \
   t/results/coverage/center.pl \
   t/results/coverage/command_in_end.pl \
   t/results/coverage/command_in_end_expanded_raw_command_after.pl \

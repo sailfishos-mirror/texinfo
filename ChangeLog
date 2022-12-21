@@ -1,5 +1,16 @@
 2022-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): do not consider the
+	cartouche title to be a paragraph, reset paragraph count to the value
+	before the title.
+	Do not set the text_element_context counter, as the title is on its
+	own line.  Do not increase redundantly lines count.
+
+	* tp/Makefile.tres, tp/t/02coverage.t: add cartouche_title_and_content
+	new test with cartouche title and some content in the cartouche.
+
+2022-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@cartouche}): document the title argument
 	of @cartouche.
 	Describe that @cartouche can be used for to isolate a portion of the

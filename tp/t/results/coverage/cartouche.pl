@@ -182,7 +182,7 @@ $result_floats{'cartouche'} = {};
 $result_converted{'plaintext'}->{'cartouche'} = 'in cartouche.
 
                             _Title of box_
-Out of main text
+   Out of main text
 ';
 
 
