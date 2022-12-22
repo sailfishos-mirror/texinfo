@@ -537,6 +537,15 @@ foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
 
+# no floating material in the corresponding environment (mdframed)
+my %LaTeX_non_floating_environment_commands = (
+  'cartouche' => 1,
+);
+
+# no-op environment used in context where floating material is not
+# allowed.
+my $non_floating_float_environment = 'Texinfononfloatingfloat';
+
 my %ignorable_space_types;
 foreach my $type ('ignorable_spaces_after_command',
             'spaces_at_end',
@@ -1401,6 +1410,15 @@ sub _latex_header() {
 
 ';
 
+  if ($self->{'packages'}->{'caption'}) {
+    $header_code .= '% environment for non floating floats
+\newenvironment{'."$non_floating_float_environment".'}
+  {\ignorespaces}
+  {\ignorespacesafterend}
+
+';
+  }
+
   if ($self->{'page_styles'}->{'single'}) {
     $header_code .=
 '\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
@@ -1472,6 +1490,7 @@ roundcorner=10pt}
   # In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed is used for the formatting of @cartouche,
+  # caption for float in non floating environment, namely cartouche (mdframed)
   # microtype is used for @microtype
   # microtype requires cm-super installed, or to use lmodern package.
   # In texlive-latex-recommended in debian.
@@ -1523,6 +1542,11 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'mdframed'}) {
     # framemethod=tikz needed for roundcorners for @cartouche
     $header .= "\\usepackage[framemethod=tikz]{mdframed}\n";
+  }
+  if ($self->{'packages'}->{'caption'}) {
+    # capt-of gives an error for float.t float_in_block_commands test
+    #$header .= "\\usepackage{capt-of}\n";
+    $header .= "\\usepackage{caption}\n";
   }
   if ($self->{'packages'}->{'fontsize'}) {
     $header .= "\\usepackage{fontsize}\n";
@@ -1634,13 +1658,15 @@ sub _latex_footer {
 }
 
 # all the new contexts should be created with that function
-# PREFORMATTED_CONTEXT can be specified, for instance if the preformatted
-# context is common with the surrounding context, as is the case for floats.
-sub _push_new_context($$;$)
+# PREFORMATTED_CONTEXT and NON_FLOATING_COMMANDS can be specified, for
+# instance if the preformatted context is common with the surrounding
+# context, as is the case for floats.
+sub _push_new_context($$;$$)
 {
   my $self = shift;
   my $context_name = shift;
   my $preformatted_context = shift;
+  my $non_floating_commands = shift;
 
   push @{$self->{'formatting_context'}},
      {
@@ -1658,10 +1684,14 @@ sub _push_new_context($$;$)
        # can be ctx_text, ctx_math or ctx_raw
        'text_context' => ['ctx_text'],
        'table_command_format' => [],
+       'non_floating_commands'  => [],
      };
   $self->{'formatting_context'}->[-1]->{'preformatted_context'}
     = $preformatted_context
       if (defined($preformatted_context));
+  $self->{'formatting_context'}->[-1]->{'non_floating_commands'}
+    = [@$non_floating_commands]
+      if (defined($non_floating_commands));
 }
 
 # for debug
@@ -3172,8 +3202,23 @@ sub _convert($$)
            {'contents' => $element->{'args'}->[0]->{'contents'}});
         _pop_context($self);
       }
-      
-      $result .= '\caption';
+
+      if (scalar(@{$self->{'formatting_context'}->[-1]->{'non_floating_commands'}})) {
+        my $normalized_float_type = '';
+        if ($float->{'extra'}->{'type'}) {
+          $normalized_float_type = $float->{'extra'}->{'type'}->{'normalized'};
+        }
+        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+          cluck("caption \@float $normalized_float_type: not found\n");
+          return '';
+        }
+        my $latex_float_name
+          = $self->{'normalized_float_latex'}->{$normalized_float_type};
+
+        $result .= "\\captionof{$latex_float_name}";
+      } else {
+        $result .= '\caption';
+      }
 
       if (defined($shortcaption)
           and $shortcaption->{'args'}->[0]->{'contents'}) {
@@ -3231,7 +3276,11 @@ sub _convert($$)
     # block commands
     } elsif (exists($block_commands{$cmdname})) {
       if ($LaTeX_environment_commands{$cmdname}) {
-        my $environment_options = _set_environment_options($self, $cmdname, $element);
+        push @{$self->{'formatting_context'}->[-1]->{'non_floating_commands'}},
+          $cmdname
+            if ($LaTeX_non_floating_environment_commands{$cmdname});
+        my $environment_options = _set_environment_options($self, $cmdname,
+                                                           $element);
         foreach my $environment (@{$LaTeX_environment_commands{$cmdname}}) {
           $self->{'fixed_width_environments'}->{$environment} = 1
             if ($LaTeX_fixed_width_environments{$environment});
@@ -3312,17 +3361,28 @@ sub _convert($$)
         if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
           my $normalized_float_type = '';
           if ($element->{'extra'}->{'type'}) {
-            $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+            $normalized_float_type
+                 = $element->{'extra'}->{'type'}->{'normalized'};
           }
-          if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+          if (not exists($self->{'normalized_float_latex'}
+                                                 ->{$normalized_float_type})) {
             cluck("\@float $normalized_float_type: not found\n");
             return '';
           }
           my $latex_float_name
             = $self->{'normalized_float_latex'}->{$normalized_float_type};
           _push_new_context($self, 'float'.$latex_float_name,
-               $self->{'formatting_context'}->[-1]->{'preformatted_context'});
-          $result .= "\\begin{$latex_float_name}\n";
+              $self->{'formatting_context'}->[-1]->{'preformatted_context'},
+              $self->{'formatting_context'}->[-1]->{'non_floating_commands'});
+          my $latex_float_environment;
+          if (scalar(@{$self->{'formatting_context'}->[-1]->
+                                                 {'non_floating_commands'}})) {
+            $self->{'packages'}->{'caption'} = 1;
+            $latex_float_environment = $non_floating_float_environment;
+          } else {
+            $latex_float_environment = $latex_float_name;
+          }
+          $result .= "\\begin{$latex_float_environment}\n";
         }
       }
     } elsif ($cmdname eq 'node' or $sectioning_heading_commands{$cmdname}) {
@@ -4005,6 +4065,8 @@ sub _convert($$)
         $result .= "\\end{".$environment."}\n";
       }
     }
+    pop @{$self->{'formatting_context'}->[-1]->{'non_floating_commands'}},
+      if ($LaTeX_non_floating_environment_commands{$cmdname});
     if ($preformatted_commands{$cmdname}) {
       _close_preformatted_command($self, $cmdname);
     }
@@ -4017,17 +4079,26 @@ sub _convert($$)
         $result .= "\\label{$float_label}%\n";
       }
       if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
-        my $normalized_float_type = '';
-        if ($element->{'extra'}->{'type'}) {
-          $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+        my $latex_float_environment;
+        if (scalar(@{$self->{'formatting_context'}->[-1]
+                                              ->{'non_floating_commands'}})) {
+          $latex_float_environment = $non_floating_float_environment;
+        } else {
+          my $normalized_float_type = '';
+          if ($element->{'extra'}->{'type'}) {
+            $normalized_float_type
+              = $element->{'extra'}->{'type'}->{'normalized'};
+          }
+          # this should never happen as we returned at the command
+          # open.  If this happens it means that the tree has been modified...
+          if (not exists($self->{'normalized_float_latex'}
+                                                 ->{$normalized_float_type})) {
+            confess("\@float $normalized_float_type: not found\n");
+          }
+          $latex_float_environment
+             = $self->{'normalized_float_latex'}->{$normalized_float_type};
         }
-        # this should never happen as we returned at the command
-        # open.  If this happens it means that the tree has been modified...
-        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
-          confess("\@float $normalized_float_type: not found\n");
-        }
-        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
-        $result .= "\\end{$latex_float_name}\n";
+        $result .= "\\end{$latex_float_environment}\n";
         _pop_context($self);
       }
     } elsif ($cmdname eq 'quotation'

@@ -21,12 +21,6 @@ for example
 * " <1>:                                 chapter.            (line  701)
 is 5 or 6 lines before the index @-command.
 
-Empty environment for float in @cartouche
-\newenvironment{Texinfononfloatingfloat}
-  {\ignorespaces}
-  {\ignorespacesafterend}
-
-
 HTML API
 ========
 

@@ -1,5 +1,16 @@
 2022-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	Handle @float in @cartouche in LaTeX, where it cannot float
+
+	* tp/Texinfo/Convert/LaTeX.pm
+	(%LaTeX_non_floating_environment_commands, _latex_header)
+	(_push_new_context, _convert): add a stack of commands in which
+	there cannot be floats, non_floating_commands, for cartouche which
+	uses mdframed.  In this context, use a no-op environment for float
+	and \captionof of the caption package.
+
+2022-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_push_new_context, _convert): carry
 	formatted context over to float.
 

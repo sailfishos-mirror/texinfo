@@ -732,6 +732,7 @@ $result_converted{'latex'}->{'float_in_block_commands'} = '\\documentclass{book}
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
 \\usepackage[framemethod=tikz]{mdframed}
+\\usepackage{caption}
 \\usepackage{float}
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
@@ -753,6 +754,11 @@ $result_converted{'latex'}->{'float_in_block_commands'} = '\\documentclass{book}
 
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
+
+% environment for non floating floats
+\\newenvironment{Texinfononfloatingfloat}
+  {\\ignorespaces}
+  {\\ignorespacesafterend}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
@@ -794,11 +800,11 @@ roundcorner=10pt}
 \\end{quote}
 
 \\begin{mdframed}[style=Texinfocartouche]
-\\begin{TexinfoFloatText}
-\\caption{float in cartouche}
+\\begin{Texinfononfloatingfloat}
+\\captionof{TexinfoFloatText}{float in cartouche}
 
 \\label{anchor:in-cartouche}%
-\\end{TexinfoFloatText}
+\\end{Texinfononfloatingfloat}
 \\end{mdframed}
 
 \\end{document}
