@@ -1634,10 +1634,13 @@ sub _latex_footer {
 }
 
 # all the new contexts should be created with that function
-sub _push_new_context($$)
+# PREFORMATTED_CONTEXT can be specified, for instance if the preformatted
+# context is common with the surrounding context, as is the case for floats.
+sub _push_new_context($$;$)
 {
   my $self = shift;
   my $context_name = shift;
+  my $preformatted_context = shift;
 
   push @{$self->{'formatting_context'}},
      {
@@ -1656,6 +1659,9 @@ sub _push_new_context($$)
        'text_context' => ['ctx_text'],
        'table_command_format' => [],
      };
+  $self->{'formatting_context'}->[-1]->{'preformatted_context'}
+    = $preformatted_context
+      if (defined($preformatted_context));
 }
 
 # for debug
@@ -3312,8 +3318,10 @@ sub _convert($$)
             cluck("\@float $normalized_float_type: not found\n");
             return '';
           }
-          my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
-          _push_new_context($self, 'float'.$latex_float_name);
+          my $latex_float_name
+            = $self->{'normalized_float_latex'}->{$normalized_float_type};
+          _push_new_context($self, 'float'.$latex_float_name,
+               $self->{'formatting_context'}->[-1]->{'preformatted_context'});
           $result .= "\\begin{$latex_float_name}\n";
         }
       }

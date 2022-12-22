@@ -261,6 +261,26 @@ A footnote 2.
 @xref{text with a lot of features}.
 
 '],
+['float_in_block_commands',
+'@example
+@float Text, in example
+@caption{float in example}
+@end float
+@end example
+
+@quotation
+@float Text, in quotation
+@caption{float in quotation}
+@end float
+@end quotation
+
+@cartouche
+@float Text, in cartouche
+@caption{float in cartouche}
+@end float
+@end cartouche
+
+'],
 ['numbering_captions_listoffloats',
 '@node Top
 @top Test floats
@@ -550,6 +570,10 @@ my %info_tests = (
   'comment_space_comand_in_float' => 1,
 );
 
+my %latex_tests = (
+  'float_in_block_commands' => 1,
+);
+
 foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['plaintext'];
   if ($info_tests{$test->[0]}) {
@@ -557,6 +581,9 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'xml';
+  if ($latex_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'latex';
+  }
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
