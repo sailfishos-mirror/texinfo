@@ -1,5 +1,14 @@
 2022-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Info.pm (format_image): avoid warnings about
+	undefined values with @image with alt and text but no image file.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/info_tests.t,
+	tp/t/include/text_only_image.txt: new test
+	image_text_file_only_and_alt with alt and text file but no image file.
+
+2022-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm
 	(normalize_transliterate_texinfo, transliterate_texinfo): modify
 	transliterate_texinfo such that it only transliterates but does not

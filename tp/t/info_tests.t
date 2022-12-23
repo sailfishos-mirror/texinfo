@@ -273,6 +273,11 @@ ref to anchor1@footnote{another footnote}, which is before @@node Top: @ref{anch
 @printindex cp
 
 '],
+['image_text_file_only_and_alt',
+'@node Top
+
+@image{text_only_image,,,alt}
+'],
 ['image_quotes', 
 '@node Top
 

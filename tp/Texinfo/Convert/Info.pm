@@ -578,11 +578,15 @@ sub format_image($$)
     my $result;
 
     if (defined($image_file) or (defined($text) and defined($alt))) {
-      $image_file =~ s/\\/\\\\/g;
-      $image_file =~ s/\"/\\\"/g;
+      if (defined($image_file)) {
+        $image_file =~ s/\\/\\\\/g;
+        $image_file =~ s/\"/\\\"/g;
+      } else {
+        $image_file = '';
+      }
       $result = "\x{00}\x{08}[image src=\"$image_file\"";
 
-      if ($alt) {
+      if (defined($alt) and $alt ne '') {
         $alt =~ s/\\/\\\\/g;
         $alt =~ s/\"/\\\"/g;
         $result .= " alt=\"$alt\"";

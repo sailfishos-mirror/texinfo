@@ -149,6 +149,7 @@ test_files = \
  t/include/image_encoded.txt \
  t/include/inc_@f--ile.texi \
  t/include/included_file_with_setfilename.texi \
+ t/include/text_only_image.txt \
  t/include/this_is_a_long_unknown_file.png \
  t/include/verbatim_encoded.texi \
  t/include/verbatim_encoded_latin1.texi \
