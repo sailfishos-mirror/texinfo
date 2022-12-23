@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-19.22}
+\def\texinfoversion{2022-12-23.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -530,7 +530,7 @@
 
 % ... but they get defined via ``\envdef\foo{...}'':
 \long\def\envdef#1#2{\def#1{\startenvironment#1#2}}
-\def\envparseargdef#1#2{\parseargdef#1{\startenvironment#1#2}}
+\long\def\envparseargdef#1#2{\parseargdef#1{\startenvironment#1#2}}
 
 % Check whether we're in the right environment:
 \def\checkenv#1{%
@@ -7135,8 +7135,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \newdimen\cartouter\newdimen\cartinner
 \newskip\normbskip\newskip\normpskip\newskip\normlskip
 
-
-\envdef\cartouche{%
+\envparseargdef\cartouche{%
   \cartouchefontdefs
   \ifhmode\par\fi  % can't be in the midst of a paragraph.
   \startsavinginserts
@@ -7166,16 +7165,19 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \baselineskip=0pt\parskip=0pt\lineskip=0pt
       \carttop
       \hbox\bgroup
-	  \hskip\lskip
-	  \vrule\kern3pt
-	  \vbox\bgroup
-	      \kern3pt
-	      \hsize=\cartinner
-	      \baselineskip=\normbskip
-	      \lineskip=\normlskip
-	      \parskip=\normpskip
-	      \vskip -\parskip
-	      \comment % For explanation, see the end of def\group.
+          \hskip\lskip
+          \vrule\kern3pt
+          \vbox\bgroup
+              \hsize=\cartinner
+              \baselineskip=\normbskip
+              \lineskip=\normlskip
+              \parskip=\normpskip
+              \def\arg{#1}%
+              \ifx\arg\empty\else
+                \centerV{\hfil \bf #1 \hfil}%
+              \fi
+              \kern3pt
+              \vskip -\parskip
 }
 \def\Ecartouche{%
               \ifhmode\par\fi
