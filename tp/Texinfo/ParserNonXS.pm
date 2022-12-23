@@ -7637,7 +7637,7 @@ The I<enumerate_specification> C<extra> key contains the enumerate argument.
 
 =item C<@listoffloats>
 
-If float has a second argument, and for C<@listoffloats>
+If float has a first argument, and for C<@listoffloats>
 argument there is a I<type> key which is also a hash reference,
 with two keys. I<content> is an array holding the associated
 contents, I<normalized> holds the normalized float type.
