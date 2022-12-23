@@ -50,6 +50,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
   normalize_node
+  normalize_transliterate_texinfo
   transliterate_texinfo
   transliterate_protect_file_name
 ) ] );
@@ -98,7 +99,7 @@ sub normalize_node($)
   return $result;
 }
 
-sub transliterate_texinfo($;$)
+sub normalize_transliterate_texinfo($;$)
 {
   my $root = shift;
   my $no_unidecode = shift;
@@ -106,6 +107,16 @@ sub transliterate_texinfo($;$)
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
                 _unicode_to_transliterate($result, $no_unidecode));
+  return $result;
+}
+
+sub transliterate_texinfo($;$)
+{
+  my $root = shift;
+  my $no_unidecode = shift;
+  my $result = _convert($root);
+  $result = Unicode::Normalize::NFC($result);
+  $result = _unicode_to_transliterate($result, $no_unidecode);
   return $result;
 }
 
@@ -206,7 +217,7 @@ sub _unicode_to_transliterate($;$)
       # in this case, we want to avoid calling unidecode, as we are sure
       # that there is no useful transliteration of the unicode character
       # instead we want to keep it as is.
-      # This is the case, for example, for @exclamdown, is corresponds
+      # This is the case, for example, for @exclamdown, it corresponds
       # with x00a1, but unidecode transliterates it to a !, we want
       # to avoid that and keep x00a1.
       } elsif (ord($char) <= hex(0xFFFF)
@@ -455,11 +466,11 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
 =head1 SYNOPSIS
 
   use Texinfo::Convert::NodeNameNormalization qw(normalize_node
-                                              transliterate_texinfo);
+                                              normalize_transliterate_texinfo);
 
   my $normalized = normalize_node({'contents' => $node_contents});
 
-  my $file_name = transliterate_texinfo({'contents'
+  my $file_name = normalize_transliterate_texinfo({'contents'
                                             => $section_contents});
 
 =head1 NOTES
@@ -478,7 +489,7 @@ for C<@node>, C<@float> and C<@anchor> names normalization, but also C<@float>
 types and C<@acronym> and C<@abbr> first argument.
 
 It is also possible to transliterate non-ASCII letters, instead of mangling
-them, with C<transliterate_texinfo>, losing the uniqueness feature of
+them, with C<normalize_transliterate_texinfo>, losing the uniqueness feature of
 normalized node names.
 
 Another method, C<transliterate_protect_file_name> transliterates non-ASCII
@@ -506,13 +517,21 @@ The result will be poor for Texinfo trees which are not @-command arguments
 (on an @-command line or in braces), for instance if the tree contains
 C<@node> or block commands.
 
-=item $transliterated = transliterate_texinfo($tree, $no_unidecode)
-X<C<transliterate_texinfo>>
+=item $transliterated = normalize_transliterate_texinfo($tree, $no_unidecode)
+X<C<normalize_transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non-ASCII letters
 transliterated as ASCII, but otherwise similar with C<normalize_node>
 output.  If the optional I<$no_unidecode> argument is set, C<Text::Unidecode>
 is not used for characters whose transliteration is not built-in.
+
+=item $transliterated = transliterate_texinfo($tree, $no_unidecode)
+X<C<transliterate_texinfo>>
+
+The Texinfo I<$tree> is returned as a string, with non-ASCII letters
+transliterated as ASCII.  If the optional I<$no_unidecode> argument is set,
+C<Text::Unidecode> is not used for characters whose transliteration is not
+built-in.
 
 =item $file_name = transliterate_protect_file_name($string, $no_unidecode)
 X<C<transliterate_protect_file_name>>

@@ -9016,7 +9016,7 @@ sub _prepare_index_entries($)
         my $trimmed_contents
           = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
         my $normalized_index =
-          Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
+          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
             {'contents' => \@contents}, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
         my $nr=1;

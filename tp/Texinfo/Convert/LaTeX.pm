@@ -891,7 +891,15 @@ sub _prepare_floats($)
     $self->{'normalized_float_latex'} = {};
     $self->{'latex_floats'} = {};
     foreach my $normalized_float_type (sort(keys(%{$self->{'floats'}}))) {
-      my $latex_variable_float_name = $normalized_float_type;
+      my $latex_variable_float_name;
+      if (scalar(@{$self->{'floats'}->{$normalized_float_type}})) {
+        my $float = $self->{'floats'}->{$normalized_float_type}->[0];
+        $latex_variable_float_name
+          = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
+           {'contents' => $float->{'args'}->[0]->{'contents'}});
+      } else {
+        $latex_variable_float_name = $normalized_float_type;
+      }
       # note that with that transformation, some float types
       # may be put together
       $latex_variable_float_name =~ s/[^a-zA-Z]//g;

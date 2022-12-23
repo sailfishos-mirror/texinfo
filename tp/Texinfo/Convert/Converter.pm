@@ -707,7 +707,7 @@ sub normalized_sectioning_command_filename($$)
                         and !$self->get_conf('USE_UNIDECODE'));
 
   my $normalized_name
-    = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
+    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
          {'contents' => $command->{'args'}->[0]->{'contents'}},
                   $no_unidecode);
 
@@ -730,7 +730,7 @@ sub node_information_filename($$)
   my $filename;
   if (defined($node_info->{'normalized'})) {
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
-      $filename = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
+      $filename = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
        {'contents' => $node_info->{'node_content'}},
             $no_unidecode);
     } else {

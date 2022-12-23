@@ -588,6 +588,7 @@ my %info_tests = (
 my %latex_tests = (
   'float_in_block_commands' => 1,
   'special_characters_in_float_type' => 1,
+  'float_with_at_commands' => 1,
 );
 
 foreach my $test (@test_cases) {

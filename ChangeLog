@@ -1,5 +1,21 @@
 2022-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm
+	(normalize_transliterate_texinfo, transliterate_texinfo): modify
+	transliterate_texinfo such that it only transliterates but does not
+	protect characters, and add normalize_transliterate_texinfo for the
+	previous behaviour.  Update callers.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_prepare_floats): transliterate the
+	first float element type of a float type to set up the LaTeX float
+	name to get more different categories when float type expands to
+	non-ASCII characters.
+
+	* tp/t/27float.t: expand LaTeX output for the float_with_at_commands
+	test.
+
+2022-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_prepare_floats): fix type filtering
 	regex.
 
