@@ -1137,8 +1137,8 @@ dddd  [image src="figure.txt" text="  1  A  B
 BBB  [image src="figure.txt" text="  1  A  B  
   2  C  D
   3  E  F" ] gggg  [image src="figure.txt" text="  1  A  B  
-                                                                2  C  D
-                                                              3  E  F" ]
+  2  C  D
+  3  E  F" ]
 
                                                                     HHH
  [image src="figure.txt" text="  1  A  B  

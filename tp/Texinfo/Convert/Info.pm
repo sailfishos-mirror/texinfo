@@ -600,12 +600,12 @@ sub format_image($$)
       if ($self->{'formatters'}->[-1]->{'_top_formatter'}) {
         $result .= "\n";
       }
-      my $image_lines_count = ($result =~ tr/\n/\n/) +1;
-      $self->add_image($element, $image_lines_count, $width, 1);
+      $lines_count = ($result =~ tr/\n/\n/);
+      $self->add_image($element, $lines_count +1, $width, 1);
     } else {
       $result = $self->image_formatted_text($element, $basefile, $text);
       $lines_count = ($result =~ tr/\n/\n/);
-      $self->add_image($element, $lines_count+1, $width);
+      $self->add_image($element, $lines_count +1, $width);
     }
     return ($result, $lines_count);
   }
