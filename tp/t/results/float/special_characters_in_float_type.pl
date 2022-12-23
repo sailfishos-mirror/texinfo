@@ -773,8 +773,8 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 % new float for type `A < " `` ` \' \' \\aaa . --- in var\'
-\\newfloat{TexinfoFloatA```\\aaainvar}{htb}{tfl}[chapter]
-\\floatname{TexinfoFloatA```\\aaainvar}{}
+\\newfloat{TexinfoFloatAaaainvar}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloatAaaainvar}{}
 % style command for var in \'cmd_text\' formatting context
 \\newcommand\\Texinfocommandstyletextvar[1]{{\\normalfont{}\\textsl{#1}}}%
 
@@ -809,14 +809,14 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 \\chapter{{chap}}
 \\label{anchor:chap}%
 
-\\begin{TexinfoFloatA```\\aaainvar}
+\\begin{TexinfoFloatAaaainvar}
 F
 \\caption{float A < " `` ` \' \' \\textbackslash{}aaa \\@. --- \\Texinfocommandstyletextvar{in var}}
 
 \\label{anchor:L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}%
-\\end{TexinfoFloatA```\\aaainvar}
+\\end{TexinfoFloatAaaainvar}
 
-\\listof{TexinfoFloatA```\\aaainvar}{}
+\\listof{TexinfoFloatAaaainvar}{}
 \\end{document}
 ';
 

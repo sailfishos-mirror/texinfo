@@ -894,7 +894,7 @@ sub _prepare_floats($)
       my $latex_variable_float_name = $normalized_float_type;
       # note that with that transformation, some float types
       # may be put together
-      $latex_variable_float_name =~ s/[^a-zA-z]//g;
+      $latex_variable_float_name =~ s/[^a-zA-Z]//g;
       if (exists($LaTeX_floats{lc($latex_variable_float_name)})) {
         $self->{'normalized_float_latex'}->{$normalized_float_type}
           = lc($latex_variable_float_name);
