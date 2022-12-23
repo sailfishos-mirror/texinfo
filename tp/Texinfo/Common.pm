@@ -2236,7 +2236,12 @@ sub debug_print_element_short($;$)
     if (defined($current->{'extra'})
       and defined($current->{'extra'}->{'special_element_type'}));
   $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $text = "[T]" if (defined($current->{'text'}));
+  if (defined($current->{'text'})) {
+    my $text_str = $current->{'text'};
+    $text_str =~ s/\n/\\n/g;
+    $text = "[T: $text_str]";
+  }
+  #$text = "[T]" if (defined($current->{'text'}));
   my $args = '';
   my $contents = '';
   $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
