@@ -7,3 +7,5 @@ ChangeLog       merge=merge-changelog
 # put the following in your .gitconfig
 # [diff "texinfo"]
 #        xfuncname = "^(@node .*)$"
+
+tp/t/results/*/*.pl  diff

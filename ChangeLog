@@ -1,5 +1,9 @@
 2022-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* .gitattributes: set tp/t/results/*/*.pl file always diff-able.
+
+2022-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (format_image): fix count of lines
 	returned when there is an image text file.
 
