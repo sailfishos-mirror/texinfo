@@ -400,6 +400,50 @@ sub set_nodes_list_labels($$$)
   }
   $self->{'labels'} = \%labels;
 }
+
+sub _parse_float_type($)
+{
+  my $current = shift;
+  #$current->{'extra'} = {} if (!$current->{'extra'});
+  $current->{'extra'}->{'type'} = {};
+  if ($current->{'args'} and @{$current->{'args'}}
+      and $current->{'args'}->[0]->{'contents'}) {
+    my $normalized
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+        {'contents' => $current->{'args'}->[0]->{'contents'}});
+    $current->{'extra'}->{'type'}->{'content'} =
+                                    $current->{'args'}->[0]->{'contents'};
+    $current->{'extra'}->{'type'}->{'normalized'} = $normalized;
+    return 1;
+  }
+  $current->{'extra'}->{'type'}->{'normalized'} = '';
+  return 0;
+}
+
+# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
+# This should be considered an internal function of the parsers for all
+# purposes, it is here to avoid code duplication.
+sub set_float_types
+{
+  my $self = shift;
+
+  my $global_commands = $self->global_commands_information();
+
+  if ($global_commands->{'float'}) {
+    foreach my $current (@{$global_commands->{'float'}}) {
+      my $type = '';
+      _parse_float_type($current);
+      $type = $current->{'extra'}->{'type'}->{'normalized'};
+      push @{$self->{'floats'}->{$type}}, $current;
+    }
+  }
+  if ($global_commands->{'listoffloats'}) {
+    foreach my $current (@{$global_commands->{'listoffloats'}}) {
+      _parse_float_type($current);
+    }
+  }
+}
+
 1;
 
 __END__

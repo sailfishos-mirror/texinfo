@@ -563,7 +563,7 @@ enumerate               block,close_paragraph,blockitem,contain_simple_text   BL
 quotation               block,close_paragraph,contain_simple_text             BLOCK_quotation       1
 smallquotation          block,close_paragraph,contain_simple_text             BLOCK_quotation       1
 
-float                   block,close_paragraph,contain_simple_text             BLOCK_float           2
+float                   block,close_paragraph,global,contain_simple_text      BLOCK_float           2
 
 displaymath             block,close_paragraph,math        BLOCK_math
 

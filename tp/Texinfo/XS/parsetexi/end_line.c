@@ -968,10 +968,14 @@ parse_node_manual (ELEMENT *node)
   return result;
 }
 
+/* for now done in Texinfo::Convert::NodeNameNormalization, but could be
+   good to do in Parser/XS */
 /* Array of recorded @float's. */
+/*
 FLOAT_RECORD *floats_list = 0;
 size_t floats_number = 0;
 size_t floats_space = 0;
+*/
 
 int
 parse_float_type (ELEMENT *current)
@@ -1098,6 +1102,9 @@ end_line_starting_block (ELEMENT *current)
             destroy_element (float_label->manual_content);
           free (float_label);
         }
+      /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
+         good to do in Parser/XS */
+      /*
       parse_float_type (current);
       k = lookup_extra (current, "type");
       if (k)
@@ -1105,7 +1112,9 @@ end_line_starting_block (ELEMENT *current)
           eft = (EXTRA_FLOAT_TYPE *) k->value;
           type = eft->normalized;
         }
+      */
       /* add to global 'floats' array */
+      /*
       if (floats_number == floats_space)
         {
           floats_list = realloc (floats_list,
@@ -1113,6 +1122,7 @@ end_line_starting_block (ELEMENT *current)
         }
       floats_list[floats_number].type = type;
       floats_list[floats_number++].element = current;
+      */
       if (current_section)
         add_extra_element (current, "float_section", current_section);
     }
@@ -1740,7 +1750,9 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (current->cmd == CM_listoffloats)
     {
-      parse_float_type (current);
+      /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
+         good to do in Parser/XS */
+      /* parse_float_type (current); */
     }
   else
     {

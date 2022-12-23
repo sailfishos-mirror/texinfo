@@ -1,3 +1,16 @@
+2022-12-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (_parse_float_type)
+	(set_float_types), tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_end_line_starting_block, _parse_texi),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(_set_errors_node_lists_labels_indices),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/command_data.txt: make float a global
+	commmand. Move normalization of float type out of parsers to
+	NodeNameNormalization.pm for future normalization using functions
+	there.
+
 2022-12-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm: cut at 80 columns better.

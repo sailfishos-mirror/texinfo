@@ -667,6 +667,8 @@ build_internal_xref_list (void)
 }
 
 /* Return hash for list of @float's that appeared in the file. */
+/* not used for now, since the normalization of of float type is done
+   outside of the barser. Could be done here again when possible */
 HV *
 build_float_list (void)
 {

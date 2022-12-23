@@ -214,6 +214,7 @@ sub _set_errors_node_lists_labels_indices($)
   # Setup labels info and nodes list based on 'targets'
   Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
                                            $self->{'registrar'}, $self);
+  Texinfo::Convert::NodeNameNormalization::set_float_types($self);
 
   my $INDEX_NAMES = build_index_data ();
   $self->{'index_names'} = $INDEX_NAMES;
@@ -226,12 +227,14 @@ sub get_parser_info {
   my ($INTL_XREFS, $FLOATS, $ERRORS, $GLOBAL_INFO, $GLOBAL_INFO2);
 
   $INTL_XREFS = build_internal_xref_list ();
-  $FLOATS = build_float_list ();
+  # done for now in _set_errors_node_lists_labels_indices, could
+  # be redone here when float types are set in the parser
+  #$FLOATS = build_float_list ();
   $GLOBAL_INFO = build_global_info ();
   $GLOBAL_INFO2 = build_global_info2 ();
 
   $self->{'internal_references'} = $INTL_XREFS;
-  $self->{'floats'} = $FLOATS;
+  #$self->{'floats'} = $FLOATS;
   $self->{'info'} = $GLOBAL_INFO;
   $self->{'commands_info'} = $GLOBAL_INFO2;
 
