@@ -13,8 +13,6 @@ Before next release
 Bugs
 ====
 
-check float type normalization, cf float comment_space_comand_in_float test
-
 wrong index lines in printindex
 info tests/layout//out_parser/formatting_info/formatting.info
 for example

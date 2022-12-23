@@ -80,7 +80,7 @@ $result_trees{'listoffloats_with_commands'} = {
                 {},
                 {}
               ],
-              'normalized' => 'th@\'eor@`eme'
+              'normalized' => "th\x{e9}or\x{e8}me"
             }
           },
           'info' => {
@@ -156,7 +156,7 @@ $result_converted_errors{'html'}->{'listoffloats_with_commands'} = [
 
 
 
-$result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="th@\'eor@`eme" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+$result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="théorème" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
 ';
 
 1;

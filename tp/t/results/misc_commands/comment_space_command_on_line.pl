@@ -666,7 +666,7 @@ $result_trees{'comment_space_command_on_line'} = {
                 {},
                 {}
               ],
-              'normalized' => 'Text @ '
+              'normalized' => 'Text  '
             }
           },
           'info' => {
@@ -1150,7 +1150,7 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 <para>float
 </para></float> <!-- c end -->
 
-<listoffloats type="Text @ " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
+<listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
 
 </chapter>
 <bye></bye>
@@ -1180,7 +1180,7 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 <para>float
 </para></float> <!-- c end -->
 
-<listoffloats type="Text @ " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
+<listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
 
 </chapter>
 <bye></bye>

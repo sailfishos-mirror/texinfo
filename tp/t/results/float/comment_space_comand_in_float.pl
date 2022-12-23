@@ -133,7 +133,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                 {},
                 {}
               ],
-              'normalized' => 'Text @ '
+              'normalized' => 'Text  '
             }
           },
           'info' => {
@@ -189,7 +189,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                 {},
                 {}
               ],
-              'normalized' => 'Text @ '
+              'normalized' => 'Text  '
             }
           },
           'info' => {
@@ -273,7 +273,7 @@ $result_errors{'comment_space_comand_in_float'} = [];
 
 
 $result_floats{'comment_space_comand_in_float'} = {
-  'Text @ ' => [
+  'Text  ' => [
     {
       'cmdname' => 'float',
       'extra' => {
@@ -287,7 +287,7 @@ $result_floats{'comment_space_comand_in_float'} = {
               'cmdname' => ' '
             }
           ],
-          'normalized' => 'Text @ '
+          'normalized' => 'Text  '
         }
       },
       'info' => {},
@@ -384,11 +384,11 @@ $result_converted_errors{'html'}->{'comment_space_comand_in_float'} = [
 
 $result_converted{'xml'}->{'comment_space_comand_in_float'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
 
-<float name="label-" type="Text @ " number="1" spaces=" " endspaces=" "><floattype>Text <spacecmd type="spc"/></floattype><floatname spaces=" ">label <spacecmd type="spc"/></floatname><!-- c float -->
+<float name="label-" type="Text  " number="1" spaces=" " endspaces=" "><floattype>Text <spacecmd type="spc"/></floattype><floatname spaces=" ">label <spacecmd type="spc"/></floatname><!-- c float -->
 <para>Float
 </para></float>
 
-<listoffloats type="Text @ " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
+<listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
 ';
 
 1;

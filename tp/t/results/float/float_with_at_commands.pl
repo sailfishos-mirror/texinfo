@@ -280,7 +280,7 @@ $result_trees{'float_with_at_commands'} = {
                 {},
                 {}
               ],
-              'normalized' => 'entr@\'ee'
+              'normalized' => "entr\x{e9}e"
             }
           },
           'info' => {
@@ -346,7 +346,7 @@ $result_trees{'float_with_at_commands'} = {
                 {},
                 {}
               ],
-              'normalized' => 'entr@\'ee'
+              'normalized' => "entr\x{e9}e"
             }
           },
           'info' => {
@@ -403,7 +403,7 @@ $result_errors{'float_with_at_commands'} = [];
 
 
 $result_floats{'float_with_at_commands'} = {
-  'entr@\'ee' => [
+  "entr\x{e9}e" => [
     {
       'cmdname' => 'float',
       'extra' => {
@@ -426,7 +426,7 @@ $result_floats{'float_with_at_commands'} = {
               'text' => 'e'
             }
           ],
-          'normalized' => 'entr@\'ee'
+          'normalized' => "entr\x{e9}e"
         }
       },
       'info' => {},
@@ -436,7 +436,7 @@ $result_floats{'float_with_at_commands'} = {
     }
   ]
 };
-$result_floats{'float_with_at_commands'}{'entr@\'ee'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_with_at_commands'}{'entr@\'ee'}[0];
+$result_floats{'float_with_at_commands'}{"entr\x{e9}e"}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_with_at_commands'}{"entr\x{e9}e"}[0];
 
 
 
@@ -498,7 +498,7 @@ $result_converted_errors{'html'}->{'float_with_at_commands'} = [
 
 
 
-$result_converted{'xml'}->{'float_with_at_commands'} = '<float name="premi_00e8re-entr_00e9e" type="entr@\'ee" number="1" spaces=" " endspaces=" "><floattype>entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname spaces=" ">premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
+$result_converted{'xml'}->{'float_with_at_commands'} = '<float name="premi_00e8re-entr_00e9e" type="entrée" number="1" spaces=" " endspaces=" "><floattype>entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname spaces=" ">premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
 
 <para>Ceci est notre premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e.
 </para><caption><para>La premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e est importante</para></caption>
@@ -506,7 +506,7 @@ $result_converted{'xml'}->{'float_with_at_commands'} = '<float name="premi_00e8r
 </float>
 
 
-<listoffloats type="entr@\'ee" spaces=" ">entr<accent type="acute" bracketed="off">e</accent>e</listoffloats>
+<listoffloats type="entrée" spaces=" ">entr<accent type="acute" bracketed="off">e</accent>e</listoffloats>
 ';
 
 1;

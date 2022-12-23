@@ -2019,7 +2019,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                 {},
                 {}
               ],
-              'normalized' => 'th@\'eor@`eme'
+              'normalized' => "th\x{e9}or\x{e8}me"
             }
           },
           'info' => {
@@ -4789,7 +4789,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                 {},
                 {}
               ],
-              'normalized' => 'th@\'eor@`eme'
+              'normalized' => "th\x{e9}or\x{e8}me"
             }
           },
           'info' => {
@@ -6491,7 +6491,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
       }
     }
   ],
-  'th@\'eor@`eme' => [
+  "th\x{e9}or\x{e8}me" => [
     {
       'cmdname' => 'float',
       'extra' => {
@@ -6521,7 +6521,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
               'text' => 'me'
             }
           ],
-          'normalized' => 'th@\'eor@`eme'
+          'normalized' => "th\x{e9}or\x{e8}me"
         }
       },
       'info' => {},
@@ -6575,8 +6575,8 @@ $result_floats{'numbering_captions_listoffloats'}{'Warning'}[0]{'extra'}{'shortc
 $result_floats{'numbering_captions_listoffloats'}{'Warning'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'numbering_captions_listoffloats'}{'Warning'}[1];
 $result_floats{'numbering_captions_listoffloats'}{'Warning'}[1]{'extra'}{'float_section'} = $result_floats{'numbering_captions_listoffloats'}{''}[5]{'extra'}{'float_section'};
 $result_floats{'numbering_captions_listoffloats'}{'Warning'}[1]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'numbering_captions_listoffloats'}{'Warning'}[1];
-$result_floats{'numbering_captions_listoffloats'}{'th@\'eor@`eme'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'numbering_captions_listoffloats'}{'th@\'eor@`eme'}[0];
-$result_floats{'numbering_captions_listoffloats'}{'th@\'eor@`eme'}[0]{'extra'}{'float_section'} = $result_floats{'numbering_captions_listoffloats'}{''}[5]{'extra'}{'float_section'};
+$result_floats{'numbering_captions_listoffloats'}{"th\x{e9}or\x{e8}me"}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'numbering_captions_listoffloats'}{"th\x{e9}or\x{e8}me"}[0];
+$result_floats{'numbering_captions_listoffloats'}{"th\x{e9}or\x{e8}me"}[0]{'extra'}{'float_section'} = $result_floats{'numbering_captions_listoffloats'}{''}[5]{'extra'}{'float_section'};
 
 
 
@@ -7096,7 +7096,7 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node name="Top
 <caption spaces=" "><para>An example of float caption, no shortcaption&enddots;</para></caption>
 </float>
 
-<float name="theoreme" type="th@\'eor@`eme" number="1.1" spaces=" " endspaces=" "><floattype>th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname spaces=" ">theoreme</floatname>
+<float name="theoreme" type="théorème" number="1.1" spaces=" " endspaces=" "><floattype>th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname spaces=" ">theoreme</floatname>
 <para>A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me
 </para>
 <caption><para>C A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</para></caption>
@@ -7222,7 +7222,7 @@ And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename>
 <para>A ref to float without type <ref label="label-but-no-type"><xrefnodename>label but no type</xrefnodename></ref>.
 </para>
 <listoffloats type="Text" spaces=" ">Text</listoffloats>
-<listoffloats type="th@\'eor@`eme" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+<listoffloats type="théorème" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
 
 </unnumbered>
 <bye></bye>

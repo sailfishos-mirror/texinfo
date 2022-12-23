@@ -409,7 +409,7 @@ sub _parse_float_type($)
   if ($current->{'args'} and @{$current->{'args'}}
       and $current->{'args'}->[0]->{'contents'}) {
     my $normalized
-      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+      = convert_to_normalized(
         {'contents' => $current->{'args'}->[0]->{'contents'}});
     $current->{'extra'}->{'type'}->{'content'} =
                                     $current->{'args'}->[0]->{'contents'};

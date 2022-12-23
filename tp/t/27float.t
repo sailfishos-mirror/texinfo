@@ -559,7 +559,21 @@ Float
 @end float
 
 @listoffloats Text @ @c listoffloats
-']
+'],
+['special_characters_in_float_type',
+'@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@float A < " `` ` \' \' \\aaa @. --- @var{in var}, L < " `` ` \' \' \\aaa @. --- @var{in var}
+F
+@caption{float A < " `` ` \' \' \\aaa @. --- @var{in var}}
+@end float
+
+@listoffloats A < " `` ` \' \' \\aaa @. --- @var{in var}
+'],
 );
 
 my %info_tests = (
@@ -568,10 +582,12 @@ my %info_tests = (
   'cindex_in_caption' => 1,
   'float_copying' => 1,
   'comment_space_comand_in_float' => 1,
+  'special_characters_in_float_type' => 1,
 );
 
 my %latex_tests = (
   'float_in_block_commands' => 1,
+  'special_characters_in_float_type' => 1,
 );
 
 foreach my $test (@test_cases) {
