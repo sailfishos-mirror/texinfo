@@ -931,7 +931,8 @@ sub _prepare_indices($)
         # print STDERR "".$merged_index_entries->{$index_name}."\n";
         #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
         if (scalar(@{$merged_index_entries->{$index_name}})) {
-          $self->{'index_entries'}->{$index_name} = $merged_index_entries->{$index_name};
+          $self->{'index_entries'}->{$index_name}
+               = $merged_index_entries->{$index_name};
         }
       }
     }
@@ -997,8 +998,9 @@ sub _associate_other_nodes_to_sections($$)
       if (not $element_content->{'extra'}->{'associated_section'}
           and $element_content->{'extra'}->{'normalized'}) {
         if (defined($current_sectioning_command)) {
-          $additional_node_section_associations->{$element_content->{'extra'}->{'normalized'}}
-            = $current_sectioning_command;
+          $additional_node_section_associations
+              ->{$element_content->{'extra'}->{'normalized'}}
+                   = $current_sectioning_command;
         } else {
           push @$pending_nodes, $element_content->{'extra'}->{'normalized'};
         }
@@ -1232,8 +1234,9 @@ my %LaTeX_encoding_names_map = (
   'iso-8859-2' => ['latin2', 'T1'],
 
   # requires texlive-lang-cyrillic on debian.
-  # T2A seems to be the only required fontenc for Russian and Ukrainian according to
-  # https://www.latex-project.org/help/documentation/cyrguide.pdf
+  # T2A seems to be the only required fontenc for Russian and Ukrainian
+  # according to
+  #   https://www.latex-project.org/help/documentation/cyrguide.pdf
   # Font encodings for Cyrillic languages
   'koi8-r' => ['koi8-r', 'T2A'],
   'koi8-u' => ['koi8-u', 'T2A'],
@@ -1299,7 +1302,8 @@ sub _latex_header() {
   $header_code .= "\n";
 
   if ($self->{'floats'}) {
-    foreach my $normalized_float_type (sort(keys(%{$self->{'normalized_float_latex'}}))) {
+    foreach my $normalized_float_type
+                           (sort(keys(%{$self->{'normalized_float_latex'}}))) {
       my $latex_float_name
         = $self->{'normalized_float_latex'}->{$normalized_float_type};
       if (not exists($LaTeX_floats{$latex_float_name})) {
@@ -1313,7 +1317,8 @@ sub _latex_header() {
         }
         my $floats_extension = $self->{'floats_extension'};
         $header_code .= "% new float for type `$normalized_float_type'\n";
-        $header_code .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
+        $header_code
+           .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
 \\floatname{$latex_float_name}{$float_type}
 ";
       }
@@ -1333,7 +1338,8 @@ sub _latex_header() {
   foreach my $command (sort(keys(%description_command_new_commands))) {
     if ($self->{'description_format_commands'}->{$command}) {
       $header_code .= '% command used in \description format for '.$command."\n";
-      $header_code .= "\\newcommand".$description_command_new_commands{$command}."%\n";
+      $header_code .= "\\newcommand"
+                      .$description_command_new_commands{$command}."%\n";
       $header_code .= "\n";
     }
   }
@@ -1342,9 +1348,10 @@ sub _latex_header() {
       foreach my $command
          (sort(keys(%{$style_brace_format_command_new_commands{$command_context}}))) {
         if ($self->{'style_brace_format_commands'}->{$command_context}->{$command}) {
-          $header_code .= '% style command for '.$command." in '$command_context' formatting context\n";
+          $header_code .= '% style command for '.$command
+                          ." in '$command_context' formatting context\n";
           $header_code .= "\\newcommand"
-             .$style_brace_format_command_new_commands{$command_context}->{$command}."%\n";
+   .$style_brace_format_command_new_commands{$command_context}->{$command}."%\n";
           $header_code .= "\n";
         }
       }
@@ -1405,6 +1412,7 @@ sub _latex_header() {
     }
     $header_code .= "\n";
   }
+
   $header_code .= '% used for substitutions in commands
 \newcommand{\Texinfoplaceholder}[1]{}
 
@@ -1454,8 +1462,8 @@ roundcorner=10pt}
 
   if ($self->{'packages'}->{'embrac'}) {
     # in order to have brackets and parenthese upright in slanted typewriter
-    # \textsl{\texttt, \EmbracMakeKnown{texttt} is needed.  However, we only set it
-    # locally, otherwise \hyperref in \texttt can break.
+    # \textsl{\texttt, \EmbracMakeKnown{texttt} is needed.  However, we only
+    # set it locally, otherwise \hyperref in \texttt can break.
     $header_code .= '% braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines
 \EmbracOff{}%
@@ -1564,7 +1572,8 @@ roundcorner=10pt}
     $header .= "\\usepackage{babel}\n";
   }
   # Documentation says to include last
-  $header .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+  $header
+   .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
   $header .= "\n";
@@ -1607,8 +1616,9 @@ sub _begin_document($)
 
     if (exists($self->{'global_commands'}->{'titlepage'})) {
       my $element = $self->{'global_commands'}->{'titlepage'};
-      # start a group such that the changes are forgotten when front cover is done
-      # define glues dimensions that are used in front cover formatting.
+      # Start a group such that the changes are forgotten when front cover
+      # is done.
+      # Define glues dimensions that are used in front cover formatting.
       # Taken from Texinfo TeX.
       # FIXME replace \\newskip by \\newlen?
       $result .= "\\begin{titlepage}\n";
@@ -1940,7 +1950,7 @@ my %setchapternewpage_new_page_spec_code = (
 );
 
 # Note that the code should probably be different if the default code
-# wes not distinctive enough
+# was not distinctive enough
 sub _set_chapter_new_page($$)
 {
   my ($self, $setchapternewpage_spec) = @_;
@@ -1987,7 +1997,8 @@ sub _open_preformatted($$)
   my $self = shift;
   my $element = shift;
 
-  my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
+  my $command
+      = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
 
   if ($preformatted_code_commands{$command}) {
     push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
@@ -2012,7 +2023,8 @@ sub _close_preformatted($$)
   my $self = shift;
   my $element = shift;
 
-  my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
+  my $command
+     = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
   if ($preformatted_code_commands{$command}) {
     pop @{$self->{'formatting_context'}->[-1]->{'code'}};
   }
@@ -2024,7 +2036,8 @@ sub _open_preformatted_command($$)
   my $self = shift;
   my $command = shift;
   
-  push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}, $command;
+  push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}},
+         $command;
   return '';
 }
 
@@ -2033,8 +2046,9 @@ sub _close_preformatted_command($$)
   my $self = shift;
   my $command = shift;
 
-  my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}};
-    die if ($old_context ne $command);
+  my $old_context
+    = pop @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}};
+  die if ($old_context ne $command);
   return '';
 }
 
@@ -2070,7 +2084,8 @@ sub _title_font($$)
   if ($element->{'args'}->[0] and $element->{'args'}->[0]->{'contents'}) {
     # in Texinfo TeX seems a bit smaller, but LARGE seems too small
     my $result = "{\\huge \\bfseries ";
-    $result .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
+    $result
+      .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
     $result .= '}';
     return $result;
   }
@@ -2153,9 +2168,10 @@ sub _xtable_description_command_format($$)
       # gather for outputting in the preamble if associated to a new command
       if (exists($description_command_new_commands{$command_as_argument})) {
         $self->{'description_format_commands'}->{$command_as_argument} = 1;
-      } elsif ($style_brace_format_command_new_commands{'cmd_text'}->{$command_as_argument}) {
+      } elsif ($style_brace_format_command_new_commands{'cmd_text'}
+                                                     ->{$command_as_argument}) {
         $self->{'style_brace_format_commands'}->{'cmd_text'}
-                                                     ->{$command_as_argument} = 1;
+                                                 ->{$command_as_argument} = 1;
       }
       return $description_command_format{$command_as_argument}
     }
@@ -2170,8 +2186,11 @@ sub _kbd_code_style($)
   return (defined($kbdinputstyle)
           and ($kbdinputstyle eq 'code'
             or ($kbdinputstyle eq 'example'
-              and (not (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})
-                        and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]})))));
+              and (not (scalar(@{$self->{'formatting_context'}->[-1]
+                                                   ->{'preformatted_context'}})
+                        and $preformatted_code_commands{
+                                       $self->{'formatting_context'}->[-1]
+                                         ->{'preformatted_context'}->[-1]})))));
 }
 
 sub _finish_front_cover_page($)
@@ -2333,7 +2352,8 @@ sub _convert($$)
   my ($self, $element) = @_;
 
   if ($self->{'debug'}) {
-    print STDERR "CONVLTX ".Texinfo::Common::debug_print_element_short($element)."\n";
+    print STDERR "CONVLTX "
+         .Texinfo::Common::debug_print_element_short($element)."\n";
     if ($self->{'debug'} > 4) {
       print STDERR "    CTX "._show_top_context_stack($self)."\n";
     }
@@ -2350,7 +2370,8 @@ sub _convert($$)
                      and $cmdname ne 'inlinefmtifelse'
                      and (($inline_format_commands{$cmdname}
                           and (!$element->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
+                               or !$self->{'expanded_formats_hash'}
+                                      ->{$element->{'extra'}->{'format'}}))
                          or (!$inline_format_commands{$cmdname}
                              and !defined($element->{'extra'}->{'expand_index'}))))))) {
     return '';
@@ -2504,36 +2525,41 @@ sub _convert($$)
         my $encoding = $self->{'output_encoding_name'};
         if ($letter_no_arg_commands{$converted_command}) {
           my $conversion
-            = Texinfo::Convert::Unicode::brace_no_arg_command($converted_command,
-                                                              $encoding);
+           = Texinfo::Convert::Unicode::brace_no_arg_command($converted_command,
+                                                             $encoding);
           if (defined($conversion)) {
             $result .= $conversion;
             return $result;
           }
         }
       }
-      if (exists($LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command})) {
+      if (exists($LaTeX_no_arg_brace_commands{$command_format_context}
+                                                     ->{$converted_command})) {
         if ($converted_command eq 'error'
-            and $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'}) {
-          # in a sectioning command, the contents bookmark is also generated, and
-          # some commands do not play well with the contents bookmark.  In particular
-          # \fbox.  \texorpdfstring allows to specify a different output for
+            and $self->{'formatting_context'}->[-1]
+                                         ->{'in_sectioning_command_heading'}) {
+          # in a sectioning command, the contents bookmark is also generated,
+          # and some commands do not play well with the contents bookmark.
+          # In particular \fbox.
+          # \texorpdfstring allows to specify a different output for
           # the string in contents bookmark.
           #
-          # TODO Note that other commands than @error are not perfect in contents
-          # bookmarks, in particular all the commands formatted in math disappear.
-          # However the other commands have no clear string representations,
-          # being removed in the contents bookmark strings is not so bad until
-          # a better solution is found
+          # TODO Note that other commands than @error are not perfect in
+          # contents bookmarks, in particular all the commands formatted
+          # in math disappear.  However the other commands have no clear
+          # string representations, being removed in the contents bookmark
+          # strings is not so bad until a better solution is found
           #
           # See also
           # https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
           $result .= '\texorpdfstring{'.
-            $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command}
+            $LaTeX_no_arg_brace_commands{$command_format_context}
+                                                          ->{$converted_command}
             # TODO translation
             .'}{error}'
         } else {
-          $result .= $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command};
+          $result .= $LaTeX_no_arg_brace_commands{$command_format_context}
+                                                         ->{$converted_command};
         }
       } else {
         die "BUG: unknown brace_no_arg_commands $cmdname $converted_command\n";
@@ -2551,7 +2577,8 @@ sub _convert($$)
         my $accent_arg = '';
 
         if ($LaTeX_accent_commands{$command_format_context}->{$cmdname}) {
-          $result .= "\\$LaTeX_accent_commands{$command_format_context}->{$cmdname}\{";
+          $result
+           .= "\\$LaTeX_accent_commands{$command_format_context}->{$cmdname}\{";
           if ($element->{'args'}) {
             $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
@@ -2576,10 +2603,12 @@ sub _convert($$)
         # accent without math mode command, use slanted text
         } elsif ($command_format_context eq 'cmd_math'
                  and $LaTeX_accent_commands{'cmd_text'}->{$cmdname}) {
-          $result .= "\\textsl{\\$LaTeX_accent_commands{'cmd_text'}->{$cmdname}\{";
+          $result
+               .= "\\textsl{\\$LaTeX_accent_commands{'cmd_text'}->{$cmdname}\{";
           # we do not want accents within to be math accents
           if ($element->{'args'}) {
-            push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_text';
+            push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
+                 'ctx_text';
             $accent_arg = _convert($self, $element->{'args'}->[0]);
             my $old_context
               = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
@@ -2617,9 +2646,11 @@ sub _convert($$)
         $self->{'style_brace_format_commands'}->{$command_format_context}
                                                      ->{$formatted_cmdname} = 1;
       }
-      if ($LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname}) {
+      if ($LaTeX_style_brace_commands{$command_format_context}
+                                                       ->{$formatted_cmdname}) {
         my $LaTeX_style_command
-          = $LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname};
+          = $LaTeX_style_brace_commands{$command_format_context}
+                                                 ->{$formatted_cmdname};
         if ($need_known_embrac{$LaTeX_style_command}
             and $self->{'formatting_context'}->[-1]->{'embrac'}
             and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
@@ -2636,7 +2667,8 @@ sub _convert($$)
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
-      if ($LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname}) {
+      if ($LaTeX_style_brace_commands{$command_format_context}
+                                                   ->{$formatted_cmdname}) {
         $result .= '}';
       }
       if ($self->{'quotes_map'}->{$formatted_cmdname}) {
@@ -2668,7 +2700,8 @@ sub _convert($$)
         $contents = _convert($self, $element->{'args'}->[0]);
         $contents =~ s/\n/ /;
       }
-      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+      my $old_context
+         = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_raw');
 
       # Check delimiter is not in contents.  If it is, try other characters.
@@ -2730,10 +2763,12 @@ sub _convert($$)
               and defined($element->{'args'}->[1])
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}){
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
+               'ctx_raw';
           $width = _convert($self, {'contents'
                          => $element->{'args'}->[1]->{'contents'}});
-          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+          my $old_context
+            = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
           if ($width !~ /\S/) {
             $width = undef;
@@ -2744,10 +2779,12 @@ sub _convert($$)
               and defined($element->{'args'}->[2])
               and $element->{'args'}->[2]->{'contents'}
               and @{$element->{'args'}->[2]->{'contents'}}) {
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
+               'ctx_raw';
           $height = _convert($self, {'contents'
                          => $element->{'args'}->[2]->{'contents'}});
-          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+          my $old_context
+             = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
           if ($height !~ /\S/) {
             $height = undef;
@@ -2824,8 +2861,8 @@ sub _convert($$)
             my $description = _convert($self, {'contents',
                                    $element->{'args'}->[1]->{'contents'}});
             my $text = $self->gdt('{text} ({url})',
-                          {'text' => $description, 'url' => "\\nolinkurl{$url_text}"},
-                                       undef, 'translated_text');
+                    {'text' => $description, 'url' => "\\nolinkurl{$url_text}"},
+                                  undef, 'translated_text');
             $result .= "\\href{$url_text}{$text}";
             return $result;
           } else {
@@ -2849,7 +2886,8 @@ sub _convert($$)
       _pop_context($self);
       return $result;
     } elsif ($cmdname eq 'anchor') {
-      my $anchor_label = _tree_anchor_label($element->{'extra'}->{'node_content'});
+      my $anchor_label
+         = _tree_anchor_label($element->{'extra'}->{'node_content'});
       $result .= "\\label{$anchor_label}%\n";
       return $result;
     } elsif ($ref_commands{$cmdname}) {
@@ -2881,7 +2919,8 @@ sub _convert($$)
                  and $element->{'extra'}->{'node_argument'}
                  and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
                  and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
-          $file_contents = $element->{'extra'}->{'node_argument'}->{'manual_content'};
+          $file_contents
+             = $element->{'extra'}->{'node_argument'}->{'manual_content'};
         }
         my $filename = '';
         if ($file_contents) {
@@ -2896,10 +2935,12 @@ sub _convert($$)
             and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
             and !$element->{'extra'}->{'node_argument'}->{'manual_content'}
             and $self->{'labels'}
-            and $self->{'labels'}->{$element->{'extra'}->{'node_argument'}->{'normalized'}}) {
+            and $self->{'labels'}
+                   ->{$element->{'extra'}->{'node_argument'}->{'normalized'}}) {
           # internal reference
           my $reference
-           = $self->{'labels'}->{$element->{'extra'}->{'node_argument'}->{'normalized'}};
+           = $self->{'labels'}
+                   ->{$element->{'extra'}->{'node_argument'}->{'normalized'}};
           my $reference_node_content = $reference->{'extra'}->{'node_content'};
           
           my $section_command;
@@ -2909,15 +2950,18 @@ sub _convert($$)
             my $normalized_name
               = $element->{'extra'}->{'node_argument'}->{'normalized'};
             if ($self->{'normalized_nodes_associated_section'}
-                and $self->{'normalized_nodes_associated_section'}->{$normalized_name}) {
+                and $self->{'normalized_nodes_associated_section'}
+                                                         ->{$normalized_name}) {
               $section_command
-                = $self->{'normalized_nodes_associated_section'}->{$normalized_name};
+                = $self->{'normalized_nodes_associated_section'}
+                                                        ->{$normalized_name};
             } elsif ($reference->{'cmdname'} eq 'node') {
               # can only happen if there is no sectioning commands at all,
               # otherwise it would have been associated in
               # _associate_other_nodes_to_sections.  Nothing to do in that case.
             } else {
-              # an anchor.  Find associated section using top level parent @-command.
+              # an anchor.  Find associated section using top level parent
+              # @-command.
               my $current = $reference;
               while ($current->{'parent'}) {
                 $current = $current->{'parent'};
@@ -2927,7 +2971,8 @@ sub _convert($$)
                     $section_command = $current;
                   } else {
                     if ($current->{'extra'}->{'associated_section'}) {
-                      $section_command = $current->{'extra'}->{'associated_section'};
+                      $section_command
+                           = $current->{'extra'}->{'associated_section'};
                     } elsif (exists($current->{'extra'}->{'normalized'})
                              and $self->{'normalized_nodes_associated_section'}
                                         ->{$current->{'extra'}->{'normalized'}}) {
@@ -2939,8 +2984,9 @@ sub _convert($$)
                   last;
                 } elsif ($current->{'type'}
                          and $current->{'type'} eq 'before_node_section') {
-                  # anchor before Top node, can be in copying, titlepage, or directly
-                  # in the main document.  Could also be before setfilename.
+                  # anchor before Top node, can be in copying, titlepage,
+                  # or directly in the main document.
+                  # Could also be before setfilename.
                   last;
                 }
               }
@@ -2952,7 +2998,9 @@ sub _convert($$)
                 # that means that it is an anchor, but we did not find an root
                 # sectioning command nor 'before_node_section' type, which
                 # should not be possible.
-                print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$reference->{'extra'}})))."\n";
+                print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}
+                       .": $normalized_name: "
+                       .join("|", sort(keys(%{$reference->{'extra'}})))."\n";
               }
             }
           }
@@ -2962,14 +3010,17 @@ sub _convert($$)
               and $reference->{'cmdname'} eq 'float') {
             if ($reference->{'extra'}->{'type'}
                 and $reference->{'extra'}->{'type'}->{'normalized'} ne '') {
-              my $float_type_contents = $reference->{'extra'}->{'type'}->{'content'};
-              $float_type = _convert($self, {'contents' => $float_type_contents});
+              my $float_type_contents
+                          = $reference->{'extra'}->{'type'}->{'content'};
+              $float_type
+                   = _convert($self, {'contents' => $float_type_contents});
             } else {
               $float_type = '';
             }
           }
           my $text_representation;
-          if ($self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'}) {
+          if ($self->{'formatting_context'}->[-1]
+                                    ->{'in_sectioning_command_heading'}) {
             # hyperref leads, understandably to some errors in a heading for
             # the table of content.  In that case, setup a text representation.
             $text_representation = '';
@@ -3032,22 +3083,23 @@ sub _convert($$)
             if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
                 and $section_command) {
               if ($section_command->{'structure'}->{'section_level'} > 1) {
-                # TODO command that could be used for translation \sectionname does
-                # not exist in the default case.  it is defined in the pagenote package together with
-                # \pagename which is page in the default case, but it is unclear if this
-                # can be used as a basis for translations
+                # TODO command that could be used for translation \sectionname
+                # does not exist in the default case.  it is defined in the
+                # pagenote package together with \pagename which is page in
+                # the default case, but it is unclear if this can be used as
+                # a basis for translations.
                 $reference_result
-                  .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+  .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {
                 # TODO translation
                 $reference_result
-                  .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+  .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               }
             } else {
               # anchor or document without sectioning commands
               # TODO translation
               $reference_result
-                .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
+  .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
             }
           }
           if (not defined($text_representation)) {
@@ -3118,9 +3170,11 @@ sub _convert($$)
             and defined($element->{'args'}->[-1])
             and $element->{'args'}->[-1]->{'contents'}
             and @{$element->{'args'}->[-1]->{'contents'}}) {
-          my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})',
-                           {'abbr_or_acronym' => $argument,
-                            'explanation' => $element->{'args'}->[-1]->{'contents'}});
+          my $prepended
+           = $self->gdt('{abbr_or_acronym} ({explanation})',
+                        {'abbr_or_acronym' => $argument,
+                         'explanation'
+                                   => $element->{'args'}->[-1]->{'contents'}});
           $result .= _convert($self, $prepended);
         } else {
           $result .= _convert($self, $argument);
@@ -3132,7 +3186,8 @@ sub _convert($$)
       my $arg_index = 1;
       if ($cmdname eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
-               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
+               or !$self->{'expanded_formats_hash'}
+                                        ->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
       if (scalar(@{$element->{'args'}}) > $arg_index
@@ -3140,12 +3195,14 @@ sub _convert($$)
          and $element->{'args'}->[$arg_index]->{'contents'}
          and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
         if ($cmdname eq 'inlineraw') {
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
+               'ctx_raw';
         }
         $result .= _convert($self, {'contents'
                          => $element->{'args'}->[$arg_index]->{'contents'}});
         if ($cmdname eq 'inlineraw') {
-          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+          my $old_context
+              = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
         }
       }
@@ -3161,9 +3218,11 @@ sub _convert($$)
             $result .= '$';
           }
         }
-        my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+        my $old_context
+            = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
         die if ($old_context ne 'ctx_math');
-        my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
+        my $old_math_style
+            = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
         die if ($old_math_style ne 'one-line');
         return $result;
       } else {
@@ -3203,12 +3262,14 @@ sub _convert($$)
         _pop_context($self);
       }
 
-      if (scalar(@{$self->{'formatting_context'}->[-1]->{'non_floating_commands'}})) {
+      if (scalar(@{$self->{'formatting_context'}->[-1]
+                                               ->{'non_floating_commands'}})) {
         my $normalized_float_type = '';
         if ($float->{'extra'}->{'type'}) {
           $normalized_float_type = $float->{'extra'}->{'type'}->{'normalized'};
         }
-        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+        if (not exists($self->{'normalized_float_latex'}
+                                                 ->{$normalized_float_type})) {
           cluck("caption \@float $normalized_float_type: not found\n");
           return '';
         }
@@ -3345,7 +3406,8 @@ sub _convert($$)
             my $prototype_text
               = Texinfo::Convert::Text::convert_to_text($prototype,
                  $self->{'convert_text_options'});
-            my $length = Texinfo::Convert::Unicode::string_width($prototype_text);
+            my $length
+                 = Texinfo::Convert::Unicode::string_width($prototype_text);
             $total_length += $length;
             push @prototypes_length, $length;
           }
@@ -3490,7 +3552,8 @@ sub _convert($$)
       $result .= $index_entry;
     } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
-             and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
+             and $block_commands{$element->{'parent'}->{'cmdname'}}
+                                                    eq 'item_container') {
       # item in @enumerate and @itemize
       $result .= '\item ';
     } elsif ($cmdname eq 'headitem' or $cmdname eq 'item'
@@ -3548,11 +3611,13 @@ sub _convert($$)
           and $self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}
           and @{$self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
         my $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
-        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+        if (not exists($self->{'normalized_float_latex'}
+                                                 ->{$normalized_float_type})) {
           cluck("\@listoffloats $normalized_float_type: not found\n");
           return $result;
         }
-        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+        my $latex_float_name
+            = $self->{'normalized_float_latex'}->{$normalized_float_type};
         # a listoffigures in @example leads to an error in the
         # lof file.  So stop and restart preformatted environments
         $preformatted_to_reopen
@@ -3924,7 +3989,8 @@ sub _convert($$)
             # before the tabularx
             $def_line_result = '\EmbracMakeKnown{'.$defined_style_embrac.'}'
                                ."%\n" .$def_line_result;
-            $def_line_result .= '\cs_undefine:N{\embrac_'.$defined_style_embrac.':nn}'.
+            $def_line_result
+              .= '\cs_undefine:N{\embrac_'.$defined_style_embrac.':nn}'.
         '\cs_undefine:N{\embrac_orig_'.$defined_style_embrac.':n}'.
         '\cs_undefine:N{\__embrac_'.$defined_style_embrac.':n}%
 ';
@@ -4003,9 +4069,12 @@ sub _convert($$)
       if ($self->{'debug'} and $self->{'debug'} > 2) {
         my @str_contents = ();
         foreach my $item_content (@contents) {
-          push @str_contents, Texinfo::Common::debug_print_element_short($item_content);
+          push @str_contents,
+               Texinfo::Common::debug_print_element_short($item_content);
         }
-        print STDERR "C ".Texinfo::Common::debug_print_element_short($element).": ".join("|", @str_contents)."\n";
+        print STDERR "C "
+           .Texinfo::Common::debug_print_element_short($element)
+                                     .": ".join("|", @str_contents)."\n";
       }
     }
     pop @{$self->{'current_contents'}};
@@ -4025,13 +4094,13 @@ sub _convert($$)
     } elsif ($type eq 'preformatted') {
       $result .= _close_preformatted($self, $element);
     } elsif ($type eq 'before_item') {
-      # LaTeX environments do not accept text before the first item, add an item
+      # LaTeX environments do not accept text before the first item, add
+      # an item:
       if ($result =~ /\S/) {
         # FIXME if there is only an index element it is content and
         # triggers an empty \item.  It is mitigated by
         # move_index_entries_after_items for enumerate and itemize, but not
-        # for @*table.  For @*table there is relate_index_entries_to_table_entries
-        # but it has no obvious use here
+        # for @*table.
         if ($block_commands{$element->{'parent'}->{'cmdname'}}
             and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_line') {
           # it is important to have an empty optional argument otherwise
@@ -4106,7 +4175,8 @@ sub _convert($$)
       if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {
         # NOTE when @quotation is in a preformatted environment (@example...),
         # we are not in a preformatted type here, such that the conversion
-        # does not take into account the preformatted environment.  Probably best.
+        # does not take into account the preformatted environment.
+        # Probably best.
         foreach my $author (@{$element->{'extra'}->{'authors'}}) {
           if ($author->{'args'}->[0]->{'contents'}) {
             $result .= _convert($self,
@@ -4123,17 +4193,20 @@ sub _convert($$)
 
     # close the contexts and register the cells
     if ($block_raw_commands{$cmdname}) {
-      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+      my $old_context
+          = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_raw');
     } elsif ($block_math_commands{$cmdname}) {
-      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+      my $old_context
+          = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_math');
       if ($cmdname eq 'displaymath') {
         $result .= "\\]\n";
         # reopen all preformatted commands
         $result .= _open_preformatted_stack($self, $preformatted_to_reopen);
       }
-      my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
+      my $old_math_style
+         = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
     } elsif ($element->{'parent'}->{'type'}
              and $element->{'parent'}->{'type'} eq 'row') {
