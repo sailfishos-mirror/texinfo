@@ -19,6 +19,8 @@ info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
 texinfo_TEXINFOS = pod2texi.texi
 DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 
+TEXINFO_TEX = texinfo.tex
+
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
                        top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
                        top_builddir="$(top_builddir)" ; export top_builddir ;
