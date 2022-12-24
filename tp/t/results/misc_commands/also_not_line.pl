@@ -400,6 +400,15 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @refill is obsolete
 ',
     'file_name' => '',
@@ -409,12 +418,39 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 14,
     'macro' => '',
     'text' => '@page should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
   {

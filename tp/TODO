@@ -118,23 +118,8 @@ the context command stack.
 
 
 
-Punctuation and spaces before @image do not lead to a doubling of space.
-In fact @image is completly formatted outside of usual formatting containers.
-Not sure what should be the right way?
-test in info_test/image_and_punctuation
-
 Image on sectioning command line haven't their length ignored correctly.
 Not sure it is a big deal.  An example in sectioning/at_commands_in_refs.
-
-warn when a @noindent/@indent appears within a paragraph.
-
-in info_tests/error_in_footnote there is an error message for each
-listoffloats;  Line numbers are right, though, so maybe this is not
-an issue.
-
-converters_tests/things_before_setfilename there is no error
-for anchor and footnote before setfilename.  It is not completly
-clear that there should be, though.
 
 Recursive expansion of @value may lead to an infinite loop.  Wait for
 marksource to proceed.
@@ -241,6 +226,19 @@ Default is false.
 
 In Plaintext, @quotation text could have the right margin narrowed to be more
 in line with other output formats.
+
+Punctuation and spaces before @image do not lead to a doubling of space.
+In fact @image is completly formatted outside of usual formatting containers.
+Not sure what should be the right way?
+test in info_test/image_and_punctuation
+
+in info_tests/error_in_footnote there is an error message for each
+listoffloats;  Line numbers are right, though, so maybe this is not
+an issue.
+
+converters_tests/things_before_setfilename there is no error
+for anchor and footnote before setfilename.  It is not completly
+clear that there should be, though.
 
 
 DocBook

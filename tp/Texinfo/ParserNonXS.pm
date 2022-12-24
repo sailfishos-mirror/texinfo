@@ -1470,6 +1470,23 @@ sub _kbd_formatted_as_code($$)
   return 0;
 }
 
+sub _in_paragraph($$)
+{
+  my ($self, $current) = @_;
+  while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+         and exists($self->{'brace_commands'}
+                                      ->{$current->{'parent'}->{'cmdname'}})
+         and $self->{'brace_commands'}
+                           ->{$current->{'parent'}->{'cmdname'}} ne 'context') {
+    $current = $current->{'parent'};
+  }
+  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 # close brace commands, that don't set a new context (ie @caption, @footnote)
 sub _close_all_style_commands($$$;$$)
 {
@@ -3811,12 +3828,12 @@ sub _end_line($$$)
 
     # check for infinite loop bugs...
     if ($current eq $current_old) {
-      my $indent = '- ';
-      my $tree_msg = $indent . _print_current($current);
+      my $indent_str = '- ';
+      my $tree_msg = $indent_str . _print_current($current);
       while ($current->{'parent'}) {
-        $indent = '-'.$indent;
+        $indent_str = '-'.$indent_str;
         $current = $current->{'parent'};
-        $tree_msg .= $indent . _print_current($current);
+        $tree_msg .= $indent_str . _print_current($current);
       }
       $self->_bug_message("Nothing closed while a line context remains\n"
                                                                 . $tree_msg,
@@ -4905,6 +4922,12 @@ sub _process_remaining_on_line($$$$)
           $misc = { 'cmdname' => $command, 'parent' => $current,
               'source_info' => $source_info };
           push @{$current->{'contents'}}, $misc;
+          if (($command eq 'indent' or $command eq 'noindent')
+               and _in_paragraph($self, $current)) {
+            $self->_line_warn(sprintf(__("\@%s is useless inside of a paragraph"),
+                                      $command),
+                              $source_info);
+          }
         }
         $line = _start_empty_line_after_command($line, $current, undef);
       }

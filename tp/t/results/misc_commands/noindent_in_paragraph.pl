@@ -90,7 +90,26 @@ Begin para2
 after noindent2.
 ';
 
-$result_errors{'noindent_in_paragraph'} = [];
+$result_errors{'noindent_in_paragraph'} = [
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'noindent_in_paragraph'} = {};

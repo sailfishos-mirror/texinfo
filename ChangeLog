@@ -1,5 +1,17 @@
 2022-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	Warn that @indent and @noindent are useless inside paragraphs
+
+	* tp/Texinfo/ParserNonXS.pm (_in_paragraph)
+	(_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (in_paragraph)
+	(handle_other_command): add in_paragraph that returns true if
+	in a paragraph, including in a brace @-command except for a context
+	brace command.  Use that function to warn if @indent or @noindent
+	are in a pragraph.
+
+2022-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: cut at 80 columns, reindent.
 
 2022-12-24  Patrice Dumas  <pertusus@free.fr>

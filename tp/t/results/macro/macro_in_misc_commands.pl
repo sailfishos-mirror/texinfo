@@ -4254,6 +4254,15 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+',
+    'file_name' => '',
+    'line_nr' => 163,
+    'macro' => 'noindentmacro',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @refill is obsolete (possibly involving @refillmacro)
 ',
     'file_name' => '',
@@ -4263,12 +4272,39 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+',
+    'file_name' => '',
+    'line_nr' => 166,
+    'macro' => 'noindentmacro',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+',
+    'file_name' => '',
+    'line_nr' => 168,
+    'macro' => 'noindentmacro',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
 ',
     'file_name' => '',
     'line_nr' => 173,
     'macro' => 'pagemacro',
     'text' => '@page should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+',
+    'file_name' => '',
+    'line_nr' => 174,
+    'macro' => 'noindentmacro',
+    'text' => '@noindent is useless inside of a paragraph',
     'type' => 'warning'
   },
   {

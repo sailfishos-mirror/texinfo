@@ -459,6 +459,15 @@ index';
 
 $result_errors{'at_commands_glued_in_paragraph'} = [
   {
+    'error_line' => 'warning: @noindent is useless inside of a paragraph
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => '',
+    'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should only appear at the beginning of a line
 ',
     'file_name' => '',

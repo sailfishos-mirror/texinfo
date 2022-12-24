@@ -77,6 +77,21 @@ check_no_text (ELEMENT *current)
   return after_paragraph;
 }
 
+int
+in_paragraph (ELEMENT *current)
+{
+  while (current->parent
+         && (command_flags(current->parent) & CF_brace)
+         && !(command_data(current->parent->cmd).data == BRACE_context))
+    {
+      current = current->parent;
+    }
+  if (current->type == ET_paragraph)
+    return 1;
+  else
+    return 0;
+}
+
 /* symbol skipspace other */
 ELEMENT *
 handle_other_command (ELEMENT *current, char **line_inout,
@@ -257,6 +272,12 @@ handle_other_command (ELEMENT *current, char **line_inout,
           misc->cmd = cmd;
           misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
+          if ((cmd == CM_indent || cmd == CM_noindent)
+               && in_paragraph (current))
+            {
+              line_warn ("@%s is useless inside of a paragraph",
+                         command_name(cmd));
+            }
         }
       start_empty_line_after_command (current, &line, 0);
     }
