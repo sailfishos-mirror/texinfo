@@ -1,5 +1,15 @@
 2022-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_in_paragraph),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (in_paragraph):
+	go to the container of the parent command when going through
+	parent brace commands.
+
+	* tp/t/08misc_commands.t: add indent_in_command_in_paragraph
+	test with @indent and @noindent in an @-command in a paragraph.
+
+2022-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	Warn that @indent and @noindent are useless inside paragraphs
 
 	* tp/Texinfo/ParserNonXS.pm (_in_paragraph)

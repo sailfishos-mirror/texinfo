@@ -300,6 +300,9 @@ after noindent2.
 
 aaa
 '],
+['indent_in_command_in_paragraph',
+'In para @code{@indent}.  @asis{@b{in double command@noindent}}.
+'],
 ['empty_center',
 '@center 
 '],

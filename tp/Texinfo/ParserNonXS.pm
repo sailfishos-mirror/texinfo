@@ -1478,7 +1478,7 @@ sub _in_paragraph($$)
                                       ->{$current->{'parent'}->{'cmdname'}})
          and $self->{'brace_commands'}
                            ->{$current->{'parent'}->{'cmdname'}} ne 'context') {
-    $current = $current->{'parent'};
+    $current = $current->{'parent'}->{'parent'};
   }
   if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
     return 1;

@@ -84,7 +84,7 @@ in_paragraph (ELEMENT *current)
          && (command_flags(current->parent) & CF_brace)
          && !(command_data(current->parent->cmd).data == BRACE_context))
     {
-      current = current->parent;
+      current = current->parent->parent;
     }
   if (current->type == ET_paragraph)
     return 1;
