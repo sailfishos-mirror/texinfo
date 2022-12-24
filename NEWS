@@ -9,6 +9,9 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+* Language
+  . @cartouche takes an argument to specify the cartouche title
+
 * texi2any
  . @itemx at the beginning of a @table is now an error, not a warning
  . HTML output:
