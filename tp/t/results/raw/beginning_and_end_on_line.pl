@@ -221,6 +221,15 @@ $result_errors{'beginning_and_end_on_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: unexpected argument on @tex line: in tex
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => 'unexpected argument on @tex line: in tex',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
@@ -230,12 +239,30 @@ $result_errors{'beginning_and_end_on_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: unexpected argument on @verbatim line: in verbatim
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => 'unexpected argument on @verbatim line: in verbatim',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @html line: in html
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => 'unexpected argument on @html line: in html',
     'type' => 'warning'
   }
 ];

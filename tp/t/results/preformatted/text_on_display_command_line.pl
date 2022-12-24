@@ -327,6 +327,24 @@ in display
 
 $result_errors{'text_on_display_command_line'} = [
   {
+    'error_line' => 'warning: unexpected argument on @display line: text on line
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'unexpected argument on @display line: text on line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @display line: text on line followed by text
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => 'unexpected argument on @display line: text on line followed by text',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: display text after end
 ',
     'file_name' => '',

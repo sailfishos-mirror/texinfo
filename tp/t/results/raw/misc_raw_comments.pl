@@ -274,6 +274,15 @@ $result_errors{'misc_raw_comments'} = [
     'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @tex line: in tex
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => 'unexpected argument on @tex line: in tex',
+    'type' => 'warning'
   }
 ];
 

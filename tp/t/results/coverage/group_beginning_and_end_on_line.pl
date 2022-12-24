@@ -85,6 +85,15 @@ $result_errors{'group_beginning_and_end_on_line'} = [
     'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @group line: within
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'unexpected argument on @group line: within',
+    'type' => 'warning'
   }
 ];
 

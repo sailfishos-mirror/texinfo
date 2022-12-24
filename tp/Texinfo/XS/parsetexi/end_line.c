@@ -1126,8 +1126,7 @@ end_line_starting_block (ELEMENT *current)
       if (current_section)
         add_extra_element (current, "float_section", current_section);
     }
-
-  if (command_flags(current) & CF_blockitem)
+  else if (command_flags(current) & CF_blockitem)
     {
       if (current->cmd == CM_enumerate)
         {
@@ -1299,6 +1298,21 @@ end_line_starting_block (ELEMENT *current)
         current = bi;
       }
     } /* CF_blockitem */
+  else if (command_data (current->cmd).args_number == 0
+           && ! command_data (current->cmd).flags & CF_variadic
+           && current->args.number > 0
+           && current->args.list[0]->contents.number > 0)
+    {
+      ELEMENT tmp;
+      char *texi_arg;
+
+      /* expand the contents to avoid surrounding spaces */
+      memset (&tmp, 0, sizeof (ELEMENT));
+      tmp.contents = current->args.list[0]->contents;
+      texi_arg = convert_to_texinfo (&tmp);
+      command_warn (current, "unexpected argument on @%s line: %s",
+                     command_name(current->cmd), texi_arg);
+    }
 
   if (command_data(current->cmd).data == BLOCK_menu)
     {

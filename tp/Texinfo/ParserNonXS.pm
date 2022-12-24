@@ -3426,11 +3426,10 @@ sub _end_line_starting_block($$$)
     _register_label($self->{'targets'}, $current, $float_label);
     $current->{'extra'}->{'float_section'} = $self->{'current_section'}
       if (defined($self->{'current_section'}));
-  }
 
-  # all the commands with @item
-  if ($current->{'cmdname'}
-      and $blockitem_commands{$current->{'cmdname'}}) {
+    # all the commands with @item
+  } elsif ($current->{'cmdname'}
+           and $blockitem_commands{$current->{'cmdname'}}) {
     if ($current->{'cmdname'} eq 'enumerate') {
       my $spec = '1';
       if ($current->{'args'} and $current->{'args'}->[0]
@@ -3560,6 +3559,18 @@ sub _end_line_starting_block($$$)
     push @{$current->{'contents'}}, { 'type' => 'before_item',
                                       'parent', $current };
     $current = $current->{'contents'}->[-1];
+  } elsif (not $commands_args_number{$current->{'cmdname'}}
+           and not exists($variadic_commands{$current->{'cmdname'}})
+           and $current->{'args'}
+           and scalar(@{$current->{'args'}})
+           and $current->{'args'}->[0]->{'contents'}
+           and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
+    # expand the contents to avoid surrounding spaces
+    my $texi_arg = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                       {'contents' => $current->{'args'}->[0]->{'contents'}});
+    $self->_command_warn($current, $source_info,
+                         __("unexpected argument on \@%s line: %s"),
+                         $current->{'cmdname'}, $texi_arg);
   }
   if ($current->{'cmdname'}
       and $block_commands{$current->{'cmdname'}} eq 'menu') {

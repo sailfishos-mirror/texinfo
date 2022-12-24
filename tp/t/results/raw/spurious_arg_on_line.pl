@@ -233,7 +233,35 @@ in verbatim
 
 ';
 
-$result_errors{'spurious_arg_on_line'} = [];
+$result_errors{'spurious_arg_on_line'} = [
+  {
+    'error_line' => 'warning: unexpected argument on @tex line: argt
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => 'unexpected argument on @tex line: argt',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @verbatim line: argverbatim
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => 'unexpected argument on @verbatim line: argverbatim',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: unexpected argument on @html line: argh
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => 'unexpected argument on @html line: argh',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'spurious_arg_on_line'} = {};

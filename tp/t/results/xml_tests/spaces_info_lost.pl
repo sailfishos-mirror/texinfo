@@ -152,7 +152,17 @@ $result_texts{'spaces_info_lost'} = 'in bad display
 in verbatim @g 
 ';
 
-$result_errors{'spaces_info_lost'} = [];
+$result_errors{'spaces_info_lost'} = [
+  {
+    'error_line' => 'warning: unexpected argument on @display line: text on display line
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'unexpected argument on @display line: text on display line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'spaces_info_lost'} = {};
