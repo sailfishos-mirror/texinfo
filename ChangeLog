@@ -1,5 +1,9 @@
 2022-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm: cut at 80 columns, reindent.
+
+2022-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	Warning for block commands without argument with an argument
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
