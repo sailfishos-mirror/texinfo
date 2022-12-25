@@ -12603,12 +12603,12 @@ $result_floats{'all_commands_delimiters_printindex'} = {};
 
 $result_indices_sort_strings{'all_commands_delimiters_printindex'} = {
   'fn' => [
-    ')expose on )Window',
-    ')expose on )Window',
     ',expose on ,Window',
     ',expose on ,Window',
     ';expose on ;Window',
     ';expose on ;Window',
+    ')expose on )Window',
+    ')expose on )Window',
     'A2',
     'A2',
     'A3',
@@ -12618,12 +12618,12 @@ $result_indices_sort_strings{'all_commands_delimiters_printindex'} = {
     'A4 on A2',
     'A4 on A2',
     'apply',
-    'e)xpose on W)indow',
-    'e)xpose on W)indow',
     'e,xpose on W,indow',
     'e,xpose on W,indow',
     'e;xpose on W;indow',
     'e;xpose on W;indow',
+    'e)xpose on W)indow',
+    'e)xpose on W)indow',
     'expose on W,indow',
     'expose on Window',
     'expose on windows',
@@ -12776,12 +12776,12 @@ Functions
  [index ]
 * Menu:
 
-* )expose on )Window:                    Top.                 (line  51)
-* )expose on )Window <1>:                Top.                 (line  55)
 * ,expose on ,Window:                    Top.                 (line  43)
 * ,expose on ,Window <1>:                Top.                 (line  47)
 * ;expose on ;Window:                    Top.                 (line  59)
 * ;expose on ;Window <1>:                Top.                 (line  63)
+* )expose on )Window:                    Top.                 (line  51)
+* )expose on )Window <1>:                Top.                 (line  55)
 * A2:                                    Top.                 (line  69)
 * A2 <1>:                                Top.                 (line  71)
 * A3:                                    Top.                 (line  77)
@@ -12791,12 +12791,12 @@ Functions
 * A4 on A2:                              Top.                 (line 101)
 * A4 on A2 <1>:                          Top.                 (line 103)
 * apply:                                 Top.                 (line  67)
-* e)xpose on W)indow:                    Top.                 (line  49)
-* e)xpose on W)indow <1>:                Top.                 (line  53)
 * e,xpose on W,indow:                    Top.                 (line  41)
 * e,xpose on W,indow <1>:                Top.                 (line  45)
 * e;xpose on W;indow:                    Top.                 (line  57)
 * e;xpose on W;indow <1>:                Top.                 (line  61)
+* e)xpose on W)indow:                    Top.                 (line  49)
+* e)xpose on W)indow <1>:                Top.                 (line  53)
 * expose on W,indow:                     Top.                 (line  36)
 * expose on Window:                      Top.                 (line  39)
 * expose on windows:                     Top.                 (line  33)
@@ -13075,11 +13075,11 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 
 <h3 class="heading" id="Functions">Functions</h3>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>,</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>;</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>;</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>)</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
@@ -13096,17 +13096,17 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_fn_symbol-1">)</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window-1"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_fn_symbol-2">,</th></tr>
+<tr><th id="Top_fn_symbol-1">,</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow-1"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_fn_symbol-3">;</th></tr>
+<tr><th id="Top_fn_symbol-2">;</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow-1"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Top_fn_symbol-3">)</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window-1"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_fn_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-A2"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -13120,12 +13120,12 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><td class="printindex-index-entry"><a href="#index-apply"><code>apply</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_fn_letter-E">E</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow-1"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow-1"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow-1"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow-1"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-W_002cindow"><code>expose on W,indow</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-Window"><code>expose on Window</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-windows"><code>expose on windows</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -13145,11 +13145,11 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><td class="printindex-index-entry"><a href="#index-push"><code>push</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>,</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>;</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>;</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>)</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>

@@ -33,6 +33,8 @@ use strict;
 
 use Carp qw(cluck confess);
 
+use Unicode::Collate;
+
 # for %root_commands
 use Texinfo::Commands;
 use Texinfo::Common;
@@ -1716,24 +1718,29 @@ sub new_complete_node_menu
   return $new_menu;
 }
 
-sub _sort_string($$)
+sub _collator_sort_string($$$)
 {
   my $a = shift;
   my $b = shift;
+  my $collator = shift;
   return (($a =~ /^[[:alpha:]]/ and $b =~ /^[[:alpha:]]/)
               or ($a !~ /^[[:alpha:]]/ and $b !~ /^[[:alpha:]]/))
-              ? ($a cmp $b)
-                : (($a =~ /^[[:alpha:]]/ && 1) || -1);
+                 ? ($collator->cmp ($a, $b))
+                 : (($a =~ /^[[:alpha:]]/ && 1) || -1);
 }
 
-sub _sort_index_entries($$)
+sub _sort_index_entries($$$)
 {
   my $key1 = shift;
   my $key2 = shift;
+  my $collator = shift;
 
   my $key_index = 0;
+  # the keys array corresponds to th emain entry and subentries
   foreach my $key1_str (@{$key1->{'keys'}}) {
-    my $res = _sort_string(uc($key1_str), uc($key2->{'keys'}->[$key_index]));
+    my $res = _collator_sort_string(uc($key1_str),
+                                    uc($key2->{'keys'}->[$key_index]),
+                                    $collator);
     if ($res != 0) {
       return $res;
     }
@@ -1814,6 +1821,13 @@ sub sort_indices($$$;$)
   my $sort_by_letter = shift;
 
   my $options = setup_index_entry_keys_formatting($customization_information);
+  # TODO Unicode::Collate has been in perl core long enough, but
+  # Unicode::Collate::Locale is present since perl major version 5.14 only,
+  # released in 2011.  So probably better to use Unicode::Collate until 2031
+  # (and if documentlanguage is not set) and switch to Unicode::Collate::Locale
+  # at this date.
+  #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage);
+  my $collator = Unicode::Collate->new();
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings
@@ -1877,17 +1891,18 @@ sub sort_indices($$$;$)
       $index_entries_sort_strings->{$entry} = join(', ', @entry_keys);
     }
     if ($sort_by_letter) {
-      foreach my $letter (sort _sort_string (keys %$index_letter_hash)) {
+      foreach my $letter (sort {_collator_sort_string($a, $b, $collator)}
+                                                 (keys %$index_letter_hash)) {
         my @sorted_letter_entries
-           = map {$_->{'entry'}}
-               sort _sort_index_entries @{$index_letter_hash->{$letter}};
+           = map {$_->{'entry'}} sort {_sort_index_entries($a, $b, $collator)}
+                                              @{$index_letter_hash->{$letter}};
         push @{$sorted_index_entries->{$index_name}},
           { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
       }
     } else {
       $sorted_index_entries->{$index_name} = [
-        map {$_->{'entry'}}
-          sort _sort_index_entries @{$sortable_index_entries}
+        map {$_->{'entry'}} sort {_sort_index_entries($a, $b, $collator)}
+                                                  @{$sortable_index_entries}
       ];
     }
   }

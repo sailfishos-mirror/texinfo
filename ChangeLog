@@ -1,3 +1,11 @@
+2022-12-25  Patrice Dumas  <pertusus@free.fr>
+
+	Sort index entries using Unicode Collation in texi2any
+
+	* tp/Texinfo/Structuring.pm (_collator_sort_string)
+	(_sort_index_entries, sort_indices): use Unicode::Collate comparison
+	for strings.
+
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Attempt to fix pre-dumped Texinfo

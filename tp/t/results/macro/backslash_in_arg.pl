@@ -375,10 +375,10 @@ $result_floats{'backslash_in_arg'} = {};
 
 $result_indices_sort_strings{'backslash_in_arg'} = {
   'fn' => [
+    '\\\\q',
     '\\q',
     '\\r',
-    '\\r',
-    '\\\\q'
+    '\\r'
   ]
 };
 

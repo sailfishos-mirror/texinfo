@@ -3129,20 +3129,20 @@ $result_floats{'encoding_index_latin1'} = {};
 
 $result_indices_sort_strings{'encoding_index_latin1'} = {
   'cp' => [
-    '!',
-    '"',
-    '"',
-    '"',
-    '"',
-    '\'',
-    ',',
     '-',
     '--',
-    '0',
-    '9',
-    '>=',
+    ',',
+    '!',
+    '\'',
+    '"',
+    '"',
+    '"',
+    '"',
     '@',
     '`',
+    '>=',
+    '0',
+    '9',
     'a',
     'A',
     'AE',
@@ -3152,14 +3152,15 @@ $result_indices_sort_strings{'encoding_index_latin1'} = {
     'd',
     'D',
     'e',
+    "\x{e9} \x{e9}",
     'Euro',
     'f',
     'g',
     'h',
     'i',
     'i i (dotless)',
-    'i" i"i"i"',
     'i^ i^ (dotless)',
+    'i" i"i"i"',
     'i^ i^i^i^i^',
     'j',
     'k',
@@ -3182,8 +3183,7 @@ $result_indices_sort_strings{'encoding_index_latin1'} = {
     'w',
     'x',
     'y',
-    'z',
-    "\x{e9} \x{e9}"
+    'z'
   ]
 };
 
