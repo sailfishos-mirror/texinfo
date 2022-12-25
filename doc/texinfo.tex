@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.18}
+\def\texinfoversion{2022-12-25.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -57,12 +57,6 @@
 
 
 \message{Loading texinfo [version \texinfoversion]:}
-
-% If in a .fmt file, print the version number
-% and turn on active characters that we couldn't do earlier because
-% they might have appeared in the input file name.
-\everyjob{\message{[Texinfo version \texinfoversion]}%
-  \catcode`+=\active \catcode`\_=\active}
 
 % LaTeX's \typeout.  This ensures that the messages it is used for
 % are identical in format to the corresponding ones from latex/pdflatex.
@@ -11698,6 +11692,21 @@ directory should work if nowhere else does.}
 % in fixed width font.
 \catcode`\\=\active  % @ for escape char from now on.
 
+
+% If in a .fmt file, print the version number.
+% \eatinput stops the `\input texinfo' from showing up.
+% After that, `\' should revert to printing a backslash.
+% Turn on active characters that we couldn't do earlier because
+% they might have appeared in the input file name.
+%
+@everyjob{@message{[Texinfo version @texinfoversion]}%
+  @global@let\ = @eatinput
+  @catcode`+=@active @catcode`@_=@active}
+
+{@catcode`@^=7 @catcode`@^^M=13%
+@gdef@eatinput input texinfo#1^^M{@loadconf}}
+
+
 % \otherbackslash defines an active \ to be a literal `\' character with
 % catcode other.
 @gdef@otherbackslash{@let\=@realbackslash}
@@ -11714,35 +11723,28 @@ directory should work if nowhere else does.}
 
 % If a .fmt file is being used, characters that might appear in a file
 % name cannot be active until we have parsed the command line.
-% So turn them off again, and have @fixbackslash turn them back on.
+% So turn them off again, and have @loadconf turn them back on.
 @catcode`+=@other @catcode`@_=@other
 
-% \enablebackslashhack - allow file to begin `\input texinfo'
+
+% \newlinesloadsconf - call \loadconf as soon as possible in the
+% file, e.g. at the first newline.
 %
-% If a .fmt file is being used, we don't want the `\input texinfo' to show up.
-% That is what \eatinput is for; after that, the `\' should revert to printing
-% a backslash.
-% If the file did not have a `\input texinfo', then it is turned off after
-% the first line; otherwise the first `\' in the file would cause an error.
-% This is used on the very last line of this file, texinfo.tex.
-% We also use @c to call @fixbackslash, in case ends of lines are hidden.
-{
-@catcode`@^=7
-@catcode`@^^M=13@gdef@enablebackslashhack{%
-  @global@let\ = @eatinput%
-  @catcode`@^^M=13%
-  @def@c{@fixbackslash@c}%
-  % Definition for the newline at the end of this file.
-  @def ^^M{@let^^M@secondlinenl}%
-  % Definition for a newline in the main Texinfo file.
-  @gdef @secondlinenl{@fixbackslash}%
+{@catcode`@^=7
+@catcode`@^^M=13
+@gdef@newlineloadsconf{%
+  @catcode`@^^M=13 %
+  @newlineloadsconfzz%
+}
+@gdef@newlineloadsconfzz#1^^M{%
+  @def@c{@loadconf@c}%
+  % Definition for the first newline read in the file
+  @def ^^M{@loadconf}%
   % In case the first line has a whole-line command on it
   @let@originalparsearg@parsearg%
-  @def@parsearg{@fixbackslash@originalparsearg}%
+  @def@parsearg{@loadconf@originalparsearg}%
 }}
 
-{@catcode`@^=7 @catcode`@^^M=13%
-@gdef@eatinput input texinfo#1^^M{@fixbackslash}}
 
 % Emergency active definition of newline, in case an active newline token
 % appears by mistake.
@@ -11754,25 +11756,25 @@ directory should work if nowhere else does.}
 }}}
 
 
-@gdef@fixbackslash{%
-
-  % The space token above appears to terminate the filename
-  % when running as "tex '&texinfo' test.texi".
+% \loadconf gets called at the beginning of every Texinfo file.
+% If texinfo.cnf is present on the system, read it.  Useful for site-wide
+% @afourpaper, etc.  Not opening texinfo.cnf directly in texinfo.tex
+% makes it possible to make a format file for Texinfo.
+%
+@gdef@loadconf{%
+  @relax  % Terminate the filename if running as "tex '&texinfo' FILE.texi".
+  %
+  % Turn off the definitions that trigger \loadconf
   @ifx\@eatinput @let\ = @ttbackslash @fi
   @catcode13=5 % regular end of line
   @enableemergencynewline
   @let@c=@comment
   @let@parsearg@originalparsearg
+  %
   % Also turn back on active characters that might appear in the input
   % file name, in case not using a pre-dumped format.
   @catcode`+=@active
   @catcode`@_=@active
-  %
-  % If texinfo.cnf is present on the system, read it.
-  % Useful for site-wide @afourpaper, etc.  This macro, @fixbackslash, gets
-  % called at the beginning of every Texinfo file.  Not opening texinfo.cnf
-  % directly in this file, texinfo.tex, makes it possible to make a format
-  % file for Texinfo.
   %
   @openin 1 texinfo.cnf
   @ifeof 1 @else @input texinfo.cnf @fi
@@ -11804,4 +11806,4 @@ directory should work if nowhere else does.}
 @c page-delimiter: "^\\\\message"
 @c End:
 
-@enablebackslashhack
+@newlineloadsconf
