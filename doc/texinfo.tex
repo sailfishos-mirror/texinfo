@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.15}
+\def\texinfoversion{2022-12-25.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11649,22 +11649,25 @@ directory should work if nowhere else does.}
 % Used sometimes to turn off (effectively) the active characters even after
 % parsing them.
 \def\turnoffactive{%
-  \normalturnoffactive
+  \passthroughcharstrue
+  \let-=\normaldash
+  \let"=\normaldoublequote
+  \let$=\normaldollar %$ font-lock fix
+  \let+=\normalplus
+  \let<=\normalless
+  \let>=\normalgreater
+  \let^=\normalcaret
+  \let_=\normalunderscore
+  \let|=\normalverticalbar
+  \let~=\normaltilde
   \otherbackslash
+  \setregularquotes
+  \unsepspaces
 }
-
-\catcode`\@=0
 
 % \backslashcurfont outputs one backslash character in current font,
 % as in \char`\\.
 \global\chardef\backslashcurfont=`\\
-
-% \realbackslash is an actual character `\' with catcode other.
-{\catcode`\\=\other @gdef@realbackslash{\}}
-
-% In Texinfo, backslash is an active character; it prints the backslash
-% in fixed width font.
-\catcode`\\=\active  % @ for escape char from now on.
 
 % Print a typewriter backslash.  For math mode, we can't simply use
 % \backslashcurfont: the story here is that in math mode, the \char
@@ -11675,8 +11678,18 @@ directory should work if nowhere else does.}
 % ignored family value; char position "5C).  We can't use " for the
 % usual hex value because it has already been made active.
 
-@def@ttbackslash{{@tt @ifmmode @mathchar29020 @else @backslashcurfont @fi}}
-@let@backslashchar = @ttbackslash % @backslashchar{} is for user documents.
+\def\ttbackslash{{\tt \ifmmode \mathchar29020 \else \backslashcurfont \fi}}
+\let\backslashchar = \ttbackslash % \backslashchar{} is for user documents.
+
+
+\catcode`\@=0
+
+% \realbackslash is an actual character `\' with catcode other.
+{\catcode`\\=\other @gdef@realbackslash{\}}
+
+% In Texinfo, backslash is an active character; it prints the backslash
+% in fixed width font.
+\catcode`\\=\active  % @ for escape char from now on.
 
 % \otherbackslash defines an active \ to be a literal `\' character with
 % catcode other.
@@ -11687,20 +11700,8 @@ directory should work if nowhere else does.}
 %
 {@catcode`- = @active
  @gdef@normalturnoffactive{%
-   @passthroughcharstrue
-   @let-=@normaldash
-   @let"=@normaldoublequote
-   @let$=@normaldollar %$ font-lock fix
-   @let+=@normalplus
-   @let<=@normalless
-   @let>=@normalgreater
-   @let^=@normalcaret
-   @let_=@normalunderscore
-   @let|=@normalverticalbar
-   @let~=@normaltilde
+   @turnoffactive
    @let\=@ttbackslash
-   @setregularquotes
-   @unsepspaces
  }
 }
 
