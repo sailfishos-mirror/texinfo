@@ -1,5 +1,18 @@
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Attempt to fix pre-dumped Texinfo
+
+	* doc/texinfo.tex: Remove blank line from end of file.
+	(\enablebackslashhack): Comment out ends-of-line.  This should
+	stop \fixbackslash being run too early.
+	(\fixbackslash): Start definition with a space token.
+
+	This has been broken since at least 2017-04-17 when extra
+	lines were added to \fixbackslash, so its likely that nobody
+	is using Texinfo as a pre-dumped format.
+
+2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: Move definitions of \normaldot, \normalquest
 	and \normalslash.  Call \setregularquotes near definition.
 

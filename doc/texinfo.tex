@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.17}
+\def\texinfoversion{2022-12-25.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11737,8 +11737,8 @@ directory should work if nowhere else does.}
   % Definition for a newline in the main Texinfo file.
   @gdef @secondlinenl{@fixbackslash}%
   % In case the first line has a whole-line command on it
-  @let@originalparsearg@parsearg
-  @def@parsearg{@fixbackslash@originalparsearg}
+  @let@originalparsearg@parsearg%
+  @def@parsearg{@fixbackslash@originalparsearg}%
 }}
 
 {@catcode`@^=7 @catcode`@^^M=13%
@@ -11755,6 +11755,9 @@ directory should work if nowhere else does.}
 
 
 @gdef@fixbackslash{%
+
+  % The space token above appears to terminate the filename
+  % when running as "tex '&texinfo' test.texi".
   @ifx\@eatinput @let\ = @ttbackslash @fi
   @catcode13=5 % regular end of line
   @enableemergencynewline
@@ -11802,4 +11805,3 @@ directory should work if nowhere else does.}
 @c End:
 
 @enablebackslashhack
-
