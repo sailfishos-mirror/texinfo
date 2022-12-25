@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.21}
+\def\texinfoversion{2022-12-25.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11692,6 +11692,7 @@ directory should work if nowhere else does.}
 % in fixed width font.
 \catcode`\\=\active  % @ for escape char from now on.
 
+@let\ = @ttbackslash
 
 % If in a .fmt file, print the version number.
 % \eatinput stops the `\input texinfo' from showing up.
