@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-23.23}
+\def\texinfoversion{2022-12-25.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -9902,12 +9902,10 @@ directory should work if nowhere else does.}
        % For native Unicode handling (XeTeX and LuaTeX)
        \nativeunicodechardefs
      \else
-       % For treating UTF-8 as byte sequences (TeX, eTeX and pdfTeX)
+       % For treating UTF-8 as byte sequences (TeX, eTeX and pdfTeX).
+       % Since we already invoke \utfeightchardefs at the top level,
+       % making non-ascii chars active is sufficient.
        \setnonasciicharscatcode\active
-       % since we already invoked \utfeightchardefs at the top level
-       % (below), do not re-invoke it, otherwise our check for duplicated
-       % definitions gets triggered.  Making non-ascii chars active is
-       % sufficient.
      \fi
   %
   \else
@@ -11233,13 +11231,15 @@ directory should work if nowhere else does.}
    \relax
 }
 
-% Define all Unicode characters we know about.  This makes UTF-8 the default
-% input encoding and allows @U to work.
+% Define all Unicode characters we know about
+% and make UTF-8 the default encoding.
 \iftxinativeunicodecapable
   \nativeunicodechardefsatu
 \else
   \utfeightchardefs
 \fi
+\documentencodingzzz{UTF-8}
+
 
 \message{formatting,}
 
