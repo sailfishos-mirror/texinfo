@@ -741,10 +741,10 @@ $result_floats{'subentry_and_sortas_spaces'} = {};
 
 $result_indices_sort_strings{'subentry_and_sortas_spaces'} = {
   'cp' => [
-    'aaa, bbb, ccc',
-    'aaa, bbb, D',
+    'A---S, C---S1',
     'aaa, B---S1',
-    'A---S, C---S1'
+    'aaa, bbb, ccc',
+    'aaa, bbb, D'
   ]
 };
 
@@ -777,10 +777,10 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
  [index ]
 * Menu:
 
+* aaa, bbb sort as c:                    chapter index.         (line 6)
+* aaa, :                                 chapter index.         (line 6)
 * aaa, bbb, ccc:                         chapter index.         (line 6)
 * aaa, bbb, ccc <1>:                     chapter index.         (line 6)
-* aaa, :                                 chapter index.         (line 6)
-* aaa, bbb sort as c:                    chapter index.         (line 6)
 
 
 
@@ -802,10 +802,10 @@ $result_converted{'plaintext'}->{'subentry_and_sortas_spaces'} = '1 Index
 
 * Menu:
 
+* aaa, bbb sort as c:                    chapter index.         (line 3)
+* aaa, :                                 chapter index.         (line 3)
 * aaa, bbb, ccc:                         chapter index.         (line 3)
 * aaa, bbb, ccc <1>:                     chapter index.         (line 3)
-* aaa, :                                 chapter index.         (line 3)
-* aaa, bbb sort as c:                    chapter index.         (line 3)
 
 ';
 
@@ -838,11 +838,11 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry">aaa</td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aaa-bbb-sort-as-c">bbb sort as c</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aaa-"></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1">bbb</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-aaa-bbb-ccc-1">ccc</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-aaa-bbb-ccc">ccc</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aaa-"></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aaa-bbb-sort-as-c">bbb sort as c</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

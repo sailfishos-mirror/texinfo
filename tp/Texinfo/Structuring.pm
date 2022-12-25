@@ -1826,8 +1826,13 @@ sub sort_indices($$$;$)
   # released in 2011.  So probably better to use Unicode::Collate until 2031
   # (and if documentlanguage is not set) and switch to Unicode::Collate::Locale
   # at this date.
-  #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage);
-  my $collator = Unicode::Collate->new();
+  # The 'Non-Ignorable' for variable collation elements means that they are
+  # treated as normal characters.   This allows to have spaces and punctuation
+  # marks sort before letters.
+  # http://www.unicode.org/reports/tr10/#Variable_Weighting
+  #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage,
+  #                                             'variable' => 'Non-Ignorable');
+  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings

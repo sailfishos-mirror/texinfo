@@ -19524,10 +19524,10 @@ $result_floats{'definition_commands'} = {};
 
 $result_indices_sort_strings{'definition_commands'} = {
   'fn' => [
-    '\\ff',
+    '.ft',
     '\\f(fn',
     '\\f[font]',
-    '.ft',
+    '\\ff',
     '\\n[.sty]',
     'apply',
     'apply',

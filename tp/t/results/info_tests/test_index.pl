@@ -3732,15 +3732,15 @@ $result_indices_sort_strings{'test_index'} = {
     '!',
     '"',
     '@',
+    'in Top',
     'index entry in appendix before para',
     'index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
-    'index in chapter end',
-    'in Top'
+    'index in chapter end'
   ],
   'fn' => [
+    'a fun',
     'after lines.',
     'after more than 100 lines',
-    'a fun',
     'function index entry',
     'i',
     'index entry between indices',
@@ -3963,22 +3963,22 @@ Para.
 * ¡:                                     Top.                   (line 8)
 * ":                                     Top.                   (line 8)
 * @:                                     Top.                   (line 8)
+* in Top:                                Top.                   (line 8)
 * index entry in appendix before para:   name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong.
                                                                 (line 6)
 * index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong: name.
                                                                 (line 6)
 * index in chapter end:                  name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong.
                                                                 (line 4)
-* in Top:                                Top.                   (line 8)
 
    Functions index
 
  [index ]
 * Menu:
 
+* a fun:                                 Top.                 (line  13)
 * after lines.:                          name.                (line  18)
 * after more than 100 lines:             name.                (line 167)
-* a fun:                                 Top.                 (line  13)
 * function index entry:                  name.                (line   6)
 * I:                                     Top.                 (line  10)
 * index entry between indices:           name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong.
