@@ -1364,11 +1364,12 @@ sub table_item_content_tree($$$)
   return $table_item_tree;
 }
 
-sub convert_accents($$$;$)
+sub convert_accents($$$;$$)
 {
   my $self = shift;
   my $accent = shift;
   my $format_accents = shift;
+  my $output_encoded_characters = shift;
   my $in_upper_case = shift;
 
   my ($contents, $stack)
@@ -1376,7 +1377,7 @@ sub convert_accents($$$;$)
   my $result = $self->convert_tree({'contents' => $contents});
 
   my $encoded;
-  if ($self->get_conf('ENABLE_ENCODING')) {
+  if ($output_encoded_characters) {
     $encoded = Texinfo::Convert::Unicode::encoded_accents($self, $result, $stack,
                                        $self->get_conf('OUTPUT_ENCODING_NAME'),
                                        $format_accents,
@@ -1735,7 +1736,9 @@ sub xml_accents($$;$)
     $format_accents = \&xml_accent;
   }
   
-  return $self->convert_accents($accent, $format_accents, $in_upper_case);
+  return $self->convert_accents($accent, $format_accents,
+                                $self->get_conf('ENABLE_ENCODING'),
+                                $in_upper_case);
 }
 
 1;
@@ -1975,13 +1978,14 @@ C<contents> in the I<$contents_element> element, or C<undef> if there is no
 such content.  I<$separator> is an optional separator argument used, if given,
 instead of the default: a comma followed by a space.
 
-=item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
+=item $result = $converter->convert_accents($accent_command, \&format_accents, $output_encoded_characters, $in_upper_case)
 X<C<convert_accents>>
 
 I<$accent_command> is an accent command, which may have other accent
 commands nested.  The function returns the accents formatted either
-as encoded letters, or formatted using I<\&format_accents>.
-If I<$in_upper_case> is set, the result should be uppercased.
+as encoded letters if I<$output_encoded_characters> is set, or formatted
+using I<\&format_accents>.  If I<$in_upper_case> is set, the result should be
+uppercased.
 
 =item $result = $converter->convert_document_sections($root, $file_handler)
 X<C<convert_document_sections>>

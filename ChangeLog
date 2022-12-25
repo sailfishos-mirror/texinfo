@@ -19,6 +19,15 @@
 
 2022-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (convert_accents, xml_accents),
+	tp/Texinfo/Convert/HTML.pm (_convert_accent_command)
+	(_css_string_convert_accent_command),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): convert accents
+	to encoded characters in convert_accents based on the third
+	argument, instead of checking ENABLE_ENCODING.  Update callers.
+
+2022-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sort_indices): set variable collation
 	elements to 'Non-Ignorable' such as to have spaces and punctuation
 	marks sort before letters.

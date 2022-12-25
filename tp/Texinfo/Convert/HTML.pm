@@ -3309,6 +3309,7 @@ sub _convert_accent_command($$$$)
     $format_accents = \&_accent_entities_html_accent;
   }
   return $self->convert_accents($command, $format_accents,
+                                $self->get_conf('ENABLE_ENCODING'),
                                 $self->in_upper_case());
 }
 
@@ -3362,7 +3363,9 @@ sub _css_string_convert_accent_command($$$$)
   my $args = shift;
 
   my $format_accents = \&_css_string_accent;
-  return $self->convert_accents($command, $format_accents, $self->in_upper_case());
+  return $self->convert_accents($command, $format_accents,
+                                $self->get_conf('ENABLE_ENCODING'),
+                                $self->in_upper_case());
 }
 
 foreach my $command (keys(%accent_commands)) {
