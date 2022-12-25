@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.16}
+\def\texinfoversion{2022-12-25.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2683,6 +2683,7 @@ end
 \gdef\setcodequotes{\let`\codequoteleft \let'\codequoteright}
 \gdef\setregularquotes{\let`\lq \let'\rq}
 }
+\setregularquotes
 
 % Allow an option to not use regular directed right quote/apostrophe
 % (char 0x27), but instead the undirected quote from cmtt (char 0x0d).
@@ -11681,6 +11682,12 @@ directory should work if nowhere else does.}
 \def\ttbackslash{{\tt \ifmmode \mathchar29020 \else \backslashcurfont \fi}}
 \let\backslashchar = \ttbackslash % \backslashchar{} is for user documents.
 
+% These are made active for url-breaking, so need
+% active definitions as the normal characters.
+\def\normaldot{.}
+\def\normalquest{?}
+\def\normalslash{/}
+
 
 \catcode`\@=0
 
@@ -11773,12 +11780,6 @@ directory should work if nowhere else does.}
 % Say @foo, not \foo, in error messages.
 @escapechar = `@@
 
-% These (along with & and #) are made active for url-breaking, so need
-% active definitions as the normal characters.
-@def@normaldot{.}
-@def@normalquest{?}
-@def@normalslash{/}
-
 % These look ok in all fonts, so just make them not special.
 % @hashchar{} gets its own user-level command, because of #line.
 @catcode`@& = @other @def@normalamp{&}
@@ -11793,7 +11794,6 @@ directory should work if nowhere else does.}
 @c Do this last of all since we use ` in the previous @catcode assignments.
 @catcode`@'=@active
 @catcode`@`=@active
-@setregularquotes
 
 @c Local variables:
 @c eval: (add-hook 'before-save-hook 'time-stamp nil t)

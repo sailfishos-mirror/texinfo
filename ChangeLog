@@ -1,5 +1,10 @@
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex: Move definitions of \normaldot, \normalquest
+	and \normalslash.  Call \setregularquotes near definition.
+
+2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: At end of file, move more definitions before
 	the change from \ to @ as the escape character.
 	(\normalturnoffactive, \turnoffactive): Define \normalturnoffactive
