@@ -1,5 +1,14 @@
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Reduce scope of catcode changes throughout texinfo.tex
+
+	* doc/texinfo.tex: Surround character encoding definition macros
+	in a group, define with \gdef and limit the catcode changes
+	for non-ASCII characters to the group.  Move the use of
+	@documentencoding to the very end of the file.
+
+2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: Remove "emacs-page" delimiter from the one
 	place it occurs.  Remove vim shiftwidth definition from end of file.
 
