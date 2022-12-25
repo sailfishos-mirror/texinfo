@@ -1,5 +1,10 @@
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex: Remove "emacs-page" delimiter from the one
+	place it occurs.  Remove vim shiftwidth definition from end of file.
+
+2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: Use definition of @documentencoding to
 	fully set UTF-8 as the default encoding, including for XeTeX
 	and LuaTeX.  Report from Werner.

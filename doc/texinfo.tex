@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.13}
+\def\texinfoversion{2022-12-25.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -9930,7 +9930,6 @@ directory should work if nowhere else does.}
   \fi
 }
 
-% emacs-page
 % A message to be logged when using a character that isn't available
 % the default font encoding (OT1).
 %
@@ -11795,10 +11794,8 @@ directory should work if nowhere else does.}
 @c Local variables:
 @c eval: (add-hook 'before-save-hook 'time-stamp nil t)
 @c time-stamp-pattern: "texinfoversion{%Y-%02m-%02d.%02H}"
-@c page-delimiter: "^\\\\message\\|emacs-page"
+@c page-delimiter: "^\\\\message"
 @c End:
-
-@c vim:sw=2:
 
 @enablebackslashhack
 
