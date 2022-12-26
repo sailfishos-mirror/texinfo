@@ -198,39 +198,6 @@ $result_trees{'indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a!"'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'cmdname' => 'math',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
-                  }
-                },
-                {
-                  'text' => ' "!'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
                           'text' => 'a'
                         }
                       ],
@@ -267,7 +234,8 @@ $result_trees{'indices'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => '
+'
               },
               'type' => 'line_arg'
             }
@@ -280,6 +248,121 @@ $result_trees{'indices'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {
+                '\\' => 1
+              },
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 10,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'a!"'
+                        },
+                        {
+                          'cmdname' => '@'
+                        },
+                        {
+                          'text' => 'b'
+                        }
+                      ],
+                      'type' => 'brace_command_context'
+                    }
+                  ],
+                  'cmdname' => 'math',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 12,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => ' "!'
+                },
+                {
+                  'cmdname' => '@'
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'type' => 'following_arg'
+                    }
+                  ],
+                  'cmdname' => '"',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 12,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'o'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => '"',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 12,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' '
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_node' => {},
+              'entry_number' => 2,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {
@@ -312,7 +395,7 @@ $result_trees{'indices'} = {
                       'cmdname' => 'sortas',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -343,7 +426,7 @@ $result_trees{'indices'} = {
                       'cmdname' => 'math',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -370,7 +453,7 @@ $result_trees{'indices'} = {
                       'cmdname' => '"',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -391,7 +474,7 @@ $result_trees{'indices'} = {
                       'cmdname' => '"',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -423,7 +506,7 @@ $result_trees{'indices'} = {
                               'cmdname' => 'math',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
+                                'line_nr' => 12,
                                 'macro' => ''
                               }
                             },
@@ -450,7 +533,7 @@ $result_trees{'indices'} = {
                               'cmdname' => '"',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
+                                'line_nr' => 12,
                                 'macro' => ''
                               }
                             },
@@ -471,7 +554,7 @@ $result_trees{'indices'} = {
                               'cmdname' => '"',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
+                                'line_nr' => 12,
                                 'macro' => ''
                               }
                             }
@@ -482,7 +565,7 @@ $result_trees{'indices'} = {
                       'cmdname' => 'seealso',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     }
@@ -505,7 +588,7 @@ $result_trees{'indices'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 12,
                 'macro' => ''
               }
             }
@@ -515,7 +598,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 12,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -543,7 +626,7 @@ $result_trees{'indices'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 2,
+              'entry_number' => 3,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {
@@ -558,7 +641,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 13,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -588,7 +671,7 @@ $result_trees{'indices'} = {
                   'cmdname' => 'sortas',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 12,
+                    'line_nr' => 14,
                     'macro' => ''
                   }
                 }
@@ -607,7 +690,7 @@ $result_trees{'indices'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 3,
+              'entry_number' => 4,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {
@@ -624,7 +707,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 14,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -678,7 +761,7 @@ $result_trees{'indices'} = {
                   'cmdname' => 'file',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 16,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 }
@@ -712,7 +795,7 @@ $result_trees{'indices'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 4,
+              'entry_number' => 5,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
@@ -725,7 +808,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
+            'line_nr' => 18,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -756,7 +839,7 @@ $result_trees{'indices'} = {
                   'cmdname' => 'r',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 },
@@ -777,7 +860,7 @@ $result_trees{'indices'} = {
                   'cmdname' => 'file',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 }
@@ -809,7 +892,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 20,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -845,7 +928,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 22,
             'macro' => ''
           }
         },
@@ -880,7 +963,7 @@ $result_trees{'indices'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 24,
             'macro' => ''
           }
         }
@@ -906,24 +989,28 @@ $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'
 $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[2] = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4] = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[12];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
 
 $result_texis{'indices'} = '
 @set txiindexbackslashignore
@@ -933,6 +1020,8 @@ $result_texis{'indices'} = '
 
 @node chapter
 @chapter Index
+
+@cindex @"a @"{o}
 
 @cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
 @cindex \\cmd
@@ -956,6 +1045,7 @@ top section
 
 1 Index
 *******
+
 
 
 
@@ -1070,7 +1160,7 @@ $result_errors{'indices'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => '',
-    'line_nr' => 16,
+    'line_nr' => 18,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -1079,7 +1169,7 @@ $result_errors{'indices'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => '',
-    'line_nr' => 16,
+    'line_nr' => 18,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -1095,6 +1185,7 @@ $result_indices_sort_strings{'indices'} = {
     '\\cmd',
     '\\some\\command for file',
     'a!"@b "!@ a" o", a!"@b',
+    'a" o"',
     'cmd'
   ],
   'fn' => [
@@ -1109,6 +1200,8 @@ $result_converted{'latex_text'}->{'indices'} = '
 \\label{anchor:Top}%
 \\chapter{{Index}}
 \\label{anchor:chapter}%
+
+\\index[cp]{a"" o""@"\\""{a} "\\""{o}}%
 
 \\index[cp]{a"!"""@b """!"@ a"" o""@$a"!"""@b$ """!"@ "\\""{a} "\\""{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ "\\""{a} "\\""{o}|seealso{$a!"@b$ "!@ \\"{a} \\"{o}}}%
 \\index[cp]{cmd@\\textbackslash{}cmd}%

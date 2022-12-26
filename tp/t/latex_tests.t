@@ -651,6 +651,8 @@ b!}
 @node chapter
 @chapter Index
 
+@cindex @"a @"{o}
+
 @cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
 @cindex \cmd
 @cindex totocmd @sortas{\cmd}
