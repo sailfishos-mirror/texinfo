@@ -13328,7 +13328,7 @@ for nesting purposes, all conditional commands must be on lines
 by themselves, with no text (even spaces) before or after.
 
 
-@ignore not sure what this is about
+@ignore @c not sure what this is about
 
 Unfortunately, it's not always feasible to check that
 @emph{all} conditionals are properly nested, because then the

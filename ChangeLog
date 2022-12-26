@@ -1,5 +1,10 @@
 2022-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Conditional Nesting): comment out text on @ignore
+	line.
+
+2022-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	Obey --disable-encoding/ENABLE_ENCODING for some conversions to text
 
 	* doc/texi2any_api.texi (Command Tree Element Conversion Functions),
