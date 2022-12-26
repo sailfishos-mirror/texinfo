@@ -50,7 +50,6 @@ my %brace_commands = %Texinfo::Commands::brace_commands;
 my $nbsp = '&#'.hex('00A0').';';
 
 my %defaults = (
-  #'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'xml', # dbk?
   'OUTPUT_ENCODING_NAME' => 'utf-8',

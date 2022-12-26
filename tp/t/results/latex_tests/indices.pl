@@ -1201,9 +1201,9 @@ $result_converted{'latex_text'}->{'indices'} = '
 \\chapter{{Index}}
 \\label{anchor:chapter}%
 
-\\index[cp]{a"" o""@"\\""{a} "\\""{o}}%
+\\index[cp]{ä ö@"\\""{a} "\\""{o}}%
 
-\\index[cp]{a"!"""@b """!"@ a"" o""@$a"!"""@b$ """!"@ "\\""{a} "\\""{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ "\\""{a} "\\""{o}|seealso{$a!"@b$ "!@ \\"{a} \\"{o}}}%
+\\index[cp]{a"!"""@b """!"@ ä ö@$a"!"""@b$ """!"@ "\\""{a} "\\""{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ "\\""{a} "\\""{o}|seealso{$a!"@b$ "!@ \\"{a} \\"{o}}}%
 \\index[cp]{cmd@\\textbackslash{}cmd}%
 \\index[cp]{\\textbackslash{}cmd@totocmd}%
 

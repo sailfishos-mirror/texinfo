@@ -2024,7 +2024,7 @@ after
 \\index[fn]{index truc@index truc}%
 
 
-\\index[codeidx]{a index entry te\\~{} i\\^{}@\\texttt{a \\Texinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
+\\index[codeidx]{a index entry tẽ î@\\texttt{a \\Texinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
 
 \\index[fn]{cindex entry@\\texttt{cindex entry}}%
 

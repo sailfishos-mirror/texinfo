@@ -43,7 +43,6 @@ $VERSION = '7.0dev';
 
 
 my %defaults = (
-  'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'ixin',
   'OUTPUT_ENCODING_NAME' => 'utf-8',

@@ -1,5 +1,13 @@
 2022-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	Set --enable-encoding to be the default for all output formats
+
+	* tp/Texinfo/Common.pm (%default_converter_command_line_options),
+	tp/Texinfo/Convert/TexinfoXML.pm (%defaults): set ENABLE_ENCODING
+	to 1 in the default case for all the formats.
+
+2022-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/latex_tests.t: in indices test, add simple entry with
 	accented letters.
 

@@ -263,14 +263,10 @@ our %default_converter_command_line_options = (
                                      # Setting can be format dependent
   'SUBDIR'               => undef,   # --output    If split or ending by /.
                                      # Setting can be format dependent
-  'ENABLE_ENCODING'      => undef,   # --disable-encoding/--enable-encoding.
-                                     # The option is used in most formats, with
-                                     # differing defaults.
-                                     # The default expected by the converters
-                                     # is to be unset, although for Info and
-                                     # plain text, default is set.  If set,
-                                     # it is set in the formats converter
-                                     # defaults.
+  'ENABLE_ENCODING'      => 1,       # --disable-encoding/--enable-encoding.
+                                     # The option is directly used in
+                                     # Info/Plaintext, and used in diverse formats
+                                     # for index sorting and plain text output.
 );
 
 # used in main program, defaults documented in manual

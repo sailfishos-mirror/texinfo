@@ -1,8 +1,8 @@
 
 
 * Truc: (formatting).           The GNU documentation truc.
-* @ e' ==: (formatting).  ``--- something'' 
-                           cmd a`
+* @ é ==: (formatting).  ``--- something'' 
+                           cmd à
 
 
 
@@ -30,45 +30,45 @@ kbd: ``simple-double--three---four----''
 
 
 
-@"u u" (ü)
-@"{U} U" (Ü) 
-@~n n~ (ñ)
-@^a a^ (â)
-@'e e' (é)
-@=o o= (ō)
-@`i i` (ì)
-@'{e} e' (é)
-@'{@dotless{i}} i' (í)
-@dotless{i} i (ı)
-@dotless{j} j (ȷ)
-@H{a} a''
-@dotaccent{a} a. (ȧ)
-@ringaccent{a} a* (å)
-@tieaccent{a} a[
-@u{a} a( (ă)
-@ubaraccent{a} a_
-@udotaccent{a} .a (ạ)
-@v{a} a< (ǎ)
-@,c c, (ç)
-@,{c} c, (ç)
-@ogonek{a} a; (ą)
+@"u ü (ü)
+@"{U} Ü (Ü) 
+@~n ñ (ñ)
+@^a â (â)
+@'e é (é)
+@=o ō (ō)
+@`i ì (ì)
+@'{e} é (é)
+@'{@dotless{i}} í (í)
+@dotless{i} ı (ı)
+@dotless{j} ȷ (ȷ)
+@H{a} a̋
+@dotaccent{a} ȧ (ȧ)
+@ringaccent{a} å (å)
+@tieaccent{a} a͡
+@u{a} ă (ă)
+@ubaraccent{a} a̲
+@udotaccent{a} ạ (ạ)
+@v{a} ǎ (ǎ)
+@,c ç (ç)
+@,{c} ç (ç)
+@ogonek{a} ą (ą)
 
-@`{@=E} E=`
+@`{@=E} Ḕ
 @l{} /l
-@,{@'C} C',
-@,c@"u c,u" 
+@,{@'C} Ḉ
+@,c@"u çü 
 
 
-@H{--a} -a''
-@dotaccent{--a} -a.
-@ringaccent{--a} -a*
-@tieaccent{--a} -a[
-@u{--a} -a(
-@ubaraccent{--a} -a_
-@udotaccent{--a} .-a
-@v{--a} -a<
-@,{--c} -c,
-@ogonek{--a} -a;
+@H{--a} -a̋
+@dotaccent{--a} -ȧ
+@ringaccent{--a} -å
+@tieaccent{--a} -a͡
+@u{--a} -ă
+@ubaraccent{--a} -a̲
+@udotaccent{--a} -ạ
+@v{--a} -ǎ
+@,{--c} -ç
+@ogonek{--a} -ą
 
 @U{0075} 0075
 
@@ -164,8 +164,8 @@ but , ,
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
-@abbr{@'E--. @comma{}A., @'Etude Autonome } E'--. ,A.E'tude Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude Autonome } É--. ,A.Étude Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 @asis{--a} --a
 @b{--a} --a
 @cite{--a} --a
@@ -231,9 +231,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 ``simple-double--three---four----''
 
 
-i j
-/l c,
-a_ .a a; ahl
+ı ȷ
+/l ç
+a̲ ạ ą ahl
 
        ! @ } { 
 a sunny day
@@ -293,8 +293,8 @@ a Tip
 Warning
 a Warning.
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
@@ -392,8 +392,8 @@ example four args
 first argsecond argthird argfourth argfifth arg
 example five args
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
 
@@ -697,8 +697,8 @@ subsubheading
 
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
-@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } É--. ,A.Étude--, Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
@@ -707,15 +707,15 @@ subsubheading
 
 Somehow invalid use of @,:
 
-@, ,
+@, ̧
 
-@,@"u ,u"
+@,@"u ̧ü
 
 Invalid use of @':
 
-@' '
+@' ́
 
-@'@"u 'u"
+@'@"u ́ü
 
 @| 
 
@@ -757,9 +757,9 @@ Invalid use of @':
 
 author
 
-u" U" n~ a^ e' o= i` e' E=`
-C', C', a'' a. a* a[
-a( a<
+ü Ü ñ â é ō ì é Ḕ
+Ḉ Ḉ a̋ ȧ å a͡
+ă ǎ
  ? .
 
 TeX LaTeX -!- aa (R) o 
@@ -846,7 +846,7 @@ g--roupe
 title --a
 formatting subtitle --a
 subtitle 2 --a
-author1 --a with accents in name Te'c,a
+author1 --a with accents in name Téça
 author2 --a
 In titlepage
 
@@ -872,45 +872,45 @@ kbd: ``simple-double--three---four----''
 
 
 
-@"u u" (ü)
-@"{U} U" (Ü) 
-@~n n~ (ñ)
-@^a a^ (â)
-@'e e' (é)
-@=o o= (ō)
-@`i i` (ì)
-@'{e} e' (é)
-@'{@dotless{i}} i' (í)
-@dotless{i} i (ı)
-@dotless{j} j (ȷ)
-@H{a} a''
-@dotaccent{a} a. (ȧ)
-@ringaccent{a} a* (å)
-@tieaccent{a} a[
-@u{a} a( (ă)
-@ubaraccent{a} a_
-@udotaccent{a} .a (ạ)
-@v{a} a< (ǎ)
-@,c c, (ç)
-@,{c} c, (ç)
-@ogonek{a} a; (ą)
+@"u ü (ü)
+@"{U} Ü (Ü) 
+@~n ñ (ñ)
+@^a â (â)
+@'e é (é)
+@=o ō (ō)
+@`i ì (ì)
+@'{e} é (é)
+@'{@dotless{i}} í (í)
+@dotless{i} ı (ı)
+@dotless{j} ȷ (ȷ)
+@H{a} a̋
+@dotaccent{a} ȧ (ȧ)
+@ringaccent{a} å (å)
+@tieaccent{a} a͡
+@u{a} ă (ă)
+@ubaraccent{a} a̲
+@udotaccent{a} ạ (ạ)
+@v{a} ǎ (ǎ)
+@,c ç (ç)
+@,{c} ç (ç)
+@ogonek{a} ą (ą)
 
-@`{@=E} E=`
+@`{@=E} Ḕ
 @l{} /l
-@,{@'C} C',
-@,c@"u c,u" 
+@,{@'C} Ḉ
+@,c@"u çü 
 
 
-@H{--a} -a''
-@dotaccent{--a} -a.
-@ringaccent{--a} -a*
-@tieaccent{--a} -a[
-@u{--a} -a(
-@ubaraccent{--a} -a_
-@udotaccent{--a} .-a
-@v{--a} -a<
-@,{--c} -c,
-@ogonek{--a} -a;
+@H{--a} -a̋
+@dotaccent{--a} -ȧ
+@ringaccent{--a} -å
+@tieaccent{--a} -a͡
+@u{--a} -ă
+@ubaraccent{--a} -a̲
+@udotaccent{--a} -ạ
+@v{--a} -ǎ
+@,{--c} -ç
+@ogonek{--a} -ą
 
 @U{0075} 0075
 
@@ -1006,8 +1006,8 @@ but , ,
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
-@abbr{@'E--. @comma{}A., @'Etude Autonome } E'--. ,A.E'tude Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude Autonome } É--. ,A.Étude Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 @asis{--a} --a
 @b{--a} --a
 @cite{--a} --a
@@ -1073,9 +1073,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 ``simple-double--three---four----''
 
 
-i j
-/l c,
-a_ .a a; ahl
+ı ȷ
+/l ç
+a̲ ạ ą ahl
 
        ! @ } { 
 a sunny day
@@ -1135,8 +1135,8 @@ a Tip
 Warning
 a Warning.
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
@@ -1234,8 +1234,8 @@ example four args
 first argsecond argthird argfourth argfifth arg
 example five args
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
 
@@ -1539,8 +1539,8 @@ subsubheading
 
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
-@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } É--. ,A.Étude--, Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
@@ -1549,15 +1549,15 @@ subsubheading
 
 Somehow invalid use of @,:
 
-@, ,
+@, ̧
 
-@,@"u ,u"
+@,@"u ̧ü
 
 Invalid use of @':
 
-@' '
+@' ́
 
-@'@"u 'u"
+@'@"u ́ü
 
 @| 
 
@@ -1599,9 +1599,9 @@ Invalid use of @':
 
 author
 
-u" U" n~ a^ e' o= i` e' E=`
-C', C', a'' a. a* a[
-a( a<
+ü Ü ñ â é ō ì é Ḕ
+Ḉ Ḉ a̋ ȧ å a͡
+ă ǎ
  ? .
 
 TeX LaTeX -!- aa (R) o 
@@ -1736,45 +1736,45 @@ kbd: ``simple-double--three---four----''
 
 
 
-@"u u" (ü)
-@"{U} U" (Ü) 
-@~n n~ (ñ)
-@^a a^ (â)
-@'e e' (é)
-@=o o= (ō)
-@`i i` (ì)
-@'{e} e' (é)
-@'{@dotless{i}} i' (í)
-@dotless{i} i (ı)
-@dotless{j} j (ȷ)
-@H{a} a''
-@dotaccent{a} a. (ȧ)
-@ringaccent{a} a* (å)
-@tieaccent{a} a[
-@u{a} a( (ă)
-@ubaraccent{a} a_
-@udotaccent{a} .a (ạ)
-@v{a} a< (ǎ)
-@,c c, (ç)
-@,{c} c, (ç)
-@ogonek{a} a; (ą)
+@"u ü (ü)
+@"{U} Ü (Ü) 
+@~n ñ (ñ)
+@^a â (â)
+@'e é (é)
+@=o ō (ō)
+@`i ì (ì)
+@'{e} é (é)
+@'{@dotless{i}} í (í)
+@dotless{i} ı (ı)
+@dotless{j} ȷ (ȷ)
+@H{a} a̋
+@dotaccent{a} ȧ (ȧ)
+@ringaccent{a} å (å)
+@tieaccent{a} a͡
+@u{a} ă (ă)
+@ubaraccent{a} a̲
+@udotaccent{a} ạ (ạ)
+@v{a} ǎ (ǎ)
+@,c ç (ç)
+@,{c} ç (ç)
+@ogonek{a} ą (ą)
 
-@`{@=E} E=`
+@`{@=E} Ḕ
 @l{} /l
-@,{@'C} C',
-@,c@"u c,u" 
+@,{@'C} Ḉ
+@,c@"u çü 
 
 
-@H{--a} -a''
-@dotaccent{--a} -a.
-@ringaccent{--a} -a*
-@tieaccent{--a} -a[
-@u{--a} -a(
-@ubaraccent{--a} -a_
-@udotaccent{--a} .-a
-@v{--a} -a<
-@,{--c} -c,
-@ogonek{--a} -a;
+@H{--a} -a̋
+@dotaccent{--a} -ȧ
+@ringaccent{--a} -å
+@tieaccent{--a} -a͡
+@u{--a} -ă
+@ubaraccent{--a} -a̲
+@udotaccent{--a} -ạ
+@v{--a} -ǎ
+@,{--c} -ç
+@ogonek{--a} -ą
 
 @U{0075} 0075
 
@@ -1870,8 +1870,8 @@ but , ,
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
-@abbr{@'E--. @comma{}A., @'Etude Autonome } E'--. ,A.E'tude Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude Autonome } É--. ,A.Étude Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 @asis{--a} --a
 @b{--a} --a
 @cite{--a} --a
@@ -1937,9 +1937,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 ``simple-double--three---four----''
 
 
-i j
-/l c,
-a_ .a a; ahl
+ı ȷ
+/l ç
+a̲ ạ ą ahl
 
        ! @ } { 
 a sunny day
@@ -1999,8 +1999,8 @@ a Tip
 Warning
 a Warning.
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
@@ -2098,8 +2098,8 @@ example four args
 first argsecond argthird argfourth argfifth arg
 example five args
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
 
@@ -2403,8 +2403,8 @@ subsubheading
 
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
-@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } É--. ,A.Étude--, Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
@@ -2413,15 +2413,15 @@ subsubheading
 
 Somehow invalid use of @,:
 
-@, ,
+@, ̧
 
-@,@"u ,u"
+@,@"u ̧ü
 
 Invalid use of @':
 
-@' '
+@' ́
 
-@'@"u 'u"
+@'@"u ́ü
 
 @| 
 
@@ -2463,9 +2463,9 @@ Invalid use of @':
 
 author
 
-u" U" n~ a^ e' o= i` e' E=`
-C', C', a'' a. a* a[
-a( a<
+ü Ü ñ â é ō ì é Ḕ
+Ḉ Ḉ a̋ ȧ å a͡
+ă ǎ
  ? .
 
 TeX LaTeX -!- aa (R) o 
@@ -2573,45 +2573,45 @@ kbd: ``simple-double--three---four----''
 
 
 
-@"u u" (ü)
-@"{U} U" (Ü) 
-@~n n~ (ñ)
-@^a a^ (â)
-@'e e' (é)
-@=o o= (ō)
-@`i i` (ì)
-@'{e} e' (é)
-@'{@dotless{i}} i' (í)
-@dotless{i} i (ı)
-@dotless{j} j (ȷ)
-@H{a} a''
-@dotaccent{a} a. (ȧ)
-@ringaccent{a} a* (å)
-@tieaccent{a} a[
-@u{a} a( (ă)
-@ubaraccent{a} a_
-@udotaccent{a} .a (ạ)
-@v{a} a< (ǎ)
-@,c c, (ç)
-@,{c} c, (ç)
-@ogonek{a} a; (ą)
+@"u ü (ü)
+@"{U} Ü (Ü) 
+@~n ñ (ñ)
+@^a â (â)
+@'e é (é)
+@=o ō (ō)
+@`i ì (ì)
+@'{e} é (é)
+@'{@dotless{i}} í (í)
+@dotless{i} ı (ı)
+@dotless{j} ȷ (ȷ)
+@H{a} a̋
+@dotaccent{a} ȧ (ȧ)
+@ringaccent{a} å (å)
+@tieaccent{a} a͡
+@u{a} ă (ă)
+@ubaraccent{a} a̲
+@udotaccent{a} ạ (ạ)
+@v{a} ǎ (ǎ)
+@,c ç (ç)
+@,{c} ç (ç)
+@ogonek{a} ą (ą)
 
-@`{@=E} E=`
+@`{@=E} Ḕ
 @l{} /l
-@,{@'C} C',
-@,c@"u c,u" 
+@,{@'C} Ḉ
+@,c@"u çü 
 
 
-@H{--a} -a''
-@dotaccent{--a} -a.
-@ringaccent{--a} -a*
-@tieaccent{--a} -a[
-@u{--a} -a(
-@ubaraccent{--a} -a_
-@udotaccent{--a} .-a
-@v{--a} -a<
-@,{--c} -c,
-@ogonek{--a} -a;
+@H{--a} -a̋
+@dotaccent{--a} -ȧ
+@ringaccent{--a} -å
+@tieaccent{--a} -a͡
+@u{--a} -ă
+@ubaraccent{--a} -a̲
+@udotaccent{--a} -ạ
+@v{--a} -ǎ
+@,{--c} -ç
+@ogonek{--a} -ą
 
 @U{0075} 0075
 
@@ -2707,8 +2707,8 @@ but , ,
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
-@abbr{@'E--. @comma{}A., @'Etude Autonome } E'--. ,A.E'tude Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude Autonome } É--. ,A.Étude Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 @asis{--a} --a
 @b{--a} --a
 @cite{--a} --a
@@ -2774,9 +2774,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right
 ``simple-double--three---four----''
 
 
-i j
-/l c,
-a_ .a a; ahl
+ı ȷ
+/l ç
+a̲ ạ ą ahl
 
        ! @ } { 
 a sunny day
@@ -2836,8 +2836,8 @@ a Tip
 Warning
 a Warning.
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
@@ -2935,8 +2935,8 @@ example four args
 first argsecond argthird argfourth argfifth arg
 example five args
 
-something e' TeX
-The something e' TeX is here.
+something é TeX
+The something é TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
 
@@ -3240,8 +3240,8 @@ subsubheading
 
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
-@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
-@abbr{@'E--. @comma{}A.} E'--. ,A.
+@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } É--. ,A.Étude--, Autonome
+@abbr{@'E--. @comma{}A.} É--. ,A.
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
@@ -3250,15 +3250,15 @@ subsubheading
 
 Somehow invalid use of @,:
 
-@, ,
+@, ̧
 
-@,@"u ,u"
+@,@"u ̧ü
 
 Invalid use of @':
 
-@' '
+@' ́
 
-@'@"u 'u"
+@'@"u ́ü
 
 @| 
 
@@ -3300,9 +3300,9 @@ Invalid use of @':
 
 author
 
-u" U" n~ a^ e' o= i` e' E=`
-C', C', a'' a. a* a[
-a( a<
+ü Ü ñ â é ō ì é Ḕ
+Ḉ Ḉ a̋ ȧ å a͡
+ă ǎ
  ? .
 
 TeX LaTeX -!- aa (R) o 

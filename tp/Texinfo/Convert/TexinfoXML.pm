@@ -40,7 +40,6 @@ $VERSION = '7.0dev';
 
 # TexinfoXML specific
 my %defaults = (
-  'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
