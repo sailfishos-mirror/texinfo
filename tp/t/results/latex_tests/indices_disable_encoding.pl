@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'indices'} = {
+$result_trees{'indices_disable_encoding'} = {
   'contents' => [
     {
       'contents' => [
@@ -1206,58 +1206,58 @@ $result_trees{'indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'indices'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'indices'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'indices'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[1];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[2];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[5];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[9] = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[11];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[15];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'};
-$result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[17];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'indices_disable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'indices_disable_encoding'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'indices_disable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'indices_disable_encoding'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'indices_disable_encoding'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'indices_disable_encoding'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'indices_disable_encoding'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 
-$result_texis{'indices'} = '
+$result_texis{'indices_disable_encoding'} = '
 @set txiindexbackslashignore
 
 @node Top
@@ -1289,7 +1289,7 @@ $result_texis{'indices'} = '
 ';
 
 
-$result_texts{'indices'} = '
+$result_texts{'indices_disable_encoding'} = '
 top section
 ***********
 
@@ -1304,7 +1304,7 @@ top section
 
 ';
 
-$result_sectioning{'indices'} = {
+$result_sectioning{'indices_disable_encoding'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -1353,12 +1353,12 @@ $result_sectioning{'indices'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'indices'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'indices'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'indices'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices'};
+$result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'indices_disable_encoding'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'indices_disable_encoding'};
 
-$result_nodes{'indices'} = {
+$result_nodes{'indices_disable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -1393,10 +1393,10 @@ $result_nodes{'indices'} = {
     }
   }
 };
-$result_nodes{'indices'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'indices'};
-$result_nodes{'indices'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'indices'};
+$result_nodes{'indices_disable_encoding'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'indices_disable_encoding'};
+$result_nodes{'indices_disable_encoding'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'indices_disable_encoding'};
 
-$result_menus{'indices'} = {
+$result_menus{'indices_disable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -1405,7 +1405,7 @@ $result_menus{'indices'} = {
   'structure' => {}
 };
 
-$result_errors{'indices'} = [
+$result_errors{'indices_disable_encoding'} = [
   {
     'error_line' => 'misplaced {
 ',
@@ -1427,10 +1427,10 @@ $result_errors{'indices'} = [
 ];
 
 
-$result_floats{'indices'} = {};
+$result_floats{'indices_disable_encoding'} = {};
 
 
-$result_indices_sort_strings{'indices'} = {
+$result_indices_sort_strings{'indices_disable_encoding'} = {
   'cp' => [
     '\\cmd',
     '\\some\\command for file',
@@ -1450,20 +1450,20 @@ $result_indices_sort_strings{'indices'} = {
 
 
 
-$result_converted{'latex_text'}->{'indices'} = '
+$result_converted{'latex_text'}->{'indices_disable_encoding'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Index}}
 \\label{anchor:chapter}%
 
-\\index[cp]{ä ö@"\\""{a} "\\""{o}}%
+\\index[cp]{a"" o""@"\\""{a} "\\""{o}}%
 \\index[cp]{AA@AA}%
 \\index[cp]{aa@aa}%
 \\index[cp]{i@i}%
 \\index[cp]{Z@Z}%
-\\index[cp]{î@\\^{i}}%
+\\index[cp]{i\\^{}@\\^{i}}%
 
-\\index[cp]{a"!"""@b """!"@ ä ö@$a"!"""@b$ """!"@ "\\""{a} "\\""{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ "\\""{a} "\\""{o}|seealso{$a!"@b$ "!@ \\"{a} \\"{o}}}%
+\\index[cp]{a"!"""@b """!"@ a"" o""@$a"!"""@b$ """!"@ "\\""{a} "\\""{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ "\\""{a} "\\""{o}|seealso{$a!"@b$ "!@ \\"{a} \\"{o}}}%
 \\index[cp]{cmd@\\textbackslash{}cmd}%
 \\index[cp]{\\textbackslash{}cmd@totocmd}%
 

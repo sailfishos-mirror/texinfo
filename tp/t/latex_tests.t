@@ -118,6 +118,37 @@ Cop. @anchor{a in copying}. Ying.
 '],
 );
 
+my $indices_text = '
+@set txiindexbackslashignore
+
+@node Top
+@top top section
+
+@node chapter
+@chapter Index
+
+@cindex @"a @"{o}
+@cindex AA
+@cindex aa
+@cindex i
+@cindex Z
+@cindex @^i
+
+@cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
+@cindex \cmd
+@cindex totocmd @sortas{\cmd}
+
+@clear txiindexbackslashignore
+
+@cindex \some\command{} for @file{file} @c comment
+
+@findex the @r{person} index @file{aa}
+
+@printindex cp
+
+@printindex fn
+';
+
 my @file_tests = (
 ['settitle_and_headings',
 '@settitle Title @* for a manual
@@ -641,32 +672,15 @@ b!}
 @end enumerate
 
 '],
+# in the the output pdf file obtained with pdflatex, the index entries
+# with accented characters are at the end and not together with the non
+# accented letters
 ['indices',
-'
-@set txiindexbackslashignore
-
-@node Top
-@top top section
-
-@node chapter
-@chapter Index
-
-@cindex @"a @"{o}
-
-@cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
-@cindex \cmd
-@cindex totocmd @sortas{\cmd}
-
-@clear txiindexbackslashignore
-
-@cindex \some\command{} for @file{file} @c comment
-
-@findex the @r{person} index @file{aa}
-
-@printindex cp
-
-@printindex fn
-'],
+$indices_text
+],
+['indices_disable_encoding',
+$indices_text, {ENABLE_ENCODING => 0,}, {ENABLE_ENCODING => 0,}
+],
 ['error_in_sectioning_command',
 '@contents
 
