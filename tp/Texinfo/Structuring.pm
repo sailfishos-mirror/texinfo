@@ -1764,12 +1764,15 @@ sub _sort_index_entries($$$)
 
 sub setup_index_entry_keys_formatting($)
 {
-  my $customization_information = shift;
+  my $customization_info = shift;
 
-  # obeys ENABLE_ENCODING
-  my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
-   Texinfo::Convert::Text::copy_options_for_convert_text(
-                                  $customization_information)};
+  my $options = {'ascii_punctuation' => 1,
+     Texinfo::Convert::Text::copy_options_for_convert_text(
+                                  $customization_info)};
+  if (not $customization_info->get_conf('ENABLE_ENCODING')
+      or lc($customization_info->get_conf('OUTPUT_ENCODING_NAME')) ne 'utf-8') {
+    $options->{'sort_string'} = 1;
+  }
 
   return $options;
 }
