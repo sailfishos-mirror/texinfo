@@ -72,8 +72,10 @@ my @letter_entries_ref = (
    {'!' => [ '!' ]},
    {'"' => [ '"' ]},
    {'A' => [ 'aaaaaaaaaaaa' ]},
-   {'E' => [ 'e', 'E']},
-   {'Ẽ' => [ 'ẽ' ]},
+# result with accented letters separate
+#   {'E' => [ 'e', 'E']},
+#   {'Ẽ' => [ 'ẽ' ]},
+   {'E' => [ 'e', 'E', 'ẽ' ]},
    {'Ł' => [ 'ł' ]},
 );
  

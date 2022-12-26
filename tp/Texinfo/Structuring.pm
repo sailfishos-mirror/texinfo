@@ -34,6 +34,7 @@ use strict;
 use Carp qw(cluck confess);
 
 use Unicode::Collate;
+use Unicode::Normalize;
 
 # for %root_commands
 use Texinfo::Commands;
@@ -1858,7 +1859,18 @@ sub sort_indices($$$;$)
       } else {
         push @entry_keys, $entry_key;
         if ($sort_by_letter) {
-          $letter = uc(substr($entry_key, 0, 1));
+          # the following line leads to each accented letter being separate
+          # $letter = uc(substr($entry_key, 0, 1));
+          my $letter_string = uc(substr($entry_key, 0, 1));
+          # determine main letter by decomposing and removing diacritics
+          $letter = Unicode::Normalize::NFKD($letter_string);
+          $letter =~ s/\p{NonspacingMark}//g;
+          # following code is less good, as the upper-casing may lead to
+          # two letters in case of the german Eszett that becomes SS.  So
+          # it is better to upper-case first and remove diacritics after.
+          #my $normalized_string = Unicode::Normalize::NFKD(uc($entry_key));
+          #$normalized_string =~ s/\p{NonspacingMark}//g;
+          #$letter = substr($normalized_string, 0, 1);
         }
       }
       my $subentry_nr = 0;

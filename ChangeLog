@@ -1,5 +1,11 @@
 2022-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sort_indices): when splitting at letters,
+	determine letters by removing diacritics to associate accented letters
+	to the main letter.
+
+2022-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting): set
 	sort_string option for conversion to text only if ENABLE_ENCODING is
 	unset or encoding is not UTF-8.
