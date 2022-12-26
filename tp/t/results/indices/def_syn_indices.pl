@@ -1977,8 +1977,8 @@ $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
-% no index headers or page break
-\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+% no index headers
+\\indexsetup{level=\\relax,toclevel=section}%
 \\makeindex[name=codeidx,title=]%
 \\makeindex[name=fn,title=]%
 \\makeindex[name=pg,title=]%

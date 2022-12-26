@@ -1020,8 +1020,8 @@ $result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
-% no index headers or page break
-\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+% no index headers
+\\indexsetup{level=\\relax,toclevel=section}%
 \\makeindex[name=SK,title=]%
 
 % redefine the \\mainmatter command such that it does not clear page

@@ -1334,8 +1334,14 @@ sub _latex_header() {
   }
   if ($self->{'index_entries'}
       and scalar(keys(%{$self->{'index_entries'}}))) {
-    $header_code .= "% no index headers or page break\n";
-    $header_code .= "\\indexsetup{level=\\relax,toclevel=section,noclearpage}%\n";
+    # FIXME with noclearpage looks more like regular Texinfo output, as indices
+    # are output in the flow of the text, not as separate chapter/section-like
+    # elements.  However, with noclearpage, the index may not be output if
+    # it is at the end of the file, for example in latex_tests indices test.
+    #$header_code .= "% no index headers or page break\n";
+    #$header_code .= "\\indexsetup{level=\\relax,toclevel=section,noclearpage}%\n";
+    $header_code .= "% no index headers\n";
+    $header_code .= "\\indexsetup{level=\\relax,toclevel=section}%\n";
 
     foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
       $header_code .= "\\makeindex[name=$index_name,title=]%\n";
