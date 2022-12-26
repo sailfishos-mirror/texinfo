@@ -1,6 +1,11 @@
+2022-12-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex: Move more macros to be defined while \ is
+	still the escape character, as this is easier to read.
+
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
-	* doc/texinfo.tex: Prove \ a definition again when Texinfo
+	* doc/texinfo.tex: Provide \ a definition again when Texinfo
 	is not a preloaded format.
 
 2022-12-25  Gavin Smith  <gavinsmith0123@gmail.com>

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-25.23}
+\def\texinfoversion{2022-12-26.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11660,6 +11660,12 @@ directory should work if nowhere else does.}
   \unsepspaces
 }
 
+% If a .fmt file is being used, characters that might appear in a file
+% name cannot be active until we have parsed the command line.
+% So turn them off again, and have \loadconf turn them back on.
+\catcode`+=\other \catcode`\_=\other
+
+
 % \backslashcurfont outputs one backslash character in current font,
 % as in \char`\\.
 \global\chardef\backslashcurfont=`\\
@@ -11681,6 +11687,62 @@ directory should work if nowhere else does.}
 \def\normaldot{.}
 \def\normalquest{?}
 \def\normalslash{/}
+
+% \newlinesloadsconf - call \loadconf as soon as possible in the
+% file, e.g. at the first newline.
+%
+{\catcode`\^=7
+\catcode`\^^M=13
+\gdef\newlineloadsconf{%
+  \catcode`\^^M=13 %
+  \newlineloadsconfzz%
+}
+\gdef\newlineloadsconfzz#1^^M{%
+  \def\c{\loadconf\c}%
+  % Definition for the first newline read in the file
+  \def ^^M{\loadconf}%
+  % In case the first line has a whole-line command on it
+  \let\originalparsearg\parsearg%
+  \def\parsearg{\loadconf\originalparsearg}%
+}}
+
+
+% Emergency active definition of newline, in case an active newline token
+% appears by mistake.
+{\catcode`\^=7 \catcode13=13%
+\gdef\enableemergencynewline{%
+  \gdef^^M{%
+    \par%
+    %<warning: active newline>\par%
+}}}
+
+
+% \loadconf gets called at the beginning of every Texinfo file.
+% If texinfo.cnf is present on the system, read it.  Useful for site-wide
+% @afourpaper, etc.  Not opening texinfo.cnf directly in texinfo.tex
+% makes it possible to make a format file for Texinfo.
+%
+\gdef\loadconf{%
+  \relax  % Terminate the filename if running as "tex '&texinfo' FILE.texi".
+  %
+  % Turn off the definitions that trigger \loadconf
+  \everyjobreset
+  \catcode13=5 % regular end of line
+  \enableemergencynewline
+  \let\c=\comment
+  \let\parsearg\originalparsearg
+  %
+  % Also turn back on active characters that might appear in the input
+  % file name, in case not using a pre-dumped format.
+  \catcode`+=\active
+  \catcode`\_=\active
+  %
+  \openin 1 texinfo.cnf
+  \ifeof 1 \else \input texinfo.cnf \fi
+  \closein 1
+}
+
+
 
 
 \catcode`\@=0
@@ -11707,6 +11769,7 @@ directory should work if nowhere else does.}
 {@catcode`@^=7 @catcode`@^^M=13%
 @gdef@eatinput input texinfo#1^^M{@loadconf}}
 
+@def@everyjobreset{@ifx\@eatinput @let\ = @ttbackslash @fi}
 
 % \otherbackslash defines an active \ to be a literal `\' character with
 % catcode other.
@@ -11721,67 +11784,6 @@ directory should work if nowhere else does.}
    @let\=@ttbackslash
  }
 }
-
-% If a .fmt file is being used, characters that might appear in a file
-% name cannot be active until we have parsed the command line.
-% So turn them off again, and have @loadconf turn them back on.
-@catcode`+=@other @catcode`@_=@other
-
-
-% \newlinesloadsconf - call \loadconf as soon as possible in the
-% file, e.g. at the first newline.
-%
-{@catcode`@^=7
-@catcode`@^^M=13
-@gdef@newlineloadsconf{%
-  @catcode`@^^M=13 %
-  @newlineloadsconfzz%
-}
-@gdef@newlineloadsconfzz#1^^M{%
-  @def@c{@loadconf@c}%
-  % Definition for the first newline read in the file
-  @def ^^M{@loadconf}%
-  % In case the first line has a whole-line command on it
-  @let@originalparsearg@parsearg%
-  @def@parsearg{@loadconf@originalparsearg}%
-}}
-
-
-% Emergency active definition of newline, in case an active newline token
-% appears by mistake.
-{@catcode`@^=7 @catcode13=13%
-@gdef@enableemergencynewline{%
-  @gdef^^M{%
-    @par%
-    %<warning: active newline>@par%
-}}}
-
-
-% \loadconf gets called at the beginning of every Texinfo file.
-% If texinfo.cnf is present on the system, read it.  Useful for site-wide
-% @afourpaper, etc.  Not opening texinfo.cnf directly in texinfo.tex
-% makes it possible to make a format file for Texinfo.
-%
-@gdef@loadconf{%
-  @relax  % Terminate the filename if running as "tex '&texinfo' FILE.texi".
-  %
-  % Turn off the definitions that trigger \loadconf
-  @ifx\@eatinput @let\ = @ttbackslash @fi
-  @catcode13=5 % regular end of line
-  @enableemergencynewline
-  @let@c=@comment
-  @let@parsearg@originalparsearg
-  %
-  % Also turn back on active characters that might appear in the input
-  % file name, in case not using a pre-dumped format.
-  @catcode`+=@active
-  @catcode`@_=@active
-  %
-  @openin 1 texinfo.cnf
-  @ifeof 1 @else @input texinfo.cnf @fi
-  @closein 1
-}
-
 
 % Say @foo, not \foo, in error messages.
 @escapechar = `@@
