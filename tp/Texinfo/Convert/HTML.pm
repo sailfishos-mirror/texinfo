@@ -286,14 +286,14 @@ my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 # this allows init files to get the location of the image files
 # which cannot be determined from the result, as the file
 # location is not used in the element output.
-# FIXME use monospacetext or url?  url is always UTF-8 encoded
-# to fit with percent encoding, monospacetext uses the output
-# encoding.  As a file name, monospacetext could make sense,
+# FIXME use filenametext or url?  url is always UTF-8 encoded
+# to fit with percent encoding, filenametext uses the output
+# encoding.  As a file name, filenametext could make sense,
 # although the underlying character obtained with utf-8 may also
 # make sense.  It is also used as the path part of a url.
 # In practice, the user should check that the output encoding
 # and the commands used in file names match, so url or
-# monospacetext should be the same.
+# filenametext should be the same.
 sub html_image_file_location_name($$$$)
 {
   my $self = shift;
@@ -308,12 +308,12 @@ sub html_image_file_location_name($$$$)
   my $image_extension;
   # this variable is bytes encoded in the filesystem encoding
   my ($image_path, $image_path_encoding);
-  if (defined($args->[0]->{'monospacetext'})
-      and $args->[0]->{'monospacetext'} ne '') {
-    $image_basefile = $args->[0]->{'monospacetext'};
+  if (defined($args->[0]->{'filenametext'})
+      and $args->[0]->{'filenametext'} ne '') {
+    $image_basefile = $args->[0]->{'filenametext'};
     my $extension;
-    if (defined($args->[4]) and defined($args->[4]->{'monospacetext'})) {
-      $extension = $args->[4]->{'monospacetext'};
+    if (defined($args->[4]) and defined($args->[4]->{'filenametext'})) {
+      $extension = $args->[4]->{'filenametext'};
       unshift @extensions, ("$extension", ".$extension");
     }
     foreach my $extension (@extensions) {
@@ -2426,11 +2426,11 @@ my %default_commands_args = (
   'uref' => [['url', 'monospacestring'], ['normal'], ['normal']],
   'url' => [['url', 'monospacestring'], ['normal'], ['normal']],
   'sp' => [[]],
-  'inforef' => [['monospace'],['normal'],['monospacetext']],
-  'xref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
-  'pxref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
-  'ref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
-  'image' => [['url', 'monospacetext', 'monospacestring'],['monospacetext'],['monospacetext'],['string', 'normal'],['monospacetext']],
+  'inforef' => [['monospace'],['normal'],['filenametext']],
+  'xref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
+  'pxref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
+  'ref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
+  'image' => [['url', 'filenametext', 'monospacestring'],['filenametext'],['filenametext'],['string', 'normal'],['filenametext']],
   # FIXME shouldn't it better not to convert if later ignored?
   'inlinefmt' => [['monospacetext'],['normal']],
   'inlinefmtifelse' => [['monospacetext'],['normal'],['normal']],
@@ -3181,8 +3181,8 @@ sub _convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0]->{'monospacetext'})
-      and $args->[0]->{'monospacetext'} ne '') {
+  if (defined($args->[0]->{'filenametext'})
+      and $args->[0]->{'filenametext'} ne '') {
     my $basefile_string = '';
     $basefile_string = $args->[0]->{'monospacestring'}
         if (defined($args->[0]->{'monospacestring'}));
@@ -5128,10 +5128,10 @@ sub _convert_xref_commands($$$$)
   my $file_arg_tree;
   my $file = '';
   if ($args->[3]
-      and defined($args->[3]->{'monospacetext'})
-      and $args->[3]->{'monospacetext'} ne '') {
+      and defined($args->[3]->{'filenametext'})
+      and $args->[3]->{'filenametext'} ne '') {
     $file_arg_tree = $args->[3]->{'tree'};
-    $file = $args->[3]->{'monospacetext'};
+    $file = $args->[3]->{'filenametext'};
   }
 
   my $book = '';
@@ -6507,7 +6507,7 @@ sub _convert_def_line_type($$$$)
     # should probably never happen
     return &{$self->formatting_function('format_protect_text')}($self,
      Texinfo::Convert::Text::convert_to_text(
-      $element, Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)));
+      $element, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
   }
 
   my $index_label = '';
@@ -9107,7 +9107,7 @@ sub _external_node_href($$$;$)
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $external_node->{'manual_content'}},
        { 'code' => 1,
-         Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+         Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $xml_target eq '') {
       my $top_node_up = $self->get_conf('TOP_NODE_UP');
       if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
@@ -10264,7 +10264,7 @@ sub output_internal_links($)
         my $tree = $self->command_text($command, 'tree');
         if ($tree) {
           $text = Texinfo::Convert::Text::convert_to_text($tree,
-             {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+             {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
         }
       }
       if (defined($href) or defined($text)) {
@@ -10277,7 +10277,7 @@ sub output_internal_links($)
   }
   my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
   if ($index_entries_by_letter) {
-    my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self, 1);
+    my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
@@ -10636,7 +10636,7 @@ sub output($$)
   if ($self->{'global_commands'}->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
-     {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+     {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($copying_comment ne '') {
       $self->{'copying_comment'}
        = &{$self->formatting_function('format_comment')}($self, $copying_comment);
@@ -11222,7 +11222,13 @@ sub _convert($$;$)
                 $arg_formatted->{$arg_type}
                   = Texinfo::Convert::Text::convert_to_text($arg,
                          {'code' => 1,
-            Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                 Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+              } elsif ($arg_type eq 'filenametext') {
+                # Always use encoded characters for file names
+                $arg_formatted->{$arg_type}
+                  = Texinfo::Convert::Text::convert_to_text($arg,
+                         {'code' => 1,
+               Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
               } elsif ($arg_type eq 'url') {
                 # set the encoding to UTF-8 to always have a string that is suitable
                 # for percent encoding.

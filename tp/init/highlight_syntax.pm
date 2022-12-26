@@ -237,7 +237,7 @@ sub highlight_process($$)
         pop @{$tree->{'contents'}};
       }
       my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
       # make sure that the text ends with a newline
       chomp ($text);
       $text .= "\n";

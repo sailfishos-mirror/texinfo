@@ -836,8 +836,12 @@ sub converter_initialize($)
   }
 
   %{$self->{'quotes_map'}} = %quotes_map;
-  $self->{'convert_text_options'}
+  # for file names
+  $self->{'convert_encoded_text_options'}
       = {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
+  # for other conversions to text
+  $self->{'convert_text_options'}
+      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   # this condition means that there is no way to turn off
   # @U expansion to utf-8 characters even though this
@@ -2739,7 +2743,7 @@ sub _convert($$)
         # converted basefile with special characters escaped
         my $basefile = Texinfo::Convert::Text::convert_to_text(
          {'contents' => $element->{'args'}->[0]->{'contents'}},
-         {'code' => 1, %{$self->{'convert_text_options'}}});
+         {'code' => 1, %{$self->{'convert_encoded_text_options'}}});
 
         # warn if no file is found, even though the basefile is used
         # in any case.

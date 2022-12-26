@@ -2151,6 +2151,11 @@ Same as monospace, but in addition in string context. @xref{Init File Expansion 
 Same as monospace, but in addition the argument is converted to plain
 text.  @xref{Converter Object and Conversion Functions}.
 
+@item filenametext
+Same as monospacetext, but in addition the document encoding is used
+to convert accented letters and special insertion @@-commands to plain
+text even if @code{ENABLE_ENCODING} is unset.
+
 @item raw
 Text is kept as is, special HTML characters are not protected.  Appears only
 as @code{@@inlineraw} second argument.
@@ -2163,7 +2168,7 @@ The Texinfo tree element corresponding to the argument.
 @xref{Texinfo Tree Elements in User Defined Functions}.
 
 @item url
-Similar with monospacetext.  The difference is that UTF-8 encoding is always
+Similar with filenametext.  The difference is that UTF-8 encoding is always
 used for the conversion of accented and special insertion @@-commands to plain
 text.  This is best for percent encoding of URLs, which should always be
 produced from UTF-8 encoded strings.

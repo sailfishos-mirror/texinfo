@@ -842,12 +842,10 @@ the behavior is identical, and does not depend on the installed name.\n")
                                 Otherwise, DEST names the output file.")."\n"
 .__(
 "      --disable-encoding      do not output accented and special characters
-                                in Info output based on document encoding.")."\n"
+                                in Info and plain text output based on document
+                                encoding.")."\n"
 .__(
-"      --enable-encoding       based on document encoding, output accented
-                                characters in XML-based output as well as
-                                special characters in HTML instead of
-                                entities.")."\n"
+"      --enable-encoding       override --disable-encoding (default).")."\n"
 ."\n";
   $makeinfo_help .= sprintf(__("Options for Info and plain text:")."\n"
 .__(

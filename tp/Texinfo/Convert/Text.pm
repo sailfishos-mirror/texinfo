@@ -333,9 +333,7 @@ sub text_heading($$$;$$)
 # based on the converter information.
 # if $ENABLE_ENCODING_IF_NOT_ASCII is set, enabled_encoding is set
 # unless the encoding is ascii, even if ENABLE_ENCODING is not set.
-# This is relevant for HTML and XML formats, where ENABLE_ENCODING unset
-# does not mean that encoding is not supported, but that entities are
-# preferred to encoded characters, and also when expanding file names.
+# This is relevant for file names, for instance.
 sub copy_options_for_convert_text($;$)
 {
   my $self = shift;
@@ -948,8 +946,9 @@ The following options may be set:
 If set, the value is considered to be the encoding name texinfo accented
 letters should be converted to.  This option being set corresponds to the
 C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization
-variable for Info and Plaintext.  For HTML, DocBook or Texinfo XML, this
-variable should in general be set unless the output encoding is US-ASCII.
+variable for Info and Plaintext and for some conversion to text in other
+formats.  For file names in HTML and LaTeX, and for DocBook or Texinfo XML,
+this variable should in general be set unless the output encoding is US-ASCII.
 
 =item sc
 

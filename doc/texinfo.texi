@@ -15427,7 +15427,8 @@ Info (@pxref{@command{texi2any} Printed Output}).
 By default, or with @option{--enable-encoding}, output accented and
 special characters in Info and plain text output based on
 the document encoding.  With @option{--disable-encoding}, 7-bit
-ASCII transliterations are output.
+ASCII transliterations are output.  Also obeyed in other output
+formats for index keys sorting and for some plain text output.
 
 @item --epub3
 @opindex --epub3

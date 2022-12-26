@@ -246,9 +246,9 @@ sub epub_convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0]->{'monospacetext'})
-      and $args->[0]->{'monospacetext'} ne '') {
-    my $basefile = $args->[0]->{'monospacetext'};
+  if (defined($args->[0]->{'filenametext'})
+      and $args->[0]->{'filenametext'} ne '') {
+    my $basefile = $args->[0]->{'filenametext'};
     return $basefile if ($self->in_string());
 
     my ($image_file, $image_basefile, $image_extension, $image_path,

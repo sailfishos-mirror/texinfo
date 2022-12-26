@@ -1766,10 +1766,7 @@ sub setup_index_entry_keys_formatting($)
 {
   my $customization_information = shift;
 
-  # TODO it would probably be relevant to set the encoding by setting the
-  # copy_options_for_convert_text optional argument when we use
-  # Unicode::Collate to sort.  Otherwise it is better not to as the result
-  # is worse when setting it.
+  # obeys ENABLE_ENCODING
   my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
                                   $customization_information)};
