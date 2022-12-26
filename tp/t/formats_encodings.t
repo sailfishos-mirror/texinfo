@@ -324,7 +324,7 @@ $weird_accents_text, {'ENABLE_ENCODING' => 0}
 $accents_text
 ],
 ['accent_enable_encoding',
-$accents_text, {'ENABLE_ENCODING' => 1}
+$accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 ],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
@@ -335,7 +335,7 @@ $at_commands_in_refs_text,
 
 my @html_text_cases = (
 ['accentenc_enable_encoding',
-$latin1_accents_text, {'ENABLE_ENCODING' => 1}
+$latin1_accents_text, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 ],
 );
 

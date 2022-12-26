@@ -14,6 +14,10 @@ See the manual for detailed information.
 
 * texi2any
  . @itemx at the beginning of a @table is now an error, not a warning
+ . --enable-encoding and --disable-encoding do not determine anymore
+   if encoded characters are output instead of entities or commands for
+   HTML, XML, DocBook and LaTeX, instead the OUTPUT_CHARACTERS customization
+   variable valaue is used.
  . HTML output:
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.

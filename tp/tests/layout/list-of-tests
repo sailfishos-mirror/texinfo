@@ -35,7 +35,7 @@ formatting_weird_quotes formatting.texi -c 'OPEN_QUOTE_SYMBOL @' -c "CLOSE_QUOTE
 formatting_html32 formatting.texi --init html32.pm
 formatting_regions formatting_regions.texi
 formatting_numerical_entities formatting.texi -c 'USE_NUMERIC_ENTITY 1'
-formatting_enable_encoding formatting.texi --enable-encoding
+formatting_enable_encoding formatting.texi --enable-encoding -c OUTPUT_CHARACTERS=1
 formatting_xhtml formatting.texi -c DOCTYPE='<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' -c 'USE_XML_SYNTAX 1' -c 'NO_CUSTOM_HTML_ATTRIBUTE 1' -c 'HTML_ROOT_ELEMENT_ATTRIBUTES xmlns="http://www.w3.org/1999/xhtml"'
 formatting_exotic formatting.texi --split section --no-header --no-number-sections -c 'TOC_LINKS 1' -c 'DEF_TABLE 1' -c 'XREF_USE_NODE_NAME_ARG 1' --footnote-style=end --css-ref http://www.environnement.ens.fr/perso/dumas/background-color.css --internal-links=/dev/null -c 'USE_TITLEPAGE_FOR_TITLE 0'
 # use of the doctype is to be able to use W3C old validator, it

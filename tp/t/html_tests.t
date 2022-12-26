@@ -495,7 +495,7 @@ $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
 $mathjax_with_texinfo, {'test_formats' => ['latex_text', 'file_latex'],
                         'full_document' => 1},
-{'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1,},],
+{'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
                             'CONVERT_TO_LATEX_IN_MATH' => 0}],
@@ -583,11 +583,12 @@ AA @^e --- -- \'` \'\' ``'],
 ['utf8_enable_encoding',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
 ['utf8_enable_encoding_no_use_iso',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1},
+                            {'OUTPUT_CHARACTERS' => 1, 'USE_ISO' => 0}],
 ['utf8_use_numeric_entity',
 '@documentencoding utf-8
 
@@ -595,7 +596,8 @@ AA @^e --- -- \'` \'\' ``', {}, {'USE_NUMERIC_ENTITY' => 1}],
 ['utf8_enable_encoding_use_numeric_entity',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_NUMERIC_ENTITY' => 1}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1,
+                                                       'USE_NUMERIC_ENTITY' => 1}],
 ['ref_in_preformatted',
 '@node Top
 
@@ -638,17 +640,17 @@ my @test_cases_file_text = (
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'}],
 ['test_accents_sc_enable_encoding',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi',
-        'ENABLE_ENCODING' => 1}],
+        'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
 ['test_accents_sc_default_latin1',
 undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'}],
 ['test_accents_sc_enable_encoding_latin1',
 undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
-        'ENABLE_ENCODING' => 1}],
+        'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}],
 ['test_accents_sc_default_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'}],
 ['test_accents_sc_enable_encoding_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
-        'ENABLE_ENCODING' => 1}],
+        'ENABLE_ENCODING' => 1, {'OUTPUT_CHARACTERS' => 1}}],
 ['test_accents_sc_use_numeric_entity',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'},
        {'USE_NUMERIC_ENTITY' => 1}],
@@ -659,11 +661,11 @@ undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
 ['test_accents_sc_enable_encoding_to_utf8_latin1',
 undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
          'ENABLE_ENCODING' => 1},
-        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+        {'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 ['test_accents_sc_enable_encoding_to_utf8_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
          'ENABLE_ENCODING' => 1},
-        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+        {'OUTPUT_CHARACTERS' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 );
 
 # test that the node name that goes in the redirection file is reproducible.
@@ -726,7 +728,7 @@ $itemize_arguments_text
 ],
 ['itemize_arguments_enable_encoding',
 $itemize_arguments_text
-, {'ENABLE_ENCODING' => 1}
+, {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 ],
 ['check_htmlxref_no_use_nodes',
 $check_htmlxref_text

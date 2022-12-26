@@ -1835,7 +1835,7 @@ my %defaults = (
   'documentlanguage'      => 'en',
   'DOCTYPE'               => '<!DOCTYPE html>',
   'DO_ABOUT'              => 0,
-  'ENABLE_ENCODING'       => 0,
+  'OUTPUT_CHARACTERS'     => 0,
   'EXTENSION'             => 'html',
   'EXTERNAL_CROSSREF_EXTENSION' => undef, # based on EXTENSION
   'FOOTNOTE_END_HEADER_LEVEL' => 4,
@@ -3309,7 +3309,7 @@ sub _convert_accent_command($$$$)
     $format_accents = \&_accent_entities_html_accent;
   }
   return $self->convert_accents($command, $format_accents,
-                                $self->get_conf('ENABLE_ENCODING'),
+                                $self->get_conf('OUTPUT_CHARACTERS'),
                                 $self->in_upper_case());
 }
 
@@ -3364,7 +3364,7 @@ sub _css_string_convert_accent_command($$$$)
 
   my $format_accents = \&_css_string_accent;
   return $self->convert_accents($command, $format_accents,
-                                $self->get_conf('ENABLE_ENCODING'),
+                                $self->get_conf('OUTPUT_CHARACTERS'),
                                 $self->in_upper_case());
 }
 
@@ -6166,10 +6166,10 @@ sub _convert_text($$$)
   $text = _default_format_protect_text($self, $text);
 
   # API info: get_conf() API code conforming would be:
-  #if ($self->get_conf('ENABLE_ENCODING')
+  #if ($self->get_conf('OUTPUT_CHARACTERS')
   #    and $self->get_conf('OUTPUT_ENCODING_NAME')
   #    and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
-  if ($self->{'conf'}->{'ENABLE_ENCODING'}
+  if ($self->{'conf'}->{'OUTPUT_CHARACTERS'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
@@ -7500,7 +7500,7 @@ sub converter_initialize($)
 
   foreach my $special_character (keys(%special_characters)) {
     my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
-    if ($self->get_conf('ENABLE_ENCODING')
+    if ($self->get_conf('OUTPUT_CHARACTERS')
         and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
                                          $output_encoding, $unicode_point)) {
       $special_characters_set{$special_character} = chr(hex($unicode_point));
@@ -7722,7 +7722,7 @@ sub converter_initialize($)
            = $conf_default_no_arg_commands_formatting_normal;
         }
         if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
-          if ($self->get_conf('ENABLE_ENCODING')
+          if ($self->get_conf('OUTPUT_CHARACTERS')
               and Texinfo::Convert::Unicode::brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}

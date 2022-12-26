@@ -1737,7 +1737,7 @@ sub xml_accents($$;$)
   }
   
   return $self->convert_accents($accent, $format_accents,
-                                $self->get_conf('ENABLE_ENCODING'),
+                                $self->get_conf('OUTPUT_CHARACTERS'),
                                 $in_upper_case);
 }
 

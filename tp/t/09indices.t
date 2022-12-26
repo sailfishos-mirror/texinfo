@@ -836,12 +836,12 @@ undef,
 ['encoding_index_latin1_enable_encoding',
 undef,
 {'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 1}, 
-{'ENABLE_ENCODING' => 1}
+{'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 ['encoding_index_utf8_enable_encoding',
 undef,
 {'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 1}, 
-{'ENABLE_ENCODING' => 1}
+{'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 );
 

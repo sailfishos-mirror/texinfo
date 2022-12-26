@@ -656,7 +656,7 @@ sub _convert($$;$)
       }
       return $self->_format_command($element->{'cmdname'});
     } elsif ($accent_types{$element->{'cmdname'}}) {
-      if ($self->get_conf('ENABLE_ENCODING')) {
+      if ($self->get_conf('OUTPUT_CHARACTERS')) {
         return $self->convert_accents($element, \&_accent, 1);
       } else {
         my $attributes = [];

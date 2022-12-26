@@ -12473,16 +12473,16 @@ this:
      charset=utf-8">
 @end example
 
-In HTML and @LaTeX{} output, if the option @option{--enable-encoding} is given
-to @command{texi2any}, accent constructs and special characters, such as
-@code{@@'e} or @code{``}, are output as the actual UTF-8 sequence or
-8-bit character in the output encoding where possible.  Otherwise, HTML
-entities are used for those characters in HTML, and @LaTeX{} macros
-are used in @LaTeX{}.
+In HTML and @LaTeX{} output, if @code{OUTPUT_CHARACTERS} is set
+(@pxref{Other Customization Variables}), accent constructs and special
+characters, such as @code{@@'e} or @code{``}, are output as the actual
+UTF-8 sequence or 8-bit character in the output encoding where possible.
+Otherwise, HTML entities are used for those characters in HTML, and
+@LaTeX{} macros are used in @LaTeX{}.
 
 In DocBook output, if the encoding is different from UTF-8,
 an @code{encoding} attribute is added to the XML declaration.
-If the option @option{--enable-encoding} is given to @command{texi2any},
+If @code{OUTPUT_CHARACTERS} is set (@pxref{Other Customization Variables}),
 accent constructs such as @code{@@'e} are output as the actual 8-bit or
 UTF-8 character in the output encoding where possible.  Otherwise XML
 entities are used for those constructs.
@@ -15429,13 +15429,6 @@ special characters in Info and plain text output based on
 the document encoding.  With @option{--disable-encoding}, 7-bit
 ASCII transliterations are output.
 
-By default, or with @option{--disable-encoding}, output accented and
-special characters in HTML, XML and DocBook using XML entities.
-With @option{--enable-encoding}, output accented characters in HTML,
-XML and DocBook output and special characters in HTML output
-based on the document encoding.  @xref{@code{@@documentencoding}},
-and @ref{Inserting Accents}.
-
 @item --epub3
 @opindex --epub3
 Generate EPUB 3 output.
@@ -16739,7 +16732,7 @@ are not consistent with the order of node menu entries.
 When a closing quote is needed, use this character; default @code{&#8217;}
 in DocBook.  Undefined in the default case in HTML and set to @code{&rsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
-to a quote character if @option{--enable-encoding} is set and the output
+to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
 encoding includes that character.
 
 The default for Info is set the same as for @code{OPEN_QUOTE_SYMBOL},
@@ -16926,7 +16919,7 @@ When an opening quote is needed, e.g., for @samp{@@samp} output, use
 the specified character; default @code{&#8216;} for DocBook.
 Undefined in the default case in HTML and set to @code{&lsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
-to a quote character if @option{--enable-encoding} is set and the output
+to a quote character if @code{OUTPUT_CHARACTERS} is set and the output
 encoding includes that character.
 
 For Info, the default depends on the enabled document encoding.  If
@@ -16934,6 +16927,13 @@ For Info, the default depends on the enabled document encoding.  If
 @samp{'} is used.  This character usually appears
 as an undirected single quote on modern systems.  Otherwise, the Info
 output uses a Unicode left quote.
+
+@item OUTPUT_CHARACTERS
+If not set, the default, output accented and special characters in HTML, XML
+and DocBook using XML entities, and in @LaTeX{} using macros.  If set, output
+accented characters in HTML, XML, DocBook and @LaTeX{} output and special
+characters in HTML and @LaTeX{} output based on the document encoding.
+@xref{@code{@@documentencoding}}, and @ref{Inserting Accents}.
 
 @item OUTPUT_ENCODING_NAME
 Normalized encoding name used for output files.  Should be a usable

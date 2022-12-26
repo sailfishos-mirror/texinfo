@@ -776,7 +776,7 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
 
 
 my %defaults = (
-  'ENABLE_ENCODING'      => 0,
+  'OUTPUT_CHARACTERS'    => 0,
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'tex',
 
@@ -851,7 +851,7 @@ sub converter_initialize($)
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
 
-    if ($self->get_conf('ENABLE_ENCODING')) {
+    if ($self->get_conf('OUTPUT_CHARACTERS')) {
       foreach my $quoted_command (@quoted_commands) {
         # Directed single quotes
         $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
@@ -871,7 +871,7 @@ sub converter_initialize($)
     }
   }
   # some caching to avoid calling get_conf
-  $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
+  $self->{'output_characters'} = $self->get_conf('OUTPUT_CHARACTERS');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
 
@@ -1189,7 +1189,7 @@ sub copy_options_for_convert_to_latex_math($)
 {
   my $self = shift;
   my %options;
-  foreach my $option_name ('DEBUG', 'ENABLE_ENCODING', 'OUTPUT_ENCODING_NAME',
+  foreach my $option_name ('DEBUG', 'OUTPUT_CHARACTERS', 'OUTPUT_ENCODING_NAME',
                            'TEST') {
     $options{$option_name} = $self->get_conf($option_name)
                     if (defined($self->get_conf($option_name)));
@@ -2529,7 +2529,7 @@ sub _convert($$)
         and exists($element->{'extra'}->{'clickstyle'})) {
         $converted_command = $element->{'extra'}->{'clickstyle'};
       }
-      if ($self->{'enable_encoding'}) {
+      if ($self->{'output_characters'}) {
         my $encoding = $self->{'output_encoding_name'};
         if ($letter_no_arg_commands{$converted_command}) {
           my $conversion
@@ -2575,7 +2575,7 @@ sub _convert($$)
       return $result;
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
-      if ($self->{'enable_encoding'}) {
+      if ($self->{'output_characters'}) {
         my $encoding = $self->{'output_encoding_name'};
         my $sc;
         my $accented_text
