@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-27.17}
+\def\texinfoversion{2022-12-27.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -4825,6 +4825,7 @@ $$%
   \definedummyword\subentry
   %
   % We want to disable all macros so that they are not expanded by \write.
+  \let\commondummyword\definedummyword
   \macrolist
   \let\value\dummyvalue
   %
@@ -4864,12 +4865,15 @@ $$%
 }
 
 % Like \commondummyaccent but add a \space at the end of the dummy expansion
-\def\commondummyword#1{%
+% #2 is the expansion used for \indexnofonts.  #2 is always followed by
+% \asis to remove a pair of following braces.
+\def\commondummyword#1#2{%
   \expandafter\let\csname\string#1:impl\endcsname#1%
+  \expandafter\def\csname\string#1:ixnf\endcsname{#2\asis}%
   \edef#1{%
     \noexpand\ifindexnofonts
       \noexpand\expandafter % dispose of \else ... \fi
-      \noexpand\asis
+      \expandafter\noexpand\csname\string#1:ixnf\endcsname
     \noexpand\else
       \noexpand\ifdummies\string#1\space
       \noexpand\else
@@ -4901,123 +4905,121 @@ $$%
   \commondummyaccent\~%
   %
   % Control letters and accents.
-  \commondummyword\u
-  \commondummyword\v
-  \commondummyword\H
-  \commondummyword\dotaccent
-  \commondummyword\ogonek
-  \commondummyword\ringaccent
-  \commondummyword\tieaccent
-  \commondummyword\ubaraccent
-  \commondummyword\udotaccent
-  \commondummyword\dotless
+  \commondummyword\u          {}%
+  \commondummyword\v          {}%
+  \commondummyword\H          {}%
+  \commondummyword\dotaccent  {}%
+  \commondummyword\ogonek     {}%
+  \commondummyword\ringaccent {}%
+  \commondummyword\tieaccent  {}%
+  \commondummyword\ubaraccent {}%
+  \commondummyword\udotaccent {}%
+  \commondummyword\dotless    {}%
   %
   % Texinfo font commands.
-  \commondummyword\b
-  \commondummyword\i
-  \commondummyword\r
-  \commondummyword\sansserif
-  \commondummyword\sc
-  \commondummyword\slanted
-  \commondummyword\t
+  \commondummyword\b          {}%
+  \commondummyword\i          {}%
+  \commondummyword\r          {}%
+  \commondummyword\sansserif  {}%
+  \commondummyword\sc         {}%
+  \commondummyword\slanted    {}%
+  \commondummyword\t          {}%
   %
   % Commands that take arguments.
-  \commondummyword\abbr
-  \commondummyword\acronym
-  \commondummyword\anchor
-  \commondummyword\cite
-  \commondummyword\code
-  \commondummyword\command
-  \commondummyword\dfn
-  \commondummyword\dmn
-  \commondummyword\email
-  \commondummyword\emph
-  \commondummyword\env
-  \commondummyword\file
-  \commondummyword\image
-  \commondummyword\indicateurl
-  \commondummyword\inforef
-  \commondummyword\kbd
-  \commondummyword\key
-  \commondummyword\math
-  \commondummyword\option
-  \commondummyword\pxref
-  \commondummyword\ref
-  \commondummyword\samp
-  \commondummyword\strong
-  \commondummyword\tie
-  \commondummyword\U
-  \commondummyword\uref
-  \commondummyword\url
-  \commondummyword\var
-  \commondummyword\verb
-  \commondummyword\w
-  \commondummyword\xref
+  \commondummyword\abbr       {}%
+  \commondummyword\acronym    {}%
+  \commondummyword\anchor     {}%
+  \commondummyword\cite       {}%
+  \commondummyword\code       {}%
+  \commondummyword\command    {}%
+  \commondummyword\dfn        {}%
+  \commondummyword\dmn        {}%
+  \commondummyword\email      {}%
+  \commondummyword\emph       {}%
+  \commondummyword\env        {}%
+  \commondummyword\file       {}%
+  \commondummyword\image      {}%
+  \commondummyword\indicateurl{}%
+  \commondummyword\inforef    {}%
+  \commondummyword\kbd        {}%
+  \commondummyword\key        {}%
+  \commondummyword\math       {}%
+  \commondummyword\option     {}%
+  \commondummyword\pxref      {}%
+  \commondummyword\ref        {}%
+  \commondummyword\samp       {}%
+  \commondummyword\strong     {}%
+  \commondummyword\tie        {}%
+  \commondummyword\U          {}%
+  \commondummyword\uref       {}%
+  \commondummyword\url        {}%
+  \commondummyword\var        {}%
+  \commondummyword\verb       {}%
+  \commondummyword\w          {}%
+  \commondummyword\xref       {}%
   %
-  %%% The below are redefined in \indexnofonts
+  \commondummyword\AA               {AA}%
+  \commondummyword\AE               {AE}%
+  \commondummyword\DH               {DZZ}%
+  \commondummyword\L                {L}%
+  \commondummyword\O                {O}%
+  \commondummyword\OE               {OE}%
+  \commondummyword\TH               {TH}%
+  \commondummyword\aa               {aa}%
+  \commondummyword\ae               {ae}%
+  \commondummyword\dh               {dzz}%
+  \commondummyword\exclamdown       {!}%
+  \commondummyword\l                {l}%
+  \commondummyword\o                {o}%
+  \commondummyword\oe               {oe}%
+  \commondummyword\ordf             {a}%
+  \commondummyword\ordm             {o}%
+  \commondummyword\questiondown     {?}%
+  \commondummyword\ss               {ss}%
+  \commondummyword\th               {th}%
   %
-  \commondummyword\AA
-  \commondummyword\AE
-  \commondummyword\DH
-  \commondummyword\L
-  \commondummyword\O
-  \commondummyword\OE
-  \commondummyword\TH
-  \commondummyword\aa
-  \commondummyword\ae
-  \commondummyword\dh
-  \commondummyword\exclamdown
-  \commondummyword\l
-  \commondummyword\o
-  \commondummyword\oe
-  \commondummyword\ordf
-  \commondummyword\ordm
-  \commondummyword\questiondown
-  \commondummyword\ss
-  \commondummyword\th
-  %
-  \commondummyword\LaTeX
-  \commondummyword\TeX
+  \commondummyword\LaTeX            {LaTeX}%
+  \commondummyword\TeX              {TeX}%
   %
   % Assorted special characters.
-  \commondummyword\ampchar
-  \commondummyword\atchar
-  \commondummyword\arrow
-  \commondummyword\backslashchar
-  \commondummyword\bullet
-  \commondummyword\comma
-  \commondummyword\copyright
-  \commondummyword\registeredsymbol
-  \commondummyword\dots
-  \commondummyword\enddots
-  \commondummyword\entrybreak
-  \commondummyword\equiv
-  \commondummyword\error
-  \commondummyword\euro
-  \commondummyword\expansion
-  \commondummyword\geq
-  \commondummyword\guillemetleft
-  \commondummyword\guillemetright
-  \commondummyword\guilsinglleft
-  \commondummyword\guilsinglright
-  \commondummyword\lbracechar
-  \commondummyword\leq
-  \commondummyword\mathopsup
-  \commondummyword\minus
-  \commondummyword\pounds
-  \commondummyword\point
-  \commondummyword\print
-  \commondummyword\quotedblbase
-  \commondummyword\quotedblleft
-  \commondummyword\quotedblright
-  \commondummyword\quoteleft
-  \commondummyword\quoteright
-  \commondummyword\quotesinglbase
-  \commondummyword\rbracechar
-  \commondummyword\result
-  \commondummyword\sub
-  \commondummyword\sup
-  \commondummyword\textdegree
+  \commondummyword\ampchar          {\normalamp}%
+  \commondummyword\atchar           {\@}%
+  \commondummyword\arrow            {->}%
+  \commondummyword\backslashchar    {}%
+  \commondummyword\bullet           {bullet}%
+  \commondummyword\comma            {,}%
+  \commondummyword\copyright        {copyright}%
+  \commondummyword\dots             {...}%
+  \commondummyword\enddots          {...}%
+  \commondummyword\entrybreak       {}%
+  \commondummyword\equiv            {===}%
+  \commondummyword\error            {error}%
+  \commondummyword\euro             {euro}%
+  \commondummyword\expansion        {==>}%
+  \commondummyword\geq              {>=}%
+  \commondummyword\guillemetleft    {<<}%
+  \commondummyword\guillemetright   {>>}%
+  \commondummyword\guilsinglleft    {<}%
+  \commondummyword\guilsinglright   {>}%
+  \commondummyword\lbracechar       {\{}%
+  \commondummyword\leq              {<=}%
+  \commondummyword\mathopsup        {sup}%
+  \commondummyword\minus            {-}%
+  \commondummyword\pounds           {pounds}%
+  \commondummyword\point            {.}%
+  \commondummyword\print            {-|}%
+  \commondummyword\quotedblbase     {"}%
+  \commondummyword\quotedblleft     {"}%
+  \commondummyword\quotedblright    {"}%
+  \commondummyword\quoteleft        {`}%
+  \commondummyword\quoteright       {'}%
+  \commondummyword\quotesinglbase   {,}%
+  \commondummyword\rbracechar       {\}}%
+  \commondummyword\registeredsymbol {R}%
+  \commondummyword\result           {=>}%
+  \commondummyword\sub              {}%
+  \commondummyword\sup              {}%
+  \commondummyword\textdegree       {o}%
 }
 
 \let\indexlbrace\relax
@@ -5070,11 +5072,6 @@ $$%
 \def\indexnofonts{%
   \indexnofontstrue
   %
-  % Don't no-op \tt, since it isn't a user-level command
-  % and is used in the definitions of the active chars like <, >, |, etc.
-  % Likewise with the other plain tex font commands.
-  %\let\tt=\asis
-  %
   \def\ { }%
   \def\@{@}%
   \def\_{\normalunderscore}%
@@ -5085,65 +5082,6 @@ $$%
   \let\lbracechar\{%
   \let\rbracechar\}%
   %
-  % Non-English letters.
-  \def\AA{AA}%
-  \def\AE{AE}%
-  \def\DH{DZZ}%
-  \def\L{L}%
-  \def\OE{OE}%
-  \def\O{O}%
-  \def\TH{TH}%
-  \def\aa{aa}%
-  \def\ae{ae}%
-  \def\dh{dzz}%
-  \def\exclamdown{!}%
-  \def\l{l}%
-  \def\oe{oe}%
-  \def\ordf{a}%
-  \def\ordm{o}%
-  \def\o{o}%
-  \def\questiondown{?}%
-  \def\ss{ss}%
-  \def\th{th}%
-  %
-  \let\do\indexnofontsdef
-  %
-  \do\LaTeX{LaTeX}%
-  \do\TeX{TeX}%
-  %
-  % Assorted special characters.
-  \do\atchar{@}%
-  \do\arrow{->}%
-  \do\bullet{bullet}%
-  \do\comma{,}%
-  \do\copyright{copyright}%
-  \do\dots{...}%
-  \do\enddots{...}%
-  \do\equiv{==}%
-  \do\error{error}%
-  \do\euro{euro}%
-  \do\expansion{==>}%
-  \do\geq{>=}%
-  \do\guillemetleft{<<}%
-  \do\guillemetright{>>}%
-  \do\guilsinglleft{<}%
-  \do\guilsinglright{>}%
-  \do\leq{<=}%
-  \do\lbracechar{\{}%
-  \do\minus{-}%
-  \do\point{.}%
-  \do\pounds{pounds}%
-  \do\print{-|}%
-  \do\quotedblbase{"}%
-  \do\quotedblleft{"}%
-  \do\quotedblright{"}%
-  \do\quoteleft{`}%
-  \do\quoteright{'}%
-  \do\quotesinglbase{,}%
-  \do\rbracechar{\}}%
-  \do\registeredsymbol{R}%
-  \do\result{=>}%
-  \do\textdegree{o}%
   %
   % We need to get rid of all macros, leaving only the arguments (if present).
   % Of course this is not nearly correct, but it is the best we can do for now.
@@ -5155,13 +5093,10 @@ $$%
   % to take a single TeX argument.  The case of a macro invocation that
   % goes to end-of-line is not handled.
   %
+  \def\commondummyword##1{\let##1\asis}
   \macrolist
   \let\value\indexnofontsvalue
 }
-
-% Give the control sequence a definition that removes the {} that follows 
-% its use, e.g. @AA{} -> AA
-\def\indexnofontsdef#1#2{\def#1##1{#2}}%
 
 
 

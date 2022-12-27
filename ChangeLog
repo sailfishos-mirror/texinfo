@@ -1,5 +1,17 @@
 2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\definedummies, \indexnofonts):
+	Extend dummy definitions in \definedummies to include the
+	\indexnofonts expansions.  Always remove braces from
+	arguments for dummied control words.
+	
+	(\atdummies, \indexnofonts):
+	Give a suitable definition before using \macrolist to avoid
+	user-defined @macro's repeatedly being given longer and longer
+	definitions.
+
+2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\definedummies): Remove dummies for
 	internal commands to avoid need for redirection.
 	(\atdummies): Call \turnoffactive rather than
