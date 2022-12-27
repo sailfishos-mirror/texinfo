@@ -170,7 +170,8 @@ sub init {
   my $flags = 0;
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
   if (!$libref) {
-    _fatal "$module_name: couldn't load file $dlpath";
+    my $message = DynaLoader::dl_error();
+    _fatal "$module_name: couldn't load file $dlpath: $message";
     goto FALLBACK;
   }
   _debug "$dlpath loaded";

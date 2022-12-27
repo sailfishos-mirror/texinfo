@@ -1,5 +1,10 @@
 2022-12-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): show the DynaLoader error message
+	if dl_load_file failed.
+
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c: defined floats lists related
 	symbols to avoid non-defined symbols linking errors, even if there
 	is no code run that uses those symbols.
