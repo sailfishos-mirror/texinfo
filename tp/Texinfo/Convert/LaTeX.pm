@@ -1526,8 +1526,10 @@ roundcorner=10pt}
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
-  my $header = "\\documentclass{$documentclass}\n";
-  $header .= '\usepackage{amsfonts}
+  my $class_and_usepackage_begin = $self->get_conf('CLASS_BEGIN_USEPACKAGE');
+  if (!defined($class_and_usepackage_begin)) {
+    $class_and_usepackage_begin = "\\documentclass{$documentclass}\n";
+    $class_and_usepackage_begin .= '\usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage{textcomp}
@@ -1535,69 +1537,70 @@ roundcorner=10pt}
 \usepackage{etoolbox}
 \usepackage{titleps}
 ';
-  my $fontenc = 'T1';
-  if ($self->{'output_encoding_name'}) {
-    my $output_encoding = $self->{'output_encoding_name'};
-    my $encoding = $output_encoding;
-    if (defined($LaTeX_encoding_names_map{$output_encoding})) {
-      ($encoding, $fontenc) = @{$LaTeX_encoding_names_map{$output_encoding}};
+    my $fontenc = 'T1';
+    if ($self->{'output_encoding_name'}) {
+      my $output_encoding = $self->{'output_encoding_name'};
+      my $encoding = $output_encoding;
+      if (defined($LaTeX_encoding_names_map{$output_encoding})) {
+        ($encoding, $fontenc) = @{$LaTeX_encoding_names_map{$output_encoding}};
+      }
+      $class_and_usepackage_begin .= "\\usepackage[$encoding]{inputenc}\n";
     }
-    $header .= "\\usepackage[$encoding]{inputenc}\n";
+    $class_and_usepackage_begin .= "\\usepackage[$fontenc]{fontenc}\n";
   }
-  $header .= "\\usepackage[$fontenc]{fontenc}\n";
-
-  if ($self->{'index_entries'}
-      and scalar(keys(%{$self->{'index_entries'}}))) {
-    $header .= "\\usepackage{imakeidx}\n";
-  }
-  if ($self->{'packages'}->{'needspace'}) {
-    $header .= "\\usepackage{needspace}\n";
-  }
-  if ($self->{'packages'}->{'microtype'}) {
-    $header .= "\\usepackage[activate=false]{microtype}\n";
-  }
-  if ($self->{'packages'}->{'array'}) {
-    $header .= "\\usepackage{array}\n";
-  }
-  if ($self->{'packages'}->{'embrac'}) {
-    $header .= "\\usepackage{embrac}\n";
-    $header .= "\\usepackage{expl3}\n";
-  }
-  if ($self->{'packages'}->{'tabularx'}) {
-    $header .= "\\usepackage{tabularx}\n";
-  }
-  if ($self->{'packages'}->{'mdframed'}) {
-    # framemethod=tikz needed for roundcorners for @cartouche
-    $header .= "\\usepackage[framemethod=tikz]{mdframed}\n";
-  }
-  if ($self->{'packages'}->{'caption'}) {
-    # capt-of gives an error for float.t float_in_block_commands test
-    #$header .= "\\usepackage{capt-of}\n";
-    $header .= "\\usepackage{caption}\n";
-  }
-  if ($self->{'packages'}->{'fontsize'}) {
-    $header .= "\\usepackage{fontsize}\n";
-  }
-  if (scalar(keys(%{$self->{'list_environments'}}))) {
-    $header .= "\\usepackage{enumitem}\n";
-  }
-  if ($self->{'packages'}->{'geometry'}) {
-    $header .= "\\usepackage{geometry}\n";
-  }
-  if ($self->{'floats'}) {
-    $header .= "\\usepackage{float}\n";
-  }
-  if ($self->{'packages'}->{'babel'}) {
-    $header .= "\\usepackage{babel}\n";
-  }
-  # Documentation says to include last
-  $header
-   .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+  my $usepackage_end = $self->get_conf('END_USEPACKAGE');
+  if (!defined($usepackage_end)) {
+    if ($self->{'index_entries'}
+        and scalar(keys(%{$self->{'index_entries'}}))) {
+      $usepackage_end .= "\\usepackage{imakeidx}\n";
+    }
+    if ($self->{'packages'}->{'needspace'}) {
+      $usepackage_end .= "\\usepackage{needspace}\n";
+    }
+    if ($self->{'packages'}->{'microtype'}) {
+      $usepackage_end .= "\\usepackage[activate=false]{microtype}\n";
+    }
+    if ($self->{'packages'}->{'array'}) {
+      $usepackage_end .= "\\usepackage{array}\n";
+    }
+    if ($self->{'packages'}->{'embrac'}) {
+      $usepackage_end .= "\\usepackage{embrac}\n";
+      $usepackage_end .= "\\usepackage{expl3}\n";
+    }
+    if ($self->{'packages'}->{'tabularx'}) {
+      $usepackage_end .= "\\usepackage{tabularx}\n";
+    }
+    if ($self->{'packages'}->{'mdframed'}) {
+      # framemethod=tikz needed for roundcorners for @cartouche
+      $usepackage_end .= "\\usepackage[framemethod=tikz]{mdframed}\n";
+    }
+    if ($self->{'packages'}->{'caption'}) {
+      # capt-of gives an error for float.t float_in_block_commands test
+      #$usepackage_end .= "\\usepackage{capt-of}\n";
+      $usepackage_end .= "\\usepackage{caption}\n";
+    }
+    if ($self->{'packages'}->{'fontsize'}) {
+      $usepackage_end .= "\\usepackage{fontsize}\n";
+    }
+    if (scalar(keys(%{$self->{'list_environments'}}))) {
+      $usepackage_end .= "\\usepackage{enumitem}\n";
+    }
+    if ($self->{'packages'}->{'geometry'}) {
+      $usepackage_end .= "\\usepackage{geometry}\n";
+    }
+    if ($self->{'floats'}) {
+      $usepackage_end .= "\\usepackage{float}\n";
+    }
+    if ($self->{'packages'}->{'babel'}) {
+      $usepackage_end .= "\\usepackage{babel}\n";
+    }
+    # Documentation says to include last
+    $usepackage_end
+     .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
-  $header .= "\n";
-
-  return $header . $header_code;
+  }
+  return $class_and_usepackage_begin . $usepackage_end . "\n" . $header_code;
 }
 
 sub _latex_begin_output($)

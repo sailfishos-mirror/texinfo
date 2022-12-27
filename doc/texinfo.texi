@@ -16710,6 +16710,64 @@ defined.
 @end vtable
 
 
+@node @LaTeX{} Customization Variables
+@subsection @LaTeX{} Customization Variables
+
+@cartouche
+@quotation warning
+@LaTeX{} output customization is experimental.  Nothing is decided,
+everything can change, and we would welcome any feedback.
+@end quotation
+@end cartouche
+
+This table gives the customization variables which apply to @LaTeX{} output
+only.
+
+@vtable @code
+@item CLASS_BEGIN_USEPACKAGE
+If set, the corresponding text will replace the @LaTeX{} @code{\documentclass},
+package imports that are always output and are output right after
+@code{\documentclass}, and package imports that depend on the document encoding
+setting the input and font encoding (@code{inputenc} and @code{fontenc}).
+
+The text replaced is along:
+@example LaTeX
+\documentclass@{book@}
+\usepackage@{amsfonts@}
+\usepackage@{amsmath@}
+\usepackage[gen]@{eurosym@}
+\usepackage@{textcomp@}
+\usepackage@{graphicx@}
+\usepackage@{etoolbox@}
+\usepackage@{titleps@}
+\usepackage[utf8]@{inputenc@}
+\usepackage[T1]@{fontenc@}
+@end example
+
+@item END_USEPACKAGE
+If set, the corresponding text will replace the package imports that depend
+on the Texinfo commands used, and the last packages imports that are always
+output and output after all the other packages imports.  The last package
+imports corresponds to @samp{\usepackage[hidelinks]@{hyperref@}}.
+
+Here is an example of the corresponding text for a document with indices,
+@code{@@need}, @code{@@multitable}, definition commands, @code{@@cartouche},
+lists, and @code{@@float}:
+@example LaTeX
+\usepackage@{imakeidx@}
+\usepackage@{needspace@}
+\usepackage@{array@}
+\usepackage@{embrac@}
+\usepackage@{expl3@}
+\usepackage@{tabularx@}
+\usepackage[framemethod=tikz]@{mdframed@}
+\usepackage@{enumitem@}
+\usepackage@{float@}
+\usepackage[hidelinks]@{hyperref@}
+@end example
+@end vtable
+
+
 @node Other Customization Variables
 @subsection Other Customization Variables
 

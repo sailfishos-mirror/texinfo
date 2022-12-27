@@ -1,5 +1,13 @@
 2022-12-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header), doc/texinfo.texi
+	(@LaTeX{} Customization Variables), tp/Texinfo/Common.pm
+	(@variable_string_settables): add experimental LaTeX documentclass and
+	packages customization, using two customization variables,
+	CLASS_BEGIN_USEPACKAGE and END_USEPACKAGE. 
+
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): format @bye line
 	similarly to other skipline @-commands.
 
