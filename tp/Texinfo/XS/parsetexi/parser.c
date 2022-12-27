@@ -99,8 +99,7 @@ read_comment (char *line, char **comment_command)
         p += 7;
       if (*p && *p != '@' && !strchr (whitespace_chars, *p))
         return 0; /* @c or @comment not terminated. */
-      /* FIXME check -1 is correct */
-      *comment_command = strndup(line, p - line - 1);
+      *comment_command = strndup(line, p - line);
     }
   else
     return 0; /* Trailing characters on line. */
@@ -229,6 +228,10 @@ register_global_command (ELEMENT *current)
 
         case CM_footnote:
           add_to_contents_as_array (&global_info.footnotes, current);
+          break;
+
+        case CM_float:
+          add_to_contents_as_array (&global_info.floats, current);
           break;
 
         GLOBAL_CASE(hyphenation);
@@ -366,6 +369,7 @@ wipe_global_info (void)
   GLOBAL_CASE(listoffloats);
   GLOBAL_CASE(detailmenu);
   GLOBAL_CASE(part);
+  GLOBAL_CASE(floats);
   GLOBAL_CASE(allowcodebreaks);
   GLOBAL_CASE(clickstyle);
   GLOBAL_CASE(codequotebacktick);
@@ -1170,7 +1174,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                 }
               while (*p)
                 {
-                   p = strchr (p, 'p');
+                   p = strchr (p, '@');
                    if (p)
                      {
                        char *cmd_name;
@@ -1210,6 +1214,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                                  "comment_at_end",
                                                  comment_e);
                          }
+                       break;
                      }
                    else
                       break;
@@ -2234,8 +2239,6 @@ finished_totally:
         current = current->parent;
     }
   
-  input_reset_input_stack (); /* to avoid a memory leak if @bye is given */
-
   /* TODO: Check for "unclosed stacks". */
 
   /* Gather text after @bye */
@@ -2264,6 +2267,8 @@ finished_totally:
         add_to_element_contents (current, element_after_bye);
       }
   }
+
+  input_reset_input_stack (); /* to avoid a memory leak if @bye is given */
 
   return current;
 }

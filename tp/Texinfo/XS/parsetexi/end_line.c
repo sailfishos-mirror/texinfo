@@ -971,11 +971,11 @@ parse_node_manual (ELEMENT *node)
 /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
    good to do in Parser/XS */
 /* Array of recorded @float's. */
-/*
+
 FLOAT_RECORD *floats_list = 0;
 size_t floats_number = 0;
 size_t floats_space = 0;
-*/
+
 
 int
 parse_float_type (ELEMENT *current)
@@ -1299,7 +1299,7 @@ end_line_starting_block (ELEMENT *current)
       }
     } /* CF_blockitem */
   else if (command_data (current->cmd).args_number == 0
-           && ! command_data (current->cmd).flags & CF_variadic
+           && (! (command_data (current->cmd).flags & CF_variadic))
            && current->args.number > 0
            && current->args.list[0]->contents.number > 0)
     {

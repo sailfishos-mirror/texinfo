@@ -1,3 +1,33 @@
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c: defined floats lists related
+	symbols to avoid non-defined symbols linking errors, even if there
+	is no code run that uses those symbols.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
+	fix check of variadic flag and negation precedence.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): wipe input stack
+	after getting the text after @bye.
+
+	* tp/Texinfo/XS/parsetexi/api.c (build_global_info2),
+	tp/Texinfo/XS/parsetexi/parser.c (register_global_command)
+	(wipe_global_info): really register float as a global command.  Use
+	floats for global_info for float as using float breaks, most likely
+	because it is a type.
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_float_types):
+	initialize $self->{'floats'}.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (read_comment),
+	tp/Texinfo/XS/parsetexi/parser.c  (process_remaining_on_line):
+	fix a one off string length error in read_comment.  Fix a typo
+	in comments searching on nested @ignore line.  Avoid an infinite loop
+	when there is a comment.
+
+	* t/55conditionals.t: add nested_ignore_with_comments, skipped for now
+	as the results are incorrect.
+
 2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\indexnofonts): Remove superfluous space

@@ -80,6 +80,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT listoffloats;
     ELEMENT detailmenu;
     ELEMENT part;
+    ELEMENT floats;
 
     ELEMENT allowcodebreaks;
     ELEMENT clickstyle;

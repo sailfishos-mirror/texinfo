@@ -442,6 +442,8 @@ sub set_float_types
 
   my $global_commands = $self->global_commands_information();
 
+  $self->{'floats'} = {};
+
   if ($global_commands->{'float'}) {
     foreach my $current (@{$global_commands->{'float'}}) {
       my $type = '';

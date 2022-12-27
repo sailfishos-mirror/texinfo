@@ -1017,6 +1017,20 @@ build_global_info2 (void)
         }
     }
 
+  /* float is a type, it does not work there, use floats instead */
+  if (global_info.floats.contents.number > 0)
+    {
+      av = newAV ();
+      hv_store (hv, "float", strlen ("float"),
+                newRV_inc ((SV *) av), 0);
+      for (i = 0; i < global_info.floats.contents.number; i++)
+        {
+          e = contents_child_by_index (&global_info.floats, i);
+          if (e->hv)
+            av_push (av, newRV_inc ((SV *) e->hv));
+        }
+    }
+
 #define BUILD_GLOBAL_ARRAY(cmd) \
   if (global_info.cmd.contents.number > 0)                              \
     {                                                                   \

@@ -68,6 +68,34 @@ Space Comment
 @ifclear
 @end ignore
 '],
+['nested_ignore_with_comments',
+'@ignore
+@ignore
+No space no comment
+@end ignore
+
+@ignore  
+Spaces no comment
+@end ignore
+
+@ignore@c no space comment
+Comment
+@end ignore
+
+@ignore  @c space comment
+Space Comment
+@end ignore
+
+@ignore something @comment comment after text
+Text comment
+@end ignore
+
+@ignore some @code{variable} @comment comment after command
+Command comment
+@end ignore
+
+@end ignore
+', {'skip' => 1}],
 ['empty_set_in_ifset',
 '@set a
 
