@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-26.11}
+\def\texinfoversion{2022-12-27.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -4790,21 +4790,6 @@ $$%
 \def\docodeindexxxx #1{\docind{\indexname}{#1}}
 
 
-% Used for the aux, toc and index files to prevent expansion of Texinfo 
-% commands.
-%
-\def\atdummies{%
-  \definedummyletter\@%
-  \definedummyletter\ %
-  \definedummyletter\{%
-  \definedummyletter\}%
-  \definedummyletter\&%
-  %
-  % Do the redefinitions.
-  \definedummies
-  \otherbackslash
-}
-
 % \definedummyword defines \#1 as \string\#1\space, thus effectively
 % preventing its expansion.  This is used only for control words,
 % not control letters, because the \space would be incorrect for
@@ -4820,94 +4805,22 @@ $$%
 %
 \def\definedummyword  #1{\def#1{\string#1\space}}%
 \def\definedummyletter#1{\def#1{\string#1}}%
-\let\definedummyaccent\definedummyletter
 
-% Called from \atdummies to prevent the expansion of commands.
+% Used for the aux, toc and index files to prevent expansion of Texinfo 
+% commands.  Most of the commands are controlled through the
+% \ifdummies conditional.
 %
-\def\definedummies{%
+\def\atdummies{%
+  \dummiestrue
   %
-  \let\commondummyword\definedummyword
-  \let\commondummyletter\definedummyletter
-  \let\commondummyaccent\definedummyaccent
-  \commondummiesnofonts
+  \definedummyletter\@%
+  \definedummyletter\ %
+  \definedummyletter\{%
+  \definedummyletter\}%
+  \definedummyletter\&%
   %
   \definedummyletter\_%
   \definedummyletter\-%
-  %
-  % Non-English letters.
-  \definedummyword\AA
-  \definedummyword\AE
-  \definedummyword\DH
-  \definedummyword\L
-  \definedummyword\O
-  \definedummyword\OE
-  \definedummyword\TH
-  \definedummyword\aa
-  \definedummyword\ae
-  \definedummyword\dh
-  \definedummyword\exclamdown
-  \definedummyword\l
-  \definedummyword\o
-  \definedummyword\oe
-  \definedummyword\ordf
-  \definedummyword\ordm
-  \definedummyword\questiondown
-  \definedummyword\ss
-  \definedummyword\th
-  %
-  % Although these internal commands shouldn't show up, sometimes they do.
-  \definedummyword\bf
-  \definedummyword\gtr
-  \definedummyword\hat
-  \definedummyword\less
-  \definedummyword\sf
-  \definedummyword\sl
-  \definedummyword\tclose
-  \definedummyword\tt
-  %
-  \definedummyword\LaTeX
-  \definedummyword\TeX
-  %
-  % Assorted special characters.
-  \definedummyword\ampchar
-  \definedummyword\atchar
-  \definedummyword\arrow
-  \definedummyword\backslashchar
-  \definedummyword\bullet
-  \definedummyword\comma
-  \definedummyword\copyright
-  \definedummyword\registeredsymbol
-  \definedummyword\dots
-  \definedummyword\enddots
-  \definedummyword\entrybreak
-  \definedummyword\equiv
-  \definedummyword\error
-  \definedummyword\euro
-  \definedummyword\expansion
-  \definedummyword\geq
-  \definedummyword\guillemetleft
-  \definedummyword\guillemetright
-  \definedummyword\guilsinglleft
-  \definedummyword\guilsinglright
-  \definedummyword\lbracechar
-  \definedummyword\leq
-  \definedummyword\mathopsup
-  \definedummyword\minus
-  \definedummyword\ogonek
-  \definedummyword\pounds
-  \definedummyword\point
-  \definedummyword\print
-  \definedummyword\quotedblbase
-  \definedummyword\quotedblleft
-  \definedummyword\quotedblright
-  \definedummyword\quoteleft
-  \definedummyword\quoteright
-  \definedummyword\quotesinglbase
-  \definedummyword\rbracechar
-  \definedummyword\result
-  \definedummyword\sub
-  \definedummyword\sup
-  \definedummyword\textdegree
   %
   \definedummyword\subentry
   %
@@ -4916,14 +4829,64 @@ $$%
   \let\value\dummyvalue
   %
   \normalturnoffactive
+  \otherbackslash
 }
 
-% \commondummiesnofonts: common to \definedummies and \indexnofonts.
-% Define \commondummyletter, \commondummyaccent and \commondummyword before
-% using.  Used for accents, font commands, and various control letters.
-%
-\def\commondummiesnofonts{%
-  % Control letters and accents.
+\newif\ifdummies
+\newif\ifindexnofonts
+
+\def\commondummyletter#1{%
+  \expandafter\let\csname\string#1:impl\endcsname#1%
+  \edef#1{%
+    \noexpand\ifindexnofonts
+      % empty expansion
+    \noexpand\else
+      \noexpand\ifdummies\string#1%
+      \noexpand\else
+        \noexpand\jumptwofi % dispose of the \fi
+        \expandafter\noexpand\csname\string#1:impl\endcsname
+      \noexpand\fi
+    \noexpand\fi}%
+}
+
+\def\commondummyaccent#1{%
+  \expandafter\let\csname\string#1:impl\endcsname#1%
+  \edef#1{%
+    \noexpand\ifindexnofonts
+      \noexpand\expandafter % dispose of \else ... \fi
+      \noexpand\asis
+    \noexpand\else
+      \noexpand\ifdummies\string#1%
+      \noexpand\else
+        \noexpand\jumptwofi % dispose of the \fi
+        \expandafter\noexpand\csname\string#1:impl\endcsname
+      \noexpand\fi
+    \noexpand\fi}%
+}
+
+% Like \commondummyaccent but add a \space at the end of the dummy expansion
+\def\commondummyword#1{%
+  \expandafter\let\csname\string#1:impl\endcsname#1%
+  \edef#1{%
+    \noexpand\ifindexnofonts
+      \noexpand\expandafter % dispose of \else ... \fi
+      \noexpand\asis
+    \noexpand\else
+      \noexpand\ifdummies\string#1\space
+      \noexpand\else
+        \noexpand\jumptwofi % dispose of the \fi \fi
+        \expandafter\noexpand\csname\string#1:impl\endcsname
+      \noexpand\fi
+    \noexpand\fi}%
+}
+\def\jumptwofi#1\fi\fi{\fi\fi#1}
+
+% For \atdummies and \indexnofonts.  \atdummies sets
+% \dummiestrue and \indexnofonts sets \indexnofontstrue.
+\def\definedummies{
+  % @-sign is always an escape character when reading auxiliary files
+  \escapechar = `\@
+  %
   \commondummyletter\!%
   \commondummyaccent\"%
   \commondummyaccent\'%
@@ -4937,6 +4900,8 @@ $$%
   \commondummyaccent\^%
   \commondummyaccent\`%
   \commondummyaccent\~%
+  %
+  % Control letters and accents.
   \commondummyword\u
   \commondummyword\v
   \commondummyword\H
@@ -4989,6 +4954,81 @@ $$%
   \commondummyword\verb
   \commondummyword\w
   \commondummyword\xref
+  %
+  %%% The below are redefined in \indexnofonts
+  %
+  \commondummyword\AA
+  \commondummyword\AE
+  \commondummyword\DH
+  \commondummyword\L
+  \commondummyword\O
+  \commondummyword\OE
+  \commondummyword\TH
+  \commondummyword\aa
+  \commondummyword\ae
+  \commondummyword\dh
+  \commondummyword\exclamdown
+  \commondummyword\l
+  \commondummyword\o
+  \commondummyword\oe
+  \commondummyword\ordf
+  \commondummyword\ordm
+  \commondummyword\questiondown
+  \commondummyword\ss
+  \commondummyword\th
+  %
+  % Although these internal commands shouldn't show up, sometimes they do.
+  \commondummyword\bf
+  \commondummyword\gtr
+  \commondummyword\hat
+  \commondummyword\less
+  \commondummyword\sf
+  \commondummyword\sl
+  \commondummyword\tclose
+  \commondummyword\tt
+  %
+  \commondummyword\LaTeX
+  \commondummyword\TeX
+  %
+  % Assorted special characters.
+  \commondummyword\ampchar
+  \commondummyword\atchar
+  \commondummyword\arrow
+  \commondummyword\backslashchar
+  \commondummyword\bullet
+  \commondummyword\comma
+  \commondummyword\copyright
+  \commondummyword\registeredsymbol
+  \commondummyword\dots
+  \commondummyword\enddots
+  \commondummyword\entrybreak
+  \commondummyword\equiv
+  \commondummyword\error
+  \commondummyword\euro
+  \commondummyword\expansion
+  \commondummyword\geq
+  \commondummyword\guillemetleft
+  \commondummyword\guillemetright
+  \commondummyword\guilsinglleft
+  \commondummyword\guilsinglright
+  \commondummyword\lbracechar
+  \commondummyword\leq
+  \commondummyword\mathopsup
+  \commondummyword\minus
+  \commondummyword\pounds
+  \commondummyword\point
+  \commondummyword\print
+  \commondummyword\quotedblbase
+  \commondummyword\quotedblleft
+  \commondummyword\quotedblright
+  \commondummyword\quoteleft
+  \commondummyword\quoteright
+  \commondummyword\quotesinglbase
+  \commondummyword\rbracechar
+  \commondummyword\result
+  \commondummyword\sub
+  \commondummyword\sup
+  \commondummyword\textdegree
 }
 
 \let\indexlbrace\relax
@@ -5039,13 +5079,7 @@ $$%
 % would be for a given command (usually its argument).
 %
 \def\indexnofonts{%
-  % Accent commands should become @asis.
-  \def\commondummyaccent##1{\let##1\asis}%
-  % We can just ignore other control letters.
-  \def\commondummyletter##1{\let##1\empty}%
-  % All control words become @asis by default; overrides below.
-  \let\commondummyword\commondummyaccent
-  \commondummiesnofonts
+  \indexnofontstrue
   %
   % Don't no-op \tt, since it isn't a user-level command
   % and is used in the definitions of the active chars like <, >, |, etc.
@@ -11741,6 +11775,11 @@ directory should work if nowhere else does.}
   \ifeof 1 \else \input texinfo.cnf \fi
   \closein 1
 }
+
+% Redefine some control sequences to be controlled by the \ifdummies
+% and \ifindexnofonts switches.  Do this at the end so that the control
+% sequences are all defined.
+\definedummies
 
 
 
