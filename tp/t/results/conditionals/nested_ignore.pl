@@ -22,9 +22,51 @@ $result_trees{'nested_ignore'} = {
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'text' => '@ignore
+              'args' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'ignore',
+              'contents' => [
+                {
+                  'text' => '
 ',
-              'type' => 'raw'
+                  'type' => 'raw'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'ignore'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'ignore'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 4,
+                    'macro' => ''
+                  }
+                }
+              ]
             },
             {
               'text' => '
@@ -34,159 +76,116 @@ $result_trees{'nested_ignore'} = {
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'ignore'
-                    }
-                  ],
                   'info' => {
                     'spaces_after_argument' => '
 '
                   },
-                  'type' => 'line_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ignore'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 4,
-                'macro' => ''
-              }
+              'cmdname' => 'ignore',
+              'contents' => [
+                {
+                  'text' => '@end iftex
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@ifinfo
+',
+                  'type' => 'raw'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'ignore'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'ignore'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  }
+                }
+              ]
+            },
+            {
+              'text' => '
+',
+              'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'ignore',
+              'contents' => [
+                {
+                  'text' => '@end ifclear
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@ifclear
+',
+                  'type' => 'raw'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'ignore'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'ignore'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 14,
+                    'macro' => ''
+                  }
+                }
+              ]
             }
           ],
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'ignore',
-          'contents' => [
-            {
-              'text' => '@end iftex
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ifinfo
-',
-              'type' => 'raw'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ignore'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ignore'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => ' 
-'
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'ignore',
-          'contents' => [
-            {
-              'text' => '@end ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ignore'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ignore'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 14,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 11,
             'macro' => ''
           }
         }
@@ -214,11 +213,19 @@ $result_texis{'nested_ignore'} = '@ignore
 ';
 
 
-$result_texts{'nested_ignore'} = '
+$result_texts{'nested_ignore'} = '';
 
-';
-
-$result_errors{'nested_ignore'} = [];
+$result_errors{'nested_ignore'} = [
+  {
+    'error_line' => 'no matching `@end ignore\'
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => '',
+    'text' => 'no matching `@end ignore\'',
+    'type' => 'error'
+  }
+];
 
 
 $result_floats{'nested_ignore'} = {};

@@ -792,16 +792,12 @@ handle_block_command (ELEMENT *current, char **line_inout,
                   /* Check for a comment at the end of the line. */
                   if (*p)
                     {
-		      if (memcmp (p, "@c", 2) == 0)
-			{
-			  p += 2;
-			  if (memcmp (p, "omment", 6) == 0)
-			    p += 7;
-			  if (*p && *p != '@' && !strchr (whitespace_chars, *p))
-			    goto bad_value; /* @c or @comment not terminated. */
-			}
-		      else
-			goto bad_value; /* Trailing characters on line. */
+                      char *cmd_name;
+
+                      if (read_comment (p, &cmd_name))
+                        free (cmd_name);
+                      else
+                        goto bad_value;
                     }
                 }
               if (1)

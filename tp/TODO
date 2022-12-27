@@ -13,6 +13,13 @@ Before next release
 Bugs
 ====
 
+Test for nested @macro
+@macrototo
+and check that with XS this is as if it was @macro
+
+test with nested ignore with something a comment, and with
+@-commands before a comment
+
 HTML API
 ========
 
@@ -48,7 +55,7 @@ Delayed bugs
 
 See message/thread from Reißner Ernst: Feature request: api docs
 
-In @inline* ignore arguments, @value and user macros should not be
+In @inline* ignored arguments, @value and user macros should not be
 expanded.  For example
 
  @set closebrace }

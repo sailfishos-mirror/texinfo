@@ -35,6 +35,23 @@ Y5
 Y6
 @end ifset
 '],
+['ignore_spaces_and_comments',
+'@ignore
+No space no comment
+@end ignore
+
+@ignore  
+Spaces no comment
+@end ignore
+
+@ignore@c no space comment
+Comment
+@end ignore
+
+@ignore  @comment space comment
+Space Comment
+@end ignore
+'],
 ['nested_ignore',
 '@ignore
 @ignore

@@ -87,6 +87,26 @@ element_type_name (ELEMENT *e)
   return element_type_names[(e)->type];
 }
 
+char *
+read_comment (char *line, char **comment_command)
+{
+  char *p = line;
+
+  if (memcmp (p, "@c", 2) == 0)
+    {
+      p += 2;
+      if (memcmp (p, "omment", 6) == 0)
+        p += 7;
+      if (*p && *p != '@' && !strchr (whitespace_chars, *p))
+        return 0; /* @c or @comment not terminated. */
+      /* FIXME check -1 is correct */
+      *comment_command = strndup(line, p - line - 1);
+    }
+  else
+    return 0; /* Trailing characters on line. */
+  return p;
+}
+
 /* Return 1 if the element expansion is all whitespace */
 int
 check_space_element (ELEMENT *e)
@@ -1100,10 +1120,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       && (command_data(current->cmd).data == BLOCK_raw))
     {
       char *p = line;
+      enum command_id cmd = 0;
       /* Check if we are using a macro within a macro. */
       if (current->cmd == CM_macro || current->cmd == CM_rmacro)
         {
-          enum command_id cmd = 0;
           p += strspn (p, whitespace_chars);
           if (!strncmp (p, "@macro", strlen ("@macro")))
             {
@@ -1115,17 +1135,92 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               p += strlen ("@rmacro");
               cmd = CM_rmacro;
             }
-          if (cmd)
+        }
+      else if (current->cmd == CM_ignore)
+        {
+          p += strspn (p, whitespace_chars);
+          if (!strncmp (p, "@ignore", strlen ("@ignore")))
             {
-              ELEMENT *e = new_element (ET_NONE);
-              e->cmd = cmd;
-              line = p;
-              add_to_element_contents (current, e);
-              add_info_string_dup (e, "arg_line", line);
-              current = e;
-              retval = GET_A_NEW_LINE;
-              goto funexit;
+              p += strlen ("@ignore");
+              if (!(*p && *p != '@' && !strchr (whitespace_chars, *p)))
+                cmd = CM_ignore;
             }
+        }
+      if (cmd)
+        {
+          ELEMENT *e = new_element (ET_NONE);
+          e->cmd = cmd;
+          line = p;
+          add_to_element_contents (current, e);
+          current = e;
+          if (cmd == CM_ignore)
+            {
+              size_t len_spaces = strspn (p, whitespace_chars);
+
+              if (len_spaces)
+                {
+                  ELEMENT *e;
+                  char *spaces_after_arg = strndup (p, len_spaces);
+                  p += len_spaces;
+
+                  e = new_element (ET_block_line_arg);
+                  add_info_string (e, "spaces_after_argument",
+                                   spaces_after_arg);
+                  add_to_element_args (current, e);
+                }
+              while (*p)
+                {
+                   p = strchr (p, 'p');
+                   if (p)
+                     {
+                       char *cmd_name;
+                       char *comment_position = read_comment (p, &cmd_name);
+                       if (comment_position)
+                         {
+                           ELEMENT *args;
+                           ELEMENT *e;
+                           ELEMENT *comment_e;
+                           ELEMENT *misc_arg_e;
+                           ELEMENT *block_line_arg_e;
+
+                           if (current->args.number == 0)
+                             {
+                               block_line_arg_e
+                                 = new_element (ET_block_line_arg);
+                               add_to_element_args (current, block_line_arg_e);
+                             }
+                           else
+                             block_line_arg_e
+                               = args_child_by_index (current, 0);
+
+                           args = new_element (ET_NONE);
+                           e = new_element (ET_NONE);
+                           text_append (&e->text, p);
+                           add_to_element_contents (args, e);
+
+                           misc_arg_e = new_element (ET_misc_arg);
+                           text_append (&misc_arg_e->text, p);
+
+                           comment_e = new_element (ET_NONE);
+                           comment_e->cmd = lookup_command (cmd_name);
+                           add_extra_misc_args (comment_e, "misc_args", args);
+                           add_to_element_args (comment_e, misc_arg_e);
+
+                           add_info_element_oot (block_line_arg_e,
+                                                 "comment_at_end",
+                                                 comment_e);
+                         }
+                     }
+                   else
+                      break;
+                }
+            }
+          else
+            {
+              add_info_string_dup (e, "arg_line", line);
+            }
+          retval = GET_A_NEW_LINE;
+          goto funexit;
         }
       /* Else check if line is "@end ..." for current command. */
       if (is_end_current_command (current, &p, &end_cmd))

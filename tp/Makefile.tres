@@ -105,6 +105,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/ifset_in_command.pl \
   t/results/conditionals/ifset_nonalpha.pl \
   t/results/conditionals/ignore_not_closed.pl \
+  t/results/conditionals/ignore_spaces_and_comments.pl \
   t/results/conditionals/ignored_in_ifset.pl \
   t/results/conditionals/info_ifinfo_ifnotplaintext.pl \
   t/results/conditionals/info_ifplaintext.pl \

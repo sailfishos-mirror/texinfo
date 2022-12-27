@@ -4133,15 +4133,46 @@ sub _process_remaining_on_line($$$$)
       and $block_commands{$current->{'cmdname'}}
       and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
     # r?macro may be nested
-    if (($current->{'cmdname'} eq 'macro'
-         or $current->{'cmdname'} eq 'rmacro')
-        and $line =~ /^\s*\@r?macro\s+/) {
-      $line =~ s/\s*\@(r?macro)//;
+    if ((($current->{'cmdname'} eq 'macro'
+          or $current->{'cmdname'} eq 'rmacro')
+         and $line =~ /^\s*\@(r?macro)\s+/)
+        or ($current->{'cmdname'} eq 'ignore'
+            and $line =~ /^\s*\@(ignore)(\@|\s+)/)) {
       push @{$current->{'contents'}}, { 'cmdname' => $1,
                                         'parent' => $current,
-                                        'contents' => [],
-                                        'info' => {'arg_line' => $line }};
+                                        'contents' => [],};
       $current = $current->{'contents'}->[-1];
+      if ($current->{'cmdname'} eq 'ignore') {
+        $line =~ s/\s*\@ignore(\s*)//;
+        if ($1 ne '') {
+          $current->{'args'} = [
+                    {'type' => 'block_line_arg', 'parent' => $current,
+                     'info' => {'spaces_after_argument' => $1},}
+                  ];
+        }
+        if ($line =~ /\@(c|comment)((\@|\s+).*)?$/) {
+          my $comment_command = $1;
+          my $comment_text = $2;
+          if (not exists($current->{'args'})) {
+            $current->{'args'} = [
+                    {'type' => 'block_line_arg', 'parent' => $current,
+                     'info' => {}}
+                  ];
+          }
+          my $comment_element = {'cmdname' => $comment_command, 'args' => [],
+                                 'extra' => {'misc_args' => [$comment_text]},
+                                 'parent' => $current->{'args'}->[-1]};
+          push @{$comment_element->{'args'}}, {'type' => 'misc_arg',
+                        'parent' => $comment_element, 'text' => $comment_text};
+          $current->{'args'}->[-1]->{'info'}->{'comment_at_end'}
+             = $comment_element;
+        }
+      } else {
+        $line =~ s/\s*\@r?macro//;
+        $current->{'info'} = {'arg_line' => $line };
+      }
+      print STDERR "RAW SECOND LEVEL \@$current->{'cmdname'}\n"
+        if ($self->{'DEBUG'});
       $retval = $GET_A_NEW_LINE;
       goto funexit;
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/

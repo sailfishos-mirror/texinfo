@@ -163,6 +163,7 @@ ELEMENT *end_preformatted (ELEMENT *current,
                            enum command_id closed_block_command,
                            enum command_id interrupting_command);
 char *read_command_name (char **ptr);
+char *read_comment (char *line, char **comment_command);
 char *read_flag_name (char **ptr);
 ELEMENT *merge_text (ELEMENT *current, char *text);
 void start_empty_line_after_command (ELEMENT *current, char **line_inout,
