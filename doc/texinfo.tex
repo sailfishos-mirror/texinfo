@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-27.21}
+\def\texinfoversion{2022-12-27.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -1194,13 +1194,17 @@ output) for that.)}
   %
   % Set color, and create a mark which defines \thiscolor accordingly,
   % so that \makeheadline knows which color to restore.
+  \def\curcolor{0 0 0}%
   \def\setcolor#1{%
-    \xdef\currentcolordefs{\gdef\noexpand\thiscolor{#1}}%
-    \domark
-    \pdfsetcolor{#1}%
+    \ifx#1\curcolor\else
+      \xdef\currentcolordefs{\gdef\noexpand\thiscolor{#1}}%
+      \domark
+      \pdfsetcolor{#1}%
+      \xdef\curcolor{#1}%
+    \fi
   }
   %
-  \def\maincolor{\rgbBlack}
+  \let\maincolor\rgbBlack
   \pdfsetcolor{\maincolor}
   \edef\thiscolor{\maincolor}
   \def\currentcolordefs{}
@@ -1356,7 +1360,7 @@ output) for that.)}
   %
   % by default, use black for everything.
   \def\urlcolor{\rgbBlack}
-  \def\linkcolor{\rgbBlack}
+  \let\linkcolor\rgbBlack
   \def\endlink{\setcolor{\maincolor}\pdfendlink}
   %
   % Adding outlines to PDF; macros for calculating structure of outlines

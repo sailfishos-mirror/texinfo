@@ -1,3 +1,12 @@
+2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	No colour change for black links
+
+	* doc/texinfo.tex (\setcolor) [pdfTeX]: Keep track of the current
+	colour so that in the default case, when everything is black, there
+	is no \mark output or pdf output, which is faster when the document
+	contains many links.
+
 2022-12-27  Arsen Arsenović  <arsen@aarsen.me>
 
 	Re-enable copyable anchors in HTML output
