@@ -589,6 +589,7 @@ my %formats_table = (
              'internal_links' => 1,
              'simple_menu' => 1,
              'move_index_entries_after_items' => 1,
+             'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
@@ -1481,6 +1482,11 @@ while(@input_files) {
   if (get_conf('DUMP_TEXI') or $formats_table{$format}->{'texi2dvi_format'}) {
     handle_errors($registrar, $error_count, \@opened_files);
     next;
+  }
+
+  if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
+      or $tree_transformations{'relate_index_entries_to_table_items'}) {
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree);
   }
 
   if ($formats_table{$converted_format}->{'move_index_entries_after_items'}

@@ -54,6 +54,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 collect_commands_in_tree
 collect_commands_list_in_tree
 move_index_entries_after_items_in_tree
+relate_index_entries_to_table_items_in_tree
 protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
@@ -524,6 +525,7 @@ foreach my $output_format_command ('info', 'plaintext',
 my %valid_tree_transformations;
 foreach my $valid_transformation ('simple_menus',
     'fill_gaps_in_sectioning', 'move_index_entries_after_items',
+    'relate_index_entries_to_items',
     'insert_nodes_for_sectioning_commands',
     'complete_tree_nodes_menus', 'regenerate_master_menu',
     'indent_menu_descriptions') {
@@ -2175,6 +2177,62 @@ sub move_index_entries_after_items_in_tree($)
   return modify_tree($tree, \&_move_index_entries_after_items);
 }
 
+# Locates all @tables in the tree, and relocates index entry groups to be
+# related to the @item that immediately follows them.
+sub _relate_index_entries_to_table_items_in($)
+{
+  my $table = shift;
+
+  return unless $table->{'contents'};
+
+  # For each table_term in $table->{'contents'}->[0], relate it's content's
+  # first index_entry_command to the term itself.
+  foreach my $table_entry (@{$table->{'contents'}}) {
+    next unless $table_entry->{'contents'}
+      and $table_entry->{'type'} eq 'table_entry';
+
+    # AFAIU, there's always a unique term in the first position in an entry's
+    # contents.
+    my $term = $table_entry->{'contents'}->[0];
+
+    # Now, to discover the related @?index and @item entries.
+    my ($item, $index);
+    foreach my $content (@{$term->{'contents'}}) {
+      if ($content->{'extra'}
+          and $content->{'extra'}->{'index_entry'}) {
+        $index = $content->{'extra'}->{'index_entry'} unless $index;
+      } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
+        $item = $content unless $item;
+      }
+      # If we found both, no need to proceed;
+      last if $item and $index;
+    }
+
+    next unless $item and $index;
+    $index->{'entry_element'} = $item;
+  }
+}
+
+sub _relate_index_entries_to_table_items($$)
+{
+  my $type = shift;
+  my $current = shift;
+
+  return $current unless $current->{'cmdname'};
+
+  if ($current->{'cmdname'} eq 'table') {
+    _relate_index_entries_to_table_items_in($current);
+  }
+
+  return $current;
+}
+
+sub relate_index_entries_to_table_items_in_tree($)
+{
+  my $tree = shift;
+  return modify_tree($tree, \&_relate_index_entries_to_table_items);
+}
+
 # Common to different module, but not meant to be used in user-defined
 # codes.
 #
@@ -2569,6 +2627,12 @@ X<C<move_index_entries_after_items_in_tree>>
 In C<@enumerate> and C<@itemize> from the tree, move index entries
 appearing just before C<@item> after the C<@item>.  Comment lines
 between index entries are moved too.
+
+=item relate_index_entries_to_table_items_in_tree($tree)
+X<C<relate_index_entries_to_table_items_in_tree>>
+
+In tables, relates index entries preceding items with said item, by placing it
+inside the entry's C<entry_element>.
 
 =item $normalized_name = normalize_top_node_name($node_string)
 X<C<normalize_top_node_name>>

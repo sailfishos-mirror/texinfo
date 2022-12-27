@@ -1,3 +1,21 @@
+2022-12-27  Arsen Arsenović  <arsen@aarsen.me>
+
+	Re-enable copyable anchors in HTML output
+
+	* tp/Texinfo/Common.pm (relate_index_entries_to_table_items_in_tree)
+	(%valid_tree_transformations): Implement
+	relate_index_entries_to_table_items, a transform that finds all
+	table terms and associates their indices with them, so that the
+	HTML backend generates a copyable anchor.
+
+	* tp/texi2any.pl: Invoke the new
+	relate_index_entries_to_table_items transform.
+	(%formats_table): Enable the relate_index_entries_to_table_items
+	transformation on HTML.
+	* tp/tests/indices/list-of-tests (index_entries_relate_to_item):
+	New test case.
+	* tp/tests/indices/index_entries_relate_to_item.texi: New test file.
+
 2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\definedummies, \indexnofonts):
