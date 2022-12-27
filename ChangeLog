@@ -1,5 +1,13 @@
 2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\definedummies): Remove dummies for
+	internal commands to avoid need for redirection.
+	(\atdummies): Call \turnoffactive rather than
+	\normalturnoffactive followed by \otherbackslash, as this should
+	do the same thing and is shorter.
+
+2022-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Switch for dummies
 
 	* doc/texinfo.tex (\definedummies):

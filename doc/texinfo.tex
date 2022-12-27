@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-27.16}
+\def\texinfoversion{2022-12-27.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -4828,8 +4828,7 @@ $$%
   \macrolist
   \let\value\dummyvalue
   %
-  \normalturnoffactive
-  \otherbackslash
+  \turnoffactive
 }
 
 \newif\ifdummies
@@ -4976,16 +4975,6 @@ $$%
   \commondummyword\questiondown
   \commondummyword\ss
   \commondummyword\th
-  %
-  % Although these internal commands shouldn't show up, sometimes they do.
-  \commondummyword\bf
-  \commondummyword\gtr
-  \commondummyword\hat
-  \commondummyword\less
-  \commondummyword\sf
-  \commondummyword\sl
-  \commondummyword\tclose
-  \commondummyword\tt
   %
   \commondummyword\LaTeX
   \commondummyword\TeX
