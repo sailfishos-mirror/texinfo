@@ -913,18 +913,6 @@ sub _convert($$;$)
                .$self->txi_markup_close_element($cmdname).$end_line;
         }
       } elsif ($type eq 'skipline') {
-        # the command associated with an element is closed at the end of the
-        # element. @bye is withing the element, but we want it to appear after
-        # the command closing.  So we delay the output of @bye, and store it.
-        if ($cmdname eq 'bye' and $element->{'structure'}
-            and $element->{'structure'}->{'associated_unit'}
-            and $element->{'structure'}->{'associated_unit'}->{'extra'}
-            and defined($element->{'structure'}->{'associated_unit'}
-                                               ->{'extra'}->{'unit_command'})) {
-          $self->{'pending_bye'} = $self->txi_markup_open_element($cmdname)
-                    .$self->txi_markup_close_element($cmdname)."\n";
-          return '';
-        }
         my $attribute = [];
         if ($element->{'args'} and $element->{'args'}->[0]
             and defined($element->{'args'}->[0]->{'text'})) {
@@ -933,8 +921,21 @@ sub _convert($$;$)
           $attribute = [['line', $line]]
              if ($line ne '');
         }
-        return $self->txi_markup_open_element($cmdname, $attribute)
+        my $result = $self->txi_markup_open_element($cmdname, $attribute)
                  .$self->txi_markup_close_element($cmdname)."\n";
+        # the command associated with an element is closed at the end of the
+        # element. @bye is withing the element, but we want it to appear after
+        # the command closing.  So we delay the output of @bye, and store it.
+        if ($cmdname eq 'bye' and $element->{'structure'}
+            and $element->{'structure'}->{'associated_unit'}
+            and $element->{'structure'}->{'associated_unit'}->{'extra'}
+            and defined($element->{'structure'}->{'associated_unit'}
+                                               ->{'extra'}->{'unit_command'})) {
+          $self->{'pending_bye'} = $result;
+          return '';
+        } else {
+          return $result;
+        }
       } elsif ($type eq 'special') {
         if ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
