@@ -286,7 +286,8 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 my %ignored_types;
-foreach my $type ('preamble_before_beginning',
+foreach my $type ('postamble_after_end',
+            'preamble_before_beginning',
             'preamble_before_setfilename') {
   $ignored_types{$type} = 1;
 }

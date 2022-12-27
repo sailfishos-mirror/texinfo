@@ -164,6 +164,16 @@ $result_trees{'contents_at_end_document'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -181,6 +191,7 @@ $result_texis{'contents_at_end_document'} = '\\input texinfo @c -*-texinfo-*-
 @contents
 
 @bye
+
 ';
 
 

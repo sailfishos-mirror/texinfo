@@ -256,6 +256,16 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -281,6 +291,7 @@ Before paragraphindent.
 After paragraphindent.
 
 @bye
+
 ';
 
 

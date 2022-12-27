@@ -4049,6 +4049,16 @@ $result_trees{'texi_bib_example'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -4362,6 +4372,7 @@ Massachusetts, 1994.
 @end itemize
 
 @bye
+
 ';
 
 

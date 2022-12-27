@@ -29,12 +29,29 @@ $result_trees{'text_before_and_after_bye'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        },
+        {
+          'text' => 'after bye
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
 };
 
 $result_texis{'text_before_and_after_bye'} = 'Before bye @bye on bye line
+
+after bye
 ';
 
 

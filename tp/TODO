@@ -57,8 +57,6 @@ expanded.  For example
  truc @value{closebrace}
  machin
 
-Text after @bye should be kept as is when redoing Texinfo.
-
 hyphenation: should only appear in toplevel.
 
 

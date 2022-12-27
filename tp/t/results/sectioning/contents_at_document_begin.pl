@@ -165,6 +165,16 @@ $result_trees{'contents_at_document_begin'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -182,6 +192,7 @@ $result_texis{'contents_at_document_begin'} = '\\input texinfo @c -*-texinfo-*-
 @chapter chap
 
 @bye
+
 ';
 
 

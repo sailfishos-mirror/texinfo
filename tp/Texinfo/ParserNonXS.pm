@@ -6072,6 +6072,21 @@ sub _parse_texi($$$)
            .join('|', @context_stack)));
   }
 
+  # Gather text after @bye
+  my $element_after_bye = {'type' => 'postamble_after_end', 'contents' => [],
+                           'parent' => $current};
+  while (1) {
+    my $line;
+    ($line, $source_info) = _next_text($self, $source_info);
+    last if (!defined($line));
+    push @{$element_after_bye->{'contents'}},
+           {'text' => $line, 'type' => 'text_after_end',
+            'parent' => $element_after_bye};
+  }
+  if (scalar(@{$element_after_bye->{'contents'}})) {
+    push @{$current->{'contents'}}, $element_after_bye;
+  }
+
   # Setup labels info and nodes list based on 'targets'
   Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
                                               $self->{'registrar'}, $self);
@@ -7298,6 +7313,10 @@ C<@verb>, C<@macro> body).
 Space within an index @-command before an @-command interrupting the
 index command.
 
+=item text_after_end
+
+Text appearing after @bye.
+
 =item text_before_beginning
 
 Text appearing before real content, including the C<\input texinfo.tex>.
@@ -7332,6 +7351,10 @@ root otherwise.
 
 C<document_root> first content should be C<before_node_section>, then nodes and
 sections @-commands elements, and also C<@bye> element.
+
+=item postamble_after_end
+
+This container holds everything appearing after @bye.
 
 =item preamble_before_beginning
 

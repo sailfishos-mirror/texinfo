@@ -4826,6 +4826,21 @@ $result_trees{'numbering_captions_listoffloats'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        },
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -5203,6 +5218,8 @@ A ref to float without type @ref{label but no type}.
 @listoffloats th@\'eor@`eme
 
 @bye
+
+
 ';
 
 
@@ -7226,6 +7243,8 @@ And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename>
 
 </unnumbered>
 <bye></bye>
-';
+<postambleafterend>
+
+</postambleafterend>';
 
 1;

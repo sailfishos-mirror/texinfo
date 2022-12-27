@@ -250,6 +250,7 @@ my %type_elements = (
   'menu_comment' => 'menucomment',
   'menu_entry_description' => 'menudescription',
   'menu_entry_name' => 'menutitle',
+  'postamble_after_end' => 'postambleafterend',
   'preamble_before_beginning' => 'preamblebeforebeginning',
   'table_definition' => 'tableitem',
   'table_entry' => 'tableentry',
@@ -1669,6 +1670,10 @@ sub _convert($$;$)
                and $element->{'parent'}->{'type'} ne 'line_arg')));
   foreach my $format_element (@close_format_elements) {
     $result .= $self->txi_markup_close_element($format_element);
+  }
+  if ($element->{'type'} and $element->{'type'} eq 'postamble_after_end') {
+    $self->{'pending_bye'} .= $result;
+    return '';
   }
   if ($element->{'cmdname'}
       and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {

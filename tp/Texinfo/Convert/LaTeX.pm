@@ -556,7 +556,8 @@ foreach my $type ('ignorable_spaces_after_command',
 # ignore 'command_as_argument_inserted' in order to use the default
 # setting for @itemize if there is no argument
 my %ignored_types;
-foreach my $type ('preamble_before_beginning',
+foreach my $type ('command_as_argument_inserted',
+            'postamble_after_end', 'preamble_before_beginning',
             'preamble_before_setfilename', 'command_as_argument_inserted') {
   $ignored_types{$type} = 1;
 }

@@ -239,7 +239,8 @@
 
 <!-- TOP Level Element -->
 <!ELEMENT texinfo (filename?, preamblebeforebeginning?, (%metainformation;
-                    | %section.all; | %main.content;)*, bye?)>
+                    | %section.all; | %main.content;)*,
+                   bye?, postambleafterend?)>
 <!ATTLIST texinfo xml:lang (%languagecodes;) 'en'>
 
 <!-- meta-information -->
@@ -290,6 +291,8 @@
 
 <!-- preamble before texinfo code beginning (empty lines and \input) -->
 <!ELEMENT preamblebeforebeginning (#PCDATA)>
+<!-- everything appearing after @bye -->
+<!ELEMENT postambleafterend (#PCDATA)>
 
 <!-- ToC -->
 <!ELEMENT contents      EMPTY>

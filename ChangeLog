@@ -1,5 +1,15 @@
 2022-12-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (%type_elements, _convert),
+	tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi),
+	tp/Texinfo/Convert/*.pm, util/texinfo.dtd: keep text appearing after
+	@bye in the Texinfo Tree, as text_after_end in postamble_after_end
+	container.  Add postamble_after_end as ignorable type in converters.
+
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
 	* t/html_tests.t: fix incorrect braces nesting.
 
 	* t/test_utils.pl: with -c do not add @bye even if it is not at

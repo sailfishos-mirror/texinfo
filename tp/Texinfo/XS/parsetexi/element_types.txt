@@ -30,6 +30,7 @@ ignorable_spaces_after_command
 spaces_at_end
 spaces_after_close_brace
 spaces_before_paragraph
+text_after_end
 text_before_beginning
 space_at_end_menu_node
 after_menu_description_line
@@ -40,6 +41,7 @@ spaces_inserted
 document_root
 root_line
 before_node_section
+postamble_after_end
 preamble_before_beginning
 preamble_before_setfilename
 paragraph

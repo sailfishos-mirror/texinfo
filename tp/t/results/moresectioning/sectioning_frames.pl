@@ -2258,6 +2258,16 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -2423,6 +2433,7 @@ unnumbered chapter text.
 
 @contents
 @bye
+
 ';
 
 

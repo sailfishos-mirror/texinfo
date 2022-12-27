@@ -1084,6 +1084,16 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -1158,6 +1168,7 @@ $result_texis{'more_sections_than_nodes'} = '\\input texinfo @c -*-texinfo-*-
 @appendix appendix
 
 @bye
+
 ';
 
 

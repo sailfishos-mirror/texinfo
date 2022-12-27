@@ -336,6 +336,16 @@ $result_trees{'split_no_copying'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -365,6 +375,7 @@ This is the top node.
 First chapter.
 
 @bye
+
 ';
 
 

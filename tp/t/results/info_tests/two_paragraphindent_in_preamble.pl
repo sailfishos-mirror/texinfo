@@ -291,6 +291,16 @@ $result_trees{'two_paragraphindent_in_preamble'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -318,6 +328,7 @@ First para.
 Second para.
 
 @bye
+
 ';
 
 

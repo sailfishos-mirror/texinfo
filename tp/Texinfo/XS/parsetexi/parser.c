@@ -2143,5 +2143,32 @@ finished_totally:
 
   /* TODO: Check for "unclosed stacks". */
 
+  /* Gather text after @bye */
+  {
+    ELEMENT *element_after_bye;
+    element_after_bye = new_element (ET_postamble_after_end);
+
+    while (1)
+      {
+        ELEMENT *e;
+        free (allocated_line);
+        line = allocated_line = next_text ();
+        if (!allocated_line)
+          break; /* Out of input. */
+
+        e = new_element (ET_text_after_end);
+        text_append (&e->text, line);
+        add_to_element_contents (element_after_bye, e);
+      }
+    if (element_after_bye->contents.number == 0)
+      {
+        destroy_element (element_after_bye);
+      }
+    else
+      {
+        add_to_element_contents (current, element_after_bye);
+      }
+  }
+
   return current;
 }

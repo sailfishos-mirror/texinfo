@@ -145,6 +145,16 @@ $result_trees{'contents_no_section'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -161,6 +171,7 @@ $result_texis{'contents_no_section'} = '\\input texinfo @c -*-texinfo-*-
 @contents
 
 @bye
+
 ';
 
 

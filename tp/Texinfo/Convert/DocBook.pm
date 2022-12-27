@@ -226,6 +226,7 @@ foreach my $type (
             'spaces_before_paragraph',
             'menu_entry_leading_text',
             'menu_entry_separator',
+            'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
             'spaces_at_end',

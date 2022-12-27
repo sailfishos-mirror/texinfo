@@ -305,6 +305,16 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
         }
       ],
       'cmdname' => 'bye'
+    },
+    {
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'text_after_end'
+        }
+      ],
+      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -334,6 +344,7 @@ Second para.
 Third para after second paragraphindent.
 
 @bye
+
 ';
 
 
