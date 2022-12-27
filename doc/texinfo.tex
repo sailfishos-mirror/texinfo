@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-27.23}
+\def\texinfoversion{2022-12-28.00}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -5097,7 +5097,7 @@ $$%
   % to take a single TeX argument.  The case of a macro invocation that
   % goes to end-of-line is not handled.
   %
-  \def\commondummyword##1{\let##1\asis}
+  \def\commondummyword##1{\let##1\asis}%
   \macrolist
   \let\value\indexnofontsvalue
 }
