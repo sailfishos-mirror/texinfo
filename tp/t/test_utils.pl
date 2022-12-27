@@ -1669,7 +1669,8 @@ sub output_texi_file($)
     $added_chapter = "\@node chapter\n\@chapter chapter\n";
   }
   my $bye = '';
-  if ($test_text !~ /^\@bye *$/m) {
+  if ($test_text !~ /\@bye *$/m
+      and $test_text !~ /\@bye[\@ ]/) {
     $bye = '@bye';
   }
   foreach my $output ($first_line, $node_top, $added_chapter) {

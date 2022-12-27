@@ -1,3 +1,10 @@
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
+	* t/html_tests.t: fix incorrect braces nesting.
+
+	* t/test_utils.pl: with -c do not add @bye even if it is not at
+	the beginning of the line and if followed by @.
+
 2022-12-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (sort_indices): when splitting at letters,
