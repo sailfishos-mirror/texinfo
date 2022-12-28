@@ -1,5 +1,23 @@
 2022-12-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line): add end of
+	line if needed for nested @ignore with comment.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (read_comment): fix offset with
+	@comment.  Skip the @ in comment command name.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	put the correct string in @ignore comment.  Advance instead of exiting
+	when there is a @ that is not a comment.
+
+	* tp/Makefile.tres, tp/t/55conditionals.t: do not skip
+	nested_ignore_with_comments.  Add comment without
+	argument in @ignore line examples.  Add nested_ignore_comment_no_eol
+	to test a very specific case of no end of line after nested @ignore
+	and comment.
+
+2022-12-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): show the DynaLoader error message
 	if dl_load_file failed.
 

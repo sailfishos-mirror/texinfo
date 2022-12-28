@@ -51,6 +51,10 @@ Comment
 @ignore  @comment space comment
 Space Comment
 @end ignore
+
+@ignore @c
+Space Comment no argument
+@end ignore
 '],
 ['nested_ignore',
 '@ignore
@@ -82,6 +86,10 @@ Spaces no comment
 Comment
 @end ignore
 
+@ignore @c
+Comment no argument
+@end ignore
+
 @ignore  @c space comment
 Space Comment
 @end ignore
@@ -95,7 +103,10 @@ Command comment
 @end ignore
 
 @end ignore
-', {'skip' => 1}],
+'],
+['nested_ignore_comment_no_eol',
+'@ignore
+@ignore @c comment'],
 ['empty_set_in_ifset',
 '@set a
 

@@ -96,10 +96,10 @@ read_comment (char *line, char **comment_command)
     {
       p += 2;
       if (memcmp (p, "omment", 6) == 0)
-        p += 7;
+        p += 6;
       if (*p && *p != '@' && !strchr (whitespace_chars, *p))
         return 0; /* @c or @comment not terminated. */
-      *comment_command = strndup(line, p - line);
+      *comment_command = strndup(line+1, p - (line+1));
     }
   else
     return 0; /* Trailing characters on line. */
@@ -1199,11 +1199,11 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
                            args = new_element (ET_NONE);
                            e = new_element (ET_NONE);
-                           text_append (&e->text, p);
+                           text_append (&e->text, comment_position);
                            add_to_element_contents (args, e);
 
                            misc_arg_e = new_element (ET_misc_arg);
-                           text_append (&misc_arg_e->text, p);
+                           text_append (&misc_arg_e->text, comment_position);
 
                            comment_e = new_element (ET_NONE);
                            comment_e->cmd = lookup_command (cmd_name);
@@ -1214,7 +1214,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                                  "comment_at_end",
                                                  comment_e);
                          }
-                       break;
+                       p += 1;
                      }
                    else
                       break;

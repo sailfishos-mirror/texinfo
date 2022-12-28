@@ -4153,6 +4153,9 @@ sub _process_remaining_on_line($$$$)
         if ($line =~ /\@(c|comment)((\@|\s+).*)?$/) {
           my $comment_command = $1;
           my $comment_text = $2;
+          chomp $comment_text;
+          my $has_end_of_line = chomp $line;
+          $comment_text .= "\n" if ($has_end_of_line);
           if (not exists($current->{'args'})) {
             $current->{'args'} = [
                     {'type' => 'block_line_arg', 'parent' => $current,

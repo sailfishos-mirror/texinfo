@@ -262,6 +262,80 @@ $result_trees{'ignore_spaces_and_comments'} = {
             'line_nr' => 13,
             'macro' => ''
           }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => '
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'c',
+                  'extra' => {
+                    'misc_args' => [
+                      '
+'
+                    ]
+                  }
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'ignore',
+          'contents' => [
+            {
+              'text' => 'Space Comment no argument
+',
+              'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'ignore'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'ignore'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              }
+            }
+          ],
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 17,
+            'macro' => ''
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -285,10 +359,15 @@ Comment
 @ignore  @comment space comment
 Space Comment
 @end ignore
+
+@ignore @c
+Space Comment no argument
+@end ignore
 ';
 
 
 $result_texts{'ignore_spaces_and_comments'} = '
+
 
 
 ';

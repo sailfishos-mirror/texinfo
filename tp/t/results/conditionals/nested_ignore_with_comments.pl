@@ -198,6 +198,73 @@ $result_trees{'nested_ignore_with_comments'} = {
                     'comment_at_end' => {
                       'args' => [
                         {
+                          'text' => '
+',
+                          'type' => 'misc_arg'
+                        }
+                      ],
+                      'cmdname' => 'c',
+                      'extra' => {
+                        'misc_args' => [
+                          '
+'
+                        ]
+                      }
+                    },
+                    'spaces_after_argument' => ' '
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'ignore',
+              'contents' => [
+                {
+                  'text' => 'Comment no argument
+',
+                  'type' => 'raw'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'ignore'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'ignore'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 16,
+                    'macro' => ''
+                  }
+                }
+              ]
+            },
+            {
+              'text' => '
+',
+              'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
                           'text' => ' space comment
 ',
                           'type' => 'misc_arg'
@@ -247,7 +314,7 @@ $result_trees{'nested_ignore_with_comments'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 16,
+                    'line_nr' => 20,
                     'macro' => ''
                   }
                 }
@@ -314,7 +381,7 @@ $result_trees{'nested_ignore_with_comments'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 20,
+                    'line_nr' => 24,
                     'macro' => ''
                   }
                 }
@@ -381,7 +448,7 @@ $result_trees{'nested_ignore_with_comments'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 28,
                     'macro' => ''
                   }
                 }
@@ -416,7 +483,7 @@ $result_trees{'nested_ignore_with_comments'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 30,
                 'macro' => ''
               }
             }
@@ -445,6 +512,10 @@ Spaces no comment
 
 @ignore@c no space comment
 Comment
+@end ignore
+
+@ignore @c
+Comment no argument
 @end ignore
 
 @ignore  @c space comment
