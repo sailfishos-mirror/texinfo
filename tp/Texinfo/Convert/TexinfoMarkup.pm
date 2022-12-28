@@ -330,11 +330,7 @@ sub output($$)
              .$self->txi_markup_close_element('filename')."\n";
     $result .= $self->write_or_return($filename_element, $fh);
   }
-  if ($self->get_conf('USE_NODES')) {
-    $result .= $self->convert_document_nodes($root, $fh);
-  } else {
-    $result .= $self->convert_document_sections($root, $fh);
-  }
+  $result .= $self->write_or_return($self->convert_tree($root), $fh);
   $result
     .= $self->write_or_return($self->txi_markup_close_element('texinfo')."\n",
                               $fh);
@@ -442,7 +438,7 @@ sub convert($$)
   my $self = shift;
   my $root = shift;
 
-  return $self->convert_document_sections($root);
+  return $self->convert_tree($root);
 }
 
 sub convert_tree($$)
@@ -923,19 +919,7 @@ sub _convert($$;$)
         }
         my $result = $self->txi_markup_open_element($cmdname, $attribute)
                  .$self->txi_markup_close_element($cmdname)."\n";
-        # the command associated with an element is closed at the end of the
-        # element. @bye is withing the element, but we want it to appear after
-        # the command closing.  So we delay the output of @bye, and store it.
-        if ($cmdname eq 'bye' and $element->{'structure'}
-            and $element->{'structure'}->{'associated_unit'}
-            and $element->{'structure'}->{'associated_unit'}->{'extra'}
-            and defined($element->{'structure'}->{'associated_unit'}
-                                               ->{'extra'}->{'unit_command'})) {
-          $self->{'pending_bye'} = $result;
-          return '';
-        } else {
-          return $result;
-        }
+        return $result;
       } elsif ($type eq 'special') {
         if ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
@@ -1672,10 +1656,6 @@ sub _convert($$;$)
   foreach my $format_element (@close_format_elements) {
     $result .= $self->txi_markup_close_element($format_element);
   }
-  if ($element->{'type'} and $element->{'type'} eq 'postamble_after_end') {
-    $self->{'pending_bye'} .= $result;
-    return '';
-  }
   if ($element->{'cmdname'}
       and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
     if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
@@ -1694,26 +1674,10 @@ sub _convert($$;$)
     if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
       pop @{$self->{'document_context'}};
     }
-  # The command is closed either when the corresponding tree element
-  # is done, and the command is not associated to an element, or when
-  # the element is closed.
-  } elsif ((($element->{'type'} and $element->{'type'} eq 'unit'
-             and $element->{'extra'} and $element->{'extra'}->{'unit_command'}
-             and !($element->{'extra'}->{'unit_command'}->{'cmdname'}
-                   and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'))
-            or ($element->{'cmdname'}
-                and $Texinfo::Commands::root_commands{$element->{'cmdname'}}
-                and $element->{'cmdname'} ne 'node'
-                and !($element->{'structure'}->{'associated_unit'}
-                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
-                     and $element->{'structure'}->{'associated_unit'}
-                                                   ->{'extra'}->{'unit_command'}
-                     and $element->{'structure'}->{'associated_unit'}
-                                    ->{'extra'}->{'unit_command'} eq $element)))
+  } elsif ($element->{'cmdname'}
+           and $Texinfo::Commands::root_commands{$element->{'cmdname'}}
+           and $element->{'cmdname'} ne 'node'
            and !$self->get_conf('USE_NODES')) {
-    if ($element->{'type'} and $element->{'type'} eq 'unit') {
-      $element = $element->{'extra'}->{'unit_command'};
-    }
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if (!($element->{'structure'}->{'section_childs'}
@@ -1736,29 +1700,11 @@ sub _convert($$;$)
                ."\n";
       }
     }
-    if ($self->{'pending_bye'}) {
-      $result .= $self->{'pending_bye'};
-      delete $self->{'pending_bye'};
-    }
-  } elsif ((($element->{'type'} and $element->{'type'} eq 'unit'
-             and $element->{'extra'} and $element->{'extra'}->{'unit_command'}
-             and $element->{'extra'}->{'unit_command'}->{'cmdname'}
-             and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')
-            or ($element->{'cmdname'}
-                and $element->{'cmdname'} eq 'node'
-                and !($element->{'structure'}->{'associated_unit'}
-                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
-                     and $element->{'structure'}->{'associated_unit'}
-                                                   ->{'extra'}->{'unit_command'}
-                     and $element->{'structure'}->{'associated_unit'}
-                                    ->{'extra'}->{'unit_command'} eq $element)))
+  } elsif ($element->{'cmdname'}
+           and $element->{'cmdname'} eq 'node'
            and $self->get_conf('USE_NODES')) {
     $result .= $self->txi_markup_close_element('node');
 
-    if ($self->{'pending_bye'}) {
-      $result .= $self->{'pending_bye'};
-      delete $self->{'pending_bye'};
-    }
   }
   return $result;
 }

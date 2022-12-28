@@ -680,6 +680,7 @@ $result_converted{'xml'}->{'ignored_sort_char_empty_entries'} = '<set name="txii
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
+</top>
 <node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">-</indexterm></findex>
@@ -688,7 +689,6 @@ $result_converted{'xml'}->{'ignored_sort_char_empty_entries'} = '<set name="txii
 <findex index="fn" spaces=" "><indexterm index="fn" number="4"><sortas>--</sortas> --</indexterm></findex>
 
 <printindex spaces=" " value="fn" line="fn"></printindex>
-</top>
 ';
 
 1;

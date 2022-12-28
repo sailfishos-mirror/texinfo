@@ -561,6 +561,7 @@ $result_converted{'xml'}->{'transparent_sort_chars'} = '<set name="txiindexhyphe
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
+</top>
 <node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1"><code>--version</code>, for <command>install-info</command></indexterm></cindex>
@@ -568,7 +569,6 @@ $result_converted{'xml'}->{'transparent_sort_chars'} = '<set name="txiindexhyphe
 <cindex index="cp" spaces=" "><indexterm index="cp" number="3">Semantic markup</indexterm></cindex>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
-</top>
 ';
 
 

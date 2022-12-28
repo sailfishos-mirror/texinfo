@@ -1,5 +1,11 @@
 2022-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (output, convert, _convert):
+	do not use element units, simply convert the tree.  Sections closed by
+	root commands do not span following nodes.
+
+2022-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): check
 	that a nested @macro is followed by space or at end of string.
 

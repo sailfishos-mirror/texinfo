@@ -1383,9 +1383,9 @@ $result_converted{'xml'}->{'two_nodes_between_chapters'} = '<node name="Top" spa
 <node name="chapter-1" spaces=" "><nodename>chapter 1</nodename><nodenext spaces=" ">Top</nodenext><nodeprev spaces=" ">node between chapters</nodeprev><nodeup spaces=" ">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter c1</sectiontitle>
 
+</chapter>
 <node name="node-between-chapters" spaces=" "><nodename>node between chapters</nodename><nodenext automatic="on">chapter 2</nodenext><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
-</chapter>
 <node name="chapter-2" spaces=" "><nodename>chapter 2</nodename><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter c2</sectiontitle>
 </chapter>

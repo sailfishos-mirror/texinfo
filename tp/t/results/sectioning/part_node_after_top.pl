@@ -751,8 +751,8 @@ $result_converted{'xml'}->{'part_node_after_top'} = '<node name="Top" spaces=" "
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>part node after top</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="part-node-after-top" spaces=" "><nodename>part node after top</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 </top>
+<node name="part-node-after-top" spaces=" "><nodename>part node after top</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <part spaces=" "><sectiontitle>part</sectiontitle>
 </part>
 ';

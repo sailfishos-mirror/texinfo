@@ -444,8 +444,8 @@ $result_converted{'xml'}->{'comment_on_menu_line'} = '<node name="Top" spaces=" 
 </pre></menudescription></menuentry></menu>
 
 <chapter spaces=" "><sectiontitle>first</sectiontitle>
-<node name="first" spaces=" "><nodename>first</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 </chapter>
+<node name="first" spaces=" "><nodename>first</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 ';
 
 1;

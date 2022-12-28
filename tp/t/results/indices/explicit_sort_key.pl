@@ -983,6 +983,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 $result_converted{'xml'}->{'explicit_sort_key'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
+</top>
 <node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <defindex spaces=" " value="SK" line="SK"></defindex>
@@ -998,7 +999,6 @@ $result_converted{'xml'}->{'explicit_sort_key'} = '<node name="Top" spaces=" "><
 <url><urefurl>and cmd <sortas>inside</sortas></urefurl></url>.
 </para>
 <printindex spaces=" " value="SK" line="SK"></printindex>
-</top>
 ';
 
 
