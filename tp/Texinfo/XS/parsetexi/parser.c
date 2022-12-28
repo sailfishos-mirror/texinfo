@@ -1139,6 +1139,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               p += strlen ("@rmacro");
               cmd = CM_rmacro;
             }
+          if (*p && !strchr (whitespace_chars, *p))
+            cmd = 0;
         }
       else if (current->cmd == CM_ignore)
         {

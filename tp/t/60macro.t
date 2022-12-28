@@ -464,6 +464,15 @@ a, macro2
 
 @macrothree{@macrooneone{}text for macro2}
 '],
+['macro_imbricated_with_beginning_command_name',
+'@macro foo
+
+@macrototo
+in macrototo
+@end macro
+
+@end macro
+'],
 ['macro_in_brace_command',
 '@macro foo
 foo-expansion

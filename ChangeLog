@@ -1,3 +1,12 @@
+2022-12-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): check
+	that a nested @macro is followed by space or at end of string.
+
+	* tp/t/60macro.t, tp/Makefile.tres: add
+	macro_imbricated_with_beginning_command_name test with an @-command
+	beginning with @macro imbricated in @macro.
+
 2022-12-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex, NEWS: Turn microtype off by default, for speed.
