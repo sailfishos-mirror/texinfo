@@ -507,8 +507,8 @@ $result_converted{'latex_text'}->{'anchor_in_titlepage'} = '
 \\label{anchor:in-titlepage}%
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\part*{{top}}
 \\label{anchor:Top}%
 \\label{anchor:nchap}%

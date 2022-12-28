@@ -435,8 +435,8 @@ $result_converted{'latex_text'}->{'titlepage_no_title'} = '
 \\leftline{\\Large \\bfseries Some Author}%
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

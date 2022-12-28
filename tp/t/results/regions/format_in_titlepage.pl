@@ -304,8 +304,8 @@ Published
 
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 ';
 

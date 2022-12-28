@@ -63,6 +63,9 @@
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
+\newpagestyle{singlepagenum}{\sethead[][][\thepage{}]
+                              {}{}{\thepage}}
+
 % avoid pagebreak and headings setting for a sectioning command
 \newcommand{\Texinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\Texinfoplaceholder #1{#2}}}
 
@@ -3454,9 +3457,10 @@ g--roupe
 
 
 \end{titlepage}
-\pagestyle{single}%
-\mainmatter
+\pagestyle{singlepagenum}%
 \tableofcontents\newpage
+\mainmatter
+\pagestyle{single}%
 \label{anchor:Top}%
 \chapter{{chapter}}
 \label{anchor:chapter}%

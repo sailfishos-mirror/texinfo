@@ -152,8 +152,8 @@ $result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_odd'} = '
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\pagestyle{double}%
 \\mainmatter
+\\pagestyle{double}%
 ';
 
 1;

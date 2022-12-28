@@ -4245,8 +4245,8 @@ kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}
 samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%

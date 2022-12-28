@@ -351,8 +351,8 @@ $result_converted{'latex_text'}->{'shorttitlepage'} = '
 \\newpage{}
 \\phantom{blabla}\\newpage{}
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

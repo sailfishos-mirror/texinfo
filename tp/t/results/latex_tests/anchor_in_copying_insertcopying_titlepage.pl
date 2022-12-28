@@ -639,8 +639,8 @@ $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage'} =
 Cop. \\label{anchor:a-in-copying}%
 . Ying.
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chap}}
 \\label{anchor:Chapter}%

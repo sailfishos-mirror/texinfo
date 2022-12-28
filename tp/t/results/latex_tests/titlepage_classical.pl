@@ -678,8 +678,8 @@ $result_converted{'latex_text'}->{'titlepage_classical'} = '
 \\vskip 0pt plus 1filll
 in Copying
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

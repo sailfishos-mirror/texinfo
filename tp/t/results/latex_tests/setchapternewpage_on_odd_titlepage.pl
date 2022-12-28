@@ -199,8 +199,8 @@ $result_converted{'latex_text'}->{'setchapternewpage_on_odd_titlepage'} = '\\mak
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\pagestyle{double}%
 \\mainmatter
+\\pagestyle{double}%
 ';
 
 1;

@@ -1462,6 +1462,22 @@ sub _latex_header() {
 ';
   }
 
+  if ($self->{'page_styles'}->{'doublepagenum'}) {
+    $header_code .=
+'\newpagestyle{doublepagenum}{\sethead[\thepage{}][][]
+                              {}{}{\thepage}}
+
+';
+  }
+
+  if ($self->{'page_styles'}->{'singlepagenum'}) {
+    $header_code .=
+'\newpagestyle{singlepagenum}{\sethead[][][\thepage{}]
+                              {}{}{\thepage}}
+
+';
+  }
+
   if ($self->{'extra_definitions'}->{'Texinfonopagebreakheading'}) {
     $header_code .=
 '% avoid pagebreak and headings setting for a sectioning command
@@ -1666,8 +1682,6 @@ sub _begin_document($)
       $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
       $result .= "\\end{titlepage}\n";
     }
-    $result .= _set_headings($self, 'on');
-    $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
     $self->{'titlepage_done'} = 1;
   }
 
@@ -1676,9 +1690,18 @@ sub _begin_document($)
       and $self->{'structuring'}->{'sectioning_root'}
       and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
                and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
+    if (exists($self->{'global_commands'}->{'titlepage'})
+        or exists($self->{'global_commands'}->{'shorttitlepage'})) {
+      $result .= _set_headings($self, 'pagenum');
+    }
     $result .= "\\tableofcontents\\newpage\n";
   }
 
+  if (exists($self->{'global_commands'}->{'titlepage'})
+      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
+    $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
+    $result .= _set_headings($self, 'on');
+  }
 
   return $result;
 }
@@ -1827,18 +1850,22 @@ sub _protect_text($$)
   return $text;
 }
 
+# pagenum heading is not in Texinfo, it is used for the Table of Contents,
+# to avoid an ugly Chapter 0 that would be there for the default page
+# styles.
 sub _set_headings($$)
 {
   my ($self, $headings_spec) = @_;
 
   my $headings_type;
-  if ($headings_spec eq 'on') {
+  if ($headings_spec eq 'on' or $headings_spec eq 'pagenum') {
     $headings_type = 'single';
     my $setchapternewpage_spec = $self->get_conf('setchapternewpage');
     if (defined($setchapternewpage_spec)
         and $setchapternewpage_spec eq 'odd') {
       $headings_type = 'double';
     }
+    $headings_type .= 'pagenum' if ($headings_spec eq 'pagenum');
   } elsif ($headings_spec eq 'doubleafter') {
     $headings_type = 'double';
   } elsif ($headings_spec eq 'singleafter') {
@@ -1853,12 +1880,10 @@ sub _set_headings($$)
   }
 
   my $result = '';
-  if ($headings_type eq 'single') {
-    $result = "\\pagestyle{single}%\n";
-  } elsif ($headings_type eq 'double') {
-    $result = "\\pagestyle{double}%\n";
-  } elsif ($headings_type eq 'off') {
+  if ($headings_type eq 'off') {
     $result = "\\pagestyle{empty}%\n";
+  } else {
+    $result = "\\pagestyle{$headings_type}%\n";
   }
   $self->{'page_styles'}->{$headings_type} = 1;
   return $result;

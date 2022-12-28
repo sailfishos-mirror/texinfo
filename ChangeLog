@@ -1,5 +1,11 @@
 2022-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_begin_document): add a special page
+	style for Table of Contents which only shows the page number, to avoid
+	an ugly Chapter 0.  Set mainmatter after the Table of Contents.
+
+2022-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (output, convert, _convert):
 	do not use element units, simply convert the tree.  Sections closed by
 	root commands do not span following nodes.

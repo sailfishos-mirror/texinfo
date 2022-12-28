@@ -113,8 +113,8 @@ $result_converted{'latex_text'}->{'titlepage_and_headings'} = '
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 ';
 
 1;

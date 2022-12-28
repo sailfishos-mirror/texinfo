@@ -415,8 +415,8 @@ $result_converted{'latex_text'}->{'titlepage_long_title'} = '
   \\vskip\\titlepagebottomglue
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

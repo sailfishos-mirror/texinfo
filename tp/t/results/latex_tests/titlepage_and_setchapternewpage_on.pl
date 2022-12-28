@@ -155,8 +155,8 @@ $result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_on'} = '\\mak
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\pagestyle{single}%
 \\mainmatter
+\\pagestyle{single}%
 ';
 
 1;
