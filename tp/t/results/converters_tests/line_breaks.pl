@@ -552,7 +552,7 @@ $result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="en">
+<book lang="">
 <title>AWK As A Major Systems Programming 
  Language&#8212;Revisited</title>
 <titleabbrev>the manual 

@@ -1,5 +1,11 @@
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands):
+	change some defaults, set utf-8 for documentencoding and set
+	documentlanguage and micrtype undef.
+
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_informative_command_value): get information
 	for line commands of type line, using the first args contents if it is
 	text.

@@ -242,7 +242,7 @@ $result_converted{'docbook_doc'}->{'insertcopying'} = '<?xml version="1.0"?>
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="en">
+<book lang="">
 <bookinfo><legalnotice><para>License.
 </para>
 <blockquote><para>You are not allowed.

@@ -167,9 +167,10 @@ our %document_settable_multiple_at_commands = (
   'codequoteundirected' => 'off',
   'contents' => 0,
   'deftypefnnewline' => 'off',
-  'documentencoding' => 'us-ascii',
-  'documentlanguage' => 'en', # or undef?  Documented as en.
-                              # --document-language
+  'documentencoding' => 'utf-8',
+  'documentlanguage' => undef, # Documented as en, but no @documentlanguage
+                               # really means that the language is not set.
+                               # --document-language
   'evenfooting'       => undef,
   'evenheading'       => undef,
   'everyfooting'      => undef,
@@ -180,7 +181,7 @@ our %document_settable_multiple_at_commands = (
   'frenchspacing' => 'off',
   'headings' => 'on',
   'kbdinputstyle' => 'distinct',
-  'microtype' => 'on',
+  'microtype'         => undef,
   'oddheading'        => undef,
   'oddfooting'        => undef,
   'paragraphindent' => 3,
