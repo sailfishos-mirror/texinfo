@@ -1,5 +1,11 @@
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2oldapi.texi: add information in comments on how to
+	process in source.  Fix to be processable.  More prominently
+	state that the API description is obsolete and dates from 2010/2012.
+
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@command{texi2html}): remove reference to
 	util/texi2html, as it has been removed.
 
