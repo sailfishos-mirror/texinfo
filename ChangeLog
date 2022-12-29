@@ -1,3 +1,8 @@
+2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Makefile.am (dist-hook): Do not distribute architecture-
+	dependent gettext_xs.o file.  Report from Hilmar Preuße.
+
 2022-12-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/util.c (text_buffer_iconv): Correctly update arguments
