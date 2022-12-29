@@ -582,6 +582,15 @@ In afourpaper reset
 
 @pagesizes , 
 '],
+['customize_informative_commands',
+'@chapter chap
+', {}, {'pagesizes' => '200mm,150mm',
+        'frenchspacing' => 'on',
+        'microtype' => 'off',
+        'firstparagraphindent' => 'insert',
+        'fonttextsize' => '11',
+        'paragraphindent' => 4,
+        'afivepaper' => ''}],
 ['verbatim_in_smallformat',
 '@smallformat
 @verbatim

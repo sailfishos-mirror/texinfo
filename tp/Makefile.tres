@@ -1020,6 +1020,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/brace_in_index/res_latex/brace_in_index.tex \
   t/results/latex_tests/custom_headings.pl \
   t/results/latex_tests/custom_headings/res_latex/custom_headings.tex \
+  t/results/latex_tests/customize_informative_commands.pl \
+  t/results/latex_tests/customize_informative_commands/res_latex/customize_informative_commands.tex \
   t/results/latex_tests/enumerate_arguments.pl \
   t/results/latex_tests/enumerate_arguments/res_latex/enumerate_arguments.tex \
   t/results/latex_tests/error_in_sectioning_command.pl \
@@ -1051,6 +1053,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/pagetype/res_latex/pagetype.tex \
   t/results/latex_tests/setchapternewpage_on_odd_titlepage.pl \
   t/results/latex_tests/setchapternewpage_on_odd_titlepage/res_latex/setchapternewpage_on_odd_titlepage.tex \
+  t/results/latex_tests/setchapternewpage_on_odd_titlepage_set_headings.pl \
+  t/results/latex_tests/setchapternewpage_on_odd_titlepage_set_headings/res_latex/setchapternewpage_on_odd_titlepage_set_headings.tex \
   t/results/latex_tests/settitle_and_headings.pl \
   t/results/latex_tests/settitle_and_headings/res_latex/settitle_and_headings.tex \
   t/results/latex_tests/shorttitlepage.pl \

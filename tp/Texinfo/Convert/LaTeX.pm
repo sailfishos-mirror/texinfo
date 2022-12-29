@@ -782,6 +782,7 @@ my %defaults = (
   'EXTENSION'            => 'tex',
 
   'documentlanguage'     => undef,
+  'paragraphindent'      => undef, # global default is for Info/Plaintext
 
   'converted_format'     => 'latex',
 
@@ -1619,12 +1620,113 @@ roundcorner=10pt}
   return $class_and_usepackage_begin . $usepackage_end . "\n" . $header_code;
 }
 
+# return LaTeX output code for informative @-commands.
+sub _informative_command_output($$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $value = shift;
+
+  if ($cmdname eq 'documentlanguage') {
+    my $language = $self->get_conf($cmdname);
+    $language =~ s/_/-/;
+    $self->{'packages'}->{'babel'} = 1;
+    return "\\selectlanguage{$language}%\n";
+  } elsif ($cmdname eq 'pagesizes') {
+    my $pagesize_spec = $self->get_conf($cmdname);
+    my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
+    my @geometry;
+    my $height = shift @pagesize_args;
+    if (defined($height) and $height ne '') {
+      push @geometry, "textheight=$height";
+    }
+    my $width = shift @pagesize_args;
+    if (defined($width) and $width ne '') {
+      push @geometry, "textwidth=$width";
+    }
+    if (scalar(@geometry)) {
+      $self->{'packages'}->{'geometry'} = 1;
+      return "\\newgeometry{".join(',', @geometry)."}\n";
+    }
+  } elsif ($cmdname eq 'paragraphindent') {
+    my $indentation_spec = $self->get_conf($cmdname);
+    if ($indentation_spec eq 'asis') {
+      # not implemented here, same as in TeX.
+      return '';
+    } else {
+      my $indentation_spec_arg = $indentation_spec.'em';
+      if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
+        $indentation_spec_arg = '0pt';
+      }
+      return "\\setlength{\\parindent}{$indentation_spec_arg}\n";
+    }
+  } elsif ($cmdname eq 'firstparagraphindent') {
+    my $indentation_spec = $self->get_conf($cmdname);
+    my $result = "\\makeatletter\n";
+    if ($indentation_spec eq 'insert') {
+      # From LaTeX indentfirst package: "LaTeX uses the switch
+      # \if@afterindent to decide whether to indent after a section
+      # heading. We just need to make sure that this is always true."
+      $result .= "\\let\\\@afterindentfalse\\\@afterindenttrue\n";
+      $result .= "\\\@afterindenttrue\n";
+    } elsif ($indentation_spec eq 'none') {
+      # restore original definition
+      $result .= '\\def\\@afterindentfalse{'
+                 . "\\let\\if\@afterindent\\iffalse}\n";
+    }
+    $result .= "\\makeatother\n";
+    return $result;
+  } elsif ($cmdname eq 'frenchspacing') {
+    my $frenchspacing_spec = $self->get_conf($cmdname);
+    if ($frenchspacing_spec eq 'on') {
+      return "\\frenchspacing\n";
+    } elsif ($frenchspacing_spec eq 'off') {
+      return "\\nonfrenchspacing\n";
+    }
+  } elsif ($cmdname eq 'setchapternewpage') {
+    my $setchapternewpage_spec = $self->get_conf($cmdname);
+    my ($setchapternewpage_result, $heading_set)
+      = _set_chapter_new_page($self, $setchapternewpage_spec);
+    return $setchapternewpage_result;
+  } elsif ($cmdname eq 'headings') {
+    my $headings_spec = $self->get_conf($cmdname);
+    return _set_headings($self, $headings_spec);
+  } elsif ($cmdname eq 'fonttextsize') {
+    my $fontsize = $self->get_conf($cmdname);
+    $self->{'packages'}->{'fontsize'} = 1;
+    # default dimension for changefontsize is pt
+    return "\\changefontsize{$fontsize}\n";
+  } elsif ($cmdname eq 'microtype') {
+    my $microtype_spec = $self->get_conf($cmdname);
+    $self->{'packages'}->{'microtype'} = 1;
+    if ($microtype_spec eq 'on') {
+      return "\\microtypesetup{activate=true}%\n";
+    } elsif ($microtype_spec eq 'off') {
+      return "\\microtypesetup{activate=false}%\n";
+    }
+  } elsif ($paper_geometry_commands{$cmdname}) {
+    $self->{'packages'}->{'geometry'} = 1;
+    return "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
+  }
+
+  return '';
+}
+
+my %LaTeX_defaults = (
+  'firstparagraphindent' => 'none',
+  'fonttextsize' => 11,
+  'frenchspacing' => 'off',
+  'microtype' => 'off',
+);
+
 sub _latex_begin_output($)
 {
   my $self = shift;
 
-  my $header = '';
-  # setup defaults
+  #my $header = "\n";
+  my $header = "";
+  # Special treatment for setchapternewpage, we want to avid
+  # a useless headings set just below
   $header .= "% set default for \@setchapternewpage\n";
   my $heading_set;
   if (defined($self->get_conf('setchapternewpage'))) {
@@ -1638,6 +1740,29 @@ sub _latex_begin_output($)
                              or $heading_set ne $heading)) {
     $header .= _set_headings($self, $heading);
   }
+
+  # only output if different from default
+  foreach my $informative_cmdname (sort(keys(%LaTeX_defaults))) {
+    my $conf_value = $self->get_conf($informative_cmdname);
+    if (defined($conf_value)
+        and $conf_value ne $LaTeX_defaults{$informative_cmdname}) {
+      $header .= _informative_command_output($self, $informative_cmdname);
+    }
+  }
+  foreach my $informative_cmdname ('documentlanguage', 'pagesizes',
+                                               'paragraphindent') {
+    my $conf_value = $self->get_conf($informative_cmdname);
+    if (defined ($conf_value)) {
+      $header .= _informative_command_output($self, $informative_cmdname);
+    }
+  }
+
+  foreach my $cmdname (sort(keys(%paper_geometry_commands))) {
+    if (defined($self->get_conf($cmdname))) {
+      $header .= _informative_command_output($self, $cmdname);
+    }
+  }
+
   $header .= "\n";
   return $header;
 }
@@ -2029,7 +2154,7 @@ sub _set_chapter_new_page($$)
   $result .= _set_headings($self, $heading_set);
 
   $self->{'prev_chapter_new_page_substitution'} = $new_code;
-  
+
   return $result, $heading_set;
 }
 
@@ -3795,98 +3920,8 @@ sub _convert($$)
 
       my $set = Texinfo::Common::set_informative_command_value($self, $element);
 
-      if (not $set) {
-        return $result;
-      }
-      if ($cmdname eq 'documentlanguage') {
-        my $language = $self->get_conf('documentlanguage');
-        $language =~ s/_/-/;
-        $result .= "\\selectlanguage{$language}%\n";
-        $self->{'packages'}->{'babel'} = 1;
-      } elsif ($cmdname eq 'pagesizes') {
-        my $pagesize_spec = _convert($self, $element->{'args'}->[0]);
-        #my $pagesize_spec = $self->get_conf('pagesizes');
-        my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
-        my @geometry;
-        my $height = shift @pagesize_args;
-        if (defined($height) and $height ne '') {
-          push @geometry, "textheight=$height";
-        }
-        my $width = shift @pagesize_args;
-        if (defined($width) and $width ne '') {
-          push @geometry, "textwidth=$width";
-        }
-        if (scalar(@geometry)) {
-          $result .= "\\newgeometry{".join(',', @geometry)."}\n";
-          $self->{'packages'}->{'geometry'} = 1;
-        }
-      } elsif ($cmdname eq 'paragraphindent'
-          and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $indentation_spec = $element->{'extra'}->{'misc_args'}->[0];
-        if ($indentation_spec eq 'asis') {
-          # not implemented here, same as in TeX.
-          return $result;
-        } else {
-          my $indentation_spec_arg = $indentation_spec.'em';
-          if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
-            $indentation_spec_arg = '0pt';
-          }
-          $result .= "\\setlength{\\parindent}{$indentation_spec_arg}\n";
-        }
-      } elsif ($cmdname eq 'firstparagraphindent'
-          and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $indentation_spec = $element->{'extra'}->{'misc_args'}->[0];
-        $result .= "\\makeatletter\n";
-        if ($indentation_spec eq 'insert') {
-          # From LaTeX indentfirst package: "LaTeX uses the switch
-          # \if@afterindent to decide whether to indent after a section
-          # heading. We just need to make sure that this is always true."
-          $result .= "\\let\\\@afterindentfalse\\\@afterindenttrue\n";
-          $result .= "\\\@afterindenttrue\n";
-        } elsif ($indentation_spec eq 'none') {
-          # restore original definition
-          $result .= '\\def\\@afterindentfalse{'
-                     . "\\let\\if\@afterindent\\iffalse}\n";
-        }
-        $result .= "\\makeatother\n";
-      } elsif ($cmdname eq 'frenchspacing'
-               and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $frenchspacing_spec = $element->{'extra'}->{'misc_args'}->[0];
-        if ($frenchspacing_spec eq 'on') {
-          $result .= "\\frenchspacing\n";
-        } elsif ($frenchspacing_spec eq 'off') {
-          $result .= "\\nonfrenchspacing\n";
-        }
-      } elsif ($cmdname eq 'setchapternewpage'
-               and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $setchapternewpage_spec = $element->{'extra'}->{'misc_args'}->[0];
-        my ($setchapternewpage_result, $heading_set)
-          = _set_chapter_new_page($self, $setchapternewpage_spec);
-        $result .= $setchapternewpage_result;
-      } elsif ($cmdname eq 'headings'
-               and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $headings_spec = $element->{'extra'}->{'misc_args'}->[0];
-        $result .= _set_headings($self, $headings_spec);
-      } elsif ($cmdname eq 'fonttextsize'
-               and $element->{'extra'}
-               and $element->{'extra'}->{'misc_args'}
-               and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
-        # default dimension for changefontsize is pt
-        $result .= "\\changefontsize{$fontsize}\n";
-        $self->{'packages'}->{'fontsize'} = 1;
-      } elsif ($paper_geometry_commands{$cmdname}) {
-        $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
-        $self->{'packages'}->{'geometry'} = 1;
-      } elsif ($cmdname eq 'microtype'
-               and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $microtype_spec = $element->{'extra'}->{'misc_args'}->[0];
-        if ($microtype_spec eq 'on') {
-          $result .= "\\microtypesetup{activate=true}%\n";
-        } elsif ($microtype_spec eq 'off') {
-          $result .= "\\microtypesetup{activate=false}%\n";
-        }
-        $self->{'packages'}->{'microtype'} = 1;
+      if ($set) {
+        $result .= _informative_command_output($self, $cmdname);
       }
       return $result;
     } else {
