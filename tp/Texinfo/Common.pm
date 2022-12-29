@@ -150,7 +150,7 @@ my %default_parser_specific_customization = (
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
 );
 
-# this serves both to set defaults and list configuration options
+# this serves both to set defaults and list customization variable
 # valid for the parser.
 # also used in util/txicustomvars
 our %default_parser_customization_values = (%default_parser_common_customization,
@@ -198,7 +198,7 @@ our %document_settable_unique_at_commands = (
   'afourlatex' => undef,
   'afourwide' => undef,
   'bsixpaper' => undef,
-  # when passed through a configuration variable, documentdescription
+  # when passed through a customization variable, documentdescription
   # should be already formatted for HTML.  There is no default,
   # what is determined to be the title is used if not set.
   'documentdescription' => undef,
@@ -1203,6 +1203,13 @@ sub _informative_command_value($)
   } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
     return $element->{'extra'}->{'misc_args'}->[0];
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
+           and $element->{'args'} and scalar(@{$element->{'args'}})
+           and $element->{'args'}->[0]
+           and $element->{'args'}->[0]->{'contents'}
+           and scalar(@{$element->{'args'}->[0]->{'contents'}})
+           and exists($element->{'args'}->[0]->{'contents'}->[0]->{'text'})) {
+    return $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
   }
   return undef;
 }
@@ -1220,8 +1227,9 @@ sub set_informative_command_value($$)
 
   my $value = _informative_command_value($element);
   if (defined($value)) {
-    $self->set_conf($cmdname, $value);
+    return $self->set_conf($cmdname, $value);
   }
+  return 0;
 }
 
 sub _in_preamble($)
@@ -2673,7 +2681,7 @@ raise/lowersections.
 =item $element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)
 X<C<set_global_document_command>>
 
-Set the Texinfo configuration option corresponding to I<$cmdname> in
+Set the Texinfo customization variable corresponding to I<$cmdname> in
 I<$customization_information>.  The I<$global_commands_information> should
 contain information about global commands in a Texinfo document, typically obtained
 from a parser L<< $parser->global_commands_information()|Texinfo::Parser/$commands = global_commands_information($parser) >>.
@@ -2699,19 +2707,20 @@ sequentially to the values in the Texinfo preamble.
 =back
 
 The I<$element> returned is the last element that was used to set the
-configuration value, or C<undef> if no configuration value was found.
+customization value, or C<undef> if no customization value was found.
 
 Notice that the only effect of this function is to set a customization
 variable value, no @-command side effects are run, no associated customization
 variables are set.
 
-=item set_informative_command_value($customization_information, $element)
+=item $status = set_informative_command_value($customization_information, $element)
 X<C<set_informative_command_value>>
 
-Set the Texinfo configuration option corresponding to the tree element
+Set the Texinfo customization option corresponding to the tree element
 I<$element>.  The command associated to the tree element should be
 a command that sets some information, such as C<@documentlanguage>,
-C<@contents> or C<@footnotestyle> for example.
+C<@contents> or C<@footnotestyle> for example.  Return true if the command
+argument was found and the customization variable was set.
 
 =item set_output_encodings($customization_information, $parser_information)
 X<C<set_output_encodings>>
@@ -2736,12 +2745,12 @@ X<C<trim_spaces_comment_from_content>>
 Remove empty spaces after commands or braces at begin and
 spaces and comments at end from a content array, modifying it.
 
-=item valid_customization_option($name)
+=item $status = valid_customization_option($name)
 X<C<valid_option>>
 
 Return true if the I<$name> is a known customization option.
 
-=item valid_tree_transformation($name)
+=item $status = valid_tree_transformation($name)
 X<C<valid_tree_transformation>>
 
 Return true if the I<$name> is a known tree transformation name

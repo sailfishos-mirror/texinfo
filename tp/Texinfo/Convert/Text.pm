@@ -872,6 +872,8 @@ sub set_conf($$$)
   my $value = shift;
 
   $self->{$conf} = $value;
+
+  return 1;
 }
 
 sub errors()

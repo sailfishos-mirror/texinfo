@@ -1,3 +1,24 @@
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (_informative_command_value): get information
+	for line commands of type line, using the first args contents if it is
+	text.
+
+	* tp/Texinfo/Common.pm (set_informative_command_value),
+	tp/Texinfo/Convert/LaTeX.pm (_convert): add a return
+	status from set_informative_command_value(), true if the customization
+	variable was set.  Output code related to a command associated to a
+	customization variable in LaTeX only if the customization variable
+	was set.
+
+	* tp/Texinfo/Config.pm (set_conf), tp/Texinfo/Convert/Text.pm
+	(set_conf): add a return status for consistency with
+	Texinfo::Convert:Converter set_conf.
+
+	* tp/t/latex_tests.t: add
+	setchapternewpage_on_odd_titlepage_set_headings test, with headings
+	customization variable set.
+
 2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@cartouche): Do not use @emph inside

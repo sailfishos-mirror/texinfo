@@ -229,6 +229,17 @@ in titlepage
 in titlepage
 @end titlepage
 '],
+['setchapternewpage_on_odd_titlepage_set_headings',
+'@setchapternewpage on
+
+@setchapternewpage odd
+
+@titlepage
+in titlepage
+@end titlepage
+
+@headings off
+', {}, {'headings' => 'singleafter'}],
 ['custom_headings',
 '
 @evenheading @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum

@@ -829,6 +829,8 @@ sub set_conf($$$)
   my $var = shift;
   my $val = shift;
   $self->{'config'}->{$var} = $val;
+
+  return 1;
 }
 
 

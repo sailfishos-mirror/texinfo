@@ -1897,11 +1897,12 @@ X<C<get_conf>>
 
 Returns the value of the Texinfo customization variable I<$variable_name>.
 
-=item $converter->set_conf($variable_name, $variable_value)
+=item $status = $converter->set_conf($variable_name, $variable_value)
 X<C<set_conf>>
 
 Set the Texinfo customization option I<$variable_name> to I<$variable_value> if
-not set as a converter option.
+not set as a converter option.  Returns false if the customization options
+was not set.
 
 =back
 

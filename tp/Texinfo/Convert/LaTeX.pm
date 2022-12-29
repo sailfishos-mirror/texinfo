@@ -1634,8 +1634,8 @@ sub _latex_begin_output($)
     $header .= $setchapternewpage_result;
   }
   my $heading = $self->get_conf('headings');
-  if (defined($heading) and ((!defined($heading_set)
-                             or $heading_set ne $heading))) {
+  if (defined($heading) and (not defined($heading_set)
+                             or $heading_set ne $heading)) {
     $header .= _set_headings($self, $heading);
   }
   $header .= "\n";
@@ -3793,8 +3793,11 @@ sub _convert($$)
     # @-commands that have an information for the formatting
     } elsif ($informative_commands{$cmdname}) {
 
-      Texinfo::Common::set_informative_command_value($self, $element);
+      my $set = Texinfo::Common::set_informative_command_value($self, $element);
 
+      if (not $set) {
+        return $result;
+      }
       if ($cmdname eq 'documentlanguage') {
         my $language = $self->get_conf('documentlanguage');
         $language =~ s/_/-/;
@@ -3802,6 +3805,7 @@ sub _convert($$)
         $self->{'packages'}->{'babel'} = 1;
       } elsif ($cmdname eq 'pagesizes') {
         my $pagesize_spec = _convert($self, $element->{'args'}->[0]);
+        #my $pagesize_spec = $self->get_conf('pagesizes');
         my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
         my @geometry;
         my $height = shift @pagesize_args;
