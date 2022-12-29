@@ -1,5 +1,11 @@
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* indices/index_entries_relate_to_item.texi: add file on behalf of
+	Arsen Arsenović, corresonding to the 2022-12-27  Arsen Arsenović
+	entry.
+
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (TEXI2DVI_ENVIRONMENT): use braces instead of
 	parentheses for variable names to ease cut and pasting to shell.
 

@@ -1,0 +1,22 @@
+\input texinfo @c -*-texinfo-*-
+
+@setfilename index_entries_relate_to_items
+
+@table @code
+
+@cindex A
+@cindex B
+@cindex C
+@item A
+@itemx B
+@itemx C
+
+body
+
+@item D
+
+body2
+
+@end table
+
+@bye
