@@ -7113,16 +7113,16 @@ and is centered in some output formats.
 The following example illustrates a cartouche with a title:
 
 @example
-@@cartouche Box title on @@emph@{documentation@}
-Text on documentation explaining something important out of the main
+@@cartouche Important
+Text explaining something important out of the main
 flow of the text.
 @@end cartouche
 @end example
 
 The cartouche with a title looks like this:
 
-@cartouche Box title on @emph{documentation}
-Text on documentation explaining something important out of the main
+@cartouche Important
+Text explaining something important out of the main
 flow of the text.
 @end cartouche
 
