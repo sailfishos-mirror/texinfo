@@ -39,14 +39,13 @@
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
-
-% no headings before titlepage
-\pagestyle{empty}%
+\pagestyle{single}%
 
 
 \begin{document}
 
 \frontmatter
+\pagestyle{empty}%
 \begin{titlepage}
 {\raggedright {\huge \bfseries the title with shorttitlepage \leavevmode{}\\ it can be long}}
 \newpage{}

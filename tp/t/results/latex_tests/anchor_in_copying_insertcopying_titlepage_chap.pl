@@ -620,6 +620,7 @@ $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage_cha
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

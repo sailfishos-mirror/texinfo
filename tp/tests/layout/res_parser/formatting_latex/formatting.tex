@@ -88,9 +88,7 @@ roundcorner=10pt}
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
-
-% no headings before titlepage
-\pagestyle{empty}%
+\pagestyle{single}%
 
 
 
@@ -113,6 +111,7 @@ roundcorner=10pt}
 \begin{document}
 
 \frontmatter
+\pagestyle{empty}%
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in

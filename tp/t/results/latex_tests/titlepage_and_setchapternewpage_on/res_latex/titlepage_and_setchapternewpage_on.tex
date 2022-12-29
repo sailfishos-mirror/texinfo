@@ -39,15 +39,15 @@
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
+\pagestyle{single}%
 
-% no headings before titlepage
-\pagestyle{empty}%
-
+\pagestyle{single}%
 
 
 \begin{document}
 
 \frontmatter
+\pagestyle{empty}%
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in

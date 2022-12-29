@@ -140,11 +140,13 @@ $result_floats{'titlepage_and_setchapternewpage_on'} = {};
 $result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_on'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
+\\pagestyle{single}%
 
 
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

@@ -172,7 +172,7 @@ $result_converted{'latex_text'}->{'three_setchapternewpage_on_odd_off'} = '\\mak
 \\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}}{}{}
 \\makeatother
-\\pagestyle{single}%
+\\pagestyle{empty}%
 \\begin{document}
 ';
 

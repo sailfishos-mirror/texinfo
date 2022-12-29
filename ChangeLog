@@ -1,5 +1,15 @@
 2022-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_begin_output, _begin_document)
+	(_set_chapter_new_page): initialize based on setchapternewpage and
+	headings customization variables values.  Set headings off just before
+	the titlepage, and reset afterwards to headings customization
+	variables values.  Return headings set together with setchapternewpage
+	to avoid setting headings again when initializing.
+	Set headings each time after setting setchapternewpage.
+
+2022-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@headings}): Update now that @titlepage
 	does not do "@headings on".
 

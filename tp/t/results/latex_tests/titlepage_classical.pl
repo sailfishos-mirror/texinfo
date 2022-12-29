@@ -653,6 +653,7 @@ $result_converted{'latex_text'}->{'titlepage_classical'} = '
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

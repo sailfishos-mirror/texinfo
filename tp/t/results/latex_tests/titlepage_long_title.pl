@@ -401,6 +401,7 @@ $result_converted{'latex_text'}->{'titlepage_long_title'} = '
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

@@ -137,11 +137,13 @@ $result_floats{'titlepage_and_setchapternewpage_odd'} = {};
 
 
 
-$result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_odd'} = '
+$result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_odd'} = '\\pagestyle{double}%
+
 
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

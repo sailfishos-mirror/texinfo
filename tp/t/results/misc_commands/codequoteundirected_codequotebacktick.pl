@@ -4192,9 +4192,7 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 \\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
-
-% no headings before titlepage
-\\pagestyle{empty}%
+\\pagestyle{single}%
 
 
 
@@ -4203,6 +4201,7 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

@@ -103,6 +103,7 @@ $result_converted{'latex_text'}->{'titlepage_and_headings'} = '
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

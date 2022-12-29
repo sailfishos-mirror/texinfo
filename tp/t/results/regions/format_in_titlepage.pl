@@ -290,6 +290,7 @@ $result_converted{'latex_text'}->{'format_in_titlepage'} = '
 \\begin{document}
 
 \\frontmatter
+\\pagestyle{empty}%
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in

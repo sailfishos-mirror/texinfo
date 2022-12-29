@@ -1626,17 +1626,19 @@ sub _latex_begin_output($)
   my $header = '';
   # setup defaults
   $header .= "% set default for \@setchapternewpage\n";
-  $header .= _set_chapter_new_page($self, 'on');
-  $header .= "\n";
-  # setup headings before titlepage to have no headings
-  # before titlepage.  They will be set to 'on' after
-  # the titlepage if there is a titlepage
-  if (exists($self->{'global_commands'}->{'titlepage'})
-      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
-    $header .= "% no headings before titlepage\n";
-    $header .= _set_headings($self, 'off');
-    $header .= "\n";
+  my $heading_set;
+  if (defined($self->get_conf('setchapternewpage'))) {
+    my $setchapternewpage_result;
+    ($setchapternewpage_result, $heading_set)
+      = _set_chapter_new_page($self, $self->get_conf('setchapternewpage'));
+    $header .= $setchapternewpage_result;
   }
+  my $heading = $self->get_conf('headings');
+  if (defined($heading) and ((!defined($heading_set)
+                             or $heading_set ne $heading))) {
+    $header .= _set_headings($self, $heading);
+  }
+  $header .= "\n";
   return $header;
 }
 
@@ -1651,6 +1653,7 @@ sub _begin_document($)
       or exists($self->{'global_commands'}->{'shorttitlepage'})) {
     $result .= "\n";
     $result .= $front_main_matter_definitions{$documentclass}->{'front'}."\n";
+    $result .= _set_headings($self, 'off');
 
     if (exists($self->{'global_commands'}->{'titlepage'})) {
       my $element = $self->{'global_commands'}->{'titlepage'};
@@ -1700,7 +1703,7 @@ sub _begin_document($)
   if (exists($self->{'global_commands'}->{'titlepage'})
       or exists($self->{'global_commands'}->{'shorttitlepage'})) {
     $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
-    $result .= _set_headings($self, 'on');
+    $result .= _set_headings($self, $self->get_conf('headings'));
   }
 
   return $result;
@@ -2020,17 +2023,15 @@ sub _set_chapter_new_page($$)
 ';
   }
 
-  # reset headings after titlepage only, or immediately
-  # if there is no titlepage
-  if ((not $self->{'global_commands'}->{'titlepage'}
-       and not $self->{'global_commands'}->{'shorttitlepage'})
-      or $self->{'titlepage_done'}) {
-    $result .= _set_headings($self, 'on');
+  my $heading_set = 'on';
+  if ($setchapternewpage_spec eq 'off') {
+    $heading_set = 'off';
   }
+  $result .= _set_headings($self, $heading_set);
 
   $self->{'prev_chapter_new_page_substitution'} = $new_code;
   
-  return $result;
+  return $result, $heading_set;
 }
 
 my %small_font_preformatted_commands;
@@ -3856,7 +3857,9 @@ sub _convert($$)
       } elsif ($cmdname eq 'setchapternewpage'
                and $element->{'extra'}->{'misc_args'}->[0]) {
         my $setchapternewpage_spec = $element->{'extra'}->{'misc_args'}->[0];
-        $result .= _set_chapter_new_page($self, $setchapternewpage_spec);
+        my ($setchapternewpage_result, $heading_set)
+          = _set_chapter_new_page($self, $setchapternewpage_spec);
+        $result .= $setchapternewpage_result;
       } elsif ($cmdname eq 'headings'
                and $element->{'extra'}->{'misc_args'}->[0]) {
         my $headings_spec = $element->{'extra'}->{'misc_args'}->[0];
