@@ -1,5 +1,10 @@
 2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (\defunargs): Wrap in a group to limit
+	@var redefinition.
+
+2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Makefile.am (dist-hook): Do not distribute architecture-
 	dependent gettext_xs.o file.  Report from Hilmar Preuße.
 
