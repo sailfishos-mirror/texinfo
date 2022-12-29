@@ -17351,8 +17351,7 @@ By design, @command{texi2any} supports nearly all the features of
 @command{texi2html} in some way.  However, we did not attempt to
 maintain strict compatibility, so no @command{texi2html} executable is
 installed by the Texinfo package.  An approximation can be run with an
-invocation like this (available as @file{util/texi2html} in the
-Texinfo source):
+invocation like this:
 
 @example
 texi2any --set-customization-variable TEXI2HTML=1 ...
