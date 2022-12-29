@@ -1,6 +1,7 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename index_entries_relate_to_items
+@node Top
+@top top
 
 @table @code
 
