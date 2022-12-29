@@ -1685,7 +1685,6 @@ sub _begin_document($)
       $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
       $result .= "\\end{titlepage}\n";
     }
-    $self->{'titlepage_done'} = 1;
   }
 
   if (exists($self->{'global_commands'}->{'contents'})

@@ -1,5 +1,10 @@
 2022-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_begin_document): do not set
+	$self->{'titlepage_done'}, it is not used anymore.
+
+2022-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_begin_output, _begin_document)
 	(_set_chapter_new_page): initialize based on setchapternewpage and
 	headings customization variables values.  Set headings off just before
