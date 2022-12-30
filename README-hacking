@@ -194,7 +194,7 @@ Steps for making a release (pretest or official):
 
 - When close to official release:
 
-check at latest automake/autoconf/gettext version:
+check at latest automake/autoconf/gettext/help2man version:
   . to upgrade gettext, run
       gettextize -f --po-dir=po --po-dir=po_document
     after installing new version of gettext.

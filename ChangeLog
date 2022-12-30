@@ -1,4 +1,9 @@
-2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-12-30  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* README-hacking: mention help2man as a program the version of
+	which is important for making a release.
+
+2022-12-30  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi, doc/info-stnd.texi, doc/texi2any_api.texi:
 	Adjust copyright notice slightly to match recommended wording.
