@@ -1834,12 +1834,26 @@ sub sort_indices($$$;$)
   #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage,
   #                                             'variable' => 'Non-Ignorable');
   # The Unicode::Collate sorting changes often, based on the UCA version.
-  # To get a reproducible sorting 'UCA' => 22 corresponding to the 6.0.0
-  # version of the DUCET/allkeys.txt file which is the reference for
-  # Unicode::Collate.  This version is chosen to be old and may also correspond
-  # to a rather important change compared to theprevious versions.
-  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
-                                       'UCA' => 22);
+  # To test the result with a specific version, the UCA_Version should be set,
+  # and, more importantly the table should correspond to that version.
+  # To test a specific table, in tp, do
+  # wget -N http://www.unicode.org/Public/UCA/6.2.0/allkeys.txt
+  # mkdir -p Unicode/Collate/
+  # mv allkeys.txt Unicode/Collate/allkeys-6.2.0.txt
+  # The table argument leads to a very important slowdown, so the argument
+  # should only be used for checks.
+  # The test results seem to be consistent with 6.2.0, corresponding
+  # to the perl 5.18.0 Unicode::Collate
+  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
+  # to test for 6.2.0
+  #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
+  #                                     'UCA_Version' => 24,
+  #                                     'table' => 'allkeys-6.2.0.txt');
+  # To test files affected for UCA corresponding to perl 5.8.1
+  # wget -N http://www.unicode.org/Public/UCA/3.1.1/allkeys-3.1.1.txt
+  #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
+  #                                     'UCA_Version' => 9,
+  #                                     'table' => 'allkeys-3.1.1.txt');
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings

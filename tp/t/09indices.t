@@ -912,31 +912,37 @@ undef,
 @setfilename encoding_index_ascii.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 0, 'full_document' => 1}
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'ENABLE_ENCODING' => 0, 'full_document' => 1}
 ],
 ['encoding_index_latin1',
 undef,
-{'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 0}, 
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 0}, 
 ],
 ['encoding_index_utf8',
 undef,
-{'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 0}, 
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 0}, 
 ],
 ['encoding_index_ascii_enable_encoding',
 '
 @setfilename encoding_index_ascii_enable_encoding.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 1, 'full_document' => 1},
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'ENABLE_ENCODING' => 1, 'full_document' => 1},
 ],
 ['encoding_index_latin1_enable_encoding',
 undef,
-{'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 1}, 
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 1}, 
 {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 ['encoding_index_utf8_enable_encoding',
 undef,
-{'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 1}, 
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
+'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 1},
 {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 );

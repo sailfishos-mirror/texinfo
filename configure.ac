@@ -463,6 +463,16 @@ AC_ARG_ENABLE([perl-api-texi-build],
      fi
     ])
 
+AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
+if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
+  perl_unicode_collation_requirement='yes'
+else
+  perl_unicode_collation_requirement='no'
+fi
+AC_MSG_RESULT($perl_unicode_collation_requirement)
+PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
+AC_SUBST([PERL_UNICODE_COLLATE_OK])
+
 AC_MSG_CHECKING([Perl Texinfo API texinfo documentation build requirements])
 AC_MSG_RESULT([$build_perl_api_texi])
 AM_CONDITIONAL([BUILD_PERL_API_TEXI], [test "z$build_perl_api_texi" = 'zyes'])

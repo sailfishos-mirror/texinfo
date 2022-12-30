@@ -1,5 +1,19 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sort_indices): add comments on
+	how to test compatibility of Unicode::Collate with tests.
+
+	* configure.ac, tp/defs.in (PERL_UNICODE_COLLATE_OK), tp/t/09indices.t,
+	tp/tests/run_parser_all.sh (check_unicode_collate_ok),
+	tp/tests/layout/list-of-tests, tp/tests/tex_html/list-of-tests:
+	Add a configure.ac test for perl 5.18.1 which seems to be the
+	first compatible version with the tests results for test using Unicode
+	collation.  Use that test result in run_parser_all.sh to skip tests
+	with 'Need collation compatibility' put on their command line.
+	Skip similarly tests in tp/t/09indices.t based on perl version too.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sort_indices): give the 'UCA' => 22
 	argument to Unicode::Collate to have a stable collation.
 

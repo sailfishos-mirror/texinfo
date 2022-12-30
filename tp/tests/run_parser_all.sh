@@ -30,9 +30,20 @@ check_need_command_line_unicode ()
   if echo "$remaining" | grep 'Need command-line unicode' >/dev/null; then
     if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
       echo "S: (no reliable command-line Unicode) $current"
-       return 1
+      return 1
     fi
   fi
+  return 0
+}
+
+check_unicode_collate_ok ()
+{        
+  if echo "$remaining" | grep 'Need collation compatibility' >/dev/null; then
+    if test "z$PERL_UNICODE_COLLATE_OK" = 'zno' ; then
+      echo "S: (no compatible unicode collation) $current"
+     return 1
+    fi
+  fi 
   return 0
 }
 
@@ -390,6 +401,7 @@ while read line; do
     check_need_recoded_file_names || skipped_test=yes
     check_need_command_line_unicode || skipped_test=yes
     check_latex2html_and_tex4ht || skipped_test=yes
+    check_unicode_collate_ok || skipped_test=yes
     if [ "$skipped_test" = 'yes' ] ; then
       if test $one_test = 'yes' ; then
         return_code=77
