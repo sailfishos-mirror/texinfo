@@ -1,5 +1,14 @@
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/indices/index_entries_relate_to_item.texi: add a
+	@printindex.
+
+	* tp/tests/indices/list-of-tests: remove --html from
+	index_entries_relate_to_item such that there are both HTML and Info
+	generated (even though we are mainly interested in HTML output).
+
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* indices/index_entries_relate_to_item.texi: remove @setfilename,
 	and @node Top and @top.
 
