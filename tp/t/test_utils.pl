@@ -1049,12 +1049,12 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  if ($tree_transformations{'move_index_entries_after_items'}) {
-    Texinfo::Common::move_index_entries_after_items_in_tree($tree);
+  if ($tree_transformations{'relate_index_entries_to_items'}) {
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree);
   }
 
-  if ($tree_transformations{'relate_index_entries_to_table_entries'}) {
-    Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
+  if ($tree_transformations{'move_index_entries_after_items'}) {
+    Texinfo::Common::move_index_entries_after_items_in_tree($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {

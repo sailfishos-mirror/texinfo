@@ -1,5 +1,14 @@
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): update tree transformation names
+	for relate_index_entries_to_items.
+
+	* tp/t/transformations.t, tp/Makefile.tres: add tests using
+	tests/indices/index_entries_relate_to_item.texi without and
+	with the relate_index_entries_to_items transformation.
+
+2022-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/indices/index_entries_relate_to_item.texi: add a
 	@printindex.
 
