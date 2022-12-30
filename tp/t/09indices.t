@@ -212,6 +212,48 @@ Para.
 Text.
 @printindex cp
 '],
+['printindex_between_node_section',
+'@node Top
+@top top
+
+@cindex top1
+@cindex top1
+@cindex aop1
+@cindex aop1
+
+@node node chap1
+@chapter chapter 1
+
+@cindex chap1
+@cindex chap1
+
+@node node sec1
+@printindex cp
+@section section1
+'],
+['printindex_between_part_chapter',
+'@node Top
+@top top
+
+@cindex top1
+@cindex top1
+@cindex aop1
+@cindex aop1
+
+@part Part 1
+
+@printindex cp
+
+@node node chap1
+@chapter chapter 1
+
+@node node chap2
+@chapter chapter 2
+
+@cindex chap2
+@cindex chap2
+
+'],
 ['image_lines_count',
 '@node Top
 

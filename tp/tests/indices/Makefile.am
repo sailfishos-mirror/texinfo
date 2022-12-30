@@ -1,11 +1,9 @@
 EXTRA_DIST = index_table.texi \
  index_special_region_no_insertcopying.texi \
  index_special_region.texi index_special_region_no_region.texi \
- printindex_between_node_section.texi \
  index_and_node_same_name.texi \
  index_entry_in_footnote.texi \
  index_one_node.texi index_no_node_no_top.texi \
- printindex_between_part_chapter.texi \
  indices_in_begin_tables_lists.texi \
  index_entries_relate_to_item.texi \
  list-of-tests res_parser res_parser_info

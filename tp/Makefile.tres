@@ -792,6 +792,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/multiple_index_text_sortas_seeentry_seealso.pl \
   t/results/indices/print_merged_index.pl \
   t/results/indices/printindex_before_document.pl \
+  t/results/indices/printindex_between_node_section.pl \
+  t/results/indices/printindex_between_part_chapter.pl \
   t/results/indices/printindex_index_entry_in_copying.pl \
   t/results/indices/printindex_index_entry_in_copying_in_footnote.pl \
   t/results/indices/printindex_index_entry_in_copying_no_insertcopying.pl \
