@@ -902,6 +902,11 @@ undef,
 {'test_file' => 'index_nodes.texi'},
 {'SPLIT' => '', 'USE_NODES' => 0,},
 ],
+['index_table',
+undef,
+{'test_file' => 'index_table.texi'},
+{'SPLIT' => 'chapter', 'USE_NODES' => 0,},
+],
 ['encoding_index_ascii',
 '
 @setfilename encoding_index_ascii.info

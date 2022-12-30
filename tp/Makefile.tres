@@ -792,6 +792,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/index_nodes_no_split_no_use_nodes/res_html/index_nodes.html \
   t/results/indices/index_nodes_no_split_no_use_nodes/res_info/index_nodes \
   t/results/indices/index_nodes_no_split_no_use_nodes/res_plaintext/index_nodes_no_split_no_use_nodes.txt \
+  t/results/indices/index_table.pl \
+  t/results/indices/index_table/res_html/index.html \
+  t/results/indices/index_table/res_html/indices-refs.html \
+  t/results/indices/index_table/res_html/node-with-ftable-and-vtable.html \
+  t/results/indices/index_table/res_html/node-with-printindex.html \
+  t/results/indices/index_table/res_html/node.html \
+  t/results/indices/index_table/res_info/index_table.info \
+  t/results/indices/index_table/res_plaintext/index_table.txt \
   t/results/indices/multiple_index_text_sortas_seeentry_seealso.pl \
   t/results/indices/print_merged_index.pl \
   t/results/indices/printindex_before_document.pl \

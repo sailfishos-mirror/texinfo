@@ -1,4 +1,4 @@
-EXTRA_DIST = index_table.texi \
+EXTRA_DIST = \
  index_special_region_no_insertcopying.texi \
  index_special_region.texi index_special_region_no_region.texi \
  index_one_node.texi index_no_node_no_top.texi \
