@@ -1355,12 +1355,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/index_no_node/res_html/Chapter-2.html \
   t/results/moreindices/index_no_node/res_html/Chapter.html \
   t/results/moreindices/index_no_node/res_html/index.html \
-  t/results/moreindices/index_no_node/res_html/index_no_node_abt.html \
   t/results/moreindices/index_no_node/res_html/unnumbered.html \
   t/results/moreindices/index_split.pl \
   t/results/moreindices/index_split/res_html/first.html \
   t/results/moreindices/index_split/res_html/index.html \
-  t/results/moreindices/index_split/res_html/index_split_abt.html \
   t/results/moreindices/index_split/res_html/node-2-in-section-3.html \
   t/results/moreindices/index_split/res_html/node-3-in-section-3.html \
   t/results/moreindices/index_split/res_html/node-in-section-3.html \
@@ -1373,7 +1371,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/index_split_nodes.pl \
   t/results/moreindices/index_split_nodes/res_html/first.html \
   t/results/moreindices/index_split_nodes/res_html/index.html \
-  t/results/moreindices/index_split_nodes/res_html/index_split_abt.html \
   t/results/moreindices/index_split_nodes/res_html/node-2-in-section-3.html \
   t/results/moreindices/index_split_nodes/res_html/node-3-in-section-3.html \
   t/results/moreindices/index_split_nodes/res_html/node-in-section-3.html \
@@ -1390,10 +1387,29 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/nodes_before_top/res_html/first.html \
   t/results/moreindices/nodes_before_top/res_html/index.html \
   t/results/moreindices/nodes_before_top/res_html/node-in-menu-before-top.html \
-  t/results/moreindices/nodes_before_top/res_html/nodes_before_top_abt.html \
   t/results/moreindices/nodes_before_top/res_html/second.html \
   t/results/moreindices/nodes_before_top_and_sections.pl \
   t/results/moreindices/nodes_before_top_and_sections/res_html/nodes_before_top_and_sections.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter.pl \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/a-node.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/another.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/chapter.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/first-before-top.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/first.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/index.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/node-in-chapter.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/node-in-menu-before-top.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/second.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node.pl \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/a-node.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/another.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/chapter.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/first-before-top.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/first.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/index.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/node-in-chapter.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/node-in-menu-before-top.html \
+  t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/second.html \
   t/results/moreindices/nodes_before_top_no_nodes.pl \
   t/results/moreindices/nodes_before_top_no_nodes/res_html/a-node.html \
   t/results/moreindices/nodes_before_top_no_nodes/res_html/another.html \
@@ -1409,13 +1425,11 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/nodes_before_top_nodes/res_html/first.html \
   t/results/moreindices/nodes_before_top_nodes/res_html/index.html \
   t/results/moreindices/nodes_before_top_nodes/res_html/node-in-menu-before-top.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/nodes_before_top_abt.html \
   t/results/moreindices/nodes_before_top_nodes/res_html/second.html \
   t/results/moreindices/split_chapter_index.pl \
   t/results/moreindices/split_chapter_index/res_html/first.html \
   t/results/moreindices/split_chapter_index/res_html/index.html \
   t/results/moreindices/split_chapter_index/res_html/section-1.html \
-  t/results/moreindices/split_chapter_index/res_html/split_chapter_index_abt.html \
   t/results/moreindices/split_chapter_index/res_html/subsection-1.html \
   t/results/moresectioning/equivalent_nodes.pl \
   t/results/moresectioning/equivalent_nodes/res_html/equivalent_nodes.html \

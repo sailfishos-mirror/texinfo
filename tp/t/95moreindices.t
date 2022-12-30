@@ -56,6 +56,16 @@ my @test_cases = (
   {'test_file' => 'nodes_before_top_and_sections.texi' },
   {'SPLIT' => '', 'USE_NODES' => 0}
 ],
+['nodes_before_top_and_sections_chapter',
+  undef,
+  {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => 'chapter'},
+],
+['nodes_before_top_and_sections_chapter_no_node',
+  undef,
+  {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
 );
 
 foreach my $test (@test_cases) {

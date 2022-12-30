@@ -1,3 +1,12 @@
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/95moreindices.t,
+	tp/tests/indices/list-of-tests: add
+	nodes_before_top_and_sections_chapter and
+	nodes_before_top_and_sections_chapter_no_node tests to
+	95moreindices.t, and remove the equivalent tests (which also used the
+	texi2html style) from indices/list-of-tests.
+
 2022-12-30  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* README-hacking: mention help2man as a program the version of

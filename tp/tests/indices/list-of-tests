@@ -1,7 +1,5 @@
 # formats : :_info
 
-nodes_before_top_and_sections_html_chapter nodes_before_top_and_sections.texi --html --split chapter
-nodes_before_top_and_sections_html_chapter_nodes nodes_before_top_and_sections.texi --html -c 'USE_NODES 1' --node-files --split chapter
 index_special_region index_special_region.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
 index_special_region_no_region index_special_region_no_region.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
 index_special_region_no_insertcopying index_special_region_no_insertcopying.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
