@@ -1,5 +1,4 @@
 EXTRA_DIST = index_table.texi index_split.texi \
- nodes_before_top_and_sections.texi \
  index_special_region_no_insertcopying.texi \
  index_special_region.texi index_special_region_no_region.texi \
  index_nodes.texi printindex_between_node_section.texi \

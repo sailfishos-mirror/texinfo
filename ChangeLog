@@ -1,5 +1,11 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/indices/Makefile.am (EXTRA_DIST): remove the
+	nodes_before_top_and_sections.texi file in tp/tests/indices/, which is
+	now unused, and redundant with the one in tp/t/input_files/.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/95moreindices.t,
 	tp/tests/indices/list-of-tests: add
 	nodes_before_top_and_sections_chapter and
