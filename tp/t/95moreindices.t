@@ -12,11 +12,12 @@ my @test_cases = (
 ['double_index_entry',
   undef,
   {'test_file' => 'double_index_entry.texi' },
+  {'SPLIT' => '', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 ['split_chapter_index',
   undef,
   {'test_file' => 'split_chapter_index.texi' },
-  {'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 ['index_split',
   undef,
@@ -25,36 +26,35 @@ my @test_cases = (
   # It also tests for node with directions after section which is
   # also in 96moresectioning.t
   {'test_file' => 'index_split.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
-  {'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 ['index_split_nodes',
   undef,
   {'test_file' => 'index_split.texi' },
-  {'USE_NODES' => 1, 'SPLIT' => 'nodes'}
 ],
 ['index_no_node',
   undef,
   {'test_file' => 'index_no_node.texi' },
-  {'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 ['nodes_before_top',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'USE_NODES' => 1, 'SPLIT' => 'chapter'}
+  {'USE_NODES' => 1, 'SPLIT' => 'chapter', 'NODE_NAME_IN_INDEX', 0}
 ],
 ['nodes_before_top_nodes',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'USE_NODES' => 1, 'SPLIT' => 'node'}
 ],
 ['nodes_before_top_no_nodes',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 ['nodes_before_top_and_sections',
   undef,
   {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => '', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
 ],
 );
 
@@ -62,8 +62,6 @@ foreach my $test (@test_cases) {
   if (!$test->[2]->{'test_formats'}) {
     push @{$test->[2]->{'test_formats'}}, 'file_html';
   }
-  $test->[3]->{'TEXI2HTML'} = 1;
-  $test->[3]->{'TEST'} = 1;
   $test->[3]->{'PROGRAM'} = 'texi2any';
   $test->[3]->{'PACKAGE_URL'} = 'http://www.gnu.org/software/texinfo/';
 }
