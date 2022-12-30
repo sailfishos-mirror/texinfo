@@ -777,6 +777,18 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/index_entry_in_footnote.pl \
   t/results/indices/index_entry_in_footnote_different_node_end.pl \
   t/results/indices/index_entry_in_footnote_separate.pl \
+  t/results/indices/index_nodes.pl \
+  t/results/indices/index_nodes/res_html/a-node.html \
+  t/results/indices/index_nodes/res_html/another.html \
+  t/results/indices/index_nodes/res_html/first.html \
+  t/results/indices/index_nodes/res_html/index.html \
+  t/results/indices/index_nodes/res_html/second.html \
+  t/results/indices/index_nodes/res_info/index_nodes \
+  t/results/indices/index_nodes/res_plaintext/index_nodes.txt \
+  t/results/indices/index_nodes_no_split_no_use_nodes.pl \
+  t/results/indices/index_nodes_no_split_no_use_nodes/res_html/index_nodes.html \
+  t/results/indices/index_nodes_no_split_no_use_nodes/res_info/index_nodes \
+  t/results/indices/index_nodes_no_split_no_use_nodes/res_plaintext/index_nodes_no_split_no_use_nodes.txt \
   t/results/indices/multiple_index_text_sortas_seeentry_seealso.pl \
   t/results/indices/print_merged_index.pl \
   t/results/indices/printindex_before_document.pl \

@@ -211,6 +211,7 @@ test_files = \
  t/input_files/in_menu_only_special_spaces_node.texi \
  t/input_files/in_menu_only_special_ascii_spaces_node.texi \
  t/input_files/index_no_node.texi \
+ t/input_files/index_nodes.texi \
  t/input_files/index_split.texi \
  t/input_files/japanese_utf8.texi \
  t/input_files/japanese_shift_jis.texi \

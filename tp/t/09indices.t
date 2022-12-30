@@ -811,6 +811,15 @@ my $encoding_index_text = '
 ';
 
 my @file_tests = (
+['index_nodes',
+undef,
+{'test_file' => 'index_nodes.texi'},
+],
+['index_nodes_no_split_no_use_nodes',
+undef,
+{'test_file' => 'index_nodes.texi'},
+{'SPLIT' => '', 'USE_NODES' => 0,},
+],
 ['encoding_index_ascii',
 '
 @setfilename encoding_index_ascii.info

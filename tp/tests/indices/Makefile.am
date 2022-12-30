@@ -1,7 +1,7 @@
 EXTRA_DIST = index_table.texi \
  index_special_region_no_insertcopying.texi \
  index_special_region.texi index_special_region_no_region.texi \
- index_nodes.texi printindex_between_node_section.texi \
+ printindex_between_node_section.texi \
  index_and_node_same_name.texi \
  index_entry_in_footnote.texi \
  index_one_node.texi index_no_node_no_top.texi \
