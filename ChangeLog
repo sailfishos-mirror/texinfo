@@ -1,5 +1,11 @@
 2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi, doc/info-stnd.texi, doc/texi2any_api.texi:
+	Adjust copyright notice slightly to match recommended wording.
+	From Hilmar Preuße.
+
+2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Makefile.am (dist-hook): Do not distribute architecture-
 	dependent gettext_xs.o file.  Report from Hilmar Preuße.
 
