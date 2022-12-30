@@ -97,6 +97,22 @@ Blih
 @printindex cp
 ';
 
+my $index_entry_in_footnote_sections =
+'@node Top
+@top index_entry_in_footnote
+
+Top node@footnote{in footnote
+
+Another para in footnote.
+@cindex index entry in footnote
+}
+
+@node Index
+@appendix index
+
+@printindex cp
+';
+
 my @test_formatted = (
 ['double_index_entry',
 '@node Top
@@ -142,6 +158,21 @@ Text
 @printindex vr
 
 '],
+['index_and_node_same_name',
+'@node Top
+@top Test index entry with node name clash
+
+Text.
+
+@cindex node
+
+@node index node
+@chapter index node
+
+in index node node, with the same name than index entry.
+
+@printindex cp
+'],
 ['index_entries_locations',
 '
 @node Top
@@ -164,6 +195,15 @@ Last paragraph.
 
 @printindex cp
 '],
+# very similar to index_entry_in_footnote, only difference is
+# that there are sectioning commands.
+['index_entry_in_footnote_sections',
+$index_entry_in_footnote_sections
+],
+['index_entry_in_footnote_sections_separate',
+$index_entry_in_footnote_sections,
+{}, {'footnotestyle' => 'separate'}
+],
 ['syncode_index_print_both',
 '@syncodeindex fn cp
 

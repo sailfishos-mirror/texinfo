@@ -1,6 +1,15 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/09indices.t, tp/tests/indices/Makefile.am
+	(EXTRA_DIST), tp/tests/indices/list-of-tests: move interesting
+	index_and_node_same_name.texi and index_entry_in_footnote.texi
+	related tests to tp/t/09indices.t and inline them, renaming
+	index_entry_in_footnote as index_entry_in_footnote_sections, as
+	already the index_entry_in_footnote very similar test.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/09indices.t, tp/tests/indices/Makefile.am
 	(EXTRA_DIST), tp/tests/indices/list-of-tests: move
 	printindex_between_node_section and printindex_between_part_chapter
 	tests out of tp/tests/indices/list-of-tests to tp/t/09indices.t and

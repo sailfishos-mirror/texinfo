@@ -6,13 +6,8 @@ index_special_region_no_insertcopying index_special_region_no_insertcopying.texi
 index_special_region_html index_special_region.texi --html --split chapter
 index_special_region_no_region_html index_special_region_no_region.texi --html --split chapter
 index_special_region_no_insertcopying_html index_special_region_no_insertcopying.texi --html --split chapter
-index_and_node_same_name index_and_node_same_name.texi
-index_entry_in_footnote index_entry_in_footnote.texi
 index_one_node index_one_node.texi
 index_no_node_no_top index_no_node_no_top.texi
-
-index_entry_in_footnote_info index_entry_in_footnote.texi --info
-index_entry_in_footnote_separated_info index_entry_in_footnote.texi --info --footnote-style=separate
 
 index_table index_table.texi -c 'TEXI2HTML 1' --split chapter
 
