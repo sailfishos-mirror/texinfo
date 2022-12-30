@@ -18,14 +18,14 @@
 
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
-	* indices/index_entries_relate_to_item.texi: remove @setfilename,
-	and @node Top and @top.
+	* tp/tests/indices/index_entries_relate_to_item.texi: remove
+	@setfilename, and @node Top and @top.
 
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
-	* indices/index_entries_relate_to_item.texi: add file on behalf of
-	Arsen Arsenović, corresponding to the 2022-12-27  Arsen Arsenović
-	entry.
+	* tp/tests/indices/index_entries_relate_to_item.texi:
+	add file on behalf of Arsen Arsenović, corresponding to
+	the 2022-12-27  Arsen Arsenović entry.
 
 2022-12-29  Patrice Dumas  <pertusus@free.fr>
 
