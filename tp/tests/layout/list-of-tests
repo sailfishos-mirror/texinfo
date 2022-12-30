@@ -8,8 +8,8 @@ formatting_macro_expand formatting.texi --macro-expand=@OUT_DIR@formatting.texi 
 #formatting_macro_expand formatting.texi -c TEXINFO_OUTPUT_FORMAT=plaintexinfo
 formatting_docbook formatting.texi --docbook
 formatting_xml formatting.texi --xml
-formatting_html formatting.texi --html --no-split
-formatting_html_nodes formatting.texi --html --split node --node-files -c 'TOP_FILE index.html'
+formatting_html formatting.texi -D 'needcollationcompat Need collation compatibility' --html --no-split
+formatting_html_nodes formatting.texi -D 'needcollationcompat Need collation compatibility' --html --split node --node-files -c 'TOP_FILE index.html'
 # this is the default html output
 formatting_html_no_texi2html formatting.texi -D 'needcollationcompat Need collation compatibility' --html --no-split -c TEXI2HTML=undef
 formatting_info formatting.texi -D 'needcollationcompat Need collation compatibility' --info -c ASCII_PUNCTUATION=1
