@@ -16485,6 +16485,10 @@ Do not output HTML with custom attributes in elements; default false.
 Symbol used for footnotes if @code{NUMBER_FOOTNOTES} is false.
 Default is @code{*}.
 
+@item NODE_NAME_IN_INDEX
+If true, use node names in index entries, otherwise prefer section names.
+If undefined, use @code{USE_NODES} value in HTML.  Default is undefined.
+
 @item PRE_BODY_CLOSE
 If set, the given text will appear at the footer of each
 HTML file; default unset.
@@ -16964,10 +16968,6 @@ in DocBook.  It could be removed in the future.
 If set, do not use @code{@@setfilename} to set the document name;
 instead, base the output document name only on the input file name.
 The default is false.
-
-@item NODE_NAME_IN_INDEX
-If set, use node names in index entries, otherwise prefer section names;
-default true.
 
 @item NODE_NAME_IN_MENU
 If set, use node names in menu entries, otherwise prefer section names;

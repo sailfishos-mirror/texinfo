@@ -12,12 +12,12 @@ my @test_cases = (
 ['double_index_entry',
   undef,
   {'test_file' => 'double_index_entry.texi' },
-  {'SPLIT' => '', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => '', 'USE_NODES' => 0}
 ],
 ['split_chapter_index',
   undef,
   {'test_file' => 'split_chapter_index.texi' },
-  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
 ['index_split',
   undef,
@@ -26,7 +26,7 @@ my @test_cases = (
   # It also tests for node with directions after section which is
   # also in 96moresectioning.t
   {'test_file' => 'index_split.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
-  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
 ['index_split_nodes',
   undef,
@@ -35,12 +35,12 @@ my @test_cases = (
 ['index_no_node',
   undef,
   {'test_file' => 'index_no_node.texi' },
-  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
 ['nodes_before_top',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'USE_NODES' => 1, 'SPLIT' => 'chapter', 'NODE_NAME_IN_INDEX', 0}
+  {'USE_NODES' => 1, 'SPLIT' => 'chapter'}
 ],
 ['nodes_before_top_nodes',
   undef,
@@ -49,12 +49,12 @@ my @test_cases = (
 ['nodes_before_top_no_nodes',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
 ['nodes_before_top_and_sections',
   undef,
   {'test_file' => 'nodes_before_top_and_sections.texi' },
-  {'SPLIT' => '', 'USE_NODES' => 0, 'NODE_NAME_IN_INDEX', 0}
+  {'SPLIT' => '', 'USE_NODES' => 0}
 ],
 );
 

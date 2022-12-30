@@ -11,6 +11,14 @@
 
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (HTML Customization Variables),
+	tp/Texinfo/Convert/HTML.pm (%default, output)
+	(_set_variables_texi2html), tp/t/95moreindices.t: set
+	NODE_NAME_IN_INDEX based on USE_NODES is undef.  Move
+	NODE_NAME_IN_INDEX documentation to HTML Customization Variables.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/95moreindices.t: do not set TEXI2HTML, instead set specific
 	customization variable relevant for the test.
 

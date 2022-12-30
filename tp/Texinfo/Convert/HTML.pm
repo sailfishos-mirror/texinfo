@@ -1856,7 +1856,6 @@ my %defaults = (
   'NO_CSS'                => 0,
   'NO_NUMBER_FOOTNOTE_SYMBOL' => '*',
   'NODE_NAME_IN_MENU'     => 1,
-  'NODE_NAME_IN_INDEX'    => 1,
   'OPEN_QUOTE_SYMBOL'     => undef,
   'OUTPUT_ENCODING_NAME'  => 'utf-8',
   'SECTION_NAME_IN_TITLE' => 0,
@@ -10399,6 +10398,10 @@ sub output($$)
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 
+  if (not defined($self->get_conf('NODE_NAME_IN_INDEX'))) {
+    $self->set_conf('NODE_NAME_IN_INDEX', $self->get_conf('USE_NODES'));
+  }
+
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
 
   if ($self->get_conf('HTML_MATH')
@@ -11434,7 +11437,6 @@ sub _set_variables_texi2html()
   ['MENU_ENTRY_COLON', ''],
   ['INDEX_ENTRY_COLON', ''],
   ['DO_ABOUT', undef],
-  ['NODE_NAME_IN_INDEX', 0],
   ['CHAPTER_HEADER_LEVEL', 1],
   ['BIG_RULE', '<hr style="height: 6px;">'],
   ['FOOTNOTE_END_HEADER_LEVEL', 3],
