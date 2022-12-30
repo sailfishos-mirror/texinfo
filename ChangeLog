@@ -1,5 +1,10 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sort_indices): give the 'UCA' => 22
+	argument to Unicode::Collate to have a stable collation.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/09indices.t,
 	tp/tests/indices/Makefile.am (EXTRA_DIST),
 	tp/tests/indices/list-of-tests: move index_table test to

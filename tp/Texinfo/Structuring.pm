@@ -1833,7 +1833,13 @@ sub sort_indices($$$;$)
   # http://www.unicode.org/reports/tr10/#Variable_Weighting
   #my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage,
   #                                             'variable' => 'Non-Ignorable');
-  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable');
+  # The Unicode::Collate sorting changes often, based on the UCA version.
+  # To get a reproducible sorting 'UCA' => 22 corresponding to the 6.0.0
+  # version of the DUCET/allkeys.txt file which is the reference for
+  # Unicode::Collate.  This version is chosen to be old and may also correspond
+  # to a rather important change compared to theprevious versions.
+  my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
+                                       'UCA' => 22);
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings
