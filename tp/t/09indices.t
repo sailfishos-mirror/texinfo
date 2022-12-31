@@ -816,6 +816,13 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 ', {'test_formats' => ['docbook']}],
+['index_no_node_no_top_no_node',
+undef, {'test_file' => 'index_no_node_no_top.texi'},
+{'USE_NODES' => 0},
+],
+['index_no_node_no_top',
+undef, {'test_file' => 'index_no_node_no_top.texi'},
+],
 ['w_lines_count',
 '@node Top
 @top

@@ -495,7 +495,7 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_symbol-1">-</th></tr>
+<tr><th id="Top_cp_symbol-1">-</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dk1"><code>--k1</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dc">&ndash;c</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
@@ -507,7 +507,7 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_vr_symbol-1">-</th></tr>
+<tr><th id="Top_vr_symbol-1">-</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dv"><code>--v</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

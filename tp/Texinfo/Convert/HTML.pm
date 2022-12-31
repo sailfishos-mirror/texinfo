@@ -1191,6 +1191,30 @@ sub global_direction_element($$)
   return $self->{'global_target_elements_directions'}->{$direction};
 }
 
+sub get_element_root_command_element($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my ($root_element, $root_command) = _html_get_tree_root_element($self, $element);
+  if (defined($root_command)) {
+    if ($self->get_conf('USE_NODES')) {
+      if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
+        return ($root_element, $root_command);
+      } elsif ($root_command->{'extra'}
+               and $root_command->{'extra'}->{'associated_node'}) {
+        return ($root_element, $root_command->{'extra'}->{'associated_node'});
+      }
+    } elsif ($root_command->{'cmdname'}
+             and $root_command->{'cmdname'} eq 'node'
+             and $root_command->{'extra'}
+             and $root_command->{'extra'}->{'associated_section'}) {
+      return ($root_element, $root_command->{'extra'}->{'associated_section'});
+    }
+  }
+  return ($root_element, $root_command);
+}
+
 my %valid_direction_return_type = (
   # a string that can be used in a href linking to the direction
   'href' => 1,
@@ -5418,9 +5442,16 @@ sub _convert_printindex_command($$$$)
     my $letter = $letter_entry->{'letter'};
     my $index_element_id = $self->from_element_direction('This', 'target');
     if (!defined($index_element_id)) {
-      # to avoid duplicate names, use a prefix that cannot happen in anchors
-      my $target_prefix = 't_i';
-      $index_element_id = $target_prefix;
+      my ($root_element, $root_command)
+          = $self->get_element_root_command_element($command);
+      if ($root_command) {
+        $index_element_id = $self->command_id($root_command);
+      }
+      if (not defined($index_element_id)) {
+        # to avoid duplicate names, use a prefix that cannot happen in anchors
+        my $target_prefix = 't_i';
+        $index_element_id = $target_prefix;
+      }
     }
     my $is_symbol = $letter !~ /^\p{Alpha}/;
     $letter_is_symbol{$letter} = $is_symbol;

@@ -853,7 +853,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-F">F</th></tr>
+<tr><th id="Top_fn_letter-F">F</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-fun3"><code>fun3</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-function1"><code>function1</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-function1-1"><code>function1</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -866,7 +866,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_vr_letter-V">V</th></tr>
+<tr><th id="Top_vr_letter-V">V</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-var1-error_002d_002d_003e"><code>var1 error&rarr;</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-var3"><code>var3</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-varx2"><code>varx2</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>

@@ -792,6 +792,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/index_entry_in_footnote_sections.pl \
   t/results/indices/index_entry_in_footnote_sections_separate.pl \
   t/results/indices/index_entry_in_footnote_separate.pl \
+  t/results/indices/index_no_node_no_top.pl \
+  t/results/indices/index_no_node_no_top_no_node.pl \
   t/results/indices/index_nodes.pl \
   t/results/indices/index_nodes/res_html/a-node.html \
   t/results/indices/index_nodes/res_html/another.html \

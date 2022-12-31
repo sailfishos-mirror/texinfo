@@ -3230,6 +3230,19 @@ Return text in string context.  @xref{Init File Expansion Contexts}.
 @end table
 @end deftypefun
 
+To get the top level element and the tree unit element associated to any
+Texinfo tree element, use @code{get_element_root_command_element}:
+
+@deftypefun {@var{\%top_level_element}, @var{\%element_unit} =} @var{$converter}->get_element_root_command_element (@var{\%element})
+Return the top level element and tree element unit a Texinfo tree
+@var{\%element} is in (@pxref{Texinfo Tree Elements in User Defined
+Functions}).  Both the top level element and the tree element unit may be
+undefined, depending on how the converter is called and on the Texinfo tree.
+The top level element returned is also determined by the customization variable
+@code{USE_NODES}. If @code{USE_NODES} is set the @code{@@node} is preferred,
+otherwise the sectioning command is preferred.
+@end deftypefun
+
 To obtain the top level command element associated with the target element,
 either a @code{@@node} or a sectioning element, use
 @code{command_root_element_command}:

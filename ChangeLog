@@ -1,5 +1,20 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (get_element_root_command_element)
+	(_convert_printindex_command), doc/texi2any_api.texi (Target Commands
+	Links@comma{} Texts and Associated Commands): add
+	get_element_root_command_element to the API to return the element and
+	root command associated to a tree element.  Use
+	get_element_root_command_element in printindex conversion to determine
+	the printindex root command target when there are no directions.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/09indices.t,
+	tp/tests/indices/Makefile.am (EXTRA_DIST),
+	tp/tests/indices/list-of-tests: move index_no_node_no_top test to
+	tp/t/09indices.t, add test with USE_NODES to the default value.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/converters_tests.t,
 	tp/tests/indices/list-of-tests: add tests based on
 	indices_in_begin_tables_lists.texi to tp/t/converters_tests.t to test

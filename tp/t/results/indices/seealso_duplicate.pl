@@ -410,7 +410,7 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-A">A</th></tr>
+<tr><th id="Top_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>

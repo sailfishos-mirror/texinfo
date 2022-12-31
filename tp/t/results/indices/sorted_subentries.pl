@@ -2290,28 +2290,28 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <a class="index-entry-id" id="index-hhh-l-third"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-H"><b>H</b></a>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-H"><b>H</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-A">A</th></tr>
+<tr><th id="chapter-second_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry">aa</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aa-bb">bb</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aa-dd">dd</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry">ab</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-ab-cc">cc</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-B">B</th></tr>
+<tr><th id="chapter-second_cp_letter-B">B</th></tr>
 <tr><td></td><td class="printindex-index-entry">bb</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-bb-cc">cc</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-H">H</th></tr>
+<tr><th id="chapter-second_cp_letter-H">H</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh">hhh</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-1">hhh</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-hhh-"></a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
@@ -2329,11 +2329,11 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-jjj-1">hhh jjj</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-H"><b>H</b></a>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-H"><b>H</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
