@@ -1,8 +1,5 @@
 # formats : :_info
 
-index_special_region_no_insertcopying index_special_region_no_insertcopying.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
-index_special_region_no_insertcopying_html index_special_region_no_insertcopying.texi --html --split chapter
-
 # Same input file also tested in t/converters_tests.t.  It is interesting to
 # have automatic tree transformations tested here too.
 indices_in_begin_tables_lists indices_in_begin_tables_lists.texi --html -c 'TEXI2HTML=undef' --no-split -c 'USE_NODES 0'

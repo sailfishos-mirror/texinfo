@@ -1,5 +1,12 @@
 2022-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/t/09indices.t,
+	tp/tests/indices/Makefile.am (EXTRA_DIST),
+	tp/tests/indices/list-of-tests: move
+	index_special_region_no_insertcopying_html tests to tp/t/09indices.t.
+
+2022-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (process_footnotes): handle the case
 	of footnotes not associated with nodes.
 

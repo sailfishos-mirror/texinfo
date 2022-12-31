@@ -1,5 +1,4 @@
 EXTRA_DIST = \
- index_special_region_no_insertcopying.texi \
  indices_in_begin_tables_lists.texi \
  index_entries_relate_to_item.texi \
  list-of-tests res_parser res_parser_info

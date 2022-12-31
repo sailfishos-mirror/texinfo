@@ -813,6 +813,43 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/index_special_region/res_html/index.html \
   t/results/indices/index_special_region/res_info/index_special_region.info \
   t/results/indices/index_special_region/res_plaintext/index_special_region.txt \
+  t/results/indices/index_special_region_no_insertcopying.pl \
+  t/results/indices/index_special_region_no_insertcopying/res_html/Copying-and-indices.html \
+  t/results/indices/index_special_region_no_insertcopying/res_html/index.html \
+  t/results/indices/index_special_region_no_insertcopying/res_info/index_special_region_no_insertcopying.info \
+  t/results/indices/index_special_region_no_insertcopying/res_plaintext/index_special_region_no_insertcopying.txt \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes.pl \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/Chapter.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/Copying-and-indices.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/Public-domain-reference.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/Titlepage-footnote-anchor.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/index.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_html/index_special_region_no_insertcopying_toc.html \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_info/index_special_region_no_insertcopying.info \
+  t/results/indices/index_special_region_no_insertcopying_no_titlepage_no_nodes/res_plaintext/index_special_region_no_insertcopying_no_titlepage_no_nodes.txt \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes.pl \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Chapter.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Copying-and-indices.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Copying-information.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Public-domain-reference.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Titlepage-anchor.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/Titlepage-footnote-anchor.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/index.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/index_special_region_no_insertcopying_fot.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_html/index_special_region_no_insertcopying_toc.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_info/index_special_region_no_insertcopying.info \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes/res_plaintext/index_special_region_no_insertcopying_titlepage_no_nodes.txt \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default.pl \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Chapter.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Copying-and-indices.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Copying-information.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Public-domain-reference.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Titlepage-anchor.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/Titlepage-footnote-anchor.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/index.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_html/index_special_region_no_insertcopying_toc.html \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_info/index_special_region_no_insertcopying.info \
+  t/results/indices/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default/res_plaintext/index_special_region_no_insertcopying_titlepage_no_nodes_footnotes_default.txt \
   t/results/indices/index_special_region_no_titlepage_no_nodes.pl \
   t/results/indices/index_special_region_no_titlepage_no_nodes/res_html/Chapter.html \
   t/results/indices/index_special_region_no_titlepage_no_nodes/res_html/Copying-and-indices.html \
