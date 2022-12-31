@@ -6,11 +6,13 @@ index_special_region_no_insertcopying index_special_region_no_insertcopying.texi
 index_special_region_html index_special_region.texi --html --split chapter
 index_special_region_no_region_html index_special_region_no_region.texi --html --split chapter
 index_special_region_no_insertcopying_html index_special_region_no_insertcopying.texi --html --split chapter
-index_one_node index_one_node.texi
 index_no_node_no_top index_no_node_no_top.texi
 
-indices_in_begin_tables_lists indices_in_begin_tables_lists.texi
+# Same input file also tested in t/converters_tests.t.  It is interesting to
+# have automatic tree transformations tested here too.
+indices_in_begin_tables_lists indices_in_begin_tables_lists.texi --html -c 'TEXI2HTML=undef' --no-split -c 'USE_NODES 0'
 indices_in_begin_tables_lists_latex indices_in_begin_tables_lists.texi --latex
 
 # tests of the tree using the same input file are also in t/transformations.t
+# but it is interesting to have automatic tree transformations tested here too.
 index_entries_relate_to_item index_entries_relate_to_item.texi

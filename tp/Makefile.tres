@@ -160,6 +160,18 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/image_formatting.pl \
   t/results/converters_tests/image_with_spaces.pl \
   t/results/converters_tests/index_entry_in_preformatted.pl \
+  t/results/converters_tests/indices_in_begin_tables_lists.pl \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_docbook/indices_in_begin_tables_lists.xml \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_html/indices_in_begin_tables_lists.html \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_info/indices_in_begin_tables_lists.info \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_latex/indices_in_begin_tables_lists.tex \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_xml/indices_in_begin_tables_lists.xml \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item.pl \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_docbook/indices_in_begin_tables_lists.xml \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_html/indices_in_begin_tables_lists.html \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_info/indices_in_begin_tables_lists.info \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_latex/indices_in_begin_tables_lists.tex \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_xml/indices_in_begin_tables_lists.xml \
   t/results/converters_tests/inline.pl \
   t/results/converters_tests/inline_expand_tex.pl \
   t/results/converters_tests/inlinefmtifelse.pl \
@@ -871,6 +883,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/note_in_strong.pl \
   t/results/info_tests/note_in_strong_end_of_line.pl \
   t/results/info_tests/novalidate_empty_refs.pl \
+  t/results/info_tests/one_node_counted_elements.pl \
   t/results/info_tests/only_documentencoding.pl \
   t/results/info_tests/paragraphindent_and_preamble.pl \
   t/results/info_tests/paragraphindent_asis_first.pl \

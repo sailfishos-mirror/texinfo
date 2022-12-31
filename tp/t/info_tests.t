@@ -966,6 +966,29 @@ aa
 
 @listoffloats a
 '],
+# not clearly useful, the mix of counted things in one node
+# may not be found elsewhere.
+['one_node_counted_elements',
+'Garbage
+@cindex before nodes
+
+@node one node,,,(dir)
+Top node
+@cindex Top node
+
+anchor ref @anchor{ref}.
+
+@menu
+* (some_manual_name_with_gcc):: ref to gcc
+@end menu
+
+
+ref to ref @ref{ref}.
+
+Some text.
+
+@printindex cp
+'],
 );
 
 my @file_tests = (

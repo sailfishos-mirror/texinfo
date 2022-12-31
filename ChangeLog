@@ -1,5 +1,18 @@
 2022-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/converters_tests.t,
+	tp/tests/indices/list-of-tests: add tests based on
+	indices_in_begin_tables_lists.texi to tp/t/converters_tests.t to test
+	no tree transformation and tree transformation separately.  Change
+	HTML indices_in_begin_tables_lists.texi in tp/tests/indices/list-of-tests
+	not to use the texi2html style.
+
+	* tp/Makefile.tres, tp/t/info_tests.t, tp/tests/indices/Makefile.am
+	(EXTRA_DIST), tp/tests/indices/list-of-tests: move index_one_node test
+	to tp/t/info_tests.t and inline it.
+
+2022-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/layout/list-of-tests: add 'Need collation compatibility'
 	for two more tests.
 
