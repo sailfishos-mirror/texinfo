@@ -302,6 +302,19 @@ second node
 @subsection subsection
 ';
 
+my $chapter_between_nodes_with_appendix = '@node Top
+@top top section
+@chapter Main
+Top node
+
+@menu
+* Additional::
+@end menu
+
+@node Additional
+@appendix Annex
+';
+
 my @tests_converted = (
 ['contents',
 $test_text.
@@ -905,6 +918,18 @@ section.
 
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+# quite similar with previous test, but the following sectioning
+# command is also at chapter level
+['chapter_between_nodes_with_appendix',
+$chapter_between_nodes_with_appendix
+],
+# this difference is interesting, as with something else than menu,
+# the node_next direction of Top node is not determined, and it is
+# a similar setup with texi2any --html.
+['chapter_between_nodes_with_appendix_nomenu',
+$chapter_between_nodes_with_appendix,
+{'FORMAT_MENU' => 'nomenu'},
+],
 ['section_before_after_top_node_last_node',
 '@unnumbered before
 

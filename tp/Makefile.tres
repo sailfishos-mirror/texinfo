@@ -1837,6 +1837,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/chapter_before_part.pl \
   t/results/sectioning/chapter_between_nodes.pl \
   t/results/sectioning/chapter_between_nodes/res_latex/chapter_between_nodes.tex \
+  t/results/sectioning/chapter_between_nodes_with_appendix.pl \
+  t/results/sectioning/chapter_between_nodes_with_appendix_nomenu.pl \
   t/results/sectioning/chapter_node_before_and_after_part.pl \
   t/results/sectioning/chapter_sections.pl \
   t/results/sectioning/character_and_spaces_in_node.pl \

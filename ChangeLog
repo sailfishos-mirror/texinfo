@@ -1,5 +1,22 @@
 2022-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): read 'FORMAT_MENU' as a structuring
+	option.  Only call Texinfo::Structuring::complete_node_tree_with_menus
+	and Texinfo::Structuring::check_nodes_are_referenced if 'FORMAT_MENU'
+	is set to menu.
+
+	* tp/Makefile.tres, tp/t/30sectioning.t: add
+	chapter_between_nodes_with_appendix and
+	chapter_between_nodes_with_appendix_nomenu tests, in particular to
+	have a case with Top next node automatic direction being determined 
+	by the menu.
+
+	* tp/t/10menu.t: remove 'FORMAT_MENU' => 'nomenu' from the
+	converter/structuring options of simple_no_menu test, as it does not
+	change the output.
+
+2022-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/t/09indices.t,
 	tp/tests/indices/Makefile.am (EXTRA_DIST),
 	tp/tests/indices/list-of-tests: move

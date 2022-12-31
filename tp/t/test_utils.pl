@@ -903,11 +903,11 @@ sub test($$)
     delete $parser_options->{'TREE_TRANSFORMATIONS'};
   }
 
-  # always set FORMAT_MENU to menu, which is the default for parser
+  # set FORMAT_MENU default to menu, which is the default for parser
   my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
   
   # this is only used for index keys sorting in structuring
-  foreach my $structuring_and_converter_option (('ENABLE_ENCODING')) {
+  foreach my $structuring_and_converter_option ('ENABLE_ENCODING') {
     if (defined($parser_options->{$structuring_and_converter_option})) {
       $added_main_configurations->{$structuring_and_converter_option}
         = $parser_options->{$structuring_and_converter_option};
@@ -917,7 +917,8 @@ sub test($$)
     }
   }
 
-  foreach my $structuring_option (('CHECK_NORMAL_MENU_STRUCTURE')) {
+  foreach my $structuring_option ('CHECK_NORMAL_MENU_STRUCTURE',
+                                                    'FORMAT_MENU') {
     if (defined($parser_options->{$structuring_option})) {
       $added_main_configurations->{$structuring_option}
         = $parser_options->{$structuring_option};
@@ -1108,7 +1109,9 @@ sub test($$)
     $structure_information->{'top_node'} = $top_node;
   }
 
-  if (defined($nodes_list)) {
+  if (defined($nodes_list)
+      and (not defined($main_configuration->get_conf('FORMAT_MENU'))
+           or $main_configuration->get_conf('FORMAT_MENU') eq 'menu')) {
     Texinfo::Structuring::complete_node_tree_with_menus($registrar,
                                 $main_configuration, $nodes_list, $top_node);
     Texinfo::Structuring::check_nodes_are_referenced($registrar,

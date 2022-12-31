@@ -36,7 +36,9 @@ Horizontal space
 @node subnode
 '],
 ['simple', $simple_menu_text],
-['simple_no_menu', $simple_menu_text, {'FORMAT_MENU' => 'nomenu'}, {'FORMAT_MENU' => 'nomenu'}],
+# there could be a nomenu in the converter/structuring options hash,
+# too, but it would not change the output.
+['simple_no_menu', $simple_menu_text, {}, {'FORMAT_MENU' => 'nomenu'}],
 ['menu_entry_node',
 '@menu
 * (f)a1::

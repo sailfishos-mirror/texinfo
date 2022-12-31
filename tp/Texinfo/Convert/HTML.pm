@@ -3561,7 +3561,6 @@ sub _default_panel_button_dynamic_direction($$;$$$)
                                            undef, undef, $source_command);
   my $node;
 
-
   if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
     $node = $self->from_element_direction($direction, 'section');
   }
