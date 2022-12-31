@@ -1,8 +1,6 @@
 # formats : :_info
 
-index_special_region index_special_region.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
 index_special_region_no_insertcopying index_special_region_no_insertcopying.texi --split chapter -c 'USE_TITLEPAGE_FOR_TITLE 0'
-index_special_region_html index_special_region.texi --html --split chapter
 index_special_region_no_insertcopying_html index_special_region_no_insertcopying.texi --html --split chapter
 
 # Same input file also tested in t/converters_tests.t.  It is interesting to

@@ -938,7 +938,11 @@ sub process_footnotes($;$)
   my $result = '';
   if (scalar(@{$self->{'pending_footnotes'}})) {
     $result .= _add_newline_if_needed($self);
-    if ($self->get_conf('footnotestyle') eq 'end' or !defined($element)) {
+    if ($self->get_conf('footnotestyle') eq 'end'
+        # no node content happens only in very special cases, such as
+        # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
+        or !$element or !$element->{'extra'}->{'unit_command'}->{'extra'}
+        or !$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       $result .= $footnotes_header;
       add_text_to_count($self, $footnotes_header);
@@ -965,7 +969,8 @@ sub process_footnotes($;$)
       # element, while the pxref will point to the name with the
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
-      if ($element) {
+      if ($element and $element->{'extra'}->{'unit_command'}->{'extra'}
+          and $element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}) {
         my $node_contents
          = [@{$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}},
             {'text' => "-Footnote-$footnote->{'number'}"}];

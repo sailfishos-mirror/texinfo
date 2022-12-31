@@ -213,6 +213,7 @@ test_files = \
  t/input_files/index_no_node.texi \
  t/input_files/index_no_node_no_top.texi \
  t/input_files/index_nodes.texi \
+ t/input_files/index_special_region.texi \
  t/input_files/index_split.texi \
  t/input_files/index_table.texi \
  t/input_files/japanese_utf8.texi \
