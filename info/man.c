@@ -65,9 +65,12 @@ size_t manpage_node_slots = 0;
 
 #if PIPE_USE_FORK
 
-/* Check if a man page exists.  Use "man -w" for this rather than getting
+/* Check if a man page exists.  Use "man --where" for this rather than getting
    the contents of the man page.  This is faster if we are running
-   "info --where" and we don't need the contents. */
+   "info --where" and we don't need the contents.
+
+   NB use man --where instead of man -w as the latter has a different meaning
+   on Solaris (update whatis database). */
 int
 check_manpage_node (char *pagename)
 {
@@ -88,7 +91,7 @@ check_manpage_node (char *pagename)
       formatter = find_man_formatter();
       if (!formatter)
         exit (1);
-      execl (formatter, formatter, "-w", pagename, (void *) 0);
+      execl (formatter, formatter, "--where", pagename, (void *) 0);
       exit (2); /* exec failed */
     }
   else

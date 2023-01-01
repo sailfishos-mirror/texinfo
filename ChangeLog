@@ -1,3 +1,10 @@
+2023-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/man.c (check_manpage_node): Use man --where instead of
+	man -w to avoid clash with man program on Solaris, where -w
+	means to update the whatis database.  Test failure on
+	OpenSolaris 2022.10 reported by Bruno Haible.
+
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
