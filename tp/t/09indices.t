@@ -573,7 +573,7 @@ fn
 
 @printindex fn
 '],
-['same_index_entry_merged_indices', 
+['same_index_entry_merged_indices',
 '@syncodeindex vr fn
 
 @node Top
@@ -816,12 +816,16 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 ', {'test_formats' => ['docbook']}],
+# test with only sectioning commands, no node command
+['index_no_node_no_top',
+undef, {'test_file' => 'index_no_node_no_top.texi'},
+],
+# this tests all formats, although there is a difference with
+# HTML only, but this is a relevant check to get this unchanged
+# output
 ['index_no_node_no_top_no_node',
 undef, {'test_file' => 'index_no_node_no_top.texi'},
 {'USE_NODES' => 0},
-],
-['index_no_node_no_top',
-undef, {'test_file' => 'index_no_node_no_top.texi'},
 ],
 ['w_lines_count',
 '@node Top
@@ -899,10 +903,16 @@ my $encoding_index_text = '
 @printindex cp
 ';
 
+# for these tests, set Info output only if relevant, as it is
+# only influenced by footnotestyle
 my @file_tests = (
+# test file with only nodes
 ['index_nodes',
 undef,
-{'test_file' => 'index_nodes.texi'},
+{'test_file' => 'index_nodes.texi',
+ 'test_formats' => ['file_info'],},
+# SPLIT is relevant for plaintext testing
+{'SPLIT' => 'node'},
 ],
 ['index_nodes_no_split_no_use_nodes',
 undef,
@@ -911,17 +921,24 @@ undef,
 ],
 ['index_table',
 undef,
+{'test_file' => 'index_table.texi',
+ 'test_formats' => ['file_info'],},
+],
+['index_table_chapter_no_node',
+undef,
 {'test_file' => 'index_table.texi'},
 {'SPLIT' => 'chapter', 'USE_NODES' => 0,},
 ],
 ['index_special_region',
 undef,
-{'test_file' => 'index_special_region.texi'},
+{'test_file' => 'index_special_region.texi',
+ 'test_formats' => ['file_info'],},
 {'SPLIT' => 'chapter'},
 ],
 ['index_special_region_titlepage_no_nodes',
 undef,
-{'test_file' => 'index_special_region.texi'},
+{'test_file' => 'index_special_region.texi',
+ 'test_formats' => ['file_info'],},
 {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'SHOW_TITLE' => 1,
  'footnotestyle' => 'separate',
  'CONTENTS_OUTPUT_LOCATION' => 'separate_element'},
@@ -942,12 +959,14 @@ undef,
 ],
 ['index_special_region_no_insertcopying',
 undef,
-{'test_file' => 'index_special_region_no_insertcopying.texi'},
+{'test_file' => 'index_special_region_no_insertcopying.texi',
+ 'test_formats' => ['file_info'],},
 {'SPLIT' => 'chapter'},
 ],
 ['index_special_region_no_insertcopying_titlepage_no_nodes',
 undef,
-{'test_file' => 'index_special_region_no_insertcopying.texi'},
+{'test_file' => 'index_special_region_no_insertcopying.texi',
+ 'test_formats' => ['file_info'],},
 {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'SHOW_TITLE' => 1,
  'footnotestyle' => 'separate',
  'CONTENTS_OUTPUT_LOCATION' => 'separate_element'},
@@ -966,6 +985,9 @@ undef,
 {'SPLIT' => 'chapter', 'USE_NODES' => 0, 'SHOW_TITLE' => 1,
  'CONTENTS_OUTPUT_LOCATION' => 'separate_element'},
 ],
+);
+
+my @file_encodings_tests = (
 ['encoding_index_ascii',
 '
 @setfilename encoding_index_ascii.info
@@ -977,12 +999,12 @@ undef,
 ['encoding_index_latin1',
 undef,
 {'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
-'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 0}, 
+'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 0},
 ],
 ['encoding_index_utf8',
 undef,
 {'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
-'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 0}, 
+'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 0},
 ],
 ['encoding_index_ascii_enable_encoding',
 '
@@ -995,7 +1017,7 @@ undef,
 ['encoding_index_latin1_enable_encoding',
 undef,
 {'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
-'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 1}, 
+'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 1},
 {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 ],
 ['encoding_index_utf8_enable_encoding',
@@ -1029,7 +1051,12 @@ foreach my $test (@test_formatted) {
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'file_plaintext';
+}
+
+foreach my $test (@file_encodings_tests) {
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
+  push @{$test->[2]->{'test_formats'}}, 'file_plaintext';
   push @{$test->[2]->{'test_formats'}}, 'file_info';
 }
 
-run_all('indices', [@test_cases, @test_formatted, @file_tests]);
+run_all('indices', [@test_cases, @test_formatted, @file_tests, @file_encodings_tests]);

@@ -2127,26 +2127,4 @@ $result_indices_sort_strings{'index_special_region_titlepage_no_nodes_footnotes_
 };
 
 
-$result_converted_errors{'file_info'}->{'index_special_region_titlepage_no_nodes_footnotes_default'} = [
-  {
-    'error_line' => '@anchor output more than once: Copying information
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@anchor output more than once: Copying information',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: Public domain reference
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 11,
-    'macro' => '',
-    'text' => '@anchor output more than once: Public domain reference',
-    'type' => 'error'
-  }
-];
-
-
 1;
