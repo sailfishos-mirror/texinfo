@@ -1469,8 +1469,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/vskip.pl \
   t/results/morecoverage/formatting_fr.pl \
   t/results/morecoverage/texi_formatting.pl \
-  t/results/moreindices/double_index_entry.pl \
-  t/results/moreindices/double_index_entry/res_html/double_index_entry.html \
   t/results/moreindices/index_no_node.pl \
   t/results/moreindices/index_no_node/res_html/Chapter-2.html \
   t/results/moreindices/index_no_node/res_html/Chapter.html \
@@ -1488,18 +1486,18 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/index_split/res_html/section-3.html \
   t/results/moreindices/index_split/res_html/subsection-1.html \
   t/results/moreindices/index_split/res_html/subsection-2.html \
-  t/results/moreindices/index_split_nodes.pl \
-  t/results/moreindices/index_split_nodes/res_html/first.html \
-  t/results/moreindices/index_split_nodes/res_html/index.html \
-  t/results/moreindices/index_split_nodes/res_html/node-2-in-section-3.html \
-  t/results/moreindices/index_split_nodes/res_html/node-3-in-section-3.html \
-  t/results/moreindices/index_split_nodes/res_html/node-in-section-3.html \
-  t/results/moreindices/index_split_nodes/res_html/second-chapter.html \
-  t/results/moreindices/index_split_nodes/res_html/section-1.html \
-  t/results/moreindices/index_split_nodes/res_html/section-2.html \
-  t/results/moreindices/index_split_nodes/res_html/section-3.html \
-  t/results/moreindices/index_split_nodes/res_html/subsection-1.html \
-  t/results/moreindices/index_split_nodes/res_html/subsection-2.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes.pl \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/first.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/index.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/node-2-in-section-3.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/node-3-in-section-3.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/node-in-section-3.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/second-chapter.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/section-1.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/section-2.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/section-3.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/subsection-1.html \
+  t/results/moreindices/index_split_split_chapter_no_nodes/res_html/subsection-2.html \
   t/results/moreindices/nodes_before_top.pl \
   t/results/moreindices/nodes_before_top/res_html/a-node.html \
   t/results/moreindices/nodes_before_top/res_html/another.html \
@@ -1508,8 +1506,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/nodes_before_top/res_html/index.html \
   t/results/moreindices/nodes_before_top/res_html/node-in-menu-before-top.html \
   t/results/moreindices/nodes_before_top/res_html/second.html \
-  t/results/moreindices/nodes_before_top_and_sections.pl \
-  t/results/moreindices/nodes_before_top_and_sections/res_html/nodes_before_top_and_sections.html \
   t/results/moreindices/nodes_before_top_and_sections_chapter.pl \
   t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/a-node.html \
   t/results/moreindices/nodes_before_top_and_sections_chapter/res_html/another.html \
@@ -1530,22 +1526,24 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/node-in-chapter.html \
   t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/node-in-menu-before-top.html \
   t/results/moreindices/nodes_before_top_and_sections_chapter_no_node/res_html/second.html \
-  t/results/moreindices/nodes_before_top_no_nodes.pl \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/a-node.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/another.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/first-before-top.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/first.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/index.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/node-in-menu-before-top.html \
-  t/results/moreindices/nodes_before_top_no_nodes/res_html/second.html \
-  t/results/moreindices/nodes_before_top_nodes.pl \
-  t/results/moreindices/nodes_before_top_nodes/res_html/a-node.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/another.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/first-before-top.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/first.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/index.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/node-in-menu-before-top.html \
-  t/results/moreindices/nodes_before_top_nodes/res_html/second.html \
+  t/results/moreindices/nodes_before_top_and_sections_unsplit_no_nodes.pl \
+  t/results/moreindices/nodes_before_top_and_sections_unsplit_no_nodes/res_html/nodes_before_top_and_sections.html \
+  t/results/moreindices/nodes_before_top_split_chapter.pl \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/a-node.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/another.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/first-before-top.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/first.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/index.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/node-in-menu-before-top.html \
+  t/results/moreindices/nodes_before_top_split_chapter/res_html/second.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes.pl \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/a-node.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/another.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/first-before-top.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/first.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/index.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/node-in-menu-before-top.html \
+  t/results/moreindices/nodes_before_top_split_chapter_no_nodes/res_html/second.html \
   t/results/moreindices/split_chapter_index.pl \
   t/results/moreindices/split_chapter_index/res_html/first.html \
   t/results/moreindices/split_chapter_index/res_html/index.html \

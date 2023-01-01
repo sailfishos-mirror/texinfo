@@ -3712,17 +3712,7 @@ $result_menus{'index_split'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'}
 $result_menus{'index_split'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'index_split'};
 $result_menus{'index_split'}{'structure'}{'menu_up'} = $result_menus{'index_split'};
 
-$result_errors{'index_split'} = [
-  {
-    'error_line' => 'warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
-',
-    'file_name' => 'index_split.texi',
-    'line_nr' => 85,
-    'macro' => '',
-    'text' => 'node `node in section 3\' is next for `section 3\' in menu but not in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_split'} = [];
 
 
 $result_floats{'index_split'} = {};

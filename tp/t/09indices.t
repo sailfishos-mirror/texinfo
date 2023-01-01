@@ -114,6 +114,8 @@ Another para in footnote.
 ';
 
 my @test_formatted = (
+# there was also test with USE_NODES' => 0 previously, that
+# could be readded, but it is not clear that it is interesting.
 ['double_index_entry',
 '@node Top
 

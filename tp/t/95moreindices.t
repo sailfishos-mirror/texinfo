@@ -9,17 +9,18 @@ require 't/test_utils.pl';
 # under tp/tests did, but to be faster, as we are avoiding the
 # start-up time of perl for every one.
 my @test_cases = (
-['double_index_entry',
-  undef,
-  {'test_file' => 'double_index_entry.texi' },
-  {'SPLIT' => '', 'USE_NODES' => 0}
-],
+# test with entries in diverse locations and printindex
 ['split_chapter_index',
   undef,
   {'test_file' => 'split_chapter_index.texi' },
   {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
+# test with even more entries and more printindex too
 ['index_split',
+  undef,
+  {'test_file' => 'index_split.texi' },
+],
+['index_split_split_chapter_no_nodes',
   undef,
   # we use CHECK_NORMAL_MENU_STRUCTURE as this tests
   # for a case that may only be tested here (Top before node)
@@ -28,30 +29,30 @@ my @test_cases = (
   {'test_file' => 'index_split.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
-['index_split_nodes',
-  undef,
-  {'test_file' => 'index_split.texi' },
-],
+# only sectioning commands, index entries and printindex, in particular
+# before @top
 ['index_no_node',
   undef,
   {'test_file' => 'index_no_node.texi' },
   {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
+# nodes before top node, no sectioning commands
 ['nodes_before_top',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
-  {'USE_NODES' => 1, 'SPLIT' => 'chapter'}
 ],
-['nodes_before_top_nodes',
+['nodes_before_top_split_chapter',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
+  {'SPLIT' => 'chapter'}
 ],
-['nodes_before_top_no_nodes',
+['nodes_before_top_split_chapter_no_nodes',
   undef,
   {'test_file' => 'nodes_before_top.texi' },
   {'SPLIT' => 'chapter', 'USE_NODES' => 0}
 ],
-['nodes_before_top_and_sections',
+# nodes before top node, some sectioning commands
+['nodes_before_top_and_sections_unsplit_no_nodes',
   undef,
   {'test_file' => 'nodes_before_top_and_sections.texi' },
   {'SPLIT' => '', 'USE_NODES' => 0}

@@ -7,6 +7,13 @@
 
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/95moreindices.t:
+	remove double_index_entry from t/95moreindices.t as there is a
+	redundant test in tp/t/09indices.t.
+	Rename tests such that the defaults are without suffix.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): use only
 	one place in code to add the raw line in nested raw blocks.
