@@ -1,5 +1,14 @@
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
+	(_process_remaining_on_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (raw_block_stack)
+	(push_raw_block_stack, pop_raw_block_stack, process_remaining_on_line)
+	(parse_texi): use a stack, raw_block_stack for nested raw block
+	commands instead of putting them in the tree.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/09indices.t, tp/Makefile.tres: add test with index_table with
 	default customization, rename former index_table as
 	index_table_chapter_no_node.  Add explicit split nodes for Plaintext

@@ -22,51 +22,9 @@ $result_trees{'nested_ignore'} = {
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => '
+              'text' => '@ignore
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -74,56 +32,9 @@ $result_trees{'nested_ignore'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => '@end iftex
+              'text' => '@end ignore
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@ifinfo
-',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 9,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -131,56 +42,49 @@ $result_trees{'nested_ignore'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => ' 
-'
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => '@end ifclear
+              'text' => '@ignore
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@ifclear
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end iftex
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 14,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@ifinfo
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@ignore 
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ifclear
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@ifclear
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             }
           ],
           'source_info' => {

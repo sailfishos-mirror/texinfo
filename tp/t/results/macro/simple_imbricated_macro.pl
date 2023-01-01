@@ -24,46 +24,19 @@ $result_trees{'simple_imbricated_macro'} = {
               'type' => 'raw'
             },
             {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'text' => 'bidule.
+              'text' => '@macro bidule {}
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'arg_line' => ' bidule {}
-'
-              }
+              'type' => 'raw'
+            },
+            {
+              'text' => 'bidule.
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end macro
+',
+              'type' => 'raw'
             },
             {
               'args' => [

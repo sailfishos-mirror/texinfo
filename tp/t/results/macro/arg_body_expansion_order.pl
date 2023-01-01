@@ -91,46 +91,19 @@ $result_trees{'arg_body_expansion_order'} = {
               'type' => 'raw'
             },
             {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'text' => 'different
+              'text' => '@macro othermacro
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'arg_line' => ' othermacro
-'
-              }
+              'type' => 'raw'
+            },
+            {
+              'text' => 'different
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end macro
+',
+              'type' => 'raw'
             },
             {
               'text' => '\\arg\\

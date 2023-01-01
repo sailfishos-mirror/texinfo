@@ -32,83 +32,29 @@ $result_trees{'nested_macros'} = {
               'type' => 'raw'
             },
             {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'text' => 'other macro
+              'text' => '@macro othermacro 
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'arg_line' => ' othermacro 
-'
-              }
+              'type' => 'raw'
             },
             {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'arg_line' => '
-'
-              }
+              'text' => 'other macro
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end macro
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@macro
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end macro
+',
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -181,11 +127,11 @@ $result_converted{'plaintext'}->{'nested_macros'} = '';
 
 $result_converted{'xml'}->{'nested_macros'} = '<macro name="truc" line=" truc   { arg,  ex}" endspaces=" "><formalarg>arg</formalarg><formalarg>ex</formalarg>
 in macro \\arg\\
-<macro line=" othermacro " endspaces=" ">
+@macro othermacro 
 other macro
-</macro>
-<macro endspaces=" ">
-</macro>
+@end macro
+@macro
+@end macro
 </macro>
 ';
 

@@ -22,29 +22,8 @@ $result_trees{'nested_ignore_comment_no_eol'} = {
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' comment',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment'
-                        ]
-                      }
-                    },
-                    'spaces_after_argument' => ' '
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore'
+              'text' => '@ignore @c comment',
+              'type' => 'raw'
             }
           ],
           'source_info' => {
@@ -68,12 +47,12 @@ $result_texts{'nested_ignore_comment_no_eol'} = '';
 
 $result_errors{'nested_ignore_comment_no_eol'} = [
   {
-    'error_line' => 'no matching `@end ignore\'
+    'error_line' => 'expected @end ignore
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => 'no matching `@end ignore\'',
+    'text' => 'expected @end ignore',
     'type' => 'error'
   },
   {

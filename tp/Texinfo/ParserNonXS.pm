@@ -137,6 +137,7 @@ my %parser_state_initialization = (
                               # global @-commands.
   'conditionals_stack' => [], # a stack of conditional commands that are
                               # expanded.
+  'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'floats' => {},             # key is the normalized float type, value is
                               # an array reference holding all the floats
                               # of that type.
@@ -4138,89 +4139,61 @@ sub _process_remaining_on_line($$$$)
          and $line =~ /^\s*\@(r?macro)\s+/)
         or ($current->{'cmdname'} eq 'ignore'
             and $line =~ /^\s*\@(ignore)(\@|\s+)/)) {
-      push @{$current->{'contents'}}, { 'cmdname' => $1,
-                                        'parent' => $current,
-                                        'contents' => [],};
-      $current = $current->{'contents'}->[-1];
-      if ($current->{'cmdname'} eq 'ignore') {
-        $line =~ s/\s*\@ignore(\s*)//;
-        if ($1 ne '') {
-          $current->{'args'} = [
-                    {'type' => 'block_line_arg', 'parent' => $current,
-                     'info' => {'spaces_after_argument' => $1},}
-                  ];
-        }
-        if ($line =~ /\@(c|comment)((\@|\s+).*)?$/) {
-          my $comment_command = $1;
-          my $comment_text = $2;
-          chomp $comment_text;
-          my $has_end_of_line = chomp $line;
-          $comment_text .= "\n" if ($has_end_of_line);
-          if (not exists($current->{'args'})) {
-            $current->{'args'} = [
-                    {'type' => 'block_line_arg', 'parent' => $current,
-                     'info' => {}}
-                  ];
-          }
-          my $comment_element = {'cmdname' => $comment_command, 'args' => [],
-                                 'extra' => {'misc_args' => [$comment_text]},
-                                 'parent' => $current->{'args'}->[-1]};
-          push @{$comment_element->{'args'}}, {'type' => 'misc_arg',
-                        'parent' => $comment_element, 'text' => $comment_text};
-          $current->{'args'}->[-1]->{'info'}->{'comment_at_end'}
-             = $comment_element;
-        }
-      } else {
-        $line =~ s/\s*\@r?macro//;
-        $current->{'info'} = {'arg_line' => $line };
-      }
+      push @{$self->{'raw_block_stack'}}, $1;
       print STDERR "RAW SECOND LEVEL \@$current->{'cmdname'}\n"
         if ($self->{'DEBUG'});
+      push @{$current->{'contents'}},
+        { 'text' => $line, 'type' => 'raw', 'parent' => $current };
       $retval = $GET_A_NEW_LINE;
       goto funexit;
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
              and ($2 eq $current->{'cmdname'})) {
-      if ($line =~ s/^(\s+)//) {
-        push @{$current->{'contents'}},
-          { 'text' => $1,
-            'type' => 'raw', 'parent' => $current };
-        $self->_line_warn(sprintf(
-              __("\@end %s should only appear at the beginning of a line"),
-                                 $current->{'cmdname'}), $source_info);
-      }
-      # store toplevel macro specification
-      if (($current->{'cmdname'} eq 'macro' or $current->{'cmdname'} eq 'rmacro')
-           and (! $current->{'parent'}
-                or !$current->{'parent'}->{'cmdname'}
-                or ($current->{'parent'}->{'cmdname'} ne 'macro'
-                    and $current->{'parent'}->{'cmdname'} ne 'rmacro'))) {
-        my $macrobody =
-           Texinfo::Convert::Texinfo::convert_to_texinfo(
-                               { 'contents' => $current->{'contents'} });
-        if ($current->{'args'} and $current->{'args'}->[0]) {
-          my $name = $current->{'args'}->[0]->{'text'};
-          if (exists($self->{'macros'}->{$name})) {
-            $self->_line_warn(sprintf(__("macro `%s' previously defined"),
-                                      $name), $current->{'source_info'});
-            $self->_line_warn(sprintf(__(
-                               "here is the previous definition of `%s'"),
-           $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
-          }
-          if ($all_commands{$name}
-              or ($name eq 'txiinternalvalue'
-                  and $self->{'accept_internalvalue'})) {
-            $self->_line_warn(sprintf(__(
-                              "redefining Texinfo language command: \@%s"),
-                                      $name), $current->{'source_info'});
-          }
-          if (!($current->{'extra'}
-                and $current->{'extra'}->{'invalid_syntax'})) {
-            $self->{'macros'}->{$name} = {
-              'element' => $current,
-              'macrobody' => $macrobody
-            };
+      if (scalar(@{$self->{'raw_block_stack'}}) == 0) {
+        if ($line =~ s/^(\s+)//) {
+          push @{$current->{'contents'}},
+            { 'text' => $1,
+              'type' => 'raw', 'parent' => $current };
+          $self->_line_warn(sprintf(
+                __("\@end %s should only appear at the beginning of a line"),
+                                   $current->{'cmdname'}), $source_info);
+        }
+        if ($current->{'cmdname'} eq 'macro'
+            or $current->{'cmdname'} eq 'rmacro') {
+          # store toplevel macro specification
+          my $macrobody =
+             Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                 { 'contents' => $current->{'contents'} });
+          if ($current->{'args'} and $current->{'args'}->[0]) {
+            my $name = $current->{'args'}->[0]->{'text'};
+            if (exists($self->{'macros'}->{$name})) {
+              $self->_line_warn(sprintf(__("macro `%s' previously defined"),
+                                        $name), $current->{'source_info'});
+              $self->_line_warn(sprintf(__(
+                                 "here is the previous definition of `%s'"),
+             $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
+            }
+            if ($all_commands{$name}
+                or ($name eq 'txiinternalvalue'
+                    and $self->{'accept_internalvalue'})) {
+              $self->_line_warn(sprintf(__(
+                                "redefining Texinfo language command: \@%s"),
+                                        $name), $current->{'source_info'});
+            }
+            if (!($current->{'extra'}
+                  and $current->{'extra'}->{'invalid_syntax'})) {
+              $self->{'macros'}->{$name} = {
+                'element' => $current,
+                'macrobody' => $macrobody
+              };
+            }
           }
         }
+      } else {
+        my $closed_cmdname = pop @{$self->{'raw_block_stack'}};
+        push @{$current->{'contents'}},
+          { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+        $retval = $GET_A_NEW_LINE;
+        goto funexit;
       }
       print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
       # start a new line for the @end line (without the first spaces on
@@ -6096,6 +6069,11 @@ sub _parse_texi($$$)
   while (@{$self->{'conditionals_stack'}}) {
     my $end_conditional = pop @{$self->{'conditionals_stack'}};
     $self->_line_error(sprintf(__("expected \@end %s"), $end_conditional),
+                      $source_info);
+  }
+  while (@{$self->{'raw_block_stack'}}) {
+    my $end_raw_block = pop @{$self->{'raw_block_stack'}};
+    $self->_line_error(sprintf(__("expected \@end %s"), $end_raw_block),
                       $source_info);
   }
   $current = _close_commands($self, $current, $source_info);

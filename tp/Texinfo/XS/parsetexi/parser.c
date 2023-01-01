@@ -165,6 +165,34 @@ pop_conditional_stack (void)
 }
 
 
+/* Raw block commands stack. */
+
+enum command_id *raw_block_stack;
+size_t raw_block_number;
+size_t raw_block_space;
+
+void
+push_raw_block_stack (enum command_id raw_block)
+{
+  if (raw_block_number == raw_block_space)
+    {
+      raw_block_stack = realloc (raw_block_stack,
+                                   (raw_block_space += 5)
+                                   * sizeof (enum command_id));
+      if (!raw_block_stack)
+        fatal ("realloc failed");
+    }
+  raw_block_stack[raw_block_number++] = raw_block;
+}
+
+enum command_id
+pop_raw_block_stack (void)
+{
+  if (raw_block_number == 0)
+    return CM_NONE;
+  return raw_block_stack[--raw_block_number];
+}
+
 /* Counters */
 COUNTER count_remaining_args;
 COUNTER count_items;
@@ -1154,78 +1182,13 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
       if (cmd)
         {
-          ELEMENT *e = new_element (ET_NONE);
-          e->cmd = cmd;
-          line = p;
+          ELEMENT *e;
+          e = new_element (ET_raw);
+          text_append (&e->text, line);
           add_to_element_contents (current, e);
-          current = e;
-          if (cmd == CM_ignore)
-            {
-              size_t len_spaces = strspn (p, whitespace_chars);
 
-              if (len_spaces)
-                {
-                  ELEMENT *e;
-                  char *spaces_after_arg = strndup (p, len_spaces);
-                  p += len_spaces;
+          push_raw_block_stack (cmd);
 
-                  e = new_element (ET_block_line_arg);
-                  add_info_string (e, "spaces_after_argument",
-                                   spaces_after_arg);
-                  add_to_element_args (current, e);
-                }
-              while (*p)
-                {
-                   p = strchr (p, '@');
-                   if (p)
-                     {
-                       char *cmd_name;
-                       char *comment_position = read_comment (p, &cmd_name);
-                       if (comment_position)
-                         {
-                           ELEMENT *args;
-                           ELEMENT *e;
-                           ELEMENT *comment_e;
-                           ELEMENT *misc_arg_e;
-                           ELEMENT *block_line_arg_e;
-
-                           if (current->args.number == 0)
-                             {
-                               block_line_arg_e
-                                 = new_element (ET_block_line_arg);
-                               add_to_element_args (current, block_line_arg_e);
-                             }
-                           else
-                             block_line_arg_e
-                               = args_child_by_index (current, 0);
-
-                           args = new_element (ET_NONE);
-                           e = new_element (ET_NONE);
-                           text_append (&e->text, comment_position);
-                           add_to_element_contents (args, e);
-
-                           misc_arg_e = new_element (ET_misc_arg);
-                           text_append (&misc_arg_e->text, comment_position);
-
-                           comment_e = new_element (ET_NONE);
-                           comment_e->cmd = lookup_command (cmd_name);
-                           add_extra_misc_args (comment_e, "misc_args", args);
-                           add_to_element_args (comment_e, misc_arg_e);
-
-                           add_info_element_oot (block_line_arg_e,
-                                                 "comment_at_end",
-                                                 comment_e);
-                         }
-                       p += 1;
-                     }
-                   else
-                      break;
-                }
-            }
-          else
-            {
-              add_info_string_dup (e, "arg_line", line);
-            }
           retval = GET_A_NEW_LINE;
           goto funexit;
         }
@@ -1233,58 +1196,69 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (is_end_current_command (current, &p, &end_cmd))
         {
           ELEMENT *e;
-
-          if (strchr (whitespace_chars, *line))
+          if (raw_block_number == 0)
             {
               ELEMENT *e;
-              int n = strspn (line, whitespace_chars);
-              e = new_element (ET_raw);
-              text_append_n (&e->text, line, n);
-              add_to_element_contents (current, e);
-              line += n;
-              line_warn ("@end %s should only appear at the "
-                         "beginning of a line", command_name(end_cmd));
-            }
 
-          /* For macros, define a new macro (unless we are in a nested
-             macro definition). */
-          if ((end_cmd == CM_macro || end_cmd == CM_rmacro)
-              && (!current->parent
-                  || (current->parent->cmd != CM_macro
-                      && current->parent->cmd != CM_rmacro)))
-            {
-              char *name;
-              enum command_id existing;
-              if (current->args.number > 0)
+              if (strchr (whitespace_chars, *line))
                 {
-                  name = element_text (args_child_by_index (current, 0));
+                  ELEMENT *e;
+                  int n = strspn (line, whitespace_chars);
+                  e = new_element (ET_raw);
+                  text_append_n (&e->text, line, n);
+                  add_to_element_contents (current, e);
+                  line += n;
+                  line_warn ("@end %s should only appear at the "
+                             "beginning of a line", command_name(end_cmd));
+                }
 
-                  existing = lookup_command (name);
-                  if (existing)
+              /* For macros, define a new macro. */
+              if (end_cmd == CM_macro || end_cmd == CM_rmacro)
+                {
+                  char *name;
+                  enum command_id existing;
+                  if (current->args.number > 0)
                     {
-                      MACRO *macro;
-                      macro = lookup_macro (existing);
-                      if (macro)
+                      name = element_text (args_child_by_index (current, 0));
+
+                      existing = lookup_command (name);
+                      if (existing)
                         {
-                          line_error_ext (1, &current->source_info,
-                             "macro `%s' previously defined", name);
-                          line_error_ext (1, &macro->element->source_info,
-                             "here is the previous definition of `%s'", name);
+                          MACRO *macro;
+                          macro = lookup_macro (existing);
+                          if (macro)
+                            {
+                              line_error_ext (1, &current->source_info,
+                                 "macro `%s' previously defined", name);
+                              line_error_ext (1, &macro->element->source_info,
+                                 "here is the previous definition of `%s'", name);
+                            }
+                          else if (!(existing & USER_COMMAND_BIT))
+                            {
+                              line_error_ext (1, &current->source_info,
+                                "redefining Texinfo language command: @%s",
+                                name);
+                            }
                         }
-                      else if (!(existing & USER_COMMAND_BIT))
+                      if (!lookup_extra (current, "invalid_syntax"))
                         {
-                          line_error_ext (1, &current->source_info,
-                            "redefining Texinfo language command: @%s",
-                            name);
+                          new_macro (name, current);
                         }
-                    }
-                  if (!lookup_extra (current, "invalid_syntax"))
-                    {
-                      new_macro (name, current);
                     }
                 }
             }
+          else
+            {
+              ELEMENT *e;
+              e = new_element (ET_raw);
+              text_append (&e->text, line);
+              add_to_element_contents (current, e);
 
+              pop_raw_block_stack();
+
+              retval = GET_A_NEW_LINE;
+              goto funexit;
+            }
 
           debug ("CLOSED raw %s", command_name(end_cmd));
          /* start a new line for the @end line (without the first spaces on
@@ -2228,6 +2202,14 @@ finished_totally:
       line_error ("expected @end %s",
                   command_name(conditional_stack[conditional_number - 1]));
       conditional_number--;
+    }
+
+  /* Check for unclosed raw block commands */
+  while (raw_block_number > 0)
+    {
+      line_error ("expected @end %s",
+                  command_name(raw_block_stack[raw_block_number - 1]));
+      raw_block_number--;
     }
 
     {

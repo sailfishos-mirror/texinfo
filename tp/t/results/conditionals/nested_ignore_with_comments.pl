@@ -22,51 +22,19 @@ $result_trees{'nested_ignore_with_comments'} = {
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'No space no comment
+              'text' => '@ignore
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 4,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => 'No space no comment
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -74,51 +42,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => '  
-'
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Spaces no comment
+              'text' => '@ignore  
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Spaces no comment
+',
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -126,65 +62,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' no space comment
+              'text' => '@ignore@c no space comment
 ',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' no space comment
-'
-                        ]
-                      }
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Comment
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Comment
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 12,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -192,66 +82,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => '
+              'text' => '@ignore @c
 ',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          '
-'
-                        ]
-                      }
-                    },
-                    'spaces_after_argument' => ' '
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Comment no argument
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Comment no argument
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 16,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -259,66 +102,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' space comment
+              'text' => '@ignore  @c space comment
 ',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' space comment
-'
-                        ]
-                      }
-                    },
-                    'spaces_after_argument' => '  '
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Space Comment
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Space Comment
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 20,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -326,66 +122,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' comment after text
+              'text' => '@ignore something @comment comment after text
 ',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'comment',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment after text
-'
-                        ]
-                      }
-                    },
-                    'spaces_after_argument' => ' '
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Text comment
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Text comment
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 24,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -393,66 +142,19 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' comment after command
+              'text' => '@ignore some @code{variable} @comment comment after command
 ',
-                          'type' => 'misc_arg'
-                        }
-                      ],
-                      'cmdname' => 'comment',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment after command
-'
-                        ]
-                      }
-                    },
-                    'spaces_after_argument' => ' '
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'text' => 'Command comment
+              'type' => 'raw'
+            },
+            {
+              'text' => 'Command comment
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 28,
-                    'macro' => ''
-                  }
-                }
-              ]
+              'type' => 'raw'
+            },
+            {
+              'text' => '@end ignore
+',
+              'type' => 'raw'
             },
             {
               'text' => '
@@ -522,11 +224,11 @@ Comment no argument
 Space Comment
 @end ignore
 
-@ignore @comment comment after text
+@ignore something @comment comment after text
 Text comment
 @end ignore
 
-@ignore @comment comment after command
+@ignore some @code{variable} @comment comment after command
 Command comment
 @end ignore
 

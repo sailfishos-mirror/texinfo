@@ -247,98 +247,44 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'cmdname' => 'macro',
-                  'contents' => [
-                    {
-                      'text' => '@unmacro glossarytext
+                  'text' => '@macro expandglossary{glossary}
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'cmdname' => 'macro',
-                      'contents' => [
-                        {
-                          'text' => '\\\\glossary\\\\
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@unmacro glossarytext
 ',
-                          'type' => 'raw'
-                        },
-                        {
-                          'text' => '@item \\name\\ @anchor{\\id\\}
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@macro glossarytext
 ',
-                          'type' => 'raw'
-                        },
-                        {
-                          'text' => '\\text\\
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '\\\\glossary\\\\
 ',
-                          'type' => 'raw'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'macro'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => '
-'
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'end',
-                          'extra' => {
-                            'text_arg' => 'macro'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => ' '
-                          },
-                          'source_info' => {
-                            'file_name' => 'glossary.texi',
-                            'line_nr' => 29,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'arg_line' => ' glossarytext
-'
-                      }
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'macro'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => '
-'
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'end',
-                      'extra' => {
-                        'text_arg' => 'macro'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => ' '
-                      },
-                      'source_info' => {
-                        'file_name' => 'glossary.texi',
-                        'line_nr' => 30,
-                        'macro' => ''
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'arg_line' => ' expandglossary{glossary}
-'
-                  }
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@item \\name\\ @anchor{\\id\\}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '\\text\\
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
                 },
                 {
                   'text' => '@expandglossary {@glossarytext}
@@ -642,56 +588,29 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'cmdname' => 'macro',
-                  'contents' => [
-                    {
-                      'text' => '\\glossary\\
+                  'text' => '@macro glossarytext
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '@item name1 @anchor{id1}
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '\\glossary\\
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'text1, arg1 
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@item name1 @anchor{id1}
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'macro'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => '
-'
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'end',
-                      'extra' => {
-                        'text_arg' => 'macro'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => ' '
-                      },
-                      'source_info' => {
-                        'file_name' => 'glossary.texi',
-                        'line_nr' => 42,
-                        'macro' => 'gentry'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'arg_line' => ' glossarytext
-'
-                  }
+                  'type' => 'raw'
+                },
+                {
+                  'text' => 'text1, arg1 
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -916,56 +835,29 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'cmdname' => 'macro',
-                  'contents' => [
-                    {
-                      'text' => '\\glossary\\
+                  'text' => '@macro glossarytext
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '@item name2 @anchor{id2}
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '\\glossary\\
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'text2
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@item name2 @anchor{id2}
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'macro'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => '
-'
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'end',
-                      'extra' => {
-                        'text_arg' => 'macro'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => ' '
-                      },
-                      'source_info' => {
-                        'file_name' => 'glossary.texi',
-                        'line_nr' => 43,
-                        'macro' => 'gentry'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'arg_line' => ' glossarytext
-'
-                  }
+                  'type' => 'raw'
+                },
+                {
+                  'text' => 'text2
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
