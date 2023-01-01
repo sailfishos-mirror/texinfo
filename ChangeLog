@@ -1,5 +1,13 @@
 2022-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/indices/list-of-tests: remove _info format tests as they
+	are redundant with tests in t/*.t.
+
+	* tp/tests/indices/list-of-tests: do not use the TEXI2HTML style
+	for index_entries_relate_to_item test.
+
+2022-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): read 'FORMAT_MENU' as a structuring
 	option.  Only call Texinfo::Structuring::complete_node_tree_with_menus
 	and Texinfo::Structuring::check_nodes_are_referenced if 'FORMAT_MENU'

@@ -1,4 +1,4 @@
-# formats : :_info
+# formats :
 
 # Same input file also tested in t/converters_tests.t.  It is interesting to
 # have automatic tree transformations tested here too.
@@ -7,4 +7,4 @@ indices_in_begin_tables_lists_latex indices_in_begin_tables_lists.texi --latex
 
 # tests of the tree using the same input file are also in t/transformations.t
 # but it is interesting to have automatic tree transformations tested here too.
-index_entries_relate_to_item index_entries_relate_to_item.texi
+index_entries_relate_to_item index_entries_relate_to_item.texi --html -c 'TEXI2HTML=undef' --no-split
