@@ -104,13 +104,8 @@ my @test_cases = (
 );
 
 foreach my $test (@test_cases) {
-  if (!$test->[2]->{'test_formats'}) {
-    push @{$test->[2]->{'test_formats'}}, 'file_html';
-  }
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
   $test->[3]->{'TEXI2HTML'} = 1;
-  $test->[3]->{'TEST'} = 1;
-  $test->[3]->{'PROGRAM'} = 'texi2any';
-  $test->[3]->{'PACKAGE_URL'} = 'http://www.gnu.org/software/texinfo/';
 }
 
 run_all('moresectioning', [@test_cases]);
