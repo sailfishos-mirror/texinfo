@@ -842,69 +842,6 @@ Compilation mode also defines the keys @key{SPC} and @key{DEL} to
 @printindex fn']
 );
 
-my $encoding_index_text = '
-@node Top
-@top top
-
-@cindex @\'e @\'e
-@cindex @"{i} @"{i}@"{i}@"{i}
-@cindex @^i @^i@^i@^i@^i
-@cindex a
-@cindex b
-@cindex c
-@cindex d
-@cindex e
-@cindex f
-@cindex g
-@cindex h
-@cindex i
-@cindex j
-@cindex k
-@cindex l
-@cindex m
-@cindex n
-@cindex o
-@cindex p
-@cindex q
-@cindex r
-@cindex s
-@cindex t
-@cindex u
-@cindex v
-@cindex w
-@cindex x
-@cindex y
-@cindex z
-@cindex A
-@cindex B
-@cindex @l{}
-@cindex @L{}
-@cindex @dotless{i} @dotless{i} (dotless)
-@cindex @^{@dotless{i}} @^{@dotless{i}} (dotless)
-@cindex @ss{}
-@cindex @euro{}
-@cindex @AE{}
-@cindex @exclamdown{}
-@cindex @TH{}
-@cindex @DH{}
-@cindex @textdegree{}
-@cindex 0
-@cindex 9
-@cindex @quotedblleft{}
-@cindex @geq{}
-@cindex @comma{}
-@cindex ``
-@cindex `
-@cindex \'
-@cindex \'\'
-@cindex "
-@cindex @@
-@cindex --
-@cindex ---
-
-@printindex cp
-';
-
 # for these tests, set Info output only if relevant, as it is
 # only influenced by footnotestyle
 my @file_tests = (
@@ -988,6 +925,69 @@ undef,
  'CONTENTS_OUTPUT_LOCATION' => 'separate_element'},
 ],
 );
+
+my $encoding_index_text = '
+@node Top
+@top top
+
+@cindex @\'e @\'e
+@cindex @"{i} @"{i}@"{i}@"{i}
+@cindex @^i @^i@^i@^i@^i
+@cindex a
+@cindex b
+@cindex c
+@cindex d
+@cindex e
+@cindex f
+@cindex g
+@cindex h
+@cindex i
+@cindex j
+@cindex k
+@cindex l
+@cindex m
+@cindex n
+@cindex o
+@cindex p
+@cindex q
+@cindex r
+@cindex s
+@cindex t
+@cindex u
+@cindex v
+@cindex w
+@cindex x
+@cindex y
+@cindex z
+@cindex A
+@cindex B
+@cindex @l{}
+@cindex @L{}
+@cindex @dotless{i} @dotless{i} (dotless)
+@cindex @^{@dotless{i}} @^{@dotless{i}} (dotless)
+@cindex @ss{}
+@cindex @euro{}
+@cindex @AE{}
+@cindex @exclamdown{}
+@cindex @TH{}
+@cindex @DH{}
+@cindex @textdegree{}
+@cindex 0
+@cindex 9
+@cindex @quotedblleft{}
+@cindex @geq{}
+@cindex @comma{}
+@cindex ``
+@cindex `
+@cindex \'
+@cindex \'\'
+@cindex "
+@cindex @@
+@cindex --
+@cindex ---
+
+@printindex cp
+';
 
 my @file_encodings_tests = (
 ['encoding_index_ascii',
