@@ -1030,6 +1030,67 @@ undef,
 ],
 );
 
+my @test_html_file = (
+# test with entries in diverse locations and printindex
+['split_chapter_index',
+  undef,
+  {'test_file' => 'split_chapter_index.texi' },
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
+# test with even more entries and more printindex too
+['index_split',
+  undef,
+  {'test_file' => 'index_split.texi' },
+],
+['index_split_split_chapter_no_nodes',
+  undef,
+  # we use CHECK_NORMAL_MENU_STRUCTURE as this tests
+  # for a case that may only be tested here (Top before node)
+  # It also tests for node with directions after section which is
+  # also in 96moresectioning.t
+  {'test_file' => 'index_split.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
+# only sectioning commands, index entries and printindex, in particular
+# before @top
+['index_no_node',
+  undef,
+  {'test_file' => 'index_no_node.texi' },
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
+# nodes before top node, no sectioning commands
+['nodes_before_top',
+  undef,
+  {'test_file' => 'nodes_before_top.texi' },
+],
+['nodes_before_top_split_chapter',
+  undef,
+  {'test_file' => 'nodes_before_top.texi' },
+  {'SPLIT' => 'chapter'}
+],
+['nodes_before_top_split_chapter_no_nodes',
+  undef,
+  {'test_file' => 'nodes_before_top.texi' },
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
+# nodes before top node, some sectioning commands
+['nodes_before_top_and_sections_unsplit_no_nodes',
+  undef,
+  {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => '', 'USE_NODES' => 0}
+],
+['nodes_before_top_and_sections_chapter',
+  undef,
+  {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => 'chapter'},
+],
+['nodes_before_top_and_sections_chapter_no_node',
+  undef,
+  {'test_file' => 'nodes_before_top_and_sections.texi' },
+  {'SPLIT' => 'chapter', 'USE_NODES' => 0}
+],
+);
+
 my @latex_tests_cases_tests = ('syncode_index_print_both',
   'empty_index_entry', 'empty_cindex_entry', 'empty_string_index_entry',
   'explicit_sort_key', 'transparent_sort_chars',
@@ -1061,4 +1122,9 @@ foreach my $test (@file_encodings_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
 }
 
-run_all('indices', [@test_cases, @test_formatted, @file_tests, @file_encodings_tests]);
+foreach my $test (@test_html_file) {
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
+}
+
+run_all('indices', [@test_cases, @test_formatted, @file_tests,
+                    @test_html_file, @file_encodings_tests]);
