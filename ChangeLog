@@ -1,5 +1,10 @@
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/input_files/equivalent_nodes.texi: do not use a node before Top
+	for this test, but, more simply a regular node.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/96moresectioning.t: remove specific variables set for PROGRAM,
 	PACKAGE_URL and TEST.
 
