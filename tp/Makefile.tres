@@ -1548,10 +1548,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/vskip.pl \
   t/results/morecoverage/formatting_fr.pl \
   t/results/morecoverage/texi_formatting.pl \
-  t/results/moresectioning/equivalent_nodes.pl \
-  t/results/moresectioning/equivalent_nodes/res_html/equivalent_nodes.html \
-  t/results/moresectioning/equivalent_nodes_no_node.pl \
-  t/results/moresectioning/equivalent_nodes_no_node/res_html/equivalent_nodes.html \
   t/results/moresectioning/more_sections_than_nodes.pl \
   t/results/moresectioning/more_sections_than_nodes/res_html/more_sections_than_nodes.html \
   t/results/moresectioning/node_footnote_end.pl \
@@ -1876,6 +1872,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/empty_top_node_up.pl \
   t/results/sectioning/equivalent_labels.pl \
   t/results/sectioning/equivalent_nodes.pl \
+  t/results/sectioning/equivalent_nodes_defined_linked.pl \
   t/results/sectioning/explicit_node_directions.pl \
   t/results/sectioning/external_node_in_menu.pl \
   t/results/sectioning/hole_in_sectioning.pl \

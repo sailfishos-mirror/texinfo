@@ -30,16 +30,6 @@ my @test_cases = (
   {'test_file' => 'node_footnote.texi'},
   {'footnotestyle' => 'separate'}
 ],
-['equivalent_nodes',
-  undef,
-  {'test_file' => 'equivalent_nodes.texi'},
-  {'USE_NODES' => 1}
-],
-['equivalent_nodes_no_node',
-  undef,
-  {'test_file' => 'equivalent_nodes.texi'},
-  {}
-],
 ['nodes_after_top_before_chapter',
   undef,
   {'test_file' => 'nodes_after_top_before_chapter.texi'},

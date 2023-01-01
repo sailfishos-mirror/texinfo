@@ -696,17 +696,6 @@ undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
 
 @xref{TOP}.
 '],
-['equivalent_nodes',
-'@node Top, @emph{node}
-
-@menu
-* @strong{node}::
-@end menu
-
-@node @samp{node}
-
-@xref{node}.
-'],
 ['equivalent_labels',
 '@node Top
 
@@ -721,6 +710,36 @@ In float
 * @code{floa}::
 @end menu
 '],
+['equivalent_nodes',
+'@node Top, @emph{node}
+
+@menu
+* @strong{node}::
+@end menu
+
+@node @samp{node}
+
+@xref{node}.
+'],
+['equivalent_nodes_defined_linked',
+'@node Top, @asis{node}
+
+@menu
+* @strong{node}::
+@end menu
+
+@node node
+
+@float Figure, @samp{node}
+A figure
+@end float
+
+@listoffloats Figure
+
+Ref to node @ref{node}.
+
+Ref to @@samp@{node@} @ref{@samp{node}}.
+', {}, {'FORMAT_MENU' => 'menu'}],
 ['anchor_in_footnote',
 $anchor_in_footnote_text
 ],

@@ -5,52 +5,9 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'equivalent_nodes_no_node'} = {
+$result_trees{'equivalent_nodes_defined_linked'} = {
   'contents' => [
     {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'text' => ' test equivalent nodes
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test equivalent nodes
-'
-                ]
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -61,29 +18,39 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'text' => 'Top'
             }
           ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'node'
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'asis',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              }
+            }
+          ],
           'info' => {
             'spaces_after_argument' => '
-'
+',
+            'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Equivalent nodes in node line and in menu.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
         {
           'text' => '
 ',
@@ -122,8 +89,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       ],
                       'cmdname' => 'strong',
                       'source_info' => {
-                        'file_name' => 'equivalent_nodes.texi',
-                        'line_nr' => 10,
+                        'file_name' => '',
+                        'line_nr' => 4,
                         'macro' => ''
                       }
                     }
@@ -159,57 +126,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 10,
-                'macro' => ''
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'args' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'other node'
-                    }
-                  ],
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'extra' => {
-                'menu_entry_description' => {},
-                'menu_entry_node' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'other-node'
-                }
-              },
-              'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 11,
+                'file_name' => '',
+                'line_nr' => 4,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -237,15 +155,15 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 12,
+                'file_name' => '',
+                'line_nr' => 5,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => 'equivalent_nodes.texi',
-            'line_nr' => 9,
+            'file_name' => '',
+            'line_nr' => 3,
             'macro' => ''
           }
         },
@@ -265,6 +183,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
               {}
             ],
             'normalized' => 'Top'
+          },
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'node'
           }
         ],
         'normalized' => 'Top'
@@ -273,8 +197,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'equivalent_nodes.texi',
-        'line_nr' => 5,
+        'file_name' => '',
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -325,8 +249,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   ],
                   'cmdname' => 'samp',
                   'source_info' => {
-                    'file_name' => 'equivalent_nodes.texi',
-                    'line_nr' => 16,
+                    'file_name' => '',
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 }
@@ -373,8 +297,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 18,
+                'file_name' => '',
+                'line_nr' => 11,
                 'macro' => ''
               }
             }
@@ -391,8 +315,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
-            'file_name' => 'equivalent_nodes.texi',
-            'line_nr' => 16,
+            'file_name' => '',
+            'line_nr' => 9,
             'macro' => ''
           }
         },
@@ -429,8 +353,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
-            'file_name' => 'equivalent_nodes.texi',
-            'line_nr' => 20,
+            'file_name' => '',
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -466,8 +390,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 22,
+                'file_name' => '',
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -523,8 +447,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       ],
                       'cmdname' => 'samp',
                       'source_info' => {
-                        'file_name' => 'equivalent_nodes.texi',
-                        'line_nr' => 24,
+                        'file_name' => '',
+                        'line_nr' => 17,
                         'macro' => ''
                       }
                     }
@@ -543,8 +467,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 24,
+                'file_name' => '',
+                'line_nr' => 17,
                 'macro' => ''
               }
             },
@@ -554,11 +478,6 @@ $result_trees{'equivalent_nodes_no_node'} = {
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         }
       ],
       'extra' => {
@@ -579,133 +498,32 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'equivalent_nodes.texi',
-        'line_nr' => 14,
+        'file_name' => '',
+        'line_nr' => 7,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'other node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node'
-                    }
-                  ],
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'asis',
-              'source_info' => {
-                'file_name' => 'equivalent_nodes.texi',
-                'line_nr' => 26,
-                'macro' => ''
-              }
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => '
-',
-            'spaces_before_argument' => ' '
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'other-node'
-          },
-          undef,
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node'
-          }
-        ],
-        'normalized' => 'other-node'
-      },
-      'info' => {
-        'spaces_before_argument' => ' '
-      },
-      'source_info' => {
-        'file_name' => 'equivalent_nodes.texi',
-        'line_nr' => 26,
-        'macro' => ''
-      }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'args'}[3];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'extra'}{'label'} = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'equivalent_nodes_no_node'}{'contents'}[3]{'args'}[2]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[3];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'extra'}{'label'} = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
-$result_texis{'equivalent_nodes_no_node'} = '\\input texinfo @c -*-texinfo-*-
-
-@c test equivalent nodes
-
-@node Top
-
-Equivalent nodes in node line and in menu.
+$result_texis{'equivalent_nodes_defined_linked'} = '@node Top, @asis{node}
 
 @menu
 * @strong{node}::
-* other node::
 @end menu
 
 @node node
@@ -719,19 +537,11 @@ A figure
 Ref to node @ref{node}.
 
 Ref to @@samp@{node@} @ref{@samp{node}}.
-
-@node other node,, @asis{node}
-
-@bye
 ';
 
 
-$result_texts{'equivalent_nodes_no_node'} = '
-
-Equivalent nodes in node line and in menu.
-
+$result_texts{'equivalent_nodes_defined_linked'} = '
 * node::
-* other node::
 
 
 Figure, node
@@ -741,11 +551,9 @@ A figure
 Ref to node node.
 
 Ref to @samp{node} node.
-
-
 ';
 
-$result_nodes{'equivalent_nodes_no_node'} = {
+$result_nodes{'equivalent_nodes_defined_linked'} = {
   'cmdname' => 'node',
   'extra' => {
     'menus' => [
@@ -764,29 +572,16 @@ $result_nodes{'equivalent_nodes_no_node'} = {
       },
       'info' => {},
       'structure' => {
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'other-node'
-          },
-          'info' => {},
-          'structure' => {
-            'node_prev' => {}
-          }
-        },
-        'node_prev' => {},
         'node_up' => {}
       }
     },
     'node_next' => {}
   }
 };
-$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'};
-$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'equivalent_nodes_no_node'};
-$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'equivalent_nodes_no_node'};
-$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'node_next'} = $result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'};
+$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'equivalent_nodes_defined_linked'};
+$result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'node_next'} = $result_nodes{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'};
 
-$result_menus{'equivalent_nodes_no_node'} = {
+$result_menus{'equivalent_nodes_defined_linked'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -800,20 +595,6 @@ $result_menus{'equivalent_nodes_no_node'} = {
       },
       'info' => {},
       'structure' => {
-        'menu_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'other-node'
-          },
-          'info' => {},
-          'structure' => {
-            'menu_prev' => {},
-            'menu_up' => {},
-            'menu_up_hash' => {
-              'Top' => 1
-            }
-          }
-        },
         'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
@@ -822,16 +603,14 @@ $result_menus{'equivalent_nodes_no_node'} = {
     }
   }
 };
-$result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'};
-$result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes_no_node'};
-$result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes_no_node'};
+$result_menus{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes_defined_linked'};
 
-$result_errors{'equivalent_nodes_no_node'} = [
+$result_errors{'equivalent_nodes_defined_linked'} = [
   {
     'error_line' => '@float `@samp{node}\' previously defined
 ',
-    'file_name' => 'equivalent_nodes.texi',
-    'line_nr' => 16,
+    'file_name' => '',
+    'line_nr' => 9,
     'macro' => '',
     'text' => '@float `@samp{node}\' previously defined',
     'type' => 'error'
@@ -839,8 +618,8 @@ $result_errors{'equivalent_nodes_no_node'} = [
   {
     'error_line' => 'here is the previous definition as @node
 ',
-    'file_name' => 'equivalent_nodes.texi',
-    'line_nr' => 14,
+    'file_name' => '',
+    'line_nr' => 7,
     'macro' => '',
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
@@ -848,8 +627,8 @@ $result_errors{'equivalent_nodes_no_node'} = [
   {
     'error_line' => 'warning: @ref to `@samp{node}\', different from node name `node\'
 ',
-    'file_name' => 'equivalent_nodes.texi',
-    'line_nr' => 24,
+    'file_name' => '',
+    'line_nr' => 17,
     'macro' => '',
     'text' => '@ref to `@samp{node}\', different from node name `node\'',
     'type' => 'warning'
@@ -857,25 +636,25 @@ $result_errors{'equivalent_nodes_no_node'} = [
   {
     'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `node\'
 ',
-    'file_name' => 'equivalent_nodes.texi',
-    'line_nr' => 10,
+    'file_name' => '',
+    'line_nr' => 4,
     'macro' => '',
     'text' => '@menu entry node name `@strong{node}\' different from node name `node\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: Prev pointer `@asis{node}\' (for node `other node\') different from node name `node\'
+    'error_line' => 'warning: Next pointer `@asis{node}\' (for node `Top\') different from node name `node\'
 ',
-    'file_name' => 'equivalent_nodes.texi',
-    'line_nr' => 26,
+    'file_name' => '',
+    'line_nr' => 1,
     'macro' => '',
-    'text' => 'Prev pointer `@asis{node}\' (for node `other node\') different from node name `node\'',
+    'text' => 'Next pointer `@asis{node}\' (for node `Top\') different from node name `node\'',
     'type' => 'warning'
   }
 ];
 
 
-$result_floats{'equivalent_nodes_no_node'} = {
+$result_floats{'equivalent_nodes_defined_linked'} = {
   'Figure' => [
     {
       'cmdname' => 'float',
@@ -889,17 +668,114 @@ $result_floats{'equivalent_nodes_no_node'} = {
           'normalized' => 'Figure'
         }
       },
-      'info' => {}
+      'info' => {},
+      'structure' => {}
     }
   ]
 };
 
 
-$result_converted_errors{'file_html'}->{'equivalent_nodes_no_node'} = [
+
+$result_converted{'info'}->{'equivalent_nodes_defined_linked'} = 'This is , produced from .
+
+
+File: ,  Node: Top,  Next: node,  Up: (dir)
+
+* Menu:
+
+* *node*::
+
+
+File: ,  Node: node,  Up: Top
+
+A figure
+
+Figure
+* Menu:
+
+* Figure: ‘node’.                        
+
+   Ref to node *note node::.
+
+   Ref to @samp{node} *note node::.
+
+
+Tag Table:
+Node: Top27
+Node: node95
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+
+$result_converted{'html'}->{'equivalent_nodes_defined_linked'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+td.menu-entry-description {vertical-align: top}
+td.menu-entry-destination {vertical-align: top}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a class="node-id" id="Top"></a><div class="nav-panel">
+<p>
+Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
+</div>
+<h1 class="node">Top</h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><strong class="strong">node</strong></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</td></tr>
+</table>
+
+<hr>
+<a class="node-id" id="node"></a><div class="nav-panel">
+<p>
+Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<h4 class="node">node</h4>
+
+<div class="float">
+<p>A figure
+</p><div class="type-number-float"><p><strong class="strong">Figure</strong></p></div></div>
+<dl class="listoffloats">
+</dl>
+
+<p>Ref to node <a class="ref" href="#node">node</a>.
+</p>
+<p>Ref to @samp{node} <a class="ref" href="#node">node</a>.
+</p>
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'equivalent_nodes_defined_linked'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'equivalent_nodes.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }
