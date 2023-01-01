@@ -1,5 +1,11 @@
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): use only
+	one place in code to add the raw line in nested raw blocks.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization),
 	(_process_remaining_on_line, _end_line_misc_line, _parse_texi):
 	rename conditionals_stack as conditional_stack to match XS parser.

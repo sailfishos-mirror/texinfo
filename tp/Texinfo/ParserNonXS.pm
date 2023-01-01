@@ -4133,6 +4133,7 @@ sub _process_remaining_on_line($$$$)
   if ($current->{'cmdname'}
       and $block_commands{$current->{'cmdname'}}
       and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+    my $closed_nested_raw;
     # r?macro may be nested
     if ((($current->{'cmdname'} eq 'macro'
           or $current->{'cmdname'} eq 'rmacro')
@@ -4142,10 +4143,6 @@ sub _process_remaining_on_line($$$$)
       push @{$self->{'raw_block_stack'}}, $1;
       print STDERR "RAW SECOND LEVEL \@$current->{'cmdname'}\n"
         if ($self->{'DEBUG'});
-      push @{$current->{'contents'}},
-        { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-      $retval = $GET_A_NEW_LINE;
-      goto funexit;
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
              and ($2 eq $current->{'cmdname'})) {
       if (scalar(@{$self->{'raw_block_stack'}}) == 0) {
@@ -4188,25 +4185,23 @@ sub _process_remaining_on_line($$$$)
             }
           }
         }
+        print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+        # start a new line for the @end line (without the first spaces on
+        # the line that have already been put in a raw container).
+        # This is normally done at the beginning of a line, but not here,
+        # as we directly got the line.  As the @end is processed just below,
+        # an empty line will not appear in the output, but it is needed to
+        # avoid a duplicate warning on @end not appearing at the beginning
+        # of the line
+        push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                          'text' => '',
+                                          'parent' => $current };
+        $closed_nested_raw = 1;
       } else {
         my $closed_cmdname = pop @{$self->{'raw_block_stack'}};
-        push @{$current->{'contents'}},
-          { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-        $retval = $GET_A_NEW_LINE;
-        goto funexit;
       }
-      print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-      # start a new line for the @end line (without the first spaces on
-      # the line that have already been put in a raw container).
-      # This is normally done at the beginning of a line, but not here,
-      # as we directly got the line.  As the @end is processed just below,
-      # an empty line will not appear in the output, but it is needed to
-      # avoid a duplicate warning on @end not appearing at the beginning
-      # of the line
-      push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                        'text' => '',
-                                        'parent' => $current };
-    } else {
+    }
+    if (not $closed_nested_raw) {
       push @{$current->{'contents'}},
         { 'text' => $line, 'type' => 'raw', 'parent' => $current };
       $retval = $GET_A_NEW_LINE;

@@ -1153,6 +1153,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       char *p = line;
       enum command_id cmd = 0;
+      int closed_nested_raw = 0;
       /* Check if we are using a macro within a macro. */
       if (current->cmd == CM_macro || current->cmd == CM_rmacro)
         {
@@ -1182,20 +1183,11 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
       if (cmd)
         {
-          ELEMENT *e;
-          e = new_element (ET_raw);
-          text_append (&e->text, line);
-          add_to_element_contents (current, e);
-
           push_raw_block_stack (cmd);
-
-          retval = GET_A_NEW_LINE;
-          goto funexit;
         }
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current, &p, &end_cmd))
+      else if (is_end_current_command (current, &p, &end_cmd))
         {
-          ELEMENT *e;
           if (raw_block_number == 0)
             {
               ELEMENT *e;
@@ -1246,32 +1238,25 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                         }
                     }
                 }
-            }
-          else
-            {
-              ELEMENT *e;
-              e = new_element (ET_raw);
-              text_append (&e->text, line);
+              debug ("CLOSED raw %s", command_name(end_cmd));
+             /* start a new line for the @end line (without the first spaces on
+                the line that have already been put in a raw container).
+                This is normally done at the beginning of a line, but not here,
+                as we directly got the line.  As the @end is processed just below,
+                an empty line will not appear in the output, but it is needed to
+                avoid a duplicate warning on @end not appearing at the beginning
+                of the line */
+              e = new_element (ET_empty_line);
               add_to_element_contents (current, e);
 
-              pop_raw_block_stack();
-
-              retval = GET_A_NEW_LINE;
-              goto funexit;
+              closed_nested_raw = 1;
             }
-
-          debug ("CLOSED raw %s", command_name(end_cmd));
-         /* start a new line for the @end line (without the first spaces on
-            the line that have already been put in a raw container).
-            This is normally done at the beginning of a line, but not here,
-            as we directly got the line.  As the @end is processed just below,
-            an empty line will not appear in the output, but it is needed to
-            avoid a duplicate warning on @end not appearing at the beginning
-            of the line */
-          e = new_element (ET_empty_line);
-          add_to_element_contents (current, e);
+          else
+            pop_raw_block_stack();
         }
-      else /* save the line verbatim */
+
+      /* save the line verbatim */
+      if (! closed_nested_raw)
         {
           ELEMENT *e;
           e = new_element (ET_raw);
