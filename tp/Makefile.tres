@@ -1558,7 +1558,11 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/node_footnote_use_node/res_html/a.html \
   t/results/moresectioning/node_footnote_use_node/res_html/chapter.html \
   t/results/moresectioning/node_footnote_use_node/res_html/index.html \
-  t/results/moresectioning/node_footnote_use_node/res_html/node_footnote_abt.html \
+  t/results/moresectioning/node_footnote_use_node_separate.pl \
+  t/results/moresectioning/node_footnote_use_node_separate/res_html/a.html \
+  t/results/moresectioning/node_footnote_use_node_separate/res_html/chapter.html \
+  t/results/moresectioning/node_footnote_use_node_separate/res_html/index.html \
+  t/results/moresectioning/node_footnote_use_node_separate/res_html/node_footnote_fot.html \
   t/results/moresectioning/nodes_after_top_before_chapter.pl \
   t/results/moresectioning/nodes_after_top_before_chapter/res_html/nodes_after_top_before_chapter.html \
   t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter.pl \
