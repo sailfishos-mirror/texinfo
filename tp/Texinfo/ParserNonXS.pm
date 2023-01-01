@@ -135,7 +135,7 @@ my %parser_state_initialization = (
                               # values are arrays for global multiple
                               # @-commands and a value for non multiple
                               # global @-commands.
-  'conditionals_stack' => [], # a stack of conditional commands that are
+  'conditional_stack' => [],  # a stack of conditional commands that are
                               # expanded.
   'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'floats' => {},             # key is the normalized float type, value is
@@ -3001,9 +3001,9 @@ sub _end_line_misc_line($$$)
           } else {
             print STDERR "END BLOCK $end_command\n" if ($self->{'DEBUG'});
             if ($block_commands{$end_command} eq 'conditional') {
-              if (@{$self->{'conditionals_stack'}}
-                and $self->{'conditionals_stack'}->[-1] eq $end_command) {
-                pop @{$self->{'conditionals_stack'}};
+              if (@{$self->{'conditional_stack'}}
+                and $self->{'conditional_stack'}->[-1] eq $end_command) {
+                pop @{$self->{'conditional_stack'}};
               } else {
                 $self->_command_error($current, $source_info,
                                   __("unmatched `%c%s'"), ord('@'), 'end');
@@ -5278,7 +5278,7 @@ sub _process_remaining_on_line($$$$)
                                                          if ($self->{'DEBUG'});
         }
         if ($ifvalue_true) {
-          push @{$self->{'conditionals_stack'}}, $command;
+          push @{$self->{'conditional_stack'}}, $command;
         } else {
           push @{$current->{'contents'}}, { 'cmdname' => $command,
                                             'parent' => $current,
@@ -6015,7 +6015,7 @@ sub _parse_texi($$$)
          if ($source_info);
       print STDERR "NEW LINE("
          .join('|', $self->_get_context_stack())
-         .":@{$self->{'conditionals_stack'}}:$line_text): $line";
+         .":@{$self->{'conditional_stack'}}:$line_text): $line";
       #print STDERR "CONTEXT_STACK ".join('|',$self->_get_context_stack())."\n";
       #print STDERR "  $current: "
       #             .Texinfo::Common::debug_print_element_short($current)."\n";
@@ -6066,8 +6066,8 @@ sub _parse_texi($$$)
     }
   }
  finished_totally:
-  while (@{$self->{'conditionals_stack'}}) {
-    my $end_conditional = pop @{$self->{'conditionals_stack'}};
+  while (@{$self->{'conditional_stack'}}) {
+    my $end_conditional = pop @{$self->{'conditional_stack'}};
     $self->_line_error(sprintf(__("expected \@end %s"), $end_conditional),
                       $source_info);
   }
