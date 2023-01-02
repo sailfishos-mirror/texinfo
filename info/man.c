@@ -67,7 +67,7 @@ size_t manpage_node_slots = 0;
 
 /* Check if a man page exists.  Use "man -w" for this rather than getting
    the contents of the man page.  This is faster if we are running
-   "info --where" and we don't need the contents.
+   "info --where" and we don't need the contents. */
 int
 check_manpage_node (char *pagename)
 {
