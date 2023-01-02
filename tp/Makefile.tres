@@ -639,6 +639,19 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/mathjax_with_texinfo_html_text.pl \
   t/results/html_tests/mathjax_with_texinfo_no_convert_to_latex.pl \
   t/results/html_tests/no_use_iso.pl \
+  t/results/html_tests/node_footnote_end.pl \
+  t/results/html_tests/node_footnote_end/res_html/node_footnote.html \
+  t/results/html_tests/node_footnote_separated.pl \
+  t/results/html_tests/node_footnote_separated/res_html/node_footnote.html \
+  t/results/html_tests/node_footnote_use_node.pl \
+  t/results/html_tests/node_footnote_use_node/res_html/a.html \
+  t/results/html_tests/node_footnote_use_node/res_html/chapter.html \
+  t/results/html_tests/node_footnote_use_node/res_html/index.html \
+  t/results/html_tests/node_footnote_use_node_separate.pl \
+  t/results/html_tests/node_footnote_use_node_separate/res_html/a.html \
+  t/results/html_tests/node_footnote_use_node_separate/res_html/chapter.html \
+  t/results/html_tests/node_footnote_use_node_separate/res_html/index.html \
+  t/results/html_tests/node_footnote_use_node_separate/res_html/node_footnote_fot.html \
   t/results/html_tests/raw_html.pl \
   t/results/html_tests/redirection_same_labels.pl \
   t/results/html_tests/redirection_same_labels/res_html/circumflex.html \
@@ -646,6 +659,26 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/redirection_same_labels/res_html/index.html \
   t/results/html_tests/redirection_same_labels/res_html/umlaut.html \
   t/results/html_tests/ref_in_preformatted.pl \
+  t/results/html_tests/sectioning_frames.pl \
+  t/results/html_tests/sectioning_frames/res_html/First-node.html \
+  t/results/html_tests/sectioning_frames/res_html/Last-node-no-description.html \
+  t/results/html_tests/sectioning_frames/res_html/Second-node.html \
+  t/results/html_tests/sectioning_frames/res_html/Third-node-unnumbered.html \
+  t/results/html_tests/sectioning_frames/res_html/between-node.html \
+  t/results/html_tests/sectioning_frames/res_html/index.html \
+  t/results/html_tests/sectioning_frames/res_html/numbered-sub.html \
+  t/results/html_tests/sectioning_frames/res_html/numbered-sub2.html \
+  t/results/html_tests/sectioning_frames/res_html/numbered-sub3.html \
+  t/results/html_tests/sectioning_frames/res_html/numbered.html \
+  t/results/html_tests/sectioning_frames/res_html/sectioning_abt.html \
+  t/results/html_tests/sectioning_frames/res_html/sectioning_frame.html \
+  t/results/html_tests/sectioning_frames/res_html/sectioning_ovr.html \
+  t/results/html_tests/sectioning_frames/res_html/sectioning_toc.html \
+  t/results/html_tests/sectioning_frames/res_html/sectioning_toc_frame.html \
+  t/results/html_tests/sectioning_frames/res_html/unnumbered-sub.html \
+  t/results/html_tests/sectioning_frames/res_html/unnumbered-sub2.html \
+  t/results/html_tests/sectioning_frames/res_html/unnumbered.html \
+  t/results/html_tests/sectioning_frames/res_html/unnumbered2.html \
   t/results/html_tests/shortcontents_no_top.pl \
   t/results/html_tests/shorttitlepage.pl \
   t/results/html_tests/simple_menu.pl \
@@ -1548,39 +1581,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/vskip.pl \
   t/results/morecoverage/formatting_fr.pl \
   t/results/morecoverage/texi_formatting.pl \
-  t/results/moresectioning/node_footnote_end.pl \
-  t/results/moresectioning/node_footnote_end/res_html/node_footnote.html \
-  t/results/moresectioning/node_footnote_separated.pl \
-  t/results/moresectioning/node_footnote_separated/res_html/node_footnote.html \
-  t/results/moresectioning/node_footnote_use_node.pl \
-  t/results/moresectioning/node_footnote_use_node/res_html/a.html \
-  t/results/moresectioning/node_footnote_use_node/res_html/chapter.html \
-  t/results/moresectioning/node_footnote_use_node/res_html/index.html \
-  t/results/moresectioning/node_footnote_use_node_separate.pl \
-  t/results/moresectioning/node_footnote_use_node_separate/res_html/a.html \
-  t/results/moresectioning/node_footnote_use_node_separate/res_html/chapter.html \
-  t/results/moresectioning/node_footnote_use_node_separate/res_html/index.html \
-  t/results/moresectioning/node_footnote_use_node_separate/res_html/node_footnote_fot.html \
-  t/results/moresectioning/sectioning_frames.pl \
-  t/results/moresectioning/sectioning_frames/res_html/First-node.html \
-  t/results/moresectioning/sectioning_frames/res_html/Last-node-no-description.html \
-  t/results/moresectioning/sectioning_frames/res_html/Second-node.html \
-  t/results/moresectioning/sectioning_frames/res_html/Third-node-unnumbered.html \
-  t/results/moresectioning/sectioning_frames/res_html/between-node.html \
-  t/results/moresectioning/sectioning_frames/res_html/index.html \
-  t/results/moresectioning/sectioning_frames/res_html/numbered-sub.html \
-  t/results/moresectioning/sectioning_frames/res_html/numbered-sub2.html \
-  t/results/moresectioning/sectioning_frames/res_html/numbered-sub3.html \
-  t/results/moresectioning/sectioning_frames/res_html/numbered.html \
-  t/results/moresectioning/sectioning_frames/res_html/sectioning_abt.html \
-  t/results/moresectioning/sectioning_frames/res_html/sectioning_frame.html \
-  t/results/moresectioning/sectioning_frames/res_html/sectioning_ovr.html \
-  t/results/moresectioning/sectioning_frames/res_html/sectioning_toc.html \
-  t/results/moresectioning/sectioning_frames/res_html/sectioning_toc_frame.html \
-  t/results/moresectioning/sectioning_frames/res_html/unnumbered-sub.html \
-  t/results/moresectioning/sectioning_frames/res_html/unnumbered-sub2.html \
-  t/results/moresectioning/sectioning_frames/res_html/unnumbered.html \
-  t/results/moresectioning/sectioning_frames/res_html/unnumbered2.html \
   t/results/moresectioning/top_node_up_explicit.pl \
   t/results/moresectioning/top_node_up_explicit/res_html/top_node_up_explicit.html \
   t/results/moresectioning/top_node_up_implicit.pl \
