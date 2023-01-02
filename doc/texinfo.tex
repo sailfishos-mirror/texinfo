@@ -3,9 +3,9 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-12-29.21}
+\def\texinfoversion{2023-01-02.21}
 %
-% Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
+% Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
 % This texinfo.tex file is free software: you can redistribute it and/or
 % modify it under the terms of the GNU General Public License as
@@ -3743,8 +3743,8 @@ $$%
               want the contents after the title page.}}%
 
 \parseargdef\shorttitlepage{%
-  \begingroup \hbox{}\vskip 1.5in \chaprm \centerline{#1}%
-  \endgroup\page\hbox{}\page}
+  {\headingsoff \begingroup \hbox{}\vskip 1.5in \chaprm \centerline{#1}%
+  \endgroup\page\hbox{}\page}\pageone}
 
 \envdef\titlepage{%
   % Open one extra group, as we want to close it in the middle of \Etitlepage.

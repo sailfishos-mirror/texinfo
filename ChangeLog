@@ -1,5 +1,12 @@
 2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (@shorttitlepage): Call \headingsoff
+	within a group and reset page number with \pageone, as
+	is done in @titlepage.  This stops page numbers appearing
+	on the bastard titlepage or the verso.  Report from Arnold Robbins.
+
+2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/man.c (check_manpage_node): Revert to using "man -w"
 	instead of "man --where" to work on FreeBSD and macOS.
 	Disable this code if __sun is defined.  From Bruno Haible.
