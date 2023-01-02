@@ -1,5 +1,15 @@
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/80include.t:
+	add test_two_include test in 80include.t which is an inlining of the
+	t/input_files/test_two_include.texi file.  Remove
+	t/input_files/test_two_include.texi.  Move version.texi from
+	t/input_files/ to t/include/.
+	Remove the t/input_files/unknown_nodes_renamed.texi and
+	t/input_files/unknown_nodes_renamed-noderename.cnf unused files.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/92formatting.t:
 	remove the documentlanguage_set_* tests and the
 	documentlanguage_set.texi file.

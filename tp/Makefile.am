@@ -153,6 +153,7 @@ test_files = \
  t/include/this_is_a_long_unknown_file.png \
  t/include/verbatim_encoded.texi \
  t/include/verbatim_encoded_latin1.texi \
+ t/include/version.texi \
  t/include/words.txt \
  t/include/f--ile.png \
  t/include/f--ile.txt \
@@ -241,13 +242,9 @@ test_files = \
  t/input_files/simplest_no_node_section.texi \
  t/input_files/special_spaces_in_nodes.texi \
  t/input_files/test_refs.texi \
- t/input_files/test_two_include.texi \
  t/input_files/topic_guide.texi \
  t/input_files/things_before_setfilename_no_element.texi \
  t/input_files/things_before_setfilename.texi \
- t/input_files/unknown_nodes_renamed.texi \
- t/input_files/unknown_nodes_renamed-noderename.cnf \
- t/input_files/version.texi \
  t/input_files/htmlxref.cnf \
  t/input_files/htmlxref-mono.cnf \
  t/input_files/htmlxref-split.cnf \

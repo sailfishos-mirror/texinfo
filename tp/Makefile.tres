@@ -767,6 +767,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/include/no_eol_in_included_file.pl \
   t/results/include/simple.pl \
   t/results/include/simple_no_eol.pl \
+  t/results/include/test_two_include.pl \
   t/results/include/value_expansion_in_include.pl \
   t/results/include/verbatiminclude_and_encoding.pl \
   t/results/include/verbatiminclude_and_encoding_latin1.pl \

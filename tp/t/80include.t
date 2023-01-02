@@ -23,6 +23,15 @@ Following
 Call macro
 @themacro{}
 '],
+['test_two_include',
+'Include version
+@include version.texi
+
+include inc_file
+@include inc_file.texi
+
+After inclusion.
+'],
 ['value_expansion_in_include',
 '@set testvar incl-incl.txi
 
