@@ -1,5 +1,10 @@
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/indices/Makefile.am (EXTRA_DIST, distclean-local): remove
+	references to *_parser_info.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_defaults)
 	(_set_variables_texi2html): copy %defaults and modify the copy in
 	_set_variables_texi2html() instead of changing the file global
