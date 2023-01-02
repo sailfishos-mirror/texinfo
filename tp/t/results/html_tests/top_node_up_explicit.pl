@@ -5,85 +5,9 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'top_node_up_implicit'} = {
+$result_trees{'top_node_up_explicit'} = {
   'contents' => [
     {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo  @c public domain
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'top_node_up_implicit'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'top_node_up_implicit'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'top_node_up_implicit.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'text' => ' should replace implicit Up.
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' should replace implicit Up.
-'
-                ]
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -94,9 +18,58 @@ $result_trees{'top_node_up_implicit'} = {
               'text' => 'Top'
             }
           ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '('
+            },
+            {
+              'text' => 'dir'
+            },
+            {
+              'text' => ')'
+            }
+          ],
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '('
+            },
+            {
+              'text' => 'weird'
+            },
+            {
+              'text' => ')'
+            }
+          ],
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '('
+            },
+            {
+              'text' => 'dir'
+            },
+            {
+              'text' => ')'
+            }
+          ],
           'info' => {
             'spaces_after_argument' => '
-'
+',
+            'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
         }
@@ -112,6 +85,21 @@ $result_trees{'top_node_up_implicit'} = {
               {}
             ],
             'normalized' => 'Top'
+          },
+          {
+            'manual_content' => [
+              {}
+            ]
+          },
+          {
+            'manual_content' => [
+              {}
+            ]
+          },
+          {
+            'manual_content' => [
+              {}
+            ]
           }
         ],
         'normalized' => 'Top'
@@ -120,8 +108,8 @@ $result_trees{'top_node_up_implicit'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'top_node_up_implicit.texi',
-        'line_nr' => 6,
+        'file_name' => '',
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -216,8 +204,8 @@ $result_trees{'top_node_up_implicit'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'top_node_up_implicit.texi',
-                'line_nr' => 12,
+                'file_name' => '',
+                'line_nr' => 7,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -245,15 +233,15 @@ $result_trees{'top_node_up_implicit'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => 'top_node_up_implicit.texi',
-                'line_nr' => 13,
+                'file_name' => '',
+                'line_nr' => 8,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => 'top_node_up_implicit.texi',
-            'line_nr' => 11,
+            'file_name' => '',
+            'line_nr' => 6,
             'macro' => ''
           }
         },
@@ -268,8 +256,8 @@ $result_trees{'top_node_up_implicit'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'top_node_up_implicit.texi',
-        'line_nr' => 7,
+        'file_name' => '',
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -307,8 +295,8 @@ $result_trees{'top_node_up_implicit'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'top_node_up_implicit.texi',
-        'line_nr' => 15,
+        'file_name' => '',
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -342,11 +330,6 @@ $result_trees{'top_node_up_implicit'} = {
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         }
       ],
       'extra' => {},
@@ -354,37 +337,25 @@ $result_trees{'top_node_up_implicit'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'top_node_up_implicit.texi',
-        'line_nr' => 16,
+        'file_name' => '',
+        'line_nr' => 11,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_node_up_implicit'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_implicit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_implicit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'top_node_up_implicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
-$result_trees{'top_node_up_implicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'top_node_up_implicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_implicit'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_implicit'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
+$result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
-$result_texis{'top_node_up_implicit'} = '\\input texinfo  @c public domain
-@setfilename top_node_up_implicit
-
-@c should replace implicit Up.
-
-@node Top
+$result_texis{'top_node_up_explicit'} = '@node Top, (dir), (weird), (dir)
 @top The top
 
 Just a top node.
@@ -397,14 +368,10 @@ Just a top node.
 @chapter A chapter
 
 Without the chapter, no up node from top is generated.
-
-@bye
 ';
 
 
-$result_texts{'top_node_up_implicit'} = '
-
-The top
+$result_texts{'top_node_up_explicit'} = 'The top
 *******
 
 Just a top node.
@@ -415,10 +382,9 @@ Just a top node.
 ***********
 
 Without the chapter, no up node from top is generated.
-
 ';
 
-$result_sectioning{'top_node_up_implicit'} = {
+$result_sectioning{'top_node_up_explicit'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -466,12 +432,12 @@ $result_sectioning{'top_node_up_implicit'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'top_node_up_implicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_implicit'};
+$result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'top_node_up_explicit'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_node_up_explicit'};
 
-$result_nodes{'top_node_up_implicit'} = {
+$result_nodes{'top_node_up_explicit'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -504,18 +470,41 @@ $result_nodes{'top_node_up_implicit'} = {
       },
       'info' => {},
       'structure' => {
-        'node_prev' => {},
         'node_up' => {}
       }
     },
-    'node_next' => {}
+    'node_next' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      }
+    },
+    'node_prev' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'weird'
+          }
+        ]
+      }
+    },
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      }
+    }
   }
 };
-$result_nodes{'top_node_up_implicit'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'top_node_up_implicit'};
-$result_nodes{'top_node_up_implicit'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'top_node_up_implicit'};
-$result_nodes{'top_node_up_implicit'}{'structure'}{'node_next'} = $result_nodes{'top_node_up_implicit'}{'structure'}{'menu_child'};
+$result_nodes{'top_node_up_explicit'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'top_node_up_explicit'};
 
-$result_menus{'top_node_up_implicit'} = {
+$result_menus{'top_node_up_explicit'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -537,12 +526,64 @@ $result_menus{'top_node_up_implicit'} = {
     }
   }
 };
-$result_menus{'top_node_up_implicit'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'top_node_up_implicit'};
+$result_menus{'top_node_up_explicit'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'top_node_up_explicit'};
 
-$result_errors{'top_node_up_implicit'} = [];
+$result_errors{'top_node_up_explicit'} = [];
 
 
-$result_floats{'top_node_up_implicit'} = {};
+$result_floats{'top_node_up_explicit'} = {};
 
+
+
+$result_converted{'html'}->{'top_node_up_explicit'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>The top</title>
+
+<meta name="description" content="The top">
+<meta name="keywords" content="The top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="http://etop.example.org" rel="up" title="(dir)">
+
+
+</head>
+
+<body lang="en">
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="dir.html#Top" accesskey="n" rel="next">(dir)</a>, Previous: <a href="weird.html#Top" accesskey="p" rel="prev">(weird)</a>, Up: <a href="http://etop.example.org" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
+</div>
+<h1 class="top" id="The-top">The top</h1>
+
+<p>Just a top node.
+</p>
+
+<ul class="mini-toc">
+<li><a href="#Chap" accesskey="1">A chapter</a></li>
+</ul>
+<hr>
+<div class="chapter-level-extent" id="Chap">
+<div class="nav-panel">
+<p>
+Up: <a href="#Top" accesskey="u" rel="up">The top</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="A-chapter">1 A chapter</h2>
+
+<p>Without the chapter, no up node from top is generated.
+</p></div>
+</div>
+
+
+
+</body>
+</html>
+';
 
 1;

@@ -32,7 +32,6 @@ test_tap_files_generated_list = \
   t/92formatting.t \
   t/93layout.t \
   t/94htmlxref.t \
-  t/96moresectioning.t \
   t/accents.t \
   t/automatic_menus.t \
   t/automatic_nodes.t \
@@ -720,6 +719,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/text_before_top_and_contents_after_title.pl \
   t/results/html_tests/text_before_top_and_summarycontents_after_title.pl \
   t/results/html_tests/titles.pl \
+  t/results/html_tests/top_node_up_explicit.pl \
+  t/results/html_tests/top_node_up_explicit_no_nodes.pl \
+  t/results/html_tests/top_node_up_implicit.pl \
+  t/results/html_tests/top_node_up_implicit_no_nodes.pl \
   t/results/html_tests/uref_accented_letter.pl \
   t/results/html_tests/uref_accented_letter_ascii.pl \
   t/results/html_tests/uref_accented_letter_latin1.pl \
@@ -1581,10 +1584,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/vskip.pl \
   t/results/morecoverage/formatting_fr.pl \
   t/results/morecoverage/texi_formatting.pl \
-  t/results/moresectioning/top_node_up_explicit.pl \
-  t/results/moresectioning/top_node_up_explicit/res_html/top_node_up_explicit.html \
-  t/results/moresectioning/top_node_up_implicit.pl \
-  t/results/moresectioning/top_node_up_implicit/res_html/top_node_up_implicit.html \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \

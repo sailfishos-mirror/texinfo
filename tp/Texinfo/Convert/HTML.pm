@@ -1287,12 +1287,6 @@ sub from_element_direction($$$;$$$)
   my $global_target_element = $self->global_direction_element($direction);
   if ($global_target_element) {
     $target_element = $global_target_element;
-  } elsif (not $target_element and $source_element and $source_element->{'extra'}
-      and $source_element->{'structure'}
-      and $source_element->{'structure'}->{'directions'}
-      and $source_element->{'structure'}->{'directions'}->{$direction}) {
-    $target_element
-      = $source_element->{'structure'}->{'directions'}->{$direction};
   # output TOP_NODE_UP related infos even if element is not
   # defined which should mostly correspond to cases when there is no
   # output file, for example in the tests.
@@ -1310,6 +1304,12 @@ sub from_element_direction($$$;$$$)
       cluck("type $type not available for TOP_NODE_UP\n");
       return '';
     }
+  } elsif (not $target_element and $source_element
+      and $source_element->{'structure'}
+      and $source_element->{'structure'}->{'directions'}
+      and $source_element->{'structure'}->{'directions'}->{$direction}) {
+    $target_element
+      = $source_element->{'structure'}->{'directions'}->{$direction};
   }
 
   if ($target_element) {

@@ -165,6 +165,36 @@ my $check_htmlxref_text = '
 @chapter Chapter
 ';
 
+my $top_node_up_implicit_text = '@node Top
+@top The top
+
+Just a top node.
+
+@menu
+* Chap::
+@end menu
+
+@node Chap
+@chapter A chapter
+
+Without the chapter, no up node from top is generated.
+';
+
+my $top_node_up_explicit_text =
+'@node Top, (dir), (weird), (dir)
+@top The top
+
+Just a top node.
+
+@menu
+* Chap::
+@end menu
+
+@node Chap
+@chapter A chapter
+
+Without the chapter, no up node from top is generated.
+';
 
 my @test_cases = (
 ['verbatim_in_multitable_in_example',
@@ -347,6 +377,25 @@ in cartouche in menu comment in menu in example
 @end menu
 @end example
 ', {'SIMPLE_MENU' => 1, 'test_formats' => ['info']}, {'FORMAT_MENU' => 'menu'}],
+# the following tests are somewhat redundant with tests in
+# XXsectioning.t, but here there is a clearer comparison with
+# and without 'USE_NODES' here.  There is no test of TOP_NODE_UP, here, however.
+['top_node_up_implicit',
+$top_node_up_implicit_text,
+{}, {'TOP_NODE_UP_URL' => 'http://itop.example.org'},
+],
+['top_node_up_implicit_no_nodes',
+$top_node_up_implicit_text,
+{}, {'TOP_NODE_UP_URL' => 'http://itop.example.org', 'USE_NODES' => 0},
+],
+['top_node_up_explicit',
+$top_node_up_explicit_text,
+{}, {'TOP_NODE_UP_URL' => 'http://etop.example.org'},
+],
+['top_node_up_explicit_no_nodes',
+$top_node_up_explicit_text,
+{}, {'TOP_NODE_UP_URL' => 'http://etop.example.org', 'USE_NODES' => 0},
+],
 ['character_number_leading_toc_stoc',
 '@top top
 @chapter 0
