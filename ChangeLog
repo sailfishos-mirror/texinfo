@@ -1,5 +1,13 @@
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/tests/layout/list-of-tests, tp/t/91morecoverage.t: move
+	formatting_fr tests from tp/t/91morecoverage.t to
+	tp/tests/layout/list-of-tests.  Remove the associated file, remove
+	tp/t/91morecoverage.t.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (from_element_direction): use
 	TOP_NODE_UP_URL in priority, even if the Up/NodeUp direction
 	is set.
@@ -8,7 +16,7 @@
 	t/96moresectioning.t: inline top_node_up_implicit and
 	top_node_up_explicit tests from 96moresectioning.t in t/html_tests.t,
 	adding variants with USE_NODES set to 0.  Remove the corresponding
-	files.  Remove the nw empty 96moresectioning.t file.
+	files.  Remove the now empty 96moresectioning.t file.
 
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 

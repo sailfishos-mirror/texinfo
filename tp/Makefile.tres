@@ -28,7 +28,6 @@ test_tap_files_generated_list = \
   t/60macro.t \
   t/70value_and_macro.t \
   t/80include.t \
-  t/91morecoverage.t \
   t/92formatting.t \
   t/93layout.t \
   t/94htmlxref.t \
@@ -1582,8 +1581,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/text_before_and_after_bye.pl \
   t/results/misc_commands/text_before_line_command.pl \
   t/results/misc_commands/vskip.pl \
-  t/results/morecoverage/formatting_fr.pl \
-  t/results/morecoverage/texi_formatting.pl \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \
