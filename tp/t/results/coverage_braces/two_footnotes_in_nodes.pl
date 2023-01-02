@@ -841,59 +841,6 @@ C(1)
 ';
 
 
-$result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
- &nbsp; </p>
-</div>
-<h1 class="top" id="g_t2-footnotes-in-2-nodes">2 footnotes in 2 nodes</h1>
-
-<p>A<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
-</p>
-<p>B<a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>
-</p>
-
-<ul class="mini-toc">
-<li><a href="#chapter" accesskey="1">chapter</a></li>
-</ul>
-<hr>
-<div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-<p>
- &nbsp; </p>
-</div>
-<h2 class="chapter" id="chapter-1">1 chapter</h2>
-
-<p>C<a class="footnote" id="DOCF3" href="#FOOT3"><sup>3</sup></a>
-</p>
-<p>D<a class="footnote" id="DOCF4" href="#FOOT4"><sup>4</sup></a>
-</p>
-</div>
-</div>
-<div class="footnotes-segment">
-<hr>
-<h4 class="footnotes-heading">Footnotes</h4>
-
-<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
-<p>Footnote Top/1
-</p>
-<p>para2</p>
-<h5 class="footnote-body-heading"><a id="FOOT2" href="#DOCF2">(2)</a></h5>
-<p>Footnote Top/2
-</p>
-<p>para2</p>
-<h5 class="footnote-body-heading"><a id="FOOT3" href="#DOCF3">(3)</a></h5>
-<p>Footnote chapter/1
-</p>
-<p>para2</p>
-<h5 class="footnote-body-heading"><a id="FOOT4" href="#DOCF4">(4)</a></h5>
-<p>Footnote chapter/2
-</p>
-<p>para2</p>
-</div>
-';
-
-
 $result_converted{'latex_text'}->{'two_footnotes_in_nodes'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{chapter}}

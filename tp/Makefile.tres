@@ -1585,10 +1585,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/top_node_up_explicit/res_html/top_node_up_explicit.html \
   t/results/moresectioning/top_node_up_implicit.pl \
   t/results/moresectioning/top_node_up_implicit/res_html/top_node_up_implicit.html \
-  t/results/moresectioning/two_footnotes_in_nodes.pl \
-  t/results/moresectioning/two_footnotes_in_nodes/res_html/two_footnotes_in_nodes.html \
-  t/results/moresectioning/two_footnotes_in_nodes_separated.pl \
-  t/results/moresectioning/two_footnotes_in_nodes_separated/res_html/two_footnotes_in_nodes.html \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \

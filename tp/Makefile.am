@@ -248,7 +248,6 @@ test_files = \
  t/input_files/top_node_up_explicit.texi \
  t/input_files/top_node_up_implicit.texi \
  t/input_files/topic_guide.texi \
- t/input_files/two_footnotes_in_nodes.texi \
  t/input_files/things_before_setfilename_no_element.texi \
  t/input_files/things_before_setfilename.texi \
  t/input_files/unknown_nodes_renamed.texi \

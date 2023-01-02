@@ -372,7 +372,8 @@ third}
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
-  push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'html_text'
+    unless grep {$_ eq 'html'} @{$test->[2]->{'test_formats'}};
   push @{$test->[2]->{'test_formats'}}, 'latex_text';
 }
 
