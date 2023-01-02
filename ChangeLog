@@ -1,3 +1,9 @@
+2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/man.c (check_manpage_node): Revert to using "man -w"
+	instead of "man --where" to work on FreeBSD and macOS.
+	Disable this code if __sun is defined.  From Bruno Haible.
+
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
