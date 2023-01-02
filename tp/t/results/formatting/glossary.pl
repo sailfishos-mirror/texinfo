@@ -287,7 +287,7 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'text' => '@expandglossary {@glossarytext}
+                  'text' => '@expandglossary {@glossarytext{}}
 ',
                   'type' => 'raw'
                 },
@@ -679,7 +679,7 @@ $result_trees{'glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'text' => '@glossarytext
+                  'text' => '@glossarytext{}
 ',
                   'type' => 'raw'
                 },
@@ -926,7 +926,7 @@ $result_trees{'glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'text' => '@glossarytext
+                  'text' => '@glossarytext{}
 ',
                   'type' => 'raw'
                 },
@@ -1150,7 +1150,7 @@ $result_texis{'glossary'} = '\\input texinfo.tex
 \\text\\
 @end macro
 @end macro
-@expandglossary {@glossarytext}
+@expandglossary {@glossarytext{}}
 
 @end macro
 
@@ -1173,7 +1173,7 @@ text1, arg1
 @end macro
 @unmacro glossarytext
 @macro glossarytext
-@glossarytext
+@glossarytext{}
 @item name1 @anchor{id1}
 text1, arg1 
 @end macro
@@ -1190,7 +1190,7 @@ text2
 @end macro
 @unmacro glossarytext
 @macro glossarytext
-@glossarytext
+@glossarytext{}
 @item name2 @anchor{id2}
 text2
 @end macro

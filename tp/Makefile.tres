@@ -1485,6 +1485,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/recursive_call_in_macro.pl \
   t/results/macro/redefine_texinfo_macro.pl \
   t/results/macro/simple_imbricated_macro.pl \
+  t/results/macro/simple_imbricated_macro_rmacro.pl \
   t/results/macro/space_macro_after_end.pl \
   t/results/macro/space_macro_after_end_verbatim.pl \
   t/results/macro/text_before_after.pl \

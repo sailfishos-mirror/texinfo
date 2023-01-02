@@ -192,6 +192,15 @@ pop_raw_block_stack (void)
     return CM_NONE;
   return raw_block_stack[--raw_block_number];
 }
+
+enum command_id
+raw_block_stack_top (void)
+{
+  if (raw_block_number == 0)
+    return CM_NONE;
+  return raw_block_stack[raw_block_number-1];
+}
+
 
 /* Counters */
 COUNTER count_remaining_args;
@@ -1186,75 +1195,89 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           push_raw_block_stack (cmd);
         }
       /* Else check if line is "@end ..." for current command. */
-      else if (is_end_current_command (current, &p, &end_cmd))
+      else
         {
-          if (raw_block_number == 0)
+          ELEMENT *top_stack_raw_element;
+          enum command_id top_stack_cmd = raw_block_stack_top ();
+          if (top_stack_cmd == CM_NONE)
             {
-              ELEMENT *e;
-
-              if (strchr (whitespace_chars, *line))
-                {
-                  ELEMENT *e;
-                  int n = strspn (line, whitespace_chars);
-                  e = new_element (ET_raw);
-                  text_append_n (&e->text, line, n);
-                  add_to_element_contents (current, e);
-                  line += n;
-                  line_warn ("@end %s should only appear at the "
-                             "beginning of a line", command_name(end_cmd));
-                }
-
-              /* For macros, define a new macro. */
-              if (end_cmd == CM_macro || end_cmd == CM_rmacro)
-                {
-                  char *name;
-                  enum command_id existing;
-                  if (current->args.number > 0)
-                    {
-                      name = element_text (args_child_by_index (current, 0));
-
-                      existing = lookup_command (name);
-                      if (existing)
-                        {
-                          MACRO *macro;
-                          macro = lookup_macro (existing);
-                          if (macro)
-                            {
-                              line_error_ext (1, &current->source_info,
-                                 "macro `%s' previously defined", name);
-                              line_error_ext (1, &macro->element->source_info,
-                                 "here is the previous definition of `%s'", name);
-                            }
-                          else if (!(existing & USER_COMMAND_BIT))
-                            {
-                              line_error_ext (1, &current->source_info,
-                                "redefining Texinfo language command: @%s",
-                                name);
-                            }
-                        }
-                      if (!lookup_extra (current, "invalid_syntax"))
-                        {
-                          new_macro (name, current);
-                        }
-                    }
-                }
-              debug ("CLOSED raw %s", command_name(end_cmd));
-             /* start a new line for the @end line (without the first spaces on
-                the line that have already been put in a raw container).
-                This is normally done at the beginning of a line, but not here,
-                as we directly got the line.  As the @end is processed just below,
-                an empty line will not appear in the output, but it is needed to
-                avoid a duplicate warning on @end not appearing at the beginning
-                of the line */
-              e = new_element (ET_empty_line);
-              add_to_element_contents (current, e);
-
-              closed_nested_raw = 1;
+              top_stack_raw_element = current;
             }
           else
-            pop_raw_block_stack();
-        }
+            {
+              top_stack_raw_element = new_element (ET_NONE);
+              top_stack_raw_element->cmd = top_stack_cmd;
+            }
+          if (is_end_current_command (top_stack_raw_element, &p, &end_cmd))
+            {
+              if (raw_block_number == 0)
+                {
+                  ELEMENT *e;
 
+                  if (strchr (whitespace_chars, *line))
+                    {
+                      ELEMENT *e;
+                      int n = strspn (line, whitespace_chars);
+                      e = new_element (ET_raw);
+                      text_append_n (&e->text, line, n);
+                      add_to_element_contents (current, e);
+                      line += n;
+                      line_warn ("@end %s should only appear at the "
+                                 "beginning of a line", command_name(end_cmd));
+                    }
+                  /* For macros, define a new macro. */
+                  if (end_cmd == CM_macro || end_cmd == CM_rmacro)
+                    {
+                      char *name;
+                      enum command_id existing;
+                      if (current->args.number > 0)
+                        {
+                          name = element_text (args_child_by_index (current, 0));
+
+                          existing = lookup_command (name);
+                          if (existing)
+                            {
+                              MACRO *macro;
+                              macro = lookup_macro (existing);
+                              if (macro)
+                                {
+                                  line_error_ext (1, &current->source_info,
+                                     "macro `%s' previously defined", name);
+                                  line_error_ext (1, &macro->element->source_info,
+                                     "here is the previous definition of `%s'", name);
+                                }
+                              else if (!(existing & USER_COMMAND_BIT))
+                                {
+                                  line_error_ext (1, &current->source_info,
+                                    "redefining Texinfo language command: @%s",
+                                    name);
+                                }
+                            }
+                          if (!lookup_extra (current, "invalid_syntax"))
+                            {
+                              new_macro (name, current);
+                            }
+                        }
+                    }
+                  debug ("CLOSED raw %s", command_name(end_cmd));
+                 /* start a new line for the @end line (without the first spaces on
+                    the line that have already been put in a raw container).
+                    This is normally done at the beginning of a line, but not here,
+                    as we directly got the line.  As the @end is processed just below,
+                    an empty line will not appear in the output, but it is needed to
+                    avoid a duplicate warning on @end not appearing at the beginning
+                    of the line */
+                  e = new_element (ET_empty_line);
+                  add_to_element_contents (current, e);
+
+                  closed_nested_raw = 1;
+                }
+              else
+                pop_raw_block_stack();
+            }
+          if (top_stack_cmd != CM_NONE)
+            destroy_element (top_stack_raw_element);
+        }
       /* save the line verbatim */
       if (! closed_nested_raw)
         {
@@ -1614,7 +1637,7 @@ superfluous_arg:
       retval = STILL_MORE_TO_PROCESS;
       goto funexit;
     }
-   
+
   /* Brace commands not followed immediately by a brace
      opening.  In particular cases that may lead to "command closing"
      or following character association with an @-command, for accent

@@ -4141,10 +4141,13 @@ sub _process_remaining_on_line($$$$)
         or ($current->{'cmdname'} eq 'ignore'
             and $line =~ /^\s*\@(ignore)(\@|\s+)/)) {
       push @{$self->{'raw_block_stack'}}, $1;
-      print STDERR "RAW SECOND LEVEL \@$current->{'cmdname'}\n"
+      print STDERR "RAW SECOND LEVEL $1 in \@$current->{'cmdname'}\n"
         if ($self->{'DEBUG'});
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
-             and ($2 eq $current->{'cmdname'})) {
+             and ((scalar(@{$self->{'raw_block_stack'}}) > 0
+                   and $2 eq $self->{'raw_block_stack'}->[-1])
+                  or (scalar(@{$self->{'raw_block_stack'}}) == 0
+                      and $2 eq $current->{'cmdname'}))) {
       if (scalar(@{$self->{'raw_block_stack'}}) == 0) {
         if ($line =~ s/^(\s+)//) {
           push @{$current->{'contents'}},

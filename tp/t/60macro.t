@@ -436,6 +436,18 @@ bidule.
 
 @bidule{}
 '],
+['simple_imbricated_macro_rmacro',
+'@macro truc {}
+truc.
+@rmacro bidule {}
+bidule.
+@end rmacro
+@end macro
+
+@truc{}
+
+@bidule{}
+'],
 ['macro_in_macro_arg','
 @macro macroone
 a, @macrotwo
@@ -1019,44 +1031,10 @@ X\arg\X
 @include inc_file.texi
 '],
 );
-
-my @todo =(
+my @todo = (
 ['glossary',
-'@macro glossarytext
-@table @asis
-@end macro
-
-@macro glossary
-@glossarytext{}
-@end table
-
-@end macro
-
-@macro gentry {id, name, text}
-@ifhtml
-@ref{\id\,\name\}
-@end ifhtml
-@ifnothtml
-\name\ (@pxref{\id\})
-@end ifnothtml
-@unmacro expandglossary
-@macro expandglossary{glossary}
-@unmacro glossarytext
-@macro glossarytext
-\\\\glossary\\\\
-@item \name\ @anchor{\id\}
-\text\
-@end macro
-@end macro
-@expandglossary {@glossarytext{}}
-
-@end macro
-
-The @gentry{id1, name1, text1\, arg1 } is used in many cases while
-@gentry{id2, name2, text2} is quite specific
-
-@glossary{}
-']
+undef, {'test_file' => 'glossary.texi'},
+],
 );
 
 

@@ -1,5 +1,18 @@
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (raw_block_stack_top)
+	(process_remaining_on_line): use the stack of raw block commands to
+	determine the matching end of nested raw block command.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add simple_imbricated_macro_rmacro
+	test.
+
+	* tp/t/input_files/glossary.texi: use empty braces for calls of macros
+	without arguments.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/Makefile.tres,
 	tp/tests/layout/list-of-tests, tp/t/91morecoverage.t: move
 	formatting_fr tests from tp/t/91morecoverage.t to
