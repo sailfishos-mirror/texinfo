@@ -560,12 +560,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info \
   t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-1 \
   t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-2 \
-  t/results/formatting/documentlanguage_set_option.pl \
-  t/results/formatting/documentlanguage_set_option/res_html/documentlanguage_set.html \
-  t/results/formatting/documentlanguage_set_option_info.pl \
-  t/results/formatting/documentlanguage_set_option_info/res_info/documentlanguage_set.info \
-  t/results/formatting/documentlanguage_set_unknown.pl \
-  t/results/formatting/documentlanguage_set_unknown/res_html/documentlanguage_set.html \
   t/results/formatting/float_copying.pl \
   t/results/formatting/float_copying/res_html/Copying-and-floats.html \
   t/results/formatting/float_copying/res_html/caption-copying-footnote-anchor.html \
@@ -1226,6 +1220,15 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/itemize/w_argument.pl \
   t/results/languages/appendix_translated.pl \
   t/results/languages/command_translated.pl \
+  t/results/languages/documentlanguage.pl \
+  t/results/languages/documentlanguage/res_html/documentlanguage.html \
+  t/results/languages/documentlanguage/res_info/documentlanguage.info \
+  t/results/languages/documentlanguage_option.pl \
+  t/results/languages/documentlanguage_option/res_html/documentlanguage.html \
+  t/results/languages/documentlanguage_option/res_info/documentlanguage.info \
+  t/results/languages/documentlanguage_unknown.pl \
+  t/results/languages/documentlanguage_unknown/res_html/documentlanguage.html \
+  t/results/languages/documentlanguage_unknown/res_info/documentlanguage.info \
   t/results/languages/multiple.pl \
   t/results/languages/multiple_in_preamble.pl \
   t/results/languages/multiple_in_preamble_before_node.pl \

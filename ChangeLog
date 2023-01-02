@@ -1,3 +1,14 @@
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/92formatting.t:
+	remove the documentlanguage_set_* tests and the
+	documentlanguage_set.texi file.
+
+	* tp/t/languages.t, tp/Makefile.tres: add tests of setting
+	documentlanguage similar with tests removed from tp/t/92formatting.t
+	but using ../../tests/formatting/documentlanguage.texi, which
+	is more relevant.
+
 2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (@shorttitlepage): Call \headingsoff
