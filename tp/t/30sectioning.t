@@ -2146,8 +2146,10 @@ my @test_out_files = (
 $character_and_spaces_in_refs_text,
 {'test_split' => 'node'},],
 # test the texi2html style to test the style for tests
-# interesting to test diverse splitting options, and already
-# used for that above.
+# interesting to test diverse tree splitting options, and already
+# used for that above.  Since all the options for test_split have
+# already been tested before, it is not useful to do so here, but
+# USE_NODES is used for converters.
 ['nodes_after_top_before_chapter_texi2html',
   $nodes_after_top_before_chapter_text,
   {},

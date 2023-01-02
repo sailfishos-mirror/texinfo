@@ -218,17 +218,19 @@ sub unsplit($)
       or !$root->{'contents'}) {
     return;
   }
+  my $unsplit_needed = 0;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'structure'}) {
       if ($content->{'structure'}->{'associated_unit'}) {
         delete $content->{'structure'}->{'associated_unit'};
+        $unsplit_needed = 1;
       }
       if (scalar(keys(%{$content->{'structure'}})) == 0) {
         delete $content->{'structure'};
       }
     }
   }
-  return;
+  return $unsplit_needed;
 }
 
 sub compare_dirs_files($$;$)
@@ -872,11 +874,19 @@ sub test($$)
     $test_input_file_name = $parser_options->{'test_input_file_name'};
     delete $parser_options->{'test_input_file_name'};
   }
-  my $split = '';
+  # test_split should not interfere with output formats conversion
+  # as it is applied after the output formats.  Splitting should not interfere
+  # with conversion anyway.  Output formats using information added by
+  # splitting split themselves and reassociate all the root commands.
+  # Splitting means associating root commands to a unit element in the structure
+  # hash.  Converters that do not split can ignore this structure hash key and
+  # therefore should not be affected either.
+
+  my $test_split = '';
   if ($parser_options->{'test_split'}) {
-    $split = $parser_options->{'test_split'};
-    if ($split ne 'node' and $split ne 'section') {
-      warn "In test_utils.pl, test_split should be node or section, not $split\n";
+    $test_split = $parser_options->{'test_split'};
+    if ($test_split ne 'node' and $test_split ne 'section') {
+      warn "test_utils.pl: test_split should be node or section: $test_split\n";
     }
     delete $parser_options->{'test_split'};
   }
@@ -1308,20 +1318,30 @@ sub test($$)
     }
   }
   my $directions_text;
-  # re-associate top level command with the document_root in case a converter
-  # split the document, by resetting their 'parent' key.
+  # remove the association of top-level commands with element units, in case
+  # a converter split the document.
   # It may be noticed that this is only done after all conversions.  This
   # means that depending on the order of converters call, trees feed to
-  # converters may have a document_root as top level command parent or
-  # elements.  All the converters will have the document_root as argument.
-  unsplit($tree);
+  # converters may have element units.  All the converters will have the
+  # document_root as argument.
+  # It could be possible to unsplit before each converter call, but it is
+  # better to check that this does not have an effect on conversion.
+  # Any conversion to Info, Plaintext or HTML (both with output and convert)
+  # leads to splitting by the converter, and generally the tests order is
+  # first plaintext or info then html, so splitting not having an effect
+  # on conversion should be fairly well tested.  See above the comment
+  # near test_split with more explanation on why previous splitting should
+  # not interfere with conversion.
+  my $unsplit_needed = unsplit($tree);
+  print STDERR "  UNSPLIT: $test_name\n"
+    if ($self->{'DEBUG'} and $unsplit_needed);
   my $elements;
-  if ($split eq 'node') {
+  if ($test_split eq 'node') {
     $elements = Texinfo::Structuring::split_by_node($tree);
-  } elsif ($split eq 'section') {
+  } elsif ($test_split eq 'section') {
     $elements = Texinfo::Structuring::split_by_section($tree);
   }
-  if ($split) {
+  if ($test_split) {
     Texinfo::Structuring::elements_directions($parser, $labels, $elements);
     $directions_text = '';
     foreach my $element (@$elements) {

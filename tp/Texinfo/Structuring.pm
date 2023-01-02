@@ -905,6 +905,8 @@ sub section_level_adjusted_command_name($)
 
 # Return a list of tree units to be converted into pages.  Each tree unit
 # starts with a @node as its first child (except possibly the first one).
+# It is important that this function reassociates all the root commands
+# such that the result does not depend on the previous association (if any).
 sub split_by_node($)
 {
   my $root = shift;
@@ -938,6 +940,10 @@ sub split_by_node($)
       @pending_parts = ();
     }
     push @{$current->{'contents'}}, $content;
+    #if (defined($content->{'structure'})
+    #    and defined($content->{'structure'}->{'associated_unit'})) {
+    #  print STDERR "Resetting node associated_unit for $content\n";
+    #}
     #$content->{'structure'} = {} if (! $content->{'structure'});
     $content->{'structure'}->{'associated_unit'} = $current;
   }
@@ -954,7 +960,9 @@ sub split_by_node($)
 
 # Return a list of tree units to be converted into pages.  Each tree unit
 # starts with the @node associated with a sectioning command or with the
-# sectioning command if there is no associated node
+# sectioning command if there is no associated node.
+# It is important that this function reassociates all the root commands
+# such that the result does not depend on the previous association (if any).
 sub split_by_section($)
 {
   my $root = shift;
@@ -1003,6 +1011,10 @@ sub split_by_section($)
       }
     }
     push @{$current->{'contents'}}, $content;
+    #if (defined($content->{'structure'})
+    #    and defined($content->{'structure'}->{'associated_unit'})) {
+    #  print STDERR "Resetting section associated_unit for $content\n";
+    #}
     #$content->{'structure'} = {} if (! $content->{'structure'});
     $content->{'structure'}->{'associated_unit'} = $current;
   }

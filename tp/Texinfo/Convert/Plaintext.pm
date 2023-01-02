@@ -561,7 +561,8 @@ sub convert($$)
 }
 
 # the initialization of module specific state is not done in output()
-# as output() is generic, so it needs to be done here
+# as output() is the generic Converter::Convert function, so it needs
+# to be done here
 sub convert_tree($$)
 {
   my ($self, $root) = @_;
