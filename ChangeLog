@@ -1,5 +1,31 @@
 2023-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_defaults)
+	(_set_variables_texi2html): copy %defaults and modify the copy in
+	_set_variables_texi2html() instead of changing the file global
+	variable.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type): menu entry
+	node 'normalized' may be undefined if it consists in spaces only.
+
+	* tp/Makefile.tres, tp/t/30sectioning.t: new tests
+	in_menu_only_special_ascii_spaces_node_menu and
+	in_menu_only_special_spaces_node_menu with 'FORMAT_MENU' => 'menu'
+	based on tests with menu entry nodes consisting only in spaces.
+
+	* tp/Makefile.tres, tp/t/96moresectioning.t, tp/Makefile.am
+	(test_files), tp/t/30sectioning.t: move
+	nodes_after_top_before_chapter* and nodes_after_top_before_section*
+	tests from t/96moresectioning.t to t/30sectioning.t, use the inline
+	texts and remove the Texinfo files, and rename the tests with
+	_texi2html added.
+
+	* tp/Makefile.am (test_files), tp/t/96moresectioning.t: remove
+	t/input_files/sectioning.texi, use only
+	tests/sectioning/sectioning.texi.
+
+2023-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/96moresectioning.t: do not use the texi2html
 	style for node_footnote.texi related tests, instead set only the
 	relevant customization variables.  Add a test with node_footnote.texi,

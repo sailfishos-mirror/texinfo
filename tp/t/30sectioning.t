@@ -654,9 +654,16 @@ undef, {'test_file' => 'only_special_spaces_node.texi',
 # a subset of the next test, with ascii spaces only
 ['in_menu_only_special_ascii_spaces_node',
 undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'}],
+['in_menu_only_special_ascii_spaces_node_menu',
+undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'},
+{'FORMAT_MENU' => 'menu'}],
 ['in_menu_only_special_spaces_node',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
+['in_menu_only_special_spaces_node_menu',
+undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
+        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+       {'FORMAT_MENU' => 'menu'}],
 ['reference_to_only_special_spaces_node',
 undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
@@ -2138,6 +2145,34 @@ my @test_out_files = (
 ['character_and_spaces_in_refs_out',
 $character_and_spaces_in_refs_text,
 {'test_split' => 'node'},],
+# test the texi2html style to test the style for tests
+# interesting to test diverse splitting options, and already
+# used for that above.
+['nodes_after_top_before_chapter_texi2html',
+  $nodes_after_top_before_chapter_text,
+  {},
+  {'TEXI2HTML' => 1, }
+],
+['nodes_after_top_before_chapter_texi2html_use_nodes_chapter',
+  $nodes_after_top_before_chapter_text,
+  {},
+  {'TEXI2HTML' => 1, 'USE_NODES' => 1, 'SPLIT' => 'chapter'}
+],
+['nodes_after_top_before_section_texi2html_chapter',
+  $nodes_after_top_before_section_text,
+  {},
+  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
+],
+['nodes_after_top_before_section_texi2html_use_nodes',
+  $nodes_after_top_before_section_text,
+  {},
+  {'TEXI2HTML' => 1, 'USE_NODES' => 1}
+],
+['nodes_after_top_before_section_texi2html_use_nodes_chapter',
+  $nodes_after_top_before_section_text,
+  {},
+  {'TEXI2HTML' => 1, 'USE_NODES' => 1, 'SPLIT' => 'chapter'}
+],
 ['topic_guide',
   undef,
   {'test_file' => 'topic_guide.texi',

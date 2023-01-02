@@ -5,57 +5,9 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'nodes_after_top_before_section_use_nodes'} = {
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'} = {
   'contents' => [
     {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'text' => ' test nodes after Top before section
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test nodes after Top before section
-'
-                ]
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -139,8 +91,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'nodes_after_top_before_section.texi',
-                'line_nr' => 9,
+                'file_name' => '',
+                'line_nr' => 4,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -188,8 +140,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
                 }
               },
               'source_info' => {
-                'file_name' => 'nodes_after_top_before_section.texi',
-                'line_nr' => 10,
+                'file_name' => '',
+                'line_nr' => 5,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -217,15 +169,15 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => 'nodes_after_top_before_section.texi',
-                'line_nr' => 11,
+                'file_name' => '',
+                'line_nr' => 6,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => 'nodes_after_top_before_section.texi',
-            'line_nr' => 8,
+            'file_name' => '',
+            'line_nr' => 3,
             'macro' => ''
           }
         },
@@ -253,8 +205,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'nodes_after_top_before_section.texi',
-        'line_nr' => 6,
+        'file_name' => '',
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -358,8 +310,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'nodes_after_top_before_section.texi',
-        'line_nr' => 13,
+        'file_name' => '',
+        'line_nr' => 8,
         'macro' => ''
       }
     },
@@ -429,8 +381,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'nodes_after_top_before_section.texi',
-        'line_nr' => 17,
+        'file_name' => '',
+        'line_nr' => 12,
         'macro' => ''
       }
     },
@@ -450,63 +402,36 @@ $result_trees{'nodes_after_top_before_section_use_nodes'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
       'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'nodes_after_top_before_section.texi',
-        'line_nr' => 18,
+        'file_name' => '',
+        'line_nr' => 13,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[3];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[3];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'args'}[1]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'args'}[2]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'args'}[2]{'contents'}[0];
-$result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_use_nodes'}{'contents'}[3]{'args'}[3]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[3];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[3];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'args'}[1]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'args'}[2]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'args'}[2]{'contents'}[0];
+$result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'nodes_after_top_before_section_texi2html_chapter'}{'contents'}[3]{'args'}[3]{'contents'}[0];
 
-$result_texis{'nodes_after_top_before_section_use_nodes'} = '\\input texinfo @c -*-texinfo-*-
-
-@c test nodes after Top before section
-
-
-@node Top
+$result_texis{'nodes_after_top_before_section_texi2html_chapter'} = '@node Top
 Top node
 @menu
 * second node::
@@ -519,15 +444,10 @@ second node
 
 @node third node,,second node,Top
 @subsection subsection
-
-
-@bye
 ';
 
 
-$result_texts{'nodes_after_top_before_section_use_nodes'} = '
-
-Top node
+$result_texts{'nodes_after_top_before_section_texi2html_chapter'} = 'Top node
 * second node::
 * third node::
 
@@ -536,11 +456,9 @@ second node
 
 1 subsection
 ------------
-
-
 ';
 
-$result_sectioning{'nodes_after_top_before_section_use_nodes'} = {
+$result_sectioning{'nodes_after_top_before_section_texi2html_chapter'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -566,9 +484,9 @@ $result_sectioning{'nodes_after_top_before_section_use_nodes'} = {
     'section_level' => 2
   }
 };
-$result_sectioning{'nodes_after_top_before_section_use_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_section_use_nodes'};
+$result_sectioning{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_section_texi2html_chapter'};
 
-$result_nodes{'nodes_after_top_before_section_use_nodes'} = {
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'} = {
   'cmdname' => 'node',
   'extra' => {
     'menus' => [
@@ -613,13 +531,13 @@ $result_nodes{'nodes_after_top_before_section_use_nodes'} = {
     'node_next' => {}
   }
 };
-$result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'};
-$result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_use_nodes'};
-$result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'node_next'} = $result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'};
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'};
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_texi2html_chapter'};
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'nodes_after_top_before_section_texi2html_chapter'};
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'nodes_after_top_before_section_texi2html_chapter'};
+$result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'node_next'} = $result_nodes{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'};
 
-$result_menus{'nodes_after_top_before_section_use_nodes'} = {
+$result_menus{'nodes_after_top_before_section_texi2html_chapter'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -655,21 +573,21 @@ $result_menus{'nodes_after_top_before_section_use_nodes'} = {
     }
   }
 };
-$result_menus{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'};
-$result_menus{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_section_use_nodes'};
-$result_menus{'nodes_after_top_before_section_use_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_section_use_nodes'};
+$result_menus{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'};
+$result_menus{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_section_texi2html_chapter'};
+$result_menus{'nodes_after_top_before_section_texi2html_chapter'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'nodes_after_top_before_section_texi2html_chapter'};
 
-$result_errors{'nodes_after_top_before_section_use_nodes'} = [];
-
-
-$result_floats{'nodes_after_top_before_section_use_nodes'} = {};
+$result_errors{'nodes_after_top_before_section_texi2html_chapter'} = [];
 
 
-$result_converted_errors{'file_html'}->{'nodes_after_top_before_section_use_nodes'} = [
+$result_floats{'nodes_after_top_before_section_texi2html_chapter'} = {};
+
+
+$result_converted_errors{'file_html'}->{'nodes_after_top_before_section_texi2html_chapter'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
-    'file_name' => 'nodes_after_top_before_section.texi',
+    'file_name' => 'nodes_after_top_before_section_texi2html_chapter.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

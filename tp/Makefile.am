@@ -230,8 +230,6 @@ test_files = \
  t/input_files/no_monolithic.texi \
  t/input_files/no_node.texi \
  t/input_files/node_footnote.texi \
- t/input_files/nodes_after_top_before_chapter.texi \
- t/input_files/nodes_after_top_before_section.texi \
  t/input_files/non_break_spaces.texi \
  t/input_files/one_line.texi \
  t/input_files/one_line_no_content.texi \
@@ -242,7 +240,6 @@ test_files = \
  t/input_files/punctuation_small_case_accents_utf8.texi \
  t/input_files/reference_to_only_special_spaces_node.texi \
  t/input_files/sample_utf8.texi \
- t/input_files/sectioning.texi \
  t/input_files/simplest.texi \
  t/input_files/split_chapter_index.texi \
  t/input_files/split_nocopying.texi \

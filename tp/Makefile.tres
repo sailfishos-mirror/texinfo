@@ -1563,24 +1563,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/chapter.html \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/index.html \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/node_footnote_fot.html \
-  t/results/moresectioning/nodes_after_top_before_chapter.pl \
-  t/results/moresectioning/nodes_after_top_before_chapter/res_html/nodes_after_top_before_chapter.html \
-  t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter.pl \
-  t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter/res_html/index.html \
-  t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter/res_html/nodes_after_top_before_chapter_abt.html \
-  t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter/res_html/second-node.html \
-  t/results/moresectioning/nodes_after_top_before_chapter_use_nodes_chapter/res_html/third-node.html \
-  t/results/moresectioning/nodes_after_top_before_section.pl \
-  t/results/moresectioning/nodes_after_top_before_section/res_html/index.html \
-  t/results/moresectioning/nodes_after_top_before_section/res_html/second-node.html \
-  t/results/moresectioning/nodes_after_top_before_section/res_html/third-node.html \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes.pl \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes/res_html/nodes_after_top_before_section.html \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes_chapter.pl \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes_chapter/res_html/index.html \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes_chapter/res_html/nodes_after_top_before_section_abt.html \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes_chapter/res_html/second-node.html \
-  t/results/moresectioning/nodes_after_top_before_section_use_nodes_chapter/res_html/third-node.html \
   t/results/moresectioning/placed_things_before_element.pl \
   t/results/moresectioning/placed_things_before_element/res_html/placed_things_before_element.html \
   t/results/moresectioning/sectioning_frames.pl \
@@ -1881,7 +1863,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/external_node_in_menu.pl \
   t/results/sectioning/hole_in_sectioning.pl \
   t/results/sectioning/in_menu_only_special_ascii_spaces_node.pl \
+  t/results/sectioning/in_menu_only_special_ascii_spaces_node_menu.pl \
   t/results/sectioning/in_menu_only_special_spaces_node.pl \
+  t/results/sectioning/in_menu_only_special_spaces_node_menu.pl \
   t/results/sectioning/internal_top_node_up.pl \
   t/results/sectioning/lone_Top_node.pl \
   t/results/sectioning/lone_Top_node/res_latex/lone_Top_node.tex \
@@ -1916,8 +1900,26 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/nodes_after_top_before_chapter_not_split.pl \
   t/results/sectioning/nodes_after_top_before_chapter_not_split_no_use_node_directions.pl \
   t/results/sectioning/nodes_after_top_before_chapter_sections.pl \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html.pl \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html/res_html/nodes_after_top_before_chapter_texi2html.html \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html_use_nodes_chapter.pl \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html_use_nodes_chapter/res_html/index.html \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html_use_nodes_chapter/res_html/nodes_after_top_before_chapter_texi2html_use_nodes_chapter_abt.html \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html_use_nodes_chapter/res_html/second-node.html \
+  t/results/sectioning/nodes_after_top_before_chapter_texi2html_use_nodes_chapter/res_html/third-node.html \
   t/results/sectioning/nodes_after_top_before_section_nodes.pl \
   t/results/sectioning/nodes_after_top_before_section_sections.pl \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_chapter.pl \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_chapter/res_html/index.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_chapter/res_html/second-node.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_chapter/res_html/third-node.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes.pl \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes/res_html/nodes_after_top_before_section_texi2html_use_nodes.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes_chapter.pl \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes_chapter/res_html/index.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes_chapter/res_html/nodes_after_top_before_section_texi2html_use_nodes_chapter_abt.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes_chapter/res_html/second-node.html \
+  t/results/sectioning/nodes_after_top_before_section_texi2html_use_nodes_chapter/res_html/third-node.html \
   t/results/sectioning/nodes_before_after_top.pl \
   t/results/sectioning/nodes_before_after_top/res_latex/nodes_before_after_top.tex \
   t/results/sectioning/nodes_before_after_top_xref.pl \

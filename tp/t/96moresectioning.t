@@ -5,21 +5,18 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-# These tests are supposed to test the same things as tests
-# under tp/tests did, but to be faster, as we are avoiding the
-# start-up time of perl for every one.
 my @test_cases = (
 # in this test, there are three nodes with the same transliterations
 # that end up in the same file even when split at node
 ['node_footnote_use_node',
   undef,
+  # also tests for node without section command nor directions after
+  # a section, and Top without @top and chapter in menu
   {'test_file' => 'node_footnote.texi'},
   {'FORMAT_MENU' => 'menu'}
 ],
 ['node_footnote_end',
   undef,
-  # also tests for node with section command nor directions after
-  # a section, and Top without @top and chapter in menu
   {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'SPLIT' => '', 'USE_NODES' => 0}
 ],
@@ -34,37 +31,6 @@ my @test_cases = (
   undef,
   {'test_file' => 'node_footnote.texi'},
   {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu'}
-],
-['nodes_after_top_before_chapter',
-  undef,
-  {'test_file' => 'nodes_after_top_before_chapter.texi'},
-  {'TEXI2HTML' => 1, }
-],
-['nodes_after_top_before_chapter_use_nodes_chapter',
-  undef,
-  {'test_file' => 'nodes_after_top_before_chapter.texi'},
-  {'TEXI2HTML' => 1, 'USE_NODES' => 1, 'SPLIT' => 'chapter'}
-],
-['nodes_after_top_before_section',
-  undef,
-  {'test_file' => 'nodes_after_top_before_section.texi'},
-  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
-],
-['nodes_after_top_before_section_use_nodes',
-  undef,
-  {'test_file' => 'nodes_after_top_before_section.texi'},
-  {'TEXI2HTML' => 1, 'USE_NODES' => 1}
-],
-['nodes_after_top_before_section_use_nodes_chapter',
-  undef,
-  {'test_file' => 'nodes_after_top_before_section.texi'},
-  {'TEXI2HTML' => 1, 'USE_NODES' => 1, 'SPLIT' => 'chapter'}
-],
-['sectioning_frames',
-  undef,
-  # tests for node with directions after section
-  {'test_file' => 'sectioning.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
-  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
 ['placed_things_before_element',
   undef,
@@ -95,6 +61,13 @@ my @test_cases = (
   undef,
   {'test_file' => 'top_node_up_explicit.texi'},
   {'TEXI2HTML' => 1, 'TOP_NODE_UP_URL' => 'http://etop.example.org'}
+],
+['sectioning_frames',
+  undef,
+  # tests for node with directions after section
+  {'test_file' => '../../tests/sectioning/sectioning.texi',
+   'CHECK_NORMAL_MENU_STRUCTURE' => 1},
+  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
 );
 

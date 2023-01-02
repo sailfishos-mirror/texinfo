@@ -1147,6 +1147,9 @@ sub label_command($$)
 {
   my $self = shift;
   my $label = shift;
+  if (!defined($label)) {
+    cluck;
+  }
   if ($self->{'labels'}) {
     return $self->{'labels'}->{$label};
   }
@@ -2343,7 +2346,10 @@ sub converter_defaults($$)
   my $self = shift;
   my $conf = shift;
   if ($conf and defined($conf->{'TEXI2HTML'})) {
-    _set_variables_texi2html();
+    my $default_ref = { %defaults };
+    my %texi2html_defaults = %$default_ref;
+    _set_variables_texi2html(\%texi2html_defaults);
+    return %texi2html_defaults;
   }
   return %defaults;
 }
@@ -6345,7 +6351,8 @@ sub _convert_menu_entry_type($$$)
   if ($node_entry->{'manual_content'}) {
     $href = $self->command_href($node_entry, undef, $element);
     $external_node = 1;
-  } else {
+  # may not be defined in case of menu entry node consisting only of spaces
+  } elsif (defined($node_entry->{'normalized'})) {
     my $node = $self->label_command($node_entry->{'normalized'});
     if ($node) {
       # if !NODE_NAME_IN_MENU, we pick the associated section, except if
@@ -11439,8 +11446,9 @@ sub _convert($$;$)
   print STDERR "DEBUG: HERE!($element)\n";
 }
 
-sub _set_variables_texi2html()
+sub _set_variables_texi2html($)
 {
+  my $options = shift;
   my @texi2html_options = (
   # added hopefully temporarily to be able to validate with W3C validator
   #['DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'],
@@ -11493,7 +11501,8 @@ sub _set_variables_texi2html()
   );
   foreach my $option (@texi2html_options) {
     #no warnings 'once';
-    $defaults{$option->[0]} = $option->[1];
+    #$defaults{$option->[0]} = $option->[1];
+    $options->{$option->[0]} = $option->[1];
   }
 }
 
