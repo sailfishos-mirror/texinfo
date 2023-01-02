@@ -684,6 +684,12 @@ In float with caption.
 in cartouche.
 @end cartouche@bye
 '],
+['one_line_no_content',
+  undef, {'test_file' => 'one_line_no_content.texi',},
+],
+['one_line',
+  undef, {'test_file' => 'one_line.texi',},
+],
 );
 
 my @test_tree = (
@@ -994,11 +1000,11 @@ before first vtable
 before first multitable
 @end multitable
 '],
-['delcomment', undef, {'test_file' => 'delcomment.texi'}
-],
 ['group_beginning_and_end_on_line',
 '@group within @end group
 '],
+['delcomment', undef, {'test_file' => 'delcomment.texi'}
+],
 );
 
 my %docbooc_doc_tests = (

@@ -299,6 +299,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/multitable.pl \
   t/results/coverage/nested_block_commands.pl \
   t/results/coverage/not_i_j_in_dotless.pl \
+  t/results/coverage/one_line.pl \
+  t/results/coverage/one_line_no_content.pl \
   t/results/coverage/preformatted.pl \
   t/results/coverage/punctuation_in_line_commands.pl \
   t/results/coverage/quotation_author.pl \
@@ -568,8 +570,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/float_copying/res_html/index.html \
   t/results/formatting/float_copying/res_html/public-domain-anchor.html \
   t/results/formatting/float_copying/res_html/public-domain.html \
-  t/results/formatting/one_line.pl \
-  t/results/formatting/one_line_no_content.pl \
   t/results/formatting/simplest_test_date_in_header.pl \
   t/results/formatting/simplest_test_date_in_header/res_html/simplest.html \
   t/results/formatting/simplest_test_prefix.pl \
