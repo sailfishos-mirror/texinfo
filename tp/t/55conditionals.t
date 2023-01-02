@@ -551,6 +551,17 @@ user internalvalue
 '@ifset A/B
 @end ifset
 '],
+# there is a similar test of the command line in tests/formatting
+['defcondx_Dbar',
+  undef, {'test_file' => '../../tests/formatting/defxcond.texi',
+  'test_formats' => ['file_html'],
+  'values' => {'bar' => 1}}, {'SPLIT' => ''},
+],
+['defcondx_Ubar',
+  undef, {'test_file' => '../../tests/formatting/defxcond.texi',
+  'test_formats' => ['file_html'],
+  'values' => {}}, {'SPLIT' => ''},
+],
 );
 
 for my $test (@test_cases) {

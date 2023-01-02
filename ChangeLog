@@ -13,6 +13,20 @@
 
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/55conditionals.t, tp/t/92formatting.t,
+	tp/tests/formatting/Makefile.am (EXTRA_DIST),
+	tp/tests/formatting/list-of-tests: move defcondx_Dbar and
+	defcondx_Ubar tests to tp/t/55conditionals.t.  Add also similar tests
+	in tp/tests/formatting/list-of-tests to test the command line.  Move
+	defxcond.texi to tp/tests/formatting/.
+
+	* tp/Makefile.tres, tp/t/60macro.t, tp/t/92formatting.t:
+	move glossary and texi_bib_example tests to 60macro.t, renaming
+	texi_bib_example as bib_example.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (raw_block_stack_top)
 	(process_remaining_on_line): use the stack of raw block commands to

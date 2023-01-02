@@ -86,6 +86,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/comment_on_ifset_line.pl \
   t/results/conditionals/conditional_not_closed.pl \
   t/results/conditionals/consecutive_conditionals.pl \
+  t/results/conditionals/defcondx_Dbar.pl \
+  t/results/conditionals/defcondx_Dbar/res_html/defxcond.html \
+  t/results/conditionals/defcondx_Ubar.pl \
+  t/results/conditionals/defcondx_Ubar/res_html/defxcond.html \
   t/results/conditionals/empty_ifclear.pl \
   t/results/conditionals/empty_ifset.pl \
   t/results/conditionals/empty_ifset_in_ifset_no_set.pl \
@@ -552,10 +556,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/cond_info_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_xml.pl \
-  t/results/formatting/defcondx_Dbar.pl \
-  t/results/formatting/defcondx_Dbar/res_html/defxcond.html \
-  t/results/formatting/defcondx_Ubar.pl \
-  t/results/formatting/defcondx_Ubar/res_html/defxcond.html \
   t/results/formatting/direntry_dircategory.pl \
   t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info \
   t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-1 \
@@ -574,7 +574,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/float_copying/res_html/index.html \
   t/results/formatting/float_copying/res_html/public-domain-anchor.html \
   t/results/formatting/float_copying/res_html/public-domain.html \
-  t/results/formatting/glossary.pl \
   t/results/formatting/one_line.pl \
   t/results/formatting/one_line_no_content.pl \
   t/results/formatting/simplest_test_date_in_header.pl \
@@ -591,7 +590,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/split_nocopying_split/res_info/split_nocopying.info \
   t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-1 \
   t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-2 \
-  t/results/formatting/texi_bib_example.pl \
   t/results/formatting/texi_cond.pl \
   t/results/heading/heading_in_copying.pl \
   t/results/heading/heading_in_example.pl \
@@ -1428,6 +1426,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/bad_argument.pl \
   t/results/macro/bad_formal_arg.pl \
   t/results/macro/bad_macro_name_with_underscore.pl \
+  t/results/macro/bib_example.pl \
   t/results/macro/complete_macro_for_end.pl \
   t/results/macro/complex_argument.pl \
   t/results/macro/double_macro_definition.pl \
@@ -1439,6 +1438,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/expand_two_same.pl \
   t/results/macro/expansion_order.pl \
   t/results/macro/form_feeds.pl \
+  t/results/macro/glossary.pl \
   t/results/macro/ifclear_in_macro.pl \
   t/results/macro/ifset_and_end_isef_in_macro.pl \
   t/results/macro/ifset_in_macro.pl \

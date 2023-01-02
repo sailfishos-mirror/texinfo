@@ -1,5 +1,6 @@
 EXTRA_DIST = \
  simplest.texi documentlanguage.texi \
+ defxcond.texi \
  ignore_and_comments.texi   split_nocopying.texi \
  inc_file.texi              test_need.texi \
  lightweight_markups.texi   japanese_long_name.texi  \

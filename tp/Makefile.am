@@ -193,7 +193,6 @@ test_files = \
  t/input_files/cpp_line_before_first_node.texi \
  t/input_files/cpp_lines.texi \
  t/input_files/cpp_line_latin1.texi \
- t/input_files/defxcond.texi \
  t/input_files/delcomment.texi \
  t/input_files/direntry_dircategory.texi \
  t/input_files/documentlanguage_set.texi \

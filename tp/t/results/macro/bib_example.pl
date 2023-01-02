@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'texi_bib_example'} = {
+$result_trees{'bib_example'} = {
   'contents' => [
     {
       'contents' => [
@@ -318,7 +318,6 @@ $result_trees{'texi_bib_example'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {},
               'info' => {
                 'spaces_before_argument' => ' '
               },
@@ -4063,22 +4062,22 @@ $result_trees{'texi_bib_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'texi_bib_example'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
-$result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3];
-$result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[5] = $result_trees{'texi_bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'};
-$result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[5] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'};
+$result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'texi_bib_example'} = '\\input texinfo   @c -*-texinfo-*-
+$result_texis{'bib_example'} = '\\input texinfo   @c -*-texinfo-*-
 @c % Copyright (C) 2004  Aaron S. Hawley
 
 @c % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
@@ -4376,7 +4375,7 @@ Massachusetts, 1994.
 ';
 
 
-$result_texts{'texi_bib_example'} = '
+$result_texts{'bib_example'} = '
 
 
 
@@ -4454,7 +4453,7 @@ Massachusetts, 1994.
 
 ';
 
-$result_sectioning{'texi_bib_example'} = {
+$result_sectioning{'bib_example'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -4524,16 +4523,16 @@ $result_sectioning{'texi_bib_example'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'texi_bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'texi_bib_example'};
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'bib_example'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'bib_example'};
 
-$result_nodes{'texi_bib_example'} = {
+$result_nodes{'bib_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -4592,13 +4591,13 @@ $result_nodes{'texi_bib_example'} = {
     'node_next' => {}
   }
 };
-$result_nodes{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'texi_bib_example'}{'structure'}{'menu_child'};
-$result_nodes{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'texi_bib_example'};
-$result_nodes{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'texi_bib_example'};
-$result_nodes{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'texi_bib_example'};
-$result_nodes{'texi_bib_example'}{'structure'}{'node_next'} = $result_nodes{'texi_bib_example'}{'structure'}{'menu_child'};
+$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'bib_example'}{'structure'}{'menu_child'};
+$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'bib_example'};
+$result_nodes{'bib_example'}{'structure'}{'node_next'} = $result_nodes{'bib_example'}{'structure'}{'menu_child'};
 
-$result_menus{'texi_bib_example'} = {
+$result_menus{'bib_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -4634,11 +4633,11 @@ $result_menus{'texi_bib_example'} = {
     }
   }
 };
-$result_menus{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'texi_bib_example'}{'structure'}{'menu_child'};
-$result_menus{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'texi_bib_example'};
-$result_menus{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'texi_bib_example'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'bib_example'}{'structure'}{'menu_child'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'bib_example'};
+$result_menus{'bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'bib_example'};
 
-$result_errors{'texi_bib_example'} = [
+$result_errors{'bib_example'} = [
   {
     'error_line' => 'warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
 ',
@@ -4651,286 +4650,7 @@ $result_errors{'texi_bib_example'} = [
 ];
 
 
-$result_floats{'texi_bib_example'} = {};
+$result_floats{'bib_example'} = {};
 
-
-
-$result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
-<html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Texinfo with a Bibliography and References</title>
-
-<meta name="description" content="Texinfo with a Bibliography and References">
-<meta name="keywords" content="Texinfo with a Bibliography and References">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="texi2any">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<style type="text/css">
-<!--
-h1.settitle {text-align:center}
-pre.menu-comment-preformatted {font-family: serif}
-span.program-in-footer {font-size: smaller}
-td.button-direction-about {text-align:center}
-td.menu-entry-description {vertical-align: top}
-td.menu-entry-destination {vertical-align: top}
-td.name-direction-about {text-align:center}
-th.menu-comment {text-align:left}
-ul.mark-none {list-style-type: none}
--->
-</style>
-
-
-</head>
-
-<body lang="en">
-<h1 class="settitle">Texinfo with a Bibliography and References</h1>
-<hr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="top-level-extent" id="Top">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[ &lt; ]</td>
-<td>[<a href="#Introduction" title="Next section in reading order"> &gt; </a>]</td>
-<td> &nbsp; </td>
-<td>[Contents]</td>
-<td>[Index]</td>
-<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="top" id="Top-1">Top</h1>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td class="menu-entry-destination"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
-<tr><td class="menu-entry-destination"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
-</td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
-
-</pre></th></tr></table>
-
-<hr style="height: 6px;">
-<div class="chapter-level-extent" id="Introduction">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td>[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
-<td>[<a href="#Top" title="Up section"> Up </a>]</td>
-<td>[<a href="#References" title="Next section in reading order"> &gt; </a>]</td>
-<td>[<a href="#References" title="Next chapter"> &gt;&gt; </a>]</td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td>[Contents]</td>
-<td>[Index]</td>
-<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter" id="Introduction-1">1 Introduction</h1>
-
-<p>The ability of a documentation format to make cross references to a
-bibliography, a feature of LaTeX (See item [LaTeX2e] in <a class="ref" href="#References">LaTeX2e</a>.)
-, isn&rsquo;t
-currently supported in Texinfo.
-</p>
-<hr>
-</div>
-<div class="chapter-level-extent" id="References">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td>[<a href="#Introduction" title="Previous section in reading order"> &lt; </a>]</td>
-<td>[<a href="#Top" title="Up section"> Up </a>]</td>
-<td>[ &gt; ]</td>
-<td>[ &gt;&gt; ]</td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td> &nbsp; </td>
-<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td>[Contents]</td>
-<td>[Index]</td>
-<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="chapter" id="References-1">2 References</h1>
-
-<ul class="itemize mark-none">
-<li><a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
- Leslie Lamport, LaTeX User&rsquo;s Guide and
-Reference Manual, 2nd edition, Addison-Wesley, Reading,
-Massachusetts, 1994.
-
-</li></ul>
-
-</div>
-</div>
-<hr>
-<div class="element-about" id="SEC_About">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td>[Contents]</td>
-<td>[Index]</td>
-<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
-</tr></table>
-<h1 class="about-heading">About This Document</h1>
-
-<p>
-  This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
-</p>
-<p>
-  The buttons in the navigation panels have the following meaning:
-</p>
-<table border="1">
-  <tr>
-    <th> Button </th>
-    <th> Name </th>
-    <th> Go to </th>
-    <th> From 1.2.3 go to</th>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ &lt;&lt; ] </td>
-    <td class="name-direction-about">FastBack</td>
-    <td>Beginning of this chapter or previous chapter</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ &lt; ] </td>
-    <td class="name-direction-about">Back</td>
-    <td>Previous section in reading order</td>
-    <td>1.2.2</td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ Up ] </td>
-    <td class="name-direction-about">Up</td>
-    <td>Up section</td>
-    <td>1.2</td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ &gt; ] </td>
-    <td class="name-direction-about">Forward</td>
-    <td>Next section in reading order</td>
-    <td>1.2.4</td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ &gt;&gt; ] </td>
-    <td class="name-direction-about">FastForward</td>
-    <td>Next chapter</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [Top] </td>
-    <td class="name-direction-about">Top</td>
-    <td>Cover (top) of document</td>
-    <td> &nbsp; </td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [Contents] </td>
-    <td class="name-direction-about">Contents</td>
-    <td>Table of contents</td>
-    <td> &nbsp; </td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [Index] </td>
-    <td class="name-direction-about">Index</td>
-    <td>Index</td>
-    <td> &nbsp; </td>
-  </tr>
-  <tr>
-    <td class="button-direction-about"> [ ? ] </td>
-    <td class="name-direction-about">About</td>
-    <td>About (help)</td>
-    <td> &nbsp; </td>
-  </tr>
-</table>
-
-<p>
-  where the <strong class="strong"> Example </strong> assumes that the current position is at <strong class="strong"> Subsubsection One-Two-Three </strong> of a document of the following structure:
-</p>
-
-<ul>
-  <li> 1. Section One
-    <ul>
-      <li>1.1 Subsection One-One
-        <ul>
-          <li>...</li>
-        </ul>
-      </li>
-      <li>1.2 Subsection One-Two
-        <ul>
-          <li>1.2.1 Subsubsection One-Two-One</li>
-          <li>1.2.2 Subsubsection One-Two-Two</li>
-          <li>1.2.3 Subsubsection One-Two-Three &nbsp; &nbsp;
-            <strong>&lt;== Current Position </strong></li>
-          <li>1.2.4 Subsubsection One-Two-Four</li>
-        </ul>
-      </li>
-      <li>1.3 Subsection One-Three
-        <ul>
-          <li>...</li>
-        </ul>
-      </li>
-      <li>1.4 Subsection One-Four</li>
-    </ul>
-  </li>
-</ul>
-</div><hr>
-<p>
-  <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
-</p>
-
-
-</body>
-</html>
-';
 
 1;

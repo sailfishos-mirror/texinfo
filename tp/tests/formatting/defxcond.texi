@@ -5,7 +5,8 @@
 @c set this from the command line.
 @c set bar
 
-@c deffnx inside conditional.
+@top deffnx inside conditional
+
 @deffn foo
 
 @ifset bar

@@ -9,14 +9,6 @@ require 't/test_utils.pl';
 # under tp/tests did, but to be faster, as we are avoiding the
 # start-up time of perl for every one.
 my @test_cases = (
-['glossary',
-  undef, {'test_file' => 'glossary.texi',
-  },
-],
-['texi_bib_example',
-  undef, {'test_file' => 'bib-example.texi',
-  },
-],
 ['texi_cond',
   undef, {'test_file' => 'cond.texi',
     'EXPANDED_FORMATS' => ['html', 'info'],
@@ -62,16 +54,6 @@ my @test_cases = (
     'EXPANDED_FORMATS' => ['info', 'html', 'tex'],
   },
   {'EXPANDED_FORMATS' => ['info', 'html', 'tex'],}
-],
-['defcondx_Dbar',
-  undef, {'test_file' => 'defxcond.texi',
-   'test_formats' => ['file_html'],
-  'values' => {'bar' => 1}}
-],
-['defcondx_Ubar',
-  undef, {'test_file' => 'defxcond.texi',
-   'test_formats' => ['file_html'],
-  'values' => {}}
 ],
 ['one_line_no_content',
   undef, {'test_file' => 'one_line_no_content.texi',

@@ -1030,8 +1030,11 @@ X\arg\X
 @mymacro
 @include inc_file.texi
 '],
-);
-my @todo = (
+['bib_example',
+  undef, {'test_file' => 'bib-example.texi',},
+],
+# The result is not not really anything that could be expected by a user, but
+# it can still help catch regressions
 ['glossary',
 undef, {'test_file' => 'glossary.texi'},
 ],

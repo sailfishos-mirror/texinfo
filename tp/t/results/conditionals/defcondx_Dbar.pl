@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'defcondx_Ubar'} = {
+$result_trees{'defcondx_Dbar'} = {
   'contents' => [
     {
       'contents' => [
@@ -83,25 +83,34 @@ $result_trees{'defcondx_Ubar'} = {
               'text' => '
 ',
               'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'text' => ' deffnx inside conditional.
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' deffnx inside conditional.
-'
-                ]
-              }
             }
           ],
           'type' => 'preamble_before_content'
+        }
+      ],
+      'type' => 'before_node_section'
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'deffnx inside conditional'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'cmdname' => 'deffn',
@@ -133,7 +142,7 @@ $result_trees{'defcondx_Ubar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 9,
+                'line_nr' => 10,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -144,7 +153,48 @@ $result_trees{'defcondx_Ubar'} = {
                   'text' => '
 ',
                   'type' => 'empty_line'
+                }
+              ],
+              'type' => 'inter_def_item'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'text' => 'bar'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'deffnx',
+              'extra' => {
+                'def_command' => 'deffn',
+                'def_parsed_hash' => {
+                  'category' => {}
                 },
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => 'defxcond.texi',
+                'line_nr' => 13,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'contents' => [
                 {
                   'text' => '
 ',
@@ -191,7 +241,7 @@ $result_trees{'defcondx_Ubar'} = {
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
-                'line_nr' => 17,
+                'line_nr' => 18,
                 'macro' => ''
               }
             }
@@ -201,7 +251,7 @@ $result_trees{'defcondx_Ubar'} = {
           },
           'source_info' => {
             'file_name' => 'defxcond.texi',
-            'line_nr' => 9,
+            'line_nr' => 10,
             'macro' => ''
           }
         },
@@ -211,7 +261,15 @@ $result_trees{'defcondx_Ubar'} = {
           'type' => 'empty_line'
         }
       ],
-      'type' => 'before_node_section'
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => 'defxcond.texi',
+        'line_nr' => 8,
+        'macro' => ''
+      }
     },
     {
       'args' => [
@@ -226,18 +284,21 @@ $result_trees{'defcondx_Ubar'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
-$result_texis{'defcondx_Ubar'} = '\\input texinfo
+$result_texis{'defcondx_Dbar'} = '\\input texinfo
 
 @c test def*x in a conditional
 
 @c set this from the command line.
 @c set bar
 
-@c deffnx inside conditional.
+@top deffnx inside conditional
+
 @deffn foo
 
+@deffnx bar
 
 Documentation.
 
@@ -247,41 +308,61 @@ Documentation.
 ';
 
 
-$result_texts{'defcondx_Ubar'} = '
+$result_texts{'defcondx_Dbar'} = '
+
+deffnx inside conditional
+*************************
 
 foo: 
 
+bar: 
 
 Documentation.
 
 
 ';
 
-$result_errors{'defcondx_Ubar'} = [
+$result_sectioning{'defcondx_Dbar'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {},
+        'info' => {},
+        'structure' => {
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'defcondx_Dbar'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'defcondx_Dbar'};
+
+$result_errors{'defcondx_Dbar'} = [
   {
     'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => 'defxcond.texi',
-    'line_nr' => 9,
+    'line_nr' => 10,
     'macro' => '',
     'text' => 'missing name for @deffn',
     'type' => 'warning'
-  }
-];
-
-
-$result_floats{'defcondx_Ubar'} = {};
-
-
-$result_converted_errors{'file_html'}->{'defcondx_Ubar'} = [
+  },
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => 'defxcond.texi',
-    'text' => 'must specify a title with a title command or @top',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => 'missing name for @deffnx',
     'type' => 'warning'
   }
 ];
+
+
+$result_floats{'defcondx_Dbar'} = {};
 
 
 1;
