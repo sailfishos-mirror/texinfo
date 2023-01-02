@@ -40,7 +40,6 @@ $result_trees{'chapter_before_and_after_part'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -178,7 +177,6 @@ $result_sectioning{'chapter_before_and_after_part'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -274,7 +272,6 @@ $result_elements{'chapter_before_and_after_part'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {},

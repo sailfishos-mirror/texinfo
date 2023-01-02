@@ -75,7 +75,6 @@ $result_trees{'index_below'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -185,7 +184,6 @@ $result_trees{'index_below'} = [
             }
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -249,14 +247,12 @@ $result_sectioning{'index_below'} = {
                   'extra' => {
                     'unit_command' => {
                       'cmdname' => 'chapter',
-                      'extra' => {},
                       'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
-                            'extra' => {},
                             'info' => {},
                             'structure' => {
                               'associated_unit' => {
@@ -375,7 +371,6 @@ $result_elements{'index_below'} = [
           'extra' => {
             'unit_command' => {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'associated_unit' => {},
@@ -391,7 +386,6 @@ $result_elements{'index_below'} = [
                 'extra' => {
                   'unit_command' => {
                     'cmdname' => 'section',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'associated_unit' => {},

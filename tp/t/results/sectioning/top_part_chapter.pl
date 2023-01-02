@@ -34,7 +34,6 @@ $result_trees{'top_part_chapter'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -147,7 +146,6 @@ $result_sectioning{'top_part_chapter'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -248,7 +246,6 @@ $result_elements{'top_part_chapter'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {}

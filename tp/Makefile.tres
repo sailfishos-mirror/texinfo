@@ -1548,8 +1548,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/vskip.pl \
   t/results/morecoverage/formatting_fr.pl \
   t/results/morecoverage/texi_formatting.pl \
-  t/results/moresectioning/more_sections_than_nodes.pl \
-  t/results/moresectioning/more_sections_than_nodes/res_html/more_sections_than_nodes.html \
   t/results/moresectioning/node_footnote_end.pl \
   t/results/moresectioning/node_footnote_end/res_html/node_footnote.html \
   t/results/moresectioning/node_footnote_separated.pl \
@@ -1563,8 +1561,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/chapter.html \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/index.html \
   t/results/moresectioning/node_footnote_use_node_separate/res_html/node_footnote_fot.html \
-  t/results/moresectioning/placed_things_before_element.pl \
-  t/results/moresectioning/placed_things_before_element/res_html/placed_things_before_element.html \
   t/results/moresectioning/sectioning_frames.pl \
   t/results/moresectioning/sectioning_frames/res_html/First-node.html \
   t/results/moresectioning/sectioning_frames/res_html/Last-node-no-description.html \

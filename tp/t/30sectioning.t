@@ -826,7 +826,7 @@ Ref to anchor
 
 Ref to footnote anchor
 @ref{Anchor in footnote}
-'],
+',{},{'FORMAT_MENU' => 'menu'}],
 ['placed_things_before_node',
 '@anchor{An anchor}
 
@@ -1229,7 +1229,9 @@ Top node
 @chapter chapter 2
 
 @contents
-', {'test_formats' => ['plaintext'], 'CHECK_NORMAL_MENU_STRUCTURE' => 1}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+', {'test_formats' => ['plaintext'],
+    'CHECK_NORMAL_MENU_STRUCTURE' => 1},
+   {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 ['section_in_unnumbered_info',
 $section_in_unnumbered_text
 ],
@@ -1245,6 +1247,50 @@ $unnumbered_top_without_node_text,
 ['unnumbered_top_without_node_nodes',
 $unnumbered_top_without_node_text,
 {'test_split' => 'node'}],
+['more_sections_than_nodes',
+'@node Top
+@top top
+
+@menu
+* n c2::
+* n c3::
+* n c3 s1 s2::
+@end menu
+
+@chapter c1
+
+@node n c2
+@chapter c2
+
+@section s1
+
+@node n c3, n c3 s1 s2, n c2, Top
+@chapter c3
+
+@menu 
+* n c3 s 2::
+@end menu
+
+@section C3 s1
+
+@node n c3 s 2
+@section c3 s2
+
+@section c3 s3
+
+@chapter c4
+
+@section c3 s1
+
+@subsection c3 s1 s1
+
+@node n c3 s1 s2,,n c3,Top
+@subsection c3 s1 s2
+
+@appendix appendix
+', {},
+# to test texi2html style directions in that case
+{'TEXI2HTML' => 1}],
 ['space_in_node',
 '
 @node Top
@@ -2044,48 +2090,6 @@ $top_chapter_sections_text,
 @contents
 ', {'test_formats' => ['html_text']}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}
 ],
-['more_sections_than_nodes',
-'@node Top
-@top top
-
-@menu
-* n c2::
-* n c3::
-* n c3 s1 s2::
-@end menu
-
-@chapter c1
-
-@node n c2
-@chapter c2
-
-@section s1
-
-@node n c3, n c3 s1 s2, n c2, Top
-@chapter c3
-
-@menu 
-* n c3 s 2::
-@end menu
-
-@section C3 s1
-
-@node n c3 s 2
-@section c3 s2
-
-@section c3 s3
-
-@chapter c4
-
-@section c3 s1
-
-@subsection c3 s1 s1
-
-@node n c3 s1 s2,,n c3,Top
-@subsection c3 s1 s2
-
-@appendix appendix
-'],
 ['empty_ref_arg',
 '@node Top
 
@@ -2226,6 +2230,7 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'section_node_before_part', 'top_node_part_top',
   'chapter_node_before_and_after_part',
   'in_menu_only_special_spaces_node', 'only_special_spaces_node',
+  'more_sections_than_nodes',
   'more_nodes_than_sections', 'part_node_chapter_appendix',
   'part_node_part_appendix', 'part_node_chapter_node_appendix',
   'part_node_part_node_appendix', 'part_node_node_part_appendix',
@@ -2278,7 +2283,7 @@ my @xml_tests_cases_tests = ('part_before_section',
 'section_chapter_before_top', 'sectioning_part_appendix',
 'part_chapter_appendix', 'sectioning_part_appendix_no_top',
 'top_chapter_sections', 'chapter_sections',
-'more_sections_than_nodes', 'next_no_prev_to_node',
+'next_no_prev_to_node',
 'empty_ref_arg');
 
 my @docbook_tests_cases_tests = ('hole_in_sectioning');

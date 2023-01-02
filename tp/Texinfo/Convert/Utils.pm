@@ -223,7 +223,8 @@ sub expand_verbatiminclude($$$)
                  and defined($current->{'extra'}->{'text_arg'}));
   my $file_name_text = $current->{'extra'}->{'text_arg'};
   $input_encoding = $current->{'extra'}->{'input_perl_encoding'}
-        if (defined($current->{'extra'}->{'input_perl_encoding'}));
+        if ($current->{'extra'}
+            and defined($current->{'extra'}->{'input_perl_encoding'}));
 
   my $encoding;
   my $input_file_name_encoding

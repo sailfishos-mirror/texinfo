@@ -1280,7 +1280,6 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -1929,7 +1928,6 @@ $result_sectioning{'index_special_region_titlepage_no_nodes_footnotes_default'} 
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

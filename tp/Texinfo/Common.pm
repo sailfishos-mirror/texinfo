@@ -1199,7 +1199,8 @@ sub _informative_command_value($)
 
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'skipline') {
     return 1;
-  } elsif (exists($element->{'extra'}->{'text_arg'})) {
+  } elsif ($element->{'extra'}
+           and exists($element->{'extra'}->{'text_arg'})) {
     return $element->{'extra'}->{'text_arg'};
   } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
            and exists($element->{'extra'}->{'misc_args'}->[0])) {

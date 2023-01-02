@@ -972,8 +972,10 @@ sub split_by_section($)
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'}
         and (($content->{'cmdname'} eq 'node'
+              and $content->{'extra'}
               and $content->{'extra'}->{'associated_section'})
              or ($content->{'cmdname'} eq 'part'
+                 and $content->{'extra'}
                  and $content->{'extra'}->{'part_associated_section'}))) {
       my $new_section;
       if ($content->{'cmdname'} eq 'node') {
@@ -1101,7 +1103,8 @@ sub _tree_unit_section($)
   }
   my $tree_unit_command_element = $tree_unit->{'extra'}->{'unit_command'};
   if ($tree_unit_command_element->{'cmdname'} eq 'node') {
-    if ($tree_unit_command_element->{'extra'}->{'associated_section'}) {
+    if ($tree_unit_command_element->{'extra'}
+        and $tree_unit_command_element->{'extra'}->{'associated_section'}) {
       return $tree_unit_command_element->{'extra'}->{'associated_section'};
     } else {
       return undef;
@@ -1122,7 +1125,8 @@ sub _tree_unit_node($)
   if ($tree_unit_command_element->{'cmdname'} eq 'node') {
     return $tree_unit_command_element;
   } else {
-    if ($tree_unit_command_element->{'extra'}->{'associated_node'}) {
+    if ($tree_unit_command_element->{'extra'}
+        and $tree_unit_command_element->{'extra'}->{'associated_node'}) {
       return $tree_unit_command_element->{'extra'}->{'associated_node'}
     } else {
       return undef;

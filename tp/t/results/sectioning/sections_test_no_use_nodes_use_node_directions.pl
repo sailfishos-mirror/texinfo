@@ -72,7 +72,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -105,7 +104,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -138,7 +136,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -171,7 +168,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -272,7 +268,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -305,7 +300,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -338,7 +332,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -364,7 +357,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'cmdname' => 'appendixsec',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -448,25 +440,21 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
-                                'extra' => {},
                                 'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
@@ -523,7 +511,6 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
             {},
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,
@@ -536,7 +523,6 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,
@@ -554,13 +540,11 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
       },
       {
         'cmdname' => 'appendix',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 2,

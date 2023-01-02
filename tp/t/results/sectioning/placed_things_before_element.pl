@@ -896,6 +896,12 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+td.menu-entry-description {vertical-align: top}
+td.menu-entry-destination {vertical-align: top}
+-->
+</style>
 
 
 </head>
@@ -916,6 +922,10 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 <p>Ref to float
 <a class="ref" href="#float-anchor">1</a>.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td class="menu-entry-destination">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">menu entry pointing to the anchor.
+</td></tr>
+</table>
 
 <a class="index-entry-id" id="index-index-entry"></a>
 

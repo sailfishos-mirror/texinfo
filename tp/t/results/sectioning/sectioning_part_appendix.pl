@@ -34,7 +34,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -75,7 +74,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -116,7 +114,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -157,7 +154,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -198,7 +194,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -315,7 +310,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -356,7 +350,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -397,7 +390,6 @@ $result_trees{'sectioning_part_appendix'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -431,7 +423,6 @@ $result_trees{'sectioning_part_appendix'} = [
           }
         ],
         'cmdname' => 'appendixsec',
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -523,7 +514,6 @@ $result_sectioning{'sectioning_part_appendix'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -536,14 +526,12 @@ $result_sectioning{'sectioning_part_appendix'} = {
                   'extra' => {
                     'unit_command' => {
                       'cmdname' => 'chapter',
-                      'extra' => {},
                       'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
-                            'extra' => {},
                             'info' => {},
                             'structure' => {
                               'associated_unit' => {
@@ -571,7 +559,6 @@ $result_sectioning{'sectioning_part_appendix'} = {
                                                   {},
                                                   {
                                                     'cmdname' => 'chapter',
-                                                    'extra' => {},
                                                     'info' => {},
                                                     'structure' => {
                                                       'associated_unit' => {
@@ -586,7 +573,6 @@ $result_sectioning{'sectioning_part_appendix'} = {
                                                               'extra' => {
                                                                 'unit_command' => {
                                                                   'cmdname' => 'unnumbered',
-                                                                  'extra' => {},
                                                                   'info' => {},
                                                                   'structure' => {
                                                                     'associated_unit' => {},
@@ -606,14 +592,12 @@ $result_sectioning{'sectioning_part_appendix'} = {
                                                                     'extra' => {
                                                                       'unit_command' => {
                                                                         'cmdname' => 'appendix',
-                                                                        'extra' => {},
                                                                         'info' => {},
                                                                         'structure' => {
                                                                           'associated_unit' => {},
                                                                           'section_childs' => [
                                                                             {
                                                                               'cmdname' => 'appendixsec',
-                                                                              'extra' => {},
                                                                               'info' => {},
                                                                               'structure' => {
                                                                                 'associated_unit' => {
@@ -713,7 +697,6 @@ $result_sectioning{'sectioning_part_appendix'} = {
                                             'extra' => {
                                               'unit_command' => {
                                                 'cmdname' => 'subsubsection',
-                                                'extra' => {},
                                                 'info' => {},
                                                 'structure' => {
                                                   'associated_unit' => {},
@@ -721,7 +704,6 @@ $result_sectioning{'sectioning_part_appendix'} = {
                                                   'section_number' => '1.1.1.1',
                                                   'section_up' => {
                                                     'cmdname' => 'subsection',
-                                                    'extra' => {},
                                                     'info' => {},
                                                     'structure' => {
                                                       'associated_unit' => {
@@ -965,7 +947,6 @@ $result_elements{'sectioning_part_appendix'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {}
@@ -978,7 +959,6 @@ $result_elements{'sectioning_part_appendix'} = [
           'extra' => {
             'unit_command' => {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'associated_unit' => {},
@@ -1017,7 +997,6 @@ $result_elements{'sectioning_part_appendix'} = [
                       'extra' => {
                         'unit_command' => {
                           'cmdname' => 'subsubsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'associated_unit' => {},
@@ -1031,7 +1010,6 @@ $result_elements{'sectioning_part_appendix'} = [
                             'extra' => {
                               'unit_command' => {
                                 'cmdname' => 'subsection',
-                                'extra' => {},
                                 'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
@@ -1045,7 +1023,6 @@ $result_elements{'sectioning_part_appendix'} = [
                                   'extra' => {
                                     'unit_command' => {
                                       'cmdname' => 'section',
-                                      'extra' => {},
                                       'info' => {},
                                       'structure' => {
                                         'associated_unit' => {},
@@ -1088,7 +1065,6 @@ $result_elements{'sectioning_part_appendix'} = [
                       'extra' => {
                         'unit_command' => {
                           'cmdname' => 'chapter',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'associated_unit' => {},
@@ -1104,7 +1080,6 @@ $result_elements{'sectioning_part_appendix'} = [
                             'extra' => {
                               'unit_command' => {
                                 'cmdname' => 'unnumbered',
-                                'extra' => {},
                                 'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
@@ -1119,7 +1094,6 @@ $result_elements{'sectioning_part_appendix'} = [
                                   'extra' => {
                                     'unit_command' => {
                                       'cmdname' => 'appendix',
-                                      'extra' => {},
                                       'info' => {},
                                       'structure' => {
                                         'associated_unit' => {},
@@ -1135,7 +1109,6 @@ $result_elements{'sectioning_part_appendix'} = [
                                         'extra' => {
                                           'unit_command' => {
                                             'cmdname' => 'appendixsec',
-                                            'extra' => {},
                                             'info' => {},
                                             'structure' => {
                                               'associated_unit' => {},

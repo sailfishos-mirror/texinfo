@@ -32,16 +32,6 @@ my @test_cases = (
   {'test_file' => 'node_footnote.texi'},
   {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu'}
 ],
-['placed_things_before_element',
-  undef,
-  {'test_file' => 'placed_things_before_element.texi'},
-  {'TEXI2HTML' => 1, }
-],
-['more_sections_than_nodes',
-  undef,
-  {'test_file' => 'more_sections_than_nodes.texi'},
-  {'TEXI2HTML' => 1, }
-],
 ['two_footnotes_in_nodes',
   undef,
   {'test_file' => 'two_footnotes_in_nodes.texi'},

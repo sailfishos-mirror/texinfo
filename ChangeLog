@@ -1,4 +1,20 @@
-2023-01-01  Patrice Dumas  <pertusus@free.fr>
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/Converter.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Utils.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm: avoid
+	autovivification of extra key.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/30sectioning.t,
+	tp/t/96moresectioning.t: remove more_sections_than_nodes and
+	placed_things_before_element from 96moresectioning.t as these tests
+	are redundant with tests in 30sectioning.t.  Remove associated
+	Texinfo files.
+	In 30sectioning.t, set FORMAT_MENU to menu for
+	placed_things_before_element, move more_sections_than_nodes to
+	@info_tests and test texi2html style.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/test_utils.pl (unsplit, test): unsplit() returns if unsplitting
 	was needed.  Rename $split as $test_split.  Add comments on

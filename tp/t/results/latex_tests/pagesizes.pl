@@ -27,7 +27,6 @@ $result_trees{'pagesizes'} = {
                 }
               ],
               'cmdname' => 'pagesizes',
-              'extra' => {},
               'info' => {
                 'spaces_before_argument' => ' '
               },
@@ -197,7 +196,6 @@ $result_trees{'pagesizes'} = {
             }
           ],
           'cmdname' => 'pagesizes',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => ' '
           },
@@ -261,7 +259,6 @@ $result_trees{'pagesizes'} = {
             }
           ],
           'cmdname' => 'pagesizes',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => ' '
           },
@@ -292,7 +289,6 @@ $result_trees{'pagesizes'} = {
             }
           ],
           'cmdname' => 'pagesizes',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => ' '
           },

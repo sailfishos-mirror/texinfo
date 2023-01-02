@@ -34,7 +34,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -75,7 +74,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -116,7 +114,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -157,7 +154,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -198,7 +194,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -239,7 +234,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -280,7 +274,6 @@ $result_trees{'chapter_sections'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -314,7 +307,6 @@ $result_trees{'chapter_sections'} = [
           }
         ],
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -388,7 +380,6 @@ $result_sectioning{'chapter_sections'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -401,14 +392,12 @@ $result_sectioning{'chapter_sections'} = {
                   'extra' => {
                     'unit_command' => {
                       'cmdname' => 'chapter',
-                      'extra' => {},
                       'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
-                            'extra' => {},
                             'info' => {},
                             'structure' => {
                               'associated_unit' => {
@@ -423,14 +412,12 @@ $result_sectioning{'chapter_sections'} = {
                                       'extra' => {
                                         'unit_command' => {
                                           'cmdname' => 'chapter',
-                                          'extra' => {},
                                           'info' => {},
                                           'structure' => {
                                             'associated_unit' => {},
                                             'section_childs' => [
                                               {
                                                 'cmdname' => 'section',
-                                                'extra' => {},
                                                 'info' => {},
                                                 'structure' => {
                                                   'associated_unit' => {
@@ -445,7 +432,6 @@ $result_sectioning{'chapter_sections'} = {
                                                           'extra' => {
                                                             'unit_command' => {
                                                               'cmdname' => 'chapter',
-                                                              'extra' => {},
                                                               'info' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {},
@@ -463,7 +449,6 @@ $result_sectioning{'chapter_sections'} = {
                                                                 'extra' => {
                                                                   'unit_command' => {
                                                                     'cmdname' => 'subsection',
-                                                                    'extra' => {},
                                                                     'info' => {},
                                                                     'structure' => {
                                                                       'associated_unit' => {},
@@ -471,7 +456,6 @@ $result_sectioning{'chapter_sections'} = {
                                                                       'section_number' => '2.1.2',
                                                                       'section_prev' => {
                                                                         'cmdname' => 'subsection',
-                                                                        'extra' => {},
                                                                         'info' => {},
                                                                         'structure' => {
                                                                           'associated_unit' => {
@@ -721,7 +705,6 @@ $result_elements{'chapter_sections'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'unnumbered',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {}
@@ -734,7 +717,6 @@ $result_elements{'chapter_sections'} = [
           'extra' => {
             'unit_command' => {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'associated_unit' => {},
@@ -750,7 +732,6 @@ $result_elements{'chapter_sections'} = [
                 'extra' => {
                   'unit_command' => {
                     'cmdname' => 'chapter',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'associated_unit' => {},
@@ -764,7 +745,6 @@ $result_elements{'chapter_sections'} = [
                       'extra' => {
                         'unit_command' => {
                           'cmdname' => 'section',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'associated_unit' => {},
@@ -789,7 +769,6 @@ $result_elements{'chapter_sections'} = [
                       'extra' => {
                         'unit_command' => {
                           'cmdname' => 'chapter',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'associated_unit' => {},
@@ -803,7 +782,6 @@ $result_elements{'chapter_sections'} = [
                             'extra' => {
                               'unit_command' => {
                                 'cmdname' => 'subsection',
-                                'extra' => {},
                                 'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
@@ -817,7 +795,6 @@ $result_elements{'chapter_sections'} = [
                                   'extra' => {
                                     'unit_command' => {
                                       'cmdname' => 'subsection',
-                                      'extra' => {},
                                       'info' => {},
                                       'structure' => {
                                         'associated_unit' => {},
@@ -831,7 +808,6 @@ $result_elements{'chapter_sections'} = [
                                         'extra' => {
                                           'unit_command' => {
                                             'cmdname' => 'section',
-                                            'extra' => {},
                                             'info' => {},
                                             'structure' => {
                                               'associated_unit' => {},

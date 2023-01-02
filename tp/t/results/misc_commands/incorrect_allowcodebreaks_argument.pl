@@ -25,7 +25,6 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
             }
           ],
           'cmdname' => 'allowcodebreaks',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => ' '
           },

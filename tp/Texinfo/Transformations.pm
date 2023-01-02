@@ -1,20 +1,20 @@
 # Transformations.pm: some transformations of the document tree
 #
 # Copyright 2010-2022 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl.
 
@@ -102,7 +102,7 @@ sub fill_gaps_in_sectioning($)
     my $current_section_level
        = Texinfo::Common::section_level($current_section);
     my $next_section = $sections_list[0];
-    
+
     if (defined($next_section)) {
       my $next_section_level
                         = Texinfo::Common::section_level($next_section);
@@ -253,7 +253,8 @@ sub _new_node($$$$)
                 'info' =>
                     {'spaces_after_argument' => $spaces_after_argument}}
              ],
-             'info' => {'spaces_before_argument' => ' '}};
+             'info' => {'spaces_before_argument' => ' '},
+             'extra' => {}};
     my $node_line_arg = $node->{'args'}->[0];
     $node_line_arg->{'parent'} = $node;
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
@@ -305,7 +306,8 @@ sub _reassociate_to_node($$$$)
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
     if ($previous_node) {
-      if (not defined($previous_node->{'extra'}->{'menus'})
+      if (not $previous_node->{'extra'}
+          or not defined($previous_node->{'extra'}->{'menus'})
           or not scalar(@{$previous_node->{'extra'}->{'menus'}})
           or not (grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
         print STDERR "Bug: menu $current not in previous node $previous_node\n";
@@ -380,6 +382,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
     $previous_node = $content
       if ($content->{'cmdname'}
           and $content->{'cmdname'} eq 'node'
+          and $content->{'extra'}
           and $content->{'extra'}->{'normalized'});
     push @contents, $content;
   }
@@ -412,7 +415,8 @@ sub complete_node_menu($;$)
 
   if (scalar(@node_childs)) {
     my %existing_entries;
-    if ($node->{'extra'}->{'menus'} and @{$node->{'extra'}->{'menus'}}) {
+    if ($node->{'extra'}
+        and $node->{'extra'}->{'menus'} and @{$node->{'extra'}->{'menus'}}) {
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
@@ -565,7 +569,6 @@ sub _print_down_menus($$)
       my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
       $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',
                                           'parent' => $menu_comment};
-    
       $menu_comment->{'contents'}->[0]->{'contents'}
         = [{'text' => "\n", 'type' => 'empty_line'}, @$node_title_contents,
            {'text' => "\n", 'type' => 'empty_line'},
@@ -623,7 +626,9 @@ sub new_master_menu($$)
   return undef if (!defined($node));
 
   my @master_menu_contents;
-  if ($node->{'extra'}->{'menus'} and scalar(@{$node->{'extra'}->{'menus'}})) {
+  if ($node->{'extra'}
+      and $node->{'extra'}->{'menus'}
+      and scalar(@{$node->{'extra'}->{'menus'}})) {
     foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
@@ -663,7 +668,9 @@ sub regenerate_master_menu($$)
   return undef if (!defined($top_node));
 
   my $new_master_menu = new_master_menu($self, $labels);
-  return undef if (!defined($new_master_menu) or !$top_node->{'extra'}->{'menus'}
+  return undef if (!defined($new_master_menu)
+                   or !$top_node->{'extra'}
+                   or !$top_node->{'extra'}->{'menus'}
                    or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
@@ -727,7 +734,7 @@ sub menu_to_simple_menu($);
 sub menu_to_simple_menu($)
 {
   my $menu = shift;
-  
+
   my @contents;
   foreach my $content (@{$menu->{'contents'}}) {
     if ($content->{'type'} and $content->{'type'} eq 'menu_comment') {
@@ -760,7 +767,7 @@ sub menu_to_simple_menu($)
       push @contents, $content;
     }
   }
-  
+
   # reset parent, put in menu and merge preformatted.
   @{$menu->{'contents'}} = ();
   my $current_preformatted;
@@ -789,7 +796,7 @@ sub set_menus_to_simple_menu($)
 
   if ($nodes_list) {
     foreach my $node (@{$nodes_list}) {
-      if ($node->{'extra'}->{'menus'}) {
+      if ($node->{'extra'} and $node->{'extra'}->{'menus'}) {
         foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
           menu_to_simple_menu($menu);
         }

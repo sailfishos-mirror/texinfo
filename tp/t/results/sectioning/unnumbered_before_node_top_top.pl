@@ -48,7 +48,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => ' '
         },
@@ -179,7 +178,6 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -278,7 +276,6 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
                 'extra' => {
                   'unit_command' => {
                     'cmdname' => 'unnumbered',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'associated_unit' => {}
@@ -350,7 +347,6 @@ $result_menus{'unnumbered_before_node_top_top'} = {
             'extra' => {
               'unit_command' => {
                 'cmdname' => 'unnumbered',
-                'extra' => {},
                 'info' => {},
                 'structure' => {
                   'associated_unit' => {}
@@ -411,7 +407,6 @@ $result_elements{'unnumbered_before_node_top_top'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'unnumbered',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {}

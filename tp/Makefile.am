@@ -222,7 +222,6 @@ test_files = \
  t/input_files/minimal_empty_empty.texi \
  t/input_files/minimal_empty_with_bye.texi \
  t/input_files/minimal_empty_with_input.texi \
- t/input_files/more_sections_than_nodes.texi \
  t/input_files/navigation.texi \
  t/input_files/nodequote.texi \
  t/input_files/nodes_before_top.texi \
@@ -234,7 +233,6 @@ test_files = \
  t/input_files/one_line.texi \
  t/input_files/one_line_no_content.texi \
  t/input_files/only_special_spaces_node.texi \
- t/input_files/placed_things_before_element.texi \
  t/input_files/punctuation_small_case_accents_latin1.texi \
  t/input_files/punctuation_small_case_accents_us_ascii.texi \
  t/input_files/punctuation_small_case_accents_utf8.texi \

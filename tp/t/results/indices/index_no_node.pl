@@ -333,7 +333,6 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -883,7 +882,6 @@ $result_trees{'index_no_node'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -1038,7 +1036,6 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -1085,7 +1082,6 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
@@ -1247,7 +1243,6 @@ $result_sectioning{'index_no_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,
@@ -1262,7 +1257,6 @@ $result_sectioning{'index_no_node'} = {
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 2,
@@ -1278,7 +1272,6 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,
@@ -1291,7 +1284,6 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,

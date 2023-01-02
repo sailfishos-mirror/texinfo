@@ -1334,10 +1334,12 @@ sub from_element_direction($$$;$$$)
         return $self->command_text($external_node, $type);
       }
     } elsif ($type eq 'node') {
-      if ($target_element->{'extra'}->{'unit_command'}) {
+      if ($target_element->{'extra'}
+          and $target_element->{'extra'}->{'unit_command'}) {
         if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
           $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}
+        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}
+                 and $target_element->{'extra'}->{'unit_command'}
                                           ->{'extra'}->{'associated_node'}) {
           $command = $target_element->{'extra'}->{'unit_command'}
                                           ->{'extra'}->{'associated_node'};
@@ -1346,10 +1348,12 @@ sub from_element_direction($$$;$$$)
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
-      if ($target_element->{'extra'}->{'unit_command'}) {
+      if ($target_element->{'extra'}
+          and $target_element->{'extra'}->{'unit_command'}) {
         if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
           $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}
+        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}
+                 and $target_element->{'extra'}->{'unit_command'}
                                          ->{'extra'}->{'associated_section'}) {
           $command = $target_element->{'extra'}->{'unit_command'}
                                         ->{'extra'}->{'associated_section'};
@@ -1361,7 +1365,7 @@ sub from_element_direction($$$;$$$)
       if (defined($target_element->{'type'})
           and $target_element->{'type'} eq 'special_element') {
         $command = $target_element;
-      } else {
+      } elsif ($target_element->{'extra'}) {
         $command = $target_element->{'extra'}->{'unit_command'};
       }
       if ($type eq 'href') {
@@ -4114,7 +4118,9 @@ sub _convert_heading_command($$$$$)
   # preceding the section, or the section itself
   my $opening_section;
   my $level_corrected_opening_section_cmdname;
-  if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
+  if ($cmdname eq 'node'
+      and $element->{'extra'}
+      and $element->{'extra'}->{'associated_section'}) {
     $opening_section = $element->{'extra'}->{'associated_section'};
     $level_corrected_opening_section_cmdname
      = Texinfo::Structuring::section_level_adjusted_command_name($opening_section);
@@ -4141,7 +4147,9 @@ sub _convert_heading_command($$$$$)
          # or !$tree_unit->{'extra'}->{'unit_command'}
          or ($tree_unit->{'extra'}->{'unit_command'}
              and $tree_unit->{'extra'}->{'unit_command'} eq $element
-             and not $element->{'extra'}->{'associated_section'}))
+             and (not $element->{'extra'}
+                  or not $element->{'extra'}->{'associated_section'})))
+        and defined($element->{'extra'})
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -4278,7 +4286,8 @@ sub _convert_inline_command($$$$)
     } elsif ($self->is_format_expanded($format)) {
       $arg_index = 0;
     }
-  } elsif (defined($command->{'extra'}->{'expand_index'})) {
+  } elsif (defined($command->{'extra'})
+           and defined($command->{'extra'}->{'expand_index'})) {
     $arg_index = 0;
   }
   if (defined($arg_index) and $arg_index < scalar(@$args)) {
@@ -4493,7 +4502,8 @@ sub _convert_sp_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($command->{'extra'}->{'misc_args'}->[0])) {
+  if (defined($command->{'extra'})
+      and defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
     if ($self->in_preformatted() or $self->in_string()) {
       return "\n" x $sp_nr;
@@ -4556,7 +4566,8 @@ sub _convert_author_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return '' if (!$args->[0] or !$command->{'extra'}->{'titlepage'});
+  return '' if (!$args->[0] or !$command->{'extra'}
+                or !$command->{'extra'}->{'titlepage'});
   if (!$self->in_string()) {
     return $self->html_attribute_class('strong', [$cmdname])
                 .">$args->[0]->{'normal'}</strong>"
@@ -4649,10 +4660,10 @@ sub _convert_listoffloats_command($$$$)
       $result .= '</dt>';
       my $caption;
       my $caption_cmdname;
-      if ($float->{'extra'}->{'shortcaption'}) {
+      if ($float->{'extra'} and $float->{'extra'}->{'shortcaption'}) {
         $caption = $float->{'extra'}->{'shortcaption'};
         $caption_cmdname = 'shortcaption';
-      } elsif ($float->{'extra'}->{'caption'}) {
+      } elsif ($float->{'extra'} and $float->{'extra'}->{'caption'}) {
         $caption = $float->{'extra'}->{'caption'};
         $caption_cmdname = 'caption';
       }
@@ -5185,6 +5196,7 @@ sub _convert_xref_commands($$$$)
 
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
+         and $node->{'extra'}
          and $node->{'extra'}->{'associated_section'}
          # this condition avoids infinite recursions, indeed in that case
          # the node will be used and not the section.  There should not be
@@ -6345,7 +6357,9 @@ sub _convert_menu_entry_type($$$)
   my $href = '';
   my $rel = '';
   my $section;
-  my $node_entry = $element->{'extra'}->{'menu_entry_node'};
+  my $node_entry;
+  $node_entry = $element->{'extra'}->{'menu_entry_node'}
+     if ($element->{'extra'});
   # external node
   my $external_node;
   if ($node_entry->{'manual_content'}) {
@@ -9379,6 +9393,7 @@ sub _default_format_contents($$;$$)
             my $rel = '';
             if ($section->{'extra'}
                 and $section->{'extra'}->{'associated_node'}
+                and $section->{'extra'}->{'associated_node'}->{'extra'}
                 and $section->{'extra'}->{'associated_node'}->{'extra'}->{'isindex'}) {
               $rel = ' rel="index"';
             }

@@ -1179,7 +1179,9 @@ sub txt_image_text($$$)
   } else {
     my $filehandle = do { local *FH };
     if (open ($filehandle, $txt_file)) {
-      my $enc = $element->{'extra'}->{'input_perl_encoding'};
+      my $enc;
+      $enc = $element->{'extra'}->{'input_perl_encoding'}
+         if ($element->{'extra'});
       binmode($filehandle, ":encoding($enc)")
         if ($enc);
       my $result = '';
@@ -1215,7 +1217,8 @@ sub float_type_number($$)
   my $float = shift;
 
   my $type;
-  if ($float->{'extra'}->{'type'}
+  if ($float->{'extra'}
+      and $float->{'extra'}->{'type'}
       and $float->{'extra'}->{'type'}->{'normalized'} ne '') {
     $type = {'contents' => $float->{'extra'}->{'type'}->{'content'}};
   }
@@ -1243,9 +1246,9 @@ sub float_name_caption($$)
   my $element = shift;
 
   my $caption;
-  if ($element->{'extra'}->{'caption'}) {
+  if ($element->{'extra'} and $element->{'extra'}->{'caption'}) {
     $caption = $element->{'extra'}->{'caption'};
-  } elsif ($element->{'extra'}->{'shortcaption'}) {
+  } elsif ($element->{'extra'} and $element->{'extra'}->{'shortcaption'}) {
     $caption = $element->{'extra'}->{'shortcaption'};
   }
   #if ($self->get_conf('DEBUG')) {
@@ -1254,7 +1257,8 @@ sub float_name_caption($$)
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
   my $type;
-  if ($element->{'extra'}->{'type'}->{'normalized'} ne '') {
+  if ($element->{'extra'} and $element->{'extra'}->{'type'}
+      and $element->{'extra'}->{'type'}->{'normalized'} ne '') {
     $type = {'contents' => $element->{'extra'}->{'type'}->{'content'}};
   }
 
@@ -1430,7 +1434,8 @@ sub sort_element_counts($$;$$)
   if (!$elements) {
     @$elements = ($tree);
   } elsif (scalar(@$elements) >= 1
-           and not $elements->[0]->{'extra'}->{'unit_command'}) {
+           and (not $elements->[0]->{'extra'}
+                or not $elements->[0]->{'extra'}->{'unit_command'})) {
     shift @$elements;
   }
 
