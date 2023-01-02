@@ -1,4 +1,4 @@
-This is direntry_dircategory.info, produced by texi2any version from
+This is direntry_dircategory.info, produced from
 direntry_dircategory.texi.
 
 INFO-DIR-SECTION “category—TH ERE?”
@@ -20,14 +20,18 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: direntry_dircategory.info,  Node: Top,  Next: chapter,  Up: (dir)
+Indirect:
+direntry_dircategory.info-1: 420
+direntry_dircategory.info-2: 1004
+
+Tag Table:
+(Indirect)
+Node: Top420
+Node: chapter1004
+
+End Tag Table
 
-Test dircategory and direntry
-*****************************
-
-Text
-
-* Menu:
-
-* chapter::
-
+
+Local Variables:
+coding: utf-8
+End:

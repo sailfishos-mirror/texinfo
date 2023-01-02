@@ -1031,6 +1031,17 @@ In top node
 In chap1.
 
 ',{},{'SPLIT_SIZE' => 10}],
+['split_nocopying',
+  undef, {'test_file' => '../../tests/formatting/split_nocopying.texi',},
+],
+['split_nocopying_split',
+  undef, {'test_file' => '../../tests/formatting/split_nocopying.texi',},
+  {'SPLIT_SIZE' => 10},
+],
+['direntry_dircategory',
+  undef, {'test_file' => 'direntry_dircategory.texi'},
+  {'SPLIT_SIZE' => 1}
+],
 ['quote_node_names_info',
 undef, {'test_file' => 'nodequote.texi',},
 {'INFO_SPECIAL_CHARS_QUOTE' => 1,

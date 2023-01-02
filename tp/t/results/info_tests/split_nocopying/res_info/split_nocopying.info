@@ -1,11 +1,10 @@
-This is split_nocopying.info, produced by texi2any version from
-split_nocopying.texi.
+This is split_nocopying.info, produced from split_nocopying.texi.
 
 
 File: split_nocopying.info,  Node: Top,  Next: Ch1,  Up: (dir)
 
-Test file used to test split Info without copying
-*************************************************
+Test file used to test split Info without @copying
+**************************************************
 
 This is the top node.
 
@@ -24,8 +23,8 @@ First chapter.
 
 
 Tag Table:
-Node: Top87
-Node: Ch1295
+Node: Top67
+Node: Ch1277
 
 End Tag Table
 

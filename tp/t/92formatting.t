@@ -55,26 +55,6 @@ my @test_cases = (
   },
   {'EXPANDED_FORMATS' => ['info', 'html', 'tex'],}
 ],
-['direntry_dircategory',
-  undef,
-  {'test_file' => 'direntry_dircategory.texi',
-   'test_formats' => ['file_info']
-  },
-  {'SPLIT_SIZE' => 1}
-],
-['split_nocopying',
-  undef,
-  {'test_file' => 'split_nocopying.texi',
-   'test_formats' => ['file_info']
-  },
-],
-['split_nocopying_split',
-  undef,
-  {'test_file' => 'split_nocopying.texi',
-   'test_formats' => ['file_info']
-  },
-  {'SPLIT_SIZE' => 10}
-],
 ['simplest_test_prefix',
   undef,
   {'test_file' => 'simplest.texi',

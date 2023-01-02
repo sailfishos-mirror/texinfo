@@ -558,10 +558,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/cond_info_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_xml.pl \
-  t/results/formatting/direntry_dircategory.pl \
-  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info \
-  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-1 \
-  t/results/formatting/direntry_dircategory/res_info/direntry_dircategory.info-2 \
   t/results/formatting/float_copying.pl \
   t/results/formatting/float_copying/res_html/Copying-and-floats.html \
   t/results/formatting/float_copying/res_html/caption-copying-footnote-anchor.html \
@@ -578,12 +574,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/simplest_test_prefix_info/res_info/truc.info \
   t/results/formatting/split_for_format_not_split.pl \
   t/results/formatting/split_for_format_not_split/res_xml/simplest.xml \
-  t/results/formatting/split_nocopying.pl \
-  t/results/formatting/split_nocopying/res_info/split_nocopying.info \
-  t/results/formatting/split_nocopying_split.pl \
-  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info \
-  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-1 \
-  t/results/formatting/split_nocopying_split/res_info/split_nocopying.info-2 \
   t/results/formatting/texi_cond.pl \
   t/results/heading/heading_in_copying.pl \
   t/results/heading/heading_in_example.pl \
@@ -1039,6 +1029,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting.pl \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting/res_info/colons_in_index_entries_and_node_no_quoting.info \
   t/results/info_tests/def_in_copying.pl \
+  t/results/info_tests/direntry_dircategory.pl \
+  t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info \
+  t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info-1 \
+  t/results/info_tests/direntry_dircategory/res_info/direntry_dircategory.info-2 \
   t/results/info_tests/direntry_dircategory_and_commands.pl \
   t/results/info_tests/empty_arguments.pl \
   t/results/info_tests/empty_caption.pl \
@@ -1087,6 +1081,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/space_in_menu.pl \
   t/results/info_tests/space_in_setfilename.pl \
   t/results/info_tests/split_no_copying.pl \
+  t/results/info_tests/split_nocopying.pl \
+  t/results/info_tests/split_nocopying/res_info/split_nocopying.info \
+  t/results/info_tests/split_nocopying_split.pl \
+  t/results/info_tests/split_nocopying_split/res_info/split_nocopying.info \
+  t/results/info_tests/split_nocopying_split/res_info/split_nocopying.info-1 \
+  t/results/info_tests/split_nocopying_split/res_info/split_nocopying.info-2 \
   t/results/info_tests/split_test_before_first_node.pl \
   t/results/info_tests/split_test_before_first_node/res_info/split_test_before_first_node.info \
   t/results/info_tests/split_test_before_first_node/res_info/split_test_before_first_node.info-1 \

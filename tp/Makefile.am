@@ -238,7 +238,6 @@ test_files = \
  t/input_files/sample_utf8.texi \
  t/input_files/simplest.texi \
  t/input_files/split_chapter_index.texi \
- t/input_files/split_nocopying.texi \
  t/input_files/simplest_no_node_section.texi \
  t/input_files/special_spaces_in_nodes.texi \
  t/input_files/test_refs.texi \

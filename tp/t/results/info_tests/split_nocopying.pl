@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'split_nocopying_split'} = {
+$result_trees{'split_nocopying'} = {
   'contents' => [
     {
       'contents' => [
@@ -75,7 +75,13 @@ $result_trees{'split_nocopying_split'} = {
         {
           'contents' => [
             {
-              'text' => 'Test file used to test split Info without copying'
+              'text' => 'Test file used to test split Info without '
+            },
+            {
+              'cmdname' => '@'
+            },
+            {
+              'text' => 'copying'
             }
           ],
           'info' => {
@@ -317,17 +323,17 @@ $result_trees{'split_nocopying_split'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'split_nocopying_split'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
-$result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_nocopying_split'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
+$result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
-$result_texis{'split_nocopying_split'} = '\\input texinfo
+$result_texis{'split_nocopying'} = '\\input texinfo
 
 @node Top
-@top Test file used to test split Info without copying
+@top Test file used to test split Info without @@copying
 
 This is the top node.
 
@@ -344,8 +350,8 @@ First chapter.
 ';
 
 
-$result_texts{'split_nocopying_split'} = 'Test file used to test split Info without copying
-*************************************************
+$result_texts{'split_nocopying'} = 'Test file used to test split Info without @copying
+**************************************************
 
 This is the top node.
 
@@ -358,7 +364,7 @@ First chapter.
 
 ';
 
-$result_sectioning{'split_nocopying_split'} = {
+$result_sectioning{'split_nocopying'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -406,12 +412,12 @@ $result_sectioning{'split_nocopying_split'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'split_nocopying_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_nocopying_split'};
+$result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'split_nocopying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'split_nocopying'};
 
-$result_nodes{'split_nocopying_split'} = {
+$result_nodes{'split_nocopying'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -451,11 +457,11 @@ $result_nodes{'split_nocopying_split'} = {
     'node_next' => {}
   }
 };
-$result_nodes{'split_nocopying_split'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'split_nocopying_split'};
-$result_nodes{'split_nocopying_split'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'split_nocopying_split'};
-$result_nodes{'split_nocopying_split'}{'structure'}{'node_next'} = $result_nodes{'split_nocopying_split'}{'structure'}{'menu_child'};
+$result_nodes{'split_nocopying'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'split_nocopying'};
+$result_nodes{'split_nocopying'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'split_nocopying'};
+$result_nodes{'split_nocopying'}{'structure'}{'node_next'} = $result_nodes{'split_nocopying'}{'structure'}{'menu_child'};
 
-$result_menus{'split_nocopying_split'} = {
+$result_menus{'split_nocopying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -477,12 +483,12 @@ $result_menus{'split_nocopying_split'} = {
     }
   }
 };
-$result_menus{'split_nocopying_split'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'split_nocopying_split'};
+$result_menus{'split_nocopying'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'split_nocopying'};
 
-$result_errors{'split_nocopying_split'} = [];
+$result_errors{'split_nocopying'} = [];
 
 
-$result_floats{'split_nocopying_split'} = {};
+$result_floats{'split_nocopying'} = {};
 
 
 1;
