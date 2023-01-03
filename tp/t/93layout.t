@@ -87,7 +87,12 @@ my @test_cases = (
   {'VERTICAL_HEAD_NAVIGATION' => 1, 'SPLIT' => 'node',
   'HEADERS' => 0}
 ],
-
+# could also be considered as testing init files
+['navigation_test_misc_file_collision',
+  undef, {'test_file' => 'navigation.texi',
+          'init_files' => ['misc_file_collision.init'] },
+  {'SPLIT' => 'node'},
+],
 );
 
 foreach my $test (@test_cases) {

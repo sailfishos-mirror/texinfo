@@ -1,5 +1,3 @@
-no_monolithic_only_toc_out no_monolithic.texi -c 'MONOLITHIC 0' --init only_toc_out.init
-navigation_test_misc_file_collision navigation.texi --split node --init misc_file_collision.init
 
 formatting_macro_expand formatting.texi --macro-expand=@OUT_DIR@formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure
 # the output should be the same as just above, but is less interesting
