@@ -1,5 +1,12 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/nested_formats/list-of-tests: use the default format and
+	the html format, and unset TEXI2HTML such that the default format
+	produces Info.  The html format des not use the texi2html style
+	either.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/formatting/list-of-tests,
 	tp/tests/nested_formats/list-of-tests,
 	tp/tests/sectioning/list-of-tests: more explicit imprtant
