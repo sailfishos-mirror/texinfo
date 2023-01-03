@@ -122,6 +122,232 @@ $anchor_in_footnote_text
 ['section_in_unnumbered_info',
 undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ],
+['more_sections_than_nodes',
+'@node Top
+@top top
+
+@menu
+* n c2::
+* n c3::
+* n c3 s1 s2::
+@end menu
+
+@chapter c1
+
+@node n c2
+@chapter c2
+
+@section s1
+
+@node n c3, n c3 s1 s2, n c2, Top
+@chapter c3
+
+@menu 
+* n c3 s 2::
+@end menu
+
+@section C3 s1
+
+@node n c3 s 2
+@section c3 s2
+
+@section c3 s3
+
+@chapter c4
+
+@section c3 s1
+
+@subsection c3 s1 s1
+
+@node n c3 s1 s2,,n c3,Top
+@subsection c3 s1 s2
+
+@appendix appendix
+', {},
+# to test texi2html style directions in that case
+{'TEXI2HTML' => 1}],
+['no_element',
+'@settitle no_element test
+@documentencoding ISO-8859-1
+
+
+@anchor{An anchor}
+
+Ref to the anchor:
+@ref{An anchor}
+
+Ref to the anchor in footnote:
+@ref{Anchor in footnote}.
+
+@footnote{In footnote.
+
+@anchor{Anchor in footnote}
+
+Ref to main text anchor
+@ref{An anchor}
+}
+
+@float , float anchor
+In float
+@end float
+
+Ref to float
+@ref{float anchor}.
+
+@menu
+* An anchor::                menu entry pointing to the anchor.
+@end menu
+
+@cindex index entry
+', {}, {'SHOW_TITLE' => 1}],
+['placed_things_before_element',
+'@anchor{An anchor}
+
+Ref to the anchor:
+@ref{An anchor}
+
+Ref to the anchor in footnote:
+@ref{Anchor in footnote}.
+
+@footnote{In footnote.
+
+@anchor{Anchor in footnote}
+
+Ref to main text anchor
+@ref{An anchor}
+}
+
+@float , float anchor
+In float
+@end float
+
+Ref to float
+@ref{float anchor}.
+
+@menu
+* An anchor::                menu entry pointing to the anchor.
+@end menu
+
+@cindex index entry
+
+@section section
+
+Ref to anchor
+@ref{An anchor}
+
+Ref to footnote anchor
+@ref{Anchor in footnote}
+',{},{'FORMAT_MENU' => 'menu'}],
+['placed_things_before_node',
+'@anchor{An anchor}
+
+Ref to the anchor:
+@ref{An anchor}
+
+Ref to the anchor in footnote:
+@ref{Anchor in footnote}.
+
+@footnote{In footnote.
+
+@anchor{Anchor in footnote}
+
+Ref to main text anchor
+@ref{An anchor}
+}
+
+@float , float anchor
+In float
+@end float
+
+Ref to float
+@ref{float anchor}.
+
+@menu
+* An anchor::                menu entry pointing to the anchor.
+@end menu
+
+@cindex index entry
+
+@node Top
+@top top section
+
+Ref to anchor
+@ref{An anchor}
+
+Ref to footnote anchor
+@ref{Anchor in footnote}
+'],
+['empty_top_node_up',
+'@node Top
+@top empty top node up
+
+@menu
+* first::
+@end menu
+
+@node first
+',{},{'TOP_NODE_UP' => ''}
+],
+['internal_top_node_up',
+'@node Top
+@top internal top node up
+
+@menu
+* first::
+@end menu
+
+@node first
+',{'test_split' => 'node'}, {'TOP_NODE_UP' => 'node@@ node'}
+],
+['top_node_up_url',
+'@node Top
+@top internal top node up
+
+@menu
+* first::
+@end menu
+
+@node first
+',{'test_split' => 'node'},
+  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
+   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+],
+['non_automatic_top_node_up_url',
+'@node Top, first, (dir), (dir)
+@top internal top node up
+
+@menu
+* first::
+@end menu
+
+@node first, , Top, (dir)
+',{'test_split' => 'node'},{'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+],
+['non_automatic_internal_top_node_up',
+'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+@top internal top node up
+
+@menu
+* first::
+@end menu
+
+@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+',{'test_split' => 'node'},
+  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals'}
+],
+['non_automatic_top_node_up_and_url',
+'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+@top internal top node up
+
+@menu
+* first::
+@end menu
+
+@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+',{'test_split' => 'node'},
+  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
+   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+],
 );
 
 
@@ -183,6 +409,7 @@ foreach my $test (@test_cases) {
 
 my %xml_tests_info_tests = (
   'only_special_spaces_node' => 1,
+  'more_sections_than_nodes' => 1,
 );
 
 my %docbook_tests_info_tests = (

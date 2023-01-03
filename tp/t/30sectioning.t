@@ -407,117 +407,6 @@ In float
 
 @xref{node}.
 '],
-['no_element',
-'@settitle no_element test
-@documentencoding ISO-8859-1
-
-
-@anchor{An anchor}
-
-Ref to the anchor:
-@ref{An anchor}
-
-Ref to the anchor in footnote:
-@ref{Anchor in footnote}.
-
-@footnote{In footnote.
-
-@anchor{Anchor in footnote}
-
-Ref to main text anchor
-@ref{An anchor}
-}
-
-@float , float anchor
-In float
-@end float
-
-Ref to float
-@ref{float anchor}.
-
-@menu
-* An anchor::                menu entry pointing to the anchor.
-@end menu
-
-@cindex index entry
-', {}, {'SHOW_TITLE' => 1}],
-['placed_things_before_element',
-'@anchor{An anchor}
-
-Ref to the anchor:
-@ref{An anchor}
-
-Ref to the anchor in footnote:
-@ref{Anchor in footnote}.
-
-@footnote{In footnote.
-
-@anchor{Anchor in footnote}
-
-Ref to main text anchor
-@ref{An anchor}
-}
-
-@float , float anchor
-In float
-@end float
-
-Ref to float
-@ref{float anchor}.
-
-@menu
-* An anchor::                menu entry pointing to the anchor.
-@end menu
-
-@cindex index entry
-
-@section section
-
-Ref to anchor
-@ref{An anchor}
-
-Ref to footnote anchor
-@ref{Anchor in footnote}
-',{},{'FORMAT_MENU' => 'menu'}],
-['placed_things_before_node',
-'@anchor{An anchor}
-
-Ref to the anchor:
-@ref{An anchor}
-
-Ref to the anchor in footnote:
-@ref{Anchor in footnote}.
-
-@footnote{In footnote.
-
-@anchor{Anchor in footnote}
-
-Ref to main text anchor
-@ref{An anchor}
-}
-
-@float , float anchor
-In float
-@end float
-
-Ref to float
-@ref{float anchor}.
-
-@menu
-* An anchor::                menu entry pointing to the anchor.
-@end menu
-
-@cindex index entry
-
-@node Top
-@top top section
-
-Ref to anchor
-@ref{An anchor}
-
-Ref to footnote anchor
-@ref{Anchor in footnote}
-'],
 ['explicit_node_directions',
 '@node Top
 Top node
@@ -896,50 +785,6 @@ $unnumbered_top_without_node_text,
 ['unnumbered_top_without_node_nodes',
 $unnumbered_top_without_node_text,
 {'test_split' => 'node'}],
-['more_sections_than_nodes',
-'@node Top
-@top top
-
-@menu
-* n c2::
-* n c3::
-* n c3 s1 s2::
-@end menu
-
-@chapter c1
-
-@node n c2
-@chapter c2
-
-@section s1
-
-@node n c3, n c3 s1 s2, n c2, Top
-@chapter c3
-
-@menu 
-* n c3 s 2::
-@end menu
-
-@section C3 s1
-
-@node n c3 s 2
-@section c3 s2
-
-@section c3 s3
-
-@chapter c4
-
-@section c3 s1
-
-@subsection c3 s1 s1
-
-@node n c3 s1 s2,,n c3,Top
-@subsection c3 s1 s2
-
-@appendix appendix
-', {},
-# to test texi2html style directions in that case
-{'TEXI2HTML' => 1}],
 ['space_in_node',
 '
 @node Top
@@ -998,80 +843,9 @@ $unnumbered_top_without_node_text,
 @node subsection
 @subsection subsection
 ', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
-['empty_top_node_up',
-'@node Top
-@top empty top node up
-
-@menu
-* first::
-@end menu
-
-@node first
-',{},{'TOP_NODE_UP' => ''}
-],
 ['node_up_direction_for_top_with_manual',
 '@node Top,,,(dir)top
 '],
-['internal_top_node_up',
-'@node Top
-@top internal top node up
-
-@menu
-* first::
-@end menu
-
-@node first
-',{'test_split' => 'node'}, {'TOP_NODE_UP' => 'node@@ node'}
-],
-['top_node_up_url',
-'@node Top
-@top internal top node up
-
-@menu
-* first::
-@end menu
-
-@node first
-',{'test_split' => 'node'},
-  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
-   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
-],
-['non_automatic_top_node_up_url',
-'@node Top, first, (dir), (dir)
-@top internal top node up
-
-@menu
-* first::
-@end menu
-
-@node first, , Top, (dir)
-',{'test_split' => 'node'},{'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
-],
-['non_automatic_internal_top_node_up',
-'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
-@top internal top node up
-
-@menu
-* first::
-@end menu
-
-@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
-',{'test_split' => 'node'},
-  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals'}
-],
-['non_automatic_top_node_up_and_url',
-'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
-@top internal top node up
-
-@menu
-* first::
-@end menu
-
-@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
-',{'test_split' => 'node'},
-  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
-   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
-],
 ['protected_node_parentheses',
 '
 @node Top
@@ -1789,7 +1563,6 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'section_node_before_part', 'top_node_part_top',
   'chapter_node_before_and_after_part',
   'in_menu_only_special_spaces_node',
-  'more_sections_than_nodes',
   'more_nodes_than_sections', 'part_node_chapter_appendix',
   'part_node_part_appendix', 'part_node_chapter_node_appendix',
   'part_node_part_node_appendix', 'part_node_node_part_appendix',

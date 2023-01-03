@@ -1598,8 +1598,17 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/character_and_spaces_in_refs.pl \
   t/results/moresectioning/contents.pl \
   t/results/moresectioning/contents_and_shortcontents.pl \
+  t/results/moresectioning/empty_top_node_up.pl \
   t/results/moresectioning/equivalent_nodes_defined_linked.pl \
+  t/results/moresectioning/internal_top_node_up.pl \
+  t/results/moresectioning/more_sections_than_nodes.pl \
+  t/results/moresectioning/no_element.pl \
+  t/results/moresectioning/non_automatic_internal_top_node_up.pl \
+  t/results/moresectioning/non_automatic_top_node_up_and_url.pl \
+  t/results/moresectioning/non_automatic_top_node_up_url.pl \
   t/results/moresectioning/only_special_spaces_node.pl \
+  t/results/moresectioning/placed_things_before_element.pl \
+  t/results/moresectioning/placed_things_before_node.pl \
   t/results/moresectioning/section_in_unnumbered_info.pl \
   t/results/moresectioning/section_in_unnumbered_plaintext.pl \
   t/results/moresectioning/sectioning_part_appendix.pl \
@@ -1610,6 +1619,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/shortcontents.pl \
   t/results/moresectioning/special_spaces_in_nodes.pl \
   t/results/moresectioning/top_chapter_sections.pl \
+  t/results/moresectioning/top_node_up_url.pl \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \
@@ -1866,7 +1876,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/empty_nodes_with_commands.pl \
   t/results/sectioning/empty_ref_arg.pl \
   t/results/sectioning/empty_refs.pl \
-  t/results/sectioning/empty_top_node_up.pl \
   t/results/sectioning/equivalent_labels.pl \
   t/results/sectioning/equivalent_nodes.pl \
   t/results/sectioning/explicit_node_directions.pl \
@@ -1876,7 +1885,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/in_menu_only_special_ascii_spaces_node_menu.pl \
   t/results/sectioning/in_menu_only_special_spaces_node.pl \
   t/results/sectioning/in_menu_only_special_spaces_node_menu.pl \
-  t/results/sectioning/internal_top_node_up.pl \
   t/results/sectioning/lone_Top_node.pl \
   t/results/sectioning/lone_Top_node/res_latex/lone_Top_node.tex \
   t/results/sectioning/lone_contents.pl \
@@ -1885,11 +1893,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/lowered_subsubsection.pl \
   t/results/sectioning/loweredheading.pl \
   t/results/sectioning/menutextorder.pl \
-  t/results/sectioning/more_sections_than_nodes.pl \
   t/results/sectioning/next_in_menu_is_below.pl \
   t/results/sectioning/next_no_prev_to_node.pl \
   t/results/sectioning/no_argument_and_contents.pl \
-  t/results/sectioning/no_element.pl \
   t/results/sectioning/no_menu.pl \
   t/results/sectioning/node.pl \
   t/results/sectioning/node_empty_direction.pl \
@@ -1937,9 +1943,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/nodes_before_top.pl \
   t/results/sectioning/nodes_before_top/res_latex/nodes_before_top.tex \
   t/results/sectioning/nodes_no_node_top_explicit_directions.pl \
-  t/results/sectioning/non_automatic_internal_top_node_up.pl \
-  t/results/sectioning/non_automatic_top_node_up_and_url.pl \
-  t/results/sectioning/non_automatic_top_node_up_url.pl \
   t/results/sectioning/novalidate.pl \
   t/results/sectioning/one_node_explicit_directions_anchor.pl \
   t/results/sectioning/one_subsection.pl \
@@ -1957,8 +1960,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/part_node_node_part_appendix.pl \
   t/results/sectioning/part_node_part_appendix.pl \
   t/results/sectioning/part_node_part_node_appendix.pl \
-  t/results/sectioning/placed_things_before_element.pl \
-  t/results/sectioning/placed_things_before_node.pl \
   t/results/sectioning/protected_node_parentheses.pl \
   t/results/sectioning/raiselowersections.pl \
   t/results/sectioning/rec_nodes.pl \
@@ -1992,7 +1993,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/top_node_no_menu_direction.pl \
   t/results/sectioning/top_node_part_top.pl \
   t/results/sectioning/top_node_part_top/res_latex/top_node_part_top.tex \
-  t/results/sectioning/top_node_up_url.pl \
   t/results/sectioning/top_part_chapter.pl \
   t/results/sectioning/top_without_node_nodes.pl \
   t/results/sectioning/top_without_node_sections.pl \
