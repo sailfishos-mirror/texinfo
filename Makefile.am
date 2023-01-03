@@ -18,7 +18,8 @@ ACLOCAL_AMFLAGS = -I gnulib/m4
 noinst_SCRIPTS = pre-inst-env
 
 # Additional files to distribute.
-EXTRA_DIST = ChangeLog.46 INSTALL.generic README-hacking \
+EXTRA_DIST = ChangeLog.46 ChangeLog.65 ChangeLog.70 \
+  INSTALL.generic README-hacking \
   system.h gnulib/m4/gnulib-cache.m4 \
   djgpp
 
