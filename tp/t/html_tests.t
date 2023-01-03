@@ -828,6 +828,27 @@ $check_htmlxref_text
    'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'TEXI2HTML' => 1, 'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
+# There are some similar tests in *sectioning.t, but we use completly
+# different input as input files as we want, here, independently,
+# test all possibility regarding HTML output.
+# the test of contents at the beginning of the file is in
+# t/converters_tests.t to test more output formats.
+# the big rule is set to be different from the normal rule to check the type
+# of rule output
+['contents_at_end',
+  undef, {'test_file' => 'contents_at_end.texi'},
+  {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['contents_at_end_inline',
+  undef, {'test_file' => 'contents_at_end.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['contents_at_end_separate_element',
+  undef, {'test_file' => 'contents_at_end.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
 );
 
 

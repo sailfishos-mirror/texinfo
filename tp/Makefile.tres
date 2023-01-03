@@ -589,6 +589,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/commands_in_abbr.pl \
   t/results/html_tests/commands_in_alt.pl \
   t/results/html_tests/commands_in_email.pl \
+  t/results/html_tests/contents_at_end.pl \
+  t/results/html_tests/contents_at_end/res_html/contents_at_end.html \
+  t/results/html_tests/contents_at_end_inline.pl \
+  t/results/html_tests/contents_at_end_inline/res_html/contents_at_end.html \
+  t/results/html_tests/contents_at_end_separate_element.pl \
+  t/results/html_tests/contents_at_end_separate_element/res_html/contents_at_end.html \
   t/results/html_tests/deftypefnnewline_for_copying_after.pl \
   t/results/html_tests/deftypefnnewline_for_copying_before.pl \
   t/results/html_tests/documentdescription.pl \

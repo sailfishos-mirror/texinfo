@@ -189,6 +189,7 @@ test_files = \
  t/input_files/complex_sectioning_case.texi \
  t/input_files/cond.texi \
  t/input_files/contents_at_document_begin.texi \
+ t/input_files/contents_at_end.texi \
  t/input_files/cpp_line_before_first_node.texi \
  t/input_files/cpp_lines.texi \
  t/input_files/cpp_line_latin1.texi \

@@ -1,5 +1,13 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t,
+	tp/tests/contents/Makefile.am (EXTRA_DIST),
+	tp/tests/contents/list-of-tests: remove contents_at_end* tests from
+	tp/tests/contents/list-of-tests, put similar tests in
+	tp/t/html_tests.t and move the Texinfo file accordingly.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/indices/Makefile.am: remove reference to res_parser_info.
 
 	* tp/tests/nested_formats/Makefile.am: replace *_parser_info by

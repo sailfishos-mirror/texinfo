@@ -1,4 +1,4 @@
-EXTRA_DIST = contents_at_end.texi \
+EXTRA_DIST = \
  contents_in_middle_chapter.texi contents_in_middle_section.texi \
  double_contents.texi no_content.texi \
  contents_and_parts.texi \
