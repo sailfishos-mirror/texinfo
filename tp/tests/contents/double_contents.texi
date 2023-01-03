@@ -1,7 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename double_contents.info
-
 @contents
 
 @node Top

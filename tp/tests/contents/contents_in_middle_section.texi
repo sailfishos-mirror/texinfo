@@ -1,8 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename contents_in_middle_section.info
-
-
 @node Top
 @top Contents in section
 

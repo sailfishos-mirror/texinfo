@@ -1,5 +1,4 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@setfilename contents_and_parts.info
 
 @node Top
 @top top

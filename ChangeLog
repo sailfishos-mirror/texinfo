@@ -1,5 +1,9 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/contents/*.texi: remove @setfilename.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/t/40moresectioning.t: inline the
 	contents_at_end_document_after_node, contents_at_end_document and
 	contents_in_document tests.  Remove the Texinfo files.

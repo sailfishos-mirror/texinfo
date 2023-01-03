@@ -1,8 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename contents_at_end.info
-
-
 @node Top
 @top Contents at end
 

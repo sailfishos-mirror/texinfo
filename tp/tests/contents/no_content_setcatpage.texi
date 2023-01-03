@@ -1,7 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename no_contents_setcatpage.info
-
 @node Top
 @top No ccontent
 
