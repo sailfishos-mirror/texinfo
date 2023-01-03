@@ -1,15 +1,23 @@
-2023-01-02  Patrice Dumas  <pertusus@free.fr>
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/init/only_toc_out.init: use the correct special element variety
+	name.
+
+	* tp/Makefile.tres, tp/t/93layout.t: add no_monolithic_only_toc_out
+	test.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/30sectioning.t, tp/Makefile.tres, tp/t/92formatting.t:
 	move split_for_format_not_split to 30sectioning.t.  Remove
 	now empty tp/t/92formatting.t.
 
-2023-01-02  Patrice Dumas  <pertusus@free.fr>
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/92formatting.t, tp/Makefile.tres, tp/t/55conditionals.t:
 	move cnd.texi related tests to 55conditionals.t.
 
-2023-01-02  Patrice Dumas  <pertusus@free.fr>
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/92formatting.t: explicit output format for all cond.texi
 	tests.
@@ -23,12 +31,12 @@
 	t/input_files/one_line_no_content.texi as
 	t/input_files/minimal_only_input_line.texi.
 
-2023-01-02  Patrice Dumas  <pertusus@free.fr>
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/92formatting.t: remove texi2html style, and set corresponding
 	customization instead.
 
-2023-01-02  Patrice Dumas  <pertusus@free.fr>
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/92formatting.t: remove texi2html style for cond.texi related
 	tests, and remove some custmization variables set.

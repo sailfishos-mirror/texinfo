@@ -1423,6 +1423,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/no_monolithic/res_html/no_monolithic_fot.html \
   t/results/layout/no_monolithic/res_html/no_monolithic_ovr.html \
   t/results/layout/no_monolithic/res_html/no_monolithic_toc.html \
+  t/results/layout/no_monolithic_only_toc_out.pl \
+  t/results/layout/no_monolithic_only_toc_out/res_html/no_monolithic.html \
+  t/results/layout/no_monolithic_only_toc_out/res_html/no_monolithic_toc.html \
   t/results/macro/arg_body_expansion_order.pl \
   t/results/macro/arg_not_closed.pl \
   t/results/macro/backslash_in_arg.pl \
