@@ -375,6 +375,42 @@ my $top_chapter_sections_text =
 '.$chapter_sections_text;
 
 my @test_cases = (
+['rec_nodes',
+'@node Top
+Top node
+
+@menu
+* second node::
+* node following second::
+@end menu
+
+@node second node,,Top,Top
+
+@menu
+* other node::
+* second node::
+@end menu
+
+@node other node,,,second node
+
+@menu 
+* other node::
+@end menu
+
+@node node up node following second,,,node following second
+@menu
+* node following second::
+@end menu
+
+in node up node following second
+
+@node node following second,,,node up node following second
+
+in node following second
+@menu
+* node up node following second::
+@end menu
+'],
 ['sectioning_part_appendix',
 $test_text,
 {'test_split' => 'section'}],
@@ -387,8 +423,161 @@ $chapter_sections_text,
 ['top_chapter_sections',
 $top_chapter_sections_text,
 {'test_split' => 'section'}],
+['complex',
+undef, {'test_file' => 'complex_sectioning_case.texi',
+        'test_split' => 'section'}
+],
+['complex_split_at_node',
+undef, {'test_file' => 'complex_sectioning_case.texi',
+        'test_split' => 'node'}
+],
+['raiselowersections',
+'\input texinfo @c -*-texinfo-*-
+
+@node Top
+@top
+@menu
+* Chapter::
+* Second chapter::
+@end menu
+
+@node Chapter
+@chapter Chapter
+
+@menu
+@ifclear include
+* Chapter in included file::
+@end ifclear
+@end menu
+
+@set do-top
+
+@lowersections
+
+@ifclear include
+@include section_file.texi
+@end ifclear
+@raisesections
+
+@clear do-top
+
+@node Second chapter
+@chapter Second chapter
+
+Second chapter
+
+@contents
+@bye
+'],
+['lowered_subsubsection',
+'@node Top
+@top
+
+@menu
+* Chapter::
+@end menu
+
+@node Chapter
+@chapter Chapter
+
+@menu
+* Section::
+@end menu
+
+@node Section
+@section Section
+
+@menu
+* Subsection::
+@end menu
+
+@node Subsection
+@subsection Subsection
+
+@menu
+* Subsubsection::
+* Lowered subsec::
+@end menu
+
+@node Subsubsection
+@subsubsection Subsubsection
+
+@lowersections
+@node Lowered subsec
+@subsection Lowered subsec
+
+@menu
+* Lowered subsubsection::
+@end menu
+
+@node Lowered subsubsection
+@subsubsection Lowered subsubsection
+@raisesections
+
+@contents
+@bye
+', # use CHECK_NORMAL_MENU_STRUCTURE to check that lowering leads to
+   # inconsistent menu with sectioning
+{'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+['loweredheading',
+'@lowersections
+@section Foo
+@heading Bar
+@bye
+'],
+['nodes_before_after_top_xref',
+'@setfilename nodes_before_after_top_xref.info
+
+@node node before
+
+In node before
+
+@node Top
+@top top sectionning
+
+in node Top
+
+@node after
+
+in node after
+
+@node chap
+@chapter chap
+
+in chap
+
+@xrefautomaticsectiontitle on
+@xref{node before}.
+@xref{after}.
+
+@xrefautomaticsectiontitle off
+@xref{node before}.
+@xref{after}.
+
+'],
+['contents_at_document_begin',
+undef, {'test_file' => 'contents_at_document_begin.texi'}],
+['contents_at_end_document_after_node',
+undef, {'test_file' => 'contents_at_end_document_after_node.texi'}],
+['contents_at_end_document',
+undef, {'test_file' => 'contents_at_end_document.texi'}],
+['contents_in_document',
+undef, {'test_file' => 'contents_in_document.texi'}],
+['contents_no_section',
+undef, {'test_file' => 'contents_no_section.texi'}],
 );
 
+my @test_out_files = (
+['character_and_spaces_in_refs_out',
+undef, {'test_file' => 'character_and_spaces_in_refs_text.texi',
+        'test_split' => 'node'},],
+['topic_guide',
+  undef,
+  {'test_file' => 'topic_guide.texi',
+   'test_formats' => ['file_info', 'file_html'],},
+  {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
+],
+);
 
 my %xml_tests_converted_tests = (
   'section_in_unnumbered_plaintext' => 1,
@@ -403,8 +592,37 @@ foreach my $test (@tests_converted) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
+my %xml_tests_cases_tests = (
+  'sectioning_part_appendix' => 1,
+  'sectioning_part_appendix_no_top' => 1,
+  'chapter_sections' => 1,
+  'top_chapter_sections' => 1,
+);
+
+my %latex_tests_cases_tests = (
+  'nodes_before_after_top_xref' => 1,
+);
+
+my %file_latex_tests_cases_tests = (
+  'nodes_before_after_top_xref' => 1,
+);
+
 foreach my $test (@test_cases) {
-  push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'xml'
+    if ($xml_tests_cases_tests{$test->[0]});
+  push @{$test->[2]->{'test_formats'}}, 'latex_text'
+    if ($latex_tests_cases_tests{$test->[0]});
+  if ($file_latex_tests_cases_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+  }
+}
+
+foreach my $test (@test_out_files) {
+  push @{$test->[2]->{'test_formats'}}, 'file_html'
+    if (!$test->[2]->{'test_formats'});
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 
 my %xml_tests_info_tests = (
@@ -433,4 +651,5 @@ foreach my $test (@tests_info) {
   }
 }
 
-run_all('moresectioning', [@test_cases, @tests_converted, @tests_info]);
+run_all('moresectioning', [@test_cases, @tests_converted,
+                           @test_out_files, @tests_info]);
