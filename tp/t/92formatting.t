@@ -60,35 +60,35 @@ my @test_cases = (
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_html']
   },
-  {'PREFIX' => 'truc'}
+  {'TEXI2HTML' => 1, 'PREFIX' => 'truc'}
 ],
 ['simplest_test_prefix_info',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_info']
   },
-  {'PREFIX' => 'truc'}
+  {'TEXI2HTML' => 1, 'PREFIX' => 'truc'}
 ],
 ['simplest_test_date_in_header',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_html']
   },
-  {'DATE_IN_HEADER' => 1}
+  {'TEXI2HTML' => 1, 'DATE_IN_HEADER' => 1}
 ],
 ['float_copying',
   undef,
   {'test_file' => 'float_copying.texi',
    'test_formats' => ['file_html']
   },
-  {'SPLIT' => 'chapter'}
+  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
 ],
 ['split_for_format_not_split',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_xml']
   },
-  {'SPLIT' => 'chapter'}
+  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
 ],
 
 );
@@ -97,9 +97,6 @@ foreach my $test (@test_cases) {
   if (!$test->[2]->{'test_formats'}) {
     push @{$test->[2]->{'test_formats'}}, 'html';
   }
-  $test->[3]->{'TEXI2HTML'} = 1;
-  $test->[3]->{'TEST'} = 1;
-  $test->[3]->{'PROGRAM'} = 'texi2any';
 }
 
 run_all('formatting', [@test_cases]);

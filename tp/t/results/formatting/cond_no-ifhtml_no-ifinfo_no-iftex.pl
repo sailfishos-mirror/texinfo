@@ -46,9 +46,83 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
               'text' => '
 ',
               'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'html',
+              'contents' => [
+                {
+                  'type' => 'elided_block'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'html'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => 'cond.texi',
+                    'line_nr' => 7,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'source_info' => {
+                'file_name' => 'cond.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
           'type' => 'preamble_before_content'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'This is ifnothtml text.
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -69,81 +143,46 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'type' => 'elided_block'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'html'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'cond.texi',
-                'line_nr' => 9,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'cond.texi',
-            'line_nr' => 7,
-            'macro' => ''
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
           }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => 'cond.texi',
+        'line_nr' => 17,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
         {
           'contents' => [
             {
-              'text' => 'This is ifnothtml text.
-'
+              'text' => 'conditionals'
             }
           ],
-          'type' => 'paragraph'
-        },
+          'info' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
         {
           'text' => '
 ',
@@ -217,14 +256,14 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'cond.texi',
-            'line_nr' => 29,
+            'line_nr' => 30,
             'macro' => ''
           }
         },
@@ -253,26 +292,13 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
-        'normalized' => 'Top'
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 5,
+        'line_nr' => 18,
         'macro' => ''
       }
     },
@@ -296,13 +322,14 @@ $result_texis{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '\\input texinfo
 
 @c test conditions
 
-@node Top
-
 @html
 @end html
 
 
 This is ifnothtml text.
+
+@node Top
+@top conditionals
 
 
 
@@ -322,8 +349,10 @@ This is ifnottex text.
 $result_texts{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '
 
 
-
 This is ifnothtml text.
+
+conditionals
+************
 
 
 
@@ -336,9 +365,41 @@ This is ifnottex text.
 
 ';
 
+$result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top'
+            },
+            'info' => {}
+          }
+        },
+        'info' => {},
+        'structure' => {
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_no-ifhtml_no-ifinfo_no-iftex'};
+
 $result_nodes{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
   'cmdname' => 'node',
   'extra' => {
+    'associated_section' => {
+      'cmdname' => 'top',
+      'extra' => {},
+      'info' => {},
+      'structure' => {}
+    },
     'normalized' => 'Top'
   },
   'info' => {}
@@ -364,10 +425,10 @@ $result_converted{'html'}->{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '<!DOCTYPE ht
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Untitled Document</title>
+<title>conditionals</title>
 
-<meta name="description" content="Untitled Document">
-<meta name="keywords" content="Untitled Document">
+<meta name="description" content="conditionals">
+<meta name="keywords" content="conditionals">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
@@ -384,11 +445,13 @@ span.program-in-footer {font-size: smaller}
 
 <body lang="en">
 
-<a class="node" id="Top"></a>
 
 
 <p>This is ifnothtml text.
 </p>
+<div class="top-level-extent" id="Top">
+<h1 class="top" id="conditionals">conditionals</h1>
+
 
 
 <p>This is ifnotinfo text.
@@ -399,6 +462,7 @@ span.program-in-footer {font-size: smaller}
 <p>This is ifnottex text.
 </p>
 <hr>
+</div>
 <p>
   <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
@@ -407,16 +471,5 @@ span.program-in-footer {font-size: smaller}
 </body>
 </html>
 ';
-
-$result_converted_errors{'html'}->{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'cond.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
-
 
 1;

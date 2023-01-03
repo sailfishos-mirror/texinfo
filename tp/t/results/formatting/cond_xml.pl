@@ -46,9 +46,83 @@ $result_trees{'cond_xml'} = {
               'text' => '
 ',
               'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'html',
+              'contents' => [
+                {
+                  'type' => 'elided_block'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'html'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => 'cond.texi',
+                    'line_nr' => 7,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'source_info' => {
+                'file_name' => 'cond.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
           'type' => 'preamble_before_content'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'This is ifnothtml text.
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -69,81 +143,46 @@ $result_trees{'cond_xml'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'type' => 'elided_block'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'html'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => 'cond.texi',
-                'line_nr' => 9,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'cond.texi',
-            'line_nr' => 7,
-            'macro' => ''
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
           }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => 'cond.texi',
+        'line_nr' => 17,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
         {
           'contents' => [
             {
-              'text' => 'This is ifnothtml text.
-'
+              'text' => 'conditionals'
             }
           ],
-          'type' => 'paragraph'
-        },
+          'info' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
         {
           'text' => '
 ',
@@ -217,14 +256,14 @@ $result_trees{'cond_xml'} = {
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'cond.texi',
-            'line_nr' => 29,
+            'line_nr' => 30,
             'macro' => ''
           }
         },
@@ -253,26 +292,13 @@ $result_trees{'cond_xml'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
-        'normalized' => 'Top'
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
         'file_name' => 'cond.texi',
-        'line_nr' => 5,
+        'line_nr' => 18,
         'macro' => ''
       }
     },
@@ -296,13 +322,14 @@ $result_texis{'cond_xml'} = '\\input texinfo
 
 @c test conditions
 
-@node Top
-
 @html
 @end html
 
 
 This is ifnothtml text.
+
+@node Top
+@top conditionals
 
 
 
@@ -322,8 +349,10 @@ This is ifnottex text.
 $result_texts{'cond_xml'} = '
 
 
-
 This is ifnothtml text.
+
+conditionals
+************
 
 
 
@@ -336,9 +365,41 @@ This is ifnottex text.
 
 ';
 
+$result_sectioning{'cond_xml'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top'
+            },
+            'info' => {}
+          }
+        },
+        'info' => {},
+        'structure' => {
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'cond_xml'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_xml'};
+
 $result_nodes{'cond_xml'} = {
   'cmdname' => 'node',
   'extra' => {
+    'associated_section' => {
+      'cmdname' => 'top',
+      'extra' => {},
+      'info' => {},
+      'structure' => {}
+    },
     'normalized' => 'Top'
   },
   'info' => {}
@@ -363,14 +424,15 @@ $result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texin
 
 </preamblebeforebeginning><!-- c test conditions -->
 
-<node name="Top" spaces=" "><nodename>Top</nodename></node>
-
 <html endspaces=" ">
 </html>
 
 
 <para>This is ifnothtml text.
 </para>
+<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<top spaces=" "><sectiontitle>conditionals</sectiontitle>
+
 
 
 <para>This is ifnotinfo text.
@@ -382,6 +444,7 @@ $result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texin
 
 <para>This is ifnottex text.
 </para>
+</top>
 <bye></bye>
 ';
 
