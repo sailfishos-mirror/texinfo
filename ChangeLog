@@ -1,5 +1,19 @@
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/92formatting.t: explicit output format for all cond.texi
+	tests.
+
+	* tp/t/92formatting.t, tp/Makefile.tres, tp/t/converters_tests.t,
+	tp/t/html_tests.t: move simplest_test_prefix* to converters_tests.t
+	and move simplest_test_date_in_header and float_copying to
+	html_tests.t
+
+	* tp/Makefile.am (test_file), tp/t/02coverage.t: rename
+	t/input_files/one_line_no_content.texi as
+	t/input_files/minimal_only_input_line.texi.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/92formatting.t: remove texi2html style, and set corresponding
 	customization instead.
 

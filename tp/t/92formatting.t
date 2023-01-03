@@ -11,11 +11,13 @@ require 't/test_utils.pl';
 my @test_cases = (
 ['texi_cond',
   undef, {'test_file' => 'cond.texi',
+    'test_formats' => ['html'],
     'EXPANDED_FORMATS' => ['html', 'info'],
   },
 ],
 ['cond',
   undef, {'test_file' => 'cond.texi',
+    'test_formats' => ['html'],
   },
 ],
 ['cond_xml',
@@ -26,11 +28,13 @@ my @test_cases = (
 ],
 ['cond_no-ifhtml_no-ifinfo_no-iftex',
   undef, {'test_file' => 'cond.texi',
+    'test_formats' => ['html'],
     'EXPANDED_FORMATS' => [],
   },
 ],
 ['cond_ifhtml_ifinfo_iftex',
   undef, {'test_file' => 'cond.texi',
+    'test_formats' => ['html'],
     'EXPANDED_FORMATS' => ['html', 'info', 'tex'],
   },
   {'EXPANDED_FORMATS' => ['html', 'info', 'tex'], },
@@ -55,34 +59,6 @@ my @test_cases = (
   },
   {'EXPANDED_FORMATS' => ['info', 'html', 'tex'],}
 ],
-['simplest_test_prefix',
-  undef,
-  {'test_file' => 'simplest.texi',
-   'test_formats' => ['file_html']
-  },
-  {'SPLIT' => '', 'PREFIX' => 'truc'}
-],
-['simplest_test_prefix_info',
-  undef,
-  {'test_file' => 'simplest.texi',
-   'test_formats' => ['file_info']
-  },
-  {'PREFIX' => 'truc'}
-],
-['simplest_test_date_in_header',
-  undef,
-  {'test_file' => 'simplest.texi',
-   'test_formats' => ['file_html']
-  },
-  {'SPLIT' => '', 'DATE_IN_HEADER' => 1}
-],
-['float_copying',
-  undef,
-  {'test_file' => 'float_copying.texi',
-   'test_formats' => ['file_html']
-  },
-  {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
-],
 ['split_for_format_not_split',
   undef,
   {'test_file' => 'simplest.texi',
@@ -92,11 +68,5 @@ my @test_cases = (
 ],
 
 );
-
-foreach my $test (@test_cases) {
-  if (!$test->[2]->{'test_formats'}) {
-    push @{$test->[2]->{'test_formats'}}, 'html';
-  }
-}
 
 run_all('formatting', [@test_cases]);

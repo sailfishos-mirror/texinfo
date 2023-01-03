@@ -227,6 +227,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/simplest_no_node_section/res_info/simplest_no_node_section.info \
   t/results/converters_tests/simplest_no_node_section/res_latex/simplest_no_node_section.tex \
   t/results/converters_tests/simplest_no_node_section/res_xml/simplest_no_node_section.xml \
+  t/results/converters_tests/simplest_test_prefix.pl \
+  t/results/converters_tests/simplest_test_prefix/res_docbook/truc.xml \
+  t/results/converters_tests/simplest_test_prefix/res_html/truc.html \
+  t/results/converters_tests/simplest_test_prefix/res_info/truc.info \
+  t/results/converters_tests/simplest_test_prefix/res_latex/truc.tex \
+  t/results/converters_tests/simplest_test_prefix/res_xml/truc.xml \
   t/results/converters_tests/some_at_commands_in_ref_nodes.pl \
   t/results/converters_tests/sp_in_example.pl \
   t/results/converters_tests/spaces_in_empty_node_names.pl \
@@ -558,19 +564,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/cond_info_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_no-ifhtml_no-ifinfo_no-iftex.pl \
   t/results/formatting/cond_xml.pl \
-  t/results/formatting/float_copying.pl \
-  t/results/formatting/float_copying/res_html/Copying-and-floats.html \
-  t/results/formatting/float_copying/res_html/caption-copying-footnote-anchor.html \
-  t/results/formatting/float_copying/res_html/float_copying_fot.html \
-  t/results/formatting/float_copying/res_html/index.html \
-  t/results/formatting/float_copying/res_html/public-domain-anchor.html \
-  t/results/formatting/float_copying/res_html/public-domain.html \
-  t/results/formatting/simplest_test_date_in_header.pl \
-  t/results/formatting/simplest_test_date_in_header/res_html/simplest.html \
-  t/results/formatting/simplest_test_prefix.pl \
-  t/results/formatting/simplest_test_prefix/res_html/truc.html \
-  t/results/formatting/simplest_test_prefix_info.pl \
-  t/results/formatting/simplest_test_prefix_info/res_info/truc.info \
   t/results/formatting/split_for_format_not_split.pl \
   t/results/formatting/split_for_format_not_split/res_xml/simplest.xml \
   t/results/formatting/texi_cond.pl \
@@ -598,6 +591,13 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename.pl \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename_no_element.pl \
   t/results/html_tests/empty_titlefont.pl \
+  t/results/html_tests/float_copying.pl \
+  t/results/html_tests/float_copying/res_html/Copying-and-floats.html \
+  t/results/html_tests/float_copying/res_html/caption-copying-footnote-anchor.html \
+  t/results/html_tests/float_copying/res_html/float_copying_fot.html \
+  t/results/html_tests/float_copying/res_html/index.html \
+  t/results/html_tests/float_copying/res_html/public-domain-anchor.html \
+  t/results/html_tests/float_copying/res_html/public-domain.html \
   t/results/html_tests/footnotestyle_separate_html_text_no_monolithic.pl \
   t/results/html_tests/footnotestyle_separate_late.pl \
   t/results/html_tests/footnotestyle_separate_late/res_html/chap-f.html \
@@ -662,6 +662,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/shorttitlepage.pl \
   t/results/html_tests/simple_menu.pl \
   t/results/html_tests/simple_menu_in_example.pl \
+  t/results/html_tests/simplest_test_date_in_header.pl \
+  t/results/html_tests/simplest_test_date_in_header/res_html/simplest.html \
   t/results/html_tests/split_html_text.pl \
   t/results/html_tests/test_accents_sc_default.pl \
   t/results/html_tests/test_accents_sc_default/res_html/index.html \

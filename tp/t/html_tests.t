@@ -811,6 +811,16 @@ $check_htmlxref_text
   {'test_file' => 'node_footnote.texi'},
   {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu'}
 ],
+['simplest_test_date_in_header',
+  undef,
+  {'test_file' => 'simplest.texi',},
+  {'SPLIT' => '', 'DATE_IN_HEADER' => 1}
+],
+['float_copying',
+  undef,
+  {'test_file' => 'float_copying.texi',},
+  {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
+],
 ['sectioning_frames',
   undef,
   # tests for node with directions after section

@@ -684,8 +684,8 @@ In float with caption.
 in cartouche.
 @end cartouche@bye
 '],
-['one_line_no_content',
-  undef, {'test_file' => 'one_line_no_content.texi',},
+['minimal_only_input_line',
+  undef, {'test_file' => 'minimal_only_input_line.texi',},
 ],
 ['one_line',
   undef, {'test_file' => 'one_line.texi',},
