@@ -60,35 +60,35 @@ my @test_cases = (
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_html']
   },
-  {'TEXI2HTML' => 1, 'PREFIX' => 'truc'}
+  {'SPLIT' => '', 'PREFIX' => 'truc'}
 ],
 ['simplest_test_prefix_info',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_info']
   },
-  {'TEXI2HTML' => 1, 'PREFIX' => 'truc'}
+  {'PREFIX' => 'truc'}
 ],
 ['simplest_test_date_in_header',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_html']
   },
-  {'TEXI2HTML' => 1, 'DATE_IN_HEADER' => 1}
+  {'SPLIT' => '', 'DATE_IN_HEADER' => 1}
 ],
 ['float_copying',
   undef,
   {'test_file' => 'float_copying.texi',
    'test_formats' => ['file_html']
   },
-  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
 ],
 ['split_for_format_not_split',
   undef,
   {'test_file' => 'simplest.texi',
    'test_formats' => ['file_xml']
   },
-  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
+  {'SPLIT' => 'chapter'}
 ],
 
 );

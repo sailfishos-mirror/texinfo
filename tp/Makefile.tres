@@ -561,7 +561,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formatting/float_copying.pl \
   t/results/formatting/float_copying/res_html/Copying-and-floats.html \
   t/results/formatting/float_copying/res_html/caption-copying-footnote-anchor.html \
-  t/results/formatting/float_copying/res_html/float_copying_abt.html \
   t/results/formatting/float_copying/res_html/float_copying_fot.html \
   t/results/formatting/float_copying/res_html/index.html \
   t/results/formatting/float_copying/res_html/public-domain-anchor.html \
