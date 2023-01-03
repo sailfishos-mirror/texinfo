@@ -1,5 +1,12 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Customizing Output File Names):
+	tree_unit_file_name is only used for normal element units.
+
+	* doc/texi2any_api.texi: other minor edits.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Customizing Special Elements Output Names):
 	add a separate section for Special Elements Output Names.
 

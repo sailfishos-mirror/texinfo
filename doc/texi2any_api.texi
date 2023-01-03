@@ -791,7 +791,8 @@ document has an @code{@@top} section (@pxref{@code{@@top} Command,,, texinfo,
 Texinfo}), it is the element associated with that section; otherwise, it is the
 element associated with the document's @code{@@node Top} (@pxref{The Top
 Node,,, texinfo, Texinfo}).  If there is no @code{@@node Top}, the first
-element in the document is the top element.
+element in the document is the top element.  The Top element is also
+a normal element.
 
 @item Miscellaneous elements
 @cindex Table of contents, output element unit
@@ -1878,9 +1879,8 @@ name that has been already set.  The function should return the node file name
 @end deftypefn
 
 The other function reference, @code{tree_unit_file_name}, is used to
-customize the file names associated with each element unit, and the name of
-the file associated with the special elements (@pxref{Output Element
-Units}).
+customize the file names associated with each normal element unit
+(@pxref{Output Element Units}).
 
 @deftypefn {Function Reference} {(@var{$file}, @var{$path})} tree_unit_file_name (@var{$converter}, @
                   @var{\%unit_element}, @var{$file_name}, @var{$file_path})
@@ -1907,6 +1907,8 @@ The information on tree elements may be interesting for those functions
 key @code{associated_section} of a node element and @code{associated_node}
 of a sectioning command element may also be useful.
 
+The file name associated to a sectioning command is set together with
+the target, and is described in the next section.
 
 @node Customizing Output Target Names
 @section Customizing Output Target Names
@@ -1918,7 +1920,7 @@ of a sectioning command element may also be useful.
 Similar to file names, so-called target and id names may be set.  The
 @dfn{id} is placed where the item is located, while the @dfn{target}
 is used to construct references to that item.  The id and target
-are the same.  Functions used to set both targets and file names are also
+are the same.  A function used to set both target and file name is also
 described here.
 
 @c xx, but not always, for example in the default case, the
@@ -1975,7 +1977,7 @@ the sectioning element (@var{$file}).
 @cindex Special Elements id names, customizing
 @cindex Special Elements file names, customizing
 
-For special element units files and targets (@pxref{Output Element Units}), the
+For special element units file and target (@pxref{Output Element Units}), the
 function reference is:
 
 @deftypefn {Function Reference} {(@var{$target}, @var{$file})} special_element_target_file_name @
