@@ -1,6 +1,6 @@
-EXTRA_DIST = contents_at_begin.texi contents_at_end.texi \
+EXTRA_DIST = contents_at_end.texi \
  contents_in_middle_chapter.texi contents_in_middle_section.texi \
- double_contents.texi no_content.texi no_content_setcatpage.texi \
+ double_contents.texi no_content.texi \
  contents_and_parts.texi \
  res_parser list-of-tests
 
