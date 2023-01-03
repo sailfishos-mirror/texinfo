@@ -314,7 +314,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/nested_block_commands.pl \
   t/results/coverage/not_i_j_in_dotless.pl \
   t/results/coverage/one_line.pl \
-  t/results/coverage/one_line_no_content.pl \
   t/results/coverage/preformatted.pl \
   t/results/coverage/punctuation_in_line_commands.pl \
   t/results/coverage/quotation_author.pl \
@@ -721,7 +720,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/htmlxref/htmlxref_nodes/res_html/index.html \
   t/results/htmlxref/htmlxref_nodes/res_html/local-node.html \
   t/results/htmlxref/htmlxref_nodes/res_html/other-nodes.html \
-  t/results/htmlxref/htmlxref_nodes/res_html/test_refs_abt.html \
   t/results/htmlxref/htmlxref_only_mono.pl \
   t/results/htmlxref/htmlxref_only_mono/res_html/test_refs.html \
   t/results/htmlxref/htmlxref_only_mono_nodes.pl \
@@ -730,7 +728,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/htmlxref/htmlxref_only_mono_nodes/res_html/index.html \
   t/results/htmlxref/htmlxref_only_mono_nodes/res_html/local-node.html \
   t/results/htmlxref/htmlxref_only_mono_nodes/res_html/other-nodes.html \
-  t/results/htmlxref/htmlxref_only_mono_nodes/res_html/test_refs_abt.html \
   t/results/htmlxref/htmlxref_only_split.pl \
   t/results/htmlxref/htmlxref_only_split/res_html/test_refs.html \
   t/results/htmlxref/htmlxref_only_split_nodes.pl \
@@ -739,7 +736,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/htmlxref/htmlxref_only_split_nodes/res_html/index.html \
   t/results/htmlxref/htmlxref_only_split_nodes/res_html/local-node.html \
   t/results/htmlxref/htmlxref_only_split_nodes/res_html/other-nodes.html \
-  t/results/htmlxref/htmlxref_only_split_nodes/res_html/test_refs_abt.html \
   t/results/include/cpp_line_before_first_node.pl \
   t/results/include/cpp_line_latin1.pl \
   t/results/include/cpp_lines.pl \

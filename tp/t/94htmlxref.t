@@ -5,51 +5,48 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-# These tests are supposed to test the same things as tests
-# under tp/tests did, but to be faster, as we are avoiding the
-# start-up time of perl for every one.
 my @test_cases = (
 ['htmlxref',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF_FILE' => 'htmlxref.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref.cnf',
+   'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
+   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
 ],
 ['htmlxref_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref.cnf',
-   'SPLIT' => 'node',
+   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],
 ['htmlxref_only_mono',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF_FILE' => 'htmlxref-mono.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref-mono.cnf',
+   'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
+   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
 ],
 ['htmlxref_only_mono_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-mono.cnf',
-   'SPLIT' => 'node',
+   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],
 ['htmlxref_only_split',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF_FILE' => 'htmlxref-split.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref-split.cnf',
+   'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
+   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
 ],
 ['htmlxref_only_split_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-split.cnf',
-   'SPLIT' => 'node',
+   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],
 
 );
 
 foreach my $test (@test_cases) {
-  if (!$test->[2]->{'test_formats'}) {
-    push @{$test->[2]->{'test_formats'}}, 'file_html';
-  }
-  $test->[3]->{'TEXI2HTML'} = 1;
-  $test->[3]->{'TEST'} = 1;
-  $test->[3]->{'PROGRAM'} = 'texi2any';
-  $test->[3]->{'PACKAGE_URL'} = 'http://www.gnu.org/software/texinfo/';
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
