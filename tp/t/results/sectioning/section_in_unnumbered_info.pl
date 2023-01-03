@@ -10,9 +10,18 @@ $result_trees{'section_in_unnumbered_info'} = {
     {
       'contents' => [
         {
-          'text' => '
+          'contents' => [
+            {
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'type' => 'preamble_before_content'
         }
       ],
       'type' => 'before_node_section'
@@ -51,7 +60,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 2,
         'macro' => ''
       }
@@ -88,7 +97,7 @@ $result_trees{'section_in_unnumbered_info'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 5,
             'macro' => ''
           }
@@ -167,7 +176,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 10,
                 'macro' => ''
               },
@@ -216,7 +225,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 11,
                 'macro' => ''
               },
@@ -265,7 +274,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 12,
                 'macro' => ''
               },
@@ -314,7 +323,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 13,
                 'macro' => ''
               },
@@ -363,7 +372,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 14,
                 'macro' => ''
               },
@@ -392,14 +401,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 15,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 9,
             'macro' => ''
           }
@@ -415,7 +424,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 3,
         'macro' => ''
       }
@@ -454,7 +463,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 17,
         'macro' => ''
       }
@@ -536,7 +545,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 21,
                 'macro' => ''
               },
@@ -565,14 +574,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 22,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 20,
             'macro' => ''
           }
@@ -588,7 +597,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 18,
         'macro' => ''
       }
@@ -627,7 +636,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 24,
         'macro' => ''
       }
@@ -660,7 +669,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 25,
         'macro' => ''
       }
@@ -699,7 +708,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 27,
         'macro' => ''
       }
@@ -781,7 +790,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 31,
                 'macro' => ''
               },
@@ -810,14 +819,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 32,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 30,
             'macro' => ''
           }
@@ -833,7 +842,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 28,
         'macro' => ''
       }
@@ -872,7 +881,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 34,
         'macro' => ''
       }
@@ -905,7 +914,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 35,
         'macro' => ''
       }
@@ -944,7 +953,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 37,
         'macro' => ''
       }
@@ -1026,7 +1035,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 41,
                 'macro' => ''
               },
@@ -1075,7 +1084,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 42,
                 'macro' => ''
               },
@@ -1104,14 +1113,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 43,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 40,
             'macro' => ''
           }
@@ -1127,7 +1136,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 38,
         'macro' => ''
       }
@@ -1166,7 +1175,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 45,
         'macro' => ''
       }
@@ -1248,7 +1257,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 49,
                 'macro' => ''
               },
@@ -1297,7 +1306,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 50,
                 'macro' => ''
               },
@@ -1346,7 +1355,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 51,
                 'macro' => ''
               },
@@ -1395,7 +1404,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 52,
                 'macro' => ''
               },
@@ -1424,14 +1433,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 53,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 48,
             'macro' => ''
           }
@@ -1447,7 +1456,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 46,
         'macro' => ''
       }
@@ -1486,7 +1495,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 55,
         'macro' => ''
       }
@@ -1519,7 +1528,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 56,
         'macro' => ''
       }
@@ -1558,7 +1567,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 58,
         'macro' => ''
       }
@@ -1591,7 +1600,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 59,
         'macro' => ''
       }
@@ -1630,7 +1639,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 61,
         'macro' => ''
       }
@@ -1663,7 +1672,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 62,
         'macro' => ''
       }
@@ -1702,7 +1711,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 64,
         'macro' => ''
       }
@@ -1735,7 +1744,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 65,
         'macro' => ''
       }
@@ -1774,7 +1783,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 67,
         'macro' => ''
       }
@@ -1856,7 +1865,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 71,
                 'macro' => ''
               },
@@ -1885,14 +1894,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 72,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 70,
             'macro' => ''
           }
@@ -1908,7 +1917,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 68,
         'macro' => ''
       }
@@ -1947,7 +1956,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 74,
         'macro' => ''
       }
@@ -1985,7 +1994,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 75,
         'macro' => ''
       }
@@ -2024,7 +2033,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 78,
         'macro' => ''
       }
@@ -2106,7 +2115,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 82,
                 'macro' => ''
               },
@@ -2155,7 +2164,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 83,
                 'macro' => ''
               },
@@ -2204,7 +2213,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 84,
                 'macro' => ''
               },
@@ -2253,7 +2262,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 85,
                 'macro' => ''
               },
@@ -2302,7 +2311,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 86,
                 'macro' => ''
               },
@@ -2331,14 +2340,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 87,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 81,
             'macro' => ''
           }
@@ -2354,7 +2363,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 79,
         'macro' => ''
       }
@@ -2393,7 +2402,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 89,
         'macro' => ''
       }
@@ -2475,7 +2484,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 93,
                 'macro' => ''
               },
@@ -2524,7 +2533,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 94,
                 'macro' => ''
               },
@@ -2573,7 +2582,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 95,
                 'macro' => ''
               },
@@ -2622,7 +2631,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 96,
                 'macro' => ''
               },
@@ -2651,14 +2660,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 97,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 92,
             'macro' => ''
           }
@@ -2674,7 +2683,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 90,
         'macro' => ''
       }
@@ -2713,7 +2722,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 99,
         'macro' => ''
       }
@@ -2746,7 +2755,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 100,
         'macro' => ''
       }
@@ -2785,7 +2794,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 102,
         'macro' => ''
       }
@@ -2818,7 +2827,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 103,
         'macro' => ''
       }
@@ -2857,7 +2866,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 105,
         'macro' => ''
       }
@@ -2890,7 +2899,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 106,
         'macro' => ''
       }
@@ -2929,7 +2938,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 108,
         'macro' => ''
       }
@@ -2962,7 +2971,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 109,
         'macro' => ''
       }
@@ -3001,7 +3010,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 111,
         'macro' => ''
       }
@@ -3034,7 +3043,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 112,
         'macro' => ''
       }
@@ -3073,7 +3082,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 114,
         'macro' => ''
       }
@@ -3155,7 +3164,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 118,
                 'macro' => ''
               },
@@ -3184,14 +3193,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 119,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 117,
             'macro' => ''
           }
@@ -3207,7 +3216,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 115,
         'macro' => ''
       }
@@ -3246,7 +3255,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 121,
         'macro' => ''
       }
@@ -3279,7 +3288,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 122,
         'macro' => ''
       }
@@ -3318,7 +3327,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 124,
         'macro' => ''
       }
@@ -3400,7 +3409,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 128,
                 'macro' => ''
               },
@@ -3429,14 +3438,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 129,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 127,
             'macro' => ''
           }
@@ -3452,7 +3461,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 125,
         'macro' => ''
       }
@@ -3491,7 +3500,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 131,
         'macro' => ''
       }
@@ -3524,7 +3533,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 132,
         'macro' => ''
       }
@@ -3563,7 +3572,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 134,
         'macro' => ''
       }
@@ -3645,7 +3654,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 138,
                 'macro' => ''
               },
@@ -3674,14 +3683,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 139,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 137,
             'macro' => ''
           }
@@ -3697,7 +3706,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 135,
         'macro' => ''
       }
@@ -3736,7 +3745,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 141,
         'macro' => ''
       }
@@ -3769,7 +3778,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 142,
         'macro' => ''
       }
@@ -3808,7 +3817,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 144,
         'macro' => ''
       }
@@ -3890,7 +3899,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 148,
                 'macro' => ''
               },
@@ -3919,14 +3928,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 149,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 147,
             'macro' => ''
           }
@@ -3942,7 +3951,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 145,
         'macro' => ''
       }
@@ -3981,7 +3990,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 151,
         'macro' => ''
       }
@@ -4063,7 +4072,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 155,
                 'macro' => ''
               },
@@ -4112,7 +4121,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 156,
                 'macro' => ''
               },
@@ -4161,7 +4170,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 157,
                 'macro' => ''
               },
@@ -4210,7 +4219,7 @@ $result_trees{'section_in_unnumbered_info'} = {
                 }
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 158,
                 'macro' => ''
               },
@@ -4239,14 +4248,14 @@ $result_trees{'section_in_unnumbered_info'} = {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
-                'file_name' => '',
+                'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 159,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
-            'file_name' => '',
+            'file_name' => 'section_in_unnumbered_text.texi',
             'line_nr' => 154,
             'macro' => ''
           }
@@ -4262,7 +4271,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 152,
         'macro' => ''
       }
@@ -4301,7 +4310,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 161,
         'macro' => ''
       }
@@ -4334,7 +4343,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 162,
         'macro' => ''
       }
@@ -4373,7 +4382,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 164,
         'macro' => ''
       }
@@ -4406,7 +4415,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 165,
         'macro' => ''
       }
@@ -4445,7 +4454,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 167,
         'macro' => ''
       }
@@ -4478,7 +4487,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 168,
         'macro' => ''
       }
@@ -4517,7 +4526,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 170,
         'macro' => ''
       }
@@ -4543,7 +4552,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => '',
+        'file_name' => 'section_in_unnumbered_text.texi',
         'line_nr' => 171,
         'macro' => ''
       }
@@ -4852,8 +4861,7 @@ Menu:
 ';
 
 
-$result_texts{'section_in_unnumbered_info'} = '
-Test section in unnumbered
+$result_texts{'section_in_unnumbered_info'} = 'Test section in unnumbered
 **************************
 
 
@@ -6852,7 +6860,7 @@ $result_floats{'section_in_unnumbered_info'} = {};
 
 
 
-$result_converted{'info'}->{'section_in_unnumbered_info'} = 'This is , produced from .
+$result_converted{'info'}->{'section_in_unnumbered_info'} = 'This is , produced from section_in_unnumbered_text.texi.
 
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
@@ -7121,38 +7129,38 @@ numbered subsection2 4
 
 
 Tag Table:
-Node: Top27
-Node: chapter221
-Node: section in chapter342
-Node: unnumbered440
-Node: section in unnumbered572
-Node: chapter 2674
-Node: unnumberedsec 2826
-Node: unnumbered sub 21037
-Node: numbered sub 21166
-Node: unnumbered sub2 21317
-Node: numbered sub2 21473
-Node: unnumberedsec 2-11602
-Node: numbered sub 2-11746
-Node: chapter 31854
-Node: unnumberedsec 32062
-Node: unnumbered sub 32267
-Node: numbered sub 32396
-Node: unnumbered sub2 32547
-Node: numbered sub2 32703
-Node: section 3-12832
-Node: unnumberedsec 3-22961
-Node: numbered sub 3-23121
-Node: section 3-33229
-Node: subsection 3-33389
-Node: unnumberedsec 3-43483
-Node: numbered sub 3-43623
-Node: unnumbered 43731
-Node: unnumberedsec 43847
-Node: unnumbered sub 44035
-Node: numbered sub 44164
-Node: unnumbered sub2 44315
-Node: numbered sub2 44471
+Node: Top58
+Node: chapter252
+Node: section in chapter373
+Node: unnumbered471
+Node: section in unnumbered603
+Node: chapter 2705
+Node: unnumberedsec 2857
+Node: unnumbered sub 21068
+Node: numbered sub 21197
+Node: unnumbered sub2 21348
+Node: numbered sub2 21504
+Node: unnumberedsec 2-11633
+Node: numbered sub 2-11777
+Node: chapter 31885
+Node: unnumberedsec 32093
+Node: unnumbered sub 32298
+Node: numbered sub 32427
+Node: unnumbered sub2 32578
+Node: numbered sub2 32734
+Node: section 3-12863
+Node: unnumberedsec 3-22992
+Node: numbered sub 3-23152
+Node: section 3-33260
+Node: subsection 3-33420
+Node: unnumberedsec 3-43514
+Node: numbered sub 3-43654
+Node: unnumbered 43762
+Node: unnumberedsec 43878
+Node: unnumbered sub 44066
+Node: numbered sub 44195
+Node: unnumbered sub2 44346
+Node: numbered sub2 44502
 
 End Tag Table
 
@@ -7188,7 +7196,6 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body lang="en">
-
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>

@@ -1,5 +1,12 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/t/30sectioning.t: use files for the
+	longuest codes and code needing escaping of ' or \, leading to three
+	files, character_and_spaces_in_refs_text.texi,
+	complex_sectioning_case.texi and section_in_unnumbered_text.texi.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/layout/list-of-tests: explicitly set TEXI2HTML style when
 	needed, otherwise unset TEXI2HTML and set relevant customization
 	variables explicitly.

@@ -184,7 +184,9 @@ test_files = \
  t/input_files/char_latin1_utf8_in_refs.texi \
  t/input_files/char_latin1_latin1_in_refs.texi \
  t/input_files/char_latin2_latin2_in_refs.texi \
+ t/input_files/character_and_spaces_in_refs_text.texi \
  t/input_files/chinese_mixed_with_en.texi \
+ t/input_files/complex_sectioning_case.texi \
  t/input_files/cond.texi \
  t/input_files/contents_at_document_begin.texi \
  t/input_files/contents_at_end_document_after_node.texi \
@@ -236,6 +238,7 @@ test_files = \
  t/input_files/punctuation_small_case_accents_utf8.texi \
  t/input_files/reference_to_only_special_spaces_node.texi \
  t/input_files/sample_utf8.texi \
+ t/input_files/section_in_unnumbered_text.texi \
  t/input_files/simplest.texi \
  t/input_files/split_chapter_index.texi \
  t/input_files/simplest_no_node_section.texi \

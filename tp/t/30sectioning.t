@@ -80,178 +80,6 @@ Top section
 Text of chapter
 ';
 
-my $section_in_unnumbered_text = '
-@node Top
-@top Test section in unnumbered
-
-@contents
-
-Menu:
-
-@menu
-* chapter::
-* unnumbered::
-* chapter 2::
-* chapter 3::
-* unnumbered 4::
-@end menu
-
-@node chapter
-@chapter chapter
-
-@menu
-* section in chapter::
-@end menu
-
-@node section in chapter
-@section section in chapter
-
-@node unnumbered
-@unnumbered unnumbered
-
-@menu
-* section in unnumbered::
-@end menu
-
-@node section in unnumbered
-@section section in unnumbered
-
-@node chapter 2
-@chapter chapter 2
-
-@menu
-* unnumberedsec 2::
-* unnumberedsec 2-1::
-@end menu
-
-@node unnumberedsec 2
-@unnumberedsec unnumbered section 2
-
-@menu
-* unnumbered sub 2::
-* numbered sub 2::
-* unnumbered sub2 2::
-* numbered sub2 2::
-@end menu
-
-@node unnumbered sub 2
-@unnumberedsubsec unnumbered subsection 2
-
-@node numbered sub 2
-@subsection numbered subsection 2
-
-@node unnumbered sub2 2
-@unnumberedsubsec unnumbered subsection2 2
-
-@node numbered sub2 2
-@subsection numbered subsection2 2
-
-@node unnumberedsec 2-1
-@unnumberedsec unnumberedsec 2-1
-
-@menu
-* numbered sub 2-1::
-@end menu
-
-@node numbered sub 2-1
-@subsection numbered subsection 2-1
-
-
-@node chapter 3
-@chapter chapter 3
-
-@menu
-* unnumberedsec 3::
-* section 3-1::
-* unnumberedsec 3-2::
-* section 3-3::
-* unnumberedsec 3-4::
-@end menu
-
-@node unnumberedsec 3
-@unnumberedsec unnumbered section 3
-
-@menu
-* unnumbered sub 3::
-* numbered sub 3::
-* unnumbered sub2 3::
-* numbered sub2 3::
-@end menu
-
-@node unnumbered sub 3
-@unnumberedsubsec unnumbered subsection 3
-
-@node numbered sub 3
-@subsection numbered subsection 3
-
-@node unnumbered sub2 3
-@unnumberedsubsec unnumbered subsection2 3
-
-@node numbered sub2 3
-@subsection numbered subsection2 3
-
-@node section 3-1
-@section section 3-1
-
-@node unnumberedsec 3-2
-@unnumberedsec unnumberedsec 3-2
-
-@menu
-* numbered sub 3-2::
-@end menu
-
-@node numbered sub 3-2
-@subsection numbered subsection 3-2
-
-@node section 3-3
-@section section 3-3
-
-@menu
-* subsection 3-3::
-@end menu
-
-@node subsection 3-3
-@subsection subsection 3-3
-
-@node unnumberedsec 3-4
-@unnumberedsec unnumberedsec 3-4
-
-@menu
-* numbered sub 3-4::
-@end menu
-
-@node numbered sub 3-4
-@subsection numbered subsection 3-4
-
-@node unnumbered 4
-@unnumbered unnumbered  4
-
-@menu
-* unnumberedsec 4::
-@end menu
-
-@node unnumberedsec 4
-@unnumberedsec unnumbered section 4
-
-@menu
-* unnumbered sub 4::
-* numbered sub 4::
-* unnumbered sub2 4::
-* numbered sub2 4::
-@end menu
-
-@node unnumbered sub 4
-@unnumberedsubsec unnumbered subsection 4
-
-@node numbered sub 4
-@subsection numbered subsection 4
-
-@node unnumbered sub2 4
-@unnumberedsubsec unnumbered subsection2 4
-
-@node numbered sub2 4
-@subsection numbered subsection2 4
-';
 
 my $anchor_in_footnote_text = '@node Top
 @top Top
@@ -431,7 +259,7 @@ Text part second.
 @setfilename a bit too late
 '],
 ['section_in_unnumbered_plaintext',
-$section_in_unnumbered_text
+undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ],
 ['two_unnumbered_no_argument',
 '@unnumbered
@@ -571,49 +399,6 @@ in chap
 '],
 );
 
-my $character_and_spaces_in_refs_text = '@node Top
-@top Test refs
-
-@menu
-* node to avoid DocBook or LaTeX ignored::
-* other nodes::
-@end menu
-
-@node node to avoid DocBook or LaTeX ignored
-@chapter first chapter
-
-@subheading Testing distant nodes
-
-@ref{ a  node ,,, manual}
-@ref{:,,,manual}
-@ref{ top ,,, manual}
-@ref{(texinfo)Cross References}
-@ref{node,,, ../manual/doc}
-
-@subheading Testing local nodes
-
-@ref{!_"#$%&\'()*+-.}
-@ref{/;<=>?[\\]^_`|~}
-@ref{ Top}
-@ref{  local   node}
-
-@node other nodes, !_"#$%&\'()*+-., Top, Top
-@chapter Chapter with nodes
-
-@menu
-* !_"#$%&\'()*+-.::
-* /;<=>?[\\]^_`|~::
-* local node::
-@end menu
-
-@node !_"#$%&\'()*+-., /;<=>?[\]^_`|~, other nodes, other nodes
-
-@node /;<=>?[\]^_`|~,local   node,!_"#$%&\'()*+-., other nodes
-
-@node  local   node,,/;<=>?[\\]^_`|~,other nodes
-
-@bye
-';
 
 my @tests_info = (
 ['anchor_zero',
@@ -636,7 +421,7 @@ my @tests_info = (
 @subsection The subsection
 '],
 ['character_and_spaces_in_refs',
-$character_and_spaces_in_refs_text],
+undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
 ['character_and_spaces_in_node',
 '
 @node Top
@@ -1233,7 +1018,7 @@ Top node
     'CHECK_NORMAL_MENU_STRUCTURE' => 1},
    {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 ['section_in_unnumbered_info',
-$section_in_unnumbered_text
+undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ],
 ['top_without_node_sections',
 $top_without_node_text,
@@ -1450,92 +1235,6 @@ $unnumbered_top_without_node_text,
 ']
 );
 
-my $complex_case = '@node Top,First node,(dir)
-@top
-@menu
-* First node:: 
-* between node::
-* Second node::   node 2
-* Third node unnumbered:: unnumbered in Top menu
-* continuity::
-* Last node no description::
-@end menu
-
-@node First node,,Top,Top
-@chapter first node chapter
-
-first node chapter text
-@menu
-* unnumbered:: un
-* unnumbered2:: un2
-* numbered:: nu
-
-@end menu
-
-@node unnumbered
-@unnumberedsec unnumbered section
-
-@menu
-* unnumbered sub:: un
-* numbered sub:: nu
-* unnumbered sub2:: un2
-* numbered sub2:: nu2
-@end menu
-
-@node unnumbered sub
-@unnumberedsubsec unnumbered subsection
-
-@node numbered sub
-@subsection numbered subsection
-
-@node unnumbered sub2
-@unnumberedsubsec unnumbered subsection2
-
-@node numbered sub2
-@subsection numbered subsection2
-
-@node unnumbered2
-@unnumberedsec unnumbered section2
-
-@menu
-*  numbered sub3::
-@end menu
-
-@node numbered sub3
-@subsection numbered subsection3
-
-
-@node numbered
-@section  numbered section
-
-@node between node,,,Top
-
-between node, node without sectioning node
-
-@node Second node,Third node unnumbered,,Top
-
-Second node text
-
-@chapter second node chapter
-
-second node chapter text.
-
-@node Third node unnumbered
-@unnumbered unnumbered chapter
-
-unnumbered chapter text.
-
-@node continuity,  Third node unnumbered, Last node no description, Top
-@unnumbered unnumbered continuity
-
-Unumbered and node needed for continuity between automatic 
-directions and lone node.
-
-@node Last node no description,,continuity,Top
-
-@contents
-@bye
-';
 
 my @test_cases = (
 ['node',
@@ -1816,12 +1515,12 @@ in node following second
 @node node down
 ', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['complex',
-$complex_case,
-{'test_split' => 'section'}
+undef, {'test_file' => 'complex_sectioning_case.texi',
+        'test_split' => 'section'}
 ],
 ['complex_split_at_node',
-$complex_case,
-{'test_split' => 'node'}
+undef, {'test_file' => 'complex_sectioning_case.texi',
+        'test_split' => 'node'}
 ],
 ['double_top_section',
 '@top First top
@@ -2147,8 +1846,8 @@ my @test_out_files = (
 @node @^a
 ', {'test_split' => 'node'}],
 ['character_and_spaces_in_refs_out',
-$character_and_spaces_in_refs_text,
-{'test_split' => 'node'},],
+undef, {'test_file' => 'character_and_spaces_in_refs_text.texi',
+        'test_split' => 'node'},],
 # test the texi2html style to test the style for tests
 # interesting to test diverse tree splitting options, and already
 # used for that above.  Since all the options for test_split have

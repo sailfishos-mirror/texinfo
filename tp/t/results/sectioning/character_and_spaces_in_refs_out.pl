@@ -9,6 +9,12 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
   {
     'contents' => [
       {
+        'contents' => [
+          {
+            'contents' => [],
+            'type' => 'preamble_before_content'
+          }
+        ],
         'type' => 'before_node_section'
       },
       {
@@ -45,7 +51,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 1,
           'macro' => ''
         }
@@ -127,7 +133,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 5,
                   'macro' => ''
                 },
@@ -176,7 +182,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 6,
                   'macro' => ''
                 },
@@ -205,14 +211,14 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   'spaces_before_argument' => ' '
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 7,
                   'macro' => ''
                 }
               }
             ],
             'source_info' => {
-              'file_name' => '',
+              'file_name' => 'character_and_spaces_in_refs_text.texi',
               'line_nr' => 4,
               'macro' => ''
             }
@@ -228,7 +234,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 2,
           'macro' => ''
         }
@@ -275,7 +281,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 9,
           'macro' => ''
         }
@@ -322,7 +328,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'spaces_before_argument' => ' '
             },
             'source_info' => {
-              'file_name' => '',
+              'file_name' => 'character_and_spaces_in_refs_text.texi',
               'line_nr' => 12,
               'macro' => ''
             }
@@ -375,7 +381,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 14,
                   'macro' => ''
                 }
@@ -418,7 +424,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 15,
                   'macro' => ''
                 }
@@ -468,7 +474,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 16,
                   'macro' => ''
                 }
@@ -509,7 +515,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 17,
                   'macro' => ''
                 }
@@ -555,7 +561,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 18,
                   'macro' => ''
                 }
@@ -592,7 +598,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'spaces_before_argument' => ' '
             },
             'source_info' => {
-              'file_name' => '',
+              'file_name' => 'character_and_spaces_in_refs_text.texi',
               'line_nr' => 20,
               'macro' => ''
             }
@@ -707,7 +713,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                       'spaces_before_argument' => ' '
                     },
                     'source_info' => {
-                      'file_name' => '',
+                      'file_name' => 'character_and_spaces_in_refs_text.texi',
                       'line_nr' => 36,
                       'macro' => ''
                     }
@@ -720,7 +726,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 22,
                   'macro' => ''
                 }
@@ -826,7 +832,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                       'spaces_before_argument' => ' '
                     },
                     'source_info' => {
-                      'file_name' => '',
+                      'file_name' => 'character_and_spaces_in_refs_text.texi',
                       'line_nr' => 38,
                       'macro' => ''
                     }
@@ -839,7 +845,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 23,
                   'macro' => ''
                 }
@@ -873,7 +879,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 24,
                   'macro' => ''
                 }
@@ -971,7 +977,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                       'spaces_before_argument' => '  '
                     },
                     'source_info' => {
-                      'file_name' => '',
+                      'file_name' => 'character_and_spaces_in_refs_text.texi',
                       'line_nr' => 40,
                       'macro' => ''
                     }
@@ -984,7 +990,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 25,
                   'macro' => ''
                 }
@@ -1007,7 +1013,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 10,
           'macro' => ''
         }
@@ -1103,7 +1109,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 27,
           'macro' => ''
         }
@@ -1185,7 +1191,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 31,
                   'macro' => ''
                 },
@@ -1234,7 +1240,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 32,
                   'macro' => ''
                 },
@@ -1283,7 +1289,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   }
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 33,
                   'macro' => ''
                 },
@@ -1312,14 +1318,14 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                   'spaces_before_argument' => ' '
                 },
                 'source_info' => {
-                  'file_name' => '',
+                  'file_name' => 'character_and_spaces_in_refs_text.texi',
                   'line_nr' => 34,
                   'macro' => ''
                 }
               }
             ],
             'source_info' => {
-              'file_name' => '',
+              'file_name' => 'character_and_spaces_in_refs_text.texi',
               'line_nr' => 30,
               'macro' => ''
             }
@@ -1335,7 +1341,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           'spaces_before_argument' => ' '
         },
         'source_info' => {
-          'file_name' => '',
+          'file_name' => 'character_and_spaces_in_refs_text.texi',
           'line_nr' => 28,
           'macro' => ''
         }
