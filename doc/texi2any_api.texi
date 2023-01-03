@@ -1968,8 +1968,15 @@ the sectioning element (@var{$file}).
 @end deftypefn
 
 
-For special element units (@pxref{Output Element Units}), the function
-reference is:
+@node Customizing Special Elements Output Names
+@section Customizing Special Elements Output Names
+
+@cindex Special Elements target names, customizing
+@cindex Special Elements id names, customizing
+@cindex Special Elements file names, customizing
+
+For special element units files and targets (@pxref{Output Element Units}), the
+function reference is:
 
 @deftypefn {Function Reference} {(@var{$target}, @var{$file})} special_element_target_file_name @
            (@var{$converter}, @var{\%element}, @var{$default_target}, @var{$file_name})
@@ -1979,6 +1986,10 @@ target that has been already set, and @var{$file_name} is the
 file name that has been already set. The function should return the @var{$target}
 and @var{$file}.
 @end deftypefn
+
+To determine the variety of the special element processed, the @code{extra}
+hash @code{special_element_variety} key can be used.
+@xref{Special Elements Varieties}.
 
 
 @node Init File Calling at Different Stages
@@ -3432,6 +3443,9 @@ are used, as described in
 @end multitable
 @caption{Association of special elements names with their special element variety}
 @end float
+
+The variety of special elements is in the element @code{extra}
+hash @code{special_element_variety} key.
 
 
 @node Special Elements Information Customization
