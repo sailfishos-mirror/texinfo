@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'cond'} = {
+$result_trees{'cond_ifhtml_ifinfo'} = {
   'contents' => [
     {
       'contents' => [
@@ -321,10 +321,10 @@ $result_trees{'cond'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cond'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cond'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'cond'} = '\\input texinfo
+$result_texis{'cond_ifhtml_ifinfo'} = '\\input texinfo
 
 @c test conditions
 
@@ -353,7 +353,7 @@ This is ifnottex text.
 ';
 
 
-$result_texts{'cond'} = '
+$result_texts{'cond_ifhtml_ifinfo'} = '
 
 This is ifhtml text.
 
@@ -372,7 +372,7 @@ This is ifnottex text.
 
 ';
 
-$result_sectioning{'cond'} = {
+$result_sectioning{'cond_ifhtml_ifinfo'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -396,9 +396,9 @@ $result_sectioning{'cond'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'cond'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond'};
+$result_sectioning{'cond_ifhtml_ifinfo'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond_ifhtml_ifinfo'};
 
-$result_nodes{'cond'} = {
+$result_nodes{'cond_ifhtml_ifinfo'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -412,7 +412,7 @@ $result_nodes{'cond'} = {
   'info' => {}
 };
 
-$result_menus{'cond'} = {
+$result_menus{'cond_ifhtml_ifinfo'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -420,14 +420,14 @@ $result_menus{'cond'} = {
   'info' => {}
 };
 
-$result_errors{'cond'} = [];
+$result_errors{'cond_ifhtml_ifinfo'} = [];
 
 
-$result_floats{'cond'} = {};
+$result_floats{'cond_ifhtml_ifinfo'} = {};
 
 
 
-$result_converted{'html'}->{'cond'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'cond_ifhtml_ifinfo'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>

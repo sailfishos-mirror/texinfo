@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'texi_cond'} = {
+$result_trees{'cond'} = {
   'contents' => [
     {
       'contents' => [
@@ -60,13 +60,7 @@ $result_trees{'texi_cond'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'This is html text.
-'
-                    }
-                  ],
-                  'type' => 'rawpreformatted'
+                  'type' => 'elided_block'
                 },
                 {
                   'args' => [
@@ -107,6 +101,11 @@ $result_trees{'texi_cond'} = {
               'text' => '
 ',
               'type' => 'empty_line'
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
           'type' => 'preamble_before_content'
@@ -114,16 +113,11 @@ $result_trees{'texi_cond'} = {
         {
           'contents' => [
             {
-              'text' => 'This is ifhtml text.
+              'text' => 'This is ifnothtml text.
 '
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         },
         {
           'text' => '
@@ -200,18 +194,18 @@ $result_trees{'texi_cond'} = {
           'type' => 'empty_line'
         },
         {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
           'contents' => [
             {
-              'text' => 'This is ifinfo text.
+              'text' => 'This is ifnotinfo text.
 '
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         },
         {
           'text' => '
@@ -321,26 +315,25 @@ $result_trees{'texi_cond'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'texi_cond'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'texi_cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_cond'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cond'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cond'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'texi_cond'} = '\\input texinfo
+$result_texis{'cond'} = '\\input texinfo
 
 @c test conditions
 
 @html
-This is html text.
 @end html
 
-This is ifhtml text.
 
+This is ifnothtml text.
 
 @node Top
 @top conditionals
 
 
-This is ifinfo text.
 
+This is ifnotinfo text.
 
 
 @tex
@@ -353,17 +346,17 @@ This is ifnottex text.
 ';
 
 
-$result_texts{'texi_cond'} = '
+$result_texts{'cond'} = '
 
-This is ifhtml text.
 
+This is ifnothtml text.
 
 conditionals
 ************
 
 
-This is ifinfo text.
 
+This is ifnotinfo text.
 
 
 
@@ -372,7 +365,7 @@ This is ifnottex text.
 
 ';
 
-$result_sectioning{'texi_cond'} = {
+$result_sectioning{'cond'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -396,9 +389,9 @@ $result_sectioning{'texi_cond'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'texi_cond'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'texi_cond'};
+$result_sectioning{'cond'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'cond'};
 
-$result_nodes{'texi_cond'} = {
+$result_nodes{'cond'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -412,7 +405,7 @@ $result_nodes{'texi_cond'} = {
   'info' => {}
 };
 
-$result_menus{'texi_cond'} = {
+$result_menus{'cond'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -420,14 +413,14 @@ $result_menus{'texi_cond'} = {
   'info' => {}
 };
 
-$result_errors{'texi_cond'} = [];
+$result_errors{'cond'} = [];
 
 
-$result_floats{'texi_cond'} = {};
+$result_floats{'cond'} = {};
 
 
 
-$result_converted{'html'}->{'texi_cond'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'cond'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
@@ -447,18 +440,17 @@ $result_converted{'html'}->{'texi_cond'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-This is html text.
 
-<p>This is ifhtml text.
+
+<p>This is ifnothtml text.
 </p>
-
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="conditionals">conditionals</h1>
 
 
-<p>This is ifinfo text.
-</p>
 
+<p>This is ifnotinfo text.
+</p>
 
 
 
