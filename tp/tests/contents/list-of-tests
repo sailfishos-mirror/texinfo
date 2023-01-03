@@ -1,11 +1,9 @@
-contents_in_middle_section contents_in_middle_section.texi
 double_contents double_contents.texi
 double_contents_chapter double_contents.texi --split chapter
 double_contents_section double_contents.texi --split section
 double_contents_nodes double_contents.texi --split node
 no_content no_content.texi
 no_content_do_contents no_content.texi -c 'contents 1'
-contents_in_middle_section_inline contents_in_middle_section.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
 double_contents_inline double_contents.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
 double_contents_inline_chapter double_contents.texi -c 'CONTENTS_OUTPUT_LOCATION inline' --split chapter
 double_contents_inline_section double_contents.texi -c 'CONTENTS_OUTPUT_LOCATION inline' --split section
@@ -20,6 +18,5 @@ double_contents_after_title_book_chapter double_contents.texi --init book.pm --s
 
 contents_and_parts contents_and_parts.texi
 
-contents_in_middle_section_info contents_in_middle_section.texi --info
 double_contents_info double_contents.texi --info
 

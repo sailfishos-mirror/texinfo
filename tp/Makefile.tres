@@ -601,6 +601,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/contents_in_middle_chapter_inline/res_html/contents_in_middle_chapter.html \
   t/results/html_tests/contents_in_middle_chapter_separate_element.pl \
   t/results/html_tests/contents_in_middle_chapter_separate_element/res_html/contents_in_middle_chapter.html \
+  t/results/html_tests/contents_in_middle_section.pl \
+  t/results/html_tests/contents_in_middle_section/res_html/contents_in_middle_section.html \
+  t/results/html_tests/contents_in_middle_section_inline.pl \
+  t/results/html_tests/contents_in_middle_section_inline/res_html/contents_in_middle_section.html \
+  t/results/html_tests/contents_in_middle_section_separate_element.pl \
+  t/results/html_tests/contents_in_middle_section_separate_element/res_html/contents_in_middle_section.html \
   t/results/html_tests/deftypefnnewline_for_copying_after.pl \
   t/results/html_tests/deftypefnnewline_for_copying_before.pl \
   t/results/html_tests/documentdescription.pl \
