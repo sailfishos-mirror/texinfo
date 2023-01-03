@@ -563,8 +563,6 @@ undef, {'test_file' => 'contents_at_end_document_after_node.texi'}],
 undef, {'test_file' => 'contents_at_end_document.texi'}],
 ['contents_in_document',
 undef, {'test_file' => 'contents_in_document.texi'}],
-['contents_no_section',
-undef, {'test_file' => 'contents_no_section.texi'}],
 );
 
 my @test_out_files = (

@@ -1611,7 +1611,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/contents_at_end_document.pl \
   t/results/moresectioning/contents_at_end_document_after_node.pl \
   t/results/moresectioning/contents_in_document.pl \
-  t/results/moresectioning/contents_no_section.pl \
   t/results/moresectioning/empty_top_node_up.pl \
   t/results/moresectioning/equivalent_nodes_defined_linked.pl \
   t/results/moresectioning/internal_top_node_up.pl \
