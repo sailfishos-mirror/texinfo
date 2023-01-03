@@ -849,6 +849,21 @@ $check_htmlxref_text
   {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
+['contents_in_middle_chapter',
+  undef, {'test_file' => 'contents_in_middle_chapter.texi'},
+  {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['contents_in_middle_chapter_inline',
+  undef, {'test_file' => 'contents_in_middle_chapter.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['contents_in_middle_chapter_separate_element',
+  undef, {'test_file' => 'contents_in_middle_chapter.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+
 );
 
 
