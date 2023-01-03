@@ -21,6 +21,7 @@ test_tap_files_generated_list = \
   t/27float.t \
   t/28heading.t \
   t/30sectioning.t \
+  t/40moresectioning.t \
   t/50value.t \
   t/55conditionals.t \
   t/57invalid_nestings.t \
@@ -1591,6 +1592,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/text_before_and_after_bye.pl \
   t/results/misc_commands/text_before_line_command.pl \
   t/results/misc_commands/vskip.pl \
+  t/results/moresectioning/contents.pl \
+  t/results/moresectioning/contents_and_shortcontents.pl \
+  t/results/moresectioning/sectioning_part_appendix.pl \
+  t/results/moresectioning/sectioning_part_appendix_no_top.pl \
+  t/results/moresectioning/sections_test.pl \
+  t/results/moresectioning/sections_test_no_use_nodes.pl \
+  t/results/moresectioning/sections_test_no_use_nodes_use_node_directions.pl \
+  t/results/moresectioning/shortcontents.pl \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \
@@ -1831,8 +1840,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/character_and_spaces_in_refs_out/res_html/other-nodes.html \
   t/results/sectioning/complex.pl \
   t/results/sectioning/complex_split_at_node.pl \
-  t/results/sectioning/contents.pl \
-  t/results/sectioning/contents_and_shortcontents.pl \
   t/results/sectioning/contents_at_document_begin.pl \
   t/results/sectioning/contents_at_end_document.pl \
   t/results/sectioning/contents_at_end_document_after_node.pl \
@@ -1971,15 +1978,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/section_in_unnumbered_info.pl \
   t/results/sectioning/section_in_unnumbered_plaintext.pl \
   t/results/sectioning/section_node_before_part.pl \
-  t/results/sectioning/sectioning_part_appendix.pl \
-  t/results/sectioning/sectioning_part_appendix_no_top.pl \
   t/results/sectioning/sections.pl \
-  t/results/sectioning/sections_test.pl \
-  t/results/sectioning/sections_test_no_use_nodes.pl \
-  t/results/sectioning/sections_test_no_use_nodes_use_node_directions.pl \
   t/results/sectioning/semi_auto.pl \
   t/results/sectioning/setfilename_on_top_and_after_node.pl \
-  t/results/sectioning/shortcontents.pl \
   t/results/sectioning/space_in_node.pl \
   t/results/sectioning/special_spaces_in_nodes.pl \
   t/results/sectioning/split_for_format_not_split.pl \

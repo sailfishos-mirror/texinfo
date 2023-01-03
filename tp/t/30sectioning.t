@@ -5,33 +5,6 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $sections_no_top_text =
-'@chapter chapter
-
-@section section
-
-@subsection subsection
-
-@subsubsection subsubsection
-
-@part part
-
-@chapter chapter in part
-
-@chapter second chapter in part
-
-@unnumbered unnumbered
-
-@appendix appendix
-
-@appendixsec appendixsec
-';
-
-my $test_text =
-'@top top
-
-'.$sections_no_top_text;
-
 my $chapter_sections_text =
 '@unnumbered unnumbered
 
@@ -144,33 +117,6 @@ Top node
 ';
 
 my @tests_converted = (
-['contents',
-$test_text.
-'
-@contents
-'],
-['shortcontents',
-$test_text.
-'
-@shortcontents
-'],
-['contents_and_shortcontents',
-$test_text.
-'
-@shortcontents
-
-@contents
-'],
-# used as a possible comparison with the next two
-['sections_test',
-$test_text
-],
-['sections_test_no_use_nodes',
-$test_text
-,{},{'USE_NODES' => 0}],
-['sections_test_no_use_nodes_use_node_directions',
-$test_text
-,{},{'USE_NODES' => 0, 'USE_NODE_DIRECTIONS' => 1}],
 ['one_subsection',
 '@subsection The subsection
 '],
@@ -1764,12 +1710,6 @@ in chap
 
 @appendix Appendix
 '],
-['sectioning_part_appendix',
-$test_text,
-{'test_split' => 'section'}],
-['sectioning_part_appendix_no_top',
-$sections_no_top_text,
-{'test_split' => 'section'}],
 ['chapter_sections',
 $chapter_sections_text,
 {'test_split' => 'section'}],
@@ -1987,8 +1927,8 @@ foreach my $test (@tests_info) {
 my @xml_tests_cases_tests = ('part_before_section',
 'section_before_chapter',
 'top_part_chapter', 'section_before_top_no_node',
-'section_chapter_before_top', 'sectioning_part_appendix',
-'part_chapter_appendix', 'sectioning_part_appendix_no_top',
+'section_chapter_before_top',
+'part_chapter_appendix',
 'top_chapter_sections', 'chapter_sections',
 'next_no_prev_to_node',
 'empty_ref_arg');
