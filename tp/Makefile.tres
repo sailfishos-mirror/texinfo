@@ -28,7 +28,6 @@ test_tap_files_generated_list = \
   t/60macro.t \
   t/70value_and_macro.t \
   t/80include.t \
-  t/94htmlxref.t \
   t/accents.t \
   t/automatic_menus.t \
   t/automatic_nodes.t \
@@ -37,6 +36,7 @@ test_tap_files_generated_list = \
   t/docbook_tests.t \
   t/formats_encodings.t \
   t/html_tests.t \
+  t/htmlxref.t \
   t/index_before_item.t \
   t/info_tests.t \
   t/init_files_tests.t \

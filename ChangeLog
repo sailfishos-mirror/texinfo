@@ -1,5 +1,9 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/htmlxref.t: rename tp/t/94htmlxref.t as tp/t/htmlxref.t.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/94htmlxref.t: set 'FORMAT_MENU' once for all the tests, do not
 	set explicitly 'NODE_FILES'.
 
