@@ -1,5 +1,13 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/layout/list-of-tests: explicitly set TEXI2HTML style when
+	needed, otherwise unset TEXI2HTML and set relevant customization
+	variables explicitly.
+
+	* tp/tests/layout/formatting_regions.texi: remove @setfilename
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/nested_formats/list-of-tests: use the default format and
 	the html format, and unset TEXI2HTML such that the default format
 	produces Info.  The html format des not use the texi2html style

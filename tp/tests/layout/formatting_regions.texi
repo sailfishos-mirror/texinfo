@@ -1,5 +1,4 @@
 \input texinfo @c -*-texinfo-*-
-@setfilename formatting-regions.info
 
 @documentdescription
 This is the explicit d--ocument @code{d@'escription}.
