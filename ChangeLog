@@ -1,5 +1,9 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/layout.t: rename tp/t/93layout.t as tp/t/layout.t.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/93layout.t, tp/tests/layout/list-of-tests:
 	move navigation_test_misc_file_collision test to tp/t/93layout.t.
 	Remove no_monolithic_only_toc_out test from
