@@ -10,43 +10,44 @@ my @test_cases = (
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref.cnf',
    'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
-   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
+   'USE_NODES' => 0}
 ],
 ['htmlxref_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref.cnf',
-   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
-   'USE_NODES' => 1, 'NODE_FILES' => 1}
+   'SPLIT' => 'node',,
+   'USE_NODES' => 1}
 ],
 ['htmlxref_only_mono',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-mono.cnf',
    'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
-   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
+   'USE_NODES' => 0}
 ],
 ['htmlxref_only_mono_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-mono.cnf',
-   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
-   'USE_NODES' => 1, 'NODE_FILES' => 1}
+   'SPLIT' => 'node',
+   'USE_NODES' => 1}
 ],
 ['htmlxref_only_split',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-split.cnf',
    'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
-   'USE_NODES' => 0, 'FORMAT_MENU' => 'menu'}
+   'USE_NODES' => 0}
 ],
 ['htmlxref_only_split_nodes',
   undef, {'test_file' => 'test_refs.texi' },
   {'HTMLXREF_FILE' => 'htmlxref-split.cnf',
-   'SPLIT' => 'node', 'FORMAT_MENU' => 'menu',
-   'USE_NODES' => 1, 'NODE_FILES' => 1}
+   'SPLIT' => 'node',
+   'USE_NODES' => 1}
 ],
 
 );
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
+  $test->[3]->{'FORMAT_MENU'} = 'menu';
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
