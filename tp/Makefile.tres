@@ -148,6 +148,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/combined_fonts/res_latex/combined_fonts.tex \
   t/results/converters_tests/combined_fonts/res_xml/combined_fonts.xml \
   t/results/converters_tests/complex_nestings.pl \
+  t/results/converters_tests/contents_at_document_begin.pl \
+  t/results/converters_tests/contents_at_document_begin/res_html/contents_at_document_begin.html \
+  t/results/converters_tests/contents_at_document_begin_inline.pl \
+  t/results/converters_tests/contents_at_document_begin_inline/res_html/contents_at_document_begin.html \
+  t/results/converters_tests/contents_at_document_begin_separate_element.pl \
+  t/results/converters_tests/contents_at_document_begin_separate_element/res_html/contents_at_document_begin.html \
   t/results/converters_tests/definition_commands.pl \
   t/results/converters_tests/definition_commands/res_html/chapter.html \
   t/results/converters_tests/definition_commands/res_html/index.html \
@@ -1607,7 +1613,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/complex_split_at_node.pl \
   t/results/moresectioning/contents.pl \
   t/results/moresectioning/contents_and_shortcontents.pl \
-  t/results/moresectioning/contents_at_document_begin.pl \
+  t/results/moresectioning/contents_at_begin_chapter_without_node.pl \
   t/results/moresectioning/contents_at_end_document.pl \
   t/results/moresectioning/contents_at_end_document_after_node.pl \
   t/results/moresectioning/contents_in_document.pl \

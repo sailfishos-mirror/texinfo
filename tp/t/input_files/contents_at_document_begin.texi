@@ -3,9 +3,17 @@
 @contents
 
 @node Top
-@top contents at document begin
+@top Contents at beginning
 
-@chapter chap
+Content at the beginning.
+
+@menu 
+* chapter::
+@end menu
+
+@node chapter
+@chapter Chapter 1
+
+The chapter
 
 @bye
-

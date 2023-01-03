@@ -1,3 +1,22 @@
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (output, _html_set_pages_files): set
+	element units next and prev in output and not in
+	_html_set_pages_files, in order to do it even if th efile is not set.
+
+	* tp/t/40moresectioning.t, tp/Makefile.tres, tp/t/converters_tests.t,
+	tp/tests/contents/list-of-tests: inline contents_at_document_begin.texi
+	test in tp/t/40moresectioning.t.  Replace
+	contents_at_document_begin.texi contents with the
+	tests/contents/contents_at_begin.texi file contents, without
+	@setfilenale.  Add contents_at_document_begin,
+	contents_at_document_begin_inline and
+	contents_at_document_begin_separate_element tests in
+	tp/t/converters_tests.t and remove the contents_at_begin,
+	contents_at_begin_inline and contents_at_begin_info tests from
+	tp/tests/contents/list-of-tests, since the tests in
+	tp/t/converters_tests.t now test for much more.
+
 2023-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* Makefile.am (EXTRA_DIST): Distribute more recent ChangeLog.65

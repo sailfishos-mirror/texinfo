@@ -740,6 +740,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </p>
 <p>D<a class="footnote" id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
+<hr>
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">

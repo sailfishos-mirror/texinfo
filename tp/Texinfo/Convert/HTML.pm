@@ -7039,7 +7039,8 @@ sub _default_format_element_footer($$$$;$)
     if (($is_top or $is_special)
         and ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC'))
         and (($self->get_conf('HEADERS')
-                or ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'node')))) {
+              or ($self->get_conf('SPLIT')
+                  and $self->get_conf('SPLIT') ne 'node')))) {
       if ($is_top) {
         $buttons = $self->get_conf('TOP_BUTTONS');
       } else {
@@ -8651,7 +8652,6 @@ sub _html_set_pages_files($$$$$$$$)
              if ($self->get_conf('DEBUG'));
   }
   if ($special_elements) {
-    my $previous_tree_unit = $tree_units->[-1];
     foreach my $special_element (@$special_elements) {
       my $filename
        = $self->{'targets'}->{$special_element}->{'special_element_filename'};
@@ -8667,9 +8667,6 @@ sub _html_set_pages_files($$$$$$$$)
            .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
       }
-      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
-      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
-      $previous_tree_unit = $special_element;
     }
   }
   foreach my $filename (keys(%filenames_paths)) {
@@ -10566,6 +10563,15 @@ sub output($$)
   if ($output_file ne '') {
     $self->_html_set_pages_files($tree_units, $special_elements, $output_file,
                   $destination_directory, $output_filename, $document_name);
+  }
+
+  if ($special_elements and defined($tree_units) and scalar(@$tree_units)) {
+    my $previous_tree_unit = $tree_units->[-1];
+    foreach my $special_element (@$special_elements) {
+      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
+      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
+      $previous_tree_unit = $special_element;
+    }
   }
 
   $self->_prepare_contents_elements();

@@ -555,8 +555,14 @@ in chap
 @xref{after}.
 
 '],
-['contents_at_document_begin',
-undef, {'test_file' => 'contents_at_document_begin.texi'}],
+['contents_at_begin_chapter_without_node',
+'@contents
+
+@node Top
+@top contents at document begin
+
+@chapter chap
+'],
 ['contents_at_end_document_after_node',
 undef, {'test_file' => 'contents_at_end_document_after_node.texi'}],
 ['contents_at_end_document',

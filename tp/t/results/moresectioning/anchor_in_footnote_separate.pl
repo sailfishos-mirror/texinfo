@@ -650,7 +650,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <h2 class="chapter" id="Chap">1 Chap</h2>
 
 <p><a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
-</p></div>
+</p><hr>
+</div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">

@@ -1,4 +1,3 @@
-contents_at_begin contents_at_begin.texi
 contents_at_end contents_at_end.texi
 contents_in_middle_chapter contents_in_middle_chapter.texi
 contents_in_middle_section contents_in_middle_section.texi
@@ -10,7 +9,6 @@ no_content no_content.texi
 no_content_do_contents no_content.texi -c 'contents 1'
 no_content_setcatpage no_content_setcatpage.texi
 no_content_setcatpage_do_contents no_content_setcatpage.texi -c 'contents 1'
-contents_at_begin_inline contents_at_begin.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
 contents_at_end_inline contents_at_end.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
 contents_in_middle_chapter_inline contents_in_middle_chapter.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
 contents_in_middle_section_inline contents_in_middle_section.texi -c 'CONTENTS_OUTPUT_LOCATION inline'
@@ -30,7 +28,6 @@ double_contents_after_title_book_chapter double_contents.texi --init book.pm --s
 
 contents_and_parts contents_and_parts.texi
 
-contents_at_begin_info contents_at_begin.texi --info
 contents_at_end_info contents_at_end.texi  --info
 contents_in_middle_chapter_info contents_in_middle_chapter.texi --info
 contents_in_middle_section_info contents_in_middle_section.texi --info

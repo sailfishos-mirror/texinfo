@@ -1061,6 +1061,19 @@ deftypeop n
 defop n
 @end defop
 '],
+# the big rule is set to be different from the normal rule to check the type
+# of rule output
+['contents_at_document_begin',
+undef, {'test_file' => 'contents_at_document_begin.texi'},
+       {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}],
+['contents_at_document_begin_inline',
+undef, {'test_file' => 'contents_at_document_begin.texi'},
+       {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+        'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}],
+['contents_at_document_begin_separate_element',
+undef, {'test_file' => 'contents_at_document_begin.texi',},
+       {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+        'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}],
 );
 
 my @html_text_cases = (
@@ -1204,17 +1217,26 @@ my %info_tests = (
  'things_before_setfilename_no_element' => 1,
  'spaces_in_node_names' => 1,
  'spaces_in_empty_node_names' => 1,
-  'non_empty_part' => 1,
+ 'non_empty_part' => 1,
+ 'contents_at_document_begin' => 1,
+ 'contents_at_document_begin_inline' => 1,
+ 'contents_at_document_begin_separate_element' => 1,
 );
 
 my %html_tests = (
  'things_before_setfilename' => 1,
  'things_before_setfilename_no_element' => 1,
  'line_breaks' => 1,
+ 'contents_at_document_begin' => 1,
+ 'contents_at_document_begin_inline' => 1,
+ 'contents_at_document_begin_separate_element' => 1,
 );
 
 my %file_html_tests = (
-  'definition_commands' => 1,
+ 'definition_commands' => 1,
+ 'contents_at_document_begin' => 1,
+ 'contents_at_document_begin_inline' => 1,
+ 'contents_at_document_begin_separate_element' => 1,
 );
 
 my %docbooc_doc_tests = (
@@ -1222,8 +1244,8 @@ my %docbooc_doc_tests = (
 );
 
 my %file_latex_tests = (
-  'printindex_merged_indices_code_style' => 1,
-  'definition_commands' => 1,
+ 'printindex_merged_indices_code_style' => 1,
+ 'definition_commands' => 1,
 );
 
 foreach my $test (@test_cases) {

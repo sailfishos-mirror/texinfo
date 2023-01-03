@@ -1908,9 +1908,9 @@ td.name-direction-about {text-align:center}
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="appendix">Appendix A appendix</h1>
+<hr style="height: 6px;">
 </div>
 </div>
-<hr>
 <div class="element-about" id="SEC_About">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>

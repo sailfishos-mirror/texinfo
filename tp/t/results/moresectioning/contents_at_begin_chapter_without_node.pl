@@ -5,49 +5,29 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'contents_at_document_begin'} = {
+$result_trees{'contents_at_begin_chapter_without_node'} = {
   'contents' => [
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
+          'args' => [
             {
               'text' => '
 ',
-              'type' => 'text_before_beginning'
+              'type' => 'misc_arg'
             }
           ],
-          'type' => 'preamble_before_beginning'
+          'cmdname' => 'contents',
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          }
         },
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'text' => '
+          'text' => '
 ',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'contents',
-              'source_info' => {
-                'file_name' => 'contents_at_document_begin.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -86,8 +66,8 @@ $result_trees{'contents_at_document_begin'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 5,
+        'file_name' => '',
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -119,8 +99,8 @@ $result_trees{'contents_at_document_begin'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 6,
+        'file_name' => '',
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -140,72 +120,39 @@ $result_trees{'contents_at_document_begin'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_document_begin.texi',
-        'line_nr' => 8,
+        'file_name' => '',
+        'line_nr' => 6,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
-    },
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        }
-      ],
-      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_at_document_begin'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_at_document_begin'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_at_document_begin'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'contents_at_begin_chapter_without_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_at_begin_chapter_without_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'contents_at_begin_chapter_without_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_at_begin_chapter_without_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'contents_at_document_begin'} = '\\input texinfo @c -*-texinfo-*-
-
-@contents
+$result_texis{'contents_at_begin_chapter_without_node'} = '@contents
 
 @node Top
 @top contents at document begin
 
 @chapter chap
-
-@bye
-
 ';
 
 
-$result_texts{'contents_at_document_begin'} = '
+$result_texts{'contents_at_begin_chapter_without_node'} = '
 contents at document begin
 **************************
 
 1 chap
 ******
-
 ';
 
-$result_sectioning{'contents_at_document_begin'} = {
+$result_sectioning{'contents_at_begin_chapter_without_node'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -242,12 +189,12 @@ $result_sectioning{'contents_at_document_begin'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'contents_at_document_begin'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_document_begin'};
+$result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'contents_at_begin_chapter_without_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_at_begin_chapter_without_node'};
 
-$result_nodes{'contents_at_document_begin'} = {
+$result_nodes{'contents_at_begin_chapter_without_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -261,7 +208,7 @@ $result_nodes{'contents_at_document_begin'} = {
   'info' => {}
 };
 
-$result_menus{'contents_at_document_begin'} = {
+$result_menus{'contents_at_begin_chapter_without_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -269,10 +216,10 @@ $result_menus{'contents_at_document_begin'} = {
   'info' => {}
 };
 
-$result_errors{'contents_at_document_begin'} = [];
+$result_errors{'contents_at_begin_chapter_without_node'} = [];
 
 
-$result_floats{'contents_at_document_begin'} = {};
+$result_floats{'contents_at_begin_chapter_without_node'} = {};
 
 
 1;
