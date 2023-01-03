@@ -1,5 +1,12 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/indices/Makefile.am: remove reference to res_parser_info.
+
+	* tp/tests/nested_formats/Makefile.am: replace *_parser_info by
+	*_parser_html.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/contents/list-of-tests: remove no_content_setcatpage* tests
 	that are redundant with no_content tests.
 
