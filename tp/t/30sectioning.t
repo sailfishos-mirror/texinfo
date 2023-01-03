@@ -5,29 +5,6 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $chapter_sections_text =
-'@unnumbered unnumbered
-
-@chapter First chapter
-
-@section second
-
-@chapter Chapter
-
-@section Section of chapter
-
-@subsection subsection 1
-
-@subsection subsection 2
-
-@chapter Chapter 2
-';
-
-my $top_chapter_sections_text =
-'@top top
-
-'.$chapter_sections_text;
-
 my $unnumbered_top_without_node_text =
 '@node a node,,,(dir)
 @unnumbered unnumbered
@@ -51,24 +28,6 @@ Top section
 @chapter Chapter
 
 Text of chapter
-';
-
-
-my $anchor_in_footnote_text = '@node Top
-@top Top
-
-In top node@footnote{in footnote
-@anchor{Anchor in footnote}.
-}
-
-@menu
-* chapter::
-@end menu
-
-@node chapter
-@chapter Chap
-
-@ref{Anchor in footnote}.
 ';
 
 my $nodes_after_top_before_chapter_text =
@@ -204,9 +163,6 @@ Text part second.
 
 @setfilename a bit too late
 '],
-['section_in_unnumbered_plaintext',
-undef, {'test_file' => 'section_in_unnumbered_text.texi'},
-],
 ['two_unnumbered_no_argument',
 '@unnumbered
 @unnumbered
@@ -366,8 +322,6 @@ my @tests_info = (
 '@node one node
 @subsection The subsection
 '],
-['character_and_spaces_in_refs',
-undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
 ['character_and_spaces_in_node',
 '
 @node Top
@@ -376,12 +330,6 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
 @node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., other nodes
 @node  local   node,,/;<=>?[\\]^_`|~,other nodes
 '],
-['special_spaces_in_nodes',
-undef, {'test_file' => 'special_spaces_in_nodes.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
-['only_special_spaces_node',
-undef, {'test_file' => 'only_special_spaces_node.texi',
-        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],
 # a subset of the next test, with ascii spaces only
 ['in_menu_only_special_ascii_spaces_node',
 undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'}],
@@ -459,33 +407,6 @@ In float
 
 @xref{node}.
 '],
-['equivalent_nodes_defined_linked',
-'@node Top, @asis{node}
-
-@menu
-* @strong{node}::
-@end menu
-
-@node node
-
-@float Figure, @samp{node}
-A figure
-@end float
-
-@listoffloats Figure
-
-Ref to node @ref{node}.
-
-Ref to @@samp@{node@} @ref{@samp{node}}.
-', {}, {'FORMAT_MENU' => 'menu'}],
-['anchor_in_footnote',
-$anchor_in_footnote_text
-],
-['anchor_in_footnote_separate',
-'@footnotestyle separate
-'.
-$anchor_in_footnote_text
-],
 ['no_element',
 '@settitle no_element test
 @documentencoding ISO-8859-1
@@ -963,9 +884,6 @@ Top node
 ', {'test_formats' => ['plaintext'],
     'CHECK_NORMAL_MENU_STRUCTURE' => 1},
    {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
-['section_in_unnumbered_info',
-undef, {'test_file' => 'section_in_unnumbered_text.texi'},
-],
 ['top_without_node_sections',
 $top_without_node_text,
 {'test_split' => 'section'}],
@@ -1710,12 +1628,6 @@ in chap
 
 @appendix Appendix
 '],
-['chapter_sections',
-$chapter_sections_text,
-{'test_split' => 'section'}],
-['top_chapter_sections',
-$top_chapter_sections_text,
-{'test_split' => 'section'}],
 ['contents_in_html_text',
 '@top top
 
@@ -1840,7 +1752,7 @@ foreach my $test (@test_out_files) {
 }
 
 my @xml_tests_converted_tests = ('section_before_part', 'chapter_before_part',
-  'part_before_top', 'double_part', 'section_in_unnumbered_plaintext',
+  'part_before_top', 'double_part',
   'two_unnumbered_no_argument', 'two_nodes_between_chapters',
   'chapter_before_and_after_part', 'node_up_external_node');
 
@@ -1876,7 +1788,7 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'node_part_chapter_after_chapter', 'section_before_top',
   'section_node_before_part', 'top_node_part_top',
   'chapter_node_before_and_after_part',
-  'in_menu_only_special_spaces_node', 'only_special_spaces_node',
+  'in_menu_only_special_spaces_node',
   'more_sections_than_nodes',
   'more_nodes_than_sections', 'part_node_chapter_appendix',
   'part_node_part_appendix', 'part_node_chapter_node_appendix',
@@ -1884,7 +1796,7 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'explicit_node_directions', 'nodes_after_top_before_chapter_nodes',
   'double_node_anchor_float', 'space_in_node');
 
-my @docbook_tests_info_tests = ('character_and_spaces_in_refs',
+my @docbook_tests_info_tests = (
   'chapter_between_nodes', 'section_before_after_top_node_last_node',
   'section_before_after_top_node', 'part_node_before_top part_node_after_top',
   'part_chapter_after_top node_part_chapter_after_top',
@@ -1894,7 +1806,7 @@ my @docbook_tests_info_tests = ('character_and_spaces_in_refs',
   'section_chapter_before_top_nodes', 'top_node_part_top',
   'top_without_node_sections', 'double_node_anchor_float');
 
-my @latex_tests_info_tests = ('character_and_spaces_in_refs',
+my @latex_tests_info_tests = (
   'chapter_between_nodes',
   'section_before_after_top_node_last_node',
   'section_before_after_top_node',
@@ -1929,7 +1841,6 @@ my @xml_tests_cases_tests = ('part_before_section',
 'top_part_chapter', 'section_before_top_no_node',
 'section_chapter_before_top',
 'part_chapter_appendix',
-'top_chapter_sections', 'chapter_sections',
 'next_no_prev_to_node',
 'empty_ref_arg');
 

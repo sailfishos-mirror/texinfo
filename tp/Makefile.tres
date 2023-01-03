@@ -1592,14 +1592,24 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/text_before_and_after_bye.pl \
   t/results/misc_commands/text_before_line_command.pl \
   t/results/misc_commands/vskip.pl \
+  t/results/moresectioning/anchor_in_footnote.pl \
+  t/results/moresectioning/anchor_in_footnote_separate.pl \
+  t/results/moresectioning/chapter_sections.pl \
+  t/results/moresectioning/character_and_spaces_in_refs.pl \
   t/results/moresectioning/contents.pl \
   t/results/moresectioning/contents_and_shortcontents.pl \
+  t/results/moresectioning/equivalent_nodes_defined_linked.pl \
+  t/results/moresectioning/only_special_spaces_node.pl \
+  t/results/moresectioning/section_in_unnumbered_info.pl \
+  t/results/moresectioning/section_in_unnumbered_plaintext.pl \
   t/results/moresectioning/sectioning_part_appendix.pl \
   t/results/moresectioning/sectioning_part_appendix_no_top.pl \
   t/results/moresectioning/sections_test.pl \
   t/results/moresectioning/sections_test_no_use_nodes.pl \
   t/results/moresectioning/sections_test_no_use_nodes_use_node_directions.pl \
   t/results/moresectioning/shortcontents.pl \
+  t/results/moresectioning/special_spaces_in_nodes.pl \
+  t/results/moresectioning/top_chapter_sections.pl \
   t/results/multitable/empty_headitem.pl \
   t/results/multitable/empty_item_tab.pl \
   t/results/multitable/empty_multitable_with_cells.pl \
@@ -1816,8 +1826,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/regions/ref_in_copying_insert_in_chapter.pl \
   t/results/regions/today_in_copying.pl \
   t/results/sectioning/a_comma_after_node.pl \
-  t/results/sectioning/anchor_in_footnote.pl \
-  t/results/sectioning/anchor_in_footnote_separate.pl \
   t/results/sectioning/anchor_zero.pl \
   t/results/sectioning/at_commands_in_node.pl \
   t/results/sectioning/automatic_menu_referencing_node.pl \
@@ -1828,9 +1836,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/chapter_between_nodes_with_appendix.pl \
   t/results/sectioning/chapter_between_nodes_with_appendix_nomenu.pl \
   t/results/sectioning/chapter_node_before_and_after_part.pl \
-  t/results/sectioning/chapter_sections.pl \
   t/results/sectioning/character_and_spaces_in_node.pl \
-  t/results/sectioning/character_and_spaces_in_refs.pl \
   t/results/sectioning/character_and_spaces_in_refs_out.pl \
   t/results/sectioning/character_and_spaces_in_refs_out/res_html/_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e.html \
   t/results/sectioning/character_and_spaces_in_refs_out/res_html/_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e.html \
@@ -1863,7 +1869,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/empty_top_node_up.pl \
   t/results/sectioning/equivalent_labels.pl \
   t/results/sectioning/equivalent_nodes.pl \
-  t/results/sectioning/equivalent_nodes_defined_linked.pl \
   t/results/sectioning/explicit_node_directions.pl \
   t/results/sectioning/external_node_in_menu.pl \
   t/results/sectioning/hole_in_sectioning.pl \
@@ -1939,7 +1944,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/one_node_explicit_directions_anchor.pl \
   t/results/sectioning/one_subsection.pl \
   t/results/sectioning/one_subsection_and_node.pl \
-  t/results/sectioning/only_special_spaces_node.pl \
   t/results/sectioning/part_before_chapter.pl \
   t/results/sectioning/part_before_section.pl \
   t/results/sectioning/part_before_top.pl \
@@ -1975,17 +1979,13 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/section_chapter_before_top.pl \
   t/results/sectioning/section_chapter_before_top_nodes.pl \
   t/results/sectioning/section_chapter_before_top_nodes/res_latex/section_chapter_before_top_nodes.tex \
-  t/results/sectioning/section_in_unnumbered_info.pl \
-  t/results/sectioning/section_in_unnumbered_plaintext.pl \
   t/results/sectioning/section_node_before_part.pl \
   t/results/sectioning/sections.pl \
   t/results/sectioning/semi_auto.pl \
   t/results/sectioning/setfilename_on_top_and_after_node.pl \
   t/results/sectioning/space_in_node.pl \
-  t/results/sectioning/special_spaces_in_nodes.pl \
   t/results/sectioning/split_for_format_not_split.pl \
   t/results/sectioning/split_for_format_not_split/res_xml/simplest.xml \
-  t/results/sectioning/top_chapter_sections.pl \
   t/results/sectioning/top_no_argument_and_content.pl \
   t/results/sectioning/top_no_argument_and_node.pl \
   t/results/sectioning/top_no_argument_and_top_node.pl \

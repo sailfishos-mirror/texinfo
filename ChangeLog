@@ -1,6 +1,11 @@
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/30sectioning.t, tp/t/40moresectioning.t:
+	move some tests from tp/t/30sectioning.t to tp/t/40moresectioning.t.
+
+2023-01-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/30sectioning.t, tp/t/40moresectioning.t:
 	move some tests from tp/t/30sectioning.t to tp/t/40moresectioning.t
 	as part of an effort to reduce the size of 30sectioning.t.
 
