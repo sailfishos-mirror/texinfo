@@ -420,7 +420,7 @@ $result_floats{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {};
 
 
 
-$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = 'This is , produced by texi2any version from cond.texi.
+$result_converted{'info'}->{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = 'This is , produced from cond.texi.
 
 This is ifnothtml text.
 
@@ -437,7 +437,7 @@ This is ifnotinfo text.
 
 
 Tag Table:
-Node: Top81
+Node: Top61
 
 End Tag Table
 

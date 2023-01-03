@@ -438,14 +438,9 @@ $result_converted{'html'}->{'texi_cond'} = '<!DOCTYPE html>
 <meta name="keywords" content="conditionals">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="texi2any">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<style type="text/css">
-<!--
-span.program-in-footer {font-size: smaller}
--->
-</style>
+<link href="#Top" rel="start" title="Top">
 
 
 </head>
@@ -469,11 +464,8 @@ This is html text.
 
 <p>This is ifnottex text.
 </p>
-<hr>
 </div>
-<p>
-  <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
-</p>
+
 
 
 </body>

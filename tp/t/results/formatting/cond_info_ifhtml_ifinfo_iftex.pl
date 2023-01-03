@@ -434,7 +434,7 @@ $result_floats{'cond_info_ifhtml_ifinfo_iftex'} = {};
 
 
 
-$result_converted{'info'}->{'cond_info_ifhtml_ifinfo_iftex'} = 'This is , produced by texi2any version from cond.texi.
+$result_converted{'info'}->{'cond_info_ifhtml_ifinfo_iftex'} = 'This is , produced from cond.texi.
 
 This is html text.
 
@@ -455,7 +455,7 @@ This is tex text.
 
 
 Tag Table:
-Node: Top101
+Node: Top81
 
 End Tag Table
 
