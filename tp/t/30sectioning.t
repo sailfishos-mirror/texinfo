@@ -2182,13 +2182,21 @@ $character_and_spaces_in_refs_text,
 ['topic_guide',
   undef,
   {'test_file' => 'topic_guide.texi',
-   'test_formats' => ['file_info'],}, # file_html is also added
+   'test_formats' => ['file_info', 'file_html'],},
   {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
+],
+['split_for_format_not_split',
+  undef,
+  {'test_file' => 'simplest.texi',
+   'test_formats' => ['file_xml']
+  },
+  {'SPLIT' => 'chapter'}
 ],
 );
 
 foreach my $test (@test_out_files) {
-  push @{$test->[2]->{'test_formats'}}, 'file_html';
+  push @{$test->[2]->{'test_formats'}}, 'file_html'
+    if (!$test->[2]->{'test_formats'});
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 

@@ -1,5 +1,11 @@
 2023-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/30sectioning.t, tp/Makefile.tres, tp/t/92formatting.t:
+	move split_for_format_not_split to 30sectioning.t.  Remove
+	now empty tp/t/92formatting.t.
+
+2023-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/92formatting.t, tp/Makefile.tres, tp/t/55conditionals.t:
 	move cnd.texi related tests to 55conditionals.t.
 
