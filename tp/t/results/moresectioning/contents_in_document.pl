@@ -8,27 +8,6 @@ use utf8;
 $result_trees{'contents_in_document'} = {
   'contents' => [
     {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [],
-          'type' => 'preamble_before_content'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -65,8 +44,8 @@ $result_trees{'contents_in_document'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_in_document.texi',
-        'line_nr' => 3,
+        'file_name' => '',
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -102,8 +81,8 @@ $result_trees{'contents_in_document'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => 'contents_in_document.texi',
-            'line_nr' => 6,
+            'file_name' => '',
+            'line_nr' => 4,
             'macro' => ''
           }
         },
@@ -118,8 +97,8 @@ $result_trees{'contents_in_document'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_in_document.texi',
-        'line_nr' => 4,
+        'file_name' => '',
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -139,31 +118,14 @@ $result_trees{'contents_in_document'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_in_document.texi',
-        'line_nr' => 8,
+        'file_name' => '',
+        'line_nr' => 6,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
@@ -171,16 +133,12 @@ $result_trees{'contents_in_document'} = {
 $result_trees{'contents_in_document'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_in_document'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'contents_in_document'} = '\\input texinfo @c -*-texinfo-*-
-
-@node Top
+$result_texis{'contents_in_document'} = '@node Top
 @top contents in document
 
 @contents
 
 @chapter chap
-
-@bye
 ';
 
 
@@ -190,7 +148,6 @@ $result_texts{'contents_in_document'} = 'contents in document
 
 1 chap
 ******
-
 ';
 
 $result_sectioning{'contents_in_document'} = {

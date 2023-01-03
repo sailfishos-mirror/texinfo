@@ -8,27 +8,6 @@ use utf8;
 $result_trees{'contents_at_end_document'} = {
   'contents' => [
     {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [],
-          'type' => 'preamble_before_content'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -65,8 +44,8 @@ $result_trees{'contents_at_end_document'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_end_document.texi',
-        'line_nr' => 3,
+        'file_name' => '',
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -79,7 +58,7 @@ $result_trees{'contents_at_end_document'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => ' 
 '
           },
           'type' => 'line_arg'
@@ -98,8 +77,8 @@ $result_trees{'contents_at_end_document'} = {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_end_document.texi',
-        'line_nr' => 4,
+        'file_name' => '',
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -135,45 +114,20 @@ $result_trees{'contents_at_end_document'} = {
           ],
           'cmdname' => 'contents',
           'source_info' => {
-            'file_name' => 'contents_at_end_document.texi',
-            'line_nr' => 8,
+            'file_name' => '',
+            'line_nr' => 6,
             'macro' => ''
           }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
         }
       ],
       'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
-        'file_name' => 'contents_at_end_document.texi',
-        'line_nr' => 6,
+        'file_name' => '',
+        'line_nr' => 4,
         'macro' => ''
       }
-    },
-    {
-      'args' => [
-        {
-          'text' => '
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'bye'
-    },
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        }
-      ],
-      'type' => 'postamble_after_end'
     }
   ],
   'type' => 'document_root'
@@ -181,17 +135,12 @@ $result_trees{'contents_at_end_document'} = {
 $result_trees{'contents_at_end_document'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_at_end_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_at_end_document'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_at_end_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'contents_at_end_document'} = '\\input texinfo @c -*-texinfo-*-
-
-@node Top
-@top contents at end document
+$result_texis{'contents_at_end_document'} = '@node Top
+@top contents at end document 
 
 @chapter chap
 
 @contents
-
-@bye
-
 ';
 
 
@@ -200,7 +149,6 @@ $result_texts{'contents_at_end_document'} = 'contents at end document
 
 1 chap
 ******
-
 
 ';
 

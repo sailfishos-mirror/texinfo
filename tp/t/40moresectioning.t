@@ -564,11 +564,36 @@ in chap
 @chapter chap
 '],
 ['contents_at_end_document_after_node',
-undef, {'test_file' => 'contents_at_end_document_after_node.texi'}],
+'@node Top
+@top contents at end document after node
+
+@menu
+* a node::
+@end menu
+
+@chapter chap
+
+@node a node,,,Top
+
+@contents
+'
+],
 ['contents_at_end_document',
-undef, {'test_file' => 'contents_at_end_document.texi'}],
+'@node Top
+@top contents at end document 
+
+@chapter chap
+
+@contents
+'],
 ['contents_in_document',
-undef, {'test_file' => 'contents_in_document.texi'}],
+'@node Top
+@top contents in document
+
+@contents
+
+@chapter chap
+'],
 );
 
 my @test_out_files = (
