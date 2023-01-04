@@ -1,5 +1,10 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/layout/list-of-tests: set separate footnotestyle for
+	formatting_epub_nodes test.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_tree_units, output):
 	set special elements net and prev in _prepare_conversion_tree_units
 	and not in output, in order to do it if called through convert().

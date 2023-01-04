@@ -19,4 +19,4 @@ formatting_inline_css ../coverage/formatting.texi -D 'needcollationcompat Need c
 formatting_fr ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' -c TEXI2HTML=1 --document-language fr
 formatting_fr_info ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --info --document-language fr
 formatting_fr_icons ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' -c TEXI2HTML=1 --document-language fr --init icons.init
-formatting_epub_nodes ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --split node --init epub3.pm -c 'EPUB_CREATE_CONTAINER_FILE 0' -c INFO_JS_DIR=js
+formatting_epub_nodes ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --split node --init epub3.pm -c 'EPUB_CREATE_CONTAINER_FILE 0' -c INFO_JS_DIR=js -c 'footnotestyle separate'
