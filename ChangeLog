@@ -1,5 +1,10 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/layout/Makefile.am (EXTRA_DIST): remove Texinfo files not
+	used anymore in tests/ (they are in tp/t/input_files/).
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/tex_html/list-of-tests: update path of formatting.texi
 	for formatting_singular test.
 
