@@ -21,7 +21,7 @@ $(srcdir)/Makefile.onetst: \
 	  -tex_html '$(tex_html_tests_dirs)' \
 	  -other '$(other_tests_dirs)'
 
-base_tests_dirs = formatting sectioning indices nested_formats contents layout
+base_tests_dirs = formatting encoded nested_formats customization coverage layout
 tex_html_tests_dirs = tex_html
 other_tests_dirs = other
 

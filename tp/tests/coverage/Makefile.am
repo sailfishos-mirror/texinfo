@@ -1,6 +1,6 @@
-EXTRA_DIST = no_monolithic.texi navigation.texi \
-	     simplest.texi list-of-tests res_parser \
- f--ile.e--xt  f--ile.jpg  f--ile.png  f--ile.txt
+EXTRA_DIST = formatting_regions.texi \
+	     formatting.texi list-of-tests res_parser \
+ f--ile.e--xt  f--ile.jpg  f--ile.png  f--ile.txt simplest.texi
 
 
 DISTCLEANFILES = tests.log tests.out

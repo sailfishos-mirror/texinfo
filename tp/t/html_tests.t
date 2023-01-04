@@ -824,7 +824,7 @@ $check_htmlxref_text
 ['sectioning_frames',
   undef,
   # tests for node with directions after section
-  {'test_file' => '../../tests/sectioning/sectioning.texi',
+  {'test_file' => '../../tests/customization/sectioning.texi',
    'CHECK_NORMAL_MENU_STRUCTURE' => 1},
   {'TEXI2HTML' => 1, 'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
@@ -960,31 +960,31 @@ $check_htmlxref_text
 ],
 # there are the same tests in tests/contents to test the command line
 ['no_content',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['no_content_inline',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'CONTENTS_OUTPUT_LOCATION' => 'inline',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['no_content_separate_element',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['no_content_do_contents',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'contents' => 1,
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['no_content_do_contents_inline',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'contents' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'inline',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
 ['no_content_do_contents_separate_element',
-  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  undef, {'test_file' => '../../tests/formatting/no_content.texi'},
   {'contents' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],

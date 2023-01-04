@@ -1,6 +1,7 @@
 EXTRA_DIST = \
- highlight_example.texi \
- list-of-tests res_parser
+ osé_utf8.texi osé_utf8_no_setfilename.texi \
+ manual_include_accented_file_name_latin1.texi \
+ çss.css cêss.css an_ïmage.png list-of-tests  res_parser
 
 DISTCLEANFILES = tests.log tests.out
 

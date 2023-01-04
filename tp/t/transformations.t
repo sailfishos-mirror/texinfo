@@ -21,12 +21,12 @@ my @test_cases = (
 # tests/indices index_entries_relate_to_item).
 ['index_entries_relate_to_item_no_transformation',
   undef,
-  {'test_file' => '../../tests/indices/index_entries_relate_to_item.texi'},
+  {'test_file' => '../../tests/formatting/index_entries_relate_to_item.texi'},
 ],
 # test relate_index_entries_to_items transformation
 ['index_entries_relate_to_item_transformation',
   undef,
-  {'test_file' => '../../tests/indices/index_entries_relate_to_item.texi',
+  {'test_file' => '../../tests/formatting/index_entries_relate_to_item.texi',
    'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_items'},
 ],);
 

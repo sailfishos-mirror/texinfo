@@ -528,10 +528,10 @@ AC_CONFIG_FILES([\
   tp/Makefile
   tp/tests/Makefile
   tp/tests/many_input_files/Makefile
-  tp/tests/sectioning/Makefile
   tp/tests/formatting/Makefile
-  tp/tests/indices/Makefile
-  tp/tests/contents/Makefile   
+  tp/tests/encoded/Makefile
+  tp/tests/coverage/Makefile
+  tp/tests/customization/Makefile
   tp/tests/nested_formats/Makefile
   tp/tests/layout/Makefile
   tp/tests/tex_html/Makefile

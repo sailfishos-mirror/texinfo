@@ -1,5 +1,15 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/*/list-of-tests, tp/tests/*/Makefile.am, autogen.sh,
+	configure.ac, tp/tests/Makefile.am (base_tests_dirs): move init file
+	customization related tests from 'contents' and 'formatting' to a new
+	'customization' tests directory.  Move remaining 'contents' and
+	'indices' tests to 'formatting'.  Move encodings related 'formatting'
+	tests to a new tests directory named 'encoded'.  Split 'coverage'
+	tests directory with each output format coverage test out of 'layout'.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/other/list-of-tests: use the default format and not html.
 
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
