@@ -9,7 +9,7 @@ one_test_logs_dir=test_log
 
 
 dir=layout
-name='formatting'
+name='formatting_texi2html_nodes'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

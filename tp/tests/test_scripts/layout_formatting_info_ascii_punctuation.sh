@@ -9,7 +9,7 @@ one_test_logs_dir=test_log
 
 
 dir=layout
-name='formatting_nodes'
+name='formatting_info_ascii_punctuation'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

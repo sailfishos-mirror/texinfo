@@ -1,5 +1,15 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/layout/list-of-tests: rename formatting_html to
+	formatting_texi2html and formatting_html_nodes to
+	formatting_texi2html_nodes and add --internal-links options.  Rename
+	other tests that look like the defaults for an output format and are
+	not.
+	Remove formatting_nodes and formatting tests that are redundant with
+	other tests.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/*/list-of-tests, tp/tests/*/Makefile.am, autogen.sh,
 	configure.ac, tp/tests/Makefile.am (base_tests_dirs): move init file
 	customization related tests from 'contents' and 'formatting' to a new
