@@ -9908,20 +9908,31 @@ EOT
    '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n"
  . "  </tr>\n";
 
-  foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
-    next if ($button eq ' ' or ref($button) eq 'CODE'
-             or ref($button) eq 'SCALAR' or ref($button) eq 'ARRAY');
-    my $button_name_string
-          = $self->direction_string($button, 'button', 'string');
+  foreach my $button_spec (@{$self->get_conf('SECTION_BUTTONS')}) {
+    next if ($button_spec eq ' ' or ref($button_spec) eq 'CODE'
+             or ref($button_spec) eq 'SCALAR'
+             or (ref($button_spec) eq 'ARRAY' and scalar(@$button_spec) != 2));
+    my $button;
+    if (ref($button_spec) eq 'ARRAY') {
+      $button = $button_spec->[0];
+    } else {
+      $button = $button_spec;
+    }
     $about .= "  <tr>\n    ".$self->html_attribute_class('td',
                                           ['button-direction-about']) .'>';
-    # FIXME strip FirstInFile from $button to get active icon file?
-    $about .=
-      (($self->get_conf('ICONS') &&
-         $self->get_conf('ACTIVE_ICONS')->{$button}) ?
-          &{$self->formatting_function('format_button_icon_img')}($self,
-             $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$button})
+    # if the button spec is an array we do not knwow what the button
+    # looks like, so we do not show the button but still show explanations.
+    if (ref($button_spec) ne 'ARRAY') {
+      my $button_name_string
+          = $self->direction_string($button, 'button', 'string');
+      # FIXME strip FirstInFile from $button to get active icon file?
+      $about .=
+        (($self->get_conf('ICONS') &&
+           $self->get_conf('ACTIVE_ICONS')->{$button}) ?
+            &{$self->formatting_function('format_button_icon_img')}($self,
+               $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$button})
         : ' [' . $self->direction_string($button, 'text') . '] ');
+    }
     $about .= "</td>\n";
     my $button_name
           = $self->direction_string($button, 'button');

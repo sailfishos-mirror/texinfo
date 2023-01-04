@@ -1,5 +1,12 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about):
+	show the button desciption if the button specification is an array
+	reference of length 2.  Do not show a button, only the description and
+	explanation, as we do not know what the button text could look like.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%defaults): add About to the default
 	header buttons.
 
