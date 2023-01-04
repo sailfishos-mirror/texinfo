@@ -575,8 +575,14 @@ sub convert_to_plaintext($$$$$$;$)
                                     $main_configuration, $format);
   if (!defined($converter_options->{'OUTFILE'})
       and defined($converter_options->{'SUBDIR'})) {
-    $converter_options->{'OUTFILE'}
-      = $converter_options->{'SUBDIR'}.$test_name.".txt";
+    # need to set OUTFILE in any case otherwise the default of -
+    # will be used
+    if ($converter_options->{'SPLIT'}) {
+      $converter_options->{'OUTFILE'} = undef;
+    } else {
+      $converter_options->{'OUTFILE'}
+        = $converter_options->{'SUBDIR'}.$test_name.".txt";
+    }
   }
   
   my $converter =
@@ -585,7 +591,8 @@ sub convert_to_plaintext($$$$$$;$)
                                              'converted_format' => 'plaintext',
                                              %$converter_options });
   my $result;
-  if ($converter_options->{'OUTFILE'} eq '') {
+  if (defined($converter_options->{'OUTFILE'})
+      and $converter_options->{'OUTFILE'} eq '') {
     $result = $converter->convert($tree);
   } else {
     $result = $converter->output($tree);
