@@ -372,8 +372,6 @@ while read line; do
       command=$main_command
       if test -n "$format"; then
         format_option="--$format"
-      else
-        format_option="-c TEXI2HTML"
       fi
     fi
     command_run=

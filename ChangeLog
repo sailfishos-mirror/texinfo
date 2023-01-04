@@ -1,5 +1,15 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm: set USE_NODES to 0 in order to have section names
+	used in printindex output.
+
+	* tp/tests/README, tp/tests/run_parser_all.sh: do not set texi2html
+	style for the default empty format.
+
+	* tp/tests/tex_html/math_not_closed.texi: remove @setfilename.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/tex_html/list-of-tests: add explicit options when texi2html
 	style is not necessary, and explicitly set TEXI2HTML when needed.
 

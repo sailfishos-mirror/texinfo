@@ -142,6 +142,13 @@ texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 # no mini_toc nor menus in the default case, to be more like a book.
 texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
 
+# use sections in printindex
+# unsetting NODE_NAME_IN_INDEX is not sufficient, as in that case the
+# element is used to determine the name used, which will still be the
+# node in the default case
+texinfo_set_from_init_file('USE_NODES', 0);
+#texinfo_set_from_init_file('NODE_NAME_IN_INDEX', 0);
+
 # a footer gets in the way of navigation.  It is not set in the default
 # case anyway, but it is set in texi2html style.
 texinfo_set_from_init_file('PROGRAM_NAME_IN_FOOTER', 0);
