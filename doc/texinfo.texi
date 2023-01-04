@@ -7773,6 +7773,8 @@ Although we used simple text in this example, the prototype entries can
 contain Texinfo commands; markup commands such as @code{@@code} are
 particularly likely to be useful.
 
+Prototype rows have no effect in HTML output.
+
 @end enumerate
 
 
