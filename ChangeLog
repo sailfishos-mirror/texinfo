@@ -1,5 +1,10 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%defaults): add About to the default
+	header buttons.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/epub3.pm (epub_convert_special_element_type, epub_setup)
 	(epub_finish): collect special elements and add them after the
 	normal tree unit elements.

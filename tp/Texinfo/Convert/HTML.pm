@@ -1916,7 +1916,7 @@ my %defaults = (
   'SECTION_BUTTONS'      => [[ 'Next', \&_default_panel_button_dynamic_direction ],
                              [ 'Prev', \&_default_panel_button_dynamic_direction ],
                              [ 'Up', \&_default_panel_button_dynamic_direction ], ' ',
-                             'Contents', 'Index'],
+                             'Contents', 'Index', 'About'],
   'SECTION_FOOTER_BUTTONS' => [[ 'Next', \&_default_panel_button_dynamic_direction_section_footer ],
                               [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
                               [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], ' ',
