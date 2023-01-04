@@ -1,3 +1,9 @@
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/regenerate_file_lists.pl, tp/Makefile.tres: list res_*
+	directories only and not the files within to avoid an
+	"Argument list too long" error for the shell in make dist.
+
 2023-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t,
