@@ -1,5 +1,11 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_tree_units, output):
+	set special elements net and prev in _prepare_conversion_tree_units
+	and not in output, in order to do it if called through convert().
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/layout/Makefile.am (EXTRA_DIST): remove Texinfo files not
 	used anymore in tests/ (they are in tp/t/input_files/).
 

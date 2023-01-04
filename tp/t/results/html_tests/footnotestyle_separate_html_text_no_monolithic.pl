@@ -382,6 +382,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 </div>
 <h2 class="chapter" id="Chap">1 Chap</h2>
 
+<hr>
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">

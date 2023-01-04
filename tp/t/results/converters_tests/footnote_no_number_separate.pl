@@ -404,7 +404,8 @@ $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<div class="t
 <p>Para<a class="footnote" id="DOCF1" href="#FOOT1"><sup>*</sup></a>.
 </p>
 <p>Para2<a class="footnote" id="DOCF2" href="#FOOT2"><sup>*</sup></a>.
-</p></div>
+</p><hr>
+</div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">

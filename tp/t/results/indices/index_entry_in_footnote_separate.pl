@@ -645,6 +645,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
  &nbsp; 
 </td></tr></table>
 </div>
+<hr>
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
 <p>

@@ -8727,6 +8727,15 @@ sub _prepare_conversion_tree_units($$$$)
   # reset to the default
   $self->set_global_document_commands('before', \@conf_for_special_elements);
 
+  if ($special_elements and defined($tree_units) and scalar(@$tree_units)) {
+    my $previous_tree_unit = $tree_units->[-1];
+    foreach my $special_element (@$special_elements) {
+      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
+      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
+      $previous_tree_unit = $special_element;
+    }
+  }
+
   #if ($tree_units) {
   #  foreach my $element(@{$tree_units}) {
   #    print STDERR "ELEMENT $element->{'type'}: $element\n";
@@ -10563,15 +10572,6 @@ sub output($$)
   if ($output_file ne '') {
     $self->_html_set_pages_files($tree_units, $special_elements, $output_file,
                   $destination_directory, $output_filename, $document_name);
-  }
-
-  if ($special_elements and defined($tree_units) and scalar(@$tree_units)) {
-    my $previous_tree_unit = $tree_units->[-1];
-    foreach my $special_element (@$special_elements) {
-      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
-      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
-      $previous_tree_unit = $special_element;
-    }
   }
 
   $self->_prepare_contents_elements();

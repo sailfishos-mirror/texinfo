@@ -536,6 +536,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
+<hr>
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
