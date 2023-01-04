@@ -219,7 +219,7 @@ tp/tests/*.trs
 tp/tests/test_scripts/*.log
 tp/tests/test_scripts/*.trs
 tp/tests/input_file_names_recoded_stamp.txt
-tp/tests/included_lat*n1.texi
+tp/tests/built_input
 
 tp/tests/many_input_files/different_encodings
 tp/tests/many_input_files/different_languages_gen_master_menu
