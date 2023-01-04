@@ -1,6 +1,5 @@
 EXTRA_DIST = \
  no_content.texi \
- contents_and_parts.texi \
  res_parser list-of-tests
 
 DISTCLEANFILES = tests.log tests.out

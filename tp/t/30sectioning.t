@@ -231,6 +231,32 @@ in node after chapter 1
 @contents
 ', {'test_split' => 'section'}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}
 ],
+['contents_and_parts',
+'@node Top
+@top top
+
+@menu
+* chapter 1 node::
+* chapter 2 node::
+* chapter 3 node::
+@end menu
+
+@part part 1: part 1
+
+@node chapter 1 node
+@chapter chapter 1
+
+@node chapter 2 node
+@chapter chapter 2
+
+@part part2: part2
+
+@node chapter 3 node
+@chapter chapter 3
+
+@contents
+@shortcontents
+'],
 ['lone_contents',
 '@contents
 '],

@@ -958,9 +958,36 @@ $check_htmlxref_text
   {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">',
    'FORMAT_MENU' => 'nomenu'}
 ],
-
-
-
+# there are the same tests in tests/contents to test the command line
+['no_content',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['no_content_inline',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['no_content_separate_element',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['no_content_do_contents',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'contents' => 1,
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['no_content_do_contents_inline',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'contents' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['no_content_do_contents_separate_element',
+  undef, {'test_file' => '../../tests/contents/no_content.texi'},
+  {'contents' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
 );
 
 

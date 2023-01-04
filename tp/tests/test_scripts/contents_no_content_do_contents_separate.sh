@@ -9,7 +9,7 @@ one_test_logs_dir=test_log
 
 
 dir=contents
-name='contents_and_parts'
+name='no_content_do_contents_separate'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

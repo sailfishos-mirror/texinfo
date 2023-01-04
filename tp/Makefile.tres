@@ -574,6 +574,18 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding/res_latex \
   t/results/html_tests/mathjax_with_texinfo_html_text.pl \
   t/results/html_tests/mathjax_with_texinfo_no_convert_to_latex.pl \
+  t/results/html_tests/no_content.pl \
+  t/results/html_tests/no_content/res_html \
+  t/results/html_tests/no_content_do_contents.pl \
+  t/results/html_tests/no_content_do_contents/res_html \
+  t/results/html_tests/no_content_do_contents_inline.pl \
+  t/results/html_tests/no_content_do_contents_inline/res_html \
+  t/results/html_tests/no_content_do_contents_separate_element.pl \
+  t/results/html_tests/no_content_do_contents_separate_element/res_html \
+  t/results/html_tests/no_content_inline.pl \
+  t/results/html_tests/no_content_inline/res_html \
+  t/results/html_tests/no_content_separate_element.pl \
+  t/results/html_tests/no_content_separate_element/res_html \
   t/results/html_tests/no_use_iso.pl \
   t/results/html_tests/node_footnote_end.pl \
   t/results/html_tests/node_footnote_end/res_html \
@@ -1568,6 +1580,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/chapter_between_nodes_with_appendix_nomenu.pl \
   t/results/sectioning/chapter_node_before_and_after_part.pl \
   t/results/sectioning/character_and_spaces_in_node.pl \
+  t/results/sectioning/contents_and_parts.pl \
   t/results/sectioning/contents_in_html_text.pl \
   t/results/sectioning/contents_with_only_top_node.pl \
   t/results/sectioning/double_node_anchor_float.pl \
