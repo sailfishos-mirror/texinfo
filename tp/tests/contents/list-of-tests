@@ -1,15 +1,15 @@
 # the same tests are in t/*.t to test through code
-no_content no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">'
-no_content_separate no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element'
-no_content_do_contents_separate no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element' -c 'contents 1'
-no_content_do_contents no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'contents 1'
-no_content_inline no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline'
-no_content_do_contents_inline no_content.texi -c TEXI2HTML=undef --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline' -c 'contents 1'
+no_content no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">'
+no_content_separate no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element'
+no_content_do_contents_separate no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element' -c 'contents 1'
+no_content_do_contents no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'contents 1'
+no_content_inline no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline'
+no_content_do_contents_inline no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline' -c 'contents 1'
 
 # many other tests using double_contents.texi are in t/*.t, but customization
 # variables set in init files are not used in the t/*.t test suite, so there cannot
 # be proper testing with book.pm
-double_contents_book ../../t/input_files/double_contents.texi -c TEXI2HTML=undef --html --no-split -c FORMAT_MENU=nomenu --init book.pm
-double_contents_after_title_book ../../t/input_files/double_contents.texi -c TEXI2HTML=undef --html --no-split --init book.pm -c 'CONTENTS_OUTPUT_LOCATION after_title'
-double_contents_after_title_book_chapter ../../t/input_files/double_contents.texi -c TEXI2HTML=undef --html --init book.pm --split chapter -c 'CONTENTS_OUTPUT_LOCATION after_title'
+double_contents_book ../../t/input_files/double_contents.texi --html --no-split -c FORMAT_MENU=nomenu --init book.pm
+double_contents_after_title_book ../../t/input_files/double_contents.texi --html --no-split --init book.pm -c 'CONTENTS_OUTPUT_LOCATION after_title'
+double_contents_after_title_book_chapter ../../t/input_files/double_contents.texi --html --init book.pm --split chapter -c 'CONTENTS_OUTPUT_LOCATION after_title'
 

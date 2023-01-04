@@ -1,5 +1,10 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/*/list-of-tests: remove '-c TEXI2HTML=undef' which is not
+	needed anymore.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/epub3.pm: set USE_NODES to 0 in order to have section names
 	used in printindex output.
 
