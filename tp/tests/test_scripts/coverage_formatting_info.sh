@@ -9,7 +9,7 @@ one_test_logs_dir=test_log
 
 
 dir=coverage
-name='formatting_html_no_texi2html'
+name='formatting_info'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

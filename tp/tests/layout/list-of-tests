@@ -3,7 +3,7 @@ formatting_texi2html ../coverage/formatting.texi -D 'needcollationcompat Need co
 formatting_texi2html_nodes ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --html -c TEXI2HTML=1 --split node --node-files -c 'TOP_FILE index.html' --internal-links=@OUT_DIR@internal_links_formatting.txt
 formatting_info_ascii_punctuation ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --info -c ASCII_PUNCTUATION=1
 formatting_info_disable_encoding ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --info --disable-encoding
-formatting_plaintext_ascii_punctuation ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' -c FORMAT_MENU=nomenu --plaintext -c ASCII_PUNCTUATION=1
+formatting_plaintext_ascii_punctuation ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --plaintext -c ASCII_PUNCTUATION=1
 
 # count words
 formatting_sort_element_counts ../coverage/formatting.texi -D 'needcollationcompat Need collation compatibility' --html --no-split -c USE_NODES=0 -c SORT_ELEMENT_COUNT=@OUT_DIR@formatting_elt_counts.txt

@@ -1,5 +1,13 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/coverage/list-of-tests: add Info and Plaintext.  Rename
+	formatting_html_no_texi2html as formatting_html_no_split.
+
+	* tp/tests/layout/list-of-tests: remove useless FORMAT_MENU=nomenu for
+	a plaintext format test.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/layout/list-of-tests: rename formatting_html to
 	formatting_texi2html and formatting_html_nodes to
 	formatting_texi2html_nodes and add --internal-links options.  Rename
