@@ -877,6 +877,89 @@ $check_htmlxref_text
   {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
    'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
 ],
+# actually triple contents
+['double_contents',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_inline',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_separate_element',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_chapter',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'SPLIT' => 'chapter', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_inline_chapter',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => 'chapter', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_separate_element_chapter',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => 'chapter', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_nodes',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'SPLIT' => 'node', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_inline_nodes',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => 'node', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_separate_element_nodes',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => 'node', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_section',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'SPLIT' => 'section', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_inline_section',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'inline',
+   'SPLIT' => 'section', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_separate_element_section',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
+   'SPLIT' => 'section', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_after_title',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'after_title',
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_after_title_show_title',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'after_title', 'SHOW_TITLE' => 1, 
+   'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+['double_contents_after_title_show_title_nodes',
+  undef, {'test_file' => 'double_contents.texi'},
+  {'CONTENTS_OUTPUT_LOCATION' => 'after_title', 'SHOW_TITLE' => 1,
+   'SPLIT' => 'nodes', 'BIG_RULE' => '<hr style="height: 6px;">'}
+],
+# there is also a test in tests/ as texinfo_set_from_init_file
+# has no effect in the test suite, such that the following does not
+# really test what it should
+['double_contents_book',
+  undef, {'test_file' => 'double_contents.texi',
+          'init_files' => ['book.pm']},
+  {'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">',
+   'FORMAT_MENU' => 'nomenu'}
+],
+
+
 
 );
 

@@ -610,6 +610,61 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/deftypefnnewline_for_copying_after.pl \
   t/results/html_tests/deftypefnnewline_for_copying_before.pl \
   t/results/html_tests/documentdescription.pl \
+  t/results/html_tests/double_contents.pl \
+  t/results/html_tests/double_contents/res_html/double_contents.html \
+  t/results/html_tests/double_contents_after_title.pl \
+  t/results/html_tests/double_contents_after_title/res_html/double_contents.html \
+  t/results/html_tests/double_contents_after_title_show_title.pl \
+  t/results/html_tests/double_contents_after_title_show_title/res_html/double_contents.html \
+  t/results/html_tests/double_contents_after_title_show_title_nodes.pl \
+  t/results/html_tests/double_contents_after_title_show_title_nodes/res_html/chapter.html \
+  t/results/html_tests/double_contents_after_title_show_title_nodes/res_html/index.html \
+  t/results/html_tests/double_contents_after_title_show_title_nodes/res_html/section.html \
+  t/results/html_tests/double_contents_book.pl \
+  t/results/html_tests/double_contents_book/res_html/double_contents.html \
+  t/results/html_tests/double_contents_chapter.pl \
+  t/results/html_tests/double_contents_chapter/res_html/chapter.html \
+  t/results/html_tests/double_contents_chapter/res_html/index.html \
+  t/results/html_tests/double_contents_chapter/res_html/section.html \
+  t/results/html_tests/double_contents_inline.pl \
+  t/results/html_tests/double_contents_inline/res_html/double_contents.html \
+  t/results/html_tests/double_contents_inline_chapter.pl \
+  t/results/html_tests/double_contents_inline_chapter/res_html/chapter.html \
+  t/results/html_tests/double_contents_inline_chapter/res_html/index.html \
+  t/results/html_tests/double_contents_inline_chapter/res_html/section.html \
+  t/results/html_tests/double_contents_inline_nodes.pl \
+  t/results/html_tests/double_contents_inline_nodes/res_html/chapter.html \
+  t/results/html_tests/double_contents_inline_nodes/res_html/index.html \
+  t/results/html_tests/double_contents_inline_nodes/res_html/section.html \
+  t/results/html_tests/double_contents_inline_section.pl \
+  t/results/html_tests/double_contents_inline_section/res_html/chapter.html \
+  t/results/html_tests/double_contents_inline_section/res_html/index.html \
+  t/results/html_tests/double_contents_inline_section/res_html/section.html \
+  t/results/html_tests/double_contents_nodes.pl \
+  t/results/html_tests/double_contents_nodes/res_html/chapter.html \
+  t/results/html_tests/double_contents_nodes/res_html/index.html \
+  t/results/html_tests/double_contents_nodes/res_html/section.html \
+  t/results/html_tests/double_contents_section.pl \
+  t/results/html_tests/double_contents_section/res_html/chapter.html \
+  t/results/html_tests/double_contents_section/res_html/index.html \
+  t/results/html_tests/double_contents_section/res_html/section.html \
+  t/results/html_tests/double_contents_separate_element.pl \
+  t/results/html_tests/double_contents_separate_element/res_html/double_contents.html \
+  t/results/html_tests/double_contents_separate_element_chapter.pl \
+  t/results/html_tests/double_contents_separate_element_chapter/res_html/chapter.html \
+  t/results/html_tests/double_contents_separate_element_chapter/res_html/double_contents_toc.html \
+  t/results/html_tests/double_contents_separate_element_chapter/res_html/index.html \
+  t/results/html_tests/double_contents_separate_element_chapter/res_html/section.html \
+  t/results/html_tests/double_contents_separate_element_nodes.pl \
+  t/results/html_tests/double_contents_separate_element_nodes/res_html/chapter.html \
+  t/results/html_tests/double_contents_separate_element_nodes/res_html/double_contents_toc.html \
+  t/results/html_tests/double_contents_separate_element_nodes/res_html/index.html \
+  t/results/html_tests/double_contents_separate_element_nodes/res_html/section.html \
+  t/results/html_tests/double_contents_separate_element_section.pl \
+  t/results/html_tests/double_contents_separate_element_section/res_html/chapter.html \
+  t/results/html_tests/double_contents_separate_element_section/res_html/double_contents_toc.html \
+  t/results/html_tests/double_contents_separate_element_section/res_html/index.html \
+  t/results/html_tests/double_contents_separate_element_section/res_html/section.html \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename.pl \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename_no_element.pl \
   t/results/html_tests/empty_titlefont.pl \

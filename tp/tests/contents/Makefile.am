@@ -1,5 +1,5 @@
 EXTRA_DIST = \
- double_contents.texi no_content.texi \
+ no_content.texi \
  contents_and_parts.texi \
  res_parser list-of-tests
 
