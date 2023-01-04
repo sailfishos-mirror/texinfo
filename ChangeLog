@@ -1,5 +1,9 @@
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/other/list-of-tests: use the default format and not html.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/*/list-of-tests: remove '-c TEXI2HTML=undef' which is not
 	needed anymore.
 
