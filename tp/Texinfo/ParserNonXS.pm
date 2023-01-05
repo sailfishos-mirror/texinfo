@@ -149,6 +149,8 @@ my %parser_state_initialization = (
                               # as obtained by parsing the @macro
   'macro_stack' => [],        # stack of macros being expanded (more recent
                               # first)
+  'value_stack' => [],        # stack of values being expanded (more recent
+                              # first)
   'merged_indices' => {},     # the key is merged in the value
   'regions_stack' => [],      # a stack of regions commands elements (block
                               # region commands)
@@ -2190,12 +2192,22 @@ sub _next_text($$)
     my $input = $self->{'input'}->[0];
     if (@{$input->{'pending'}}) {
       my $new_text_and_info = shift @{$input->{'pending'}};
-      if ($new_text_and_info->[1] and $new_text_and_info->[1]->{'end_macro'}) {
-        delete $new_text_and_info->[1]->{'end_macro'};
-        my $top_macro = shift @{$self->{'macro_stack'}};
-        print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
-          ." $top_macro->{'args'}->[0]->{'text'}\n"
-            if ($self->{'DEBUG'});
+      if ($new_text_and_info->[1] and $new_text_and_info->[1]->{'sourcemark'}) {
+        my $sourcemark = $new_text_and_info->[1]->{'sourcemark'};
+        delete $new_text_and_info->[1]->{'sourcemark'};
+        if ($sourcemark->{'type'} eq 'macro'
+            and $sourcemark->{'status'} eq 'end') {
+          my $top_macro = shift @{$self->{'macro_stack'}};
+          print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
+            ." $top_macro->{'args'}->[0]->{'text'}\n"
+              if ($self->{'DEBUG'});
+        } elsif ($sourcemark->{'type'} eq 'value'
+                 and $sourcemark->{'status'} eq 'end') {
+          my $top_value = shift @{$self->{'value_stack'}};
+          print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
+            . "$top_value\n"
+              if ($self->{'DEBUG'});
+        }
       }
       # corresponds to (line, new source_info)
       return ($new_text_and_info->[0], $new_text_and_info->[1]);
@@ -4392,7 +4404,7 @@ sub _process_remaining_on_line($$$$)
       if ($self->{'MAX_MACRO_CALL_NESTING'}
           and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
         $self->_line_warn(sprintf(__(
-  "macro call nested too deeply (set MAX_NESTED_MACROS to override; current value %d)"),
+  "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                               $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
         goto funexit;
       }
@@ -4423,7 +4435,9 @@ sub _process_remaining_on_line($$$$)
       my $new_lines = _complete_line_nr($expanded_lines,
                        $source_info->{'line_nr'}, $source_info->{'file_name'},
                        $expanded_macro->{'args'}->[0]->{'text'}, 1);
-      $source_info->{'end_macro'} = 1;
+      $source_info->{'sourcemark'} = {'type' => 'macro',
+                      'info' => $expanded_macro->{'args'}->[0]->{'text'},
+                      'status' => 'end'};
       # first put the line that was interrupted by the macro call
       # on the input pending text with information stack
       if (! scalar(@{$self->{'input'}})) {
@@ -4451,12 +4465,29 @@ sub _process_remaining_on_line($$$$)
       if ($expanded_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
         my $value = $1;
         if (exists($self->{'values'}->{$value})) {
-          $line = $self->{'values'}->{$value} . $expanded_line;
+          if ($self->{'MAX_MACRO_CALL_NESTING'}
+             and scalar(@{$self->{'value_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
+            $self->_line_warn(sprintf(__(
+  "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
+                              $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+            $line = $expanded_line;
+            goto funexit;
+          }
+          unshift @{$self->{'value_stack'}}, $value;
+          if (! scalar(@{$self->{'input'}})) {
+            push @{$self->{'input'}}, {'pending' => []};
+          }
+          my $pending_source_info = { %$source_info };
+          $pending_source_info->{'sourcemark'} = {'type' => 'value',
+                                                  'info' => $value,
+                                                  'status' => 'end'};
+          unshift @{$self->{'input'}->[0]->{'pending'}},
+                                 [$expanded_line, $pending_source_info];
+          $line = $self->{'values'}->{$value};
           goto funexit;
         }
       }
     }
-      #substr($line, 0, $at_command_length) = '';
   }
 
   # special case for @-command as argument of @itemize or @*table.

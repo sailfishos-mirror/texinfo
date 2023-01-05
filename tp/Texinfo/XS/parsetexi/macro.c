@@ -558,13 +558,14 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   if (expanded.end > 0 && expanded.text[expanded.end - 1] == '\n')
     expanded.text[--expanded.end] = '\0';
 
-  if (input_number >= 1000)
+  if (conf.max_macro_call_nesting
+      && input_number >= conf.max_macro_call_nesting)
     {
       line_warn (
          "macro call nested too deeply "
-         "(set MAX_NESTED_MACROS to override; current value %d)", 1000);
+         "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
+                conf.max_macro_call_nesting);
       goto funexit;
-      /* TODO: actually check MAX_NESTED_MACROS? */
     }
 
   if (macro->cmd == CM_macro)

@@ -1,3 +1,26 @@
+2023-01-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization, _next_text)
+	(_process_remaining_on_line): add a value_stack to put expanded
+	@value.  Use a sourcemark structure put in source_info to mark
+	the end of @value expansion.  Also use such a structure for
+	@macro, replacing 'end_macro'.
+	Check number of values expansion number and error out if
+	there is more than MAX_MACRO_CALL_NESTING.
+	correct MAX_MACRO_CALL_NESTING name in warning message.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(conf_set_MAX_MACRO_CALL_NESTING), tp/Texinfo/XS/parsetexi/conf.c
+	(conf_set_MAX_MACRO_CALL_NESTING, reset_conf),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro): pass
+	MAX_MACRO_CALL_NESTING to the XS parser.  Use that value for the
+	number of macro call nesting allowed.
+	correct MAX_MACRO_CALL_NESTING name in warning message.
+
+	* tp/t/60macro.t: add recursive_call_in_rmacro to test for an infinite
+	recursion.
+
 2023-01-04  Patrice Dumas  <pertusus@free.fr>
 
 	* .gitignore: replace tp/tests/included_lat*n1.texi by

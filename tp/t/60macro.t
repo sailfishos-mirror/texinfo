@@ -954,6 +954,17 @@ ggg
 fff
 @end macro
 @mac'],
+# takes long with default MAX_MACRO_CALL_NESTING value (tested with
+# pure perl Parser).
+['recursive_call_in_rmacro',
+'
+@rmacro rec
+@rec{}
+@end rmacro
+
+@rec{}
+
+', {'MAX_MACRO_CALL_NESTING' => 100}],
 ['unknown_macro_on_line_command',
 '@setfilename @begin{}file'
 ],
