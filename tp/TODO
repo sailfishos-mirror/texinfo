@@ -105,9 +105,8 @@ the context command stack.
  @end defun
 
 
-Recursive expansion of @value may lead to an infinite loop.  Using
-a stack as for macros seems to be the best, and using sourcemark
-for the end of the expansion. (done in perl parser).
+Recursive expansion of @value may lead to an infinite loop.  Fixed in
+pure perl parser, still to be done in XS parser.
  https://bugzilla.redhat.com/show_bug.cgi?id=744878
 
 

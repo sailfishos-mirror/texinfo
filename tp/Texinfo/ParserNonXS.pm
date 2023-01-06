@@ -2177,17 +2177,16 @@ sub _next_text($$)
     my $input = $self->{'input'}->[0];
     if (@{$input->{'pending'}}) {
       my $new_text_and_info = shift @{$input->{'pending'}};
-      if ($new_text_and_info->[1] and $new_text_and_info->[1]->{'sourcemark'}) {
-        my $sourcemark = $new_text_and_info->[1]->{'sourcemark'};
-        delete $new_text_and_info->[1]->{'sourcemark'};
-        if ($sourcemark->{'type'} eq 'macro'
-            and $sourcemark->{'status'} eq 'end') {
+      if ($new_text_and_info->[1]
+          and $new_text_and_info->[1]->{'expansion_end'}) {
+        my $expansion_end = $new_text_and_info->[1]->{'expansion_end'};
+        delete $new_text_and_info->[1]->{'expansion_end'};
+        if ($expansion_end->{'source'} eq 'macro') {
           my $top_macro = shift @{$self->{'macro_stack'}};
           print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
             ." $top_macro->{'args'}->[0]->{'text'}\n"
               if ($self->{'DEBUG'});
-        } elsif ($sourcemark->{'type'} eq 'value'
-                 and $sourcemark->{'status'} eq 'end') {
+        } elsif ($expansion_end->{'source'} eq 'value') {
           my $top_value = shift @{$self->{'value_stack'}};
           print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
             . "$top_value\n"
@@ -4420,9 +4419,7 @@ sub _process_remaining_on_line($$$$)
       my $new_lines = _complete_line_nr($expanded_lines,
                        $source_info->{'line_nr'}, $source_info->{'file_name'},
                        $expanded_macro->{'args'}->[0]->{'text'}, 1);
-      $source_info->{'sourcemark'} = {'type' => 'macro',
-                      'info' => $expanded_macro->{'args'}->[0]->{'text'},
-                      'status' => 'end'};
+      $source_info->{'expansion_end'} = {'source' => 'macro'};
       # first put the line that was interrupted by the macro call
       # on the input pending text with information stack
       if (! scalar(@{$self->{'input'}})) {
@@ -4463,9 +4460,7 @@ sub _process_remaining_on_line($$$$)
             push @{$self->{'input'}}, {'pending' => []};
           }
           my $pending_source_info = { %$source_info };
-          $pending_source_info->{'sourcemark'} = {'type' => 'value',
-                                                  'info' => $value,
-                                                  'status' => 'end'};
+          $pending_source_info->{'expansion_end'} = {'source' => 'value'};
           unshift @{$self->{'input'}->[0]->{'pending'}},
                                  [$expanded_line, $pending_source_info];
           $line = $self->{'values'}->{$value};
