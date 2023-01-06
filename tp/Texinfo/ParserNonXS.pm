@@ -809,21 +809,18 @@ sub _complete_line_nr($$;$$$)
   return $new_lines;
 }
 
-sub _prepare_input_from_text($$;$$$$)
+sub _prepare_input_from_text($$;$)
 {
-  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+  my ($self, $text, $line_nr) = @_;
 
   return 0 if (!defined($text));
 
-  if (ref($text) eq '') {
-    $text = _text_to_lines($text);
-  }
-  if (not defined($lines_nr)) {
-    $lines_nr = 1;
+  $text = _text_to_lines($text);
+  if (not defined($line_nr)) {
+    $line_nr = 1;
   }
 
-  my $lines_array = _complete_line_nr($text, $lines_nr, $file,
-                                     $macro, $fixed_line_number);
+  my $lines_array = _complete_line_nr($text, $line_nr);
 
   $self->{'input'} = [{'pending' => $lines_array}];
   return 1;
@@ -831,17 +828,13 @@ sub _prepare_input_from_text($$;$$$$)
 
 # entry point for text fragments.
 # Used in some tests.
-# To be in line with the XS Parser,
-#  $lines_nr should only be an integer and text a string.
-#  $file, $macro, $fixed_line_number should never be used.
-sub parse_texi_piece($$;$$$$)
+sub parse_texi_piece($$;$)
 {
-  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+  my ($self, $text, $line_nr) = @_;
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
-                                                $macro, $fixed_line_number));
+  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
@@ -850,34 +843,26 @@ sub parse_texi_piece($$;$$$$)
   return $tree;
 }
 
-# To be in line with the XS Parser,
-#  $lines_nr should only be an integer and text a string.
-#  $file, $macro, $fixed_line_number should never be used.
-sub parse_texi_line($$;$$$$)
+sub parse_texi_line($$;$)
 {
-  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+  my ($self, $text, $line_nr) = @_;
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
-                                                $macro, $fixed_line_number));
+  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
 
   my $root = {'type' => 'root_line'};
   my $tree = $self->_parse_texi($root, $root);
   return $tree;
 }
 
-# To be in line with the XS Parser,
-#  $lines_nr should only be an integer and text a string.
-#  $file, $macro, $fixed_line_number should never be used.
-sub parse_texi_text($$;$$$$)
+sub parse_texi_text($$;$)
 {
-  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+  my ($self, $text, $line_nr) = @_;
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
-                                                $macro, $fixed_line_number));
+  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
 
   return $self->_parse_texi_document();
 }
@@ -6697,16 +6682,6 @@ When C<parse_texi_line> is used, the resulting tree is rooted at
 a C<root_line> type container.  Otherwise, the resulting tree should be
 rooted at a C<document_root> type container.
 
-=begin comment
-
-The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the Perl parser.  We want users
-to use only what is in common, so document only what is in common.
-
-=item $tree = parse_texi_line($parser, $text, $first_line_number, $file_name, $macro_name, $fixed_line_number)
-
-=end comment
-
 =over
 
 =item $tree = parse_texi_line($parser, $text, $first_line_number)
@@ -6717,30 +6692,6 @@ This function is used to parse a short fragment of Texinfo code.
 I<$text> is the string containing the texinfo line.  I<$first_line_number> is
 the line number of the line, if undef, it will be set to 1.
 
-=begin comment
-
-I<$text> may be either an array reference of lines, or a text.
-
-The other arguments are optional and allow specifying the position
-information of the Texinfo code.  I<$first_line_number> is the line number
-of the first text line.  I<$file_name> is the name of the file the
-text comes from.  I<$macro> is for the user-defined macro name the text
-is expanded from.  If I<$fixed_line_number> is set, the line number is
-not increased for the different lines, as if the text was the expansion
-of a macro.
-
-=end comment
-
-=begin comment
-
-The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the Perl parser.  We want users
-to use only what is in common, so document only what is in common.
-
-=item $tree = parse_texi_piece ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
-
-=end comment
-
 =item $tree = parse_texi_piece($parser, $text, $first_line_number)
 X<C<parse_texi_piece>>
 
@@ -6749,30 +6700,6 @@ This function is used to parse Texinfo fragments.
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=begin comment
-
-I<$text> may be either an array reference of lines, or a text.
-
-The other arguments are optional and allow specifying the position
-information of the Texinfo code.  I<$first_line_number> is the line number
-of the first text line.  I<$file_name> is the name of the file the
-text comes from.  I<$macro> is for the user-defined macro name the text
-is expanded from.  If I<$fixed_line_number> is set, the line number is
-not increased for the different lines, as if the text was the expansion
-of a macro.
-
-=end comment
-
-=begin comment
-
-The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the Perl parser.  We want users
-to use only what is in common, so document only what is in common.
-
-=item $tree = parse_texi_text($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
-
-=end comment
-
 =item $tree = parse_texi_text($parser, $text, $first_line_number)
 X<C<parse_texi_text>>
 
@@ -6780,20 +6707,6 @@ This function is used to parse a text as a whole document.
 
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
-
-=begin comment
-
-I<$text> may be either an array reference of lines, or a text.
-
-The other arguments are optional and allow specifying the position
-information of the Texinfo code.  I<$first_line_number> is the line number
-of the first text line.  I<$file_name> is the name of the file the
-text comes from.  I<$macro> is for the user-defined macro name the text
-is expanded from.  If I<$fixed_line_number> is set, the line number is
-not increased for the different lines, as if the text was the expansion
-of a macro.
-
-=end comment
 
 =item $tree = parse_texi_file($parser, $file_name)
 X<C<parse_texi_file>>

@@ -1,3 +1,10 @@
+2023-01-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_prepare_input_from_text)
+	(parse_texi_piece, parse_texi_line, parse_texi_text): remove arguments
+	not consistent with XS parser.  The input should only be a simple
+	string.
+
 2023-01-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization, _next_text)
