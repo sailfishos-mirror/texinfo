@@ -594,9 +594,9 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   // 3958 Pop macro stack
 
   /* Put expansion in front of the current line. */
-  input_push_text (strdup (line), 0);
+  input_push (strdup (line), current_source_info.line_nr, 0);
   line = strchr (line, '\0');
-  input_push_text (expanded.text, command_name(cmd));
+  input_push (expanded.text, current_source_info.line_nr, command_name(cmd));
 
 funexit:
   *line_inout = line;

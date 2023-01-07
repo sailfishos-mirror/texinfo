@@ -788,35 +788,31 @@ sub _new_text_input($$)
           'input_source_info' => $input_source_info};
 }
 
-sub _input_push($$$$$;$)
+sub _input_push($$$;$$)
 {
-  my ($self, $text, $macro_name, $filename, $line_nr, $value_name) = @_;
+  my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
 
-  $self->{'input'} = [] if (not $self->{'input'});
+  my $filename;
+  if (not $self->{'input'}) {
+    $self->{'input'} = [];
+  }
   my $input_source_info = {'line_nr' => $line_nr, 'macro' => '',
-                     'file_name' => ''};
+                           'file_name' => ''};
+  if (scalar(@{$self->{'input'}})) {
+    $input_source_info->{'file_name'}
+      = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
+  }
   if (defined($macro_name)) {
     $input_source_info->{'macro'} = $macro_name;
   } elsif (not defined($value_name)) {
+    # this counteracts the increment that would follow from the next
+    # call to _next_text.
     $input_source_info->{'line_nr'} -= 1;
   }
   $input_source_info->{'file_name'} = $filename if (defined($filename));
   my $text_input = _new_text_input($text, $input_source_info);
   $text_input->{'expanded_value'} = 1 if (defined($value_name));
   unshift @{$self->{'input'}}, $text_input;
-}
-
-sub _input_push_text_with_line_nos($$;$)
-{
-  my ($self, $text, $line_nr) = @_;
-
-  return 0 if (!defined($text));
-
-  if (not defined($line_nr)) {
-    $line_nr = 1;
-  }
-  _input_push($self, $text, undef, undef, $line_nr);
-  return 1;
 }
 
 # push text sharing the same input_source_info as current top input
@@ -828,7 +824,7 @@ sub _input_pushback_text($$;$)
     ## should not happen in current code
     #if (not $self->{'input'} or not scalar(@{$self->{'input'}})) {
     #  $line_nr = 1 if (!defined($line_nr));
-    #  _input_push_text($self, $text, $line_nr);
+    #  _input_push($self, $text, $line_nr);
     #}
     my $text_input = _new_text_input($text,
                           $self->{'input'}->[0]->{'input_source_info'});
@@ -838,29 +834,19 @@ sub _input_pushback_text($$;$)
   }
 }
 
-sub _input_push_text($$$;$$)
-{
-  my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
-
-  if (defined($text) and $text ne '') {
-    my $filename = undef;
-    if (scalar(@{$self->{'input'}})) {
-      $filename = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
-    }
-    _input_push($self, $text, $macro_name, $filename,
-                $line_nr, $value_name);
-  }
-}
-
 # entry point for text fragments.
 # Used in some tests.
 sub parse_texi_piece($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
+  return undef if (!defined($text));
+
+  $line_nr = 1 if (not defined($line_nr));
+
   $self = parser() if (!defined($self));
 
-  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
+  _input_push($self, $text, $line_nr);
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
@@ -873,9 +859,13 @@ sub parse_texi_line($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
+  return undef if (!defined($text));
+
+  $line_nr = 1 if (not defined($line_nr));
+
   $self = parser() if (!defined($self));
 
-  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
+  _input_push($self, $text, $line_nr);
 
   my $root = {'type' => 'root_line'};
   my $tree = $self->_parse_texi($root, $root);
@@ -886,9 +876,13 @@ sub parse_texi_text($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
+  return undef if (!defined($text));
+
+  $line_nr = 1 if (not defined($line_nr));
+
   $self = parser() if (!defined($self));
 
-  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
+  _input_push($self, $text, $line_nr);
 
   return $self->_parse_texi_document();
 }
@@ -4459,11 +4453,11 @@ sub _process_remaining_on_line($$$$)
         if ($self->{'DEBUG'});
       # first put the line that was interrupted by the macro call
       # on the input pending text with information stack
-      _input_push_text($self, $line, $source_info->{'line_nr'});
+      _input_push($self, $line, $source_info->{'line_nr'});
       # then put the following macro expansion lines with information on the
       # pending text
-      _input_push_text($self, $expanded, $source_info->{'line_nr'},
-                       $expanded_macro->{'args'}->[0]->{'text'});
+      _input_push($self, $expanded, $source_info->{'line_nr'},
+                  $expanded_macro->{'args'}->[0]->{'text'});
       $line = '';
       goto funexit;
     }
@@ -4489,8 +4483,8 @@ sub _process_remaining_on_line($$$$)
             goto funexit;
           }
           unshift @{$self->{'value_stack'}}, $value;
-          _input_push_text($self, $expanded_line, $source_info->{'line_nr'},
-                           $source_info->{'macro'}, $value);
+          _input_push($self, $expanded_line, $source_info->{'line_nr'},
+                      $source_info->{'macro'}, $value);
           $line = $self->{'values'}->{$value};
           goto funexit;
         }

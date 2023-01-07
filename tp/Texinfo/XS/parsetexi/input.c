@@ -481,9 +481,17 @@ next_text (void)
   return 0;
 }
 
+/* Store TEXT as a source for Texinfo content.  TEXT should be a UTF-8
+   string.  TEXT will be later free'd and must be allocated on the heap.
+   MACRO is the name of a macro that the text came from. */
 void
-input_push (char *text, char *macro, char *filename, int line_number)
+input_push (char *text, int line_number, char *macro)
 {
+  char *filename = 0;
+
+  if (!text)
+    return;
+
   if (input_number == input_space)
     {
       input_space++; input_space *= 1.5;
@@ -500,6 +508,10 @@ input_push (char *text, char *macro, char *filename, int line_number)
   if (!macro)
     line_number--;
   input_stack[input_number].source_info.line_nr = line_number;
+  if (input_number > 0)
+    {
+      filename = input_stack[input_number - 1].source_info.file_name;
+    }
   input_stack[input_number].source_info.file_name = save_string (filename);
   input_stack[input_number].source_info.macro = save_string (macro);
   input_number++;
@@ -542,33 +554,6 @@ free_small_strings (void)
       free (small_strings[i]);
     }
   small_strings_num = 0;
-}
-
-
-/* Store TEXT as a source for Texinfo content.  TEXT should be a UTF-8
-   string.  TEXT will be later free'd and must be allocated on the heap.
-   MACRO is the name of a macro that the text came from. */
-void
-input_push_text (char *text, char *macro)
-{
-  if (text)
-    {
-      char *filename = 0;
-      if (input_number > 0)
-        {
-          filename = input_stack[input_number - 1].source_info.file_name;
-        }
-      input_push (text, macro, filename, current_source_info.line_nr);
-    }
-}
-
-/* Used in tests - like input_push_text, but the lines from the text have
-   line numbers. */
-void
-input_push_text_with_line_nos (char *text, int starting)
-{
-  input_push (text, 0, 0, starting);
-  input_stack[input_number - 1].type = IN_text;
 }
 
 void

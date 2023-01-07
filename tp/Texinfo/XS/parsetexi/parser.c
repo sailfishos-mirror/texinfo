@@ -1572,8 +1572,12 @@ superfluous_arg:
                   if (value)
                     {
                       expanded_line++; /* past '}' */
-                      input_push_text (strdup (expanded_line), current_source_info.macro);
-                      input_push_text (strdup (value), current_source_info.macro);
+                      input_push (strdup (expanded_line),
+                                  current_source_info.line_nr,
+                                  current_source_info.macro);
+                      input_push (strdup (value),
+                                  current_source_info.line_nr,
+                                  current_source_info.macro);
 
                       /* Move 'line' to end of string so next input to
                          be processed is taken from input stack. */

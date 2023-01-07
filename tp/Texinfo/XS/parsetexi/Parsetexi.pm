@@ -245,7 +245,6 @@ sub get_parser_info {
 
 use File::Basename; # for fileparse
 
-# Replacement for Texinfo::Parser::parse_texi_file
 sub parse_texi_file ($$)
 {
   my $self = shift;
@@ -303,21 +302,14 @@ sub _get_errors($)
 }
 
 
-# Replacement for Texinfo::Parser::parse_texi_piece
-#
 # Used in tests under tp/t.
-sub parse_texi_piece($$;$$$$)
+sub parse_texi_piece($$;$)
 {
-  my $self = shift;
-  my $text = shift;
-  my $lines_nr = shift;
-  my $file = shift;
-  my $macro = shift;
-  my $fixed_line_number = shift;
+  my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text));
 
-  $lines_nr = 1 if (not defined($lines_nr));
+  $line_nr = 1 if (not defined($line_nr));
 
   $self = parser() if (!defined($self));
 
@@ -325,7 +317,7 @@ sub parse_texi_piece($$;$$$$)
   # it in to the XS code.
   utf8::upgrade($text);
 
-  parse_piece($text, $lines_nr);
+  parse_piece($text, $line_nr);
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
@@ -334,21 +326,14 @@ sub parse_texi_piece($$;$$$$)
   return $tree;
 }
 
-# Replacement for Texinfo::Parser::parse_texi_text
-#
 # Used in tests under tp/t.
-sub parse_texi_text($$;$$$$)
+sub parse_texi_text($$;$)
 {
-  my $self = shift;
-  my $text = shift;
-  my $lines_nr = shift;
-  my $file = shift;
-  my $macro = shift;
-  my $fixed_line_number = shift;
+  my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text));
 
-  $lines_nr = 1 if (not defined($lines_nr));
+  $line_nr = 1 if (not defined($line_nr));
 
   $self = parser() if (!defined($self));
 
@@ -356,7 +341,7 @@ sub parse_texi_text($$;$$$$)
   # it in to the XS code.
   utf8::upgrade($text);
 
-  parse_text($text, $lines_nr);
+  parse_text($text, $line_nr);
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
@@ -369,23 +354,17 @@ sub parse_texi_text($$;$$$$)
   return $tree;
 }
 
-# Replacement for Texinfo::Parser::parse_texi_line
-sub parse_texi_line($$;$$$$)
+sub parse_texi_line($$;$)
 {
-  my $self = shift;
-  my $text = shift;
-  my $lines_nr = shift;
-  my $file = shift;
-  my $macro = shift;
-  my $fixed_line_number = shift;
+  my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text));
 
-  $lines_nr = 1 if (not defined($lines_nr));
+  $line_nr = 1 if (not defined($line_nr));
 
   $self = parser() if (!defined($self));
   utf8::upgrade($text);
-  parse_string($text, $lines_nr);
+  parse_string($text, $line_nr);
   my $tree = build_texinfo_tree ();
 
   _set_errors_node_lists_labels_indices($self);
@@ -393,7 +372,7 @@ sub parse_texi_line($$;$$$$)
   return $tree;
 }
 
-# Public interfaces of Texinfo::Parser
+# Public interfaces of Texinfo::Parser to gather information
 sub indices_information($)
 {
   my $self = shift;

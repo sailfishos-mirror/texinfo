@@ -9,9 +9,7 @@ char *next_text (void);
 
 void save_line_directive (int line_nr, char *filename);
 
-void input_push (char *text, char *macro, char *filename, int line_number);
-void input_push_text (char *line, char *macro);
-void input_push_text_with_line_nos (char *text, int starting);
+void input_push (char *text, int line_number, char *macro);
 int input_push_file (char *filename);
 void input_pushback (char *line);
 void input_reset_input_stack (void);

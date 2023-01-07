@@ -11,6 +11,20 @@
 
 2023-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_input_push),
+	tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/parsetexi/input.c (input_push),
+	tp/Texinfo/XS/parsetexi/parser.c: change the order of
+	input_push arguments.  Get the filename from the input stack in
+	input_push.  Remove input_push_text and input_push_text_with_line_nos,
+	call directly input_push.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm: simplify arguments passing
+	to parse_texi_*.  Change variable name, remove comments.
+
+2023-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_next_text, _new_line): do not get a
 	source_info as _next_text argument.  Keep the first input level to
 	have a source for source_info even after the file is closed and the

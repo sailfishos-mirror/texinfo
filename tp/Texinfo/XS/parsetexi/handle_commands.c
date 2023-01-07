@@ -353,7 +353,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
           char *line2;
           SOURCE_INFO save_src_info; 
 
-          input_push_text (strdup (line), 0);
+          input_push (strdup (line), current_source_info.line_nr, 0);
 
           save_src_info = current_source_info;
           line2 = new_line ();

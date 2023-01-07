@@ -212,7 +212,7 @@ void
 parse_text (char *string, int line_nr)
 {
   reset_parser_except_conf ();
-  input_push_text_with_line_nos (strdup (string), line_nr);
+  input_push (strdup (string), line_nr, 0);
   Root = parse_texi_document ();
 }
 
@@ -224,7 +224,7 @@ parse_string (char *string, int line_nr)
   ELEMENT *root_elt = new_element (ET_root_line);
 
   reset_parser_except_conf ();
-  input_push_text_with_line_nos (strdup (string), line_nr);
+  input_push (strdup (string), line_nr, 0);
   Root = parse_texi (root_elt, root_elt);
 }
 
@@ -236,7 +236,7 @@ parse_piece (char *string, int line_nr)
   ELEMENT *document_root = before_node_section->parent;
 
   reset_parser_except_conf ();
-  input_push_text_with_line_nos (strdup (string), line_nr);
+  input_push (strdup (string), line_nr, 0);
   Root = parse_texi (document_root, before_node_section);
 }
 
