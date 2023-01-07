@@ -13,6 +13,9 @@ Before next release
 Bugs
 ====
 
+test with cpp directive in macro, verify that file name is stil changed
+after the macro expansion
+
 HTML API
 ========
 
@@ -150,8 +153,9 @@ Missing tests
 =============
 
 Test node files that differ only in case.  This may be rather complicated,
-however, as http://savannah.gnu.org/bugs/?38380 shows.  This may be linked
-to a possible test of CASE_INSENSITIVE_FILENAMES.
+however, as seen in
+https://lists.gnu.org/archive/html/bug-texinfo/2013-02/msg00076.html
+This may be linked to a possible test of CASE_INSENSITIVE_FILENAMES.
 
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 

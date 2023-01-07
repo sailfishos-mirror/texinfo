@@ -65,7 +65,8 @@ use Carp qw(cluck);
 use Data::Dumper;
 
 # to detect if an encoding may be used to open the files
-use Encode qw(find_encoding decode);
+# to encode/decode in-memory strings used as files
+use Encode qw(find_encoding decode encode);
 
 # for fileparse
 use File::Basename;
@@ -258,10 +259,9 @@ my %parser_default_configuration = (
 # file.  The last element may corresponnd to a file if the parsing is done
 # on a file, with parse_texi_file, or just hold pending text, if called on text.
 # each element of the array is a hash reference.  The key are:
-# pending             an array reference containing pending text fragments
-#                     with source information, either the text given in
-#                     input or macro expansion text.
-# input_file_info     source information corresponding to the current file.
+# th                  handle for text given in input or expansion text
+#                     of value or macro.
+# source_info         source information corresponding to the current file.
 # fh                  filehandle for the file.
 
 # The commands in initialization_overrides are not set in the document if
@@ -768,62 +768,88 @@ sub get_conf($$)
   return $self->{$var};
 }
 
-# split a scalar text in an array lines.
-sub _text_to_lines($)
+sub _new_text_input($$)
 {
   my $text = shift;
-  die if (!defined($text));
-  my $had_final_end_line = chomp($text);
-  my $lines = [ map {$_."\n"} split (/\n/, $text, -1) ];
-  chomp($lines->[-1]) unless (!@$lines or $had_final_end_line);
-  return $lines;
-}
+  my $input_source_info = shift;
 
-# construct a text fragments with source information array matching
-# a lines array, based on information supplied.
-#
-# If $FIRST_LINE is undef, no line numbers are set.
-# Otherwise, if $FIXED_LINE_NUMBER is set the line number is not
-# increased, else it is increased, beginning at $FIRST_LINE.
-sub _complete_line_nr($$;$$$)
-{
-  my ($lines, $first_line, $file, $macro, $fixed_line_number) = @_;
-
-  $macro = '' if (!defined($macro));
-  $file = '' if (!defined($file));
-  my $new_lines = [];
-
-  if (defined($first_line)) {
-    my $line_index = $first_line;
-    foreach my $index(0..scalar(@$lines)-1) {
-      $line_index = $index+$first_line if (!$fixed_line_number);
-      $new_lines->[$index] = [ $lines->[$index],
-                             { 'line_nr' => $line_index,
-                               'file_name' => $file, 'macro' => $macro } ];
-    }
-  } else {
-    foreach my $line (@$lines) {
-      push @$new_lines, [ $line ];
-    }
+  my $texthandle = do { local *FH };
+  # FIXME in-memory scalar strings are considered a stream of bytes, so need
+  # to encode/decode.  Is it a performance issue?  Do we care?
+  $text = Encode::encode("utf8", $text);
+  # Could fail with error like
+  # Strings with code points over 0xFF may not be mapped into in-memory file handles
+  if (!open ($texthandle, '<', \$text)) {
+    my $error_message = $!;
+    print STDERR "ERROR: open on a reference failed: $error_message\n";
+    #return undef, $error_message;
   }
-  return $new_lines;
+  return {'th' => $texthandle,
+          'input_source_info' => $input_source_info};
 }
 
-sub _prepare_input_from_text($$;$)
+sub _input_push($$$$$;$)
+{
+  my ($self, $text, $macro_name, $filename, $line_nr, $value_name) = @_;
+
+  $self->{'input'} = [] if (not $self->{'input'});
+  my $input_source_info = {'line_nr' => $line_nr, 'macro' => '',
+                     'file_name' => ''};
+  if (defined($macro_name)) {
+    $input_source_info->{'macro'} = $macro_name;
+  } elsif (not defined($value_name)) {
+    $input_source_info->{'line_nr'} -= 1;
+  }
+  $input_source_info->{'file_name'} = $filename if (defined($filename));
+  my $text_input = _new_text_input($text, $input_source_info);
+  $text_input->{'expanded_value'} = 1 if (defined($value_name));
+  unshift @{$self->{'input'}}, $text_input;
+}
+
+sub _input_push_text_with_line_nos($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
   return 0 if (!defined($text));
 
-  $text = _text_to_lines($text);
   if (not defined($line_nr)) {
     $line_nr = 1;
   }
-
-  my $lines_array = _complete_line_nr($text, $line_nr);
-
-  $self->{'input'} = [{'pending' => $lines_array}];
+  _input_push($self, $text, undef, undef, $line_nr);
   return 1;
+}
+
+# push text sharing the same input_source_info as current top input
+sub _input_pushback_text($$;$)
+{
+  my ($self, $text, $line_nr) = @_;
+
+  if (defined($text) and $text ne '') {
+    ## should not happen in current code
+    #if (not $self->{'input'} or not scalar(@{$self->{'input'}})) {
+    #  $line_nr = 1 if (!defined($line_nr));
+    #  _input_push_text($self, $text, $line_nr);
+    #}
+    my $text_input = _new_text_input($text,
+                          $self->{'input'}->[0]->{'input_source_info'});
+    unshift @{$self->{'input'}}, $text_input;
+    $text_input->{'input_source_info'}->{'line_nr'} -= 1
+      unless($text_input->{'input_source_info'}->{'macro'} ne '');
+  }
+}
+
+sub _input_push_text($$$;$$)
+{
+  my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
+
+  if (defined($text) and $text ne '') {
+    my $filename = undef;
+    if (scalar(@{$self->{'input'}})) {
+      $filename = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
+    }
+    _input_push($self, $text, $macro_name, $filename,
+                $line_nr, $value_name);
+  }
 }
 
 # entry point for text fragments.
@@ -834,7 +860,7 @@ sub parse_texi_piece($$;$)
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
+  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
@@ -849,7 +875,7 @@ sub parse_texi_line($$;$)
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
+  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
 
   my $root = {'type' => 'root_line'};
   my $tree = $self->_parse_texi($root, $root);
@@ -862,7 +888,7 @@ sub parse_texi_text($$;$)
 
   $self = parser() if (!defined($self));
 
-  return undef unless (_prepare_input_from_text($self, $text, $line_nr));
+  return undef unless (_input_push_text_with_line_nos($self, $text, $line_nr));
 
   return $self->_parse_texi_document();
 }
@@ -917,10 +943,10 @@ sub parse_texi_file($$)
   $self->{'info'}->{'input_directory'} = $directories;
 
   $self->{'input'} = [{
-       'pending' => [],
-       'input_file_info' => {
+       'input_source_info' => {
           'file_name' => $file_name,
           'line_nr' => 0,
+          'macro' => '',
        },
        'fh' => $filehandle
     }];
@@ -959,7 +985,7 @@ sub _parse_texi_document($)
     } else {
       # This line is not part of the preamble_before_beginning.
       # Shove back into input stream.
-      unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
+      _input_pushback_text($self, $line);
       last;
     }
   }
@@ -1231,7 +1257,7 @@ sub _register_global_command {
     # setfilename ignored in an included file
     $current->{'source_info'} = $source_info if (!$current->{'source_info'});
     if ($command eq 'setfilename'
-        and scalar(@{$self->{'input'}}) > 1) {
+        and _in_include($self)) {
     } elsif (exists ($self->{'commands_info'}->{$current->{'cmdname'}})) {
       $self->_line_warn(sprintf(__('multiple @%s'),
                                $current->{'cmdname'}), $source_info);
@@ -2158,12 +2184,12 @@ sub _save_line_directive
 
   my $input = $self->{'input'}->[0];
   return if !$input;
-  $input->{'input_file_info'}->{'line_nr'} = $line_nr if $line_nr;
+  $input->{'input_source_info'}->{'line_nr'} = $line_nr if $line_nr;
   # need to convert to bytes for file name
   if (defined($file_name)) {
     my ($encoded_file_name, $file_name_encoding)
        = _encode_file_name($self, $file_name);
-    $input->{'input_file_info'}->{'file_name'} = $encoded_file_name;
+    $input->{'input_source_info'}->{'file_name'} = $encoded_file_name;
   }
 }
 
@@ -2175,32 +2201,35 @@ sub _next_text($$)
 
   while (@{$self->{'input'}}) {
     my $input = $self->{'input'}->[0];
-    if (@{$input->{'pending'}}) {
-      my $new_text_and_info = shift @{$input->{'pending'}};
-      if ($new_text_and_info->[1]
-          and $new_text_and_info->[1]->{'expansion_end'}) {
-        my $expansion_end = $new_text_and_info->[1]->{'expansion_end'};
-        delete $new_text_and_info->[1]->{'expansion_end'};
-        if ($expansion_end->{'source'} eq 'macro') {
+    if (exists($input->{'th'})) {
+      my $texthandle = $input->{'th'};
+      my $next_line = <$texthandle>;
+      if (!defined($next_line)) {
+        if ($input->{'input_source_info'}->{'macro'}) {
           my $top_macro = shift @{$self->{'macro_stack'}};
           print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
             ." $top_macro->{'args'}->[0]->{'text'}\n"
               if ($self->{'DEBUG'});
-        } elsif ($expansion_end->{'source'} eq 'value') {
+        } elsif ($input->{'expanded_value'}) {
           my $top_value = shift @{$self->{'value_stack'}};
           print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
             . "$top_value\n"
               if ($self->{'DEBUG'});
         }
+      } else {
+        # need to decode to characters
+        $next_line = Encode::decode('utf8', $next_line);
+        $input->{'input_source_info'}->{'line_nr'} += 1
+          unless ($input->{'input_source_info'}->{'macro'}
+                  or $input->{'expanded_value'});
+        return ($next_line, { %{$input->{'input_source_info'}} });
       }
-      # corresponds to (line, new source_info)
-      return ($new_text_and_info->[0], $new_text_and_info->[1]);
     } elsif ($input->{'fh'}) {
       my $input_error = 0;
       local $SIG{__WARN__} = sub {
         my $message = shift;
-        print STDERR "$input->{'input_file_info'}->{'file_name'}" . ":"
-               . ($input->{'input_file_info'}->{'line_nr'} + 1)
+        print STDERR "$input->{'input_source_info'}->{'file_name'}" . ":"
+               . ($input->{'input_source_info'}->{'line_nr'} + 1)
                . ": input error: $message";
         $input_error = 1;
       };
@@ -2219,10 +2248,10 @@ sub _next_text($$)
         }
         # DEL as comment character
         $line =~ s/\x{7F}.*\s*//;
-        $input->{'input_file_info'}->{'line_nr'}++;
+        $input->{'input_source_info'}->{'line_nr'}++;
         my $new_source_info = {
-          'line_nr' => $input->{'input_file_info'}->{'line_nr'},
-          'file_name' => $input->{'input_file_info'}->{'file_name'},
+          'line_nr' => $input->{'input_source_info'}->{'line_nr'},
+          'file_name' => $input->{'input_source_info'}->{'file_name'},
           'macro' => ''};
         return ($line, $new_source_info);
       }
@@ -2230,7 +2259,7 @@ sub _next_text($$)
     my $previous_input = shift(@{$self->{'input'}});
     # Don't close STDIN
     if ($previous_input->{'fh'}
-        and $previous_input->{'input_file_info'}->{'file_name'} ne '-') {
+        and $previous_input->{'input_source_info'}->{'file_name'} ne '-') {
       if (!close($previous_input->{'fh'})) {
         # need to decode for error message
         my $file_name_encoding;
@@ -2239,7 +2268,7 @@ sub _next_text($$)
         } else {
           $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         }
-        my $file_name = $previous_input->{'input_file_info'}->{'file_name'};
+        my $file_name = $previous_input->{'input_source_info'}->{'file_name'};
         if (defined($file_name_encoding)) {
           $file_name = decode($file_name_encoding, $file_name);
         }
@@ -2915,6 +2944,18 @@ sub _enter_index_entry($$$$$$$)
   $current->{'extra'}->{'index_entry'} = $index_entry;
 }
 
+sub _in_include($)
+{
+  my $self = shift;
+
+  foreach my $input (@{$self->{'input'}}[0..$#{$self->{'input'}}-1]) {
+    if (not $input->{'th'}) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 # Used for file names and index sort strings to allow including the special
 # Texinfo characters but not other command nor element type.
 sub _convert_to_text {
@@ -3036,11 +3077,11 @@ sub _end_line_misc_line($$$)
             my ($directories, $suffix);
             ($file, $directories, $suffix) = fileparse($file);
             unshift @{$self->{'input'}}, {
-              'input_file_info' => {'file_name' => $file,
-                                    'line_nr' => 0,
-                                   },
+              'input_source_info' => {'file_name' => $file,
+                                'line_nr' => 0,
+                                'macro' => '',
+                               },
               'file_name_encoding' => $file_name_encoding,
-              'pending' => [],
               'fh' => $filehandle };
             # TODO note that it is bytes.  No reason to have it used much
             # Make sure to document that it is bytes.
@@ -3229,7 +3270,7 @@ sub _end_line_misc_line($$$)
   }
   # Ignore @setfilename in included file, as said in the manual.
   if (($command eq 'setfilename'
-         and scalar(@{$self->{'input'}}) > 1)
+         and _in_include($self))
     # TODO remove this condition if/when the XS parser has been updated
     # to output @include with type replaced when the file was found
       or ($current->{'contents'} and scalar(@{$current->{'contents'}})
@@ -4405,33 +4446,23 @@ sub _process_remaining_on_line($$$$)
         }
         goto funexit if ($found);
       }
-
-      my $expanded_lines = _text_to_lines($expanded);
-      goto funexit if (!@$expanded_lines);
-      chomp ($expanded_lines->[-1]);
-      pop @$expanded_lines if ($expanded_lines->[-1] eq '');
-      print STDERR "MACRO EXPANSION LINES: ".join('|', @$expanded_lines)
+      #$expanded =~ s/\n$//;
+      chomp($expanded);
+      # FIXME sourcemark would require marking here if ($expanded eq '')
+      goto funexit if ($expanded eq '');
+      print STDERR "MACRO EXPANSION LINES: $expanded"
                      ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
-      goto funexit if (!@$expanded_lines);
       unshift @{$self->{'macro_stack'}}, $expanded_macro;
       print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
         if ($self->{'DEBUG'});
-      my $new_lines = _complete_line_nr($expanded_lines,
-                       $source_info->{'line_nr'}, $source_info->{'file_name'},
-                       $expanded_macro->{'args'}->[0]->{'text'}, 1);
-      $source_info->{'expansion_end'} = {'source' => 'macro'};
       # first put the line that was interrupted by the macro call
       # on the input pending text with information stack
-      if (! scalar(@{$self->{'input'}})) {
-        push @{$self->{'input'}}, {'pending' => []};
-      }
-      unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
-      # current line is the first from macro expansion
-      my $new_text = shift @$new_lines;
-      ($line, $source_info) = ($new_text->[0], $new_text->[1]);
+      _input_push_text($self, $line, $source_info->{'line_nr'});
       # then put the following macro expansion lines with information on the
-      # pending text with information stack
-      unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
+      # pending text
+      _input_push_text($self, $expanded, $source_info->{'line_nr'},
+                       $expanded_macro->{'args'}->[0]->{'text'});
+      $line = '';
       goto funexit;
     }
     # expand value if it can change the line.  It considered again
@@ -4456,13 +4487,8 @@ sub _process_remaining_on_line($$$$)
             goto funexit;
           }
           unshift @{$self->{'value_stack'}}, $value;
-          if (! scalar(@{$self->{'input'}})) {
-            push @{$self->{'input'}}, {'pending' => []};
-          }
-          my $pending_source_info = { %$source_info };
-          $pending_source_info->{'expansion_end'} = {'source' => 'value'};
-          unshift @{$self->{'input'}->[0]->{'pending'}},
-                                 [$expanded_line, $pending_source_info];
+          _input_push_text($self, $expanded_line, $source_info->{'line_nr'},
+                           $source_info->{'macro'}, $value);
           $line = $self->{'values'}->{$value};
           goto funexit;
         }

@@ -1,3 +1,17 @@
+2023-01-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_new_text_input, _input_push)
+	(_input_push_text_with_line_nos, _input_pushback_text)
+	(_input_push_text, parse_texi_piece, parse_texi_line, parse_texi_text)
+	(parse_texi_file, _parse_texi_document, _register_global_command)
+	(_save_line_directive, _next_text, _in_include, _end_line_misc_line)
+	(_process_remaining_on_line): instead of preprocessing text and
+	splitting in an array, push a whole text on input and get line by line
+	in _next_text.  Do not associate a file with pending text, instead
+	put pending text on its own on self->{'input'}.
+	remove _text_to_lines and _complete_line_nr.
+	More similar code to XS parser.
+
 2023-01-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text, _process_remaining_on_line):
