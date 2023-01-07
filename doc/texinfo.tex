@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-01-02.21}
+\def\texinfoversion{2023-01-07.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -3950,33 +3950,23 @@ $$%
 
 \def\HEADINGSoff{{\globaldefs=1 \headingsoff}} % global setting
 
-% When we turn headings on, set the page number to 1.
+% Set the page number to 1.
 \def\pageone{
   \global\pageno=1
   \global\arabiccount = \pagecount
 }
 
+\let\contentsalignmacro = \chappager
+
+% \def\HEADINGSon{\HEADINGSdouble} % defined by \CHAPPAGon
+
 % For double-sided printing, put current file name in lower left corner,
 % chapter name on inside top of right hand pages, document
 % title on inside top of left hand pages, and page numbers on outside top
 % edge of all pages.
-\def\HEADINGSdouble{%
-\pageone
-\HEADINGSdoublex
-}
-\let\contentsalignmacro = \chappager
-
-% For single-sided printing, chapter title goes across top left of page,
-% page number on top right.
-\def\HEADINGSsingle{%
-\pageone
-\HEADINGSsinglex
-}
-% \def\HEADINGSon{\HEADINGSdouble} % defined by \CHAPPAGon
-
-\def\HEADINGSafter{\let\HEADINGShook=\HEADINGSdoublex}
+\def\HEADINGSafter{\let\HEADINGShook=\HEADINGSdouble}
 \let\HEADINGSdoubleafter=\HEADINGSafter
-\def\HEADINGSdoublex{%
+\def\HEADINGSdouble{%
 \global\evenfootline={\hfil}
 \global\oddfootline={\hfil}
 \global\evenheadline={\line{\folio\hfil\thistitle}}
@@ -3986,8 +3976,10 @@ $$%
 \global\let\contentsalignmacro = \chapoddpage
 }
 
-\def\HEADINGSsingleafter{\let\HEADINGShook=\HEADINGSsinglex}
-\def\HEADINGSsinglex{%
+% For single-sided printing, chapter title goes across top left of page,
+% page number on top right.
+\def\HEADINGSsingleafter{\let\HEADINGShook=\HEADINGSsingle}
+\def\HEADINGSsingle{%
 \global\evenfootline={\hfil}
 \global\oddfootline={\hfil}
 \global\evenheadline={\line{\thischapter\hfil\folio}}
@@ -3999,7 +3991,6 @@ $$%
 
 % for @setchapternewpage off
 \def\HEADINGSsinglechapoff{%
-\pageone
 \global\evenfootline={\hfil}
 \global\oddfootline={\hfil}
 \global\evenheadline={\line{\thischapter\hfil\folio}}

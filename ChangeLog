@@ -1,3 +1,14 @@
+2023-01-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@headings does not reset page number
+
+	* doc/texinfo.tex (\HEADINGSsingle, \HEADINGSdouble:
+	(\HEADINGSsinglechapoff): Do not call \pageone.  This appears to
+	be unnecessary, and does not interact well with PDF page
+	labels generation when a @headings or @setchapternewpage
+	command is issued later in a document, as in
+	doc/texinfo-tex-test.texi.
+
 2023-01-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text, _new_line): do not get a
