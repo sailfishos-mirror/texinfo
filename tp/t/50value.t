@@ -61,6 +61,10 @@ Value
 @value{myspace} 
 1
 '],
+['recursive_expansion_in_set',
+'@set V @value{V}
+@value{V}
+', {'MAX_MACRO_CALL_NESTING' => 100}],
 ['value_in_node',
 '@set node1 Node 1
 

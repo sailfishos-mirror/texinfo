@@ -1553,41 +1553,58 @@ superfluous_arg:
      and early value expansion may be needed to provide with an argument. */
   else if (cmd == CM_value)
     {
-      char *expanded_line = line_after_command;
+      char *remaining_line = line_after_command;
       if (conf.ignore_space_after_braced_command_name)
-        expanded_line += strspn (expanded_line, whitespace_chars);
-      if (*expanded_line == '{')
+        remaining_line += strspn (remaining_line, whitespace_chars);
+      if (*remaining_line == '{')
         {
           char *flag;
 
-          expanded_line++;
-          flag = read_flag_name (&expanded_line);
+          remaining_line++;
+          flag = read_flag_name (&remaining_line);
           if (flag)
             {
-              if (*expanded_line == '}')
+              if (*remaining_line == '}')
                 {
                   char *value;
                   value = fetch_value (flag);
 
                   if (value)
                     {
-                      expanded_line++; /* past '}' */
-                      input_push (strdup (expanded_line),
+                      remaining_line++; /* past '}' */
+                      if (conf.max_macro_call_nesting
+                          && value_expansion_nr >= conf.max_macro_call_nesting)
+                        {
+                          line_warn (
+                            "value call nested too deeply "
+                            "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
+                             conf.max_macro_call_nesting);
+                          free (flag);
+                          line = remaining_line;
+                          goto funexit;
+                        }
+
+                      input_push (strdup (remaining_line),
                                   current_source_info.line_nr,
-                                  current_source_info.macro);
+                                  current_source_info.macro, 0);
                       input_push (strdup (value),
                                   current_source_info.line_nr,
-                                  current_source_info.macro);
+                                  current_source_info.macro,
+                                  strdup(flag));
+                      value_expansion_nr++;
 
                       /* Move 'line' to end of string so next input to
                          be processed is taken from input stack. */
-                      line = expanded_line + strlen (expanded_line);
+                      line = remaining_line + strlen (remaining_line);
                       retval = STILL_MORE_TO_PROCESS;
                     }
-                  free (flag);
                   if (value)
-                    goto funexit;
+                    {
+                      free (flag);
+                      goto funexit;
+                    }
                 }
+              free (flag);
             }
         }
     }

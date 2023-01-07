@@ -559,7 +559,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     expanded.text[--expanded.end] = '\0';
 
   if (conf.max_macro_call_nesting
-      && input_number >= conf.max_macro_call_nesting)
+      && macro_expansion_nr >= conf.max_macro_call_nesting)
     {
       line_warn (
          "macro call nested too deeply "
@@ -594,9 +594,10 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   // 3958 Pop macro stack
 
   /* Put expansion in front of the current line. */
-  input_push (strdup (line), current_source_info.line_nr, 0);
+  macro_expansion_nr++;
+  input_push (strdup (line), current_source_info.line_nr, 0, 0);
   line = strchr (line, '\0');
-  input_push (expanded.text, current_source_info.line_nr, command_name(cmd));
+  input_push (expanded.text, current_source_info.line_nr, command_name(cmd), 0);
 
 funexit:
   *line_inout = line;

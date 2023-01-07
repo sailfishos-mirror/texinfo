@@ -48,6 +48,8 @@ typedef struct {
     char *text;  /* Input text to be parsed as Texinfo. */
     char *ptext; /* How far we are through 'text'.  Used to split 'text'
                     into lines. */
+    char *value_flag; /* value flag if the input text is a @value
+                         explansion */
 } INPUT;
 
 static char *input_pushback_string;
@@ -90,6 +92,8 @@ set_input_encoding (char *encoding)
 static INPUT *input_stack = 0;
 int input_number = 0;
 int input_space = 0;
+int macro_expansion_nr = 0;
+int value_expansion_nr = 0;
 
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;
@@ -412,6 +416,13 @@ next_text (void)
             {
               /* End of text reached. */
               free (i->text);
+              if (i->value_flag)
+                {
+                  value_expansion_nr--;
+                  free (i->value_flag);
+                }
+              else if (i->source_info.macro)
+                macro_expansion_nr--;
               break;
             }
           /* Split off a line of input. */
@@ -422,7 +433,7 @@ next_text (void)
           else
             i->ptext = p; /* The next time, we will pop the input source. */
 
-          if (!i->source_info.macro)
+          if (!i->source_info.macro && !i->value_flag)
             i->source_info.line_nr++;
 
           current_source_info = i->source_info;
@@ -485,7 +496,7 @@ next_text (void)
    string.  TEXT will be later free'd and must be allocated on the heap.
    MACRO is the name of a macro that the text came from. */
 void
-input_push (char *text, int line_number, char *macro)
+input_push (char *text, int line_number, char *macro, char *value_flag)
 {
   char *filename = 0;
 
@@ -505,7 +516,7 @@ input_push (char *text, int line_number, char *macro)
   input_stack[input_number].text = text;
   input_stack[input_number].ptext = text;
 
-  if (!macro)
+  if (!macro && !value_flag)
     line_number--;
   input_stack[input_number].source_info.line_nr = line_number;
   if (input_number > 0)
@@ -514,6 +525,7 @@ input_push (char *text, int line_number, char *macro)
     }
   input_stack[input_number].source_info.file_name = save_string (filename);
   input_stack[input_number].source_info.macro = save_string (macro);
+  input_stack[input_number].value_flag = value_flag;
   input_number++;
 }
 
@@ -574,6 +586,8 @@ input_reset_input_stack (void)
         }
     }
   input_number = 0;
+  macro_expansion_nr = 0;
+  value_expansion_nr = 0;
 }
 
 int

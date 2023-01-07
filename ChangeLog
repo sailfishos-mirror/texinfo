@@ -1,3 +1,31 @@
+2023-01-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/input.c (input_push),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): pass
+	expanded value and put in value_flag in input structure.  Update
+	callers.
+	* tp/Texinfo/XS/parsetexi/input.c (macro_expansion_nr)
+	(value_expansion_nr, next_text), tp/Texinfo/XS/parsetexi/macro.c
+	(handle_macro), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line): use separate counters for values and
+	macros expansions.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): error
+	out on value expansion number higher than MAX_MACRO_CALL_NESTING.
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push, _process_remaining_on_line):
+	put expanded value in iput.  Use 'value_flag' for value flag key name
+	in input.
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push, _next_text): fix conditions
+	on macro being set.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): free
+	value flag even if there was no value expansion.
+
+	* tp/t/50value.t: add recursive_expansion_in_set for a test of infinite
+	recursion with @value.
+
 2023-01-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Treat spaces in @verb and @w differently in HTML

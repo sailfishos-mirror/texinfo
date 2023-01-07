@@ -792,7 +792,6 @@ sub _input_push($$$;$$)
 {
   my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
 
-  my $filename;
   if (not $self->{'input'}) {
     $self->{'input'} = [];
   }
@@ -802,16 +801,15 @@ sub _input_push($$$;$$)
     $input_source_info->{'file_name'}
       = $self->{'input'}->[0]->{'input_source_info'}->{'file_name'};
   }
-  if (defined($macro_name)) {
+  if (defined($macro_name) and $macro_name ne '') {
     $input_source_info->{'macro'} = $macro_name;
   } elsif (not defined($value_name)) {
     # this counteracts the increment that would follow from the next
     # call to _next_text.
     $input_source_info->{'line_nr'} -= 1;
   }
-  $input_source_info->{'file_name'} = $filename if (defined($filename));
   my $text_input = _new_text_input($text, $input_source_info);
-  $text_input->{'expanded_value'} = 1 if (defined($value_name));
+  $text_input->{'value_flag'} = $value_name if (defined($value_name));
   unshift @{$self->{'input'}}, $text_input;
 }
 
@@ -1045,10 +1043,6 @@ sub _setup_conf($$)
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (exists($parser_settable_configuration{$key})) {
-        #if ($key eq 'info') {
-        #  # merge hashes prefering values from $conf
-        #  $parser->{'info'} = { %{$parser->{'info'}}, %{$conf->{'info'}} };
-        #}
         # we keep registrar instead of copying on purpose, to reuse the object
         if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
           $parser->{$key} = dclone($conf->{$key});
@@ -1493,7 +1487,7 @@ sub _in_paragraph($$)
   }
 }
 
-# close brace commands, that don't set a new context (ie @caption, @footnote)
+# close brace commands that don't set a new context (ie not @caption, @footnote)
 sub _close_all_style_commands($$$;$$)
 {
   my ($self, $current, $source_info, $closed_block_command,
@@ -2197,12 +2191,12 @@ sub _next_text($)
       my $texthandle = $input->{'th'};
       my $next_line = <$texthandle>;
       if (!defined($next_line)) {
-        if ($input->{'input_source_info'}->{'macro'}) {
+        if ($input->{'input_source_info'}->{'macro'} ne '') {
           my $top_macro = shift @{$self->{'macro_stack'}};
           print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
             ." $top_macro->{'args'}->[0]->{'text'}\n"
               if ($self->{'DEBUG'});
-        } elsif ($input->{'expanded_value'}) {
+        } elsif (defined($input->{'value_flag'})) {
           my $top_value = shift @{$self->{'value_stack'}};
           print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
             . "$top_value\n"
@@ -2212,8 +2206,8 @@ sub _next_text($)
         # need to decode to characters
         $next_line = Encode::decode('utf8', $next_line);
         $input->{'input_source_info'}->{'line_nr'} += 1
-          unless ($input->{'input_source_info'}->{'macro'}
-                  or $input->{'expanded_value'});
+          unless ($input->{'input_source_info'}->{'macro'} ne ''
+                  or defined($input->{'value_flag'}));
         return ($next_line, { %{$input->{'input_source_info'}} });
       }
     } elsif ($input->{'fh'}) {
@@ -4423,7 +4417,7 @@ sub _process_remaining_on_line($$$$)
         goto funexit;
       }
       if ($self->{'MAX_MACRO_CALL_NESTING'}
-          and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
+          and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
         $self->_line_warn(sprintf(__(
   "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                               $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
@@ -4466,26 +4460,28 @@ sub _process_remaining_on_line($$$$)
     # which may need a well formed tree, which is not needed here, and
     # early value expansion may be needed to provide with an argument.
     if ($command eq 'value') {
-      my $expanded_line = $line;
-      substr($expanded_line, 0, $at_command_length) = '';
-      $expanded_line =~ s/^\s*//
+      my $remaining_line = $line;
+      substr($remaining_line, 0, $at_command_length) = '';
+      $remaining_line =~ s/^\s*//
          if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
       # REVALUE
-      if ($expanded_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
+      if ($remaining_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
         my $value = $1;
         if (exists($self->{'values'}->{$value})) {
           if ($self->{'MAX_MACRO_CALL_NESTING'}
-             and scalar(@{$self->{'value_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
+             and scalar(@{$self->{'value_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
             $self->_line_warn(sprintf(__(
   "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                               $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-            $line = $expanded_line;
+            $line = $remaining_line;
             goto funexit;
           }
           unshift @{$self->{'value_stack'}}, $value;
-          _input_push($self, $expanded_line, $source_info->{'line_nr'},
-                      $source_info->{'macro'}, $value);
-          $line = $self->{'values'}->{$value};
+          _input_push($self, $remaining_line, $source_info->{'line_nr'},
+                      $source_info->{'macro'});
+          _input_push($self, $self->{'values'}->{$value},
+                      $source_info->{'line_nr'}, $source_info->{'macro'}, $value);
+          $line = '';
           goto funexit;
         }
       }

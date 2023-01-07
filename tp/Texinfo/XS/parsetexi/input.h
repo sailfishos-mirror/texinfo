@@ -9,7 +9,7 @@ char *next_text (void);
 
 void save_line_directive (int line_nr, char *filename);
 
-void input_push (char *text, int line_number, char *macro);
+void input_push (char *text, int line_number, char *macro, char *value_flag);
 int input_push_file (char *filename);
 void input_pushback (char *line);
 void input_reset_input_stack (void);
@@ -28,6 +28,8 @@ void free_small_strings (void);
 extern SOURCE_INFO current_source_info;
 
 extern int input_number;
+extern int macro_expansion_nr;
+extern int value_expansion_nr;
 
 extern int doc_encoding_for_input_file_name;
 extern char *input_file_name_encoding;
