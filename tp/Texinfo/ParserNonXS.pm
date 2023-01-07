@@ -961,15 +961,13 @@ sub _parse_texi_document($)
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
 
-  # it should be set by the first _next_text() call, so no need
-  # to preset it to a more precise source_info structure.
-  my $source_info = undef;
+  my $source_info;
 
   # put the empty lines and the \input line in a container at the beginning
   my $preamble_before_beginning;
   while (1) {
     my $line;
-    ($line, $source_info) = _next_text($self, $source_info);
+    ($line, $source_info) = _next_text($self);
     last if (!defined($line));
     # non ascii spaces do not start content
     if ($line =~ /^ *\\input/ or $line =~ /^\s*$/) {
@@ -2195,9 +2193,9 @@ sub _save_line_directive
 
 # returns next text fragment with source information, be it
 # pending from a macro expansion or pending text, or read from file.
-sub _next_text($$)
+sub _next_text($)
 {
-  my ($self, $source_info) = @_;
+  my ($self) = @_;
 
   while (@{$self->{'input'}}) {
     my $input = $self->{'input'}->[0];
@@ -2249,14 +2247,10 @@ sub _next_text($$)
         # DEL as comment character
         $line =~ s/\x{7F}.*\s*//;
         $input->{'input_source_info'}->{'line_nr'}++;
-        my $new_source_info = {
-          'line_nr' => $input->{'input_source_info'}->{'line_nr'},
-          'file_name' => $input->{'input_source_info'}->{'file_name'},
-          'macro' => ''};
-        return ($line, $new_source_info);
+        return ($line, { %{$input->{'input_source_info'}} });
       }
     }
-    my $previous_input = shift(@{$self->{'input'}});
+    my $previous_input = $self->{'input'}->[0];
     # Don't close STDIN
     if ($previous_input->{'fh'}
         and $previous_input->{'input_source_info'}->{'file_name'} ne '-') {
@@ -2276,22 +2270,30 @@ sub _next_text($$)
                              sprintf(__("error on closing %s: %s"),
                                      $file_name, $!));
       }
+      delete $previous_input->{'fh'};
+    }
+    # keep the first input level to have a permanent source for
+    # source_info, even when nothing is returned and the first input
+    # file is closed.
+    if (scalar(@{$self->{'input'}}) == 1) {
+      return (undef, { %{$previous_input->{'input_source_info'}} });
+    } else {
+      shift @{$self->{'input'}};
     }
   }
-
-  return (undef, $source_info);
 }
 
 # collect text and line numbers until an end of line is found.
-sub _new_line($$)
+sub _new_line($)
 {
-  my ($self, $source_info) = @_;
+  my ($self) = @_;
 
   my $new_line = '';
+  my $source_info;
 
   while (1) {
     my $new_text;
-    ($new_text, $source_info) = _next_text($self, $source_info);
+    ($new_text, $source_info) = _next_text($self);
     if (!defined($new_text)) {
       $new_line = undef if ($new_line eq '');
       last;
@@ -2365,7 +2367,7 @@ sub _expand_macro_arguments($$$$)
       print STDERR "MACRO ARG end of line\n" if ($self->{'DEBUG'});
       $arguments->[-1] .= $line;
 
-      ($line, $source_info) = _new_line($self, $source_info);
+      ($line, $source_info) = _new_line($self);
       if (!defined($line)) {
         $self->_line_error(sprintf(__("\@%s missing closing brace"),
            $name), $source_info_orig);
@@ -4290,7 +4292,7 @@ sub _process_remaining_on_line($$$$)
       # Ignore until end of line
       # FIXME this is not the same as for other commands.  Change?
       if ($line !~ /\n/) {
-        ($line, $source_info) = _new_line($self, $source_info);
+        ($line, $source_info) = _new_line($self);
         print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
       }
     }
@@ -4332,7 +4334,7 @@ sub _process_remaining_on_line($$$$)
     push @{$current->{'contents'}}, { 'type' => 'elided_block',
                                       'parent' => $current };
     while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
-      ($line, $source_info) = _new_line($self, $source_info);
+      ($line, $source_info) = _new_line($self);
       if (!$line) {
         # unclosed block
         $line = '';
@@ -4356,7 +4358,7 @@ sub _process_remaining_on_line($$$$)
   while ($line eq '') {
     print STDERR "EMPTY TEXT\n"
       if ($self->{'DEBUG'});
-    ($line, $source_info) = _next_text($self, $source_info);
+    ($line, $source_info) = _next_text($self);
     if (!defined($line)) {
       # end of the file or of a text fragment.
       $current = _end_line($self, $current, $source_info);
@@ -4409,7 +4411,7 @@ sub _process_remaining_on_line($$$$)
            if ($args_number >= 2);
       } else {
         if ($line !~ /\n/) {
-          ($line, $source_info) = _new_line($self, $source_info);
+          ($line, $source_info) = _new_line($self);
           $line = '' if (!defined($line));
         }
         $line =~ s/^\s*// if ($line =~ /\S/);
@@ -5018,7 +5020,7 @@ sub _process_remaining_on_line($$$$)
         # complete the line if there was a user macro expansion
         if ($line !~ /\n/) {
           my ($new_line, $new_line_source_info)
-                     = _new_line($self, $source_info);
+                     = _new_line($self);
           $line .= $new_line if (defined($new_line));
         }
         $misc = {'cmdname' => $command,
@@ -5915,7 +5917,7 @@ sub _process_remaining_on_line($$$$)
                 }
               } else {
                 my $new_text;
-                ($new_text, $source_info) = _next_text($self, $source_info);
+                ($new_text, $source_info) = _next_text($self);
                 if (!$new_text) {
                   $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                   goto funexit;
@@ -5950,7 +5952,7 @@ sub _process_remaining_on_line($$$$)
               }
             } else {
               my $new_text;
-              ($new_text, $source_info) = _next_text($self, $source_info);
+              ($new_text, $source_info) = _next_text($self);
               if (!$new_text) {
                 $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                 goto funexit;
@@ -6041,7 +6043,7 @@ sub _parse_texi($$$)
  NEXT_LINE:
   while (1) {
     my $line;
-    ($line, $source_info) = _next_text($self, $source_info);
+    ($line, $source_info) = _next_text($self);
     last if (!defined($line));
 
     if ($self->{'DEBUG'}) {
@@ -6124,7 +6126,7 @@ sub _parse_texi($$$)
                            'parent' => $current};
   while (1) {
     my $line;
-    ($line, $source_info) = _next_text($self, $source_info);
+    ($line, $source_info) = _next_text($self);
     last if (!defined($line));
     push @{$element_after_bye->{'contents'}},
            {'text' => $line, 'type' => 'text_after_end',

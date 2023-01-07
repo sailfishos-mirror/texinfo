@@ -1,5 +1,12 @@
 2023-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text, _new_line): do not get a
+	source_info as _next_text argument.  Keep the first input level to
+	have a source for source_info even after the file is closed and the
+	filehandle deleted from the input.  Update callers.
+
+2023-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_new_text_input, _input_push)
 	(_input_push_text_with_line_nos, _input_pushback_text)
 	(_input_push_text, parse_texi_piece, parse_texi_line, parse_texi_text)
