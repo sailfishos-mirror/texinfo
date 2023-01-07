@@ -1,5 +1,26 @@
 2023-01-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Treat spaces in @verb and @w differently in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert): Only use 'space_protected'
+	stack for @verb.  Use new 'no_break' stack for @w.
+
+	(_convert_text): Handle 'space_protected' and 'no_break' differently.
+	For 'space_protected', convert newlines to <br> or <br/> and keep
+	multiple spaces.  For 'no_break', treat newline as space and
+	condense multiple spaces to one non-breaking space.
+
+	(in_non_breakable_space): Check 'no_break' stack instead of
+	'space_protected' stack.
+	(in_space_protected): New function to check 'space_protected' stack.
+
+	* doc/texi2any_api.texi (Text Formatting Context): Add documentation
+	of in_space_protected.
+	* tp/init/html32.pm (html32_convert_text): Call in_space_protected
+	as well as in_non_breakable_space API functions.
+
+2023-01-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@backslashchar{} as \ in PDF bookmarks
 
 	* doc/texinfo.tex (\definedummies): Give @backslashchar an

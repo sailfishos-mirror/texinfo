@@ -2596,7 +2596,15 @@ Return true if in upper-case context, corresponding to @code{@@sc}.
 @item non-breakable space
 
 @deftypefun {@var{$in_non_breakable_space} =} @var{$converter}->in_non_breakable_space ()
-Return true if in non-breakable space context, corresponding to @code{@@w}.
+Return true if in context where line breaks are forbidden, corresponding
+to @code{@@w}.
+@end deftypefun
+
+@item space protected
+
+@deftypefun {@var{$in_space_protected} =} @var{$converter}->in_space_protected ()
+Return true if in context where space and newline characters are kept,
+corresponding to @code{@@verb}.
 @end deftypefun
 @end table
 

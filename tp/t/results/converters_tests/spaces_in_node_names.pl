@@ -908,13 +908,13 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node">c&nbsp;&nbsp;<!-- /@w --></h4>
+<h4 class="node">c&nbsp;<!-- /@w --></h4>
 
 <p><a class="ref" href="#a-">a&nbsp;&nbsp;</a>
 </p>
 <p><a class="ref" href="#b-">b<code class="verb">&nbsp;&nbsp;</code></a>
 </p>
-<p><a class="ref" href="#c-">c&nbsp;&nbsp;<!-- /@w --></a>
+<p><a class="ref" href="#c-">c&nbsp;<!-- /@w --></a>
 </p>';
 
 

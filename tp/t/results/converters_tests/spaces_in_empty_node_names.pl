@@ -818,7 +818,7 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node
 </p>
 <p>&lsquo;<code class="verb">&nbsp;&nbsp;</code>&rsquo;
 </p>
-<p>&lsquo;&nbsp;&nbsp;<!-- /@w -->&rsquo;
+<p>&lsquo;&nbsp;<!-- /@w -->&rsquo;
 </p>';
 
 

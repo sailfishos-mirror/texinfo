@@ -510,6 +510,13 @@ sub in_non_breakable_space($)
 {
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                         ->{'no_break'};
+}
+
+sub in_space_protected($)
+{
+  my $self = shift;
+  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                          ->{'space_protected'};
 }
 
@@ -6247,8 +6254,14 @@ sub _convert_text($$$)
 
   # API info: in_non_breakable_space() API code conforming would be:
   #if ($self->in_non_breakable_space()) {
-  if ($formatting_context->{'space_protected'}) {
-    $text .= $self->get_info('non_breaking_space') if (chomp($text));
+  if ($formatting_context->{'no_break'}) {
+    my $non_breaking_space = $self->get_info('non_breaking_space');
+    $text =~ s/\n/ /g;
+    $text =~ s/ +/$non_breaking_space/g;
+  # API info: in_space_protected() API code conforming would be:
+  #} elsif ($self->in_space_protected()) {
+  } elsif ($formatting_context->{'space_protected'}) {
+    $text .= $self->{'line_break_element'} if (chomp($text));
     # Protect spaces within text
     my $non_breaking_space = $self->get_info('non_breaking_space');
     $text =~ s/ /$non_breaking_space/g;
@@ -11220,9 +11233,12 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'math'}++;
         $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
       }
-      if ($command_name eq 'w' or $command_name eq 'verb') {
+      if ($command_name eq 'verb') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                         ->{'space_protected'}++;
+      } elsif ($command_name eq 'w') {
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                   ->{'no_break'}++;
       }
       my $result = '';
       if (defined($self->{'commands_open'}->{$command_name})) {
@@ -11340,10 +11356,12 @@ sub _convert($$;$)
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}--;
       }
-      if ($command_name eq 'w'
-                or $command_name eq 'verb') {
+      if ($command_name eq 'verb') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                    ->{'space_protected'}--;
+      } elsif ($command_name eq 'w') {
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                   ->{'no_break'}--;
       }
       if ($format_raw_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'raw'}--;
