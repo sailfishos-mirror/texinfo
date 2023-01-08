@@ -2168,6 +2168,14 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       if (!allocated_line)
         break; /* Out of input. */
 
+      /* This makes sure that there is not an empty line going in
+         process_remaining_on_line where there is a special case if
+         line is empty with next_text called, while next_text
+         should be called here in order to have the code right below
+         called. */
+      if (*line == '\0')
+        continue;
+
       debug_nonl ("NEW LINE %s", line);
 
       /* If not in 'raw' or 'conditional' and parent isn't a 'verb',
