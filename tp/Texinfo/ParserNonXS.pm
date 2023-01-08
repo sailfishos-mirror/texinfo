@@ -880,28 +880,49 @@ sub parse_texi_text($$;$)
   return $self->_parse_texi_document();
 }
 
-# $FILE_NAME the name of the opened file should be a binary string.
-sub _open_in {
-  my ($self, $filehandle, $file_name) = @_;
+# $INPUT_FILE_PATH the name of the opened file should be a binary string.
+# Returns binary strings too.
+sub _input_push_file
+{
+  my ($self, $input_file_path, $file_name_encoding) = @_;
 
-  if (open($filehandle, $file_name)) {
-    if (defined($self->{'info'}->{'input_perl_encoding'})) {
-      if ($self->{'info'}->{'input_perl_encoding'} eq 'utf-8') {
-        binmode($filehandle, ":utf8");
-        # Use :utf8 instead of :encoding(utf-8), as the latter does
-        # error checking and has (unreliably) led to fatal errors
-        # when reading the first few lines of e.g. Latin-1 or Shift-JIS
-        # files, even though @documentencoding is given early on in the file.
-        # Evidently Perl is checking ahead in the file.
-      } else {
-        binmode($filehandle,
-                ":encoding($self->{'info'}->{'input_perl_encoding'})");
-      }
-    }
-    return 1;
-  } else {
-    return 0;
+  my $filehandle = do { local *FH };
+  if (!open($filehandle, $input_file_path)) {
+    return 0, undef, undef;
   }
+
+  if (defined($self->{'info'}->{'input_perl_encoding'})) {
+    if ($self->{'info'}->{'input_perl_encoding'} eq 'utf-8') {
+      binmode($filehandle, ":utf8");
+      # Use :utf8 instead of :encoding(utf-8), as the latter does
+      # error checking and has (unreliably) led to fatal errors
+      # when reading the first few lines of e.g. Latin-1 or Shift-JIS
+      # files, even though @documentencoding is given early on in the file.
+      # Evidently Perl is checking ahead in the file.
+    } else {
+      binmode($filehandle,
+              ":encoding($self->{'info'}->{'input_perl_encoding'})");
+    }
+  }
+  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
+
+  my $file_input = {
+       'input_source_info' => {
+          # binary
+          'file_name' => $file_name,
+          'line_nr' => 0,
+          'macro' => '',
+       },
+       'fh' => $filehandle
+    };
+
+  $file_input->{'file_name_encoding'} = $file_name_encoding
+       if (defined($file_name_encoding));
+
+  $self->{'input'} = [] if (!defined($self->{'input'}));
+  unshift @{$self->{'input'}}, $file_input;
+
+  return 1, $file_name, $directories;
 }
 
 # parse a texi file
@@ -910,8 +931,9 @@ sub parse_texi_file($$)
 {
   my ($self, $input_file_path) = @_;
 
-  my $filehandle = do { local *FH };
-  if (!_open_in($self, $filehandle, $input_file_path)) {
+  my ($status, $file_name, $directories)
+    = _input_push_file($self, $input_file_path);
+  if (!$status) {
     my $input_file_name = $input_file_path;
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     if (defined($encoding)) {
@@ -923,20 +945,10 @@ sub parse_texi_file($$)
     return undef;
   }
 
-  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
   $self = parser() if (!defined($self));
 
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
-
-  $self->{'input'} = [{
-       'input_source_info' => {
-          'file_name' => $file_name,
-          'line_nr' => 0,
-          'macro' => '',
-       },
-       'fh' => $filehandle
-    }];
 
   return $self->_parse_texi_document();
 }
@@ -3054,27 +3066,19 @@ sub _end_line_misc_line($$$)
       } elsif ($command eq 'include') {
         # We want Perl binary strings representing sequences of bytes,
         # not character strings of codepoints in the internal perl encoding.
-        my ($file_name, $file_name_encoding) = _encode_file_name($self, $text);
-        my $file = Texinfo::Common::locate_include_file($self, $file_name);
-        if (defined($file)) {
-          my $filehandle = do { local *FH };
-          if (_open_in ($self, $filehandle, $file)) {
+        my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
+        my $included_file_path
+             = Texinfo::Common::locate_include_file($self, $file_path);
+        if (defined($included_file_path)) {
+          my ($status, $file_name, $directories)
+             = _input_push_file($self, $included_file_path, $file_name_encoding);
+          if ($status) {
             $included_file = 1;
-            print STDERR "Included $file($filehandle)\n" if ($self->{'DEBUG'});
-            my ($directories, $suffix);
-            ($file, $directories, $suffix) = fileparse($file);
-            unshift @{$self->{'input'}}, {
-              # note that it is bytes
-              'input_source_info' => {'file_name' => $file,
-                                'line_nr' => 0,
-                                'macro' => '',
-                               },
-              'file_name_encoding' => $file_name_encoding,
-              'fh' => $filehandle };
+            print STDERR "Included $included_file_path\n" if ($self->{'DEBUG'});
           } else {
-            # FIXME $text does not show the include directory.  Using $file
-            # would require to decode it to perl internal codepoints with
-            # $file_name_encoding
+            # FIXME $text does not show the include directory.  Using
+            # $included_file_path would require decoding to character string
+            # using $file_name_encoding
             $self->_command_error($current, $source_info,
                             __("\@%s: could not open %s: %s"),
                             $command, $text, $!);

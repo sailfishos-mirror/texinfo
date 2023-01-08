@@ -1,5 +1,12 @@
 2023-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_input_push_file, parse_texi_file)
+	(_end_line_misc_line): use _input_push_file to both open and put
+	input file information in $self->{'input'} (as in the XS Parser),
+	reusing _open_in code.  Remove _open_in.
+
+2023-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo)
 	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
