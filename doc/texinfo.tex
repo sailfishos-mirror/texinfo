@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-01-07.19}
+\def\texinfoversion{2023-01-08.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -5080,9 +5080,6 @@ $$%
   %
   % We need to get rid of all macros, leaving only the arguments (if present).
   % Of course this is not nearly correct, but it is the best we can do for now.
-  % makeinfo does not expand macros in the argument to @deffn, which ends up
-  % writing an index entry, and texindex isn't prepared for an index sort entry
-  % that starts with \.
   %
   % Since macro invocations are followed by braces, we can just redefine them
   % to take a single TeX argument.  The case of a macro invocation that

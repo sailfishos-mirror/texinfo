@@ -1,3 +1,9 @@
+2023-01-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\indexnofonts): Remove obsolete comment
+	claiming that makeinfo doesn't expand macros in the argument
+	to @deffn.
+
 2023-01-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_input_push_file, parse_texi_file)
