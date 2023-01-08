@@ -1,5 +1,17 @@
 2023-01-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@set txicodequoteundirected and @set txicodequotebacktick by default
+
+	* doc/texinfo.tex: Turn on "@set txicodequoteundirected" and
+	"@set txicodequotebacktick" by default.
+	(\codequoteleft, \codequoteright): Access glyphs by hexadecimal
+	index rather octal so to match comment.
+	* doc/texinfo.tex (Inserting Quote Characters): Update.  Make
+	text appropriate for all output formats by limiting sample output.
+	* NEWS: Mention.
+
+2023-01-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\indexnofonts): Remove obsolete comment
 	claiming that makeinfo doesn't expand macros in the argument
 	to @deffn.

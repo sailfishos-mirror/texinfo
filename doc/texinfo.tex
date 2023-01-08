@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-01-08.13}
+\def\texinfoversion{2023-01-08.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -2683,25 +2683,21 @@ end
 }
 \setregularquotes
 
-% Allow an option to not use regular directed right quote/apostrophe
-% (char 0x27), but instead the undirected quote from cmtt (char 0x0d).
-% The undirected quote is ugly, so don't make it the default, but it
-% works for pasting with more pdf viewers (at least evince), the
-% lilypond developers report.  xpdf does work with the regular 0x27.
+% output for ' in @code
+% in tt font hex 0D (undirected) or 27 (curly right quote)
 %
 \def\codequoteright{%
   \ifusingtt
       {\ifflagclear{txicodequoteundirected}%
           {\ifflagclear{codequoteundirected}%
               {'}%
-              {\char'15 }}%
-          {\char'15 }}%
+              {\char"0D }}%
+          {\char"0D }}%
       {'}%
 }
 
-% and a similar option for the left quote char vs. a grave accent.
-% Modern fonts display ASCII 0x60 as a grave accent, so some people like
-% the code environments to do likewise.
+% output for ` in @code
+% in tt font hex 12 (grave accent) or 60 (curly left quote)
 % \relax disables Spanish ligatures ?` and !` of \tt font.
 %
 \def\codequoteleft{%
@@ -2709,8 +2705,8 @@ end
       {\ifflagclear{txicodequotebacktick}%
           {\ifflagclear{codequotebacktick}%
               {\relax`}%
-              {\char'22 }}%
-          {\char'22 }}%
+              {\char"12 }}%
+          {\char"12 }}%
       {\relax`}%
 }
 
@@ -2729,7 +2725,7 @@ end
     \errmessage{Unknown @codequoteundirected value `\temp', must be on|off}%
   \fi\fi
 }
-%
+
 \parseargdef\codequotebacktick{%
   \def\temp{#1}%
   \ifx\temp\onword
@@ -2743,6 +2739,11 @@ end
     \errmessage{Unknown @codequotebacktick value `\temp', must be on|off}%
   \fi\fi
 }
+
+% Turn them on by default
+\let\SETtxicodequoteundirected = t
+\let\SETtxicodequotebacktick = t
+
 
 % [Knuth] pp. 380,381,391, disable Spanish ligatures ?` and !` of \tt font.
 \def\noligaturesquoteleft{\relax\lq}

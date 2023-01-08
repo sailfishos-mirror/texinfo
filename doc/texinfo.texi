@@ -9379,48 +9379,53 @@ As explained in the early section on general Texinfo input conventions
 characters (@code{``} and @code{''}) produces double quotes (`` and
 '').  These are the conventions used by @TeX{}.
 
-This works all right for text.  However, in examples of computer code,
-readers are especially likely to cut and paste the text
-verbatim---and, unfortunately, some document viewers will mangle these
-characters.  (The free PDF reader @command{xpdf} works fine, but other
-PDF readers, both free and nonfree, have problems.)
-
-If this is a concern for you, Texinfo provides these two commands:
+In examples of computer code, however, @code{`} and @code{'} produce
+typical renderings for these ASCII characters: the backtick character
+(standalone grave accent) and undirected single quote respectively.
+In the past, directed glyphs
+@iftex
+@clear txicodequoteundirected
+@clear txicodequotebacktick
+(@code{`} and @code{'})
+@set txicodequoteundirected
+@set txicodequotebacktick
+@end iftex
+were used by default in @TeX{} output.  Texinfo provides these commands
+to choose between these alternate renderings:
 
 @table @code
 @findex codequoteundirected
 @cindex undirected single quote
 @item @@codequoteundirected @var{on-off}
-causes the output for the @code{'} character in code environments to
-be the undirected single quote, like this:
-@set txicodequoteundirected on
-@code{'}.
-@set txicodequoteundirected off
+Set to @samp{off} to output the @code{'} character in code environments
+as the right curly single quote.
 
 @findex codequotebacktick
 @cindex Backtick
 @cindex Grave accent @subentry standalone
 @item @@codequotebacktick @var{on-off}
-causes the output for the @code{`} character in code environments to
-be the backtick character (standalone grave accent), like this:
-@set txicodequotebacktick on
-@code{`}.
-@set txicodequotebacktick off
+Set to @samp{off} to output the @code{`} character in code environments
+as the left curly single quote.
 @end table
 
 If you want these settings for only part of the document,
-@code{@@codequote... off} will restore the normal behavior, as in
-@code{@@codequoteundirected off}.
+@code{@@codequote... on} will restore the normal behavior, as in
+@code{@@codequoteundirected on}.
 
 These settings affect @code{@@code}, @code{@@example}, @code{@@kbd},
 @code{@@samp}, @code{@@verb}, and @code{@@verbatim}.  @xref{Useful
 Highlighting}.
 
+Unfortunately, some document viewers will mangle the directed
+quote characters when copying and pasting.  (The free PDF reader
+@command{xpdf} works fine, but other PDF readers, both free and
+nonfree, have problems.)
+
 @vindex txicodequoteundirected
 @vindex txicodequotebacktick
-This feature can also be controlled by using @code{@@set} to change the
-values of the corresponding variables @code{txicodequoteundirected}
-and @code{txicodequotebacktick}.
+This feature can also be controlled by using @code{@@set}
+and @code{@@clear} on the corresponding variables
+@code{txicodequoteundirected} and @code{txicodequotebacktick}.
 
 
 @node Inserting Space
