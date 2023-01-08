@@ -197,7 +197,8 @@ $result_converted{'latex_text'}->{'verb'} = '\\begin{document}
 
 \\verb|a!a|
 
-\\verb!a b!
+\\verb!a!\\\\
+\\verb!b!
 
 \\verb%%
 ';

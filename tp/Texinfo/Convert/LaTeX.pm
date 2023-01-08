@@ -2866,29 +2866,35 @@ sub _convert($$)
       #   It is not reliable to use @verb inside other Texinfo constructs
       my $delim = $element->{'info'}->{'delimiter'};
       my $contents = '';
+      my @lines;
 
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       if ($element->{'args'}) {
         $contents = _convert($self, $element->{'args'}->[0]);
-        $contents =~ s/\n/ /;
+        @lines = split /\n/, $contents, -1;
       }
       my $old_context
          = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_raw');
 
-      # Check delimiter is not in contents.  If it is, try other characters.
-      for my $char ($delim, '|', '!', ':', '@') {
-        if (index($contents, $char) == -1) {
-          $result .= "\\verb$char$contents$char";
-          return $result;
+      my @lines_out;
+    LINE:
+      for my $line (@lines) {
+        # Check delimiter is not in contents.  If it is, try other characters.
+        for my $char ($delim, '|', '!', ':', '@') {
+          if (index($line, $char) == -1) {
+            push @lines_out, "\\verb$char$line$char";
+            next LINE;
+          }
         }
+        $self->line_warn($self,
+           sprintf(__("\\verb delimiter `%s' (for LaTeX) used in text `%s'"),
+                      $delim, $line),
+           $element->{'source_info'});
+        push @lines_out, "\\verb$delim$delim";
       }
-      $self->line_warn($self,
-         sprintf(__("\\verb delimiter `%s' (for LaTeX) used in text `%s'"),
-                    $delim, $contents),
-         $element->{'source_info'});
-      return "\\verb$delim$delim";
-
+      $result .= join "\\\\\n", @lines_out;
+      return $result;
     } elsif ($cmdname eq 'image') {
       if (defined($element->{'args'}->[0])
           and $element->{'args'}->[0]->{'contents'}

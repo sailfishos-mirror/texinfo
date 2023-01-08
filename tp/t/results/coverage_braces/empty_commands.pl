@@ -224,7 +224,7 @@ $result_converted{'html_text'}->{'empty_commands'} = '
 
 $result_converted{'latex_text'}->{'empty_commands'} = '
 
-   \\texttt{}\\footnote{} \\~{}  \\verb;;
+   \\texttt{}\\footnote{} \\~{}  
 ';
 
 1;
