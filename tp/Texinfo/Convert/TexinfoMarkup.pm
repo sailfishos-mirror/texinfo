@@ -232,14 +232,6 @@ my %defcommand_name_type = (
  'deftp'     => 'datatype',
 );
 
-my %ignored_types;
-foreach my $type (
-            # @-commands replaced in the tree
-            'replaced',
-  ) {
-  $ignored_types{$type} = 1;
-}
-
 my %type_elements = (
   'paragraph' => 'para',
   'preformatted' => 'pre',
@@ -613,7 +605,6 @@ sub _convert($$;$)
     #  if (defined($element->{'extra'}) and $element->{'extra'}->{'def_command'});
   }
 
-  return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
   if (defined($element->{'text'})) {
     if ($self->{'document_context'}->[-1]->{'raw'}) {
       return $element->{'text'};

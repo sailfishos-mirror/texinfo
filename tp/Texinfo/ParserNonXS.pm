@@ -788,7 +788,7 @@ sub _new_text_input($$)
           'input_source_info' => $input_source_info};
 }
 
-sub _input_push($$$;$$)
+sub _input_push_text($$$;$$)
 {
   my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
 
@@ -819,11 +819,6 @@ sub _input_pushback_text($$;$)
   my ($self, $text, $line_nr) = @_;
 
   if (defined($text) and $text ne '') {
-    ## should not happen in current code
-    #if (not $self->{'input'} or not scalar(@{$self->{'input'}})) {
-    #  $line_nr = 1 if (!defined($line_nr));
-    #  _input_push($self, $text, $line_nr);
-    #}
     my $text_input = _new_text_input($text,
                           $self->{'input'}->[0]->{'input_source_info'});
     unshift @{$self->{'input'}}, $text_input;
@@ -844,7 +839,7 @@ sub parse_texi_piece($$;$)
 
   $self = parser() if (!defined($self));
 
-  _input_push($self, $text, $line_nr);
+  _input_push_text($self, $text, $line_nr);
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
@@ -863,7 +858,7 @@ sub parse_texi_line($$;$)
 
   $self = parser() if (!defined($self));
 
-  _input_push($self, $text, $line_nr);
+  _input_push_text($self, $text, $line_nr);
 
   my $root = {'type' => 'root_line'};
   my $tree = $self->_parse_texi($root, $root);
@@ -880,7 +875,7 @@ sub parse_texi_text($$;$)
 
   $self = parser() if (!defined($self));
 
-  _input_push($self, $text, $line_nr);
+  _input_push_text($self, $text, $line_nr);
 
   return $self->_parse_texi_document();
 }
@@ -2995,6 +2990,7 @@ sub _end_line_misc_line($$$)
   my $misc_cmd = $current;
   my $command = $current->{'cmdname'};
   my $end_command;
+  my $included_file;
   print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
      if ($self->{'DEBUG'});
 
@@ -3063,23 +3059,18 @@ sub _end_line_misc_line($$$)
         if (defined($file)) {
           my $filehandle = do { local *FH };
           if (_open_in ($self, $filehandle, $file)) {
+            $included_file = 1;
             print STDERR "Included $file($filehandle)\n" if ($self->{'DEBUG'});
             my ($directories, $suffix);
             ($file, $directories, $suffix) = fileparse($file);
             unshift @{$self->{'input'}}, {
+              # note that it is bytes
               'input_source_info' => {'file_name' => $file,
                                 'line_nr' => 0,
                                 'macro' => '',
                                },
               'file_name_encoding' => $file_name_encoding,
               'fh' => $filehandle };
-            # TODO note that it is bytes.  No reason to have it used much
-            # Make sure to document that it is bytes.
-            # TODO add $file_name_encoding information?
-            $current->{'extra'}->{'file'} = $file;
-            # we set the type to replaced to tell converters not to
-            # expand the @-command
-            $current->{'type'} = 'replaced';
           } else {
             # FIXME $text does not show the include directory.  Using $file
             # would require to decode it to perl internal codepoints with
@@ -3134,11 +3125,8 @@ sub _end_line_misc_line($$$)
       }
     }
     if ($superfluous_arg) {
-      # note that the argument to expand replaced @-commands is
-      # set, such that @include that are removed from the tree
-      # with type set to replaced are still shown in error messages.
       my $texi_line
-        = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0]);
       $texi_line =~ s/^\s*//;
       $texi_line =~ s/\s*$//;
 
@@ -3259,14 +3247,8 @@ sub _end_line_misc_line($$$)
       if ($close_preformatted_commands{$command});
   }
   # Ignore @setfilename in included file, as said in the manual.
-  if (($command eq 'setfilename'
-         and _in_include($self))
-    # TODO remove this condition if/when the XS parser has been updated
-    # to output @include with type replaced when the file was found
-      or ($current->{'contents'} and scalar(@{$current->{'contents'}})
-           and exists($current->{'contents'}->[-1]->{'type'})
-           and $current->{'contents'}->[-1]->{'type'} eq 'replaced')) {
-    # TODO keep the information
+  if ($included_file
+      or ($command eq 'setfilename' and _in_include($self))) {
     pop @{$current->{'contents'}};
   } elsif ($command eq 'setfilename'
            and ($self->{'current_node'} or $self->{'current_section'})) {
@@ -4447,11 +4429,11 @@ sub _process_remaining_on_line($$$$)
         if ($self->{'DEBUG'});
       # first put the line that was interrupted by the macro call
       # on the input pending text with information stack
-      _input_push($self, $line, $source_info->{'line_nr'});
+      _input_push_text($self, $line, $source_info->{'line_nr'});
       # then put the following macro expansion lines with information on the
       # pending text
-      _input_push($self, $expanded, $source_info->{'line_nr'},
-                  $expanded_macro->{'args'}->[0]->{'text'});
+      _input_push_text($self, $expanded, $source_info->{'line_nr'},
+                       $expanded_macro->{'args'}->[0]->{'text'});
       $line = '';
       goto funexit;
     }
@@ -4477,10 +4459,10 @@ sub _process_remaining_on_line($$$$)
             goto funexit;
           }
           unshift @{$self->{'value_stack'}}, $value;
-          _input_push($self, $remaining_line, $source_info->{'line_nr'},
-                      $source_info->{'macro'});
-          _input_push($self, $self->{'values'}->{$value},
-                      $source_info->{'line_nr'}, $source_info->{'macro'}, $value);
+          _input_push_text($self, $remaining_line, $source_info->{'line_nr'},
+                           $source_info->{'macro'});
+          _input_push_text($self, $self->{'values'}->{$value},
+                           $source_info->{'line_nr'}, $source_info->{'macro'}, $value);
           $line = '';
           goto funexit;
         }

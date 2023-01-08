@@ -1,3 +1,16 @@
+2023-01-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(%ignored_types, %ignored_types): do not set replaced type on included
+	files element, use a variable set it a file was included.  Remove
+	completely the replaced type.
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push_text),
+	tp/Texinfo/XS/parsetexi/input.c (input_push_text): rename input_push as
+	input_push_text.  Update the callers.
+
 2023-01-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/input.c (input_push),

@@ -100,11 +100,10 @@ sub root_heading_command_to_texinfo($)
 # tree item to be shown, in the default case they are
 # not shown.
 # expand a tree to the corresponding texinfo.
-sub convert_to_texinfo($;$);
-sub convert_to_texinfo($;$)
+sub convert_to_texinfo($);
+sub convert_to_texinfo($)
 {
   my $element = shift;
-  my $expand_replaced = shift;
 
   confess "convert_to_texinfo: element undef" if (!defined($element));
   confess "convert_to_texinfo: bad element type (".ref($element).") $element"
@@ -112,9 +111,7 @@ sub convert_to_texinfo($;$)
   my $result = '';
 
   return '' if ($element->{'type'}
-                and ($ignored_types{$element->{'type'}}
-                     or ($element->{'type'} eq 'replaced'
-                         and not $expand_replaced)));
+                and ($ignored_types{$element->{'type'}}));
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {
@@ -122,7 +119,7 @@ sub convert_to_texinfo($;$)
        or ($element->{'type'} and ($element->{'type'} eq 'def_line'
                                 or $element->{'type'} eq 'menu_entry'
                                 or $element->{'type'} eq 'menu_comment'))) {
-      $result .= _expand_cmd_args_to_texi($element, $expand_replaced);
+      $result .= _expand_cmd_args_to_texi($element);
     }
     if ($element->{'type'}
         and ($element->{'type'} eq 'bracketed'
@@ -135,15 +132,14 @@ sub convert_to_texinfo($;$)
     }
     if (defined($element->{'contents'})) {
       foreach my $child (@{$element->{'contents'}}) {
-        $result .= convert_to_texinfo($child, $expand_replaced);
+        $result .= convert_to_texinfo($child);
       }
     }
     if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
       $result .= $element->{'info'}->{'spaces_after_argument'};
     }
     if ($element->{'info'} and $element->{'info'}->{'comment_at_end'}) {
-      $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'},
-                         $expand_replaced);
+      $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if ($element->{'type'}
                        and ($element->{'type'} eq 'bracketed'
@@ -153,9 +149,8 @@ sub convert_to_texinfo($;$)
 }
 
 # expand a command argument as texinfo.
-sub _expand_cmd_args_to_texi($;$) {
+sub _expand_cmd_args_to_texi($) {
   my $cmd = shift;
-  my $expand_replaced = shift;
 
   my $cmdname = $cmd->{'cmdname'};
   $cmdname = '' if (!$cmd->{'cmdname'});
@@ -176,7 +171,7 @@ sub _expand_cmd_args_to_texi($;$) {
      $result .= $cmd->{'info'}->{'spaces_before_argument'}
        if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
      foreach my $arg (@{$cmd->{'args'}}) {
-        $result .= convert_to_texinfo($arg, $expand_replaced);
+        $result .= convert_to_texinfo($arg);
     }
   # arg_line set for line_commands with type special and @macro
   } elsif ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {

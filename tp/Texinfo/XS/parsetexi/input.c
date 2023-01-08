@@ -496,7 +496,7 @@ next_text (void)
    string.  TEXT will be later free'd and must be allocated on the heap.
    MACRO is the name of a macro that the text came from. */
 void
-input_push (char *text, int line_number, char *macro, char *value_flag)
+input_push_text (char *text, int line_number, char *macro, char *value_flag)
 {
   char *filename = 0;
 

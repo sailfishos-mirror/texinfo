@@ -595,9 +595,10 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   /* Put expansion in front of the current line. */
   macro_expansion_nr++;
-  input_push (strdup (line), current_source_info.line_nr, 0, 0);
+  input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
   line = strchr (line, '\0');
-  input_push (expanded.text, current_source_info.line_nr, command_name(cmd), 0);
+  input_push_text (expanded.text, current_source_info.line_nr,
+                   command_name(cmd), 0);
 
 funexit:
   *line_inout = line;

@@ -1584,13 +1584,13 @@ superfluous_arg:
                           goto funexit;
                         }
 
-                      input_push (strdup (remaining_line),
-                                  current_source_info.line_nr,
-                                  current_source_info.macro, 0);
-                      input_push (strdup (value),
-                                  current_source_info.line_nr,
-                                  current_source_info.macro,
-                                  strdup(flag));
+                      input_push_text (strdup (remaining_line),
+                                       current_source_info.line_nr,
+                                       current_source_info.macro, 0);
+                      input_push_text (strdup (value),
+                                       current_source_info.line_nr,
+                                       current_source_info.macro,
+                                       strdup(flag));
                       value_expansion_nr++;
 
                       /* Move 'line' to end of string so next input to
