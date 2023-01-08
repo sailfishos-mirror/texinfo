@@ -1005,6 +1005,11 @@ before first multitable
 '],
 ['delcomment', undef, {'test_file' => 'delcomment.texi'}
 ],
+# this test shows that after a del comment starting at the
+# line beginning a cpp line directive is ignored
+['delcomment_followed_by_cpp_line',
+undef, {'test_file' => 'delcomment_followed_by_cpp_line.texi'}
+],
 );
 
 my %docbooc_doc_tests = (

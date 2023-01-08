@@ -658,8 +658,8 @@ inlinefmtifelse_done:
                 {
                   line--; /* on '}' */
                 }
-
-              counter_dec (&count_remaining_args);
+              else
+                counter_dec (&count_remaining_args);
               expandp = 1;
             }
         }
@@ -700,6 +700,7 @@ inlinefmtifelse_done:
                 }
               line++;
             }
+          counter_dec (&count_remaining_args);
           current = last_args_child (current);
           line--;  /* on '}' */
           goto funexit;

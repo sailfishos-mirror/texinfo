@@ -283,6 +283,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/comment_on_group_line.pl \
   t/results/coverage/def.pl \
   t/results/coverage/delcomment.pl \
+  t/results/coverage/delcomment_followed_by_cpp_line.pl \
   t/results/coverage/displaymath.pl \
   t/results/coverage/empty_w.pl \
   t/results/coverage/end_bad_end_argument_and_superfluous_arg.pl \
@@ -1155,6 +1156,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/bib_example.pl \
   t/results/macro/complete_macro_for_end.pl \
   t/results/macro/complex_argument.pl \
+  t/results/macro/cpp_directives_after_macros.pl \
+  t/results/macro/cpp_directives_in_macro.pl \
   t/results/macro/double_macro_definition.pl \
   t/results/macro/double_recursive_macro_call.pl \
   t/results/macro/empty_end.pl \

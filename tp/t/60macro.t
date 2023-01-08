@@ -954,7 +954,7 @@ ggg
 fff
 @end macro
 @mac'],
-# takes long with default MAX_MACRO_CALL_NESTING value (tested with
+# takes long with default MAX_MACRO_CALL_NESTING value (notably with
 # pure perl Parser).
 ['recursive_call_in_rmacro',
 '
@@ -1041,6 +1041,16 @@ X\arg\X
 @mymacro
 @include inc_file.texi
 '],
+# shows that cpp directives are ignored in macros
+['cpp_directives_in_macro',
+  undef, {'test_file' => 'cpp_directives_in_macro.texi',},
+],
+# shows that cpp directives on the line of macro expansion
+# are ignored even if the macro expansion leads to an empty
+# string or spaces only
+['cpp_directives_after_macros',
+  undef, {'test_file' => 'cpp_directives_after_macros.texi',},
+],
 ['bib_example',
   undef, {'test_file' => 'bib-example.texi',},
 ],

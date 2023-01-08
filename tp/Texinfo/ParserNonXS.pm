@@ -4341,6 +4341,16 @@ sub _process_remaining_on_line($$$$)
       $retval = $GET_A_NEW_LINE;
       goto funexit;
     }
+    # this shows beginning of lines (right after 'empty_line') with
+    # _next_text obtained.  This new text therefore does not
+    # go through _parse_texi code that happens at the beginning
+    # of lines, mostly checking cpp directives.
+    # elsif ($current->{'contents'} and @{$current->{'contents'}}
+    #        and $current->{'contents'}->[-1]->{'type'}
+    #        and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
+    #        and $line ne '') {
+    #  print STDERR "New text in empty line $source_info->{'line_nr'}.$source_info->{'macro'} !$line!\n";
+    }
   }
 
   my $at_command_length;
@@ -4398,10 +4408,8 @@ sub _process_remaining_on_line($$$$)
                                  $arguments, $source_info);
       print STDERR "MACROBODY: $expanded".'||||||'."\n"
          if ($self->{'DEBUG'});
-      # empty result.  It is ignored here.
-      if ($expanded eq '') {
-        goto funexit;
-      }
+      chomp($expanded);
+
       if ($self->{'MAX_MACRO_CALL_NESTING'}
           and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
         $self->_line_warn(sprintf(__(
@@ -4409,6 +4417,7 @@ sub _process_remaining_on_line($$$$)
                               $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
         goto funexit;
       }
+
       if ($expanded_macro->{'cmdname'} eq 'macro') {
         my $found = 0;
         foreach my $macro (@{$self->{'macro_stack'}}) {
@@ -4422,12 +4431,7 @@ sub _process_remaining_on_line($$$$)
         }
         goto funexit if ($found);
       }
-      #$expanded =~ s/\n$//;
-      chomp($expanded);
-      # FIXME sourcemark would require marking here if ($expanded eq '')
-      goto funexit if ($expanded eq '');
-      print STDERR "MACRO EXPANSION LINES: $expanded"
-                     ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
+
       unshift @{$self->{'macro_stack'}}, $expanded_macro;
       print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
         if ($self->{'DEBUG'});
@@ -5894,7 +5898,7 @@ sub _process_remaining_on_line($$$$)
               } else {
                 my $new_text;
                 ($new_text, $source_info) = _next_text($self);
-                if (!$new_text) {
+                if (not defined($new_text)) {
                   $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                   goto funexit;
                 }
@@ -5904,8 +5908,9 @@ sub _process_remaining_on_line($$$$)
             if ($brace_count == 0) {
               # second arg missing
               $line = '}' . $line;
+            } else {
+              $current->{'remaining_args'}--;
             }
-            $current->{'remaining_args'}--;
             $expandp = 1;
           }
         } elsif ($current->{'cmdname'} eq 'inlinefmtifelse') {
@@ -5929,13 +5934,14 @@ sub _process_remaining_on_line($$$$)
             } else {
               my $new_text;
               ($new_text, $source_info) = _next_text($self);
-              if (!$new_text) {
+              if (not defined($new_text)) {
                 $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                 goto funexit;
               }
               $line .= $new_text;
             }
           }
+          $current->{'remaining_args'}--;
           $current = $current->{'args'}->[-1];
           $line = '}' . $line;
           goto funexit;
@@ -6023,16 +6029,23 @@ sub _parse_texi($$$)
     last if (!defined($line));
 
     if ($self->{'DEBUG'}) {
-      my $line_text = '';
-      $line_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
+      my $source_info_text = '';
+      $source_info_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
          if ($source_info);
       print STDERR "NEW LINE("
          .join('|', $self->_get_context_stack())
-         .":@{$self->{'conditional_stack'}}:$line_text): $line";
-      #print STDERR "CONTEXT_STACK ".join('|',$self->_get_context_stack())."\n";
+         .":@{$self->{'conditional_stack'}}:$source_info_text): $line";
       #print STDERR "  $current: "
       #             .Texinfo::Common::debug_print_element_short($current)."\n";
     }
+
+    # This almost never happens in the tests, because empty lines are mostly
+    # generated within a line.
+    #if ($line eq '') {
+    #  print STDERR "IGNORE EMPTY LINE\n"
+    #     if ($self->{'DEBUG'})
+    #  next;
+    #}
 
     if (not
         # all the format handled early that have specific containers
