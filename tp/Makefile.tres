@@ -1727,6 +1727,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/value/empty_value_in_line.pl \
   t/results/value/ignored_value_definition.pl \
   t/results/value/not_only_characters.pl \
+  t/results/value/recursive_expansion_in_set.pl \
   t/results/value/set_flag_command_equivalent.pl \
   t/results/value/set_form_feed.pl \
   t/results/value/set_in_item_missing_line.pl \
