@@ -4350,7 +4350,7 @@ sub _process_remaining_on_line($$$$)
     #        and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
     #        and $line ne '') {
     #  print STDERR "New text in empty line $source_info->{'line_nr'}.$source_info->{'macro'} !$line!\n";
-    }
+    #}
   }
 
   my $at_command_length;
