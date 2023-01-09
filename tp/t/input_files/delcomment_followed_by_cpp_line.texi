@@ -9,4 +9,14 @@
 
 @unknown
 
+   this is a comment.
+#line 106 "a_file_after_space_del_comment"
+
+@unknown1
+
+ a  this is a comment.
+#line 206 "a_file_after_text_space_del_comment"
+
+@unknown2
+
 @bye

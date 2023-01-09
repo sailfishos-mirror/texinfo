@@ -13,10 +13,7 @@ Before next release
 Bugs
 ====
 
-test with cpp directive in macro, verify that file name is stil changed
-after the macro expansion
-
-on the same line as a macro expansion check the source_info, incorrect macro?
+Fix delcomment_followed_by_cpp_line test.
 
 HTML API
 ========

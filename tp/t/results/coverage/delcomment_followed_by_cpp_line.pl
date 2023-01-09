@@ -117,6 +117,70 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'text' => '  ',
+          'type' => 'spaces_before_paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '#line 106 "a_file_after_space_del_comment"
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'text' => ' ',
+          'type' => 'spaces_before_paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'a #line 206 "a_file_after_text_space_del_comment"
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -144,12 +208,28 @@ $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
 
 
 
+  #line 106 "a_file_after_space_del_comment"
+
+
+
+ a #line 206 "a_file_after_text_space_del_comment"
+
+
+
 @bye
 ';
 
 
 $result_texts{'delcomment_followed_by_cpp_line'} = '
 
+
+
+
+#line 106 "a_file_after_space_del_comment"
+
+
+
+a #line 206 "a_file_after_text_space_del_comment"
 
 
 
@@ -163,6 +243,24 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
     'line_nr' => 48,
     'macro' => '',
     'text' => 'unknown command `unknown\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'unknown command `unknown1\'
+',
+    'file_name' => 'a_file_after_del_comment',
+    'line_nr' => 53,
+    'macro' => '',
+    'text' => 'unknown command `unknown1\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'unknown command `unknown2\'
+',
+    'file_name' => 'a_file_after_del_comment',
+    'line_nr' => 58,
+    'macro' => '',
+    'text' => 'unknown command `unknown2\'',
     'type' => 'error'
   }
 ];
