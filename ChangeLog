@@ -6,6 +6,12 @@
 
 2023-01-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t:
+	add a test with the same transliterated file names for a node, an
+	anchor and a float label.
+
+2023-01-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/input_files/delcomment_followed_by_cpp_line.texi: add more
 	cases of del comment followed by cpp directives.
 

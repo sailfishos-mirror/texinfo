@@ -779,6 +779,12 @@ $itemize_arguments_text
 $itemize_arguments_text
 , {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
 ],
+['transliterated_names_conflicts',
+  undef,
+  {'test_file' => 'transliterated_names_conflicts.texi',
+   'test_split' => 'node'},
+  {'SPLIT' => 'node'},
+],
 ['check_htmlxref_no_use_nodes',
 $check_htmlxref_text
 , {}, {'CHECK_HTMLXREF' => 1, 'USE_NODES', 0}],
