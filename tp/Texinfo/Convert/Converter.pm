@@ -752,10 +752,7 @@ sub initialize_tree_units_files($)
 
   $self->{'out_filepaths'} = {};
   $self->{'file_counters'} = {};
-
-  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
-    $self->{'filenames'} = {};
-  }
+  $self->{'filenames'} = {};
 }
 
 # If CASE_INSENSITIVE_FILENAMES is set, reuse the first
@@ -768,12 +765,21 @@ sub _normalize_filename_case($$)
   if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
     if (exists($self->{'filenames'}->{lc($filename)})) {
       if ($self->get_conf('DEBUG')) {
-        print STDERR "Reusing ".$self->{'filenames'}->{lc($filename)}
-                     ." for $filename\n";
+        print STDERR "Reusing case-insensitive ".
+                   $self->{'filenames'}->{lc($filename)}." for $filename\n";
       }
       $filename = $self->{'filenames'}->{lc($filename)};
     } else {
       $self->{'filenames'}->{lc($filename)} = $filename;
+    }
+  } else {
+    if (exists($self->{'filenames'}->{$filename})) {
+      if ($self->get_conf('DEBUG')) {
+        print STDERR "Reusing ".$self->{'filenames'}->{$filename}
+                     ." for $filename\n";
+      }
+    } else {
+      $self->{'filenames'}->{$filename} = $filename;
     }
   }
   return $filename;
