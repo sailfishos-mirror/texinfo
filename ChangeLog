@@ -1,3 +1,9 @@
+2023-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (split_entry):
+	Rewrite in slightly more obscure way to silence obnoxious gcc
+	warning about use of strncat.
+
 2023-01-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/input_files/delcomment_followed_by_cpp_line.texi: add more
