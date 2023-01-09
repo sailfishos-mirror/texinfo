@@ -1,3 +1,11 @@
+2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/man.c (check_manpage_node):
+	Disable this code if __sun is defined, to avoid clash with
+	man program on Solaris, where -w means to update the whatis
+	database.  Test failure on OpenSolaris 2022.10 reported by
+	Bruno Haible.
+
 2023-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (split_entry):
