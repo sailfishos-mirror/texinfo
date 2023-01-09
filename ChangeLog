@@ -1,3 +1,16 @@
+2023-01-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/tests/Makefile.am:
+	Call maintain/copy_change_file_name_encoding.pl to create files
+	in built_input subdirectory.  This stops make program on
+	OpenIndiana 11 gagging immediately in a UTF-8 locale.
+	* tp/tests/run_parser_all.sh: Pass -I built_input to texi2any.
+
+2023-01-04  Patrice Dumas  <pertusus@free.fr>
+
+	* .gitignore: replace tp/tests/included_lat*n1.texi by
+	tp/tests/built_input.
+
 2023-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/man.c (check_manpage_node):
