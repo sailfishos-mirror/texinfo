@@ -1,6 +1,6 @@
 /* install-info -- merge Info directory entries from an Info file.
 
-   Copyright 1996-2022 Free Software Foundation, Inc.
+   Copyright 1996-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1603,9 +1603,8 @@ split_entry (const char *entry, char **name, size_t *name_len,
       else
         {
           /* Just show the rest when there's no newline. */
-          size_t length = strlen (ptr);
-          strncat (*description, ptr, length);
-          ptr += length;
+          strcat (*description, ptr);
+          ptr += strlen (ptr);
         }
     }
   /* Descriptions end in a new line. */

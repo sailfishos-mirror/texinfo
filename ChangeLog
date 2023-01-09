@@ -1,3 +1,8 @@
+2023-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (split_entry):
+	Rewrite to silence obnoxious gcc warning about use of strncat.
+
 2022-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi, doc/info-stnd.texi, doc/texi2any_api.texi:
