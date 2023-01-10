@@ -1,5 +1,10 @@
 2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands):
+	Some edits for style and brevity.
+
+2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands): Move immediately after
 	introductory chapter so that we can immediately introduce the
 	important commands 'n', 'p' and 'u'.
