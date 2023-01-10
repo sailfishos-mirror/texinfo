@@ -456,7 +456,7 @@ sub _normalize_texinfo_name($$)
       $current->{'args'}->[0]->{'contents'} = $protected_contents;
     }
   }
-  my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree, 1);
+  my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   my $result = $fixed_text;
   if ($command eq 'anchor') {
     $result =~ s/^\@anchor\{(.*)\}$/$1/s;
@@ -508,7 +508,7 @@ sub _prepare_anchor($$)
   $node_tree = protect_comma_in_tree($node_tree);
   $node_tree = protect_colon_in_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
-  my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree, 1);
+  my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree);
   return $final_node_name;
 }
 

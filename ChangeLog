@@ -43,6 +43,13 @@
 	files in subdirectories in infodir.
 	* doc/filesys.c (info_suffixes): Remove "/index".
 
+2023-01-10  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name, _prepare_anchor): update
+	Texinfo::Convert::Texinfo::convert_to_texinfo call which has no
+	second argument anymore.
+
 2023-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (split_entry):
