@@ -1,5 +1,10 @@
 2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Invoking Info): Relegate list of supported
+	compression programs to a footnote.
+
+2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Invoking Info), NEWS:
 	Remove "/index" as possible info file extension, as the
 	purpose of this is obscure, it is not a proper file extension

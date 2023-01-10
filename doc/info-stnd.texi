@@ -165,16 +165,17 @@ authors.
 @cindex compressed Info files
 @cindex files, compressed
 @cindex Info files, compressed
-If no entry is found in the directories, Info looks for files in its
-search path with names based on @var{manual}.  If @var{manual} is
-not found, Info looks for it with a number of known extensions of Info
-files, namely @file{.info}, @file{-info}, and @file{.inf}.
-For every known extension, if a regular file is not found, Info looks
-for a compressed file.  Info supports files compressed with @code{gzip},
-@code{xz}, @code{bzip2}, @code{lzip}, @code{lzma}, @code{compress} and
-@code{yabba} programs, assumed to have extensions @file{.z}, @file{.gz},
-@file{.xz}, @file{.bz2}, @file{.lz}, @file{.lzma}, @file{.Z}, and
-@file{.Y} respectively.@footnote{On MS-DOS, Info allows for the Info
+If no entry is found in the directories, Info looks for a file called
+@var{manual} in its search path.  If not found, Info looks for it
+with the file extensions @file{.info}, @file{-info}, and @file{.inf}.
+For each of these known extensions, if a regular file is not found,
+Info looks for a compressed file.@footnote{Info supports files
+compressed with @code{gzip}, @code{xz}, @code{bzip2}, @code{lzip},
+@code{lzma}, @code{compress} and @code{yabba} programs, assumed
+to have extensions @file{.z}, @file{.gz}, @file{.xz}, @file{.bz2},
+@file{.lz}, @file{.lzma}, @file{.Z}, and @file{.Y} respectively.
+
+On MS-DOS, Info allows for the Info
 extension, such as @code{.inf}, and the short compressed file extensions,
 such as @file{.z} and @file{.gz}, to be merged into a single extension,
 since DOS doesn't allow more than a single dot in the basename of
