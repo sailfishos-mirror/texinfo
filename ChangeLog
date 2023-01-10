@@ -1,3 +1,13 @@
+2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Invoking Info), NEWS:
+	Remove "/index" as possible info file extension, as the
+	purpose of this is obscure, it is not a proper file extension
+	and looks like a mistake, even though it isn't one.
+	Originally added 1997-08-06 by Matthew Wilcox to put split info
+	files in subdirectories in infodir.
+	* doc/filesys.c (info_suffixes): Remove "/index".
+
 2023-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (split_entry):

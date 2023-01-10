@@ -43,7 +43,6 @@ typedef struct
 static char *info_suffixes[] = {
   ".info",
   "-info",
-  "/index",
   ".inf",       /* 8+3 file on filesystem which supports long file names */
 #ifdef __MSDOS__
   /* 8+3 file names strike again...  */

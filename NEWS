@@ -38,6 +38,9 @@ See the manual for detailed information.
  . page headings generation is no longer linked to the @titlepage command
  . microtype is off by default, for speed
 
+* info
+ . do not use "/index" as a possible file extension for Info files
+
 
 7.0.1 (30 November 2022)
 This is a bug-fix release with minimal changes.

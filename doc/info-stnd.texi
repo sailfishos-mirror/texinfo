@@ -168,7 +168,7 @@ authors.
 If no entry is found in the directories, Info looks for files in its
 search path with names based on @var{manual}.  If @var{manual} is
 not found, Info looks for it with a number of known extensions of Info
-files, namely @file{.info}, @file{-info}, @file{/index}, and @file{.inf}.
+files, namely @file{.info}, @file{-info}, and @file{.inf}.
 For every known extension, if a regular file is not found, Info looks
 for a compressed file.  Info supports files compressed with @code{gzip},
 @code{xz}, @code{bzip2}, @code{lzip}, @code{lzma}, @code{compress} and
