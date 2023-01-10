@@ -1,5 +1,12 @@
 2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Scrolling Commands, Miscellaneous Commands):
+	Move documentation of redraw-display and toggle-wrap to
+	Miscellaneous Commands as these aren't scrolling commands.
+	Do not describe show-footnotes command as "convenient".
+
+2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Invoking Info): Move later in the
 	manual so that a user reading through the manual from
 	start to finish gets information on interactive use first.

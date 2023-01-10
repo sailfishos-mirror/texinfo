@@ -351,31 +351,6 @@ variable @code{scroll-behavior} (@pxref{scroll-behavior}).
 The @code{scroll-forward-page-only} and @code{scroll-backward-page-only}
 commands never scroll beyond the current node.
 
-@table @asis
-@item @kbd{C-l} (@code{redraw-display})
-@kindex C-l
-@findex redraw-display
-Redraw the display from scratch, or shift the line containing the cursor
-to a specified location.  With no numeric argument, @samp{C-l} clears
-the screen, and then redraws its entire contents.  Given a numeric
-argument of @var{n}, the line containing the cursor is shifted so that
-it is on the @var{n}th line of the window.
-
-@item @kbd{C-x @kbd{w}} (@code{toggle-wrap})
-@kindex C-w
-@findex toggle-wrap
-Toggles the state of line wrapping in the current window.  Normally,
-lines which are longer than the screen width @dfn{wrap}, i.e., they are
-continued on the next line.  Lines which wrap have a @samp{\} appearing
-in the rightmost column of the screen.  You can cause such lines to be
-terminated at the rightmost column by changing the state of line
-wrapping in the window with @kbd{C-x w}.  When a line which needs more
-space than one screen width to display is displayed, a @samp{$} appears
-in the rightmost column of the screen, and the remainder of the line is
-invisible.  When long lines are truncated, the mode line displays the
-@samp{$} character near its left edge.
-@end table
-
 
 @node Node Commands
 @chapter Selecting a Node
@@ -1476,23 +1451,47 @@ The @samp{q} command of Info simply quits running Info.
 Exit GNU Info.
 @end table
 
-If the operating system tells GNU Info that the screen is 60 lines tall,
-and it is actually only 40 lines tall, here is a way to tell Info that
-the operating system is correct.
+Here are commands affecting the display of nodes:
 
 @table @asis
+@item @kbd{C-l} (@code{redraw-display})
+@kindex C-l
+@findex redraw-display
+Redraw the display from scratch, or shift the line containing the cursor
+to a specified location.  With no numeric argument, @samp{C-l} clears
+the screen, and then redraws its entire contents.  Given a numeric
+argument of @var{n}, the line containing the cursor is shifted so that
+it is on the @var{n}th line of the window.
+
 @item @code{@kbd{M-x} set-screen-height}
 @findex set-screen-height
 @cindex screen, changing the height of
 Read a height value in the echo area and set the height of the
-displayed screen to that value.
+displayed screen to that value.  For example, if the operating system
+tells GNU Info that the screen is 60 lines tall, and it is actually
+only 40 lines tall, you could use this command to tell Info that the
+operating system is incorrect.
+
+@item @kbd{C-x @kbd{w}} (@code{toggle-wrap})
+@kindex C-w
+@findex toggle-wrap
+Toggles the state of line wrapping in the current window.  Normally,
+lines which are longer than the screen width @dfn{wrap}, i.e., they are
+continued on the next line.  Lines which wrap have a @samp{\} appearing
+in the rightmost column of the screen.  You can cause such lines to be
+terminated at the rightmost column by changing the state of line
+wrapping in the window with @kbd{C-x w}.  When a line which needs more
+space than one screen width to display is displayed, a @samp{$} appears
+in the rightmost column of the screen, and the remainder of the line is
+invisible.  When long lines are truncated, the mode line displays the
+@samp{$} character near its left edge.
 @end table
 
 On MS-DOS/MS-Windows, this command actually tries to change the
 dimensions of the visible screen to the value you type in the echo
 area.
 
-Finally, Info provides a convenient way to display footnotes which might
+Finally, Info provides a way to display footnotes which might
 be associated with the current node that you are viewing:
 
 @table @asis
