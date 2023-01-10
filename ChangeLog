@@ -1,5 +1,11 @@
 2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (MS-DOS/Windows keybindings):
+	Collect MS-DOS/Windows alternative keybindings in this node to
+	avoid obscuring the documentation in the rest of the manual.
+
+2023-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Scrolling Commands, Miscellaneous Commands):
 	Move documentation of redraw-display and toggle-wrap to
 	Miscellaneous Commands as these aren't scrolling commands.

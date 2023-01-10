@@ -78,6 +78,7 @@ and @key{Backspace}) to move forwards and backwards in it.
 * Variables::                   How to change the default behavior of Info.
 * Colors and Styles::           Customize the colors used by Info.
 * Custom Key Bindings::         How to define your own key-to-command bindings.
+* MS-DOS/Windows keybindings::  Alternate DOS/Windows keybindings.
 * Index::                       Global index.
 @end menu
 
@@ -165,16 +166,12 @@ Move the cursor down to the next line.
 Move the cursor up to the previous line.
 
 @item @kbd{C-a} (@code{beginning-of-line})
-@itemx @key{Home} (on DOS/Windows only)
 @kindex C-a, in Info windows
-@kindex Home
 @findex beginning-of-line
 Move the cursor to the start of the current line.
 
 @item @kbd{C-e} (@code{end-of-line})
-@itemx @key{End} (on DOS/Windows only)
 @kindex C-e, in Info windows
-@kindex End
 @findex end-of-line
 Move the cursor to the end of the current line.
 
@@ -193,34 +190,26 @@ Move the cursor forward a character.
 Move the cursor backward a character.
 
 @item @kbd{M-f} (@code{forward-word})
-@itemx @kbd{C-@key{RIGHT}} (on DOS/Windows only)
 @kindex M-f, in Info windows
-@kindex C-RIGHT
 @findex forward-word
 Move the cursor forward a word.
 
 @item @kbd{M-b} (@code{backward-word})
-@itemx @kbd{C-@key{LEFT}} (on DOS/Windows only)
 @kindex M-b, in Info windows
-@kindex C-LEFT
 @findex backward-word
 Move the cursor backward a word.
 
 @item @kbd{M-<} (@code{beginning-of-node})
-@itemx @kbd{C-@key{Home}} (on DOS/Windows only)
 @itemx @kbd{b}
 @kindex b, in Info windows
 @kindex M-<
-@kindex C-Home
 @findex beginning-of-node
 Move the cursor to the start of the current node.
 
 @item @kbd{M->} (@code{end-of-node})
-@itemx @kbd{C-@key{End}} (on DOS/Windows only)
 @itemx @kbd{e}
 @kindex M->
 @kindex e, in Info windows
-@kindex C-End
 @findex end-of-node
 Move the cursor to the end of the current node.
 
@@ -369,31 +358,17 @@ when you use the following commands:
 
 @table @asis
 @item @kbd{n} (@code{next-node})
-@itemx @kbd{C-@key{NEXT}} (on DOS/Windows only)
 @kindex n
-@kindex C-NEXT
 @findex next-node
 Select the `Next' node.
 
-@kindex C-PgDn
-The @key{NEXT} key is known as the @key{PgDn} key on some
-keyboards.
-
 @item @kbd{p} (@code{prev-node})
-@itemx @kbd{C-@key{PREVIOUS}} (on DOS/Windows only)
 @kindex p
-@kindex C-PREVIOUS
 @findex prev-node
 Select the `Prev' node.
 
-@kindex C-PgUp
-The @key{PREVIOUS} key is known as the @key{PgUp} key on some
-keyboards.
-
 @item @kbd{u} (@code{up-node})
-@itemx @kbd{C-@key{UP}} (an arrow key on DOS/Windows only)
 @kindex u
-@kindex C-UP
 @findex up-node
 Select the `Up' node.
 @end table
@@ -411,9 +386,7 @@ entire history of that window is discarded.
 
 @table @asis
 @item @kbd{l} (@code{history-node})
-@itemx @kbd{C-@key{CENTER}} (on DOS/Windows only)
 @kindex l
-@kindex C-CENTER
 @findex history-node
 Pop the most recently selected node in this window from the node
 history.
@@ -913,7 +886,6 @@ reference in this node.  You can then use @key{RET}
 
 @item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
 @itemx @kbd{BackTab}
-@itemx @kbd{Shift-@key{TAB}} (on DOS/Windows only)
 @kindex M-TAB, in Info windows
 @findex move-to-prev-xref
 Move the cursor the start of the nearest previous menu item or note
@@ -1104,22 +1076,14 @@ Move to the start of the input line.
 Move to the end of the input line.
 
 @item @kbd{M-f} (@code{echo-area-forward-word})
-@itemx @kbd{C-@key{RIGHT}} (DOS/Windows only)
 @kindex M-f, in the echo area
 @findex echo-area-forward-word
 Move forward a word.
 
-@kindex C-RIGHT, in the echo area
-On DOS/Windows, @kbd{C-@key{RIGHT}} moves forward by words.
-
 @item @kbd{M-b} (@code{echo-area-backward-word})
-@itemx @kbd{C-@key{LEFT}} (DOS/Windows only)
 @kindex M-b, in the echo area
 @findex echo-area-backward-word
 Move backward a word.
-
-@kindex C-LEFT, in the echo area
-On DOS/Windows, @kbd{C-@key{LEFT}} moves backward by words.
 
 @item @kbd{C-d} (@code{echo-area-delete})
 @kindex C-d, in the echo area
@@ -1154,16 +1118,9 @@ Insert the next character verbatim.  This is how you can insert control
 characters into a search string.
 
 @item @kbd{M-@key{TAB}} (@code{echo-area-tab-insert})
-@itemx @kbd{Shift-@key{TAB}} (on DOS/Windows only)
 @kindex M-TAB, in the echo area
-@kindex Shift-TAB, in the echo area
 @findex echo-area-tab-insert
 Insert a @key{TAB} character.
-
-@kindex Shift-TAB, in the echo area
-@kindex BackTab, in the echo area
-On DOS/Windows only, the @kbd{Shift-@key{TAB}} key is an alias for
-@kbd{M-@key{TAB}}.  This key is sometimes called @samp{BackTab}.
 
 @item @kbd{C-t} (@code{echo-area-transpose-chars})
 @kindex C-t, in the echo area
@@ -1339,7 +1296,6 @@ Read the name of an Info command in the echo area, and then display
 a key sequence which can be typed in order to invoke that command.
 
 @item @kbd{H} (@code{get-help-window})
-@itemx @key{F1} (on DOS/Windows only)
 @kindex C-h
 @kindex ?, in Info windows
 @kindex F1
@@ -2546,6 +2502,85 @@ The order in which key bindings are defined in the @file{.infokey} file is
 not important, except that the command summary produced by the
 @code{get-help-window} command only displays the @emph{first} key that
 is bound to each command.
+
+
+@node MS-DOS/Windows keybindings
+@chapter Alternate MS-DOS/Windows keybindings
+
+Here are some keybindings that are only used in Info on MS-DOS/Windows.
+
+@heading Cursor commands
+
+@kindex Home
+@kindex End
+@kindex C-RIGHT
+@kindex C-LEFT
+@kindex C-Home
+@kindex C-End
+@table @kbd
+@item @key{Home}
+@code{beginning-of-line}
+@item @key{End}
+@code{end-of-line}
+@item C-@key{RIGHT}
+@code{forward-word}
+@item C-@key{LEFT}
+@code{backward-word}
+@item C-@key{Home}
+@code{beginning-of-node}
+@item C-@key{End}
+@code{end-of-node}
+@end table
+
+@heading Node commands
+
+@kindex C-NEXT
+@kindex C-PgDn
+@kindex C-PREVIOUS
+@kindex C-PgUp
+@kindex C-CENTER
+@kindex C-UP
+@table @kbd
+@item C-@key{NEXT}
+@code{next-node}
+@item C-@key{PREVIOUS}
+@code{prev-node}
+@item C-@key{UP} (an arrow key)
+@code{up-node}
+@item C-@key{CENTER}
+@code{history-node}
+@end table
+
+The @key{NEXT} key is known as the @key{PgDn} key on some
+keyboards.
+The @key{PREVIOUS} key is known as the @key{PgUp} key on some
+keyboards.
+
+
+@heading Echo area commands
+
+@kindex C-RIGHT, in the echo area
+@kindex C-LEFT, in the echo area
+@kindex Shift-TAB, in the echo area
+@kindex BackTab, in the echo area
+@table @kbd
+@item C-@key{RIGHT}
+@code{echo-area-forward-word}
+@item C-@key{LEFT}
+@code{echo-area-backward-word}
+@item Shift-@key{TAB}
+@code{echo-area-tab-insert}
+@end table
+
+On DOS/Windows only, the @kbd{Shift-@key{TAB}} key is an alias for
+@kbd{M-@key{TAB}}.  This key is sometimes called @samp{BackTab}.
+
+@heading Miscellaneous commands
+
+@table @kbd
+@item @key{F1}
+@code{get-help-window}
+@end table
 
 
 @node Index
