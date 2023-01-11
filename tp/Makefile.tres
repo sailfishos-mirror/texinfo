@@ -565,6 +565,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/file_name_conflict_with_user_defined/res_html \
   t/results/html_tests/filenameconflictwithnonsplit.pl \
   t/results/html_tests/filenameconflictwithnonsplit/res_html \
+  t/results/html_tests/filenameconflictwithspecialelement.pl \
+  t/results/html_tests/filenameconflictwithspecialelement/res_html \
   t/results/html_tests/float_copying.pl \
   t/results/html_tests/float_copying/res_html \
   t/results/html_tests/footnotestyle_separate_html_text_no_monolithic.pl \

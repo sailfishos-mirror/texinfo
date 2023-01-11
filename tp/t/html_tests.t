@@ -799,6 +799,22 @@ my @file_tests = (
 ', {'init_files' => ['redirection_file_collision_with_user_def.init']},
    {'SPLIT' => 'chapter'},
 ],
+['filenameconflictwithspecialelement',
+'@node Top
+@top top
+
+@footnote{a footnote}
+
+@node chap
+@chapter chap
+
+Need 2 elements for separate footnotes.
+
+@anchor{filenameconflictwithspecialelement fot}
+
+', {'init_files' => ['redirection_file_collision_with_special.init']},
+   {'SPLIT' => 'node', 'footnotestyle' => 'separate'},
+],
 # NOTE the result is incorrect, the first footnote text is at the
 # end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,
