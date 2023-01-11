@@ -1,5 +1,19 @@
 2023-01-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Hypenation in @code
+
+	* doc/texinfo.tex (\code, \codedash): Set internal \codedashprev
+	macro differently when \code starts to avoid hyphenation being
+	always turned off for the first hyphen in code.  \codedashprev
+	does not actually refer to the previous character, as it is
+	only set when a dash is seen, not at every single character
+	within @code, so rename it to \codedashnobreak to be less
+	confusing.
+
+	Report from Werner.
+
+2023-01-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Invoking Info): Say what happens if Info's
 	standard output is not a terminal.
 
