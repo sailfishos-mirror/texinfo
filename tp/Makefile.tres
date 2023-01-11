@@ -557,6 +557,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename.pl \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename_no_element.pl \
   t/results/html_tests/empty_titlefont.pl \
+  t/results/html_tests/file_name_conflict_with_Top.pl \
+  t/results/html_tests/file_name_conflict_with_Top/res_html \
+  t/results/html_tests/file_name_conflict_with_section.pl \
+  t/results/html_tests/file_name_conflict_with_section/res_html \
+  t/results/html_tests/file_name_conflict_with_user_defined.pl \
+  t/results/html_tests/file_name_conflict_with_user_defined/res_html \
+  t/results/html_tests/filenameconflictwithnonsplit.pl \
+  t/results/html_tests/filenameconflictwithnonsplit/res_html \
   t/results/html_tests/float_copying.pl \
   t/results/html_tests/float_copying/res_html \
   t/results/html_tests/footnotestyle_separate_html_text_no_monolithic.pl \

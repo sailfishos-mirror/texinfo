@@ -171,6 +171,7 @@ test_files = \
  t/init/misc_file_collision.init \
  t/init/only_toc_out.init \
  t/init/redefine_need.init \
+ t/init/redirection_file_collision_with_user_def.init
  t/init/special_element_customization.pm \
  t/init/t2h_singular.init \
  t/init/test_directions.init \

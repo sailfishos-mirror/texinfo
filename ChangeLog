@@ -1,5 +1,16 @@
 2023-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): add context for node
+	and section names for redirection files conflicts for translation.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t:
+	add tests for different possibilities for file conflict with
+	redirection files, file_name_conflict_with_section,
+	filenameconflictwithnonsplit (which actually shows that there cannot
+	be a conflict), file_name_conflict_with_user_defined.
+
+2023-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm: reindent, cut at 80 columns, remove
 	unused code.
 

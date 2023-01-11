@@ -752,6 +752,53 @@ my @file_tests = (
 
 @node @^i
 ', {'test_split' => 'section'}, {'SPLIT' => 'chapter'}],
+['transliterated_names_conflicts',
+  undef,
+  {'test_file' => 'transliterated_names_conflicts.texi',
+   'test_split' => 'node'},
+  {'SPLIT' => 'node'},
+],
+['file_name_conflict_with_section',
+'@node Top
+@top top
+@anchor{Chap}
+
+@chapter Chap
+', {},{'USE_NODES' => 0, 'SPLIT' => 'node'},
+],
+# this shows that a conflict cannot happen as the anchor with the
+# same name as the file is in the file
+['filenameconflictwithnonsplit',
+'@node Top
+@top top
+
+@anchor{filenameconflictwithnonsplit}
+
+', {}, {'SPLIT' => '', 'NODE_FILES' => 1}],
+['file_name_conflict_with_Top',
+'@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@anchor{index}
+', {}, {'SPLIT' => 'node'},
+],
+['file_name_conflict_with_user_defined',
+'@node Top
+@top top
+
+@node Chapter 1
+@chapter Chap 1
+
+@anchor{myanchor}
+
+@node Chapter 2
+@chapter Chap 2
+', {'init_files' => ['redirection_file_collision_with_user_def.init']},
+   {'SPLIT' => 'chapter'},
+],
 # NOTE the result is incorrect, the first footnote text is at the
 # end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,
@@ -778,12 +825,6 @@ $itemize_arguments_text
 ['itemize_arguments_enable_encoding',
 $itemize_arguments_text
 , {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1}
-],
-['transliterated_names_conflicts',
-  undef,
-  {'test_file' => 'transliterated_names_conflicts.texi',
-   'test_split' => 'node'},
-  {'SPLIT' => 'node'},
 ],
 ['check_htmlxref_no_use_nodes',
 $check_htmlxref_text

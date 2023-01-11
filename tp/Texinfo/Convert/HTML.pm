@@ -11155,6 +11155,10 @@ sub output($$)
               or $file_info_type eq 'stand_in_file') {
             my $name = $file_source->{'file_info_name'};
             if ($name eq 'non_split') {
+              # This cannot actually happen, as the @anchor/@node/@float
+              # with potentially conflicting name will also be in the
+              # non-split output document and therefore does not need
+              # a redirection.
               $self->document_warn($self,
                             __("conflict with whole document file"), 1);
             } elsif ($name eq 'Top') {
@@ -11173,7 +11177,8 @@ sub output($$)
           } elsif ($file_info_type eq 'node') {
             my $conflicting_node = $file_source->{'file_info_element'};
             $self->line_warn($self,
-               sprintf(__("conflict with \@%s `%s' file"),
+         sprintf(__p('conflict of redirection file with file based on node name',
+                     "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                    => $conflicting_node->{'extra'}->{'node_content'}}),
@@ -11200,7 +11205,8 @@ sub output($$)
           } elsif ($file_info_type eq 'section') {
             my $conflicting_section = $file_source->{'file_info_element'};
             $self->line_warn($self,
-               sprintf(__("conflict with \@%s `%s' file"),
+         sprintf(__p('conflict of redirection file with file based on section name',
+                     "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                    => $conflicting_section->{'args'}->[0]->{'contents'}}),
