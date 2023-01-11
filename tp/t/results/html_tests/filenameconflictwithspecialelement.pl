@@ -58,7 +58,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => ' 
+            'spaces_after_argument' => '
 '
           },
           'type' => 'line_arg'
@@ -67,7 +67,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
       'cmdname' => 'top',
       'contents' => [
         {
-          'text' => '  
+          'text' => '
 ',
           'type' => 'empty_line'
         },
@@ -249,8 +249,8 @@ $result_trees{'filenameconflictwithspecialelement'}{'contents'}[3]{'extra'}{'nod
 $result_trees{'filenameconflictwithspecialelement'}{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'filenameconflictwithspecialelement'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'filenameconflictwithspecialelement'} = '@node Top
-@top top 
-  
+@top top
+
 @footnote{a footnote}
 
 @node chap
@@ -265,7 +265,7 @@ Need 2 elements for separate footnotes.
 
 $result_texts{'filenameconflictwithspecialelement'} = 'top
 ***
-  
+
 
 
 1 chap
