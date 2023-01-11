@@ -158,7 +158,7 @@ sub _collect_css_element_class($$)
 {
   my $self = shift;
   my $element_class = shift;
-  
+
   #if (not defined($self->{'current_filename'})) {
   #  cluck "CFND";
   #}
@@ -2213,7 +2213,7 @@ my %default_translated_directions_strings = (
      ' ' =>           {'converted' => ' '},
      'Top' =>         {'to_convert'
         => Texinfo::Common::pgdt('Top direction button label', 'Top')},
-     'Contents' =>    {'to_convert' 
+     'Contents' =>    {'to_convert'
         => Texinfo::Common::pgdt('Contents direction button label', 'Contents')},
      'Overview' =>    {'to_convert'
         => Texinfo::Common::pgdt('Overview direction button label', 'Overview')},
@@ -2291,10 +2291,10 @@ sub _translate_names($)
       }
     }
   }
-  
   my %translated_commands;
   foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
-    foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}->{$context}})) {
+    foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}
+                                                              ->{$context}})) {
       if (defined($self->{'no_arg_commands_formatting'}
                          ->{$context}->{$command}->{'translated_converted'})
           and not $self->{'no_arg_commands_formatting'}
@@ -2312,8 +2312,8 @@ sub _translate_names($)
                           ->{$context}->{$command}->{'translated_to_convert'});
         } else {
           # default translated commands
-          $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
-                                                                           $command);
+          $translated_tree
+            = Texinfo::Convert::Utils::translated_command_tree($self, $command);
         }
         if (defined($translated_tree) and $translated_tree ne '') {
           $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'tree'}
@@ -2348,7 +2348,8 @@ sub gdt($$;$$$$)
       return $translated_string;
     }
   }
-  return $self->SUPER::gdt($message, $replaced_substrings, $message_context, $type, $lang);
+  return $self->SUPER::gdt($message, $replaced_substrings, $message_context,
+                           $type, $lang);
 }
 
 
@@ -2371,8 +2372,8 @@ my %css_element_class_styles = (
      'ul.toc-numbered-mark'   => 'list-style: none',
      'pre.menu-comment-preformatted' => 'font-family: serif',
      # using display: inline is an attempt to avoid a line break when in
-     # preformatted in menu.  In 2022 it does not seems to work in firefox, there
-     # is still a line break.
+     # preformatted in menu.  In 2022 it does not seems to work in firefox,
+     # there is still a line break.
      'pre.menu-entry-description-preformatted' => 'font-family: serif; display: inline',
      'pre.menu-preformatted'  => 'font-family: serif',
      'a.summary-letter-printindex'  => 'text-decoration: none',
@@ -2472,6 +2473,8 @@ my %default_commands_args = (
   'ref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
   'image' => [['url', 'filenametext', 'monospacestring'],['filenametext'],['filenametext'],['string', 'normal'],['filenametext']],
   # FIXME shouldn't it better not to convert if later ignored?
+  # note that right now ignored argument are in elided empty types
+  # but this could change.
   'inlinefmt' => [['monospacetext'],['normal']],
   'inlinefmtifelse' => [['monospacetext'],['normal'],['normal']],
   'inlineraw' => [['monospacetext'],['raw']],
@@ -2554,8 +2557,9 @@ my %default_no_arg_commands_formatting = (
 
 foreach my $command (keys(%Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting)) {
   $default_no_arg_commands_formatting{'normal'}->{$command} =
-   {'text' =>
-    $Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting{$command}};
+ {'text' =>
+  $Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting{
+                                                                     $command}};
 }
 
 $default_no_arg_commands_formatting{'normal'}->{' '} = {'text' => '&nbsp;'};
@@ -2616,7 +2620,8 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   } elsif (exists($nobrace_symbol_text{$command})
            and $nobrace_symbol_text{$command} eq '') {
     # @- @/ @/ @|
-    $default_no_arg_commands_formatting{'css_string'}->{$command} = {'text' => ''};
+    $default_no_arg_commands_formatting{'css_string'}->{$command}
+                                                    = {'text' => ''};
   } else {
     warn "BUG: $command: no css_string\n";
   }
@@ -2633,8 +2638,8 @@ $default_no_arg_commands_formatting{'css_string'}->{"\t"}->{'text'} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{"\n"}->{'text'} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{'tie'}->{'text'} = ' ';
 
-# w not in css_string, set the corresponding css_element_class_styles especially,
-# which also has none and not w in the class
+# w not in css_string, set the corresponding css_element_class_styles
+# especially, which also has none and not w in the class
 $css_element_class_styles{'ul.mark-none'} = 'list-style-type: none';
 
 # setup css_element_class_styles for mark commands based on css strings
@@ -2644,17 +2649,21 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
     if ($mark_command eq 'bullet') {
       $css_string = 'disc';
     } elsif ($default_no_arg_commands_formatting{'css_string'}->{$mark_command}
-             and $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'}) {
+             and $default_no_arg_commands_formatting{'css_string'}
+                                                 ->{$mark_command}->{'text'}) {
       if ($special_list_mark_css_string_no_arg_command{$mark_command}) {
         $css_string = $special_list_mark_css_string_no_arg_command{$mark_command};
       } else {
-        $css_string = $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'};
+        $css_string
+           = $default_no_arg_commands_formatting{'css_string'}
+                                             ->{$mark_command}->{'text'};
       }
       $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
       $css_string = '"'.$css_string.'"';
     }
     if (defined($css_string)) {
-      $css_element_class_styles{"ul.mark-$mark_command"} = "list-style-type: $css_string";
+      $css_element_class_styles{"ul.mark-$mark_command"}
+                               = "list-style-type: $css_string";
     }
   }
 }
@@ -2701,7 +2710,8 @@ sub _convert_no_arg_command($$$)
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
     if (($self->in_preformatted() or $self->in_math()
-         and $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$click_cmdname})
+         and $self->{'no_arg_commands_formatting'}->{'preformatted'}
+                                                             ->{$click_cmdname})
         or ($self->in_string() and
             $self->{'no_arg_commands_formatting'}->{'string'}->{$click_cmdname})
         or ($self->{'no_arg_commands_formatting'}->{'normal'}->{$click_cmdname})) {
@@ -2717,13 +2727,16 @@ sub _convert_no_arg_command($$$)
 
   if ($self->in_preformatted() or $self->in_math()) {
     $result = $self->_text_element_conversion(
-      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname}, $cmdname);
+      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname},
+      $cmdname);
   } elsif ($self->in_string()) {
     $result = $self->_text_element_conversion(
-      $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname}, $cmdname);
+      $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname},
+      $cmdname);
   } else {
     $result = $self->_text_element_conversion(
-      $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname}, $cmdname);
+      $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname},
+      $cmdname);
   }
 
   return $result;
@@ -2753,7 +2766,8 @@ sub _css_string_convert_no_arg_command($$$)
   #if (not defined($self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'})) {
   #  cluck ("BUG: CSS $cmdname no text");
   #}
-  return $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'};
+  return $self->{'no_arg_commands_formatting'}->{'css_string'}
+                                                 ->{$cmdname}->{'text'};
 }
 
 foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -2792,7 +2806,8 @@ $style_commands_element{'normal'} = {
       'file'        => 'samp',
       'headitemfont' => 'b', # the @multitable prototypes are ignored
                              # and headitem are in <th> rather than <td>.
-                             # The mapping is based on style used in other formats.
+                             # The mapping is based on style used in other
+                             # formats.
       'i'           => 'i',
       'slanted'     => 'i',
       'sansserif'   => 'span',
@@ -2816,7 +2831,8 @@ foreach my $formatting_context (keys(%style_commands_element)) {
 }
 $style_commands_formatting{'string'} = {};
 
-my %style_brace_types = map {$_ => 1} ('style_other', 'style_code', 'style_no_code');
+my %style_brace_types = map {$_ => 1} ('style_other', 'style_code',
+                                       'style_no_code');
 # @all_style_commands is the union of style brace commands and commands
 # in $style_commands_element{'normal'}, a few not being style brace commands.
 # Using keys of a map generated hash does like uniq, it avoids duplicates.
@@ -2980,7 +2996,8 @@ sub _convert_email_command($$$$)
     $text = $text_arg->{'normal'};
   }
   $text = $mail_string unless ($text ne '');
-  # match a non-space character, ascii and non-ascii spaces considered as spaces
+  # match a non-space character.  Both ascii and non-ascii spaces are
+  # considered as spaces.
   return $text unless ($mail =~ /[^\v\h\s]/);
   if ($self->in_string()) {
     return "$mail_string ($text)";
@@ -3118,8 +3135,9 @@ sub _convert_footnote_command($$$$)
   } else {
     $number_in_doc = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
   }
-  
+
   return "($number_in_doc)" if ($self->in_string());
+
   #print STDERR "FOOTNOTE $command\n";
   my $footid = $self->command_id($command);
 
@@ -3246,7 +3264,8 @@ sub _convert_image_command($$$$)
     }
     return $self->close_html_lone_element(
       $self->html_attribute_class('img', [$cmdname])
-        . ' src="'.$self->url_protect_file_text($image_file)."\" alt=\"$alt_string\"");
+        . ' src="'.$self->url_protect_file_text($image_file)
+        ."\" alt=\"$alt_string\"");
   }
   return '';
 }
@@ -3290,12 +3309,13 @@ sub _accent_entities_html_accent($$$;$$$)
   # with an accented letter, return the letter as is
   if ($accent eq 'dotless') {
     if ($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}
-        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})
+        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{
+                                                             $accent}->{$text})
         and ($command->{'parent'}
              and $command->{'parent'}->{'parent'}
              and $command->{'parent'}->{'parent'}->{'cmdname'}
-             and $Texinfo::Convert::Unicode::unicode_accented_letters{$command->{'parent'}
-                                        ->{'parent'}->{'cmdname'}})) {
+             and $Texinfo::Convert::Unicode::unicode_accented_letters{
+                   $command->{'parent'}->{'parent'}->{'cmdname'} })) {
       return $text;
     }
   }
@@ -3322,7 +3342,8 @@ sub _accent_entities_html_accent($$$;$$$)
       return $formatted_accent;
     }
   }
-  return $self->xml_accent($text, $command, $in_upper_case, $use_numeric_entities);
+  return $self->xml_accent($text, $command, $in_upper_case,
+                           $use_numeric_entities);
 }
 
 sub _accent_entities_numeric_entities_accent($$$;$)
@@ -3370,7 +3391,8 @@ sub _css_string_accent($$$;$)
     $text = uc ($text);
   }
   if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
-      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})) {
+      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{
+                                                          $accent}->{$text})) {
     return '\\' .
       $Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}. ' ';
   }
@@ -3409,7 +3431,8 @@ sub _css_string_convert_accent_command($$$$)
 }
 
 foreach my $command (keys(%accent_commands)) {
-  $default_css_string_commands_conversion{$command} = \&_css_string_convert_accent_command;
+  $default_css_string_commands_conversion{$command}
+    = \&_css_string_convert_accent_command;
 }
 
 # argument is formatted as code since indicateurl is in brace_code_commands
@@ -3560,7 +3583,7 @@ sub _default_panel_button_dynamic_direction($$;$$$)
   my $source_command = shift;
   my $omit_rel = shift;
   my $use_first_element_in_file_directions = shift;
-  
+
   my $result = undef;
 
   if ((defined($self->get_conf('USE_NODE_DIRECTIONS'))
@@ -3736,9 +3759,10 @@ sub _default_format_button($$;$)
     if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
         and defined($self->get_conf('ACTIVE_ICONS')->{$button})
         and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
-      my $button_name_string = $self->direction_string($button, 'button', 'string');
+      my $button_name_string = $self->direction_string($button,
+                                                       'button', 'string');
       $active = &{$self->formatting_function('format_button_icon_img')}($self,
-                        $button_name_string, $self->get_conf('ACTIVE_ICONS')->{' '});
+                   $button_name_string, $self->get_conf('ACTIVE_ICONS')->{' '});
     } else {
       $active = $self->direction_string($button, 'text');
     }
@@ -3769,7 +3793,8 @@ sub _default_format_button($$;$)
       if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')) {
         # FIXME strip FirstInFile from $button to get $active_icon?
         my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
-        my $button_name_string = $self->direction_string($button, 'button', 'string');
+        my $button_name_string = $self->direction_string($button,
+                                                         'button', 'string');
         if (defined($active_icon) and $active_icon ne '') {
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
@@ -3790,7 +3815,8 @@ sub _default_format_button($$;$)
       if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')) {
         # FIXME strip FirstInFile from $button to get $passive_icon?
         my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
-        my $button_name_string = $self->direction_string($button, 'button', 'string');
+        my $button_name_string = $self->direction_string($button,
+                                                         'button', 'string');
         if ($passive_icon and $passive_icon ne '') {
           $passive = &{$self->formatting_function('format_button_icon_img')}(
                       $self, $button_name_string, $passive_icon,
@@ -3926,7 +3952,7 @@ sub _default_format_element_header($$$$)
   my $tree_unit = shift;
 
   my $result = '';
-   
+
   print STDERR "FORMAT elt header "
      # uncomment to get perl object names
      #."$tree_unit (@{$tree_unit->{'contents'}}) ".
@@ -3948,41 +3974,48 @@ sub _default_format_element_header($$$$)
            and $self->count_elements_in_filename('current',
                            $tree_unit->{'structure'}->{'unit_filename'}) == 1);
     my $previous_is_top = 0;
-    $previous_is_top = 1 if ($tree_unit->{'structure'}->{'unit_prev'}
-                   and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
+    $previous_is_top = 1
+      if ($tree_unit->{'structure'}->{'unit_prev'}
+          and $self->element_is_tree_unit_top($tree_unit->{'structure'}
+                                                             ->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
-      .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command)."\n"
-        if ($self->get_conf('DEBUG'));
+     .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command)."\n"
+       if ($self->get_conf('DEBUG'));
 
     if ($is_top) {
       # use TOP_BUTTONS for top.
-      $result .= &{$self->formatting_function('format_navigation_header')}($self,
-               $self->get_conf('TOP_BUTTONS'), $cmdname, $command)
-        if ($self->get_conf('SPLIT') or $self->get_conf('HEADERS'));
+      $result .=
+         &{$self->formatting_function('format_navigation_header')}($self,
+                         $self->get_conf('TOP_BUTTONS'), $cmdname, $command)
+           if ($self->get_conf('SPLIT') or $self->get_conf('HEADERS'));
     } else {
       if ($first_in_page and !$self->get_conf('HEADERS')) {
         if ($self->get_conf('SPLIT') eq 'chapter') {
-          $result .= &{$self->formatting_function('format_navigation_header')}($self,
-                $self->get_conf('CHAPTER_BUTTONS'), $cmdname, $command);
+          $result
+           .= &{$self->formatting_function('format_navigation_header')}($self,
+                        $self->get_conf('CHAPTER_BUTTONS'), $cmdname, $command);
 
           $result .= $self->get_conf('DEFAULT_RULE') ."\n"
             if (defined($self->get_conf('DEFAULT_RULE'))
                 and !$self->get_conf('VERTICAL_HEAD_NAVIGATION'));
         } elsif ($self->get_conf('SPLIT') eq 'section') {
-          $result .= &{$self->formatting_function('format_navigation_header')}($self,
-                $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
+          $result
+            .= &{$self->formatting_function('format_navigation_header')}($self,
+                        $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
         }
       }
       if (($first_in_page or $previous_is_top)
            and $self->get_conf('HEADERS')) {
-        $result .= &{$self->formatting_function('format_navigation_header')}($self,
-                $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
+        $result
+          .= &{$self->formatting_function('format_navigation_header')}($self,
+                        $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       } elsif($self->get_conf('HEADERS') or $self->get_conf('SPLIT') eq 'node') {
         # got to do this here, as it isn't done otherwise since
         # navigation_header is not called
-        $result .= &{$self->formatting_function('format_navigation_panel')}($self,
-                $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
+        $result
+          .= &{$self->formatting_function('format_navigation_panel')}($self,
+                       $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       }
     }
   }
@@ -4130,7 +4163,8 @@ sub _convert_heading_command($$$$$)
       and $element->{'extra'}->{'associated_section'}) {
     $opening_section = $element->{'extra'}->{'associated_section'};
     $level_corrected_opening_section_cmdname
-     = Texinfo::Structuring::section_level_adjusted_command_name($opening_section);
+     = Texinfo::Structuring::section_level_adjusted_command_name(
+                                                             $opening_section);
   } elsif ($cmdname ne 'node'
            # if there is an associated node, it is not a section opening
            # the section was opened before when the node was encountered
@@ -4149,7 +4183,8 @@ sub _convert_heading_command($$$$$)
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     # FIXME what to do if the $tree_unit extra does not contain any
-    # unit_command, but tree_unit is defined (it can contain only 'first_in_page')
+    # unit_command, but tree_unit is defined (it can contain only
+    # 'first_in_page')
     if ((!$tree_unit # or !$tree_unit->{'extra'}
          # or !$tree_unit->{'extra'}->{'unit_command'}
          or ($tree_unit->{'extra'}->{'unit_command'}
@@ -4538,8 +4573,6 @@ sub _convert_exdent_command($$$$)
 
   # FIXME do something with CSS?  Currently nothing is defined for exdent
 
-  my $preformatted = $self->in_preformatted();
-  
   if ($self->in_preformatted()) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'.$arg ."\n</pre>";
   } else {
@@ -4813,7 +4846,7 @@ sub _convert_float_command($$$$$)
       $caption->{'args'}->[0], 'float caption')
        if (defined($caption));
   }
-  
+
   my $float_type_number_caption = '';
   if ($caption_text ne '') {
     $float_type_number_caption
@@ -4824,8 +4857,8 @@ sub _convert_float_command($$$$$)
       = $self->html_attribute_class('div', ['type-number-float']). '>'
                        . $prepended_text .'</div>';
   }
-  return $self->html_attribute_class('div', [$cmdname]). "${id_str}>\n".$content.
-     $float_type_number_caption . '</div>';
+  return $self->html_attribute_class('div', [$cmdname]). "${id_str}>\n"
+     . $content . $float_type_number_caption . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
 
@@ -4936,10 +4969,12 @@ sub _convert_itemize_command($$$$$)
 
   if (defined($mark_class_name)
       and defined($self->css_get_info('style', 'ul.mark-'.$mark_class_name))) {
-    return $self->html_attribute_class('ul', [$cmdname, 'mark-'.$mark_class_name])
+    return $self->html_attribute_class('ul', [$cmdname,
+                                              'mark-'.$mark_class_name])
         .">\n" . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
-    return $self->html_attribute_class('ul', [$cmdname]).">\n" . $content. "</ul>\n";
+    return $self->html_attribute_class('ul', [$cmdname])
+         .">\n" . $content. "</ul>\n";
   } else {
     my $css_string
       = $self->html_convert_css_string_for_list_mark($command->{'args'}->[0],
@@ -4947,8 +4982,9 @@ sub _convert_itemize_command($$$$$)
     if ($css_string ne '') {
       return $self->html_attribute_class('ul', [$cmdname])
         ." style=\"list-style-type: '".
-          &{$self->formatting_function('format_protect_text')}($self, $css_string)
-           . "'\">\n" . $content. "</ul>\n";
+          &{$self->formatting_function('format_protect_text')}($self,
+                                                               $css_string)
+             . "'\">\n" . $content. "</ul>\n";
     } else {
       return $self->html_attribute_class('ul', [$cmdname])
         .">\n" . $content. "</ul>\n";
@@ -5068,7 +5104,8 @@ sub _convert_item_command($$$$$)
     if ($args->[0]) {
       my $table_item_tree = $self->table_item_content_tree($command,
                                                 [$args->[0]->{'tree'}]);
-      my $result = $self->convert_tree($table_item_tree, 'convert table_item_tree');
+      my $result = $self->convert_tree($table_item_tree,
+                                       'convert table_item_tree');
       if ($self->in_preformatted()) {
         my @pre_classes = $self->preformatted_classes_stack();
         foreach my $pre_class (@pre_classes) {
@@ -5118,7 +5155,7 @@ sub _convert_tab_command($$$$$)
   my $command = shift;
   my $args = shift;
   my $content = shift;
-  
+
   my $cell_nr = $command->{'extra'}->{'cell_number'};
   my $row = $command->{'parent'};
   my $row_cmdname = $row->{'contents'}->[0]->{'cmdname'};
@@ -5304,8 +5341,8 @@ sub _convert_xref_commands($$$$)
        if (!defined($name)
            # FIXME could it really be Top?
            and $args->[0]->{'monospace'} ne 'Top');
-     
     $name = '' if (!defined($name));
+
     my $reference = $name;
     my $book_reference = '';
     if (!$self->in_string() and $href ne '') {
@@ -5738,7 +5775,8 @@ sub _convert_printindex_command($$$$)
       }
       if (!$associated_command) {
         $associated_command
-          = $self->command_root_element_command($index_entry_ref->{'entry_element'});
+          = $self->command_root_element_command(
+                                 $index_entry_ref->{'entry_element'});
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
@@ -5751,12 +5789,13 @@ sub _convert_printindex_command($$$$)
         $associated_command_href = $self->command_href($associated_command);
         $associated_command_text = $self->command_text($associated_command);
       }
-      
+
       $entries_text .= '<tr><td></td>'
         .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>'
         .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
-      $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
+      $entries_text
+        .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
       $entries_text .= "</td></tr>\n";
     }
@@ -5831,21 +5870,22 @@ sub _convert_printindex_command($$$$)
       # TRANSLATORS: index entries column header in index formatting
     . $self->convert_tree($self->gdt('Index Entry')) .'</th>'
     . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
-      # TRANSLATORS: section of index entry column header in index formatting 
+      # TRANSLATORS: section of index entry column header in index formatting
     . $self->convert_tree($self->gdt('Section')) . "</th></tr>\n"
     . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
-  
+
   $self->_pop_document_context();
-  
+
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_footer = $self->html_attribute_class('table',
                  ["$index_name-letters-footer-$cmdname"]).'><tr><th>'
         # TRANSLATORS: before list of letters and symbols grouping index entries
-      . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
-      $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
+      . $self->convert_tree($self->gdt('Jump to'))
+      . ": $non_breaking_space </th><td>"
+      . $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
     $result .= $summary_footer
   }
   return $result . "</div>\n";
@@ -6366,7 +6406,7 @@ sub _convert_menu_entry_type($$$)
   my $self = shift;
   my $type = shift;
   my $element = shift;
-  
+
   my $href = '';
   my $rel = '';
   my $section;
@@ -6434,11 +6474,11 @@ sub _convert_menu_entry_type($$$)
         }
       } elsif ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_leading_text') {
         my $text = $arg->{'text'};
-         
         $text =~ s/\*/$MENU_SYMBOL/;
         $result_name_node .= $text;
       } else {
-        $result_name_node .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
+        $result_name_node
+          .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
       }
       $i++;
     }
@@ -6585,7 +6625,8 @@ sub _convert_def_line_type($$$$)
   my @classes = ();
   my $command_name;
   if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-    $command_name = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+    $command_name
+        = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
   } else {
     $command_name = $element->{'extra'}->{'def_command'};
   }
@@ -6728,7 +6769,7 @@ sub _convert_def_line_type($$$$)
     $category_result
       = $self->convert_tree({'contents' => [$definition_category_tree]})
         if (defined($definition_category_tree));
-  
+
     return $self->html_attribute_class('tr', \@classes)
       . "$index_label>".$self->html_attribute_class('td', ['call-def']).'>'
       . $def_call . '</td>'.$self->html_attribute_class('td', ['category-def'])
@@ -7111,7 +7152,6 @@ sub _default_format_element_footer($$$$;$)
     $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                                                     $buttons, $cmdname, $command);
   }
-  
   return $result;
 }
 
@@ -7859,7 +7899,7 @@ sub converter_initialize($)
         and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
                                                              $accent_command})) {
       $accent_command_text_with_entities
-  = $Texinfo::Convert::Converter::xml_accent_text_with_entities{$accent_command}; 
+  = $Texinfo::Convert::Converter::xml_accent_text_with_entities{$accent_command};
     }
     # an empty string means no formatting
     if (defined($accent_command_entity)) {
@@ -8377,7 +8417,8 @@ sub _new_sectioning_command_target($$)
 
 # This set with two different codes
 #  * the target information, id and normalized filename of 'labels',
-#    ie everything that may be the target of a ref, like @node, @float, @anchor...
+#    ie everything that may be the target of a ref, @node, @float label,
+#    @anchor.
 #  * The target information of sectioning elements by going through tree units
 # @node and section commands targets are therefore both set.
 #
@@ -8472,7 +8513,8 @@ sub _html_get_tree_root_element($$;$)
   my ($root_element, $root_command);
   while (1) {
     if ($current->{'type'}) {
-      if ($current->{'type'} eq 'unit' or $current->{'type'} eq 'special_element') {
+      if ($current->{'type'} eq 'unit'
+          or $current->{'type'} eq 'special_element') {
         #print STDERR "ROOT ELEMENT $current->{'type'}\n" if ($debug);
         return ($current, $root_command);
       }
@@ -8487,10 +8529,12 @@ sub _html_get_tree_root_element($$;$)
         if ($current->{'cmdname'} eq 'copying'
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
+          foreach my $insertcopying(@{$self->{'global_commands'}
+                                                        ->{'insertcopying'}}) {
             #print STDERR "INSERTCOPYING\n" if ($debug);
             my ($root_element, $root_command)
-              = $self->_html_get_tree_root_element($insertcopying, $find_container);
+              = $self->_html_get_tree_root_element($insertcopying,
+                                                   $find_container);
             return ($root_element, $root_command)
               if (defined($root_element) or defined($root_command));
           }
@@ -8555,18 +8599,21 @@ sub _html_set_pages_files($$$$$$$$)
   # associate a file to the source information leading to set the file
   # name.  Use the first element source information associated to a file
   # The source information can be either a tree element associated to
-  # the 'file_info_element' key, with a 'file_info_type' 'node' or 'section'...
-  # or a specific source associated to the 'file_info_name' key with
-  # 'file_info_type' 'special_file', or a source set if nothing was found, with
-  # 'file_info_type' 'stand_in_file' and a 'file_info_name'.
+  # the 'file_info_element' key, with a 'file_info_type' 'node' or
+  # 'section'... or a specific source associated to the 'file_info_name'
+  # key with 'file_info_type' 'special_file', or a source set if
+  # nothing was found, with 'file_info_type' 'stand_in_file' and a
+  # 'file_info_name'.  Redirection files are added in the output()
+  # function.
   my %files_source_info = ();
   if (!$self->get_conf('SPLIT')) {
     $filenames_paths{$output_filename} = $output_file;
     foreach my $tree_unit (@$tree_units) {
       $unit_file_name_paths{$tree_unit} = $output_filename;
     }
-    $files_source_info{$output_filename} = {'file_info_type' => 'special_file',
-                                            'file_info_name' => 'non_split'};
+    $files_source_info{$output_filename}
+      = {'file_info_type' => 'special_file',
+         'file_info_name' => 'non_split'};
   } else {
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
@@ -8579,8 +8626,9 @@ sub _html_set_pages_files($$$$$$$$)
       die "BUG: No element for top node" if (!defined($node_top_tree_unit));
       $filenames_paths{$top_node_filename} = undef;
       $unit_file_name_paths{$node_top_tree_unit} = $top_node_filename;
-      $files_source_info{$top_node_filename} = {'file_info_type' => 'special_file',
-                                                'file_info_name' => 'Top'};
+      $files_source_info{$top_node_filename}
+         = {'file_info_type' => 'special_file',
+            'file_info_name' => 'Top'};
     }
     my $file_nr = 0;
     my $previous_page;
@@ -8599,7 +8647,7 @@ sub _html_set_pages_files($$$$$$$$)
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
                 or !defined($self->{'labels'}->{
-                                  $root_command->{'extra'}->{'normalized'}})) {
+                            $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
               my $file_source_info = {'file_info_type' => 'stand_in_file',
@@ -8632,7 +8680,8 @@ sub _html_set_pages_files($$$$$$$$)
               $filenames_paths{$top_node_filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
               $files_source_info{$top_node_filename}
-                  = {'file_info_type' => 'special_file', 'file_info_name' => 'Top'};
+                  = {'file_info_type' => 'special_file',
+                     'file_info_name' => 'Top'};
             } else {
               my $section_filename
                    = $self->{'targets'}->{$command}->{'section_filename'};
@@ -8643,7 +8692,7 @@ sub _html_set_pages_files($$$$$$$$)
                    'file_info_element' => $command}
                  unless($files_source_info{$section_filename}
                         and $files_source_info{$section_filename}
-                                       ->{'file_info_type'} ne 'stand_in_file');
+                                ->{'file_info_type'} ne 'stand_in_file');
             }
           } else {
             # when everything else has failed
@@ -8652,8 +8701,9 @@ sub _html_set_pages_files($$$$$$$$)
               $filenames_paths{$top_node_filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
               $files_source_info{$top_node_filename}
-                = {'file_info_type' => 'stand_in_file', 'file_info_name' => 'Top'}
-                  unless($files_source_info{$top_node_filename});
+                = {'file_info_type' => 'stand_in_file',
+                   'file_info_name' => 'Top'}
+                      unless($files_source_info{$top_node_filename});
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
@@ -9087,7 +9137,7 @@ sub _prepare_tree_units_global_targets($$)
   } else {
     $self->{'global_target_elements_directions'}->{'Top'} = $tree_units->[0];
   }
-  
+
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
@@ -9205,7 +9255,7 @@ sub _external_node_href($$$;$)
   my $filename = shift;
   # for messages only
   my $source_command = shift;
-  
+
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $target)
       = $self->_normalized_label_id_file($external_node);
@@ -9447,7 +9497,7 @@ sub _default_format_contents($$;$$)
         my $toc_id = $self->command_contents_target($section, $cmdname);
         if ($text ne '') {
           # no indenting for shortcontents
-          $result .= (' ' x 
+          $result .= (' ' x
             (2*($section->{'structure'}->{'section_level'} - $min_root_level)))
               if ($contents);
           if ($toc_id ne '' or $href ne '') {
@@ -9611,7 +9661,7 @@ sub _file_header_information($$;$)
   my $self = shift;
   my $command = shift;
   my $filename = shift;
-  
+
   my $title;
   if ($command) {
     my $command_string = $self->command_text($command, 'string');
@@ -9776,7 +9826,7 @@ sub _default_format_begin_file($$$)
   my $self = shift;
   my $filename = shift;
   my $element = shift;
-  
+
   my ($element_command, $node_command, $command_for_title);
   if ($element) {
     $element_command = $self->tree_unit_element_command($element);
@@ -10084,7 +10134,7 @@ sub _default_format_special_body_shortcontents($$$)
   my $self = shift;
   my $special_type = shift;
   my $element = shift;
-  
+
   return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
 }
 
@@ -10181,7 +10231,7 @@ sub _default_format_frame_files($$)
   } else {
     $frame_outfile = $frame_file;
   }
-  
+
   my $toc_frame_file = $self->{'frame_pages_filenames'}->{'Toc_Frame'};
   my $toc_frame_outfile;
   if (defined($destination_directory) and $destination_directory ne '') {
@@ -10677,7 +10727,7 @@ sub output($$)
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
-  
+
   # only in HTML, not in Texinfo::Convert::Converter
   $self->{'elements_in_file_count'} = {};
   # condition could also be based on $output_file ne ''
@@ -11158,13 +11208,11 @@ sub output($$)
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_element') {
             my $special_element = $file_source->{'file_info_element'};
-            my $element_variety = $special_element->{'extra'}->{'special_element_variety'};
-            #my $element_heading_tree = $self->special_element_info('heading_tree',
-            #                                                       $element_variety);
+            my $element_variety
+              = $special_element->{'extra'}->{'special_element_variety'};
             $self->document_warn($self,
                sprintf(__("conflict with %s special element"),
                        $element_variety), 1);
-
           }
           next;
         }
@@ -11471,7 +11519,6 @@ sub _convert($$;$)
                 $self->{'document_context'}->[-1]->{'raw'}--;
               }
             }
-            
             push @$args_formatted, $arg_formatted;
             $arg_idx++;
           }
