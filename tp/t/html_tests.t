@@ -785,6 +785,29 @@ my @file_tests = (
 @anchor{index}
 ', {}, {'SPLIT' => 'node'},
 ],
+['file_name_case_insensitive_conflict_redirections',
+'@node Top
+@top top section
+
+@chapter Chapter
+
+@table @samp
+
+@item foo
+@anchor{foo}
+Some text about @samp{foo}
+
+@item Foo
+@anchor{Foo}
+Some text about @samp{Foo}
+
+@end table
+
+@xref{foo}
+
+@xref{Foo}
+', {}, {'SPLIT' => 'node', 'CASE_INSENSITIVE_FILENAMES' => 1},
+],
 ['file_name_conflict_with_user_defined',
 '@node Top
 @top top

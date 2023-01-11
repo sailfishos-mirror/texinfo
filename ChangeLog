@@ -1,3 +1,13 @@
+2023-01-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (output): normalize node redirection
+	name before comparing with existing file names, in case case of file
+	name needs to be normalized.  Report from Torbjörn Svensson.
+
+	* tp/t/html_tests.t, tp/Makefile.tres: add
+	file_name_case_insensitive_conflict_redirections, from Torbjörn
+	Svensson.
+
 2023-01-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Hypenation in @code

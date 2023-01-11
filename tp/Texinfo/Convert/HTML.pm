@@ -11139,17 +11139,19 @@ sub output($$)
       }
 
       if (defined($filename) and $node_filename ne $filename) {
+        my $redirection_filename
+          = $self->register_normalize_case_filename($node_filename);
         # first condition finds conflict with tree elements
-        if ($self->{'elements_in_file_count'}->{$node_filename}
-            or $redirection_filenames{$node_filename}) {
+        if ($self->{'elements_in_file_count'}->{$redirection_filename}
+            or $redirection_filenames{$redirection_filename}) {
           $self->line_warn($self,
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $node->{'cmdname'},
                Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                  => $node->{'extra'}->{'node_content'}}),
-               $node_filename),
+               $redirection_filename),
             $node->{'source_info'});
-          my $file_source = $files_source_info{$node_filename};
+          my $file_source = $files_source_info{$redirection_filename};
           my $file_info_type = $file_source->{'file_info_type'};
           if ($file_info_type eq 'special_file'
               or $file_info_type eq 'stand_in_file') {
@@ -11222,10 +11224,7 @@ sub output($$)
           }
           next;
         }
-        # should be the same as $node_filename as it is the first registration
-        my $redirection_filename
-          = $self->register_normalize_case_filename($node_filename);
-        $redirection_filenames{$node_filename} = $node;
+        $redirection_filenames{$redirection_filename} = $node;
         $files_source_info{$redirection_filename}
           = {'file_info_type' => 'redirection', 'file_info_element' => $node};
         my $redirection_page
