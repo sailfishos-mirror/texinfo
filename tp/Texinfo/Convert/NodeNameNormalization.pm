@@ -386,7 +386,7 @@ sub set_nodes_list_labels($$$)
             $registrar->line_error($configuration_information,
               sprintf(__("here is the previous definition as \@%s"),
                                $labels{$normalized}->{'cmdname'}),
-                       $labels{$normalized}->{'source_info'});
+                       $labels{$normalized}->{'source_info'}, 1);
             delete $target->{'extra'}->{'node_content'};
           } else {
             $labels{$normalized} = $target;

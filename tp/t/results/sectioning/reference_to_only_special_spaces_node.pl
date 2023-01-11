@@ -615,6 +615,7 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
     'type' => 'error'
   },
   {
+    'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => 'reference_to_only_special_spaces_node.texi',

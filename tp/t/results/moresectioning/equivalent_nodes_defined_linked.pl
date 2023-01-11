@@ -616,6 +616,7 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
     'type' => 'error'
   },
   {
+    'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',

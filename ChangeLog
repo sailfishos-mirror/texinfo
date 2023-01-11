@@ -45,6 +45,25 @@
 
 2023-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (register_normalize_case_filename),
+	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files, output): associate
+	file names to the source of the name, an element, a special file or a
+	stand in file (in case nothing good was found as file name).  Keep
+	the information on redirection pages created.  Warn using both the
+	redirected node information and the information on file source.
+	Rename _normalize_filename_case as register_normalize_case_filename in
+	Texinfo::Convert::Converter such that it can be used directly.
+
+	* tp/Texinfo/Report.pm (line_warn, line_error, document_warn)
+	(document_error): add a continuation optional argument to convey
+	that the line is a continuation line for a warning or error message.
+
+	* tp/Texinfo/Convert/Converter.pm (registered_filename): new function
+	to return the normalized file names for file that were registered.  A
+	file registered may nt be created.  Not used for now.
+
+2023-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_normalize_texinfo_name, _prepare_anchor): update
 	Texinfo::Convert::Texinfo::convert_to_texinfo call which has no

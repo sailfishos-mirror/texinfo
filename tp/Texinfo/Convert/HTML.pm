@@ -8552,11 +8552,21 @@ sub _html_set_pages_files($$$$$$$$)
 
   my %filenames_paths;
   my %unit_file_name_paths;
+  # associate a file to the source information leading to set the file
+  # name.  Use the first element source information associated to a file
+  # The source information can be either a tree element associated to
+  # the 'file_info_element' key, with a 'file_info_type' 'node' or 'section'...
+  # or a specific source associated to the 'file_info_name' key with
+  # 'file_info_type' 'special_file', or a source set if nothing was found, with
+  # 'file_info_type' 'stand_in_file' and a 'file_info_name'.
+  my %files_source_info = ();
   if (!$self->get_conf('SPLIT')) {
     $filenames_paths{$output_filename} = $output_file;
     foreach my $tree_unit (@$tree_units) {
       $unit_file_name_paths{$tree_unit} = $output_filename;
     }
+    $files_source_info{$output_filename} = {'file_info_type' => 'special_file',
+                                            'file_info_name' => 'non_split'};
   } else {
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
@@ -8569,6 +8579,8 @@ sub _html_set_pages_files($$$$$$$$)
       die "BUG: No element for top node" if (!defined($node_top_tree_unit));
       $filenames_paths{$top_node_filename} = undef;
       $unit_file_name_paths{$node_top_tree_unit} = $top_node_filename;
+      $files_source_info{$top_node_filename} = {'file_info_type' => 'special_file',
+                                                'file_info_name' => 'Top'};
     }
     my $file_nr = 0;
     my $previous_page;
@@ -8590,11 +8602,21 @@ sub _html_set_pages_files($$$$$$$$)
                                   $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
+              my $file_source_info = {'file_info_type' => 'stand_in_file',
+                                      'file_info_name' => 'unknown_node'};
+              $files_source_info{$node_filename} = $file_source_info
+                unless ($files_source_info{$node_filename});
             } else {
               # Nodes with {'extra'}->{'normalized'} should always be in
               # 'labels', and thus in targets.  It is a bug otherwise.
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
+              my $file_source_info = {'file_info_type' => 'node',
+                                      'file_info_element' => $root_command};
+              $files_source_info{$node_filename} = $file_source_info
+                unless ($files_source_info{$node_filename}
+                        and $files_source_info{$node_filename}
+                              ->{'file_info_type'} ne 'stand_in_file');
             }
             $filenames_paths{$node_filename} = undef;
             $unit_file_name_paths{$file_tree_unit} = $node_filename;
@@ -8609,11 +8631,19 @@ sub _html_set_pages_files($$$$$$$$)
                 and defined($top_node_filename)) {
               $filenames_paths{$top_node_filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
+              $files_source_info{$top_node_filename}
+                  = {'file_info_type' => 'special_file', 'file_info_name' => 'Top'};
             } else {
               my $section_filename
                    = $self->{'targets'}->{$command}->{'section_filename'};
               $filenames_paths{$section_filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $section_filename;
+              $files_source_info{$section_filename}
+                = {'file_info_type' => 'section',
+                   'file_info_element' => $command}
+                 unless($files_source_info{$section_filename}
+                        and $files_source_info{$section_filename}
+                                       ->{'file_info_type'} ne 'stand_in_file');
             }
           } else {
             # when everything else has failed
@@ -8621,11 +8651,18 @@ sub _html_set_pages_files($$$$$$$$)
                 and defined($top_node_filename)) {
               $filenames_paths{$top_node_filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
+              $files_source_info{$top_node_filename}
+                = {'file_info_type' => 'stand_in_file', 'file_info_name' => 'Top'}
+                  unless($files_source_info{$top_node_filename});
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
               $filenames_paths{$filename} = undef;
               $unit_file_name_paths{$file_tree_unit} = $filename;
+              $files_source_info{$filename}
+                 = {'file_info_type' => 'stand_in_file',
+                    'file_info_name' => 'unknown'}
+                unless($files_source_info{$filename});
             }
             $file_nr++;
           }
@@ -8640,6 +8677,10 @@ sub _html_set_pages_files($$$$$$$$)
 
   foreach my $tree_unit (@$tree_units) {
     my $filename = $unit_file_name_paths{$tree_unit};
+    # check
+    if (!$files_source_info{$filename}) {
+      print STDERR "BUG: no files_source_info: $filename\n";
+    }
     my $filepath = $filenames_paths{$filename};
     if (defined($self->{'file_id_setting'}->{'tree_unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
@@ -8650,6 +8691,8 @@ sub _html_set_pages_files($$$$$$$$)
       if (defined($user_filename)) {
         $filename = $user_filename;
         $filenames_paths{$filename} = $user_filepath;
+        $files_source_info{$filename} = {'file_info_type' => 'special_file',
+                                         'file_info_name' => 'user_defined'};
       }
     }
     $self->set_tree_unit_file($tree_unit, $filename);
@@ -8679,6 +8722,12 @@ sub _html_set_pages_files($$$$$$$$)
            #." $special_element"
            .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
+        my $file_source_info = {'file_info_element' => $special_element,
+                                'file_info_type' => 'special_element'};
+        $files_source_info{$filename} = $file_source_info
+          unless($files_source_info{$filename}
+                 and $files_source_info{$filename}->{'file_info_type'}
+                       ne 'stand_in_file');
       }
     }
   }
@@ -8686,6 +8735,7 @@ sub _html_set_pages_files($$$$$$$$)
     $self->set_file_path($filename, $destination_directory,
                          $filenames_paths{$filename});
   }
+  return %files_source_info;
 }
 
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
@@ -10593,9 +10643,11 @@ sub output($$)
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
+  my %files_source_info;
   if ($output_file ne '') {
-    $self->_html_set_pages_files($tree_units, $special_elements, $output_file,
-                  $destination_directory, $output_filename, $document_name);
+    %files_source_info =
+      $self->_html_set_pages_files($tree_units, $special_elements, $output_file,
+                    $destination_directory, $output_filename, $document_name);
   }
 
   $self->_prepare_contents_elements();
@@ -11016,6 +11068,7 @@ sub output($$)
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES')
       and $self->{'labels'} and $output_file ne '') {
+    my %redirection_filenames;
     foreach my $label (sort(keys (%{$self->{'labels'}}))) {
       my $node = $self->{'labels'}->{$label};
       my $target = $self->_get_target($node);
@@ -11036,15 +11089,100 @@ sub output($$)
       }
 
       if (defined($filename) and $node_filename ne $filename) {
+        # first condition finds conflict with tree elements
+        if ($self->{'elements_in_file_count'}->{$node_filename}
+            or $redirection_filenames{$node_filename}) {
+          $self->line_warn($self,
+             sprintf(__("\@%s `%s' file %s for redirection exists"),
+               $node->{'cmdname'},
+               Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                 => $node->{'extra'}->{'node_content'}}),
+               $node_filename),
+            $node->{'source_info'});
+          my $file_source = $files_source_info{$node_filename};
+          my $file_info_type = $file_source->{'file_info_type'};
+          if ($file_info_type eq 'special_file'
+              or $file_info_type eq 'stand_in_file') {
+            my $name = $file_source->{'file_info_name'};
+            if ($name eq 'non_split') {
+              $self->document_warn($self,
+                            __("conflict with whole document file"), 1);
+            } elsif ($name eq 'Top') {
+              $self->document_warn($self,
+                           __("conflict with Top file"), 1);
+            } elsif ($name eq 'user_defined') {
+              $self->document_warn($self,
+                            __("conflict with user-defined file"), 1);
+           } elsif ($name eq 'unknown_node') {
+              $self->document_warn($self,
+                           __("conflict with unknown node file"), 1);
+            } elsif ($name eq 'unknown') {
+              $self->document_warn($self,
+                            __("conflict with file without known source"), 1);
+            }
+          } elsif ($file_info_type eq 'node') {
+            my $conflicting_node = $file_source->{'file_info_element'};
+            $self->line_warn($self,
+               sprintf(__("conflict with \@%s `%s' file"),
+                 $conflicting_node->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_node->{'extra'}->{'node_content'}}),
+                 ),
+              $conflicting_node->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'node') {
+            my $conflicting_node = $file_source->{'file_info_element'};
+            $self->line_warn($self,
+               sprintf(__("conflict with \@%s `%s' file"),
+                 $conflicting_node->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_node->{'extra'}->{'node_content'}}),
+                 ),
+              $conflicting_node->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'redirection') {
+            my $conflicting_node = $file_source->{'file_info_element'};
+            $self->line_warn($self,
+               sprintf(__("conflict with \@%s `%s' redirection file"),
+                 $conflicting_node->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_node->{'extra'}->{'node_content'}}),
+                 ),
+              $conflicting_node->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'section') {
+            my $conflicting_section = $file_source->{'file_info_element'};
+            $self->line_warn($self,
+               sprintf(__("conflict with \@%s `%s' file"),
+                 $conflicting_section->{'cmdname'},
+                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                   => $conflicting_section->{'args'}->[0]->{'contents'}}),
+                 ),
+              $conflicting_section->{'source_info'}, 1);
+          } elsif ($file_info_type eq 'special_element') {
+            my $special_element = $file_source->{'file_info_element'};
+            my $element_variety = $special_element->{'extra'}->{'special_element_variety'};
+            #my $element_heading_tree = $self->special_element_info('heading_tree',
+            #                                                       $element_variety);
+            $self->document_warn($self,
+               sprintf(__("conflict with %s special element"),
+                       $element_variety), 1);
+
+          }
+          next;
+        }
+        # should be the same as $node_filename as it is the first registration
+        my $redirection_filename
+          = $self->register_normalize_case_filename($node_filename);
+        $redirection_filenames{$node_filename} = $node;
+        $files_source_info{$redirection_filename}
+          = {'file_info_type' => 'redirection', 'file_info_element' => $node};
         my $redirection_page
           = &{$self->formatting_function('format_node_redirection_page')}($self,
                                                                          $node);
         my $out_filename;
         if (defined($destination_directory) and $destination_directory ne '') {
           $out_filename = File::Spec->catfile($destination_directory,
-                                              $node_filename);
+                                              $redirection_filename);
         } else {
-          $out_filename = $node_filename;
+          $out_filename = $redirection_filename;
         }
         my ($encoded_out_filename, $path_encoding)
           = $self->encoded_output_file_name($out_filename);

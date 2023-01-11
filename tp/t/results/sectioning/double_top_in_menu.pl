@@ -394,6 +394,7 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'error'
   },
   {
+    'continuation' => 1,
     'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',

@@ -1200,4 +1200,46 @@ element: @node Other node
   Up: @node Top
 ';
 
+$result_converted_errors{'file_html'}->{'transliterated_names_conflicts'} = [
+  {
+    'error_line' => "warning: \@float `Pr\x{e8}s' file Pres.html for redirection exists
+",
+    'file_name' => 'transliterated_names_conflicts.texi',
+    'line_nr' => 14,
+    'macro' => '',
+    'text' => "\@float `Pr\x{e8}s' file Pres.html for redirection exists",
+    'type' => 'warning'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => "warning: conflict with \@node `Pr\x{e9}s' file
+",
+    'file_name' => 'transliterated_names_conflicts.texi',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => "conflict with \@node `Pr\x{e9}s' file",
+    'type' => 'warning'
+  },
+  {
+    'error_line' => "warning: \@anchor `Pr\x{ea}s' file Pres.html for redirection exists
+",
+    'file_name' => 'transliterated_names_conflicts.texi',
+    'line_nr' => 12,
+    'macro' => '',
+    'text' => "\@anchor `Pr\x{ea}s' file Pres.html for redirection exists",
+    'type' => 'warning'
+  },
+  {
+    'continuation' => 1,
+    'error_line' => "warning: conflict with \@node `Pr\x{e9}s' file
+",
+    'file_name' => 'transliterated_names_conflicts.texi',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => "conflict with \@node `Pr\x{e9}s' file",
+    'type' => 'warning'
+  }
+];
+
+
 1;

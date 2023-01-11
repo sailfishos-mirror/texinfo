@@ -757,7 +757,7 @@ sub initialize_tree_units_files($)
 
 # If CASE_INSENSITIVE_FILENAMES is set, reuse the first
 # filename with the same name insensitive to the case.
-sub _normalize_filename_case($$)
+sub register_normalize_case_filename($$)
 {
   my $self = shift;
   my $filename = shift;
@@ -785,6 +785,25 @@ sub _normalize_filename_case($$)
   return $filename;
 }
 
+# return the registered filename if there is one, else return undef.
+# Note that it only tells that a file name has been its name considered,
+# not that the corresponding file is created.
+# currently unused.
+sub registered_filename($$)
+{
+  my $self = shift;
+  my $filename = shift;
+
+  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
+    if (exists($self->{'filenames'}->{lc($filename)})) {
+      return $self->{'filenames'}->{lc($filename)};
+    }
+  } elsif (exists($self->{'filenames'}->{$filename})) {
+    return $self->{'filenames'}->{$filename};
+  }
+  return undef;
+}
+
 # Sets $tree_unit->{'structure'}->{'unit_filename'}.
 sub set_tree_unit_file($$$)
 {
@@ -796,7 +815,7 @@ sub set_tree_unit_file($$$)
     cluck("set_tree_unit_file: filename not defined\n");
   }
 
-  $filename = $self->_normalize_filename_case($filename);
+  $filename = $self->register_normalize_case_filename($filename);
 
   $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
 
@@ -830,7 +849,7 @@ sub set_file_path($$$;$)
     cluck("set_file_path: filename not defined\n");
   }
 
-  $filename = $self->_normalize_filename_case($filename);
+  $filename = $self->register_normalize_case_filename($filename);
 
   if (not defined($filepath)) {
     if (defined($destination_directory) and $destination_directory ne '') {
