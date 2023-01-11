@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-01-05 22:56+0100\n"
+"POT-Creation-Date: 2023-01-11 10:54+0100\n"
 "PO-Revision-Date: 2001-01-01\n"
 "Last-Translator: Unknown\n"
 "Language-Team: Unknown\n"
@@ -23,7 +23,7 @@ msgid "Table of contents"
 msgstr "Innholdsfortegnelse"
 
 #. TRANSLATORS: abbreviation or acronym explanation
-#: tp/init/html32.pm:195 tp/Texinfo/Convert/HTML.pm:3066
+#: tp/init/html32.pm:197 tp/Texinfo/Convert/HTML.pm:3090
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr ""
@@ -160,35 +160,35 @@ msgstr "november"
 msgid "December"
 msgstr "desember"
 
-#: tp/Texinfo/Convert/Converter.pm:1229 tp/Texinfo/Convert/Converter.pm:1282
+#: tp/Texinfo/Convert/Converter.pm:1254 tp/Texinfo/Convert/Converter.pm:1307
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1233 tp/Texinfo/Convert/Converter.pm:1286
+#: tp/Texinfo/Convert/Converter.pm:1258 tp/Texinfo/Convert/Converter.pm:1311
 #, perl-brace-format
 msgid "{float_type}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1237 tp/Texinfo/Convert/Converter.pm:1297
+#: tp/Texinfo/Convert/Converter.pm:1262 tp/Texinfo/Convert/Converter.pm:1322
 #, perl-brace-format
 msgid "{float_number}"
 msgstr ""
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1271
+#: tp/Texinfo/Convert/Converter.pm:1296
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr ""
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1276
+#: tp/Texinfo/Convert/Converter.pm:1301
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr ""
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1294
+#: tp/Texinfo/Convert/Converter.pm:1319
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr ""
@@ -223,17 +223,17 @@ msgstr ""
 msgid "see ``{node_name}'' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1117 tp/Texinfo/Convert/HTML.pm:5380
+#: tp/Texinfo/Convert/DocBook.pm:1117 tp/Texinfo/Convert/HTML.pm:5424
 #, perl-brace-format
 msgid "@cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1121 tp/Texinfo/Convert/HTML.pm:5357
+#: tp/Texinfo/Convert/DocBook.pm:1121 tp/Texinfo/Convert/HTML.pm:5401
 #, perl-brace-format
 msgid "See @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1125 tp/Texinfo/Convert/HTML.pm:5334
+#: tp/Texinfo/Convert/DocBook.pm:1125 tp/Texinfo/Convert/HTML.pm:5378
 #, perl-brace-format
 msgid "see @cite{{book}}"
 msgstr ""
@@ -298,44 +298,44 @@ msgstr ""
 msgid "see {title_ref}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1358 tp/Texinfo/Convert/LaTeX.pm:3346
+#: tp/Texinfo/Convert/DocBook.pm:1358 tp/Texinfo/Convert/LaTeX.pm:3352
 #: tp/Texinfo/Convert/Plaintext.pm:2402
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1539 tp/Texinfo/Convert/LaTeX.pm:3561
-#: tp/Texinfo/Convert/Plaintext.pm:2575 tp/Texinfo/Convert/HTML.pm:5954
+#: tp/Texinfo/Convert/DocBook.pm:1539 tp/Texinfo/Convert/LaTeX.pm:3567
+#: tp/Texinfo/Convert/Plaintext.pm:2575 tp/Texinfo/Convert/HTML.pm:6001
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:3035 tp/Texinfo/Convert/Plaintext.pm:2099
+#: tp/Texinfo/Convert/LaTeX.pm:3041 tp/Texinfo/Convert/Plaintext.pm:2099
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:3503 tp/Texinfo/Convert/Plaintext.pm:2498
-#: tp/Texinfo/Convert/HTML.pm:2950
+#: tp/Texinfo/Convert/LaTeX.pm:3509 tp/Texinfo/Convert/Plaintext.pm:2498
+#: tp/Texinfo/Convert/HTML.pm:2973
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
 msgstr ""
 
 #. TRANSLATORS: quotation author
-#: tp/Texinfo/Convert/LaTeX.pm:4272 tp/Texinfo/Convert/Plaintext.pm:3548
-#: tp/Texinfo/Convert/HTML.pm:4854
+#: tp/Texinfo/Convert/LaTeX.pm:4278 tp/Texinfo/Convert/Plaintext.pm:3548
+#: tp/Texinfo/Convert/HTML.pm:4894
 #, perl-brace-format
 msgid "@center --- @emph{{author}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:1198 tp/Texinfo/Convert/HTML.pm:1094
+#: tp/Texinfo/Convert/Plaintext.pm:1198 tp/Texinfo/Convert/HTML.pm:1101
 #: tp/Texinfo/Convert/Utils.pm:313
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr ""
 
 #. TRANSLATORS: numbered section title
-#: tp/Texinfo/Convert/Plaintext.pm:1204 tp/Texinfo/Convert/HTML.pm:1101
+#: tp/Texinfo/Convert/Plaintext.pm:1204 tp/Texinfo/Convert/HTML.pm:1108
 #: tp/Texinfo/Convert/Utils.pm:317
 #, perl-brace-format
 msgid "{number} {section_title}"
@@ -485,542 +485,542 @@ msgstr ""
 msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:1994
+#: tp/Texinfo/Convert/HTML.pm:2001
 #, fuzzy
 #| msgid "About This Document"
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "No translation available!"
 
-#: tp/Texinfo/Convert/HTML.pm:1996
+#: tp/Texinfo/Convert/HTML.pm:2003
 #, fuzzy
 #| msgid "Table of Contents"
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:1999
+#: tp/Texinfo/Convert/HTML.pm:2006
 #, fuzzy
 #| msgid "Short Table of Contents"
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Kort innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:2001
+#: tp/Texinfo/Convert/HTML.pm:2008
 #, fuzzy
 #| msgid "Footnotes"
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "No translation available!"
 
-#: tp/Texinfo/Convert/HTML.pm:2105
+#: tp/Texinfo/Convert/HTML.pm:2112
 msgctxt "Top direction string"
 msgid "Top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2107
+#: tp/Texinfo/Convert/HTML.pm:2114
 #, fuzzy
 #| msgid "Table of Contents"
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:2110
+#: tp/Texinfo/Convert/HTML.pm:2117
 msgctxt "Overview direction string"
 msgid "Overview"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2112
+#: tp/Texinfo/Convert/HTML.pm:2119
 #, fuzzy
 #| msgid "Index"
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "Indeks"
 
-#: tp/Texinfo/Convert/HTML.pm:2115
+#: tp/Texinfo/Convert/HTML.pm:2122
 msgctxt "This (current section) direction string"
 msgid "current"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2119
+#: tp/Texinfo/Convert/HTML.pm:2126
 msgctxt "Prev direction string"
 msgid "Prev"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2121
+#: tp/Texinfo/Convert/HTML.pm:2128
 msgctxt "Up direction string"
 msgid " Up "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2123
+#: tp/Texinfo/Convert/HTML.pm:2130
 msgctxt "Next direction string"
 msgid "Next"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2125
+#: tp/Texinfo/Convert/HTML.pm:2132
 msgctxt "NodeUp direction string"
 msgid "Up"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2127
+#: tp/Texinfo/Convert/HTML.pm:2134
 msgctxt "NodeNext direction string"
 msgid "Next"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2129
+#: tp/Texinfo/Convert/HTML.pm:2136
 msgctxt "NodePrev direction string"
 msgid "Previous"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2131
+#: tp/Texinfo/Convert/HTML.pm:2138
 msgctxt "NodeForward direction string"
 msgid "Forward node"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2133
+#: tp/Texinfo/Convert/HTML.pm:2140
 msgctxt "NodeBack direction string"
 msgid "Back node"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2140
+#: tp/Texinfo/Convert/HTML.pm:2147
 msgctxt "NextFile direction string"
 msgid "Next file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2142
+#: tp/Texinfo/Convert/HTML.pm:2149
 msgctxt "PrevFile direction string"
 msgid "Previous file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2147
+#: tp/Texinfo/Convert/HTML.pm:2154
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2150
+#: tp/Texinfo/Convert/HTML.pm:2157
 #, fuzzy
 #| msgid "Table of Contents"
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:2153
+#: tp/Texinfo/Convert/HTML.pm:2160
 #, fuzzy
 #| msgid "Short Table of Contents"
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Kort innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:2155
+#: tp/Texinfo/Convert/HTML.pm:2162
 #, fuzzy
 #| msgid "Index"
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "Indeks"
 
-#: tp/Texinfo/Convert/HTML.pm:2158
+#: tp/Texinfo/Convert/HTML.pm:2165
 msgctxt "This (current section) direction description"
 msgid "Current section"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2161
+#: tp/Texinfo/Convert/HTML.pm:2168
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2164
+#: tp/Texinfo/Convert/HTML.pm:2171
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2167
+#: tp/Texinfo/Convert/HTML.pm:2174
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2169
+#: tp/Texinfo/Convert/HTML.pm:2176
 msgctxt "Up direction description"
 msgid "Up section"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2171
+#: tp/Texinfo/Convert/HTML.pm:2178
 msgctxt "Next direction description"
 msgid "Next section on same level"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2173
+#: tp/Texinfo/Convert/HTML.pm:2180
 msgctxt "NodeUp direction description"
 msgid "Up node"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2175
+#: tp/Texinfo/Convert/HTML.pm:2182
 msgctxt "NodeNext direction description"
 msgid "Next node"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2177
+#: tp/Texinfo/Convert/HTML.pm:2184
 msgctxt "NodePrev direction description"
 msgid "Previous node"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2180
+#: tp/Texinfo/Convert/HTML.pm:2187
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2183
+#: tp/Texinfo/Convert/HTML.pm:2190
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2186
+#: tp/Texinfo/Convert/HTML.pm:2193
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2188
+#: tp/Texinfo/Convert/HTML.pm:2195
 msgctxt "FastForward direction description"
 msgid "Next chapter"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2190
+#: tp/Texinfo/Convert/HTML.pm:2197
 msgctxt "About direction description"
 msgid "About (help)"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2193
+#: tp/Texinfo/Convert/HTML.pm:2200
 msgctxt "First direction description"
 msgid "First section in reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2196
+#: tp/Texinfo/Convert/HTML.pm:2203
 msgctxt "Last direction description"
 msgid "Last section in reading order"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2199
+#: tp/Texinfo/Convert/HTML.pm:2206
 msgctxt "NextFile direction description"
 msgid "Forward section in next file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2202
+#: tp/Texinfo/Convert/HTML.pm:2209
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2208
+#: tp/Texinfo/Convert/HTML.pm:2215
 msgctxt "Top direction button label"
 msgid "Top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2210
+#: tp/Texinfo/Convert/HTML.pm:2217
 #, fuzzy
 #| msgid "Table of Contents"
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Innholdsfortegnelse"
 
-#: tp/Texinfo/Convert/HTML.pm:2212
+#: tp/Texinfo/Convert/HTML.pm:2219
 msgctxt "Overview direction button label"
 msgid "Overview"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2214
+#: tp/Texinfo/Convert/HTML.pm:2221
 #, fuzzy
 #| msgid "Index"
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "Indeks"
 
-#: tp/Texinfo/Convert/HTML.pm:2216
+#: tp/Texinfo/Convert/HTML.pm:2223
 msgctxt "This direction button label"
 msgid "This"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2218
+#: tp/Texinfo/Convert/HTML.pm:2225
 msgctxt "Back direction button label"
 msgid "Back"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2220
+#: tp/Texinfo/Convert/HTML.pm:2227
 msgctxt "FastBack direction button label"
 msgid "FastBack"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2222
+#: tp/Texinfo/Convert/HTML.pm:2229
 msgctxt "Prev direction button label"
 msgid "Prev"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2224
+#: tp/Texinfo/Convert/HTML.pm:2231
 msgctxt "Up direction button label"
 msgid "Up"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2226
+#: tp/Texinfo/Convert/HTML.pm:2233
 msgctxt "Next direction button label"
 msgid "Next"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2228
+#: tp/Texinfo/Convert/HTML.pm:2235
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2230
+#: tp/Texinfo/Convert/HTML.pm:2237
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2232
+#: tp/Texinfo/Convert/HTML.pm:2239
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2234
+#: tp/Texinfo/Convert/HTML.pm:2241
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2236
+#: tp/Texinfo/Convert/HTML.pm:2243
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2238
+#: tp/Texinfo/Convert/HTML.pm:2245
 msgctxt "Forward direction button label"
 msgid "Forward"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2240
+#: tp/Texinfo/Convert/HTML.pm:2247
 msgctxt "FastForward direction button label"
 msgid "FastForward"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2242
+#: tp/Texinfo/Convert/HTML.pm:2249
 msgctxt "About direction button label"
 msgid "About"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2244
+#: tp/Texinfo/Convert/HTML.pm:2251
 msgctxt "First direction button label"
 msgid "First"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2246
+#: tp/Texinfo/Convert/HTML.pm:2253
 msgctxt "Last direction button label"
 msgid "Last"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2248
+#: tp/Texinfo/Convert/HTML.pm:2255
 msgctxt "NextFile direction button label"
 msgid "NextFile"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2250
+#: tp/Texinfo/Convert/HTML.pm:2257
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5243
+#: tp/Texinfo/Convert/HTML.pm:5287
 #, perl-brace-format
 msgid "see {reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5246
+#: tp/Texinfo/Convert/HTML.pm:5290
 #, perl-brace-format
 msgid "See {reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5249
+#: tp/Texinfo/Convert/HTML.pm:5293
 #, perl-brace-format
 msgid "{reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5322
+#: tp/Texinfo/Convert/HTML.pm:5366
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5326
+#: tp/Texinfo/Convert/HTML.pm:5370
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5330
+#: tp/Texinfo/Convert/HTML.pm:5374
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5337
+#: tp/Texinfo/Convert/HTML.pm:5381
 #, perl-brace-format
 msgid "see {reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5340
+#: tp/Texinfo/Convert/HTML.pm:5384
 #, perl-brace-format
 msgid "see `{section}'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5345
+#: tp/Texinfo/Convert/HTML.pm:5389
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5349
+#: tp/Texinfo/Convert/HTML.pm:5393
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5353
+#: tp/Texinfo/Convert/HTML.pm:5397
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5360
+#: tp/Texinfo/Convert/HTML.pm:5404
 #, perl-brace-format
 msgid "See {reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5363
+#: tp/Texinfo/Convert/HTML.pm:5407
 #, perl-brace-format
 msgid "See `{section}'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5368
+#: tp/Texinfo/Convert/HTML.pm:5412
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5372
+#: tp/Texinfo/Convert/HTML.pm:5416
 #, perl-brace-format
 msgid "@cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5376
+#: tp/Texinfo/Convert/HTML.pm:5420
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5383
+#: tp/Texinfo/Convert/HTML.pm:5427
 #, perl-brace-format
 msgid "{reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5386
+#: tp/Texinfo/Convert/HTML.pm:5430
 #, perl-brace-format
 msgid "`{section}'"
 msgstr ""
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5553
+#: tp/Texinfo/Convert/HTML.pm:5597
 #, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
 msgstr ""
 
 #. TRANSLATORS: redirect to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5559
+#: tp/Texinfo/Convert/HTML.pm:5603
 #, perl-brace-format
 msgid "{main_index_entry}, @emph{See} {seenentry}"
 msgstr ""
 
 #. TRANSLATORS: refer to another index entry
-#: tp/Texinfo/Convert/HTML.pm:5576
+#: tp/Texinfo/Convert/HTML.pm:5620
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
 msgstr ""
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:5813 tp/Texinfo/Convert/HTML.pm:5840
+#: tp/Texinfo/Convert/HTML.pm:5859 tp/Texinfo/Convert/HTML.pm:5886
 msgid "Jump to"
 msgstr ""
 
 #. TRANSLATORS: index entries column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5825
+#: tp/Texinfo/Convert/HTML.pm:5871
 msgid "Index Entry"
 msgstr ""
 
-#. TRANSLATORS: section of index entry column header in index formatting 
-#: tp/Texinfo/Convert/HTML.pm:5828
+#. TRANSLATORS: section of index entry column header in index formatting
+#: tp/Texinfo/Convert/HTML.pm:5874
 msgid "Section"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6666
+#: tp/Texinfo/Convert/HTML.pm:6720
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6670
+#: tp/Texinfo/Convert/HTML.pm:6724
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6674
+#: tp/Texinfo/Convert/HTML.pm:6728
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6687
+#: tp/Texinfo/Convert/HTML.pm:6741
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6689
+#: tp/Texinfo/Convert/HTML.pm:6743
 #, perl-brace-format
 msgid "{category}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9476
+#: tp/Texinfo/Convert/HTML.pm:9589
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
 "@uref{{program_homepage}, @emph{{program}}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9481
+#: tp/Texinfo/Convert/HTML.pm:9594
 msgid "This document was generated on @emph{@today{}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9520
+#: tp/Texinfo/Convert/HTML.pm:9633
 msgid "JavaScript license information"
 msgstr ""
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9568
+#: tp/Texinfo/Convert/HTML.pm:9681
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9781
+#: tp/Texinfo/Convert/HTML.pm:9894
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9894
+#: tp/Texinfo/Convert/HTML.pm:10007
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr ""
 
 #. TRANSLATORS: direction column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:9902
+#: tp/Texinfo/Convert/HTML.pm:10015
 msgid "Button"
 msgstr ""
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:9904
+#: tp/Texinfo/Convert/HTML.pm:10017
 msgid "Name"
 msgstr ""
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:9906
+#: tp/Texinfo/Convert/HTML.pm:10019
 msgid "Go to"
 msgstr ""
 
 #. TRANSLATORS: section reached column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:9908
+#: tp/Texinfo/Convert/HTML.pm:10021
 msgid "From 1.2.3 go to"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9953
+#: tp/Texinfo/Convert/HTML.pm:10066
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1028,55 +1028,55 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:9965
+#: tp/Texinfo/Convert/HTML.pm:10078
 msgid "Section One"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:9968
+#: tp/Texinfo/Convert/HTML.pm:10081
 msgid "Subsection One-One"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:9976
+#: tp/Texinfo/Convert/HTML.pm:10089
 msgid "Subsection One-Two"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:9979
+#: tp/Texinfo/Convert/HTML.pm:10092
 msgid "Subsubsection One-Two-One"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:9981
+#: tp/Texinfo/Convert/HTML.pm:10094
 msgid "Subsubsection One-Two-Two"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:9983
+#: tp/Texinfo/Convert/HTML.pm:10096
 msgid "Subsubsection One-Two-Three"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9986
+#: tp/Texinfo/Convert/HTML.pm:10099
 msgid "Current Position"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:9988
+#: tp/Texinfo/Convert/HTML.pm:10101
 msgid "Subsubsection One-Two-Four"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:9992
+#: tp/Texinfo/Convert/HTML.pm:10105
 msgid "Subsection One-Three"
 msgstr ""
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:10000
+#: tp/Texinfo/Convert/HTML.pm:10113
 msgid "Subsection One-Four"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10696
+#: tp/Texinfo/Convert/HTML.pm:10811
 msgid "Untitled Document"
 msgstr ""
 
