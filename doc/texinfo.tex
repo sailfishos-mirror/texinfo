@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-01-11.18}
+\def\texinfoversion{2023-01-13.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7381,6 +7381,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\setupverb{%
   \tt
   \def\par{\leavevmode\endgraf}%
+  \parindent = 0pt
   \setcodequotes
   \tabeightspaces
   % Respect line breaks,
