@@ -95,14 +95,23 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
               'text' => '
 ',
               'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
             }
           ],
           'type' => 'preamble_before_content'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '#line 46 "a_file_after_del_comment"
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -205,6 +214,7 @@ $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
 @c this tests both the del comment and a file without
 @c element.
 
+#line 46 "a_file_after_del_comment"
 
 
 
@@ -222,6 +232,7 @@ $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
 
 $result_texts{'delcomment_followed_by_cpp_line'} = '
 
+#line 46 "a_file_after_del_comment"
 
 
 
@@ -239,8 +250,8 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
   {
     'error_line' => 'unknown command `unknown\'
 ',
-    'file_name' => 'a_file_after_del_comment',
-    'line_nr' => 48,
+    'file_name' => 'delcomment_followed_by_cpp_line.texi',
+    'line_nr' => 10,
     'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
@@ -248,8 +259,8 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
   {
     'error_line' => 'unknown command `unknown1\'
 ',
-    'file_name' => 'a_file_after_del_comment',
-    'line_nr' => 53,
+    'file_name' => 'delcomment_followed_by_cpp_line.texi',
+    'line_nr' => 15,
     'macro' => '',
     'text' => 'unknown command `unknown1\'',
     'type' => 'error'
@@ -257,8 +268,8 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
   {
     'error_line' => 'unknown command `unknown2\'
 ',
-    'file_name' => 'a_file_after_del_comment',
-    'line_nr' => 58,
+    'file_name' => 'delcomment_followed_by_cpp_line.texi',
+    'line_nr' => 20,
     'macro' => '',
     'text' => 'unknown command `unknown2\'',
     'type' => 'error'

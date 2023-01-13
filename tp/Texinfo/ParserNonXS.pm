@@ -6027,12 +6027,6 @@ sub _parse_texi($$$)
     my $line;
     ($line, $source_info) = _next_text($self);
     last if (!defined($line));
-    # This makes sure that there is not an empty line going in
-    # _process_remaining_on_line where there is a special case if
-    # line is empty with _next_text called, while _next_text
-    # should be called here in order to have the code right below
-    # called.
-    next if ($line eq '');
 
     if ($self->{'DEBUG'}) {
       my $source_info_text = '';

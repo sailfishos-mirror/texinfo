@@ -13,8 +13,6 @@ Before next release
 Bugs
 ====
 
-Fix delcomment_followed_by_cpp_line test.
-
 HTML API
 ========
 

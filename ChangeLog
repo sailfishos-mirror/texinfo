@@ -1,5 +1,12 @@
 2023-01-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): revert change from
+	2023-01-08, do not ignore empty line early such that line after
+	a DEL character is joined with the next line.
+
+2023-01-13  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Comments): add that the line after the DEL
 	comment is merged.
 
