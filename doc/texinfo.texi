@@ -1492,7 +1492,8 @@ etc., @code{@@c} and @code{@@comment} may provoke an error when
 processing with @TeX{}.  Therefore, you can also use the @kbd{DEL}
 character (ASCII 127 decimal, 0x7f hex, 0177 octal) as a true @TeX{}
 comment character (catcode 14, in @TeX{} internals).  Everything on
-the line after the @kbd{DEL} will be ignored.
+the line after the @kbd{DEL} will be ignored and the next line will
+be merged.
 
 @cindex Ignored text
 @cindex Unprocessed text
