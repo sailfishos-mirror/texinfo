@@ -180,6 +180,7 @@ test_files = \
  t/init/translate_txiinternalvalue_macro.init \
  t/init/translated_strings_customization.pm \
  t/init/undef_node_file_name.init \
+ t/init/spaces_in_line_breaks.init \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
  t/input_files/bib-example.texi \

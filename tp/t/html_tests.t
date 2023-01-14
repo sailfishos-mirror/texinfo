@@ -605,6 +605,14 @@ In top.
 '
 @titlefont{}
 '],
+['spaces_in_line_break_in_verb_w',
+'@w{aaa  bb
+ccc}
+
+@verb{|aaa  bb
+ccc|}
+', {'init_files' => ['spaces_in_line_breaks.init']},
+],
 );
 
 my $test_accents_sc_no_brace_commands_quotes = '@u{--a}

@@ -6301,7 +6301,18 @@ sub _convert_text($$$)
   # API info: in_space_protected() API code conforming would be:
   #} elsif ($self->in_space_protected()) {
   } elsif ($formatting_context->{'space_protected'}) {
-    $text .= $self->{'line_break_element'} if (chomp($text));
+    if (chomp($text)) {
+      # API info: API code conforming would be:
+      # $self->get_info('line_break_element')
+      my $line_break_element = $self->{'line_break_element'};
+      # protect spaces in line_break_element formatting.
+      # Note that this case is theoretical right now, as it is not possible
+      # to redefine $self->{'line_break_element'} and there are no spaces
+      # in the possible values.  However this is a deficiency of the API,
+      # it would be better to be able to redefine $self->{'line_break_element'}
+      $line_break_element =~ s/ /\x{1F}/g;
+      $text .= $line_break_element;
+    }
     # Protect spaces within text
     my $non_breaking_space = $self->get_info('non_breaking_space');
     $text =~ s/ /$non_breaking_space/g;
