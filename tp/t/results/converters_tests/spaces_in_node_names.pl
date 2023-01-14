@@ -950,7 +950,7 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a-"/>
 </para>
 <para><link linkend="b-">b<literal>  </literal></link>
 </para>
-<para><link linkend="c-">c  <!-- /@w --></link>
+<para><link linkend="c-">c&amp;#160;<!-- /@w --></link>
 </para>';
 
 

@@ -851,7 +851,7 @@ $result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '
 </para>
 <para><link linkend="-"><literal>  </literal></link>
 </para>
-<para><link linkend="-">  <!-- /@w --></link>
+<para><link linkend="-">&amp;#160;<!-- /@w --></link>
 </para>';
 
 

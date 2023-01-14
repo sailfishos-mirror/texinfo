@@ -1,5 +1,14 @@
 2023-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_new_document_context): Add the
+	_new_document_context function to push a new documeent context.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): add 'no_break'
+	in document context for @w, and protect text with non-breakable spaces
+	in that context.  Report from Gavin.
+
+2023-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_text): in space_protected,
 	protect spaces in 'line_break_element' before prepending and
 	replacing spaces with 'non_breaking_space'.  The unprotection is

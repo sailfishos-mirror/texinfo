@@ -276,7 +276,8 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'document_context'} = [{'monospace' => [0], 'upper_case' => [0]}];
+  $self->{'document_context'} = [];
+  $self->_new_document_context();
   $self->{'context_block_commands'} = {%default_context_block_commands};
   foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
                         keys(%Texinfo::Commands::block_commands)) {
@@ -577,7 +578,7 @@ sub _index_entry($$)
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
-    push @{$self->{'document_context'}}, {'monospace' => [0], 'upper_case' => [0]};
+    $self->_new_document_context();
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_entry->{'in_code'});
 
@@ -648,6 +649,16 @@ sub _convert_argument_and_end_line($$)
   return ($converted, $end_line);
 }
 
+sub _new_document_context($)
+{
+  my $self = shift;
+  push (@{$self->{'document_context'}}, {
+                            'monospace' => [0],
+                            'upper_case' => [0],
+                            'no_break' => [0],
+                          });
+}
+
 my $debug_global_element_nr = 0;
 
 
@@ -684,6 +695,10 @@ sub _convert($$;$)
     $result = $element->{'text'};
     if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]) {
       $result = uc($result);
+    }
+    if ($self->{'document_context'}->[-1]->{'no_break'}->[-1]) {
+      $result =~ s/\n/ /g;
+      $result =~ s/ +/$nbsp/g;
     }
     $result = $self->_protect_text($result);
     if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
@@ -971,8 +986,7 @@ sub _convert($$;$)
       #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
       if ($style_commands_formatting{$element->{'cmdname'}}) {
         if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
-          push (@{$self->{'document_context'}},
-                {'monospace' => [0], 'upper_case' => [0]});
+          $self->_new_document_context();
         }
         my $formatting = $style_commands_formatting{$element->{'cmdname'}};
 
@@ -986,6 +1000,9 @@ sub _convert($$;$)
         }
         if ($formatting->{'upper_case'}) {
           push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 1;
+        }
+        if ($element->{'cmdname'} eq 'w') {
+          push @{$self->{'document_context'}->[-1]->{'no_break'}}, 1;
         }
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 
           $in_monospace_not_normal
@@ -1006,6 +1023,9 @@ sub _convert($$;$)
         }
         if (defined($formatting->{'upper_case'})) {
           pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
+        }
+        if ($element->{'cmdname'} eq 'w') {
+          pop @{$self->{'document_context'}->[-1]->{'no_break'}};
         }
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
@@ -1404,7 +1424,7 @@ sub _convert($$;$)
         return '' if (! $expand);
         my $arg_index = 1;
         if ($element->{'cmdname'} eq 'inlineraw') {
-          push @{$self->{'document_context'}}, {'monospace' => [0], 'upper_case' => [0]};
+          $self->_new_document_context();
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         } elsif ($element->{'cmdname'} eq 'inlinefmtifelse'
                  and ! $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
@@ -1437,8 +1457,7 @@ sub _convert($$;$)
         return '';
       }
       if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
-        push (@{$self->{'document_context'}},
-              {'monospace' => [0], 'upper_case' => [0]});
+        $self->_new_document_context();
       }
       my @attributes;
       my $appended = '';
@@ -1589,7 +1608,8 @@ sub _convert($$;$)
     } elsif ($element->{'type'} eq 'def_line') {
       $result .= "<synopsis>";
       $result .= $self->_index_entry($element);
-      push @{$self->{'document_context'}}, {'monospace' => [1], 'upper_case' => [0]};
+      $self->_new_document_context();
+      $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
       $self->{'document_context'}->[-1]->{'inline'}++;
       if ($element->{'args'} and @{$element->{'args'}}
           and $element->{'args'}->[0]->{'contents'}) {
