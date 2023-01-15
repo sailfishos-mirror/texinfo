@@ -220,7 +220,7 @@ but , ,
 <literal>@var{--a}</literal> <replaceable>&#8211;a</replaceable>
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
-<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
+<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a<!-- /@w -->
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -1150,7 +1150,7 @@ but , ,
 <literal>@var{--a}</literal> <replaceable>&#8211;a</replaceable>
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
-<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
+<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a<!-- /@w -->
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -2067,7 +2067,7 @@ but , ,
 <literal>@var{--a}</literal> <replaceable>&#8211;a</replaceable>
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
-<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
+<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a<!-- /@w -->
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -2980,7 +2980,7 @@ but , ,
 <literal>@var{--a}</literal> <replaceable>--a</replaceable>
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
-<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
+<literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a<!-- /@w -->
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
