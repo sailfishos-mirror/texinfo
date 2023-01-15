@@ -192,17 +192,6 @@ extern void xexit (int);
 #define STRCASEEQ(s1,s2) (strcasecmp (s1, s2) == 0)
 #define STRNCASEEQ(s1,s2,n) (strncasecmp (s1, s2, n) == 0)
 
-/* We don't need anything fancy.  If we did need something fancy, gnulib
-   has it.  */
-#ifdef MIN
-#undef MIN
-#endif
-#define MIN(a,b) ((a) < (b) ? (a) : (b))
-#ifdef MAX
-#undef MAX
-#endif
-#define MAX(a,b) ((a) > (b) ? (a) : (b))
-
 #ifndef TEXINFO_PRINTFLIKE
 # ifdef __GNUC__
 #  define TEXINFO_PRINTFLIKE(fmt,narg) __attribute__ ((__format__ (__printf__, fmt, narg)))

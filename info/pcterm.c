@@ -959,6 +959,11 @@ pc_up_line (void)
   ScreenSetCursor (MAX (y-1, 0), x);
 }
 
+#ifdef MIN
+#undef MIN
+#endif
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+
 /* Move the cursor down one line. */
 static void
 pc_down_line (void)
