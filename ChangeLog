@@ -1,5 +1,12 @@
 2023-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* system.h (DEFAULT_TMPDIR): Remove all uses, eliminating
+	check for VMS.
+	(xexit): Remove declaration; the function itself apparently was
+	removed 2012-06-11.
+
+2023-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* system.h (MIN, MAX): Remove.
 	* info/pcterm.h (MIN): Move MIN to here, the only use site.
 

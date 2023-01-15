@@ -129,7 +129,6 @@ extern char *strerror ();
 #  define NULL_DEVICE	"NUL"
 # endif  /* O_BINARY && !__MSDOS__ */
 # ifdef __CYGWIN__
-#  define DEFAULT_TMPDIR	"/tmp/"
 #  define PATH_SEP	":"
 #  define STRIP_DOT_EXE	0
 #  undef NULL_DEVICE
@@ -140,7 +139,6 @@ extern char *strerror ();
 #   define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
 extern int kill (pid_t, int);
 #  endif  /* _WIN32 */
-#  define DEFAULT_TMPDIR	"c:/"
 #  define PATH_SEP	";"
 #  define STRIP_DOT_EXE	1
 #  define PIPE_USE_FORK	0
@@ -169,11 +167,6 @@ extern int kill (pid_t, int);
 # define HAVE_LONG_FILENAMES(dir)   (1)
 # define PATH_SEP	":"
 # define STRIP_DOT_EXE	0
-# ifdef VMS
-#  define DEFAULT_TMPDIR "sys$scratch:"
-# else
-#  define DEFAULT_TMPDIR "/tmp/"
-# endif
 # define NULL_DEVICE	"/dev/null"
 # define PIPE_USE_FORK	1
 #endif /* not O_BINARY */
@@ -183,9 +176,6 @@ extern int kill (pid_t, int);
 #endif
 /* Some systems don't declare this function in pwd.h. */
 struct passwd *getpwnam (const char *name);
-
-/* Our library routines not included in any system library.  */
-extern void xexit (int);
 
 /* For convenience.  */
 #define STREQ(s1,s2) (strcmp (s1, s2) == 0)
