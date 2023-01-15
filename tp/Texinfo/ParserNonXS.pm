@@ -3247,14 +3247,16 @@ sub _end_line_misc_line($$$)
         if ($close_preformatted_commands{$end_command});
     }
   } else {
+    # Ignore @setfilename in included file, as said in the manual.
+    if ($included_file
+        or ($command eq 'setfilename' and _in_include($self))) {
+      pop @{$current->{'contents'}};
+    }
     $current = _begin_preformatted($self, $current)
       if ($close_preformatted_commands{$command});
   }
-  # Ignore @setfilename in included file, as said in the manual.
-  if ($included_file
-      or ($command eq 'setfilename' and _in_include($self))) {
-    pop @{$current->{'contents'}};
-  } elsif ($command eq 'setfilename'
+
+  if ($command eq 'setfilename'
            and ($self->{'current_node'} or $self->{'current_section'})) {
     $self->_command_warn($misc_cmd, $source_info,
              __("\@%s after the first element"), $command);

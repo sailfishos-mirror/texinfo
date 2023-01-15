@@ -686,6 +686,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/include/include_space.pl \
   t/results/include/include_space_comment.pl \
   t/results/include/include_with_setfilename.pl \
+  t/results/include/include_with_setfilename_in_preformatted.pl \
   t/results/include/macro_and_commands_in_early_commands.pl \
   t/results/include/macro_definition_in_include.pl \
   t/results/include/macro_in_early_commands.pl \

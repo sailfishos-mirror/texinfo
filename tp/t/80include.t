@@ -142,6 +142,11 @@ After.'],
 '@include included_file_with_setfilename.texi 
 @setfilename include_with_setfilename.info
 ', {'test_formats' => ['info']}],
+['include_with_setfilename_in_preformatted',
+'@example
+@include included_file_with_setfilename.texi
+after include
+@end example', {'test_formats' => ['info']}],
 ['include_setfilename_on_setfilename_line',
 '@setfilename file @setfilename other file @include are you joking!
 '],

@@ -1878,15 +1878,16 @@ end_line_misc_line (ELEMENT *current)
     }
   else
     {
+     /* If a file was included, remove the include command completely.
+        Also ignore @setfilename in included file, as said in the manual. */
+      if (included_file || (cmd == CM_setfilename && top_file_index () > 0))
+        destroy_element_and_children (pop_element_from_contents (current));
+
       if (close_preformatted_command (cmd))
         current = begin_preformatted (current);
     }
 
-  /* If a file was included, remove the include command completely.
-     Also ignore @setfilename in included file, as said in the manual. */
-  if (included_file || (cmd == CM_setfilename && top_file_index () > 0))
-    destroy_element_and_children (pop_element_from_contents (current));
-  else if (cmd == CM_setfilename && (current_node || current_section))
+  if (cmd == CM_setfilename && (current_node || current_section))
     command_warn (misc_cmd, "@setfilename after the first element");
   else if (cmd == CM_columnfractions)
     {
