@@ -1,5 +1,12 @@
 2023-01-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	pretest 7.0.1.90
+
+	* NEWS: update
+	* configure.ac: version
+
+2023-01-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/tests/Makefile.am:
 	Call maintain/copy_change_file_name_encoding.pl to create files
 	in built_input subdirectory.  This stops make program on
