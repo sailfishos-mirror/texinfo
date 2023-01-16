@@ -202,7 +202,6 @@ tp/t/output_files
 tp/t/*.trs
 tp/t/*.log
 
-tp/tests/Makefile.onetst
 tp/tests/*/tests.log
 tp/tests/*/tests.out
 tp/tests/*/diffs
