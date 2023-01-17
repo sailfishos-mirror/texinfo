@@ -39,6 +39,7 @@
 
 #include "parser.h"
 #include "input.h"
+#include "source_marks.h"
 #include "labels.h"
 #include "indices.h"
 #include "api.h"
@@ -134,6 +135,7 @@ reset_parser_except_conf (void)
   reset_internal_xrefs ();
   reset_labels ();
   input_reset_input_stack ();
+  source_marks_reset_counters ();
   free_small_strings ();
 
   current_node = current_section = current_part = 0;
@@ -500,6 +502,78 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
     }
 }
 
+static void
+store_source_mark_list (ELEMENT *e)
+{
+  dTHX;
+
+  if (e->source_mark_list.number > 0)
+    {
+      AV *av;
+      SV *sv;
+      int i;
+      av = newAV ();
+      sv = newRV_inc ((SV *) av);
+      hv_store (e->hv, "source_marks", strlen ("source_marks"), sv, 0);
+
+      for (i = 0; i < e->source_mark_list.number; i++)
+        {
+          HV *source_mark;
+          SV *sv;
+          SOURCE_MARK *s_mark = e->source_mark_list.list[i];
+          IV source_mark_position;
+          IV source_mark_counter;
+          source_mark = newHV ();
+           /* A simple integer.  The intptr_t cast here prevents
+              a warning on MinGW ("cast from pointer to integer of
+              different size"). */
+          source_mark_position = (IV) (intptr_t) s_mark->position;
+          hv_store (source_mark, "position", strlen ("position"),
+                    newSViv (source_mark_position), 0);
+          source_mark_counter = (IV) (intptr_t) s_mark->counter;
+          hv_store (source_mark, "counter", strlen ("counter"),
+                    newSViv (source_mark_counter), 0);
+
+#define SAVE_S_M_STATUS(X) \
+           case SM_status_ ## X: \
+           sv = newSVpv_utf8 (#X, 0);\
+           hv_store (source_mark, "status", strlen ("status"), sv, 0); \
+           break;
+
+          switch (s_mark->status)
+            {
+              SAVE_S_M_STATUS (start)
+              SAVE_S_M_STATUS (end)
+              SAVE_S_M_STATUS (fail)
+            }
+#define SAVE_S_M_LOCATION(X) \
+           case source_mark_location_ ## X: \
+           sv = newSVpv_utf8 (#X, 0);\
+           hv_store (source_mark, "location", strlen ("location"), sv, 0); \
+           break;
+
+          switch (s_mark->location)
+            {
+              SAVE_S_M_LOCATION (text)
+              SAVE_S_M_LOCATION (content)
+            }
+
+#define SAVE_S_M_TYPE(X) \
+           case SM_type_ ## X: \
+           sv = newSVpv_utf8 (#X, 0);\
+           hv_store (source_mark, "sourcemark_type", \
+                     strlen ("sourcemark_type"), sv, 0); \
+          av_push (av, newRV_inc ((SV *)source_mark));
+          switch (s_mark->type)
+            {
+              SAVE_S_M_TYPE (include)
+            }
+
+
+        }
+    }
+}
+
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
 static void
@@ -579,6 +653,8 @@ element_to_perl_hash (ELEMENT *e)
 
   store_additional_info (e, e->extra_info, "extra");
   store_additional_info (e, e->info_info, "info");
+
+  store_source_mark_list (e);
 
   if (e->source_info.line_nr)
     {

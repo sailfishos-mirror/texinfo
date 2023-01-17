@@ -1,3 +1,21 @@
+2023-01-17  Patrice Dumas  <pertusus@free.fr>
+
+	Source marks for @include included file start
+
+	* tp/Texinfo/ParserNonXS.pm (_register_source_mark)
+	(_end_line_misc_line), tp/Texinfo/XS/Makefile.am
+	(Parsetexi_la_SOURCES), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser_except_conf, store_source_mark_list)
+	(element_to_perl_hash), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/source_marks.c
+	(new_source_mark, register_source_mark, source_marks_reset_counters),
+	tp/Texinfo/XS/parsetexi/tree.c (destroy_source_mark_list)
+	(destroy_element), tp/Texinfo/XS/parsetexi/tree_types.h: add source
+	mark to locate the place where an @include file is expanded.
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push_file): pass include file
+	source mark.
+
 2023-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (@useindex): Use \global in assignment to

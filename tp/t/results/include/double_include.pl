@@ -10,6 +10,15 @@ $result_trees{'double_include'} = {
     {
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

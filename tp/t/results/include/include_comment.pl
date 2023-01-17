@@ -19,6 +19,15 @@ $result_trees{'include_comment'} = {
           'type' => 'paragraph'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 0,
+          'sourcemark_type' => 'include',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],

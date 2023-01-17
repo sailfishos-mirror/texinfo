@@ -40,6 +40,18 @@ enum extra_type {
     extra_deleted
 };
 
+enum source_mark_type { SM_type_include };
+
+enum source_mark_location { source_mark_location_text,
+                            source_mark_location_content };
+
+enum source_mark_status {
+    SM_status_none,
+    SM_status_start,
+    SM_status_end,
+    SM_status_fail,
+};
+
 typedef struct KEY_PAIR {
     char *key;
     enum extra_type type;
@@ -64,6 +76,20 @@ typedef struct ASSOCIATED_INFO {
     size_t info_space;
 } ASSOCIATED_INFO;
 
+typedef struct SOURCE_MARK {
+    enum source_mark_type type;
+    enum source_mark_status status;
+    enum source_mark_location location;
+    size_t position;
+    int counter;
+} SOURCE_MARK;
+
+typedef struct SOURCE_MARK_LIST {
+    struct SOURCE_MARK **list;
+    size_t number;
+    size_t space;
+} SOURCE_MARK_LIST;
+
 typedef struct ELEMENT {
     enum command_id cmd;
     TEXT text;
@@ -75,6 +101,8 @@ typedef struct ELEMENT {
 
     ASSOCIATED_INFO *extra_info;
     ASSOCIATED_INFO *info_info;
+
+    SOURCE_MARK_LIST source_mark_list;
 
     /********* Used when building Perl tree only ********************/
     void *hv;

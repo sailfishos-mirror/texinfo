@@ -12,6 +12,15 @@ $result_trees{'test_two_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 16,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Include version
 '
             },
@@ -192,6 +201,15 @@ $result_trees{'test_two_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 17,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'include inc_file
 '
             },

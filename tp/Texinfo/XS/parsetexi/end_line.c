@@ -25,6 +25,7 @@
 #include "convert.h"
 #include "labels.h"
 #include "indices.h"
+#include "source_marks.h"
 
 void
 check_internal_node (NODE_SPEC_EXTRA *nse)
@@ -1348,6 +1349,7 @@ end_line_misc_line (ELEMENT *current)
   char *end_command = 0;
   enum command_id end_id = CM_NONE;
   int included_file = 0;
+  SOURCE_MARK *include_source_mark;
 
   isolate_last_space (current);
 
@@ -1455,6 +1457,7 @@ end_line_misc_line (ELEMENT *current)
             {
               int status;
               char *fullpath, *sys_filename;
+
               debug ("Include %s", text);
 
               sys_filename = encode_file_name (text);
@@ -1476,7 +1479,11 @@ end_line_misc_line (ELEMENT *current)
                                      strerror (status));
                     }
                   else
-                    included_file = 1;
+                    {
+                      included_file = 1;
+                      include_source_mark = new_source_mark(SM_type_include);
+                      include_source_mark->status = SM_status_start;
+                    }
                 }
             }
           else if (current->cmd == CM_verbatiminclude)
@@ -1881,8 +1888,11 @@ end_line_misc_line (ELEMENT *current)
      /* If a file was included, remove the include command completely.
         Also ignore @setfilename in included file, as said in the manual. */
       if (included_file || (cmd == CM_setfilename && top_file_index () > 0))
-        destroy_element_and_children (pop_element_from_contents (current));
-
+        {
+          destroy_element_and_children (pop_element_from_contents (current));
+          if (included_file)
+            register_source_mark(current, include_source_mark);
+        }
       if (close_preformatted_command (cmd))
         current = begin_preformatted (current);
     }

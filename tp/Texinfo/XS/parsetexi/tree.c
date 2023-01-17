@@ -161,6 +161,16 @@ destroy_associated_info (ASSOCIATED_INFO *a)
 }
 
 void
+destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
+{
+  int i;
+  for (i = 0; i < source_mark_list->number; i++)
+    free (source_mark_list->list[i]);
+
+  free (source_mark_list->list);
+}
+
+void
 destroy_element (ELEMENT *e)
 {
   int i;
@@ -172,6 +182,8 @@ destroy_element (ELEMENT *e)
 
   destroy_associated_info (e->extra_info);
   destroy_associated_info (e->info_info);
+
+  destroy_source_mark_list (&(e->source_mark_list));
 
   free (e);
 }

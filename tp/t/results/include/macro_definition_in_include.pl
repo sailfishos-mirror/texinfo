@@ -81,6 +81,15 @@ $result_trees{'macro_definition_in_include'} = {
           'type' => 'paragraph'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 0,
+          'sourcemark_type' => 'include',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],

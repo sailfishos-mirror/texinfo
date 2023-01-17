@@ -140,7 +140,9 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/errors.c \
 		      parsetexi/errors.h \
 		      parsetexi/counter.c \
-		      parsetexi/counter.h
+		      parsetexi/counter.h \
+		      parsetexi/source_marks.c \
+		      parsetexi/source_marks.h
 EXTRA_DIST += $(p)/command_data.c
 
 EXTRA_DIST += $(p)/Parsetexi.xs

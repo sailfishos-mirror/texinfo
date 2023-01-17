@@ -451,6 +451,15 @@ $result_trees{'raiselowersections'} = {
           'cmdname' => 'lowersections'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

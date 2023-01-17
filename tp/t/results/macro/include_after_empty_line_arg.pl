@@ -87,6 +87,15 @@ $result_trees{'include_after_empty_line_arg'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => '
 '
             },

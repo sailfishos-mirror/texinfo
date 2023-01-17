@@ -884,7 +884,7 @@ sub parse_texi_text($$;$)
 # Returns binary strings too.
 sub _input_push_file
 {
-  my ($self, $input_file_path, $file_name_encoding) = @_;
+  my ($self, $input_file_path, $file_name_encoding, $source_mark) = @_;
 
   my $filehandle = do { local *FH };
   if (!open($filehandle, $input_file_path)) {
@@ -918,7 +918,8 @@ sub _input_push_file
 
   $file_input->{'file_name_encoding'} = $file_name_encoding
        if (defined($file_name_encoding));
-
+  $file_input->{'file_source_mark'} = $source_mark
+       if (defined($source_mark));
   $self->{'input'} = [] if (!defined($self->{'input'}));
   unshift @{$self->{'input'}}, $file_input;
 
@@ -1260,6 +1261,63 @@ sub _register_global_command {
     return 1;
   }
   return 0;
+}
+
+# $ELEMENT should be the parent container.
+# The source mark is put in the last content if it is text
+# or registered in the parent container.
+sub _register_source_mark
+{
+  my ($self, $element, $source_mark) = @_;
+
+  #return;
+
+  my $counter_name;
+  if ($source_mark->{'sourcemark_type'}) {
+    $counter_name = $source_mark->{'sourcemark_type'};
+  }
+
+  if (!$self->{'source_mark_counters'}->{$counter_name}) {
+    $self->{'source_mark_counters'}->{$counter_name} = 0;
+  }
+  $self->{'source_mark_counters'}->{$counter_name} += 1;
+  $source_mark->{'counter'} = $self->{'source_mark_counters'}->{$counter_name};
+
+  # the element that holds the source mark
+  my $mark_element;
+  if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
+    my $current = $element->{'contents'}->[-1];
+    if (exists ($current->{'text'})) {
+      $source_mark->{'location'} = 'text';
+      $source_mark->{'position'} = length($current->{'text'});
+      $mark_element = $current;
+    } else {
+      #print STDERR "source_mark: element: "
+      # .Texinfo::Common::debug_print_element_short($element)."; Contents:\n";
+      #foreach my $content (@{$element->{'contents'}}) {
+      #  print STDERR "      * CC "
+      #    .Texinfo::Common::debug_print_element_short($content)."\n";
+      #}
+      $mark_element = $element;
+      $source_mark->{'location'} = 'content';
+      $source_mark->{'position'} = scalar(@{$element->{'contents'}});
+    }
+  } else {
+    #print STDERR "source_mark: empty element: "
+    #  .Texinfo::Common::debug_print_element_short($element)."\n";
+    $mark_element = $element;
+    $source_mark->{'location'} = 'content';
+    $source_mark->{'position'} = 0;
+  }
+
+  if (!defined($mark_element)) {
+    return;
+  }
+
+  if (!$mark_element->{'source_marks'}) {
+    $mark_element->{'source_marks'} = [];
+  }
+  push @{$mark_element->{'source_marks'}}, $source_mark;
 }
 
 # parse a @macro line
@@ -3003,6 +3061,7 @@ sub _end_line_misc_line($$$)
   my $command = $current->{'cmdname'};
   my $end_command;
   my $included_file;
+  my $include_source_mark;
   print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
      if ($self->{'DEBUG'});
 
@@ -3071,10 +3130,13 @@ sub _end_line_misc_line($$$)
              = Texinfo::Common::locate_include_file($self, $file_path);
         if (defined($included_file_path)) {
           my ($status, $file_name, $directories)
-             = _input_push_file($self, $included_file_path, $file_name_encoding);
+             = _input_push_file($self, $included_file_path, $file_name_encoding,
+                                $include_source_mark);
           if ($status) {
             $included_file = 1;
             print STDERR "Included $included_file_path\n" if ($self->{'DEBUG'});
+            $include_source_mark = {'sourcemark_type' => $command,
+                                    'status' => 'start'};
           } else {
             # FIXME $text does not show the include directory.  Using
             # $included_file_path would require decoding to character string
@@ -3251,13 +3313,16 @@ sub _end_line_misc_line($$$)
     if ($included_file
         or ($command eq 'setfilename' and _in_include($self))) {
       pop @{$current->{'contents'}};
+      if ($included_file) {
+        _register_source_mark($self, $current, $include_source_mark);
+      }
     }
     $current = _begin_preformatted($self, $current)
       if ($close_preformatted_commands{$command});
   }
 
   if ($command eq 'setfilename'
-           and ($self->{'current_node'} or $self->{'current_section'})) {
+      and ($self->{'current_node'} or $self->{'current_section'})) {
     $self->_command_warn($misc_cmd, $source_info,
              __("\@%s after the first element"), $command);
   # columnfractions

@@ -431,6 +431,15 @@ $result_trees{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -550,7 +559,16 @@ $result_trees{'macro_in_early_commands'} = {
         'file_name' => '',
         'line_nr' => 26,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 2,
+          'location' => 'content',
+          'position' => 2,
+          'sourcemark_type' => 'include',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -629,6 +647,15 @@ $result_sectioning{'macro_in_early_commands'} = {
           }
         },
         'info' => {},
+        'source_marks' => [
+          {
+            'counter' => 2,
+            'location' => 'content',
+            'position' => 2,
+            'sourcemark_type' => 'include',
+            'status' => 'start'
+          }
+        ],
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -647,6 +674,15 @@ $result_nodes{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {},
+      'source_marks' => [
+        {
+          'counter' => 2,
+          'location' => 'content',
+          'position' => 2,
+          'sourcemark_type' => 'include',
+          'status' => 'start'
+        }
+      ],
       'structure' => {}
     },
     'normalized' => 'Top'

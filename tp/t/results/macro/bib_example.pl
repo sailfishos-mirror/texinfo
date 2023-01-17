@@ -328,6 +328,15 @@ $result_trees{'bib_example'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => '
 ',
               'type' => 'empty_line'

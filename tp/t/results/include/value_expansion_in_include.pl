@@ -158,6 +158,15 @@ $result_trees{'value_expansion_in_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 17,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'testvar include: This is the '
             },
             {
@@ -240,6 +249,15 @@ $result_trees{'value_expansion_in_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'test-var include: This is the '
             },
             {
@@ -322,6 +340,15 @@ $result_trees{'value_expansion_in_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'test_var include: This is the '
             },
             {
