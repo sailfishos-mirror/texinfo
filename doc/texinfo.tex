@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-01-13.20}
+\def\texinfoversion{2023-01-17.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7560,7 +7560,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \newtoks\defidx
 \newtoks\deftext
 
-\def\useindex#1{\defidx={#1}\ignorespaces}
+\def\useindex#1{\global\defidx={#1}\ignorespaces}
 
 % Called as \printdefunline \deffooheader{text}
 %
