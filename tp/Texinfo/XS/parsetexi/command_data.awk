@@ -158,6 +158,7 @@ END {
                     && flags_array[flag_idx] != "inline_format" \
                     && flags_array[flag_idx] != "inline_conditional" \
                     && flags_array[flag_idx] != "in_index" \
+                    && flags_array[flag_idx] != "in_def" \
                     && flags_array[flag_idx] != "brace_code" \
                     && flags_array[flag_idx] != "explained" \
                     && flags_array[flag_idx] != "formatted_line" \

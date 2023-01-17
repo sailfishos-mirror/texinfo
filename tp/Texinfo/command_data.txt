@@ -419,6 +419,9 @@ sortas                  brace,in_index,contain_plain_text          BRACE_argumen
 seeentry                brace,in_index,contain_simple_text         BRACE_arguments     1
 seealso                 brace,in_index,contain_simple_text         BRACE_arguments     1
 
+# only in @def*
+useindex                brace,in_def,contain_plain_text            BRACE_arguments     1
+
 # explained commands
 abbr                    brace,explained,contain_simple_text      BRACE_arguments     2
 acronym                 brace,explained,contain_simple_text      BRACE_arguments     2
