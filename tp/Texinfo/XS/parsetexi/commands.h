@@ -1,7 +1,7 @@
-/* commands.h - declarations for commands.c */
+/* commands.h - declarations for commands.c and command_data.c */
 #ifndef COMMANDS_H
 #define COMMANDS_H
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -86,15 +86,12 @@ void wipe_user_commands (void);
 #define CF_contain_simple_text        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
-/* CF_item_container is not used */
-#define CF_item_container		0x01000000
-/* CF_item_line is not used */
-#define CF_item_line			0x02000000
+/* unused                               0x01000000 */
+/* unused                               0x02000000 */
 #define CF_nobrace			0x04000000
 /* blockitem commands have a possible content before an item */
 #define CF_blockitem			0x08000000
-/* CF_inline is not used */
-#define CF_inline			0x10000000
+/* unused                               0x10000000 */
 #define CF_MACRO 			0x20000000
 #define CF_index_entry_command  	0x40000000
 /* command that affect the document as a whole and should appear only once */
