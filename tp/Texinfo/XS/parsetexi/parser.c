@@ -460,7 +460,7 @@ parse_texi_document (void)
       ELEMENT *l;
 
       free (line);
-      line = next_text ();
+      line = next_text (0);
       if (!line)
         break;
 
@@ -589,7 +589,7 @@ end_preformatted (ELEMENT *current,
       if (current->contents.number == 0)
         {
           current = current->parent;
-          destroy_element (pop_element_from_contents (current));
+          destroy_element (pop_element_from_contents (current, 1));
           debug ("popping");
         }
       else
@@ -695,7 +695,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       /* Remove element altogether if it's empty. */
       if (last_child->text.end == 0)
         {
-          ELEMENT *e = pop_element_from_contents (current);
+          ELEMENT *e = pop_element_from_contents (current, 1);
           destroy_element (e);
         }
       else if (last_child->type == ET_empty_line)
@@ -710,7 +710,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
              the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
           KEY_PAIR *k;
-          ELEMENT *e = pop_element_from_contents (current);
+          ELEMENT *e = pop_element_from_contents (current, 1);
 
           k = lookup_extra (last_child, "spaces_associated_command");
           owning_element = (ELEMENT *) k->value;
@@ -743,7 +743,7 @@ isolate_last_space_internal (ELEMENT *current)
     {
       add_info_string_dup (current, "spaces_after_argument",
                            last_elt->text.text);
-      destroy_element (pop_element_from_contents (current));
+      destroy_element (pop_element_from_contents (current, 1));
     }
   else
     {
@@ -829,7 +829,7 @@ isolate_last_space (ELEMENT *current)
           || last_contents_child(current)->cmd == CM_comment))
     {
       add_info_element_oot (current, "comment_at_end",
-                             pop_element_from_contents (current));
+                             pop_element_from_contents (current, 0));
     }
 
   if (current->contents.number == 0)
@@ -1048,7 +1048,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */
       /* in the perl parser the checks are not dynamic as in this function,
-         a hash is used and modified when defining the definfoencose command */
+         a hash is used and modified when defining the definfoenclose command */
       /* all the brace commands, not the definfoenclose commands, which
          should be consistent with the perl parser */
       if (cmd_flags & CF_brace && !(cmd_flags & CF_INFOENCLOSE))
@@ -1362,7 +1362,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           current = current->parent;
 
           /* Remove an ignored block. */
-          popped = pop_element_from_contents (current);
+          popped = pop_element_from_contents (current, 0);
           if (popped->cmd != end_cmd)
             fatal ("command mismatch for ignored block");
 
@@ -1512,7 +1512,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
          input in a static variable like allocated_text, to prevent
          memory leaks.  */
       free (allocated_text);
-      line = allocated_text = next_text ();
+      line = allocated_text = next_text (current);
 
       if (!line)
         {
@@ -1571,7 +1571,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       line = line_after_command;
       current = handle_macro (current, &line, cmd);
       free (allocated_line);
-      allocated_line = next_text ();
+      allocated_line = next_text (0);
       line = allocated_line;
       retval = STILL_MORE_TO_PROCESS;
       goto funexit;
@@ -1786,8 +1786,11 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               line_error ("@dotless expects `i' or `j' as argument, "
                           "not `%c'", *line);
             }
+          /* FIXME not clear that it can happen, there is no need for that
+             in the pure perl parser.  If it can happen could be needed
+             to reparent source marks */
           while (current->contents.number > 0)
-            destroy_element (pop_element_from_contents (current));
+            destroy_element (pop_element_from_contents (current, 0));
           line++;
           current = current->parent;
         }
@@ -2196,7 +2199,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   while (1)
     {
       free (allocated_line);
-      line = allocated_line = next_text ();
+      line = allocated_line = next_text (current);
       if (!allocated_line)
         break; /* Out of input. */
 
@@ -2295,7 +2298,7 @@ finished_totally:
       {
         ELEMENT *e;
         free (allocated_line);
-        line = allocated_line = next_text ();
+        line = allocated_line = next_text (0);
         if (!allocated_line)
           break; /* Out of input. */
 

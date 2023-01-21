@@ -18,7 +18,7 @@ void remove_slice_from_contents (ELEMENT *parent, int start, int end);
 ELEMENT *last_args_child (ELEMENT *current);
 ELEMENT *last_contents_child (ELEMENT *current);
 ELEMENT *pop_element_from_args (ELEMENT *parent);
-ELEMENT *pop_element_from_contents (ELEMENT *parent);
+ELEMENT *pop_element_from_contents (ELEMENT *parent, int reparent_source_marks);
 ELEMENT *contents_child_by_index (ELEMENT *e, int index);
 ELEMENT *args_child_by_index (ELEMENT *e, int index);
 void destroy_element (ELEMENT *e);

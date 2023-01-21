@@ -20,6 +20,7 @@
 #include "errors.h"
 
 int include_counter = 0;
+int setfilename_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -31,7 +32,35 @@ new_source_mark (enum source_mark_type type)
 
   source_mark->type = type;
   source_mark->status = SM_status_none;
+  source_mark->counter = -1;
   return source_mark;
+}
+
+void
+add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
+{
+  SOURCE_MARK_LIST *s_mark_list = &(e->source_mark_list);
+  if (s_mark_list->number == s_mark_list->space)
+    {
+      s_mark_list->space++;  s_mark_list->space *= 1.5;
+      s_mark_list->list = realloc (s_mark_list->list,
+                          s_mark_list->space * sizeof (SOURCE_MARK));
+      if (!s_mark_list->list)
+        fatal ("realloc failed");
+    }
+  s_mark_list->list[s_mark_list->number] = source_mark;
+  s_mark_list->number++;
+}
+
+void
+add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
+{
+  if (source_mark_list->number)
+    {
+      int i;
+      for (i = 0; i < source_mark_list->number; i++)
+        add_source_mark (source_mark_list->list[i], e);
+    }
 }
 
 /* ELEMENT should be the parent container.
@@ -43,10 +72,18 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   ELEMENT *mark_element;
   SOURCE_MARK_LIST *s_mark_list;
 
-  if (source_mark->type == SM_type_include)
+  if (source_mark->counter == -1)
     {
-      include_counter++;
-      source_mark->counter = include_counter;
+      if (source_mark->type == SM_type_include)
+        {
+          include_counter++;
+          source_mark->counter = include_counter;
+        }
+      else if (source_mark->type == SM_type_setfilename)
+        {
+          setfilename_counter++;
+          source_mark->counter = setfilename_counter;
+        }
     }
 
   if (e->contents.number > 0)
@@ -72,21 +109,12 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       source_mark->position = 0;
     }
 
-  s_mark_list = &(mark_element->source_mark_list);
-  if (s_mark_list->number == s_mark_list->space)
-    {
-      s_mark_list->space++;  s_mark_list->space *= 1.5;
-      s_mark_list->list = realloc (s_mark_list->list,
-                          s_mark_list->space * sizeof (SOURCE_MARK));
-      if (!s_mark_list->list)
-        fatal ("realloc failed");
-    }
-  s_mark_list->list[s_mark_list->number] = source_mark;
-  s_mark_list->number++;
+  add_source_mark (source_mark, mark_element);
 }
 
 void
 source_marks_reset_counters (void)
 {
   include_counter = 0;
+  setfilename_counter = 0;
 }

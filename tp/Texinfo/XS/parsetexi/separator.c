@@ -666,7 +666,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                       brace_count--;
                       break;
                     default:
-                      line = next_text ();
+                      line = next_text (e);
                       if (!line)
                         goto funexit;
                       continue;
@@ -713,7 +713,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                   break;
                 default:
                   free (alloc_line);
-                  alloc_line = next_text ();
+                  alloc_line = next_text (e);
                   if (!alloc_line)
                     goto funexit;
                   line = alloc_line;

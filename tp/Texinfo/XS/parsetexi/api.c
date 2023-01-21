@@ -525,6 +525,7 @@ store_source_mark_list (ELEMENT *e)
           IV source_mark_position;
           IV source_mark_counter;
           source_mark = newHV ();
+#define STORE(key, value) hv_store (source_mark, key, strlen (key), value, 0)
            /* A simple integer.  The intptr_t cast here prevents
               a warning on MinGW ("cast from pointer to integer of
               different size"). */
@@ -534,6 +535,13 @@ store_source_mark_list (ELEMENT *e)
           source_mark_counter = (IV) (intptr_t) s_mark->counter;
           hv_store (source_mark, "counter", strlen ("counter"),
                     newSViv (source_mark_counter), 0);
+          if (s_mark->element)
+            {
+              ELEMENT *e = s_mark->element;
+              if (!e->hv)
+                element_to_perl_hash (e);
+              STORE("element", newRV_inc ((SV *)e->hv));
+            }
 
 #define SAVE_S_M_STATUS(X) \
            case SM_status_ ## X: \
@@ -562,15 +570,17 @@ store_source_mark_list (ELEMENT *e)
 #define SAVE_S_M_TYPE(X) \
            case SM_type_ ## X: \
            sv = newSVpv_utf8 (#X, 0);\
-           hv_store (source_mark, "sourcemark_type", \
-                     strlen ("sourcemark_type"), sv, 0); \
-          av_push (av, newRV_inc ((SV *)source_mark));
+           STORE("sourcemark_type", sv); \
+           break;
+
           switch (s_mark->type)
             {
               SAVE_S_M_TYPE (include)
+              SAVE_S_M_TYPE (setfilename)
             }
 
-
+          av_push (av, newRV_inc ((SV *)source_mark));
+#undef STORE
         }
     }
 }

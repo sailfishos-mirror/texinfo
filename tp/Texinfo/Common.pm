@@ -1965,6 +1965,17 @@ sub modify_tree($$;$)
       splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @new_contents);
     }
   }
+  if ($tree->{'source_marks'}) {
+    my @source_marks = @{$tree->{'source_marks'}};
+    for (my $i = 0; $i <= $#source_marks; $i++) {
+      if ($source_marks[$i]->{'element'}) {
+        my @new_element
+          = &$operation('source_mark', $source_marks[$i]->{'element'},
+                        $argument);
+        $source_marks[$i]->{'element'} = $new_element[0];
+      }
+    }
+  }
   return $tree;
 }
 

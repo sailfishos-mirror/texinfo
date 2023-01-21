@@ -161,6 +161,34 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'incl-incl.txi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'incl-incl.txi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 12,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 17,
                   'sourcemark_type' => 'include',
@@ -188,6 +216,15 @@ $result_trees{'value_expansion_in_include'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 36,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => ' file (include-value2.txi) <> ---. 
 '
             }
@@ -252,6 +289,34 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'incl-incl.txi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'incl-incl.txi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 17,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
@@ -279,6 +344,15 @@ $result_trees{'value_expansion_in_include'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 36,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => ' file (include-value2.txi) <> ---. 
 '
             }
@@ -343,6 +417,34 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'incl-incl.txi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'incl-incl.txi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 22,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
@@ -370,6 +472,15 @@ $result_trees{'value_expansion_in_include'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'location' => 'text',
+                  'position' => 36,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => ' file (include-value2.txi) <> ---. 
 '
             }

@@ -26,6 +26,7 @@
 #include "input.h"
 #include "text.h"
 #include "commands.h"
+#include "source_marks.h"
 
 enum input_type { IN_file, IN_text };
 
@@ -50,6 +51,7 @@ typedef struct {
                     into lines. */
     char *value_flag; /* value flag if the input text is a @value
                          explansion */
+    SOURCE_MARK *file_source_mark;
 } INPUT;
 
 static char *input_pushback_string;
@@ -115,7 +117,7 @@ new_line (void)
 
   while (1)
     {
-      new = next_text ();
+      new = next_text (0);
       if (!new)
         break;
       text_append (&t, new);
@@ -387,8 +389,9 @@ input_pushback (char *string)
 }
 
 /* Return value to be freed by caller.  Return null if we are out of input. */
+/* CURRENT is the current container that can be used for source marks. */
 char *
-next_text (void)
+next_text (ELEMENT *current)
 {
   ssize_t status;
   char *line = 0;
@@ -484,6 +487,17 @@ next_text (void)
                 fprintf (stderr, "error on closing %s: %s",
                         input_stack[input_number - 1].source_info.file_name,
                         strerror (errno));
+              if (input_stack[input_number - 1].file_source_mark)
+                {
+                  SOURCE_MARK *input_source_mark
+                    = input_stack[input_number - 1].file_source_mark;
+                  SOURCE_MARK *end_include_source_mark
+                    = new_source_mark(input_source_mark->type);
+                  end_include_source_mark->counter
+                    = input_source_mark->counter;
+                  end_include_source_mark->status = SM_status_end;
+                  register_source_mark(current, end_include_source_mark);
+                }
             }
         }
 
@@ -527,6 +541,12 @@ input_push_text (char *text, int line_number, char *macro, char *value_flag)
   input_stack[input_number].source_info.macro = save_string (macro);
   input_stack[input_number].value_flag = value_flag;
   input_number++;
+}
+
+void
+set_input_source_mark (SOURCE_MARK *source_mark)
+{
+  input_stack[input_number - 1].file_source_mark = source_mark;
 }
 
 /* For filenames and macro names, it is possible that they won't be referenced 
@@ -706,6 +726,7 @@ input_push_file (char *filename)
   input_stack[input_number].source_info.file_name = filename;
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;
+  input_stack[input_number].file_source_mark = 0;
   input_stack[input_number].text = 0;
   input_stack[input_number].ptext = 0;
   input_number++;

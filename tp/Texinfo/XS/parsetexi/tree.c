@@ -19,6 +19,7 @@
 
 #include "errors.h"
 #include "tree.h"
+#include "source_marks.h"
 
 //int element_counter;
 
@@ -55,6 +56,9 @@ new_element (enum element_type type)
 
   e->extra_info = new_associated_info();
   e->info_info = new_associated_info();
+
+  e->source_mark_list.space = 0;
+  e->source_mark_list.number = 0;
 
   return e;
 }
@@ -161,13 +165,23 @@ destroy_associated_info (ASSOCIATED_INFO *a)
 }
 
 void
+destroy_source_mark (SOURCE_MARK *source_mark)
+{
+  if (source_mark->element)
+    destroy_element_and_children (source_mark->element);
+  free (source_mark);
+}
+
+void
 destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
 {
   int i;
   for (i = 0; i < source_mark_list->number; i++)
-    free (source_mark_list->list[i]);
+    destroy_source_mark (source_mark_list->list[i]);
 
+  source_mark_list->number = 0;
   free (source_mark_list->list);
+  source_mark_list->space = 0;
 }
 
 void
@@ -359,10 +373,16 @@ pop_element_from_args (ELEMENT *parent)
 }
 
 ELEMENT *
-pop_element_from_contents (ELEMENT *parent)
+pop_element_from_contents (ELEMENT *parent, int reparent_source_marks)
 {
   ELEMENT_LIST *list = &parent->contents;
 
+  if (reparent_source_marks)
+    {
+      add_source_marks (&(list->list[list->number -1]->source_mark_list),
+                        parent);
+      list->list[list->number -1]->source_mark_list.number = 0;
+    }
   return list->list[--list->number];
 }
 

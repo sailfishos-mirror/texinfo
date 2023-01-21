@@ -331,6 +331,34 @@ $result_trees{'bib_example'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'my-bib-macros.texi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'my-bib-macros.texi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => 'bib-example.texi',
+                      'line_nr' => 25,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'include',
@@ -3409,6 +3437,15 @@ $result_trees{'bib_example'} = {
             }
           ],
           'type' => 'preamble_before_content'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 214,
+          'sourcemark_type' => 'include',
+          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

@@ -15,6 +15,34 @@ $result_trees{'test_two_include'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'version.texi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'version.texi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 2,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'include',
@@ -204,6 +232,34 @@ $result_trees{'test_two_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'inc_file.texi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'inc_file.texi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 5,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 17,
                   'sourcemark_type' => 'include',
@@ -214,6 +270,15 @@ $result_trees{'test_two_include'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'In included file.
 '
             }
@@ -233,6 +298,15 @@ $result_trees{'test_two_include'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 5,
+          'sourcemark_type' => 'include',
+          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

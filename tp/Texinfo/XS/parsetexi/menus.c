@@ -128,7 +128,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       debug ("MENU ENTRY (certainly)");
       leading_spaces = strspn (line, whitespace_chars);
 
-      destroy_element (pop_element_from_contents (current));
+      destroy_element (pop_element_from_contents (current, 1));
 
       if (current->type == ET_preformatted
           && current->parent->type == ET_menu_comment)
@@ -138,10 +138,10 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           /* Remove an empty ET_preformatted, and an empty ET_menu_comment. */
           if (current->contents.number == 0)
             {
-              pop_element_from_contents (current->parent);
+              pop_element_from_contents (current->parent, 1);
               if (current->parent->contents.number == 0)
                 {
-                  pop_element_from_contents (menu);
+                  pop_element_from_contents (menu, 1);
                   destroy_element (current->parent);
                 }
               destroy_element (current);

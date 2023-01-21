@@ -601,7 +601,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
               if (current->cmd == base_command)
                 {
-                  ELEMENT *e = pop_element_from_contents (current);
+                  ELEMENT *e = pop_element_from_contents (current, 0);
                   /* e should be the same as misc */
                   /* Gather an "inter_def_item" element. */
                   gather_def_item (current, cmd);
@@ -883,7 +883,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
           /* This is for @detailmenu within @menu */
           ELEMENT *menu = current->parent;
           if (current->contents.number == 0)
-            destroy_element (pop_element_from_contents (menu));
+            destroy_element (pop_element_from_contents (menu, 1));
 
           if (menu->type == ET_menu_entry)
             menu = menu->parent;

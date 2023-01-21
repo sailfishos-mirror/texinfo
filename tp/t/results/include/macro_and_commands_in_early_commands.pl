@@ -326,6 +326,34 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'macro_included.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => '
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'macro_included.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 21,
+                  'macro' => ''
+                }
+              },
               'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
@@ -392,6 +420,15 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'In included file.
 '
             }
@@ -464,7 +501,48 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
       },
       'source_marks' => [
         {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 2,
+          'sourcemark_type' => 'include',
+          'status' => 'end'
+        },
+        {
           'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'contents' => [
+                  {
+                    'text' => 'inc_'
+                  },
+                  {
+                    'cmdname' => '@'
+                  },
+                  {
+                    'text' => 'f--ile.texi'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => '
+'
+                },
+                'type' => 'line_arg'
+              }
+            ],
+            'cmdname' => 'include',
+            'extra' => {
+              'text_arg' => 'inc_@f--ile.texi'
+            },
+            'info' => {
+              'spaces_before_argument' => ' '
+            },
+            'source_info' => {
+              'file_name' => '',
+              'line_nr' => 21,
+              'macro' => 'multiinclude'
+            }
+          },
           'location' => 'content',
           'position' => 2,
           'sourcemark_type' => 'include',
@@ -540,7 +618,19 @@ $result_sectioning{'macro_and_commands_in_early_commands'} = {
         'info' => {},
         'source_marks' => [
           {
+            'counter' => 1,
+            'location' => 'content',
+            'position' => 2,
+            'sourcemark_type' => 'include',
+            'status' => 'end'
+          },
+          {
             'counter' => 2,
+            'element' => {
+              'cmdname' => 'include',
+              'extra' => {},
+              'info' => {}
+            },
             'location' => 'content',
             'position' => 2,
             'sourcemark_type' => 'include',
@@ -567,7 +657,19 @@ $result_nodes{'macro_and_commands_in_early_commands'} = {
       'info' => {},
       'source_marks' => [
         {
+          'counter' => 1,
+          'location' => 'content',
+          'position' => 2,
+          'sourcemark_type' => 'include',
+          'status' => 'end'
+        },
+        {
           'counter' => 2,
+          'element' => {
+            'cmdname' => 'include',
+            'extra' => {},
+            'info' => {}
+          },
           'location' => 'content',
           'position' => 2,
           'sourcemark_type' => 'include',

@@ -159,7 +159,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
                        || last_contents_child(before_item)->cmd
                          == CM_comment))
             {
-              ELEMENT *e = pop_element_from_contents (before_item);
+              ELEMENT *e = pop_element_from_contents (before_item, 0);
               insert_into_contents (table_term, e, 0);
             }
         }

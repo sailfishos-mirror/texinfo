@@ -184,7 +184,7 @@ close_command_cleanup (ELEMENT *current)
           if (e && e->cmd == CM_end)
             {
               add_to_element_contents (current,
-                                     pop_element_from_contents (before_item));
+                                     pop_element_from_contents (before_item, 0));
             }
 
           /* Now if the ET_before_item is empty, remove it. */
@@ -312,12 +312,12 @@ close_current (ELEMENT *current,
               line_error ("no matching `@end %s'",
                           command_name(current->cmd));
 
-              /* Ignored conditional. */
+              /* In ignored conditional. */
               if (command_data(current->cmd).data == BLOCK_conditional)
                 {
                   parent = current->parent;
                   destroy_element_and_children (pop_element_from_contents
-                                                          (parent));
+                                                          (parent, 0));
                 }
             }
           pop_block_command_contexts (cmd);
@@ -357,7 +357,7 @@ close_current (ELEMENT *current,
               && current->contents.number == 0)
             {
               current = current->parent;
-              destroy_element (pop_element_from_contents (current));
+              destroy_element (pop_element_from_contents (current, 1));
             }
           else
             current = current->parent;

@@ -484,6 +484,34 @@ $result_trees{'cpp_lines'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'file_with_cpp_lines.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => '
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'file_with_cpp_lines.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => 'g_f',
+                  'line_nr' => 74,
+                  'macro' => ''
+                }
+              },
               'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
@@ -532,6 +560,15 @@ $result_trees{'cpp_lines'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'end'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

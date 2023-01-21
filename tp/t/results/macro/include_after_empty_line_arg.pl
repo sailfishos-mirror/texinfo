@@ -90,6 +90,34 @@ $result_trees{'include_after_empty_line_arg'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'inc_file.texi'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => '
+'
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'inc_file.texi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 6,
+                      'macro' => ''
+                    }
+                  },
                   'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'include',
@@ -100,6 +128,15 @@ $result_trees{'include_after_empty_line_arg'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'In included file.
 '
             }

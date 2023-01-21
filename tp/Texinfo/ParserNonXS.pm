@@ -884,7 +884,7 @@ sub parse_texi_text($$;$)
 # Returns binary strings too.
 sub _input_push_file
 {
-  my ($self, $input_file_path, $file_name_encoding, $source_mark) = @_;
+  my ($self, $input_file_path, $file_name_encoding) = @_;
 
   my $filehandle = do { local *FH };
   if (!open($filehandle, $input_file_path)) {
@@ -918,8 +918,6 @@ sub _input_push_file
 
   $file_input->{'file_name_encoding'} = $file_name_encoding
        if (defined($file_name_encoding));
-  $file_input->{'file_source_mark'} = $source_mark
-       if (defined($source_mark));
   $self->{'input'} = [] if (!defined($self->{'input'}));
   unshift @{$self->{'input'}}, $file_input;
 
@@ -1270,18 +1268,15 @@ sub _register_source_mark
 {
   my ($self, $element, $source_mark) = @_;
 
-  #return;
-
-  my $counter_name;
-  if ($source_mark->{'sourcemark_type'}) {
-    $counter_name = $source_mark->{'sourcemark_type'};
+  if (!defined($source_mark->{'counter'})) {
+    my $counter_name = $source_mark->{'sourcemark_type'};
+    if (!$self->{'source_mark_counters'}->{$counter_name}) {
+      $self->{'source_mark_counters'}->{$counter_name} = 0;
+    }
+    $self->{'source_mark_counters'}->{$counter_name} += 1;
+    $source_mark->{'counter'}
+      = $self->{'source_mark_counters'}->{$counter_name};
   }
-
-  if (!$self->{'source_mark_counters'}->{$counter_name}) {
-    $self->{'source_mark_counters'}->{$counter_name} = 0;
-  }
-  $self->{'source_mark_counters'}->{$counter_name} += 1;
-  $source_mark->{'counter'} = $self->{'source_mark_counters'}->{$counter_name};
 
   # the element that holds the source mark
   my $mark_element;
@@ -1310,14 +1305,27 @@ sub _register_source_mark
     $source_mark->{'position'} = 0;
   }
 
+  # cannot currently happen
   if (!defined($mark_element)) {
     return;
   }
+  print STDERR "MARKS: $source_mark->{'sourcemark_type'} "
+    ."$source_mark->{'counter'} $source_mark->{'location'} "
+     .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF')
+     .' '.Texinfo::Common::debug_print_element_short($mark_element)."\n"
+        if ($self->{'DEBUG'});
+        ;
+  _add_source_marks([$source_mark], $mark_element);
+}
 
-  if (!$mark_element->{'source_marks'}) {
-    $mark_element->{'source_marks'} = [];
+sub _add_source_marks($$)
+{
+  my $source_marks = shift;
+  my $element = shift;
+  if (!$element->{'source_marks'}) {
+    $element->{'source_marks'} = [];
   }
-  push @{$mark_element->{'source_marks'}}, $source_mark;
+  push @{$element->{'source_marks'}}, @{$source_marks};
 }
 
 # parse a @macro line
@@ -1603,7 +1611,8 @@ sub _end_preformatted($$$;$$)
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'DEBUG'});
     # completly remove void preformatted contexts
     if (!$current->{'contents'}) {
-      my $removed = pop @{$current->{'parent'}->{'contents'}};
+      my $removed
+       = _pop_element_from_contents($current->{'parent'}, 1);
       print STDERR "popping $removed->{'type'}\n" if ($self->{'DEBUG'});
     }
     $current = $current->{'parent'};
@@ -1750,11 +1759,8 @@ sub _gather_previous_item($$;$$)
                              eq 'c'
                           or $before_item->{'contents'}->[-1]->{'cmdname'}
                              eq 'comment')))) {
-        my $element = pop @{$before_item->{'contents'}};
+        my $element = _pop_element_from_contents($before_item);
         unshift @{$table_term->{'contents'}}, $element;
-      }
-      if (scalar(@{$before_item->{'contents'}}) == 0) {
-        delete $before_item->{'contents'};
       }
     }
     if (scalar(@{$table_after_terms->{'contents'}})) {
@@ -1823,7 +1829,8 @@ sub _close_command_cleanup($$) {
   # @item or @headitem rows.
   if ($current->{'cmdname'} eq 'multitable') {
     my $in_head_or_rows;
-    my @contents = @{$current->{'contents'}};
+    my @contents;
+    @contents = @{$current->{'contents'}} if ($current->{'contents'});
     $current->{'contents'} = [];
     foreach my $row (@contents) {
       if ($row->{'type'} and $row->{'type'} eq 'row') {
@@ -1865,16 +1872,18 @@ sub _close_command_cleanup($$) {
       and $block_commands{$current->{'cmdname'}} eq 'item_line') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
-    if (@{$current->{'contents'}}) {
+    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
       _gather_previous_item($self, $current);
     }
   }
 
+  # Block commands that contain @item's - e.g. @multitable, @table,
+  # @itemize.
   # put end out of before_item, and replace it at the end of the parent.
   # remove empty before_item.
   # warn if not empty before_item, but format is empty
   if ($blockitem_commands{$current->{'cmdname'}}) {
-    if (@{$current->{'contents'}}) {
+    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
       my $leading_spaces = 0;
       my $before_item;
       if ($current->{'contents'}->[0]->{'type'}
@@ -2006,7 +2015,7 @@ sub _close_current($$$;$$)
                                    ord('@'), $current->{'cmdname'}),
                            $source_info);
         if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
-          # in this case we are within an ignored conditional
+          # In ignored conditional.
           _pop_element_from_contents($current->{'parent'});
         }
       }
@@ -2035,10 +2044,11 @@ sub _close_current($$$;$$)
       }
     } elsif ($current->{'type'} eq 'menu_comment'
              or $current->{'type'} eq 'menu_entry_description') {
-      # close empty menu_comment
+      # Remove empty menu_comment
       if ($current->{'type'} eq 'menu_comment'
-          and !@{$current->{'contents'}}) {
-        pop @{$current->{'parent'}->{'contents'}};
+          and (!$current->{'contents'}
+               or !scalar(@{$current->{'contents'}}))) {
+        _pop_element_from_contents($current->{'parent'}, 1);
       }
     } elsif ($current->{'parent'}
              and $current->{'parent'}->{'type'}
@@ -2246,9 +2256,10 @@ sub _save_line_directive
 
 # returns next text fragment with source information, be it
 # pending from a macro expansion or pending text, or read from file.
-sub _next_text($)
+# $CURRENT is the current container that can be used for source marks.
+sub _next_text($;$)
 {
-  my ($self) = @_;
+  my ($self, $current) = @_;
 
   while (@{$self->{'input'}}) {
     my $input = $self->{'input'}->[0];
@@ -2324,6 +2335,14 @@ sub _next_text($)
                                      $file_name, $!));
       }
       delete $previous_input->{'fh'};
+      if (defined($previous_input->{'file_source_mark'})) {
+        my $end_include_source_mark
+          = { %{$previous_input->{'file_source_mark'}} };
+        $end_include_source_mark->{'status'} = 'end';
+        delete $end_include_source_mark->{'element'};
+        _register_source_mark($self, $current,
+                              $end_include_source_mark);
+      }
     }
     # keep the first input level to have a permanent source for
     # source_info, even when nothing is returned and the first input
@@ -2515,12 +2534,48 @@ sub _set_non_ignored_space_in_index_before_command($)
   }
 }
 
-sub _pop_element_from_contents($)
+# for debug
+sub _check_popped_source_marks
+{
+  my $popped_element = shift;
+  my $level = shift;
+
+  if ($popped_element->{'source_marks'}) {
+    print STDERR "BUG: level $level element with source_marks\n";
+  }
+  if ($popped_element->{'args'}) {
+    my $arg_nr = 0;
+    foreach my $arg (@{$popped_element->{'args'}}) {
+      _check_popped_source_marks($arg, $level . 'A'.$arg_nr);
+      $arg_nr += 1;
+    }
+  }
+  if ($popped_element->{'contents'}) {
+    my $content_nr = 0;
+    foreach my $content (@{$popped_element->{'contents'}}) {
+      _check_popped_source_marks($content, $level . 'C'.$content_nr);
+      $content_nr += 1;
+    }
+  }
+}
+
+sub _pop_element_from_contents($;$$)
 {
   my $parent_element = shift;
+  my $reparent_source_marks = shift;
+  my $check_source_marks = shift;
 
   my $popped_element = pop @{$parent_element->{'contents'}};
-
+  #if ($popped_element->{'source_marks'}
+  #    and scalar(@{$popped_element->{'source_marks'}})) {
+  #  print STDERR "BUG: popping element with source_marks\n";
+  #  cluck;
+  #}
+  if ($reparent_source_marks and $popped_element->{'source_marks'}) {
+    _add_source_marks($popped_element->{'source_marks'},
+                      $parent_element);
+  }
+  _check_popped_source_marks($popped_element, 'I') if ($check_source_marks);
   delete $parent_element->{'contents'}
     if (scalar(@{$parent_element->{'contents'}}) == 0);
 
@@ -2555,7 +2610,7 @@ sub _abort_empty_line {
 
     # remove empty 'empty*before'.  Happens in many situations.
     if ($spaces_element->{'text'} eq '') {
-      _pop_element_from_contents($current);
+      _pop_element_from_contents($current, 1);
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2568,7 +2623,7 @@ sub _abort_empty_line {
              or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
       # the 'info' hash as 'spaces_before_argument'.
-      _pop_element_from_contents($current);
+      _pop_element_from_contents($current, 1);
       my $owning_element
         = $spaces_element->{'extra'}->{'spaces_associated_command'};
       #$owning_element->{'info'} = {} if (! $owning_element->{'info'});
@@ -2660,7 +2715,8 @@ sub _isolate_last_space
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       $current->{'info'}->{'spaces_after_argument'}
                  = $current->{'contents'}->[-1]->{'text'};
-      _pop_element_from_contents($current);
+      # FIXME transfer mark sources text to content?
+      _pop_element_from_contents($current, 1);
     } else {
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
       $current->{'info'}->{'spaces_after_argument'} = $1;
@@ -3130,13 +3186,13 @@ sub _end_line_misc_line($$$)
              = Texinfo::Common::locate_include_file($self, $file_path);
         if (defined($included_file_path)) {
           my ($status, $file_name, $directories)
-             = _input_push_file($self, $included_file_path, $file_name_encoding,
-                                $include_source_mark);
+             = _input_push_file($self, $included_file_path, $file_name_encoding);
           if ($status) {
             $included_file = 1;
             print STDERR "Included $included_file_path\n" if ($self->{'DEBUG'});
             $include_source_mark = {'sourcemark_type' => $command,
                                     'status' => 'start'};
+            $self->{'input'}->[0]->{'file_source_mark'} = $include_source_mark;
           } else {
             # FIXME $text does not show the include directory.  Using
             # $included_file_path would require decoding to character string
@@ -3265,9 +3321,10 @@ sub _end_line_misc_line($$$)
     }
   }
   $current = $current->{'parent'};
-  if ($end_command) {
+  if ($end_command) { # Set above
+    # More processing of @end
     print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
-    # reparent to block command
+    # Reparent the "@end" element to be a child of the block element.
     my $end = _pop_element_from_contents($current);
     if ($block_commands{$end_command} ne 'conditional') {
       # here close some empty types.  Typically empty preformatted
@@ -3277,7 +3334,7 @@ sub _end_line_misc_line($$$)
       if (not defined($current->{'cmdname'}) and $current->{'type'}
           and !$current->{'contents'}
           and $current->{'parent'}) {
-        my $removed = pop @{$current->{'parent'}->{'contents'}};
+        my $removed = _pop_element_from_contents($current->{'parent'}, 1);
         print STDERR "popping at end command $end_command: $removed->{'type'}\n"
          if ($self->{'DEBUG'});
         $current = $current->{'parent'};
@@ -3312,10 +3369,19 @@ sub _end_line_misc_line($$$)
     # Ignore @setfilename in included file, as said in the manual.
     if ($included_file
         or ($command eq 'setfilename' and _in_include($self))) {
-      pop @{$current->{'contents'}};
+      my $source_mark;
       if ($included_file) {
-        _register_source_mark($self, $current, $include_source_mark);
+        $source_mark = $include_source_mark;
+      } else {
+        $source_mark = { 'sourcemark_type' => $command };
       }
+      # this is in order to keep source marks that are within a
+      # removed element.  For the XS parser it is also easier to
+      # manage the source mark memory which can stay associated
+      # to the element.
+      my $removed_element = _pop_element_from_contents($current);
+      $source_mark->{'element'} = $removed_element;
+      _register_source_mark($self, $current, $source_mark);
     }
     $current = _begin_preformatted($self, $current)
       if ($close_preformatted_commands{$command});
@@ -3730,7 +3796,8 @@ sub _end_line($$$)
       and $current->{'contents'}->[-1]->{'type'} eq 'empty_line') {
     print STDERR "END EMPTY LINE\n" if ($self->{'DEBUG'});
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
-      my $empty_line = pop @{$current->{'contents'}};
+      # Remove empty_line element.
+      my $empty_line = _pop_element_from_contents($current);
       $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
       $empty_line->{'parent'} = $current;
@@ -3738,10 +3805,12 @@ sub _end_line($$$)
              and $current->{'type'} eq 'preformatted'
              and $current->{'parent'}->{'type'}
              and $current->{'parent'}->{'type'} eq 'menu_entry_description')  {
-      my $empty_line = pop @{$current->{'contents'}};
+      # FIXME transfer source marks
+      my $empty_line = _pop_element_from_contents($current, 0);
       my $preformatted = $current;
       $current = $current->{'parent'};
-      if (! scalar(@{$preformatted->{'contents'}})) {
+      if (not $preformatted->{'contents'} or
+          not scalar(@{$preformatted->{'contents'}})) {
         _pop_element_from_contents($current);
       }
 
@@ -3775,9 +3844,9 @@ sub _end_line($$$)
           and $current->{'contents'}->[-1]->{'cmdname'}
           and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-        $end_comment = pop @{$current->{'contents'}};
+        $end_comment = _pop_element_from_contents($current);
       }
-      if (!@{$current->{'contents'}}
+      if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
            # empty if only the end of line or spaces, including non ascii spaces
            or (@{$current->{'contents'}} == 1
                and defined($current->{'contents'}->[-1]->{'text'})
@@ -3792,9 +3861,10 @@ sub _end_line($$$)
       my $menu_type_reopened = 'menu_description';
       print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'DEBUG'});
       my $menu = $current->{'parent'}->{'parent'};
-      my $menu_entry = pop @{$menu->{'contents'}};
-      if (@{$menu->{'contents'}} and $menu->{'contents'}->[-1]->{'type'}
-         and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
+      my $menu_entry = _pop_element_from_contents($menu);
+      if ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
+          and $menu->{'contents'}->[-1]->{'type'}
+          and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
         my $entry = $menu->{'contents'}->[-1];
         my $description;
         foreach my $entry_element (reverse(@{$entry->{'args'}})) {
@@ -3813,8 +3883,9 @@ sub _end_line($$$)
                                      'parent' => $entry, };
           $description_or_menu_comment = $entry->{'args'}->[-1];
         }
-      } elsif (@{$menu->{'contents'}} and $menu->{'contents'}->[-1]->{'type'}
-         and $menu->{'contents'}->[-1]->{'type'} eq 'menu_comment') {
+      } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
+               and $menu->{'contents'}->[-1]->{'type'}
+               and $menu->{'contents'}->[-1]->{'type'} eq 'menu_comment') {
         $description_or_menu_comment = $menu->{'contents'}->[-1];
         $menu_type_reopened = 'menu_comment';
       }
@@ -3842,6 +3913,7 @@ sub _end_line($$$)
         $current = $current->{'contents'}->[-1];
         print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
       }
+      # FIXME check that source marks are transfered
       while (@{$menu_entry->{'args'}}) {
         my $arg = shift @{$menu_entry->{'args'}};
         if (defined($arg->{'text'})) {
@@ -4320,7 +4392,7 @@ sub _process_remaining_on_line($$$$)
                               $line), $source_info)
         if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
       $current = $current->{'parent'};
-      # don't store ignored @if*
+      # Remove an ignored block @if*
       my $conditional = _pop_element_from_contents($current);
       if (!defined($conditional->{'cmdname'}
           or $conditional->{'cmdname'} ne $end_command)) {
@@ -4399,7 +4471,7 @@ sub _process_remaining_on_line($$$$)
   while ($line eq '') {
     print STDERR "EMPTY TEXT\n"
       if ($self->{'DEBUG'});
-    ($line, $source_info) = _next_text($self);
+    ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
       # end of the file or of a text fragment.
       $current = _end_line($self, $current, $source_info);
@@ -4705,13 +4777,11 @@ sub _process_remaining_on_line($$$$)
     } else {
       print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
       # this is the menu star collected previously
-      pop @{$current->{'contents'}};
+      _pop_element_from_contents($current, 1);
       $line =~ s/^(\s+)//;
       my $leading_text = '*' . $1;
       # FIXME remove empty description too?  In that case there won't be
       # a need to delete preformatted 'contents'
-      delete $current->{'contents'}
-        if (scalar(@{$current->{'contents'}}) == 0);
       if ($current->{'type'} eq 'preformatted'
           and $current->{'parent'}->{'type'}
           and ($current->{'parent'}->{'type'} eq 'menu_comment'
@@ -4719,9 +4789,13 @@ sub _process_remaining_on_line($$$$)
                )) {
         my $menu = $current->{'parent'}->{'parent'};
         if (!$current->{'contents'}) {
-          pop @{$current->{'parent'}->{'contents'}};
-          if (!scalar(@{$current->{'parent'}->{'contents'}})) {
-            pop @{$menu->{'contents'}};
+          # not sure that it is possible to have source marks, nor
+          # that they will be correctly placed
+          _pop_element_from_contents($current->{'parent'}, 1);
+          if (not $current->{'parent'}
+              or not $current->{'parent'}->{'contents'}
+              or not scalar(@{$current->{'parent'}->{'contents'}})) {
+            _pop_element_from_contents($menu, 1);
           }
         }
         $current = $menu;
@@ -5215,7 +5289,8 @@ sub _process_remaining_on_line($$$$)
             }
             if ($current->{'cmdname'}
                 and $current->{'cmdname'} eq $base_command) {
-              pop @{$current->{'contents'}};
+              # popped element should be the same as $misc
+              _pop_element_from_contents($current);
               _gather_def_item($current, $command);
               push @{$current->{'contents'}}, $misc;
             }
@@ -5383,10 +5458,11 @@ sub _process_remaining_on_line($$$$)
                  or $current->{'type'} eq 'menu_entry_description')) {
 
           my $menu;
-
+          # This is for @detailmenu within @menu
           $menu = $current->{'parent'};
-          pop @{$menu->{'contents'}}
-            if (!@{$current->{'contents'}});
+          _pop_element_from_contents($menu, 1)
+            if (not $current->{'contents'}
+                or not scalar(@{$current->{'contents'}}));
 
           if ($menu->{'type'} and $menu->{'type'} eq 'menu_entry') {
             $menu = $menu->{'parent'};
@@ -5964,7 +6040,10 @@ sub _process_remaining_on_line($$$$)
                 }
               } else {
                 my $new_text;
-                ($new_text, $source_info) = _next_text($self);
+                ($new_text, $source_info)
+                # TODO a test a situation with @include closing in ignored
+                # @inlinefmtifelse first arg (which maybe is not possible).
+                   = _next_text($self, $current->{'args'}->[-1]);
                 if (not defined($new_text)) {
                   $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                   goto funexit;
@@ -6000,7 +6079,10 @@ sub _process_remaining_on_line($$$$)
               }
             } else {
               my $new_text;
-              ($new_text, $source_info) = _next_text($self);
+              # TODO a test a situation with @include closing in ignored
+              # @inline* second arg (which maybe is not possible).
+              ($new_text, $source_info)
+                 = _next_text($self, $current->{'args'}->[-1]);
               if (not defined($new_text)) {
                 $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                 goto funexit;
@@ -6092,7 +6174,7 @@ sub _parse_texi($$$)
  NEXT_LINE:
   while (1) {
     my $line;
-    ($line, $source_info) = _next_text($self);
+    ($line, $source_info) = _next_text($self, $current);
     last if (!defined($line));
 
     if ($self->{'DEBUG'}) {

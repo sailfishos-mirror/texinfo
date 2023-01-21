@@ -5,7 +5,7 @@
 #include "tree_types.h"
 
 char *new_line (void);
-char *next_text (void);
+char *next_text (ELEMENT *current);
 
 void save_line_directive (int line_nr, char *filename);
 
@@ -13,6 +13,7 @@ void input_push_text (char *text, int line_number, char *macro,
                       char *value_flag);
 int input_push_file (char *filename);
 void input_pushback (char *line);
+void set_input_source_mark (SOURCE_MARK *source_mark);
 void input_reset_input_stack (void);
 int expanding_macro (char *macro);
 int top_file_index (void);

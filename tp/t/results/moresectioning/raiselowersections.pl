@@ -454,6 +454,34 @@ $result_trees{'raiselowersections'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'section_file.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => '
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'section_file.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 24,
+                  'macro' => ''
+                }
+              },
               'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
@@ -921,6 +949,15 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'end'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

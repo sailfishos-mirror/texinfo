@@ -1483,6 +1483,7 @@ end_line_misc_line (ELEMENT *current)
                       included_file = 1;
                       include_source_mark = new_source_mark(SM_type_include);
                       include_source_mark->status = SM_status_start;
+                      set_input_source_mark (include_source_mark);
                     }
                 }
             }
@@ -1834,7 +1835,7 @@ end_line_misc_line (ELEMENT *current)
       debug ("END COMMAND %s", end_command);
 
       /* Reparent the "@end" element to be a child of the block element. */
-      end_elt = pop_element_from_contents (current);
+      end_elt = pop_element_from_contents (current, 0);
 
       /* If not a conditional */
       if (command_data(end_id).data != BLOCK_conditional)
@@ -1848,7 +1849,7 @@ end_line_misc_line (ELEMENT *current)
               && (current->contents.number == 0) && current->parent)
              {
                current = current->parent;
-               destroy_element (pop_element_from_contents (current));
+               destroy_element (pop_element_from_contents (current, 1));
                debug ("popping at end command");
              }
           /* This closes tree elements (e.g. paragraphs) until we reach
@@ -1889,9 +1890,18 @@ end_line_misc_line (ELEMENT *current)
         Also ignore @setfilename in included file, as said in the manual. */
       if (included_file || (cmd == CM_setfilename && top_file_index () > 0))
         {
-          destroy_element_and_children (pop_element_from_contents (current));
+          SOURCE_MARK *source_mark;
           if (included_file)
-            register_source_mark(current, include_source_mark);
+            source_mark = include_source_mark;
+          else
+            source_mark = new_source_mark(SM_type_setfilename);
+
+          /* this is in order to keep source marks that are within a
+            removed element.  For the XS parser it is also easier to
+            manage the source mark memory which can stay associated
+            to the element. */
+          source_mark->element = pop_element_from_contents (current, 0);
+          register_source_mark(current, source_mark);
         }
       if (close_preformatted_command (cmd))
         current = begin_preformatted (current);
@@ -1938,8 +1948,11 @@ end_line_misc_line (ELEMENT *current)
         counter_pop (&count_remaining_args);
       
       /* Destroy all contents (TODO: check why do we do this?) */
+      /* FIXME there is no such code in the pure perl parser,
+         and it would be better to remove if not useful, as
+         if useful source mark information is lost */
       while (last_contents_child (current))
-        destroy_element (pop_element_from_contents (current));
+        destroy_element (pop_element_from_contents (current, 0));
 
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
@@ -2101,7 +2114,7 @@ end_line (ELEMENT *current)
         {
           ELEMENT *e;
           /* Remove empty_line element. */
-          e = pop_element_from_contents (current);
+          e = pop_element_from_contents (current, 0);
 
           current = end_paragraph (current, 0, 0);
 
@@ -2111,12 +2124,13 @@ end_line (ELEMENT *current)
       else if (current->type == ET_preformatted
                && current->parent->type == ET_menu_entry_description)
         {
+          /* FIXME transfer source marks */
           ELEMENT *empty_line, *e;
-          empty_line = pop_element_from_contents (current);
+          empty_line = pop_element_from_contents (current, 0);
           if (current->contents.number == 0)
             {
               current = current->parent;
-              destroy_element (pop_element_from_contents (current));
+              destroy_element (pop_element_from_contents (current, 0));
             }
           else
             current = current->parent;
@@ -2156,7 +2170,7 @@ end_line (ELEMENT *current)
           if (current->contents.number > 0
               && (last->cmd == CM_c || last->cmd == CM_comment))
             {
-              end_comment = pop_element_from_contents (current);
+              end_comment = pop_element_from_contents (current, 0);
             }
 
           /* If contents empty or is all whitespace. */
@@ -2178,7 +2192,7 @@ end_line (ELEMENT *current)
           ELEMENT *menu, *menu_entry, *description_or_menu_comment = 0;
           debug ("FINALLY NOT MENU ENTRY");
           menu = current->parent->parent;
-          menu_entry = pop_element_from_contents (menu);
+          menu_entry = pop_element_from_contents (menu, 0);
           if (menu->contents.number > 0
               && last_contents_child(menu)->type == ET_menu_entry)
             {
@@ -2240,6 +2254,7 @@ end_line (ELEMENT *current)
               debug ("THEN MENU_COMMENT OPEN");
             }
           {
+          /* FIXME check that source marks are transfered */
           int i, j;
           for (i = 0; i < menu_entry->args.number; i++)
             {
