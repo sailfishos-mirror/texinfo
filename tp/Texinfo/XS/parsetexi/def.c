@@ -260,7 +260,7 @@ parse_def (enum command_id command, ELEMENT *current)
             goto found;
         }
       fatal ("no alias for CF_def_alias command");
-found:
+    found:
       /* Prepended content is inserted into contents, so
          @defun is converted into @deffn Function */
 

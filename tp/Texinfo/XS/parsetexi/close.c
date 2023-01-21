@@ -36,7 +36,7 @@ close_brace_command (ELEMENT *current,
     goto yes;
   if (0)
     {
-yes:
+  yes:
       if (closed_block_command)
         command_error (current,
                         "@end %s seen before @%s closing brace",

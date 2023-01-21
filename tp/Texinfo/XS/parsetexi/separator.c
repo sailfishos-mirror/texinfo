@@ -661,7 +661,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                     }
                   line++;
                 }
-inlinefmtifelse_done:
+            inlinefmtifelse_done:
               /* Check if the second argument is missing. */
               if (brace_count == 0)
                 {

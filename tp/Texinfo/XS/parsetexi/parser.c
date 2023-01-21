@@ -1368,7 +1368,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                 }
               else if (*p && p[strspn (p, whitespace_chars)])
                 {
-superfluous_arg:
+          superfluous_arg:
                   line_warn ("superfluous argument to @end %s: %s",
                              command_name(end_cmd), line);
                 }
@@ -1823,7 +1823,7 @@ superfluous_arg:
           if (1) /* @value syntax is valid */
             {
               char *value;
-value_valid:
+          value_valid:
               if (cmd == CM_value)
                 {
                   value = fetch_value (flag);
@@ -1880,7 +1880,7 @@ value_valid:
             }
           else
             {
-value_invalid:
+          value_invalid:
               line_error ("bad syntax for @%s", command_name(cmd));
               retval = STILL_MORE_TO_PROCESS;
               goto funexit;

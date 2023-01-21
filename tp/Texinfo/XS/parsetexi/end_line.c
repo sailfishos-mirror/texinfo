@@ -189,10 +189,10 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
                    args->contents.list[1]->text.text);
 
       break;
-set_no_name:
+    set_no_name:
       line_error ("@set requires a name");
       break;
-set_invalid:
+    set_invalid:
       line_error ("bad name for @set");
       break;
       }
@@ -216,10 +216,10 @@ set_invalid:
       free (flag);
       
       break;
-clear_no_name:
+    clear_no_name:
       line_error ("@clear requires a name");
       break;
-clear_invalid:
+    clear_invalid:
       free (flag);
       line_error ("bad name for @clear");
       break;
@@ -239,10 +239,10 @@ clear_invalid:
       debug ("UNMACRO %s", value);
       free (value);
       break;
-unmacro_noname:
+    unmacro_noname:
       line_error ("@unmacro requires a name");
       break;
-unmacro_badname:
+    unmacro_badname:
       line_error ("bad name for @unmacro");
       break;
     case CM_clickstyle:
@@ -261,7 +261,7 @@ unmacro_badname:
       remaining = q;
       /* FIXME: check comment */
       break;
-clickstyle_invalid:
+    clickstyle_invalid:
       line_error ("@clickstyle should only accept an @-command as argument, "
                    "not `%s'", line);
       free (value);
@@ -751,7 +751,7 @@ parse_line_command_args (ELEMENT *line_command)
 
         if (0)
           {
-kdbinputstyle_invalid:
+        kdbinputstyle_invalid:
           line_error ("@kbdinputstyle arg must be "
                        "`code'/`example'/`distinct', not `%s'", line);
           }

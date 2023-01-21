@@ -1,3 +1,16 @@
+2023-01-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Indent goto labels
+
+	* tp/Texinfo/XS/parsetexi/close.c,
+	* tp/Texinfo/XS/parsetexi/def.c,
+	* tp/Texinfo/XS/parsetexi/end_line.c,
+	* tp/Texinfo/XS/parsetexi/parser.c,
+	* tp/Texinfo/XS/parsetexi/separator.c:
+	Indent goto labels so that they do not appear as the function
+	in git diff.
+
+
 2023-01-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Nesting context for XS parser
