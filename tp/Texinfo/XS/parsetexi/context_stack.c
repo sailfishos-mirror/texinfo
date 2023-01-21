@@ -140,6 +140,15 @@ current_region (void)
   return region_stack[region_top - 1];
 }
 
+
+
+
+
+/* Command nesting context. */
+
+NESTING_CONTEXT nesting_context;
+
+
 
 /* used for @kbd */
 int

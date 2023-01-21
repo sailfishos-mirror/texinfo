@@ -1,3 +1,24 @@
+2023-01-21  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Nesting context for XS parser
+
+	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
+	Define new structure.
+	* tp/Texinfo/XS/parsetexi/context_stack.c (nesting_context): Define.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
+	Wipe nesting_context.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	New function to check nesting_context.
+	(process_remaining_on_line) <@-command>:
+	Call it together with check_valid_nesting.
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace)
+	Increment nesting_context.footnote for @footnote.
+	* tp/Texinfo/XS/parsetexi/close.c (close_current),
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace),
+	Decrement nesting_context.footnote for @footnote.
+
 2023-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/commands.h: Remove unused flags

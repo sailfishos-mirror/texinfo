@@ -1138,6 +1138,23 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     }
 }
 
+void
+check_valid_nesting_context (enum command_id cmd)
+{
+  enum command_id invalid_context = 0;
+  if (cmd == CM_footnote && nesting_context.footnote > 0)
+    {
+      invalid_context = CM_footnote;
+    }
+
+  if (invalid_context)
+    {
+      line_warn ("@%s should not appear anywhere inside @%s",
+        command_name(cmd),
+        command_name(invalid_context));
+    }
+}
+
 /* *LINEP is a pointer into the line being processed.  It is advanced past any
    bytes processed.
    Return STILL_MORE_TO_PROCESS when there is more to process on the line
@@ -1913,7 +1930,10 @@ value_invalid:
         }
 
       if (current->parent)
-        check_valid_nesting (current, cmd);
+        {
+          check_valid_nesting (current, cmd);
+          check_valid_nesting_context (cmd);
+        }
 
       if (def_line_continuation)
         {

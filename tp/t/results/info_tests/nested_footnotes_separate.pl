@@ -200,7 +200,17 @@ $result_menus{'nested_footnotes_separate'} = {
   'info' => {}
 };
 
-$result_errors{'nested_footnotes_separate'} = [];
+$result_errors{'nested_footnotes_separate'} = [
+  {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @footnote
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @footnote',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nested_footnotes_separate'} = {};

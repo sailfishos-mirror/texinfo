@@ -99,7 +99,11 @@ handle_open_brace (ELEMENT *current, char **line_inout)
                     }
                 }
 #undef float
-        }
+            }
+          else if (command == CM_footnote)
+            {
+              nesting_context.footnote++;
+            }
 
           /* Add to context stack. */
           switch (command)
@@ -248,6 +252,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
             }
           else if (pop_context () != ct_brace_command)
             fatal ("context brace command context expected");
+          if (current->parent->cmd == CM_footnote)
+            nesting_context.footnote--;
         }
       /* determine if trailing spaces are ignored */
       else if (command_data(current->parent->cmd).data == BRACE_arguments)
@@ -525,6 +531,9 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           debug ("CLOSING(context command)");
           closed_command = current->parent->cmd;
           counter_pop (&count_remaining_args);
+
+          if (closed_command == CM_footnote)
+            nesting_context.footnote--;
 
           register_global_command (current->parent);
           current = current->parent->parent;

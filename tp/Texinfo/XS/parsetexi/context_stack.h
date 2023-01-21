@@ -52,5 +52,14 @@ enum command_id current_region_cmd (void);
 void reset_region_stack (void);
 
 
+
+/* Used to check indirect nesting, e.g. @footnote{@emph{@footnote{...}}} */
+typedef struct {
+    int footnote;
+} NESTING_CONTEXT;
+
+extern NESTING_CONTEXT nesting_context;
+
+
 int in_preformatted_context_not_menu(void);
 #endif

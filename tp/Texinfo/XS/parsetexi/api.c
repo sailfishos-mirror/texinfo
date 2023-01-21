@@ -129,6 +129,7 @@ reset_parser_except_conf (void)
   wipe_errors ();
   reset_context_stack ();
   reset_region_stack ();
+  memset (&nesting_context, 0, sizeof (nesting_context));
   reset_floats ();
   wipe_global_info ();
   set_input_encoding ("utf-8");
