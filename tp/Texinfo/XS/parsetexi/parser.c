@@ -1152,6 +1152,12 @@ check_valid_nesting_context (enum command_id cmd)
       line_warn ("@%s should not appear anywhere inside caption",
         command_name(cmd));
     }
+  else if ((command_data(cmd).flags & CF_ref) && nesting_context.xref > 0)
+    {
+      line_warn
+        ("@%s should not appear anywhere inside cross-reference",
+         command_name(cmd));
+    }
 
   if (invalid_context)
     {

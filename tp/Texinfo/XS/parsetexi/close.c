@@ -76,6 +76,8 @@ close_all_style_commands (ELEMENT *current,
     current = close_brace_command (current->parent,
                                    closed_block_command, interrupting_command);
 
+  /* FIXME: we don't touch nesting_context here which may lead to erroneous
+     warnings. */
   return current;
 }
 

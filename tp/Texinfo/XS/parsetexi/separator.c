@@ -155,6 +155,10 @@ handle_open_brace (ELEMENT *current, char **line_inout)
               if (command == CM_inlineraw)
                 push_context (ct_inlineraw, command);
             }
+          if (command_data(command).flags & CF_ref)
+            {
+              nesting_context.xref++;
+            }
         }
       debug ("OPENED");
     }
@@ -292,6 +296,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       else if (command_data(closed_command).flags & CF_ref)
         {
           ELEMENT *ref = current->parent;
+          nesting_context.xref--;
           if (ref->args.number > 0)
             {
               if ((closed_command == CM_inforef

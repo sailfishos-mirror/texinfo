@@ -150,6 +150,15 @@ $result_errors{'ref_in_ref'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @ref should not appear anywhere inside cross-reference
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside cross-reference',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @ref to `@ref{Top}\', different from node name `Top\'
 ',
     'file_name' => '',

@@ -57,6 +57,7 @@ void reset_region_stack (void);
 typedef struct {
     int footnote;
     int caption;
+    int xref;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;
