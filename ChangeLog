@@ -1,3 +1,17 @@
+2023-01-22  Patrice Dumas  <pertusus@free.fr>
+
+	Nesting context, @*ref, @footnote, @*caption checking perl parser
+
+	* tp/Texinfo/ParserNonXS.pm (_check_valid_nesting_context)
+	(_process_remaining_on_line): new function to check nesting_context.
+	Call it together with _check_valid_nesting.
+
+	* tp/Texinfo/ParserNonXS.pm (parser, simple_parser): initialize
+	nesting context.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_close_current): increment/decrement nesting context.
+
 2023-01-21  Patrice Dumas  <pertusus@free.fr>
 
 	Keep removed elements with source marks and transfer source marks

@@ -224,6 +224,8 @@ my %parser_default_configuration = (
 #                         is no @-command associated with the context.
 # definfoenclose          an hash, key is the command name, value is an array
 #                         reference with 2 values, beginning and ending.
+# nesting_context         an hash, key is the context name, value is the
+#                         depth of the context.
 # input                   a stack, with last at bottom.  Holds the opened files
 #                         or text.  Pending macro expansion or text expansion
 #                         is also in that structure.
@@ -620,6 +622,13 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
 };
 
 
+
+my %nesting_context_init = (
+                         'footnote' => 0,
+                         'caption' => 0,
+                         'xref' => 0
+);
+
 # Interface and internal functions for input management
 
 # initialization entry point.  Set up a parser.
@@ -647,6 +656,7 @@ sub parser(;$$)
 
   # other initializations
   $parser->{'definfoenclose'} = {};
+  $parser->{'nesting_context'} = {%nesting_context_init};
 
   # handle user provided state.
 
@@ -746,6 +756,7 @@ sub simple_parser(;$)
 
   # other initializations
   $parser->{'definfoenclose'} = {};
+  $parser->{'nesting_context'} = {%nesting_context_init};
 
   $parser->_init_context_stack();
 
@@ -1578,6 +1589,8 @@ sub _close_all_style_commands($$$;$$)
                                     $closed_block_command,
                                     $interrupting_command);
   }
+  # FIXME: we don't touch nesting_context here which may lead to erroneous
+  # warnings.
   return $current;
 }
 
@@ -1984,9 +1997,9 @@ sub _close_current($$$;$$)
 {
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
-
+  # Element is a command
   if ($current->{'cmdname'}) {
-    print STDERR "CLOSING(_close_current) \@$current->{'cmdname'}\n"
+    print STDERR "CLOSING(close_current) \@$current->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     if (exists($self->{'brace_commands'}->{$current->{'cmdname'}})) {
       if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
@@ -1998,6 +2011,11 @@ sub _close_current($$$;$$)
         }
         $self->_pop_context([$expected_context], $source_info, $current);
       }
+      $self->{'nesting_context'}->{'footnote'} -= 1
+        if ($current->{'cmdname'} eq 'footnote');
+      $self->{'nesting_context'}->{'caption'} -= 1
+        if ($current->{'cmdname'} eq 'caption'
+            or $current->{'cmdname'} eq 'shortcaption');
       $current = _close_brace_command($self, $current, $source_info,
                                       $closed_block_command,
                                       $interrupting_command);
@@ -4255,6 +4273,32 @@ sub _check_valid_nesting {
   }
 }
 
+sub _check_valid_nesting_context
+{
+  my ($self, $command, $source_info) = @_;
+
+  my $invalid_context;
+  if ($command eq 'footnote' and $self->{'nesting_context'}->{'footnote'}) {
+    $invalid_context = 'footnote';
+  }
+
+  if (($command eq 'caption' or $command eq 'shortcaption')
+      and $self->{'nesting_context'}->{'caption'}) {
+    $self->_line_warn(sprintf(
+        __("@%s should not appear anywhere inside caption"),
+          $command), $source_info);
+  } elsif ($Texinfo::Commands::ref_commands{$command}
+         and $self->{'nesting_context'}->{'xref'}) {
+    $self->_line_warn(sprintf(
+        __("@%s should not appear anywhere inside cross-reference"),
+          $command), $source_info);
+  }
+  $self->_line_warn(sprintf(
+        __("@%s should not appear anywhere inside @%s"),
+            $command, $invalid_context), $source_info)
+    if ($invalid_context);
+}
+
 sub _setup_document_root_and_before_node_section()
 {
   my $before_node_section = { 'type' => 'before_node_section' };
@@ -4928,6 +4972,7 @@ sub _process_remaining_on_line($$$$)
     }
 
     _check_valid_nesting ($self, $current, $command, $source_info);
+    _check_valid_nesting_context ($self, $command, $source_info);
 
     if ($def_line_continuation) {
       $retval = $GET_A_NEW_LINE;
@@ -5619,6 +5664,7 @@ sub _process_remaining_on_line($$$$)
         if ($self->{'brace_commands'}->{$command} eq 'context') {
           if ($command eq 'caption' or $command eq 'shortcaption') {
             my $float;
+            $self->{'nesting_context'}->{'caption'} += 1;
             if (!$current->{'parent'}->{'parent'}
                 or !$current->{'parent'}->{'parent'}->{'cmdname'}
                 or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'float') {
@@ -5650,6 +5696,8 @@ sub _process_remaining_on_line($$$$)
                 $float->{'extra'}->{$command} = $current->{'parent'};
               }
             }
+          } elsif ($command eq 'footnote') {
+            $self->{'nesting_context'}->{'footnote'} += 1;
           }
           if ($math_commands{$command}) {
             $self->_push_context('ct_math', $command);
@@ -5683,6 +5731,8 @@ sub _process_remaining_on_line($$$$)
           }
           $self->_push_context('ct_inlineraw', $command)
             if ($command eq 'inlineraw');
+          $self->{'nesting_context'}->{'xref'} += 1
+            if ($Texinfo::Commands::ref_commands{$command});
         }
         print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
           .(defined($current->{'parent'}->{'remaining_args'}) ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
@@ -5732,8 +5782,10 @@ sub _process_remaining_on_line($$$$)
       }
 
     } elsif ($separator eq '}') {
+      # handle_close_brace in XS parser
       _abort_empty_line($self, $current);
       if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
+        # Used in @math
         $current = $current->{'parent'};
        # the following will not happen for footnote if there is
        # a paragraph withing the footnote
@@ -5750,6 +5802,11 @@ sub _process_remaining_on_line($$$$)
           }
           $self->_pop_context([$command_context], $source_info, $current,
                    "for brace command $current->{'parent'}->{'cmdname'}");
+          $self->{'nesting_context'}->{'footnote'} -= 1
+            if ($current->{'parent'}->{'cmdname'} eq 'footnote');
+          $self->{'nesting_context'}->{'caption'} -= 1
+            if ($current->{'parent'}->{'cmdname'} eq 'caption'
+                or $current->{'parent'}->{'cmdname'} eq 'shortcaption');
         }
         # first is the arg.
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
@@ -5783,6 +5840,7 @@ sub _process_remaining_on_line($$$$)
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
           my $ref = $current->{'parent'};
+          $self->{'nesting_context'}->{'xref'} -= 1;
           if (@{$ref->{'args'}}) {
             my @args;
             for $a (@{$ref->{'args'}}) {
@@ -5969,6 +6027,12 @@ sub _process_remaining_on_line($$$$)
                         ."\@$current->{'parent'}->{'cmdname'}\n"
                            if ($self->{'DEBUG'});
           my $closed_command = $current->{'parent'}->{'cmdname'};
+          if ($closed_command eq 'footnote') {
+            $self->{'nesting_context'}->{'footnote'} -= 1;
+          } elsif ($closed_command eq 'caption'
+                   or $closed_command eq 'shortcaption') {
+            $self->{'nesting_context'}->{'caption'} -= 1;
+          }
           _register_global_command($self, $current->{'parent'}, $source_info);
           $current = $current->{'parent'}->{'parent'};
           $current = _begin_preformatted($self, $current)

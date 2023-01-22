@@ -80,12 +80,6 @@ Some erroneous constructs not already warned against:
 
  @table in @menu
 
- @caption in @caption
-   -- done in XS parser
-
- nested footnotes
-   -- done in XS parser
-
  @ref{ccc@b{@ref{ddd}}}
 
  @example
