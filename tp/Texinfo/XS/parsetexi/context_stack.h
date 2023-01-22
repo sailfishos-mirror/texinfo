@@ -56,6 +56,7 @@ void reset_region_stack (void);
 /* Used to check indirect nesting, e.g. @footnote{@emph{@footnote{...}}} */
 typedef struct {
     int footnote;
+    int caption;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;

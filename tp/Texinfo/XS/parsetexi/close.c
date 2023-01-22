@@ -284,6 +284,8 @@ close_current (ELEMENT *current,
 
           if (current->cmd == CM_footnote)
             nesting_context.footnote--;
+          if (current->cmd == CM_caption || current->cmd == CM_shortcaption)
+            nesting_context.caption--;
           current = close_brace_command (current, closed_block_command,
                                          interrupting_command);
         }

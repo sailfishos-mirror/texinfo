@@ -1,3 +1,16 @@
+2023-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@caption, @shortcaption nesting checking
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	Check if @caption or @shortcaption is called in caption context.
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace)
+	Increment nesting_context.footnote for @caption, @shortcaption.
+	* tp/Texinfo/XS/parsetexi/close.c (close_current),
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace),
+	Decrement nesting_context.footnote for @caption, @shortcaption.
+
 2023-01-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Indent goto labels
@@ -9,7 +22,6 @@
 	* tp/Texinfo/XS/parsetexi/separator.c:
 	Indent goto labels so that they do not appear as the function
 	in git diff.
-
 
 2023-01-21  Gavin Smith  <gavinsmith0123@gmail.com>
 

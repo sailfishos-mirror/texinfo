@@ -72,8 +72,10 @@ Some erroneous constructs not already warned against:
  @table in @menu
 
  @caption in @caption
+   -- done in XS parser
 
  nested footnotes
+   -- done in XS parser
 
  @example
  @heading A heading

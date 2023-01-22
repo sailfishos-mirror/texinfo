@@ -67,6 +67,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             {
 #define float floatxx
               ELEMENT *float;
+              nesting_context.caption++;
               if (!current->parent->parent
                   || current->parent->parent->cmd != CM_float)
                 {
@@ -254,6 +255,9 @@ handle_close_brace (ELEMENT *current, char **line_inout)
             fatal ("context brace command context expected");
           if (current->parent->cmd == CM_footnote)
             nesting_context.footnote--;
+          else if (current->parent->cmd == CM_caption
+                   || current->parent->cmd == CM_shortcaption)
+            nesting_context.caption--;
         }
       /* determine if trailing spaces are ignored */
       else if (command_data(current->parent->cmd).data == BRACE_arguments)
@@ -534,6 +538,9 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
           if (closed_command == CM_footnote)
             nesting_context.footnote--;
+          else if (closed_command == CM_caption
+                     || closed_command == CM_shortcaption)
+            nesting_context.caption--;
 
           register_global_command (current->parent);
           current = current->parent->parent;

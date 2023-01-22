@@ -1146,6 +1146,12 @@ check_valid_nesting_context (enum command_id cmd)
     {
       invalid_context = CM_footnote;
     }
+  else if ((cmd == CM_caption || cmd == CM_shortcaption)
+             && nesting_context.caption > 0)
+    {
+      line_warn ("@%s should not appear anywhere inside caption",
+        command_name(cmd));
+    }
 
   if (invalid_context)
     {
