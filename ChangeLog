@@ -1,5 +1,10 @@
 2023-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* NEWS: Add 7.0.2 news.
+	* README-hacking: minor updates for release instructions
+
+2023-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@ref, @xref, @pxref nesting checking.
 
 	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
