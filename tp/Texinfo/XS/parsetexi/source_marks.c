@@ -21,6 +21,7 @@
 
 int include_counter = 0;
 int setfilename_counter = 0;
+int delcomment_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -70,7 +71,6 @@ void
 register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   ELEMENT *mark_element;
-  SOURCE_MARK_LIST *s_mark_list;
 
   if (source_mark->counter == -1)
     {
@@ -84,12 +84,19 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           setfilename_counter++;
           source_mark->counter = setfilename_counter;
         }
+      else if (source_mark->type == SM_type_delcomment)
+        {
+          delcomment_counter++;
+          source_mark->counter = delcomment_counter;
+        }
     }
 
   if (e->contents.number > 0)
     {
       ELEMENT *last_child = last_contents_child (e);
-      if (last_child->text.end > 0)
+      /* use last_child->text.space and not last_child->text.end
+         to associate to element with set but empty text string */
+      if (last_child->text.space > 0)
         {
           mark_element = last_child;
           source_mark->location = source_mark_location_text;
@@ -117,4 +124,5 @@ source_marks_reset_counters (void)
 {
   include_counter = 0;
   setfilename_counter = 0;
+  delcomment_counter = 0;
 }

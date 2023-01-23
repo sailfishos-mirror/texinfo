@@ -1,3 +1,24 @@
+2023-01-23  Patrice Dumas  <pertusus@free.fr>
+
+	Source mark for DEL comments
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text, tp/Texinfo/XS/parsetexi/api.c
+	(store_source_mark_list), tp/Texinfo/XS/parsetexi/input.c (INPUT)
+	(next_text), tp/Texinfo/XS/parsetexi/source_marks.c
+	(register_source_mark): add a source mark for DEL comment.  Push an empty text
+	line with a source mark to process it at the end of the line.  Rename
+	file_source_mark as input_source_mark and use it both for files and
+	text input.  Update functions using file_source_mark.  Store the
+	comment line in a 'line' in the source mark.
+
+	* tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark): use
+	element text.space > 0 and not text.end to associate source mark to
+	a string that is set but empty.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_current),
+	tp/Texinfo/XS/parsetexi/close.c (close_current): move nesting code
+	with context commands code.
+
 2023-01-22  Patrice Dumas  <pertusus@free.fr>
 
 	Nesting context, @*ref, @footnote, @*caption checking perl parser

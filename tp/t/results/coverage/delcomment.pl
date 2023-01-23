@@ -97,6 +97,16 @@ $result_trees{'delcomment'} = {
               'type' => 'empty_line'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => ' this is a comment.
+',
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'delcomment'
+                }
+              ],
               'text' => '
 ',
               'type' => 'empty_line'

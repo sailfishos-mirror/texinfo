@@ -44,7 +44,9 @@ enum extra_type {
    to avoid using 0 for easier to debug code */
 enum source_mark_type { SM_type_none,
                         SM_type_include,
-                        SM_type_setfilename };
+                        SM_type_setfilename,
+                        SM_type_delcomment
+};
 
 enum source_mark_location { source_mark_location_none,
                             source_mark_location_text,
@@ -89,6 +91,8 @@ typedef struct SOURCE_MARK {
     int counter;
     struct ELEMENT *element; /* needed for elements removed
                                 from the tree */
+    char *line;  /* used when the information is not available as
+                    an element, for DEL comments, for instance */
 } SOURCE_MARK;
 
 typedef struct SOURCE_MARK_LIST {

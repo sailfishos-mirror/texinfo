@@ -169,6 +169,8 @@ destroy_source_mark (SOURCE_MARK *source_mark)
 {
   if (source_mark->element)
     destroy_element_and_children (source_mark->element);
+  if (source_mark->line)
+    free (source_mark->line);
   free (source_mark);
 }
 

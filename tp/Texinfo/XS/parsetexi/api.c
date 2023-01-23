@@ -542,6 +542,11 @@ store_source_mark_list (ELEMENT *e)
                 element_to_perl_hash (e);
               STORE("element", newRV_inc ((SV *)e->hv));
             }
+          if (s_mark->line)
+            {
+              SV *sv = newSVpv_utf8 (s_mark->line, 0);
+              STORE("line", sv);
+            }
 
 #define SAVE_S_M_STATUS(X) \
            case SM_status_ ## X: \
@@ -577,6 +582,7 @@ store_source_mark_list (ELEMENT *e)
             {
               SAVE_S_M_TYPE (include)
               SAVE_S_M_TYPE (setfilename)
+              SAVE_S_M_TYPE (delcomment)
             }
 
           av_push (av, newRV_inc ((SV *)source_mark));

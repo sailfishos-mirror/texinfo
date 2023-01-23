@@ -2010,12 +2010,13 @@ sub _close_current($$$;$$)
           $expected_context = 'ct_brace_command';
         }
         $self->_pop_context([$expected_context], $source_info, $current);
-      }
-      $self->{'nesting_context'}->{'footnote'} -= 1
-        if ($current->{'cmdname'} eq 'footnote');
-      $self->{'nesting_context'}->{'caption'} -= 1
-        if ($current->{'cmdname'} eq 'caption'
+
+        $self->{'nesting_context'}->{'footnote'} -= 1
+          if ($current->{'cmdname'} eq 'footnote');
+        $self->{'nesting_context'}->{'caption'} -= 1
+          if ($current->{'cmdname'} eq 'caption'
             or $current->{'cmdname'} eq 'shortcaption');
+      }
       $current = _close_brace_command($self, $current, $source_info,
                                       $closed_block_command,
                                       $interrupting_command);
@@ -2327,7 +2328,14 @@ sub _next_text($;$)
           $line .= "\n";
         }
         # DEL as comment character
-        $line =~ s/\x{7F}.*\s*//;
+        if ($line =~ s/\x{7F}(.*\s*)//) {
+          _input_push_text($self, '',
+                           $input->{'input_source_info'}->{'line_nr'});
+          my $delcomment_source_mark = {'sourcemark_type' => 'delcomment'};
+          $delcomment_source_mark->{'line'} = $1 if ($1 ne '');
+          $self->{'input'}->[0]->{'input_source_mark'}
+             = $delcomment_source_mark;
+        }
         $input->{'input_source_info'}->{'line_nr'}++;
         return ($line, { %{$input->{'input_source_info'}} });
       }
@@ -2353,14 +2361,19 @@ sub _next_text($;$)
                                      $file_name, $!));
       }
       delete $previous_input->{'fh'};
-      if (defined($previous_input->{'file_source_mark'})) {
-        my $end_include_source_mark
-          = { %{$previous_input->{'file_source_mark'}} };
-        $end_include_source_mark->{'status'} = 'end';
-        delete $end_include_source_mark->{'element'};
+      if (defined($previous_input->{'input_source_mark'})) {
+        my $end_file_source_mark
+          = { %{$previous_input->{'input_source_mark'}} };
+        $end_file_source_mark->{'status'} = 'end';
+        delete $end_file_source_mark->{'element'};
         _register_source_mark($self, $current,
-                              $end_include_source_mark);
+                              $end_file_source_mark);
       }
+    } elsif (defined($previous_input->{'input_source_mark'})) {
+      my $end_text_source_mark
+          = { %{$previous_input->{'input_source_mark'}} };
+      _register_source_mark($self, $current,
+                            $end_text_source_mark);
     }
     # keep the first input level to have a permanent source for
     # source_info, even when nothing is returned and the first input
@@ -3210,7 +3223,7 @@ sub _end_line_misc_line($$$)
             print STDERR "Included $included_file_path\n" if ($self->{'DEBUG'});
             $include_source_mark = {'sourcemark_type' => $command,
                                     'status' => 'start'};
-            $self->{'input'}->[0]->{'file_source_mark'} = $include_source_mark;
+            $self->{'input'}->[0]->{'input_source_mark'} = $include_source_mark;
           } else {
             # FIXME $text does not show the include directory.  Using
             # $included_file_path would require decoding to character string
@@ -5788,7 +5801,7 @@ sub _process_remaining_on_line($$$$)
         # Used in @math
         $current = $current->{'parent'};
        # the following will not happen for footnote if there is
-       # a paragraph withing the footnote
+       # a paragraph within the footnote
       } elsif ($current->{'parent'}
           and $current->{'parent'}->{'cmdname'}
           and exists($self->{'brace_commands'}

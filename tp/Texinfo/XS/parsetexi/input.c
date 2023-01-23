@@ -51,7 +51,7 @@ typedef struct {
                     into lines. */
     char *value_flag; /* value flag if the input text is a @value
                          explansion */
-    SOURCE_MARK *file_source_mark;
+    SOURCE_MARK *input_source_mark;
 } INPUT;
 
 static char *input_pushback_string;
@@ -462,7 +462,17 @@ next_text (ELEMENT *current)
               /* Strip off a comment. */
               comment = strchr (line, '\x7F');
               if (comment)
-                *comment = '\0';
+                {
+                  SOURCE_MARK *source_mark
+                    = new_source_mark(SM_type_delcomment);
+                  *comment = '\0';
+                  if (*(comment+1) != '\0')
+                    source_mark->line = convert_to_utf8 (strdup (comment+1));
+                  else
+                    source_mark->line = 0;
+                  input_push_text(strdup(""), i->source_info.line_nr, 0, 0);
+                  set_input_source_mark(source_mark);
+                }
 
               i->source_info.line_nr++;
               current_source_info = i->source_info;
@@ -487,10 +497,10 @@ next_text (ELEMENT *current)
                 fprintf (stderr, "error on closing %s: %s",
                         input_stack[input_number - 1].source_info.file_name,
                         strerror (errno));
-              if (input_stack[input_number - 1].file_source_mark)
+              if (input_stack[input_number - 1].input_source_mark)
                 {
                   SOURCE_MARK *input_source_mark
-                    = input_stack[input_number - 1].file_source_mark;
+                    = input_stack[input_number - 1].input_source_mark;
                   SOURCE_MARK *end_include_source_mark
                     = new_source_mark(input_source_mark->type);
                   end_include_source_mark->counter
@@ -499,6 +509,20 @@ next_text (ELEMENT *current)
                   register_source_mark(current, end_include_source_mark);
                 }
             }
+        }
+      else if (input_stack[input_number - 1].input_source_mark)
+        {
+          /* FIXME free the delcomment input_source_mark here, as it is not
+             associated to an element */
+          SOURCE_MARK *input_source_mark
+            = input_stack[input_number - 1].input_source_mark;
+          SOURCE_MARK *end_include_source_mark
+            = new_source_mark(input_source_mark->type);
+          end_include_source_mark->counter
+            = input_source_mark->counter;
+          end_include_source_mark->line
+            = input_source_mark->line;
+          register_source_mark(current, end_include_source_mark);
         }
 
       input_number--;
@@ -539,6 +563,7 @@ input_push_text (char *text, int line_number, char *macro, char *value_flag)
     }
   input_stack[input_number].source_info.file_name = save_string (filename);
   input_stack[input_number].source_info.macro = save_string (macro);
+  input_stack[input_number].input_source_mark = 0;
   input_stack[input_number].value_flag = value_flag;
   input_number++;
 }
@@ -546,7 +571,7 @@ input_push_text (char *text, int line_number, char *macro, char *value_flag)
 void
 set_input_source_mark (SOURCE_MARK *source_mark)
 {
-  input_stack[input_number - 1].file_source_mark = source_mark;
+  input_stack[input_number - 1].input_source_mark = source_mark;
 }
 
 /* For filenames and macro names, it is possible that they won't be referenced 
@@ -726,7 +751,7 @@ input_push_file (char *filename)
   input_stack[input_number].source_info.file_name = filename;
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;
-  input_stack[input_number].file_source_mark = 0;
+  input_stack[input_number].input_source_mark = 0;
   input_stack[input_number].text = 0;
   input_stack[input_number].ptext = 0;
   input_number++;

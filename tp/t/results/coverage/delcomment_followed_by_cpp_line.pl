@@ -128,6 +128,16 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'type' => 'empty_line'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'line' => ' this is a comment.
+',
+              'location' => 'text',
+              'position' => 2,
+              'sourcemark_type' => 'delcomment'
+            }
+          ],
           'text' => '  ',
           'type' => 'spaces_before_paragraph'
         },
@@ -166,6 +176,16 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'line' => ' this is a comment.
+',
+                  'location' => 'text',
+                  'position' => 2,
+                  'sourcemark_type' => 'delcomment'
+                }
+              ],
               'text' => 'a #line 206 "a_file_after_text_space_del_comment"
 '
             }
@@ -190,6 +210,16 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'line' => ' this is a comment.
+',
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'delcomment'
         }
       ],
       'type' => 'before_node_section'
