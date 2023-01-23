@@ -2361,19 +2361,22 @@ sub _next_text($;$)
                                      $file_name, $!));
       }
       delete $previous_input->{'fh'};
-      if (defined($previous_input->{'input_source_mark'})) {
-        my $end_file_source_mark
-          = { %{$previous_input->{'input_source_mark'}} };
-        $end_file_source_mark->{'status'} = 'end';
-        delete $end_file_source_mark->{'element'};
-        _register_source_mark($self, $current,
-                              $end_file_source_mark);
-      }
-    } elsif (defined($previous_input->{'input_source_mark'})) {
-      my $end_text_source_mark
-          = { %{$previous_input->{'input_source_mark'}} };
+    }
+
+    if (defined($previous_input->{'input_source_mark'})) {
+      my $end_source_mark
+          = { 'sourcemark_type' =>
+               $previous_input->{'input_source_mark'}->{'sourcemark_type'},
+              'counter' =>
+               $previous_input->{'input_source_mark'}->{'counter'},
+            };
+      $end_source_mark->{'line'}
+        = $previous_input->{'input_source_mark'}->{'line'}
+          if (defined($previous_input->{'input_source_mark'}->{'line'}));
+      $end_source_mark->{'status'} = 'end'
+          if ($end_source_mark->{'sourcemark_type'} eq 'include');
       _register_source_mark($self, $current,
-                            $end_text_source_mark);
+                            $end_source_mark);
     }
     # keep the first input level to have a permanent source for
     # source_info, even when nothing is returned and the first input

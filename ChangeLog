@@ -1,5 +1,11 @@
 2023-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text),
+	tp/Texinfo/XS/parsetexi/input.c (next_text): use a common code for
+	input file and input text source marks.
+
+2023-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	Source mark for DEL comments
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text, tp/Texinfo/XS/parsetexi/api.c

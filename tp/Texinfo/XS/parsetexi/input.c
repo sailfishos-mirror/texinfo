@@ -497,31 +497,21 @@ next_text (ELEMENT *current)
                 fprintf (stderr, "error on closing %s: %s",
                         input_stack[input_number - 1].source_info.file_name,
                         strerror (errno));
-              if (input_stack[input_number - 1].input_source_mark)
-                {
-                  SOURCE_MARK *input_source_mark
-                    = input_stack[input_number - 1].input_source_mark;
-                  SOURCE_MARK *end_include_source_mark
-                    = new_source_mark(input_source_mark->type);
-                  end_include_source_mark->counter
-                    = input_source_mark->counter;
-                  end_include_source_mark->status = SM_status_end;
-                  register_source_mark(current, end_include_source_mark);
-                }
             }
         }
-      else if (input_stack[input_number - 1].input_source_mark)
+
+      if (input_stack[input_number - 1].input_source_mark)
         {
-          /* FIXME free the delcomment input_source_mark here, as it is not
-             associated to an element */
+          /* FIXME free the input_source_mark here, when it is not
+             associated to an element, for delcomment for example */
           SOURCE_MARK *input_source_mark
             = input_stack[input_number - 1].input_source_mark;
           SOURCE_MARK *end_include_source_mark
             = new_source_mark(input_source_mark->type);
-          end_include_source_mark->counter
-            = input_source_mark->counter;
-          end_include_source_mark->line
-            = input_source_mark->line;
+          end_include_source_mark->counter = input_source_mark->counter;
+          end_include_source_mark->line = input_source_mark->line;
+          if (input_source_mark->type == SM_type_include)
+            end_include_source_mark->status = SM_status_end;
           register_source_mark(current, end_include_source_mark);
         }
 
