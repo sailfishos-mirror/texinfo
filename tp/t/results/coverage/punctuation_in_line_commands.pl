@@ -340,7 +340,8 @@ $result_trees{'punctuation_in_line_commands'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -462,7 +463,8 @@ $result_trees{'punctuation_in_line_commands'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -833,10 +835,8 @@ exdent quotation! After punc
 float type! After punc, float label! After punc
 In float
 
-
 float type! After punc, label with caption
 In float with caption.
-
 
 
 
@@ -987,11 +987,9 @@ exdent quotation!  After punc
 
 In float
 
-
 float type! After punc 1: shortcaption!  After punc
 
 In float with caption.
-
 
 float type! After punc 2: caption!  After punc
 
@@ -1012,7 +1010,7 @@ titlefont! After punc
 
 * Menu:
 
-* index! After punc:                     node! After punc.     (line 25)
+* index! After punc:                     node! After punc.     (line 23)
 
 top! After punc
 ';
@@ -1033,12 +1031,10 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 <div class="float" id="float-label_0021-After-punc">
 <p>In float
-</p>
-<div class="shortcaption"><p><strong class="strong">float type! After punc 1: </strong>shortcaption! After punc</p></div></div>
+</p><div class="shortcaption"><p><strong class="strong">float type! After punc 1: </strong>shortcaption! After punc</p></div></div>
 <div class="float" id="label-with-caption">
 <p>In float with caption.
-</p>
-<div class="caption"><p><strong class="strong">float type! After punc 2: </strong>caption! After punc</p></div></div>
+</p><div class="caption"><p><strong class="strong">float type! After punc 2: </strong>caption! After punc</p></div></div>
 <dl class="listoffloats">
 <dt><a href="#float-label_0021-After-punc">float type! After punc 1</a></dt><dd class="shortcaption-in-listoffloats"><p>shortcaption! After punc</p></dd>
 <dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd class="caption-in-listoffloats"><p>caption! After punc</p></dd>
@@ -1128,14 +1124,12 @@ exdent quotation! After punc
 \\begin{TexinfoFloatfloattypeAfterpunc}
 In float
 \\caption{shortcaption! After punc}
-
 \\label{anchor:float-label_0021-After-punc}%
 \\end{TexinfoFloatfloattypeAfterpunc}
 
 \\begin{TexinfoFloatfloattypeAfterpunc}
 In float with caption.
 \\caption{caption! After punc}
-
 \\label{anchor:label-with-caption}%
 \\end{TexinfoFloatfloattypeAfterpunc}
 
@@ -1168,11 +1162,9 @@ $result_converted{'docbook'}->{'punctuation_in_line_commands'} = '<chapter label
 <anchor id="float-label_0021-After-punc"/>
 <para>In float
 </para>
-
 <anchor id="label-with-caption"/>
 <para>In float with caption.
 </para>
-
 
 <indexterm role="cp"><primary>index! After punc</primary></indexterm>
 

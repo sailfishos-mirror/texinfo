@@ -86,7 +86,8 @@ $result_trees{'float_long_captions'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -198,7 +199,8 @@ $result_trees{'float_long_captions'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -345,9 +347,7 @@ $result_texis{'float_long_captions'} = '@node Top
 $result_texts{'float_long_captions'} = '
 Text, text1
 
-
 Text, text2
-
 
 ';
 
@@ -432,9 +432,7 @@ $result_converted{'info'}->{'float_long_captions'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-
 Text 1: AAAAAAAAAAAAAAAA BBBBB CCCCCCCCCCC
-
 
 Text 2: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
 
@@ -448,7 +446,7 @@ Text 2: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
 Tag Table:
 Node: Top27
 Ref: text161
-Ref: text2106
+Ref: text2105
 
 End Tag Table
 

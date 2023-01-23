@@ -1849,7 +1849,8 @@ $result_trees{'complex_float'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'text' => '
@@ -2085,7 +2086,8 @@ $result_trees{'complex_float'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'text' => '
@@ -3217,7 +3219,8 @@ $result_trees{'complex_float'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'text' => '
@@ -3548,15 +3551,12 @@ TeX and te\'i^an_url AND it is @verb  a word !@ AE.
 
 
 
-
-
 1 A chapter
 ***********
 
 Text, float with a lot of features and no shortcaption
 
 Float text of a float with a lot of features.
-
 
 
 
@@ -3805,8 +3805,6 @@ A ref.  *Note xref Text with features: Top.  A footnote.  (1).
 
 TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 
-
-
 Text 1: An example of float caption...  An example.
      example
 
@@ -3836,7 +3834,6 @@ TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 ***********
 
 Float text of a float with a lot of features.
-
 
 Text 1.1: An example of float caption...  2 An example 2.
      example 2
@@ -3972,8 +3969,6 @@ A footnote.
 </p>
 
 
-
-
 <div class="caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small>
 An example.
 </p><div class="example">
@@ -4025,7 +4020,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="
 
 <p>Float text of a float with a lot of features.
 </p>
-
 
 <div class="caption"><p><strong class="strong">Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
 An example 2.

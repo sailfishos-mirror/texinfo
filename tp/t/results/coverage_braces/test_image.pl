@@ -2374,7 +2374,8 @@ $result_trees{'test_image'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2565,7 +2566,6 @@ Image, Image with commands
 f@i--le..  a@<"%@  < & @ % " 
 
 In text f@i--le..  a@<"%@  < & @ % " .
-
 
 
 
@@ -2905,7 +2905,6 @@ In text <img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26
 <p>In text <img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20.ext%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20" alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;">.
 </p>
-
 <div class="caption"><img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20.ext%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20" alt="f@i--le..  a@&lt;&quot;%@&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;">
 
 <p><strong class="strong">Image 1: </strong>In text <img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20.ext%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20" alt="alt &icirc;&ndash;le..  a
@@ -3045,7 +3044,6 @@ In text [alt î-le..  a
 
 In text [alt î-le..  a
 <"%@  < & @ % " ].
-
 
 Image 1: [f@i--le..  a@<"%@  < & @ % " ]
 

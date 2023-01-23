@@ -640,9 +640,13 @@ $result_trees{'commands_and_spaces'} = {
               }
             },
             {
+              'text' => '  ',
+              'type' => 'spaces_after_close_brace'
+            },
+            {
               'contents' => [
                 {
-                  'text' => '  g.
+                  'text' => 'g.
 '
                 }
               ],
@@ -1725,7 +1729,7 @@ Q
 ff, b
 f
 j.
-  g.
+g.
 
 
 
@@ -1885,7 +1889,7 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" line="  foo
 <float name="b" type="ff" number="1" spaces="  " endspaces=" "><floattype trailingspaces=" ">ff</floattype><floatname spaces=" ">b   </floatname>
 <para>f
 </para><caption spaces=" "><para>In caption </para></caption><para>j.
-</para><shortcaption><para>Short</para></shortcaption><para>  g.
+</para><shortcaption><para>Short</para></shortcaption>  <para>g.
 </para></float>
 
 <multitable spaces="  " endspaces=" "><columnfractions spaces="  " line="0.4  0.6  "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>

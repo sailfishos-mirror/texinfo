@@ -730,7 +730,8 @@ $result_trees{'commands_in_flushright'} = {
                 },
                 {
                   'text' => '
-'
+',
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'args' => [
@@ -1183,7 +1184,6 @@ label, type
 in float
 
 
-
 Sp:
 
 
@@ -1254,7 +1254,6 @@ _table itemx_
 
 in float
 
-
 label 1: in caption
 
                                                                     Sp:
@@ -1306,7 +1305,6 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushr
 
 <p>in float
 </p>
-
 <div class="caption"><p><strong class="strong">label 1: </strong>in caption</p></div></div>
 <p class="flushright-paragraph">Sp:
 </p><br>

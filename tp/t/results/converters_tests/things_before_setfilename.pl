@@ -462,7 +462,8 @@ $result_trees{'things_before_setfilename'} = {
                 },
                 {
                   'text' => '
-'
+',
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'args' => [
@@ -1146,7 +1147,6 @@ float anchor.
 
 Text, ta
 In float
-
 
 
 

@@ -78,6 +78,10 @@ $result_trees{'float_in_block_commands'} = {
                   }
                 },
                 {
+                  'text' => '',
+                  'type' => 'spaces_after_close_brace'
+                },
+                {
                   'contents' => [
                     {
                       'text' => '
@@ -243,7 +247,8 @@ $result_trees{'float_in_block_commands'} = {
                 },
                 {
                   'text' => '
-'
+',
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'args' => [
@@ -402,7 +407,8 @@ $result_trees{'float_in_block_commands'} = {
                 },
                 {
                   'text' => '
-'
+',
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'args' => [
@@ -540,9 +546,7 @@ $result_texts{'float_in_block_commands'} = 'Text, in example
 
 Text, in quotation
 
-
 Text, in cartouche
-
 
 ';
 
@@ -634,9 +638,7 @@ $result_floats{'float_in_block_commands'}{'Text'}[2]{'extra'}{'caption'}{'extra'
 $result_converted{'plaintext'}->{'float_in_block_commands'} = '
      Text 1: float in example
 
-
      Text 2: float in quotation
-
 
 Text 3: float in cartouche
 
@@ -674,12 +676,10 @@ div.example {margin-left: 3.2em}
 
 <blockquote class="quotation">
 <div class="float" id="in-quotation">
-
 <div class="caption"><p><strong class="strong">Text 2: </strong>float in quotation</p></div></div></blockquote>
 
 <table class="cartouche" border="1"><tr><td>
 <div class="float" id="in-cartouche">
-
 <div class="caption"><p><strong class="strong">Text 3: </strong>float in cartouche</p></div></div></td></tr></table>
 
 
@@ -794,7 +794,6 @@ roundcorner=10pt}
 \\begin{quote}
 \\begin{TexinfoFloatText}
 \\caption{float in quotation}
-
 \\label{anchor:in-quotation}%
 \\end{TexinfoFloatText}
 \\end{quote}
@@ -802,7 +801,6 @@ roundcorner=10pt}
 \\begin{mdframed}[style=Texinfocartouche]
 \\begin{Texinfononfloatingfloat}
 \\captionof{TexinfoFloatText}{float in cartouche}
-
 \\label{anchor:in-cartouche}%
 \\end{Texinfononfloatingfloat}
 \\end{mdframed}

@@ -81,7 +81,8 @@ $result_trees{'simple'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -151,7 +152,6 @@ In float.
 $result_texts{'simple'} = 'Type, Label
 
 In float.
-
 ';
 
 $result_errors{'simple'} = [];
@@ -191,7 +191,6 @@ $result_floats{'simple'}{'Type'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $res
 
 $result_converted{'plaintext'}->{'simple'} = 'In float.
 
-
 Type 1: Caption.
 ';
 
@@ -217,8 +216,7 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 <div class="float" id="Label">
 
 <p>In float.
-</p>
-<div class="caption"><p><strong class="strong">Type 1: </strong>Caption.</p></div></div>
+</p><div class="caption"><p><strong class="strong">Type 1: </strong>Caption.</p></div></div>
 
 
 </body>

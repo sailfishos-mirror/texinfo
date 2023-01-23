@@ -5800,18 +5800,26 @@ sub _process_remaining_on_line($$$$)
     } elsif ($separator eq '}') {
       # handle_close_brace in XS parser
       _abort_empty_line($self, $current);
+
+      # For footnote and caption closing, when there is a paragraph inside.
+      # This makes the brace command the parent element.
+      if ($current->{'parent'} and $current->{'parent'}->{'type'}
+            and $current->{'parent'}->{'type'} eq 'brace_command_context') {
+         $current = _end_paragraph($self, $current, $source_info);
+      }
+
       if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
         # Used in @math
         $current = $current->{'parent'};
-       # the following will not happen for footnote if there is
-       # a paragraph within the footnote
       } elsif ($current->{'parent'}
           and $current->{'parent'}->{'cmdname'}
           and exists($self->{'brace_commands'}
                                      ->{$current->{'parent'}->{'cmdname'}})) {
-        # for math and footnote out of paragraph
         if ($self->{'brace_commands'}
                           ->{$current->{'parent'}->{'cmdname'}} eq 'context') {
+          print STDERR "CLOSING(context command) "
+                        ."\@$current->{'parent'}->{'cmdname'}\n"
+                           if ($self->{'DEBUG'});
           my $command_context = 'ct_brace_command';
           if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
             $command_context = 'ct_math';
@@ -6029,31 +6037,7 @@ sub _process_remaining_on_line($$$$)
                and $current->{'type'} eq 'rawpreformatted') {
         push @{$current->{'contents'}}, {'text' => '}',
                                          'parent' => $current };
-      # footnote caption closing, when there is a paragraph inside.
-      } elsif ($self->_top_context() eq 'ct_brace_command') {
-         # closing the context under broader situations
-         $current = _end_paragraph($self, $current, $source_info);
-         if ($current->{'parent'}
-             and $current->{'parent'}->{'cmdname'}
-             and $self->{'brace_commands'}
-                  ->{$current->{'parent'}->{'cmdname'}} eq 'context') {
-          $self->_pop_context(['ct_brace_command'], $source_info, $current,
-                     "for brace isolated $current->{'parent'}->{'cmdname'}");
-          print STDERR "CLOSING(context command) "
-                        ."\@$current->{'parent'}->{'cmdname'}\n"
-                           if ($self->{'DEBUG'});
-          my $closed_command = $current->{'parent'}->{'cmdname'};
-          if ($closed_command eq 'footnote') {
-            $self->{'nesting_context'}->{'footnote'} -= 1;
-          } elsif ($closed_command eq 'caption'
-                   or $closed_command eq 'shortcaption') {
-            $self->{'nesting_context'}->{'caption'} -= 1;
-          }
-          _register_global_command($self, $current->{'parent'}, $source_info);
-          $current = $current->{'parent'}->{'parent'};
-          $current = _begin_preformatted($self, $current)
-             if ($close_preformatted_commands{$closed_command});
-        }
+
       } else {
         $self->_line_error(sprintf(__("misplaced %c"),
                                  ord('}')), $source_info);

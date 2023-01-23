@@ -96,7 +96,8 @@ $result_trees{'float_in_style_command'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -171,7 +172,6 @@ in float
 $result_texts{'float_in_style_command'} = '
 A, B
 in float
-
 ';
 
 $result_errors{'float_in_style_command'} = [

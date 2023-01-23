@@ -228,7 +228,8 @@ $result_trees{'float_with_at_commands'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'text' => '
@@ -396,7 +397,6 @@ Ceci est notre premie`re entre\'e.
 
 
 
-
 ';
 
 $result_errors{'float_with_at_commands'} = [];
@@ -442,7 +442,6 @@ $result_floats{'float_with_at_commands'}{"entr\x{e9}e"}[0]{'extra'}{'caption'}{'
 
 $result_converted{'plaintext'}->{'float_with_at_commands'} = 'Ceci est notre première entrée.
 
-
 entrée 1: La première entrée est importante
 
 * Menu:
@@ -474,7 +473,6 @@ $result_converted{'html'}->{'float_with_at_commands'} = '<!DOCTYPE html>
 
 <p>Ceci est notre premi&egrave;re entr&eacute;e.
 </p>
-
 <div class="caption"><p><strong class="strong">entr&eacute;e 1: </strong>La premi&egrave;re entr&eacute;e est importante</p></div></div>
 
 <dl class="listoffloats">
@@ -561,7 +559,6 @@ $result_converted{'latex'}->{'float_with_at_commands'} = '\\documentclass{book}
 
 Ceci est notre premi\\`{e}re entr\\\'{e}e.
 \\caption{La premi\\`{e}re entr\\\'{e}e est importante}
-
 
 \\label{anchor:premi_00e8re-entr_00e9e}%
 \\end{TexinfoFloatentree}

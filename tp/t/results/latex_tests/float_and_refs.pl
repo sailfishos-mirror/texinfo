@@ -207,7 +207,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -237,7 +238,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -357,7 +359,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -387,7 +390,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -510,7 +514,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -540,7 +545,8 @@ $result_trees{'float_and_refs'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1699,17 +1705,11 @@ $result_texts{'float_and_refs'} = 'top
 no type
 no type
 
-
-
 Thing, with type
 Something with
 
-
-
 Figure, my figure
 In figure
-
-
 
 2 refs
 ******
@@ -1996,24 +1996,18 @@ $result_converted{'latex_text'}->{'float_and_refs'} = '\\begin{document}
 \\begin{TexinfoFloat}
 no type
 \\caption[short no type float]{no type float}
-
-
 \\label{anchor:no-type}%
 \\end{TexinfoFloat}
 
 \\begin{TexinfoFloatThing}
 Something with
 \\caption[short with type float]{with type float}
-
-
 \\label{anchor:with-type}%
 \\end{TexinfoFloatThing}
 
 \\begin{figure}
 In figure
 \\caption[short caption for figure]{caption for figure}
-
-
 \\label{anchor:my-figure}%
 \\end{figure}
 

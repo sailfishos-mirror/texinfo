@@ -231,7 +231,8 @@ $result_trees{'block_commands'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -325,7 +326,6 @@ a float, b float
 In float
 
 
-
 ';
 
 $result_errors{'block_commands'} = [];
@@ -369,7 +369,6 @@ $result_converted{'plaintext'}->{'block_commands'} = 'in group
 
 In float
 
-
 a float 1: in caption
 
 in caption
@@ -386,7 +385,6 @@ $result_converted{'html_text'}->{'block_commands'} = '
 <div class="float" id="b-float">
 <p>In float
 </p>
-
 
 <div class="caption"><p><strong class="strong">a float 1: </strong>in caption
 </p>
@@ -427,7 +425,6 @@ In float
 \\caption{in caption
 
 in caption}
-
 \\label{anchor:b-float}%
 \\end{TexinfoFloatafloat}
 ';
@@ -441,7 +438,6 @@ $result_converted{'docbook'}->{'block_commands'} = '
 <anchor id="b-float"/>
 <para>In float
 </para>
-
 
 ';
 

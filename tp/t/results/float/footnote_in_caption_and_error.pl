@@ -170,7 +170,8 @@ $result_trees{'footnote_in_caption_and_error'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -273,7 +274,6 @@ $result_texts{'footnote_in_caption_and_error'} = '
 
 fl, label
 In float.
-
 ';
 
 $result_nodes{'footnote_in_caption_and_error'} = {
@@ -343,7 +343,6 @@ $result_converted{'plaintext'}->{'footnote_in_caption_and_error'} = '* Menu:
 
 In float.
 
-
 fl 1: in caption(1)
 
    ---------- Footnotes ----------
@@ -380,8 +379,7 @@ $result_converted{'html'}->{'footnote_in_caption_and_error'} = '<!DOCTYPE html>
 
 <div class="float" id="label">
 <p>In float.
-</p>
-<div class="caption"><p><strong class="strong">fl 1: </strong>in caption<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnotes-segment">
+</p><div class="caption"><p><strong class="strong">fl 1: </strong>in caption<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

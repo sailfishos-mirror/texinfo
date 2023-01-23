@@ -163,7 +163,8 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -333,7 +334,8 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -445,11 +447,9 @@ Label no caption.
 label2
 Label and caption.
 
-
 no label no caption
 
 no label caption
-
 
 ';
 
@@ -524,13 +524,11 @@ $result_converted{'plaintext'}->{'empty_listoffloats_with_floats'} = 'Label no c
 1
 Label and caption.
 
-
 2: caption with label
 
 no label no caption
 
 no label caption
-
 
 caption no label
 
@@ -565,15 +563,13 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 </p><div class="type-number-float"><p><strong class="strong">1</strong></p></div></div>
 <div class="float" id="label2">
 <p>Label and caption.
-</p>
-<div class="caption"><p><strong class="strong">2: </strong>caption with label</p></div></div>
+</p><div class="caption"><p><strong class="strong">2: </strong>caption with label</p></div></div>
 <div class="float">
 <p>no label no caption
 </p></div>
 <div class="float">
 <p>no label caption
-</p>
-<div class="caption"><p>caption no label</p></div></div>
+</p><div class="caption"><p>caption no label</p></div></div>
 <dl class="listoffloats">
 <dt><a href="#label1">1</a></dt><dd></dd>
 <dt><a href="#label2">2</a></dt><dd class="caption-in-listoffloats"><p>caption with label</p></dd>

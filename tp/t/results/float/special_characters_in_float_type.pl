@@ -284,7 +284,8 @@ $result_trees{'special_characters_in_float_type'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -467,7 +468,6 @@ $result_texts{'special_characters_in_float_type'} = 'top
 A < " " ` \' \' \\aaa . -- in var, L < " " ` \' \' \\aaa . -- in var
 F
 
-
 ';
 
 $result_sectioning{'special_characters_in_float_type'} = {
@@ -629,7 +629,6 @@ $result_converted{'plaintext'}->{'special_characters_in_float_type'} = 'top
 
 F
 
-
 A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: float A < " “ ‘ ’ ’ \\aaa .  — IN VAR
 
 * Menu:
@@ -659,7 +658,6 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 ******
 
 F
-
 
 A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: float A < " “ ‘ ’ ’ \\aaa .  — IN VAR
 
@@ -723,8 +721,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 
 <div class="float" id="L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var">
 <p>F
-</p>
-<div class="caption"><p><strong class="strong">A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var> 1.1: </strong>float A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var></p></div></div>
+</p><div class="caption"><p><strong class="strong">A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var> 1.1: </strong>float A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var></p></div></div>
 <dl class="listoffloats">
 <dt><a href="#L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var">A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var> 1.1</a></dt><dd class="caption-in-listoffloats"><p>float A &lt; &quot; &ldquo; &lsquo; &rsquo; &rsquo; \\aaa . &mdash; <var class="var">in var</var></p></dd>
 </dl>
@@ -812,7 +809,6 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 \\begin{TexinfoFloatAaaainvar}
 F
 \\caption{float A < " `` ` \' \' \\textbackslash{}aaa \\@. --- \\Texinfocommandstyletextvar{in var}}
-
 \\label{anchor:L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}%
 \\end{TexinfoFloatAaaainvar}
 

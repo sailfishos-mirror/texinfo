@@ -180,7 +180,8 @@ $result_trees{'cindex_in_caption'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -335,7 +336,6 @@ fl, label
 In float.
 
 
-
 ';
 
 $result_nodes{'cindex_in_caption'} = {
@@ -404,12 +404,11 @@ $result_converted{'plaintext'}->{'cindex_in_caption'} = '* Menu:
 
 In float.
 
-
 fl 1: in caption
 
 * Menu:
 
-* index entry:                           Top.                   (line 7)
+* index entry:                           Top.                   (line 6)
 
 ';
 
@@ -425,13 +424,12 @@ File: ,  Node: Top,  Up: (dir)
 
 In float.
 
-
 fl 1: in caption
 
  [index ]
 * Menu:
 
-* index entry:                           Top.                  (line 10)
+* index entry:                           Top.                   (line 9)
 
 
 
@@ -486,8 +484,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 
 <div class="float" id="label">
 <p>In float.
-</p>
-<div class="caption"><p><strong class="strong">fl 1: </strong>in caption
+</p><div class="caption"><p><strong class="strong">fl 1: </strong>in caption
 <a class="index-entry-id" id="index-index-entry"></a>
 </p></div></div>
 <div class="printindex cp-printindex">

@@ -504,7 +504,8 @@ $result_trees{'references_to_top_no_top_output'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1034,7 +1035,8 @@ $result_trees{'references_to_top_no_top_output'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1255,7 +1257,6 @@ In Flist
 .
 
 
-
 End of Top
 
 1 Chap
@@ -1272,7 +1273,6 @@ a in paragraph in top
 
 list, Main Flist
 In Main
-
 
 ';
 
@@ -1497,8 +1497,7 @@ see <a class="pxref" href="#a-in-paragraph-in-top">a in paragraph in top</a>
 
 <div class="float" id="Main-Flist">
 <p>In Main
-</p>
-<div class="caption"><p><strong class="strong">list 1.1: </strong>Caption Main</p></div></div>
+</p><div class="caption"><p><strong class="strong">list 1.1: </strong>Caption Main</p></div></div>
 <dl class="listoffloats">
 <dt><a href="#My-Flist">list 1</a></dt><dd class="caption-in-listoffloats"><p>Caption Flist. </p></dd>
 <dt><a href="#Main-Flist">list 1.1</a></dt><dd class="caption-in-listoffloats"><p>Caption Main</p></dd>

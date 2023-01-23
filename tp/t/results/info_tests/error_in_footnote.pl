@@ -208,7 +208,8 @@ $result_trees{'error_in_footnote'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -400,7 +401,6 @@ Float text1
 
 
 
-
 ';
 
 $result_nodes{'error_in_footnote'} = {
@@ -480,7 +480,6 @@ File: ,  Node: Top,  Up: (dir)
 
 Float text1
 
-
 Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 
 * Menu:
@@ -500,7 +499,7 @@ Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 Tag Table:
 Node: Top27
 Ref: label61
-Ref: Top-Footnote-1344
+Ref: Top-Footnote-1343
 
 End Tag Table
 

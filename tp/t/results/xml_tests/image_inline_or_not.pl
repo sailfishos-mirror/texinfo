@@ -1327,7 +1327,8 @@ $result_trees{'image_inline_or_not'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1519,7 +1520,6 @@ U
 F, g
 
 in_float
-
 
 ';
 

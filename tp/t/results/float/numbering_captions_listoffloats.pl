@@ -152,7 +152,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -195,7 +196,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -314,7 +316,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -344,7 +347,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -462,7 +466,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -492,7 +497,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -767,7 +773,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -797,7 +804,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -909,7 +917,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -939,7 +948,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1064,7 +1074,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1094,7 +1105,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1591,7 +1603,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1720,7 +1733,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -1973,7 +1987,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2098,7 +2113,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2128,7 +2144,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2253,7 +2270,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2283,7 +2301,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2848,7 +2867,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2878,7 +2898,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -2995,7 +3016,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3025,7 +3047,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3227,7 +3250,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3257,7 +3281,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3548,7 +3573,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3578,7 +3604,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3773,7 +3800,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3803,7 +3831,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3925,7 +3954,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -3955,7 +3985,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -4152,7 +4183,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -4182,7 +4214,8 @@ $result_trees{'numbering_captions_listoffloats'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -5229,18 +5262,12 @@ $result_texts{'numbering_captions_listoffloats'} = 'Test floats
 Text, text with a lot of features
 
 
-
-
 Text
 No label but caption and shortcaption.
 
 
-
-
 label but no type
 No type but caption and shortcaption.
-
-
 
 
 
@@ -5254,18 +5281,12 @@ No label, no type, no caption no shortcaption.
 
 No label, no type, but caption and shortcaption.
 
-
-
 label but no type 2
 Second float with no type.
 
 
-
-
 Warning, warning in top
 A warning
-
-
 
 
 * chapter::
@@ -5281,25 +5302,18 @@ Text, text in chapter
 Text in chapter
 
 
-
 Text, float with a lot of features and no shortcaption
-
 
 the\'ore`me, theoreme
 A the\'ore`me
-
 
 
 label but no type in chapter
 float with no type.
 
 
-
-
 Warning, warning in chapter
 A warning
-
-
 
 
 * section::
@@ -5318,12 +5332,8 @@ Unnumbered
 * Section within unnumbered::
 Text, unnumbered float
 unnum
-
-
 label but no type in unnumbered
 float with no type.
-
-
 
 
 
@@ -5334,8 +5344,6 @@ Section within unnumbered
 Text, Section within unnumbered float
 Section within unnumbered
 
-
-
 2 Chapter with unnumbsubsec
 ***************************
 
@@ -5343,20 +5351,14 @@ Section within unnumbered
 Text, Chapter with subsec float
 Chap
 
-
-
 unnumbered sec
 ==============
 
 Text, unnumbered sec float
 Chap
 
-
-
 label but no type in unnumbered subsec in chapter
 float with no type.
-
-
 
 
 Appendix A Appendix for float
@@ -5365,8 +5367,6 @@ Appendix A Appendix for float
 Text, appendix sec float
 
 Appendix
-
-
 
 list of floats
 **************
@@ -6600,19 +6600,13 @@ $result_floats{'numbering_captions_listoffloats'}{"th\x{e9}or\x{e8}me"}[0]{'extr
 $result_converted{'plaintext'}->{'numbering_captions_listoffloats'} = 'Test floats
 ***********
 
-
-
 Text 1: An example of float caption...
 
 No label but caption and shortcaption.
 
-
-
 Text: C No label
 
 No type but caption and shortcaption.
-
-
 
 1: C No type
 
@@ -6623,19 +6617,13 @@ No label, no type, no caption no shortcaption.
 
 No label, no type, but caption and shortcaption.
 
-
-
 C No label, no type, but caption and shortcaption.
 
 Second float with no type.
 
-
-
 3: C No type 2
 
 A warning
-
-
 
 Warning 1: C A warning
 
@@ -6644,26 +6632,19 @@ Warning 1: C A warning
 
 Text in chapter
 
-
 Text 1.1: C Text in chapter
-
 
 Text 1.2: An example of float caption, no shortcaption...
 
 A théorème
 
-
 théorème 1.1: C A théorème
 
 float with no type.
 
-
-
 1.1: C No type in chapter
 
 A warning
-
-
 
 Warning 1.1: C A warning in chapter
 
@@ -6678,13 +6659,9 @@ Unnumbered
 
 unnum
 
-
-
 Text 5: C unnumbered float
 
 float with no type.
-
-
 
 5: C No type in unnumbered
 
@@ -6693,16 +6670,12 @@ Section within unnumbered
 
 Section within unnumbered
 
-
-
 Text 6: C Section within unnumbered
 
 2 Chapter with unnumbsubsec
 ***************************
 
 Chap
-
-
 
 Text 2.1: C Chapter with subsec
 
@@ -6711,13 +6684,9 @@ unnumbered sec
 
 Chap
 
-
-
 Text 2.2: C unnumbered sec float
 
 float with no type.
-
-
 
 2.1: C No type in unnumbered subsec in chapter
 
@@ -6725,8 +6694,6 @@ Appendix A Appendix for float
 *****************************
 
 Appendix
-
-
 
 Text A.1: C appendix sec float
 
@@ -6796,20 +6763,14 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 
 <div class="float" id="text-with-a-lot-of-features">
 
-
-
 <div class="caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small></p></div></div>
 <div class="float">
 <p>No label but caption and shortcaption.
 </p>
-
-
 <div class="caption"><p><strong class="strong">Text: </strong>C No label</p></div></div>
 <div class="float" id="label-but-no-type">
 <p>No type but caption and shortcaption.
 </p>
-
-
 <div class="caption"><p><strong class="strong">1: </strong>C No type</p></div></div>
 
 <div class="float" id="label-but-no-type-and-no-caption">
@@ -6823,20 +6784,14 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
 <div class="float">
 <p>No label, no type, but caption and shortcaption.
-</p>
-
-<div class="caption"><p>C No label, no type, but caption and shortcaption.</p></div></div>
+</p><div class="caption"><p>C No label, no type, but caption and shortcaption.</p></div></div>
 <div class="float" id="label-but-no-type-2">
 <p>Second float with no type.
 </p>
-
-
 <div class="caption"><p><strong class="strong">3: </strong>C No type 2</p></div></div>
 <div class="float" id="warning-in-top">
 <p>A warning
 </p>
-
-
 <div class="caption"><p><strong class="strong">Warning 1: </strong>C A warning</p></div></div>
 
 <ul class="mini-toc">
@@ -6857,27 +6812,20 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 <div class="float" id="text-in-chapter">
 <p>Text in chapter
 </p>
-
 <div class="caption"><p><strong class="strong">Text 1.1: </strong>C Text in chapter</p></div></div>
 <div class="float" id="float-with-a-lot-of-features-and-no-shortcaption">
-
 <div class="caption"><p><strong class="strong">Text 1.2: </strong>An example of float caption, no shortcaption<small class="enddots">...</small></p></div></div>
 <div class="float" id="theoreme">
 <p>A th&eacute;or&egrave;me
 </p>
-
 <div class="caption"><p><strong class="strong">th&eacute;or&egrave;me 1.1: </strong>C A th&eacute;or&egrave;me</p></div></div>
 <div class="float" id="label-but-no-type-in-chapter">
 <p>float with no type.
 </p>
-
-
 <div class="caption"><p><strong class="strong">1.1: </strong>C No type in chapter</p></div></div>
 <div class="float" id="warning-in-chapter">
 <p>A warning
 </p>
-
-
 <div class="caption"><p><strong class="strong">Warning 1.1: </strong>C A warning in chapter</p></div></div>
 
 <ul class="mini-toc">
@@ -6908,13 +6856,9 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 
 <div class="float" id="unnumbered-float">
 <p>unnum
-</p>
-
-<div class="caption"><p><strong class="strong">Text 5: </strong>C unnumbered float</p></div></div><div class="float" id="label-but-no-type-in-unnumbered">
+</p><div class="caption"><p><strong class="strong">Text 5: </strong>C unnumbered float</p></div></div><div class="float" id="label-but-no-type-in-unnumbered">
 <p>float with no type.
 </p>
-
-
 <div class="caption"><p><strong class="strong">5: </strong>C No type in unnumbered</p></div></div>
 
 <ul class="mini-toc">
@@ -6931,9 +6875,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 
 <div class="float" id="Section-within-unnumbered-float">
 <p>Section within unnumbered
-</p>
-
-<div class="caption"><p><strong class="strong">Text 6: </strong>C Section within unnumbered</p></div></div>
+</p><div class="caption"><p><strong class="strong">Text 6: </strong>C Section within unnumbered</p></div></div>
 <hr>
 </div>
 </div>
@@ -6946,9 +6888,7 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 
 <div class="float" id="Chapter-with-subsec-float">
 <p>Chap
-</p>
-
-<div class="caption"><p><strong class="strong">Text 2.1: </strong>C Chapter with subsec</p></div></div>
+</p><div class="caption"><p><strong class="strong">Text 2.1: </strong>C Chapter with subsec</p></div></div>
 <ul class="mini-toc">
 <li><a href="#unnumbered-sec" accesskey="1">unnumbered sec</a></li>
 </ul>
@@ -6962,14 +6902,10 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 
 <div class="float" id="unnumbered-sec-float">
 <p>Chap
-</p>
-
-<div class="caption"><p><strong class="strong">Text 2.2: </strong>C unnumbered sec float</p></div></div>
+</p><div class="caption"><p><strong class="strong">Text 2.2: </strong>C unnumbered sec float</p></div></div>
 <div class="float" id="label-but-no-type-in-unnumbered-subsec-in-chapter">
 <p>float with no type.
 </p>
-
-
 <div class="caption"><p><strong class="strong">2.1: </strong>C No type in unnumbered subsec in chapter</p></div></div>
 <hr>
 </div>
@@ -6984,9 +6920,7 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 <div class="float" id="appendix-sec-float">
 
 <p>Appendix
-</p>
-
-<div class="caption"><p><strong class="strong">Text A.1: </strong>C appendix sec float</p></div></div>
+</p><div class="caption"><p><strong class="strong">Text A.1: </strong>C appendix sec float</p></div></div>
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="list-of-floats">

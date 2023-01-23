@@ -163,7 +163,8 @@ $result_trees{'anchor_in_caption'} = {
             },
             {
               'text' => '
-'
+',
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -267,7 +268,6 @@ $result_texts{'anchor_in_caption'} = '
 
 fl, label
 In float.
-
 ';
 
 $result_nodes{'anchor_in_caption'} = {
@@ -327,7 +327,6 @@ $result_converted{'plaintext'}->{'anchor_in_caption'} = '* Menu:
 
 In float.
 
-
 fl 1: in caption
 ';
 
@@ -343,14 +342,13 @@ File: ,  Node: Top,  Up: (dir)
 
 In float.
 
-
 fl 1: in caption
 
 
 Tag Table:
 Node: Top27
 Ref: label123
-Ref: in anchor151
+Ref: in anchor150
 
 End Tag Table
 
@@ -388,8 +386,7 @@ $result_converted{'html'}->{'anchor_in_caption'} = '<!DOCTYPE html>
 
 <div class="float" id="label">
 <p>In float.
-</p>
-<div class="caption"><p><strong class="strong">fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div>
+</p><div class="caption"><p><strong class="strong">fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div>
 
 
 </body>

@@ -239,6 +239,11 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
   abort_empty_line (&current, NULL);
 
+  /* For footnote and caption closing, when there is a paragraph inside.
+     This makes the brace command the parent element. */
+  if (current->parent && current->parent->type == ET_brace_command_context)
+    current = end_paragraph (current, 0, 0);
+
   if (current->type == ET_bracketed)
     {
       /* Used in @math */
@@ -250,6 +255,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       enum command_id closed_command;
       if (command_data(current->parent->cmd).data == BRACE_context)
         {
+          debug ("CLOSING(context command)");
           if (current->parent->cmd == CM_math)
             {
               if (pop_context () != ct_math)
@@ -525,33 +531,6 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       text_append_n (&e->text, "}", 1);
       add_to_element_contents (current, e);
       goto funexit;
-    }
-  /* context brace command (e.g. @footnote) when there is a paragraph inside */
-  else if (current_context() == ct_brace_command)
-    {
-      current = end_paragraph (current, 0, 0);
-      if (current->parent
-          && (command_flags(current->parent) & CF_brace)
-          && (command_data(current->parent->cmd).data == BRACE_context))
-        {
-          enum command_id closed_command;
-          if (pop_context () != ct_brace_command)
-            fatal ("context brace command context expected");
-          debug ("CLOSING(context command)");
-          closed_command = current->parent->cmd;
-          counter_pop (&count_remaining_args);
-
-          if (closed_command == CM_footnote)
-            nesting_context.footnote--;
-          else if (closed_command == CM_caption
-                     || closed_command == CM_shortcaption)
-            nesting_context.caption--;
-
-          register_global_command (current->parent);
-          current = current->parent->parent;
-          if (close_preformatted_command(closed_command))
-            current = begin_preformatted (current);
-        }
     }
   else
     {

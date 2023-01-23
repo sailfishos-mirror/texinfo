@@ -84,6 +84,10 @@ $result_trees{'caption_in_example'} = {
                   }
                 },
                 {
+                  'text' => '',
+                  'type' => 'spaces_after_close_brace'
+                },
+                {
                   'contents' => [
                     {
                       'text' => '
