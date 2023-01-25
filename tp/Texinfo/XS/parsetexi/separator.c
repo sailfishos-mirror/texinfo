@@ -253,27 +253,10 @@ handle_close_brace (ELEMENT *current, char **line_inout)
   else if (command_flags(current->parent) & CF_brace)
     {
       enum command_id closed_command;
-      if (command_data(current->parent->cmd).data == BRACE_context)
-        {
-          debug ("CLOSING(context command)");
-          if (current->parent->cmd == CM_math)
-            {
-              if (pop_context () != ct_math)
-                fatal ("math context expected");
-            }
-          else if (pop_context () != ct_brace_command)
-            fatal ("context brace command context expected");
-          if (current->parent->cmd == CM_footnote)
-            nesting_context.footnote--;
-          else if (current->parent->cmd == CM_caption
-                   || current->parent->cmd == CM_shortcaption)
-            nesting_context.caption--;
-        }
+
       /* determine if trailing spaces are ignored */
-      else if (command_data(current->parent->cmd).data == BRACE_arguments)
-        {
-          isolate_last_space (current);
-        }
+      if (command_data(current->parent->cmd).data == BRACE_arguments)
+        isolate_last_space (current);
 
       closed_command = current->parent->cmd;
       debug ("CLOSING(brace) %s", command_data(closed_command).cmdname);
@@ -520,7 +503,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           add_to_element_contents (current->parent->parent, e);
         }
 
-      current = current->parent->parent;
+      current = close_brace_command (current->parent, 0, 0, 0);
+
       if (close_preformatted_command(closed_command))
         current = begin_preformatted (current);
     } /* CF_brace */

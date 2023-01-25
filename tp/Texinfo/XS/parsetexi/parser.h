@@ -116,6 +116,10 @@ ELEMENT *close_all_style_commands (ELEMENT *current,
 ELEMENT *close_current (ELEMENT *current,
                         enum command_id closed_block_command,
                         enum command_id interrupting_command);
+ELEMENT *close_brace_command (ELEMENT *current,
+                              enum command_id closed_block_command,
+                              enum command_id interrupting_command,
+                              int missing_brace);
 
 /* In end_line.c */
 NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node);

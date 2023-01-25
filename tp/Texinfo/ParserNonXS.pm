@@ -1488,10 +1488,26 @@ sub _command_error($$$$;@)
 
 # register error messages, but otherwise doesn't do much more than
 # return $_[1]->{'parent'}
-sub _close_brace_command($$$;$$)
+sub _close_brace_command($$$;$$$)
 {
   my ($self, $current, $source_info, $closed_block_command,
-      $interrupting_command) = @_;
+      $interrupting_command, $missing_brace) = @_;
+
+  if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
+    my $expected_context;
+    if ($math_commands{$current->{'cmdname'}}) {
+      $expected_context = 'ct_math';
+    } else {
+      $expected_context = 'ct_brace_command';
+    }
+    $self->_pop_context([$expected_context], $source_info, $current);
+
+    $self->{'nesting_context'}->{'footnote'} -= 1
+      if ($current->{'cmdname'} eq 'footnote');
+    $self->{'nesting_context'}->{'caption'} -= 1
+      if ($current->{'cmdname'} eq 'caption'
+        or $current->{'cmdname'} eq 'shortcaption');
+  }
 
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'info'}->{'delimiter'} eq '') {
@@ -1503,11 +1519,11 @@ sub _close_brace_command($$$;$$)
       $self->_command_error($current, $source_info,
         __("\@%s seen before \@%s closing brace"),
                   $interrupting_command, $current->{'cmdname'});
-    } else {
+    } elsif ($missing_brace) {
       $self->_command_error($current, $source_info,
         __("%c%s missing closing brace"), ord('@'), $current->{'cmdname'});
     }
-  } else {
+  } elsif ($missing_brace) {
     $self->_command_error($current, $source_info,
        __("\@%s missing closing delimiter sequence: %s}"),
        $current->{'cmdname'}, $current->{'info'}->{'delimiter'});
@@ -1587,10 +1603,9 @@ sub _close_all_style_commands($$$;$$)
          if ($self->{'DEBUG'});
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
                                     $closed_block_command,
-                                    $interrupting_command);
+                                    $interrupting_command, 1);
   }
-  # FIXME: we don't touch nesting_context here which may lead to erroneous
-  # warnings.
+
   return $current;
 }
 
@@ -2002,24 +2017,9 @@ sub _close_current($$$;$$)
     print STDERR "CLOSING(close_current) \@$current->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     if (exists($self->{'brace_commands'}->{$current->{'cmdname'}})) {
-      if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
-        my $expected_context;
-        if ($math_commands{$current->{'cmdname'}}) {
-          $expected_context = 'ct_math';
-        } else {
-          $expected_context = 'ct_brace_command';
-        }
-        $self->_pop_context([$expected_context], $source_info, $current);
-
-        $self->{'nesting_context'}->{'footnote'} -= 1
-          if ($current->{'cmdname'} eq 'footnote');
-        $self->{'nesting_context'}->{'caption'} -= 1
-          if ($current->{'cmdname'} eq 'caption'
-            or $current->{'cmdname'} eq 'shortcaption');
-      }
       $current = _close_brace_command($self, $current, $source_info,
                                       $closed_block_command,
-                                      $interrupting_command);
+                                      $interrupting_command, 1);
     } elsif (exists($block_commands{$current->{'cmdname'}})) {
       if (defined($closed_block_command)) {
         $self->_line_error(sprintf(__("`\@end' expected `%s', but saw `%s'"),
@@ -5815,23 +5815,6 @@ sub _process_remaining_on_line($$$$)
           and $current->{'parent'}->{'cmdname'}
           and exists($self->{'brace_commands'}
                                      ->{$current->{'parent'}->{'cmdname'}})) {
-        if ($self->{'brace_commands'}
-                          ->{$current->{'parent'}->{'cmdname'}} eq 'context') {
-          print STDERR "CLOSING(context command) "
-                        ."\@$current->{'parent'}->{'cmdname'}\n"
-                           if ($self->{'DEBUG'});
-          my $command_context = 'ct_brace_command';
-          if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
-            $command_context = 'ct_math';
-          }
-          $self->_pop_context([$command_context], $source_info, $current,
-                   "for brace command $current->{'parent'}->{'cmdname'}");
-          $self->{'nesting_context'}->{'footnote'} -= 1
-            if ($current->{'parent'}->{'cmdname'} eq 'footnote');
-          $self->{'nesting_context'}->{'caption'} -= 1
-            if ($current->{'parent'}->{'cmdname'} eq 'caption'
-                or $current->{'parent'}->{'cmdname'} eq 'shortcaption');
-        }
         # first is the arg.
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
             and $brace_commands{$current->{'parent'}{'cmdname'}} eq 'arguments'
@@ -6029,7 +6012,10 @@ sub _process_remaining_on_line($$$$)
               'parent' => $current->{'parent'}->{'parent'}
              };
         }
-        $current = $current->{'parent'}->{'parent'};
+
+        $current = _close_brace_command($self, $current->{'parent'},
+                                        $source_info);
+
         $current = _begin_preformatted($self, $current)
            if ($close_preformatted_commands{$closed_command});
       # lone braces accepted right in a rawpreformatted

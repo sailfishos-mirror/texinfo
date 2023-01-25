@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -20,14 +20,31 @@
 
 #include "parser.h"
 
-/* Possibly print an error message, and return CURRENT->parent. */
-static ELEMENT *
+/* Return CURRENT->parent.  The other arguments are used if an error message
+   should be printed. */
+ELEMENT *
 close_brace_command (ELEMENT *current,
                      enum command_id closed_block_command,
-                     enum command_id interrupting_command)
+                     enum command_id interrupting_command,
+                     int missing_brace)
 {
 
   KEY_PAIR *k;
+
+  if (command_data(current->cmd).data == BRACE_context)
+    {
+      if (current->cmd == CM_math)
+        {
+          if (pop_context () != ct_math)
+            fatal ("math context expected");
+        }
+      else if (pop_context () != ct_brace_command)
+        fatal ("context brace command context expected");
+      if (current->cmd == CM_footnote)
+        nesting_context.footnote--;
+      if (current->cmd == CM_caption || current->cmd == CM_shortcaption)
+        nesting_context.caption--;
+    }
 
   if (current->cmd != CM_verb)
     goto yes;
@@ -47,12 +64,12 @@ close_brace_command (ELEMENT *current,
                         "@%s seen before @%s closing brace",
                         command_name(interrupting_command),
                         command_name(current->cmd));
-      else
-        command_error (current,
+      else if (missing_brace)
+         command_error (current,
                         "@%s missing closing brace",
                         command_name(current->cmd));
     }
-  else
+  else if (missing_brace)
     {
       command_error (current,
                       "@%s missing closing delimiter sequence: %s}",
@@ -74,10 +91,8 @@ close_all_style_commands (ELEMENT *current,
          && (command_flags(current->parent) & CF_brace)
          && !(command_data(current->parent->cmd).data == BRACE_context))
     current = close_brace_command (current->parent,
-                                   closed_block_command, interrupting_command);
+                           closed_block_command, interrupting_command, 1);
 
-  /* FIXME: we don't touch nesting_context here which may lead to erroneous
-     warnings. */
   return current;
 }
 
@@ -273,23 +288,8 @@ close_current (ELEMENT *current,
       debug ("CLOSING (close_current) %s", command_name(current->cmd));
       if (command_flags(current) & CF_brace)
         {
-          if (command_data(current->cmd).data == BRACE_context)
-            {
-              if (current->cmd == CM_math)
-                {
-                  if (pop_context () != ct_math)
-                    fatal ("math context expected");
-                }
-              else if (pop_context () != ct_brace_command)
-                fatal ("context brace command context expected");
-              if (current->cmd == CM_footnote)
-                nesting_context.footnote--;
-              if (current->cmd == CM_caption || current->cmd == CM_shortcaption)
-                nesting_context.caption--;
-            }
-
           current = close_brace_command (current, closed_block_command,
-                                         interrupting_command);
+                                         interrupting_command, 1);
         }
       else if (command_flags(current) & CF_block)
         {
