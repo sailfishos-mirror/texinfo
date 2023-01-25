@@ -1,3 +1,10 @@
+2023-01-25  Arsen Arsenović  <arsen@aarsen.me>
+
+	ParserNonXS: Fix minor Perl error
+
+	* tp/Texinfo/ParserNonXS.pm (_check_valid_nesting_context): Escape
+	invalid uses of @.
+
 2023-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line) <close brace>,

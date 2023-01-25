@@ -4301,16 +4301,16 @@ sub _check_valid_nesting_context
   if (($command eq 'caption' or $command eq 'shortcaption')
       and $self->{'nesting_context'}->{'caption'}) {
     $self->_line_warn(sprintf(
-        __("@%s should not appear anywhere inside caption"),
+        __("\@%s should not appear anywhere inside caption"),
           $command), $source_info);
   } elsif ($Texinfo::Commands::ref_commands{$command}
          and $self->{'nesting_context'}->{'xref'}) {
     $self->_line_warn(sprintf(
-        __("@%s should not appear anywhere inside cross-reference"),
+        __("\@%s should not appear anywhere inside cross-reference"),
           $command), $source_info);
   }
   $self->_line_warn(sprintf(
-        __("@%s should not appear anywhere inside @%s"),
+        __("\@%s should not appear anywhere inside \@%s"),
             $command, $invalid_context), $source_info)
     if ($invalid_context);
 }
