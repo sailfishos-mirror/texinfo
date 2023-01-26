@@ -210,6 +210,7 @@ test_files = \
  t/input_files/empty_lines_at_beginning_no_setfilename_no_element.texi \
  t/input_files/encoding_index_latin1.texi \
  t/input_files/encoding_index_utf8.texi \
+ t/input_files/end_of_lines_protected_non_ascii.texi \
  t/input_files/float_copying.texi \
  t/input_files/glossary.texi \
  t/input_files/in_menu_only_special_spaces_node.texi \

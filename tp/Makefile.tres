@@ -412,6 +412,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/end_of_line_protect_at_end.pl \
   t/results/def/end_of_lines_protected.pl \
   t/results/def/end_of_lines_protected_in_footnote.pl \
+  t/results/def/end_of_lines_protected_non_ascii.pl \
   t/results/def/inter_item_commands_in_def.pl \
   t/results/def/inter_item_commands_in_def_in_example.pl \
   t/results/def/leading_space_in_def_arg.pl \

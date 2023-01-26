@@ -1,5 +1,12 @@
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/Makefile.am (test_files), t/19def.t:
+	add the end_of_lines_protected_non_ascii test with non-ASCII
+	character counted in source marks.  Skipped for now as the
+	XS parser counts bytes and not characters.
+
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_register_source_mark),
 	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
 	tp/Texinfo/XS/parsetexi/source_marks.c (new_source_mark)
