@@ -317,7 +317,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 
 <body lang="en">
 <dl class="first-defop">
-<dt class="defop" id="index-b-on-a"><span class="category-def">Constructor on <code class="code">a</code>: </span><span><strong class="def-name">b</strong> <var class="def-var-arguments">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</var><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
+<dt class="defop" id="index-b-on-a"><span class="category-def">Constructor on <code class="code">a</code>: </span><span><strong class="def-name">b</strong> <var class="def-var-arguments">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</var><a class="copiable-link" href="#index-b-on-a"> &para;</a></span></dt>
 </dl>
 <p>&amp; &amp; &amp; { } @
 </p>

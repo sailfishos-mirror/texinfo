@@ -525,13 +525,13 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <div class="unnumbered-level-extent" id="before-nodes">
-<h2 class="unnumbered"><span>before nodes<a class="copiable-link" href=\'#before-nodes\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>before nodes<a class="copiable-link" href="#before-nodes"> &para;</a></span></h2>
 
 <p>in unnumbered
 </p>
 </div>
 <div class="unnumbered-level-extent" id="Top">
-<h2 class="unnumbered top-level-set-unnumbered" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h2>
+<h2 class="unnumbered top-level-set-unnumbered" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h2>
 <p>Top node
 </p></div>
 

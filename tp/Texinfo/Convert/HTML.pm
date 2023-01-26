@@ -5138,7 +5138,7 @@ sub _convert_item_command($$$$$)
       my $anchor_span_close = '';
       if (defined($index_id)) {
         $anchor = $self->_get_copiable_anchor($index_id);
-        $index_id = "<a id='$index_id'></a>";
+        $index_id = "<a id=\"$index_id\"></a>";
         if ($anchor ne '') {
           $anchor_span_open = '<span>';
           $anchor_span_close = '</span>';
@@ -6808,7 +6808,7 @@ sub _get_copiable_anchor {
   if ($id and $self->get_conf('COPIABLE_LINKS')) {
     my $paragraph_symbol = $self->get_info('paragraph_symbol');
     $result = $self->html_attribute_class('a', ['copiable-link'])
-        ." href='#$id'> $paragraph_symbol</a>";
+        ." href=\"#$id\"> $paragraph_symbol</a>";
   }
   return $result;
 }

@@ -932,7 +932,7 @@ td.menu-entry-destination {vertical-align: top}
 <a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="section-level-extent" id="section">
-<h3 class="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
+<h3 class="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>

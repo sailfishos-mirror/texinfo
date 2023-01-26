@@ -477,7 +477,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <dl class="listoffloats">
 <dt><a href="#label">fl 1</a></dt><dd class="caption-in-listoffloats"><p>in caption

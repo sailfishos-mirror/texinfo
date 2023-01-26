@@ -331,7 +331,7 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="fr">
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
@@ -344,7 +344,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="appendix-level-extent" id="dernier">
-<h2 class="appendix"><span>Annexe A dernier<a class="copiable-link" href=\'#dernier\'> &para;</a></span></h2>
+<h2 class="appendix"><span>Annexe A dernier<a class="copiable-link" href="#dernier"> &para;</a></span></h2>
 
 </div>
 </div>

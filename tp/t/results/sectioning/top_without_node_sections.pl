@@ -596,14 +596,14 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <div class="top-level-extent" id="top-section">
-<h1 class="top"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
+<h1 class="top"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <p>Top section
 </p>
 <ul class="mini-toc">
 <li><a href="#second" accesskey="1">Chapter</a></li>
 </ul>
 <div class="chapter-level-extent" id="second">
-<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>Text of chapter
 </p></div>

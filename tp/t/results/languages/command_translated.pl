@@ -291,7 +291,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="fr">
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top-error_002d_002d_003e"><span>top erreur&rarr;<a class="copiable-link" href=\'#top-error_002d_002d_003e\'> &para;</a></span></h1>
+<h1 class="top" id="top-error_002d_002d_003e"><span>top erreur&rarr;<a class="copiable-link" href="#top-error_002d_002d_003e"> &para;</a></span></h1>
 
 <p>erreur&rarr;
 </p></div>

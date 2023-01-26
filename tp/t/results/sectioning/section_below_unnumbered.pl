@@ -806,7 +806,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>
 Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href=\'#Top-1\'> &para;</a></span></h1>
+<h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
 <p>Top node.
 </p>
@@ -831,7 +831,7 @@ Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Cont
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h2 class="unnumbered" id="Unn-1"><span>Unn<a class="copiable-link" href=\'#Unn-1\'> &para;</a></span></h2>
+<h2 class="unnumbered" id="Unn-1"><span>Unn<a class="copiable-link" href="#Unn-1"> &para;</a></span></h2>
 
 
 <ul class="mini-toc">
@@ -843,7 +843,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <p>
 Up: <a href="#Unn" accesskey="u" rel="up">Unn</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h3 class="section" id="Sec-1"><span>Sec<a class="copiable-link" href=\'#Sec-1\'> &para;</a></span></h3>
+<h3 class="section" id="Sec-1"><span>Sec<a class="copiable-link" href="#Sec-1"> &para;</a></span></h3>
 
 <p>Should be unnumbered.
 </p>

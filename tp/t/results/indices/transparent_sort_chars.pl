@@ -523,7 +523,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_002d_002dversion_002c-for-install_002dinfo"></a>
 <a class="index-entry-id" id="index-Source-file-format"></a>

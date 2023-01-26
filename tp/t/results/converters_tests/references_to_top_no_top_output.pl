@@ -1474,7 +1474,7 @@ $result_converted{'html_text'}->{'references_to_top_no_top_output'} = '
 <p>
  &nbsp; [<a href="#chapter" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <p>see <a class="pxref" href="#a-in-copying">a in copying</a>.
 see <a class="pxref" href="#a-in-top">a in top</a>

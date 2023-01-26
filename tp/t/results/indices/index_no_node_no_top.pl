@@ -1963,7 +1963,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '
 
 
 <div class="unnumbered-level-extent" id="unnumbered">
-<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href=\'#unnumbered\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href="#unnumbered"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-unnumbered"></a>
 <p>in unnumbered
@@ -2018,7 +2018,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '
 
 </div>
 <div class="unnumbered-level-extent" id="top-_0028chapter_0029-section">
-<h2 class="unnumbered"><span>top (chapter) section<a class="copiable-link" href=\'#top-_0028chapter_0029-section\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>top (chapter) section<a class="copiable-link" href="#top-_0028chapter_0029-section"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-top-section"></a>
 <a class="index-entry-id" id="index-top-section-1"></a>
@@ -2082,7 +2082,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '
 <li><a href="#second" accesskey="1">second</a></li>
 </ul>
 <div class="section-level-extent" id="second">
-<h3 class="section"><span>second<a class="copiable-link" href=\'#second\'> &para;</a></span></h3>
+<h3 class="section"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h3>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#second_cp_letter-C"><b>C</b></a>
@@ -2183,7 +2183,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '
 </div>
 </div>
 <div class="chapter-level-extent" id="Chapter">
-<h2 class="chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-chapter"></a>
 
 <div class="printindex cp-printindex">
@@ -2237,7 +2237,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '
 </p>
 </div>
 <div class="chapter-level-extent" id="Chapter-2">
-<h2 class="chapter"><span>2 Chapter 2<a class="copiable-link" href=\'#Chapter-2\'> &para;</a></span></h2>
+<h2 class="chapter"><span>2 Chapter 2<a class="copiable-link" href="#Chapter-2"> &para;</a></span></h2>
 
 <p>In chapter 2
 </p>

@@ -938,7 +938,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top-element-"><span>top element&nbsp;<a class="copiable-link" href=\'#top-element-\'> &para;</a></span></h1>
+<h1 class="top" id="top-element-"><span>top element&nbsp;<a class="copiable-link" href="#top-element-"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">Chapter&nbsp;</a></li>
@@ -949,13 +949,13 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Chapter-"><span>1 Chapter&nbsp;<a class="copiable-link" href=\'#Chapter-\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter-"><span>1 Chapter&nbsp;<a class="copiable-link" href="#Chapter-"> &para;</a></span></h2>
 
 
 
 <a class="index-entry-id" id="index-index-entry-"></a>
 
-<h3 class="heading" id="Heading-"><span>Heading &nbsp;<a class="copiable-link" href=\'#Heading-\'> &para;</a></span></h3>
+<h3 class="heading" id="Heading-"><span>Heading &nbsp;<a class="copiable-link" href="#Heading-"> &para;</a></span></h3>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">

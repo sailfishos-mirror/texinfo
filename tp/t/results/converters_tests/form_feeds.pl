@@ -1436,14 +1436,14 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="first-node"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>first&#12;node<a class="copiable-link" href=\'#first-node\'> &para;</a></span></h4>
+<h4 class="node"><span>first&#12;node<a class="copiable-link" href="#first-node"> &para;</a></span></h4>
 
 &#12; &#12;
 
@@ -1469,8 +1469,8 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <p>&lsquo;<code class="indicateurl"> &#12; in indicateurl</code>&rsquo;
 </p>
 <dl class="first-deffn">
-<dt class="deffn" id="index-machin"><span class="category-def">truc: </span><span><strong class="def-name">machin</strong> <var class="def-var-arguments">bidule  chose arg</var><a class="copiable-link" href=\'#index-machin\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-xmachin"><span class="category-def">xtruc: </span><span><strong class="def-name">xmachin</strong> <var class="def-var-arguments">xbidule  xchose xarg</var><a class="copiable-link" href=\'#index-xmachin\'> &para;</a></span></dt>
+<dt class="deffn" id="index-machin"><span class="category-def">truc: </span><span><strong class="def-name">machin</strong> <var class="def-var-arguments">bidule  chose arg</var><a class="copiable-link" href="#index-machin"> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-xmachin"><span class="category-def">xtruc: </span><span><strong class="def-name">xmachin</strong> <var class="def-var-arguments">xbidule  xchose xarg</var><a class="copiable-link" href="#index-xmachin"> &para;</a></span></dt>
 <dd><p>T
 </p></dd></dl>
 

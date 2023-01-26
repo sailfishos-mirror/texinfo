@@ -829,22 +829,22 @@ _var3_
 ';
 
 
-$result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+$result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <dl class="ftable">
-<dt><a id=\'index-function1\'></a><span><em class="emph">function1</em><a class="copiable-link" href=\'#index-function1\'> &para;</a></span></dt>
-<dt><a id=\'index-function2x\'></a><span><em class="emph">function2x</em><a class="copiable-link" href=\'#index-function2x\'> &para;</a></span></dt>
+<dt><a id="index-function1"></a><span><em class="emph">function1</em><a class="copiable-link" href="#index-function1"> &para;</a></span></dt>
+<dt><a id="index-function2x"></a><span><em class="emph">function2x</em><a class="copiable-link" href="#index-function2x"> &para;</a></span></dt>
 <dd><p>Text
 </p></dd>
-<dt><a id=\'index-fun3\'></a><span><em class="emph">fun3</em><a class="copiable-link" href=\'#index-fun3\'> &para;</a></span></dt>
+<dt><a id="index-fun3"></a><span><em class="emph">fun3</em><a class="copiable-link" href="#index-fun3"> &para;</a></span></dt>
 </dl>
 
 <dl class="vtable">
-<dt><a id=\'index-var1-error_002d_002d_003e\'></a><span><em class="emph">var1 error&rarr;</em><a class="copiable-link" href=\'#index-var1-error_002d_002d_003e\'> &para;</a></span></dt>
-<dt><a id=\'index-varx2\'></a><span><em class="emph">varx2</em><a class="copiable-link" href=\'#index-varx2\'> &para;</a></span></dt>
+<dt><a id="index-var1-error_002d_002d_003e"></a><span><em class="emph">var1 error&rarr;</em><a class="copiable-link" href="#index-var1-error_002d_002d_003e"> &para;</a></span></dt>
+<dt><a id="index-varx2"></a><span><em class="emph">varx2</em><a class="copiable-link" href="#index-varx2"> &para;</a></span></dt>
 <dd><p>Text
 </p></dd>
-<dt><a id=\'index-var3\'></a><span><em class="emph">var3</em><a class="copiable-link" href=\'#index-var3\'> &para;</a></span></dt>
+<dt><a id="index-var3"></a><span><em class="emph">var3</em><a class="copiable-link" href="#index-var3"> &para;</a></span></dt>
 </dl>
 
 <a class="index-entry-id" id="index-function1-1"></a>

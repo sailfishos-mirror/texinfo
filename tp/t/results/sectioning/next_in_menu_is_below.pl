@@ -1072,7 +1072,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <ul class="mini-toc">
@@ -1084,7 +1084,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href=\'#chapter-1\'> &para;</a></span></h2>
+<h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href="#chapter-1"> &para;</a></span></h2>
 
 
 <ul class="mini-toc">
@@ -1096,7 +1096,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <p>
 Next: <a href="#subsection" accesskey="n" rel="next">subsection</a>, Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
-<h3 class="section" id="section-1"><span>1.1 section<a class="copiable-link" href=\'#section-1\'> &para;</a></span></h3>
+<h3 class="section" id="section-1"><span>1.1 section<a class="copiable-link" href="#section-1"> &para;</a></span></h3>
 
 
 <ul class="mini-toc">
@@ -1108,7 +1108,7 @@ Next: <a href="#subsection" accesskey="n" rel="next">subsection</a>, Up: <a href
 <p>
 Previous: <a href="#section" accesskey="p" rel="prev">section</a>, Up: <a href="#section" accesskey="u" rel="up">section</a> &nbsp; </p>
 </div>
-<h4 class="subsection" id="subsection-1"><span>1.1.1 subsection<a class="copiable-link" href=\'#subsection-1\'> &para;</a></span></h4>
+<h4 class="subsection" id="subsection-1"><span>1.1.1 subsection<a class="copiable-link" href="#subsection-1"> &para;</a></span></h4>
 </div>
 </div>
 </div>

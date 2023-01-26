@@ -265,8 +265,8 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 
 <body lang="en">
 <div class="top-level-extent" id="top">
-<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
-<h4 class="node" id="index-node"><span>index node<a class="copiable-link" href=\'#index-node\'> &para;</a></span></h4>
+<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<h4 class="node" id="index-node"><span>index node<a class="copiable-link" href="#index-node"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">

@@ -651,7 +651,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
+<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 <p>first node
 </p>
 
@@ -660,7 +660,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <p>
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>second node<a class="copiable-link" href=\'#second-node\'> &para;</a></span></h4>
+<h4 class="node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
 <p>second node
 </p>
 

@@ -321,7 +321,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>
-<h1 class="node"><span>ToP<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>ToP<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <div class="nav-panel">

@@ -175,7 +175,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <blockquote class="quotation">
 
-<h3 class="heading" id="in-quotation-_0040-heading"><span>in quotation @ <em class="emph">heading</em><a class="copiable-link" href=\'#in-quotation-_0040-heading\'> &para;</a></span></h3>
+<h3 class="heading" id="in-quotation-_0040-heading"><span>in quotation @ <em class="emph">heading</em><a class="copiable-link" href="#in-quotation-_0040-heading"> &para;</a></span></h3>
 
 </blockquote>
 

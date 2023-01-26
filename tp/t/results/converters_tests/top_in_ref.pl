@@ -3171,14 +3171,14 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-id" id="Top"></
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="refs-node"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>refs node<a class="copiable-link" href=\'#refs-node\'> &para;</a></span></h4>
+<h4 class="node"><span>refs node<a class="copiable-link" href="#refs-node"> &para;</a></span></h4>
 
 <p><code class="code">@ref{Top,cross ref name}</code> <a class="ref" href="#Top">cross ref name</a>
 <code class="code">@ref{Top,,title}</code> <a class="ref" href="#Top">title</a>

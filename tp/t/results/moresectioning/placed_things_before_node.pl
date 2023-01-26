@@ -990,7 +990,7 @@ span:hover a.copiable-link {visibility: visible}
 <a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>

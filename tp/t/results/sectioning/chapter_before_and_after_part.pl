@@ -381,18 +381,18 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="chapter-level-extent" id="chapter">
-<h2 class="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#chapter-2" accesskey="1">chapter 2</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-2">
-<h2 class="chapter"><span>2 chapter 2<a class="copiable-link" href=\'#chapter-2\'> &para;</a></span></h2>
+<h2 class="chapter"><span>2 chapter 2<a class="copiable-link" href="#chapter-2"> &para;</a></span></h2>
 
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>

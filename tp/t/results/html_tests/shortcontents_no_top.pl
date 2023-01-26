@@ -223,17 +223,17 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="chapter-level-extent" id="chap">
-<h2 class="chapter"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 </div>
 <div class="chapter-level-extent" id="chap2">
-<h2 class="chapter"><span>2 chap2<a class="copiable-link" href=\'#chap2\'> &para;</a></span></h2>
+<h2 class="chapter"><span>2 chap2<a class="copiable-link" href="#chap2"> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
 <div class="section-level-extent" id="sec">
-<h3 class="section"><span>2.1 sec<a class="copiable-link" href=\'#sec\'> &para;</a></span></h3>
+<h3 class="section"><span>2.1 sec<a class="copiable-link" href="#sec"> &para;</a></span></h3>
 
 <div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>

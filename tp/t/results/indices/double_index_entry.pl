@@ -588,7 +588,7 @@ $result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-id" id=
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <a class="index-entry-id" id="index-aaa"></a>
 
@@ -602,7 +602,7 @@ $result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-id" id=
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>other node<a class="copiable-link" href=\'#other-node\'> &para;</a></span></h4>
+<h4 class="node"><span>other node<a class="copiable-link" href="#other-node"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-aaa-2"></a>
 

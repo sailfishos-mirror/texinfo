@@ -913,7 +913,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href=\'#internal-top-node-up\'> &para;</a></span></h1>
+<h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href="#internal-top-node-up"> &para;</a></span></h1>
 
 
 <hr>
@@ -921,7 +921,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
+<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 </div>
 
 

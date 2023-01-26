@@ -1018,7 +1018,7 @@ top! After punc
 
 $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <div class="top-level-extent" id="node_0021-After-punc">
-<h1 class="top" id="top_0021-After-punc"><span>top! After punc<a class="copiable-link" href=\'#top_0021-After-punc\'> &para;</a></span></h1>
+<h1 class="top" id="top_0021-After-punc"><span>top! After punc<a class="copiable-link" href="#top_0021-After-punc"> &para;</a></span></h1>
 
 <dl class="table">
 <dt>item! After punc</dt>
@@ -1042,7 +1042,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 <a class="index-entry-id" id="index-index_0021-After-punc"></a>
 
-<h3 class="heading" id="heading_0021-After-punc"><span>heading! After punc<a class="copiable-link" href=\'#heading_0021-After-punc\'> &para;</a></span></h3>
+<h3 class="heading" id="heading_0021-After-punc"><span>heading! After punc<a class="copiable-link" href="#heading_0021-After-punc"> &para;</a></span></h3>
 
 <h1 class="titlefont">titlefont! After punc</h1>
 

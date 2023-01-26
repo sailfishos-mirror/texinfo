@@ -597,7 +597,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>
 Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 
 
 <hr>
@@ -607,14 +607,14 @@ Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#after" accesskey="1">chapter 2</a></li>
 </ul>
 <div class="chapter-level-extent" id="after">
-<h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href=\'#chapter-2\'> &para;</a></span></h2>
+<h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href="#chapter-2"> &para;</a></span></h2>
 
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>

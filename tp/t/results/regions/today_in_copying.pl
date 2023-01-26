@@ -383,14 +383,14 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <p>a sunny day.
 </p></div>

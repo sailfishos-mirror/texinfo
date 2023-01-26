@@ -2251,7 +2251,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029"><span>for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href=\'#for-example-node-_0028node_0029-_0028Top_0029\'> &para;</a></span></h1>
+<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029"><span>for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029"> &para;</a></span></h1>
 
 
 <div class="element-contents">
@@ -2286,7 +2286,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="node_002e"><span>1 See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.<a class="copiable-link" href=\'#node_002e\'> &para;</a></span></h2>
+<h2 class="chapter" id="node_002e"><span>1 See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.<a class="copiable-link" href="#node_002e"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -2295,7 +2295,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="node-just-node"><span>2 <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node<a class="copiable-link" href=\'#node-just-node\'> &para;</a></span></h2>
+<h2 class="chapter" id="node-just-node"><span>2 <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node<a class="copiable-link" href="#node-just-node"> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#for-example-node-_0028node_0029-_0028Top_0029-1" accesskey="1">for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
@@ -2313,55 +2313,55 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
 </ul>
 <div class="section-level-extent" id="for-example-node-_0028node_0029-_0028Top_0029-1">
-<h3 class="section"><span>2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href=\'#for-example-node-_0028node_0029-_0028Top_0029-1\'> &para;</a></span></h3>
+<h3 class="section"><span>2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029-1"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="node-node_002c-crossref-arg2">
-<h3 class="section"><span>2.2 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2<a class="copiable-link" href=\'#node-node_002c-crossref-arg2\'> &para;</a></span></h3>
+<h3 class="section"><span>2.2 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2<a class="copiable-link" href="#node-node_002c-crossref-arg2"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="node-code-node_002c-samptitle-arg3">
-<h3 class="section"><span>2.3 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3<a class="copiable-link" href=\'#node-code-node_002c-samptitle-arg3\'> &para;</a></span></h3>
+<h3 class="section"><span>2.3 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3<a class="copiable-link" href="#node-code-node_002c-samptitle-arg3"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="node-code-node_002c-file-name">
-<h3 class="section"><span>2.4 <a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name<a class="copiable-link" href=\'#node-code-node_002c-file-name\'> &para;</a></span></h3>
+<h3 class="section"><span>2.4 <a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name<a class="copiable-link" href="#node-code-node_002c-file-name"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="node-node-and-manual">
-<h3 class="section"><span>2.5 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual<a class="copiable-link" href=\'#node-node-and-manual\'> &para;</a></span></h3>
+<h3 class="section"><span>2.5 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual<a class="copiable-link" href="#node-node-and-manual"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="Top-Top-and-manual">
-<h3 class="section"><span>2.6 <cite class="cite">Manual</cite> Top and manual<a class="copiable-link" href=\'#Top-Top-and-manual\'> &para;</a></span></h3>
+<h3 class="section"><span>2.6 <cite class="cite">Manual</cite> Top and manual<a class="copiable-link" href="#Top-Top-and-manual"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="Manual-no-node-just-manual">
-<h3 class="section"><span>2.7 <cite class="cite">Manual</cite> no node just manual<a class="copiable-link" href=\'#Manual-no-node-just-manual\'> &para;</a></span></h3>
+<h3 class="section"><span>2.7 <cite class="cite">Manual</cite> no node just manual<a class="copiable-link" href="#Manual-no-node-just-manual"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="file-name-no-node-just-file-name">
-<h3 class="section"><span>2.8 <a data-manual="file name" href="file%20name.html#Top">(file name)</a> no node just file name<a class="copiable-link" href=\'#file-name-no-node-just-file-name\'> &para;</a></span></h3>
+<h3 class="section"><span>2.8 <a data-manual="file name" href="file%20name.html#Top">(file name)</a> no node just file name<a class="copiable-link" href="#file-name-no-node-just-file-name"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="a-inforef-a-b-c">
-<h3 class="section"><span>2.9 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c<a class="copiable-link" href=\'#a-inforef-a-b-c\'> &para;</a></span></h3>
+<h3 class="section"><span>2.9 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c<a class="copiable-link" href="#a-inforef-a-b-c"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">
-<h3 class="section"><span>2.10 (see <a data-manual="file name" href="file%20name.html#Top">(file name)Top</a>) pxref Top file name, spaces<a class="copiable-link" href=\'#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces\'> &para;</a></span></h3>
+<h3 class="section"><span>2.10 (see <a data-manual="file name" href="file%20name.html#Top">(file name)Top</a>) pxref Top file name, spaces<a class="copiable-link" href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">
-<h3 class="section"><span>2.11 (see <a data-manual="file name" href="file%20name.html#Top">(file name)</a>) pxref file name only, spaces<a class="copiable-link" href=\'#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces\'> &para;</a></span></h3>
+<h3 class="section"><span>2.11 (see <a data-manual="file name" href="file%20name.html#Top">(file name)</a>) pxref file name only, spaces<a class="copiable-link" href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="Top_002c-xref-Top-filename-only_002c-no-spaces">
-<h3 class="section"><span>2.12 See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces<a class="copiable-link" href=\'#Top_002c-xref-Top-filename-only_002c-no-spaces\'> &para;</a></span></h3>
+<h3 class="section"><span>2.12 See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces<a class="copiable-link" href="#Top_002c-xref-Top-filename-only_002c-no-spaces"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="filename_002e-xref-filename-only_002c-no-spaces">
-<h3 class="section"><span>2.13 See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces<a class="copiable-link" href=\'#filename_002e-xref-filename-only_002c-no-spaces\'> &para;</a></span></h3>
+<h3 class="section"><span>2.13 See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces<a class="copiable-link" href="#filename_002e-xref-filename-only_002c-no-spaces"> &para;</a></span></h3>
 
 </div>
 </div>

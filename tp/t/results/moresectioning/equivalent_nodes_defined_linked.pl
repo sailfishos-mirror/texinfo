@@ -745,7 +745,7 @@ td.menu-entry-destination {vertical-align: top}
 <p>
 Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><strong class="strong">node</strong></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -757,7 +757,7 @@ Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <div class="float">
 <p>A figure

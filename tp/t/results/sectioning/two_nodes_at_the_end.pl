@@ -1089,7 +1089,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <ul class="mini-toc">
@@ -1101,14 +1101,14 @@ Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 <p>
 Next: <a href="#node-after-chapter-1" accesskey="n" rel="next">node after chapter 1</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chapter-c1"><span>1 chapter c1<a class="copiable-link" href=\'#chapter-c1\'> &para;</a></span></h2>
+<h2 class="chapter" id="chapter-c1"><span>1 chapter c1<a class="copiable-link" href="#chapter-c1"> &para;</a></span></h2>
 
 <hr>
 <a class="node-id" id="node-after-chapter-1"></a><div class="nav-panel">
 <p>
 Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapter 2</a>, Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node after chapter 1<a class="copiable-link" href=\'#node-after-chapter-1\'> &para;</a></span></h4>
+<h4 class="node"><span>node after chapter 1<a class="copiable-link" href="#node-after-chapter-1"> &para;</a></span></h4>
 
 <p>in node after chapter 1
 </p>
@@ -1117,7 +1117,7 @@ Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapte
 <p>
 Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node after chapter 2<a class="copiable-link" href=\'#node-after-chapter-2\'> &para;</a></span></h4>
+<h4 class="node"><span>node after chapter 2<a class="copiable-link" href="#node-after-chapter-2"> &para;</a></span></h4>
 </div>
 </div>
 

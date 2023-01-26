@@ -386,7 +386,7 @@ td.menu-entry-destination {vertical-align: top}
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>Text
 </p>

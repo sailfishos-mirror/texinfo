@@ -206,7 +206,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <div class="subsection-level-extent" id="one-node">
-<h4 class="subsection" id="The-subsection"><span>1 The subsection<a class="copiable-link" href=\'#The-subsection\'> &para;</a></span></h4>
+<h4 class="subsection" id="The-subsection"><span>1 The subsection<a class="copiable-link" href="#The-subsection"> &para;</a></span></h4>
 </div>
 
 

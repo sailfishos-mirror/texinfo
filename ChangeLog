@@ -1,5 +1,11 @@
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_item_command)
+	(_get_copiable_anchor): use double quote for HTML attributes instead
+	of single quote for consistency.
+
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Basic Formatting Customization): separate
 	information about API and result in the default case for
 	format_heading_text.

@@ -1436,7 +1436,7 @@ _second item_
 
 
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-level-extent" id="Top">
-<h1 class="top" id="Element"><span>Element<a class="copiable-link" href=\'#Element\'> &para;</a></span></h1>
+<h1 class="top" id="Element"><span>Element<a class="copiable-link" href="#Element"> &para;</a></span></h1>
 
 <dl class="table">
 <dt><em class="emph">first item</em></dt>
@@ -1471,16 +1471,16 @@ end example.
 </dl>
 
 <dl class="vtable">
-<dt><a id=\'index-item-before-ignored-lines\'></a><span><strong class="strong">item before ignored lines</strong><a class="copiable-link" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
+<dt><a id="index-item-before-ignored-lines"></a><span><strong class="strong">item before ignored lines</strong><a class="copiable-link" href="#index-item-before-ignored-lines"> &para;</a></span></dt>
 <a class="index-entry-id" id="index-vindex"></a>
-<dt><a id=\'index-itemx-now\'></a><span><strong class="strong">itemx now</strong><a class="copiable-link" href=\'#index-itemx-now\'> &para;</a></span></dt>
+<dt><a id="index-itemx-now"></a><span><strong class="strong">itemx now</strong><a class="copiable-link" href="#index-itemx-now"> &para;</a></span></dt>
 <dd>
 <p>Description
 </p></dd>
 </dl>
 <dl class="vtable">
-<dt><a id=\'index-item\'></a><span><span class="r">item</span><a class="copiable-link" href=\'#index-item\'> &para;</a></span></dt>
-<dt><a id=\'index-itemx-after-an-empty-line\'></a><span><span class="r">itemx after an empty line</span><a class="copiable-link" href=\'#index-itemx-after-an-empty-line\'> &para;</a></span></dt>
+<dt><a id="index-item"></a><span><span class="r">item</span><a class="copiable-link" href="#index-item"> &para;</a></span></dt>
+<dt><a id="index-itemx-after-an-empty-line"></a><span><span class="r">itemx after an empty line</span><a class="copiable-link" href="#index-itemx-after-an-empty-line"> &para;</a></span></dt>
 <dd>
 <p>Description.
 </p>

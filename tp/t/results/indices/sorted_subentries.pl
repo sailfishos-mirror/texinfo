@@ -2258,7 +2258,7 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <p>
  &nbsp; [<a href="#chapter-second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="one"><span>1 one<a class="copiable-link" href=\'#one\'> &para;</a></span></h2>
+<h2 class="chapter" id="one"><span>1 one<a class="copiable-link" href="#one"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-aa-bb"></a>
 <a class="index-entry-id" id="index-ab-cc"></a>
@@ -2280,7 +2280,7 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <p>
  &nbsp; [<a href="#chapter-second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="second"><span>2 second<a class="copiable-link" href=\'#second\'> &para;</a></span></h2>
+<h2 class="chapter" id="second"><span>2 second<a class="copiable-link" href="#second"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-hhh-jjj-lll-1"></a>
 <a class="index-entry-id" id="index-hhh-1"></a>
 <a class="index-entry-id" id="index-hhh-jjj-2"></a>

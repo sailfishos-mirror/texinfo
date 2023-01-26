@@ -150,12 +150,12 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <div class="unnumbered-level-extent" id="U">
-<h2 class="unnumbered"><span>U<a class="copiable-link" href=\'#U\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>U<a class="copiable-link" href="#U"> &para;</a></span></h2>
 <ul class="mini-toc">
 <li><a href="#S" accesskey="1">S</a></li>
 </ul>
 <div class="section-level-extent" id="S">
-<h3 class="section"><span>S<a class="copiable-link" href=\'#S\'> &para;</a></span></h3>
+<h3 class="section"><span>S<a class="copiable-link" href="#S"> &para;</a></span></h3>
 </div>
 </div>
 

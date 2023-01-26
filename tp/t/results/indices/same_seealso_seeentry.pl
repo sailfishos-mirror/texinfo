@@ -881,7 +881,7 @@ $result_converted{'html_text'}->{'same_seealso_seeentry'} = '<div class="top-lev
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#node" accesskey="1">chap</a></li>
@@ -892,7 +892,7 @@ $result_converted{'html_text'}->{'same_seealso_seeentry'} = '<div class="top-lev
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
+<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 
 

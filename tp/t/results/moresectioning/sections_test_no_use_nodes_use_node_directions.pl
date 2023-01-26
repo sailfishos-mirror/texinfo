@@ -663,7 +663,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
@@ -674,7 +674,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
@@ -685,7 +685,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h3 class="section"><span>1.1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
+<h3 class="section"><span>1.1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
 <ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
@@ -696,7 +696,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h4 class="subsection"><span>1.1.1 subsection<a class="copiable-link" href=\'#subsection\'> &para;</a></span></h4>
+<h4 class="subsection"><span>1.1.1 subsection<a class="copiable-link" href="#subsection"> &para;</a></span></h4>
 
 <ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
@@ -707,7 +707,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h4 class="subsubsection"><span>1.1.1.1 subsubsection<a class="copiable-link" href=\'#subsubsection\'> &para;</a></span></h4>
+<h4 class="subsubsection"><span>1.1.1.1 subsubsection<a class="copiable-link" href="#subsubsection"> &para;</a></span></h4>
 
 <hr>
 </div>
@@ -720,7 +720,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
@@ -729,7 +729,7 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-in-part">
-<h2 class="chapter"><span>2 chapter in part<a class="copiable-link" href=\'#chapter-in-part\'> &para;</a></span></h2>
+<h2 class="chapter"><span>2 chapter in part<a class="copiable-link" href="#chapter-in-part"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -738,7 +738,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter"><span>3 second chapter in part<a class="copiable-link" href=\'#second-chapter-in-part\'> &para;</a></span></h2>
+<h2 class="chapter"><span>3 second chapter in part<a class="copiable-link" href="#second-chapter-in-part"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -747,7 +747,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href=\'#unnumbered\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href="#unnumbered"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -756,7 +756,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h2 class="appendix"><span>Appendix A appendix<a class="copiable-link" href=\'#appendix\'> &para;</a></span></h2>
+<h2 class="appendix"><span>Appendix A appendix<a class="copiable-link" href="#appendix"> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
@@ -767,7 +767,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
  &nbsp; </p>
 </div>
-<h3 class="appendixsec"><span>A.1 appendixsec<a class="copiable-link" href=\'#appendixsec\'> &para;</a></span></h3>
+<h3 class="appendixsec"><span>A.1 appendixsec<a class="copiable-link" href="#appendixsec"> &para;</a></span></h3>
 </div>
 </div>
 </div>

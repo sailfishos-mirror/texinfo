@@ -534,13 +534,13 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#Additional" accesskey="n" rel="next">Annex</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Main" accesskey="1">Main</a></li>
 <li><a href="#Additional" accesskey="2">Annex</a></li>
 </ul>
 <div class="chapter-level-extent" id="Main">
-<h2 class="chapter"><span>1 Main<a class="copiable-link" href=\'#Main\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 Main<a class="copiable-link" href="#Main"> &para;</a></span></h2>
 <p>Top node
 </p>
 
@@ -551,7 +551,7 @@ Next: <a href="#Additional" accesskey="n" rel="next">Annex</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
-<h2 class="appendix" id="Annex"><span>Appendix A Annex<a class="copiable-link" href=\'#Annex\'> &para;</a></span></h2>
+<h2 class="appendix" id="Annex"><span>Appendix A Annex<a class="copiable-link" href="#Annex"> &para;</a></span></h2>
 </div>
 </div>
 

@@ -484,7 +484,7 @@ $result_converted{'plaintext'}->{'syncodeindex_to_plain'} = 'cp index.
 
 
 $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <a class="index-entry-id" id="index-_002d_002dk1"></a>
 <a class="index-entry-id" id="index-_002d_002dv"></a>

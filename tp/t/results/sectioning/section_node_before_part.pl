@@ -273,11 +273,11 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 
 <div class="section-level-extent" id="Top">
-<h3 class="section" id="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
+<h3 class="section" id="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 </div>
 

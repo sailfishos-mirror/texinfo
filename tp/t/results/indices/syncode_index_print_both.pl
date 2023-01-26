@@ -682,7 +682,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">index</a></li>
@@ -693,7 +693,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="index"><span>1 index<a class="copiable-link" href=\'#index\'> &para;</a></span></h2>
+<h2 class="chapter" id="index"><span>1 index<a class="copiable-link" href="#index"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-c_002d_002d_002doncept"></a>
 <a class="index-entry-id" id="index-f_002d_002d_002dun"></a>

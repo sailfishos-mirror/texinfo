@@ -1233,21 +1233,21 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>Top.
 </p>
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="def-name">fun</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="def-name">xf</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="def-name">fun</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href="#index-copying-fun"> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="def-name">xf</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href="#index-copying-xf"> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
 <dl class="ftable">
-<dt><a id=\'index-copying-ftable-item\'></a><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt><a id=\'index-copying-xftable-xitem\'></a><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt><a id="index-copying-ftable-item"></a><span>ftable item<a class="copiable-link" href="#index-copying-ftable-item"> &para;</a></span></dt>
+<dt><a id="index-copying-xftable-xitem"></a><span>xftable xitem<a class="copiable-link" href="#index-copying-xftable-xitem"> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">
@@ -1293,20 +1293,20 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="def-name">fun</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="def-name">xf</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="def-name">fun</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href="#index-copying-fun"> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="def-name">xf</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href="#index-copying-xf"> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
 <dl class="ftable">
-<dt><a id=\'index-copying-ftable-item\'></a><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt><a id=\'index-copying-xftable-xitem\'></a><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt><a id="index-copying-ftable-item"></a><span>ftable item<a class="copiable-link" href="#index-copying-ftable-item"> &para;</a></span></dt>
+<dt><a id="index-copying-xftable-xitem"></a><span>xftable xitem<a class="copiable-link" href="#index-copying-xftable-xitem"> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">

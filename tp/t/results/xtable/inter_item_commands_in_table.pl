@@ -2930,7 +2930,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -2941,37 +2941,37 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
+<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <dl class="vtable">
-<dt><a id=\'index-acode_002d_002db\'></a><span><code class="code">acode--b</code><a class="copiable-link" href=\'#index-acode_002d_002db\'> &para;</a></span></dt>
+<dt><a id="index-acode_002d_002db"></a><span><code class="code">acode--b</code><a class="copiable-link" href="#index-acode_002d_002db"> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl class="vtable">
-<dt><a id=\'index-aasis_002d_002db\'></a><span>aasis&ndash;b<a class="copiable-link" href=\'#index-aasis_002d_002db\'> &para;</a></span></dt>
-<dt><a id=\'index-b-2\'></a><span>b<a class="copiable-link" href=\'#index-b-2\'> &para;</a></span></dt>
+<dt><a id="index-aasis_002d_002db"></a><span>aasis&ndash;b<a class="copiable-link" href="#index-aasis_002d_002db"> &para;</a></span></dt>
+<dt><a id="index-b-2"></a><span>b<a class="copiable-link" href="#index-b-2"> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl class="ftable">
-<dt><a id=\'index-avar_002d_002db\'></a><span><var class="var">avar&ndash;b</var><a class="copiable-link" href=\'#index-avar_002d_002db\'> &para;</a></span></dt>
+<dt><a id="index-avar_002d_002db"></a><span><var class="var">avar&ndash;b</var><a class="copiable-link" href="#index-avar_002d_002db"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-index-entry-between-item-and-itemx"></a>
 </dd>
-<dt><a id=\'index-b\'></a><span><var class="var">b</var><a class="copiable-link" href=\'#index-b\'> &para;</a></span></dt>
+<dt><a id="index-b"></a><span><var class="var">b</var><a class="copiable-link" href="#index-b"> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
-<dt><a id=\'index-c\'></a><span><var class="var">c</var><a class="copiable-link" href=\'#index-c\'> &para;</a></span></dt>
-<dt><a id=\'index-d\'></a><span><var class="var">d</var><a class="copiable-link" href=\'#index-d\'> &para;</a></span></dt>
+<dt><a id="index-c"></a><span><var class="var">c</var><a class="copiable-link" href="#index-c"> &para;</a></span></dt>
+<dt><a id="index-d"></a><span><var class="var">d</var><a class="copiable-link" href="#index-d"> &para;</a></span></dt>
 </dl>
 
 <dl class="ftable">
-<dt><a id=\'index-a\'></a><span><em class="emph">a</em><a class="copiable-link" href=\'#index-a\'> &para;</a></span></dt>
+<dt><a id="index-a"></a><span><em class="emph">a</em><a class="copiable-link" href="#index-a"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-index-entry-between-item-and-itemx-1"></a>
 </dd>
-<dt><a id=\'index-b-1\'></a><span><em class="emph">b</em><a class="copiable-link" href=\'#index-b-1\'> &para;</a></span></dt>
+<dt><a id="index-b-1"></a><span><em class="emph">b</em><a class="copiable-link" href="#index-b-1"> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>

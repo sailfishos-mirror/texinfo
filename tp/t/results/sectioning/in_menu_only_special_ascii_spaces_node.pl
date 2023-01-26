@@ -577,7 +577,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: CARRIAGE RETURN|'."\r".'| &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <ul class="mini-toc">
@@ -590,7 +590,7 @@ Next: CARRIAGE RETURN|'."\r".'| &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="CARRIAGE-RETURN_007c-_007c"><span>1 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href=\'#CARRIAGE-RETURN_007c-_007c\'> &para;</a></span></h2>
+<h2 class="chapter" id="CARRIAGE-RETURN_007c-_007c"><span>1 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -599,7 +599,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;|<a class="copiable-link" href=\'#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c\'> &para;</a></span></h2>
+<h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"><span>2 CHARACTER TABULATION|	| FORM FEED|&#12;|<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c"> &para;</a></span></h2>
 
 </div>
 </div>

@@ -432,7 +432,7 @@ $result_converted{'plaintext'}->{'double_syncodeindex'} = '* Menu:
 
 
 $result_converted{'html_text'}->{'double_syncodeindex'} = '
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <a class="index-entry-id" id="index-cindex-entry"></a>
 <a class="index-entry-id" id="index-findex-entry"></a>

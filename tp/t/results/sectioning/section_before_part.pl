@@ -205,11 +205,11 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="section-level-extent" id="section">
-<h3 class="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
+<h3 class="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 
 <div class="element-contents" id="SEC_Contents">

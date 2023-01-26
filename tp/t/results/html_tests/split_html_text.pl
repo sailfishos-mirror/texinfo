@@ -562,7 +562,7 @@ $result_converted{'html_text'}->{'split_html_text'} = '<div class="top-level-ext
  &nbsp; </p>
 </div>
 <hr>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 <p>In top
 </p>
 <ul class="mini-toc">
@@ -575,7 +575,7 @@ $result_converted{'html_text'}->{'split_html_text'} = '<div class="top-level-ext
  &nbsp; </p>
 </div>
 <hr>
-<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 </div>
 </div>
 ';

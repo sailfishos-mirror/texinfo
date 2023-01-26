@@ -3898,7 +3898,7 @@ ul.mark-minus {list-style-type: "\\2212"}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
-<h1 class="top" id="Test-floats"><span>Test floats<a class="copiable-link" href=\'#Test-floats\'> &para;</a></span></h1>
+<h1 class="top" id="Test-floats"><span>Test floats<a class="copiable-link" href="#Test-floats"> &para;</a></span></h1>
 
 <p>A list of floats at the beginning.
 </p><dl class="listoffloats">
@@ -4016,7 +4016,7 @@ A footnote.
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href=\'#A-chapter\'> &para;</a></span></h2>
+<h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href="#A-chapter"> &para;</a></span></h2>
 
 <div class="float" id="float-with-a-lot-of-features-and-no-shortcaption">
 

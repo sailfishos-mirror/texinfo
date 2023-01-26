@@ -205,14 +205,14 @@ $result_directions_text{'part_before_section'} = 'element: @section section
 
 
 $result_converted{'html_text'}->{'part_before_section'} = '<div class="part-level-extent" id="part">
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="chapter-level-extent" id="section">
-<h2 class="chapter section-level-set-chapter"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h2>
+<h2 class="chapter section-level-set-chapter"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h2>
 </div>
 </div>
 ';

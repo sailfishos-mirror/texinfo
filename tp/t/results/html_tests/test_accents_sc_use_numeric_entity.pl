@@ -1302,7 +1302,7 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 <p>
  &#160; </p>
 </div>
-<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &#182;</a></span></h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &#182;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#node-chap" accesskey="1">chapter</a></li>
@@ -1313,7 +1313,7 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 <p>
  &#160; </p>
 </div>
-<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &#182;</a></span></h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &#182;</a></span></h2>
 
 <p>&#8220;in double q&#8221;. &#8216;in simple q&#8217;.
 </p>

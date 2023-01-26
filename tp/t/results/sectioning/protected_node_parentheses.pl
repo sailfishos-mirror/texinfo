@@ -585,7 +585,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <hr>
@@ -593,7 +593,7 @@ Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>(manual) name<a class="copiable-link" href=\'#g_t_0028manual_0029-name\'> &para;</a></span></h4>
+<h4 class="node"><span>(manual) name<a class="copiable-link" href="#g_t_0028manual_0029-name"> &para;</a></span></h4>
 
 <a class="anchor" id="g_t_0028manual2_0029-name2"></a>
 <p><a class="ref" href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.

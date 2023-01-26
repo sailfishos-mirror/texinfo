@@ -733,9 +733,9 @@ $result_converted{'html_text'}->{'table'} = '
 <dd><a class="index-entry-id" id="index-index-entry"></a>
 
 </dd>
-<dt><a id=\'index-vtable-item\'></a><span>&lsquo;<samp class="samp">vtable item</samp>&rsquo;<a class="copiable-link" href=\'#index-vtable-item\'> &para;</a></span></dt>
+<dt><a id="index-vtable-item"></a><span>&lsquo;<samp class="samp">vtable item</samp>&rsquo;<a class="copiable-link" href="#index-vtable-item"> &para;</a></span></dt>
 <a class="index-entry-id" id="index-key"></a>
-<dt><a id=\'index-itemx-vtable\'></a><span>&lsquo;<samp class="samp">itemx vtable</samp>&rsquo;<a class="copiable-link" href=\'#index-itemx-vtable\'> &para;</a></span></dt>
+<dt><a id="index-itemx-vtable"></a><span>&lsquo;<samp class="samp">itemx vtable</samp>&rsquo;<a class="copiable-link" href="#index-itemx-vtable"> &para;</a></span></dt>
 </dl>
 
 <dl class="table">

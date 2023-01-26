@@ -1440,7 +1440,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <p>
 Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href=\'#Top-1\'> &para;</a></span></h1>
+<h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
 
 <div class="float" id="public-domain">
@@ -1463,7 +1463,7 @@ the author abandon his copyright.
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="appendix" id="Copying-and-floats-1"><span>Appendix A Copying and floats<a class="copiable-link" href=\'#Copying-and-floats-1\'> &para;</a></span></h2>
+<h2 class="appendix" id="Copying-and-floats-1"><span>Appendix A Copying and floats<a class="copiable-link" href="#Copying-and-floats-1"> &para;</a></span></h2>
 
 
 <div class="float" id="public-domain">

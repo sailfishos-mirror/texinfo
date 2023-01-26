@@ -728,7 +728,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#part-node-after-top" accesskey="n" rel="next">part node after top</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <hr>
@@ -736,10 +736,10 @@ Next: <a href="#part-node-after-top" accesskey="n" rel="next">part node after to
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>part node after top<a class="copiable-link" href=\'#part-node-after-top\'> &para;</a></span></h4>
+<h4 class="node"><span>part node after top<a class="copiable-link" href="#part-node-after-top"> &para;</a></span></h4>
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
+<h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 </div>
 

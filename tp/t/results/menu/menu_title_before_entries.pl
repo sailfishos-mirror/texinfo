@@ -339,7 +339,7 @@ th.menu-comment {text-align:left}
 <p>
 Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Horizontal space
@@ -352,7 +352,7 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>subnode<a class="copiable-link" href=\'#subnode\'> &para;</a></span></h4>
+<h4 class="node"><span>subnode<a class="copiable-link" href="#subnode"> &para;</a></span></h4>
 
 
 

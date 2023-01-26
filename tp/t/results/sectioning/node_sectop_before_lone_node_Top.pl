@@ -480,7 +480,7 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top-sectionning"><span>top sectionning<a class="copiable-link" href=\'#top-sectionning\'> &para;</a></span></h1>
+<h1 class="top" id="top-sectionning"><span>top sectionning<a class="copiable-link" href="#top-sectionning"> &para;</a></span></h1>
 
 <p>in node before
 </p>
@@ -492,7 +492,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top
 <p>
 Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <p>in node Top
 </p>
@@ -502,7 +502,7 @@ Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp;
 <p>
 Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href=\'#chap-1\'> &para;</a></span></h2>
+<h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
 <p>in chap
 </p></div>

@@ -887,7 +887,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '<div class
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -898,7 +898,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '<div class
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
+<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <ul class="itemize mark-minus">
 <li><a class="index-entry-id" id="index-also-a-cindex-in-itemize"></a>

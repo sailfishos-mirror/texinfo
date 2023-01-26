@@ -793,7 +793,7 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
 <hr>

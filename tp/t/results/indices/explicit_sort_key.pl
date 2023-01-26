@@ -931,7 +931,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 
 <a class="index-entry-id" id="index-bbbbbbb-_0028first_0029"></a>

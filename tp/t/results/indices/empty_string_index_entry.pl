@@ -864,23 +864,23 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-i
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-"></a>
 
 <dl class="ftable">
-<dt><a id=\'index--1\'></a><span><code class="code"><!-- /@w --></code><a class="copiable-link" href=\'#index--1\'> &para;</a></span></dt>
+<dt><a id="index--1"></a><span><code class="code"><!-- /@w --></code><a class="copiable-link" href="#index--1"> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href=\'#index--2\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href=\'#index--3\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href="#index--2"> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href="#index--3"> &para;</a></span></dt>
 </dl>
 
 ';

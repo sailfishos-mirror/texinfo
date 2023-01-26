@@ -827,7 +827,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#node-index" accesskey="1">Chapter Index</a></li>
@@ -838,7 +838,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Chapter-Index"><span>1 Chapter Index<a class="copiable-link" href=\'#Chapter-Index\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter-Index"><span>1 Chapter Index<a class="copiable-link" href="#Chapter-Index"> &para;</a></span></h2>
 
 
 <div class="printindex cp-printindex">

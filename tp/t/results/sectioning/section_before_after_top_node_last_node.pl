@@ -416,15 +416,15 @@ span:hover a.copiable-link {visibility: visible}
 <p>
 Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 </div>
-<h2 class="unnumbered"><span>before<a class="copiable-link" href=\'#before\'> &para;</a></span></h2>
+<h2 class="unnumbered"><span>before<a class="copiable-link" href="#before"> &para;</a></span></h2>
 
 </div>
 <div class="unnumbered-level-extent" id="Top">
-<h2 class="unnumbered top-level-set-unnumbered" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h2>
+<h2 class="unnumbered top-level-set-unnumbered" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h2>
 
 </div>
 <div class="chapter-level-extent" id="Chapter">
-<h2 class="chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
+<h2 class="chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>in chapter
 </p>
@@ -433,7 +433,7 @@ Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node after<a class="copiable-link" href=\'#node-after\'> &para;</a></span></h4>
+<h4 class="node"><span>node after<a class="copiable-link" href="#node-after"> &para;</a></span></h4>
 </div>
 
 

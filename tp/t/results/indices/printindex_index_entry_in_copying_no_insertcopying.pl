@@ -1122,7 +1122,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>Top.
 </p>
@@ -1136,7 +1136,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 
 <div class="printindex fn-printindex">

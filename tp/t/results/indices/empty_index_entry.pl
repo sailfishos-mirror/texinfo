@@ -353,14 +353,14 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
+<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <dl class="first-deffn">
 <dt class="deffn"><span class="category-def">: </span><strong class="def-name"></strong></dt>

@@ -1656,7 +1656,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#n-c2">2 c2</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -1684,7 +1684,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"><span>1 c1<a class="copiable-link" href=\'#c1\'> &para;</a></span></h1>
+<h1 class="chapter"><span>1 c1<a class="copiable-link" href="#c1"> &para;</a></span></h1>
 
 <hr>
 </div>
@@ -1704,7 +1704,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter" id="c2"><span>2 c2<a class="copiable-link" href=\'#c2\'> &para;</a></span></h1>
+<h1 class="chapter" id="c2"><span>2 c2<a class="copiable-link" href="#c2"> &para;</a></span></h1>
 
 <hr>
 <div class="section-level-extent" id="s1">
@@ -1723,7 +1723,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"><span>2.1 s1<a class="copiable-link" href=\'#s1\'> &para;</a></span></h2>
+<h2 class="section"><span>2.1 s1<a class="copiable-link" href="#s1"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1744,7 +1744,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter" id="c3"><span>3 c3<a class="copiable-link" href=\'#c3\'> &para;</a></span></h1>
+<h1 class="chapter" id="c3"><span>3 c3<a class="copiable-link" href="#c3"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#n-c3-s-2">3.2 c3 s2</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -1768,7 +1768,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"><span>3.1 C3 s1<a class="copiable-link" href=\'#C3-s1\'> &para;</a></span></h2>
+<h2 class="section"><span>3.1 C3 s1<a class="copiable-link" href="#C3-s1"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1788,7 +1788,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section" id="c3-s2"><span>3.2 c3 s2<a class="copiable-link" href=\'#c3-s2\'> &para;</a></span></h2>
+<h2 class="section" id="c3-s2"><span>3.2 c3 s2<a class="copiable-link" href="#c3-s2"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1808,7 +1808,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"><span>3.3 c3 s3<a class="copiable-link" href=\'#c3-s3\'> &para;</a></span></h2>
+<h2 class="section"><span>3.3 c3 s3<a class="copiable-link" href="#c3-s3"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1829,7 +1829,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="chapter"><span>4 c4<a class="copiable-link" href=\'#c4\'> &para;</a></span></h1>
+<h1 class="chapter"><span>4 c4<a class="copiable-link" href="#c4"> &para;</a></span></h1>
 
 <hr>
 <div class="section-level-extent" id="c3-s1">
@@ -1848,7 +1848,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h2 class="section"><span>4.1 c3 s1<a class="copiable-link" href=\'#c3-s1\'> &para;</a></span></h2>
+<h2 class="section"><span>4.1 c3 s1<a class="copiable-link" href="#c3-s1"> &para;</a></span></h2>
 
 <hr>
 <div class="subsection-level-extent" id="c3-s1-s1">
@@ -1867,7 +1867,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection"><span>4.1.1 c3 s1 s1<a class="copiable-link" href=\'#c3-s1-s1\'> &para;</a></span></h3>
+<h3 class="subsection"><span>4.1.1 c3 s1 s1<a class="copiable-link" href="#c3-s1-s1"> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -1887,7 +1887,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection" id="c3-s1-s2"><span>4.1.2 c3 s1 s2<a class="copiable-link" href=\'#c3-s1-s2\'> &para;</a></span></h3>
+<h3 class="subsection" id="c3-s1-s2"><span>4.1.2 c3 s1 s2<a class="copiable-link" href="#c3-s1-s2"> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -1909,7 +1909,7 @@ td.name-direction-about {text-align:center}
 <td>[Index]</td>
 <td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="appendix"><span>Appendix A appendix<a class="copiable-link" href=\'#appendix\'> &para;</a></span></h1>
+<h1 class="appendix"><span>Appendix A appendix<a class="copiable-link" href="#appendix"> &para;</a></span></h1>
 <hr style="height: 6px;">
 </div>
 </div>
