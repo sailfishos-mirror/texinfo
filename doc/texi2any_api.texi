@@ -2649,7 +2649,7 @@ Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
 @item format_heading_text
 
 @deftypefn {Function Reference} @var{$text} format_heading_text @
-  (@var{$converter}, @var{$command_name}, @var{\@@classes}, @var{$input_text}, @var{$level}, @var{$id}, @var{\%element})
+  (@var{$converter}, @var{$command_name}, @var{\@@classes}, @var{$input_text}, @var{$level}, @var{$id}, @var{\%element}, @var{$target})
 Returns a heading formatted using @var{$input_text} as heading text, @var{$level}
 as heading level, @var{\@@classes} for a class attribute.  @var{$command_name}
 gives an information on the @@-command the heading is associated to and can be
@@ -2657,6 +2657,12 @@ gives an information on the @@-command the heading is associated to and can be
 
 @var{$id} is an optional identifier, and @var{\%element} is an optional
 Texinfo tree element associated with the heading.
+
+@var{$target} is the id of the element this heading is referring to.
+If the @var{$target} or @var{$id} are specified, a copiable anchor
+will be generated and injected into the heading.  In the case both are
+specified, @var{$id} is preferred over @var{$target}, as it is closer
+to the element the user sees the anchor on.
 @end deftypefn
 
 This function reference can be called for @code{@@node} and sectioning

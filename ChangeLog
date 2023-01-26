@@ -53,6 +53,19 @@
 	Always call _close_brace_command, so it is no longer just called for
 	erroneous input.
 
+2023-01-26  Arsen Arsenović  <arsen@aarsen.me>
+
+	HTML: Enable generating copiable anchors on heading commands
+	* doc/texi2any_api.texi (Basic Formatting Customization): Document
+	the new $target argument of format_heading_text.
+	* tp/Texinfo/Convert/HTML.pm (_default_format_heading_text): Add
+	optional target argument, for generating a copiable pilcrow.
+	(_convert_heading_command): Pass the element_id of the current
+	heading, so that a pilcrow is generated.
+	* tp/tests/customization/list-of-tests: Add
+	sectioning_without_anchors test, to check getting existing codegen
+	with COPIABLE_LINKS=0.
+
 2023-01-25  Arsen Arsenović  <arsen@aarsen.me>
 
 	ParserNonXS: Fix minor Perl error

@@ -3523,7 +3523,7 @@ sub _default_css_string_format_protect_text($$) {
 
 # can be called on root commands, tree units, special elements
 # and title elements.  $cmdname can be undef for special elements.
-sub _default_format_heading_text($$$$$;$$)
+sub _default_format_heading_text($$$$$;$$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -3532,6 +3532,7 @@ sub _default_format_heading_text($$$$$;$$)
   my $level = shift;
   my $id = shift;
   my $element = shift;
+  my $target = shift;
 
   return '' if ($text !~ /\S/ and not defined($id));
 
@@ -3549,9 +3550,22 @@ sub _default_format_heading_text($$$$$;$$)
   my $id_str = '';
   if (defined($id)) {
     $id_str = " id=\"$id\"";
+
+    # The ID of this heading is likely the point the user would prefer being
+    # linked to over the $target, since that's where they would be seeing a
+    # copiable anchor.
+    $target = $id;
+  }
+  my $inside = $text;
+  if (defined $target && $self->get_conf('COPIABLE_LINKS')) {
+    # Span-wrap this anchor, so that the existing span:hover a.copiable-link
+    # rule applies.
+    $inside = "<span>$text";
+    $inside .= $self->_get_copiable_anchor($target);
+    $inside .= '</span>';
   }
   my $result = $self->html_attribute_class("h$level", $classes)
-                    ."${id_str}>$text</h$level>";
+                    ."${id_str}>$inside</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
   $result .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
@@ -4268,7 +4282,7 @@ sub _convert_heading_command($$$$$)
       $result .= &{$self->formatting_function('format_heading_text')}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $heading_id, $element);
+                     $heading_id, $element, $element_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
