@@ -128,6 +128,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -514,6 +522,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -1214,6 +1230,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -1817,6 +1841,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '                  ',
                       'type' => 'spaces'
                     },
@@ -2067,6 +2099,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 5,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -2444,6 +2484,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 6,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -2807,6 +2855,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 7,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -3199,6 +3255,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 8,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -3562,6 +3626,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 9,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },
@@ -3952,6 +4024,14 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 10,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '         ',
                       'type' => 'spaces'
                     },

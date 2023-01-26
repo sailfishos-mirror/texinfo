@@ -74,6 +74,14 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                         'line_nr' => 1,
                         'macro' => ''
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'type' => 'bracketed_def_content'
                     }
                   ],
@@ -216,6 +224,14 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'location' => 'text',
+                          'position' => 2,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '    ',
                       'type' => 'spaces'
                     },

@@ -583,6 +583,7 @@ store_source_mark_list (ELEMENT *e)
               SAVE_S_M_TYPE (include)
               SAVE_S_M_TYPE (setfilename)
               SAVE_S_M_TYPE (delcomment)
+              SAVE_S_M_TYPE (defline_continuation)
             }
 
           av_push (av, newRV_inc ((SV *)source_mark));

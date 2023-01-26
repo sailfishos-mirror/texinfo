@@ -2822,8 +2822,28 @@ sub _split_def_args
     if ($split_text[0] =~ /^\s*$/) {
       $type = 'spaces';
     }
+    my @remaining_source_marks;
+    my ($current_position, $previous_position);
+    if ($root->{'source_marks'}) {
+      @remaining_source_marks = @{$root->{'source_marks'}};
+      $current_position = 0;
+      $previous_position = 0;
+    }
     for my $t (@split_text) {
       my $e = {'text' => $t };
+      if (scalar(@remaining_source_marks)) {
+        $current_position += length($t);
+        while (scalar(@remaining_source_marks)
+               and ($remaining_source_marks[0]->{'position'} > $previous_position
+                    or $remaining_source_marks[0]->{'position'} == 0)
+               and $remaining_source_marks[0]->{'position'} <= $current_position) {
+          my $source_mark = shift(@remaining_source_marks);
+          $source_mark->{'position'}
+            = $source_mark->{'position'} - $previous_position;
+          $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
+          push @{$e->{'source_marks'}}, $source_mark;
+        }
+      }
       if ($type) {
         $e->{'type'} = $type;
         $type = undef;
@@ -2832,6 +2852,9 @@ sub _split_def_args
       }
       $e->{'parent'} = $root->{'parent'};
       push @elements, $e;
+      if (scalar(@remaining_source_marks)) {
+        $previous_position = $current_position;
+      }
     }
     return @elements;
   } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed') {
@@ -4991,6 +5014,9 @@ sub _process_remaining_on_line($$$$)
     _check_valid_nesting_context ($self, $command, $source_info);
 
     if ($def_line_continuation) {
+      my $line_continuation_source_mark
+        = { 'sourcemark_type' => 'defline_continuation' };
+      _register_source_mark($self, $current, $line_continuation_source_mark);
       $retval = $GET_A_NEW_LINE;
       goto funexit;
     }

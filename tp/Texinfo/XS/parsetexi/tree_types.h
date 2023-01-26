@@ -45,7 +45,8 @@ enum extra_type {
 enum source_mark_type { SM_type_none,
                         SM_type_include,
                         SM_type_setfilename,
-                        SM_type_delcomment
+                        SM_type_delcomment,
+                        SM_type_defline_continuation
 };
 
 enum source_mark_location { source_mark_location_none,

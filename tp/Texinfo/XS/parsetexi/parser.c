@@ -22,6 +22,7 @@
 #include "parser.h"
 #include "text.h"
 #include "input.h"
+#include "source_marks.h"
 
 
 const char *whitespace_chars = " \t\v\f\r\n";
@@ -1952,6 +1953,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       if (def_line_continuation)
         {
+          SOURCE_MARK *line_continuation_source_mark
+            = new_source_mark (SM_type_defline_continuation);
+          register_source_mark (current, line_continuation_source_mark);
           retval = GET_A_NEW_LINE;
           goto funexit;
         }

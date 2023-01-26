@@ -10724,6 +10724,14 @@ $result_trees{'definition_commands'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => '  ',
                       'type' => 'spaces'
                     },

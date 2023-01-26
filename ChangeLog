@@ -1,3 +1,16 @@
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_split_def_args),
+	tp/Texinfo/XS/parsetexi/def.c (split_def_args): keep track of
+	source marks when splitting @def* arguments.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
+	(source_marks_reset_counters): add source mark for definition line
+	continuation.
+
 2023-01-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Simplify context brace command closing

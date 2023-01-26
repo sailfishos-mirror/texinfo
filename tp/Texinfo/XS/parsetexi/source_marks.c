@@ -22,6 +22,7 @@
 int include_counter = 0;
 int setfilename_counter = 0;
 int delcomment_counter = 0;
+int defline_continuation_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -89,6 +90,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           delcomment_counter++;
           source_mark->counter = delcomment_counter;
         }
+      else if (source_mark->type == SM_type_defline_continuation)
+        {
+          defline_continuation_counter++;
+          source_mark->counter = defline_continuation_counter;
+        }
     }
 
   if (e->contents.number > 0)
@@ -125,4 +131,5 @@ source_marks_reset_counters (void)
   include_counter = 0;
   setfilename_counter = 0;
   delcomment_counter = 0;
+  defline_continuation_counter = 0;
 }

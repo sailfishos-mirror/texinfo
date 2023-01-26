@@ -18,6 +18,7 @@
 
 #include "parser.h"
 #include "text.h"
+#include "source_marks.h"
 
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)
@@ -200,6 +201,8 @@ split_def_args (ELEMENT *current, int starting_idx)
       char *p;
       ELEMENT *new;
       int len;
+      int current_position = 0;
+      int previous_position = 0;
       if (e->type == ET_bracketed)
         {
           isolate_last_space (e);
@@ -216,20 +219,36 @@ split_def_args (ELEMENT *current, int starting_idx)
           if (len)
             {
               new = new_element (ET_spaces);
-              text_append_n (&new->text, p, len);
-              insert_into_contents (current, new, i++);
               add_extra_string_dup (new, "def_role", "spaces");
-              if (!*(p += len))
-                  break;
             }
-            
-          len = strcspn (p, whitespace_chars);
-          new = new_element (ET_NONE);
+          else
+            {
+              len = strcspn (p, whitespace_chars);
+              new = new_element (ET_NONE);
+            }
+          current_position += len;
+          while (e->source_mark_list.number)
+            {
+              SOURCE_MARK *source_mark
+                 = e->source_mark_list.list[e->source_mark_list.number-1];
+              if ((source_mark->position > previous_position
+                   || source_mark->position == 0)
+                  && source_mark->position <= current_position)
+                {
+                  source_mark->position
+                    = source_mark->position - previous_position;
+                  add_source_mark (source_mark, new);
+                  e->source_mark_list.list[e->source_mark_list.number-1] = 0;
+                  e->source_mark_list.number--;
+                }
+              else
+                break;
+            }
           text_append_n (&new->text, p, len);
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;
-
+          previous_position = current_position;
         }
       destroy_element (remove_from_contents (current, i--));
     }

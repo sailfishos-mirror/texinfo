@@ -71,6 +71,14 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'extra' => {
                                     'def_role' => 'spaces'
                                   },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 1,
+                                      'location' => 'text',
+                                      'position' => 1,
+                                      'sourcemark_type' => 'defline_continuation'
+                                    }
+                                  ],
                                   'text' => '    ',
                                   'type' => 'spaces'
                                 },
@@ -90,6 +98,14 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                 {
                                   'contents' => [
                                     {
+                                      'source_marks' => [
+                                        {
+                                          'counter' => 2,
+                                          'location' => 'text',
+                                          'position' => 5,
+                                          'sourcemark_type' => 'defline_continuation'
+                                        }
+                                      ],
                                       'text' => 'args   with end of line within'
                                     }
                                   ],
@@ -183,6 +199,14 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                 'spaces_after_argument' => '
 '
                               },
+                              'source_marks' => [
+                                {
+                                  'counter' => 3,
+                                  'location' => 'content',
+                                  'position' => 6,
+                                  'sourcemark_type' => 'defline_continuation'
+                                }
+                              ],
                               'type' => 'block_line_arg'
                             }
                           ],
