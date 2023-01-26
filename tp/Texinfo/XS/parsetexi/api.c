@@ -529,12 +529,13 @@ store_source_mark_list (ELEMENT *e)
            /* A simple integer.  The intptr_t cast here prevents
               a warning on MinGW ("cast from pointer to integer of
               different size"). */
-          source_mark_position = (IV) (intptr_t) s_mark->position;
-          hv_store (source_mark, "position", strlen ("position"),
-                    newSViv (source_mark_position), 0);
           source_mark_counter = (IV) (intptr_t) s_mark->counter;
-          hv_store (source_mark, "counter", strlen ("counter"),
-                    newSViv (source_mark_counter), 0);
+          STORE ("counter", newSViv (source_mark_counter));
+          if (s_mark->location != source_mark_location_none)
+            {
+              source_mark_position = (IV) (intptr_t) s_mark->position;
+              STORE ("position", newSViv (source_mark_position));
+            }
           if (s_mark->element)
             {
               ELEMENT *e = s_mark->element;
@@ -569,7 +570,6 @@ store_source_mark_list (ELEMENT *e)
           switch (s_mark->location)
             {
               SAVE_S_M_LOCATION (text)
-              SAVE_S_M_LOCATION (content)
             }
 
 #define SAVE_S_M_TYPE(X) \

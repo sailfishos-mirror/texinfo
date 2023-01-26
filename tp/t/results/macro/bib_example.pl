@@ -3361,7 +3361,14 @@ $result_trees{'bib_example'} = {
                   ' %% my-bib-macros.texi ends here
 '
                 ]
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'include',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'args' => [
@@ -3437,15 +3444,6 @@ $result_trees{'bib_example'} = {
             }
           ],
           'type' => 'preamble_before_content'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'location' => 'content',
-          'position' => 214,
-          'sourcemark_type' => 'include',
-          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

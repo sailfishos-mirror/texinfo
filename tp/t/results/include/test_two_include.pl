@@ -219,7 +219,14 @@ $result_trees{'test_two_include'} = {
           'info' => {
             'arg_line' => ' RPM_VERSION 2.0.4
 '
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'end'
+            }
+          ]
         },
         {
           'text' => '
@@ -298,15 +305,6 @@ $result_trees{'test_two_include'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'location' => 'content',
-          'position' => 5,
-          'sourcemark_type' => 'include',
-          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

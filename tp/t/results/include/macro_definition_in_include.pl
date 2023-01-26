@@ -10,6 +10,43 @@ $result_trees{'macro_definition_in_include'} = {
     {
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'macro_included.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => '
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'macro_included.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ]
+        },
+        {
           'args' => [
             {
               'text' => 'themacro',
@@ -60,7 +97,14 @@ $result_trees{'macro_definition_in_include'} = {
             'file_name' => 'macro_included.texi',
             'line_nr' => 1,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'sourcemark_type' => 'include',
+              'status' => 'end'
+            }
+          ]
         },
         {
           'text' => '
@@ -79,50 +123,6 @@ $result_trees{'macro_definition_in_include'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'macro_included.texi'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => '
-'
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'include',
-            'extra' => {
-              'text_arg' => 'macro_included.texi'
-            },
-            'info' => {
-              'spaces_before_argument' => ' '
-            },
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          'location' => 'content',
-          'position' => 0,
-          'sourcemark_type' => 'include',
-          'status' => 'start'
-        },
-        {
-          'counter' => 1,
-          'location' => 'content',
-          'position' => 1,
-          'sourcemark_type' => 'include',
-          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

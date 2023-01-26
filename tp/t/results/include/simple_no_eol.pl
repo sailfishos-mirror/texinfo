@@ -10,6 +10,39 @@ $result_trees{'simple_no_eol'} = {
     {
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'inc_file.texi'
+                      }
+                    ],
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'inc_file.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ]
+        },
+        {
           'contents' => [
             {
               'source_marks' => [
@@ -26,39 +59,6 @@ $result_trees{'simple_no_eol'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'inc_file.texi'
-                  }
-                ],
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'include',
-            'extra' => {
-              'text_arg' => 'inc_file.texi'
-            },
-            'info' => {
-              'spaces_before_argument' => ' '
-            },
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          'location' => 'content',
-          'position' => 0,
-          'sourcemark_type' => 'include',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

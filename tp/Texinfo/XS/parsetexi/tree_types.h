@@ -40,8 +40,8 @@ enum extra_type {
     extra_deleted
 };
 
-/* the *_none enums are not necessarily used, they are there
-   to avoid using 0 for easier to debug code */
+/* the *_none enums are not necessarily used, they may also
+   be there to avoid using 0, for a code easier to debug */
 enum source_mark_type { SM_type_none,
                         SM_type_include,
                         SM_type_setfilename,
@@ -50,8 +50,8 @@ enum source_mark_type { SM_type_none,
 };
 
 enum source_mark_location { source_mark_location_none,
-                            source_mark_location_text,
-                            source_mark_location_content };
+                            source_mark_location_text
+};
 
 enum source_mark_status {
     SM_status_none,

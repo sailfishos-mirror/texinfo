@@ -10,6 +10,55 @@ $result_trees{'include_comment'} = {
     {
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'inc_file.texi'
+                      }
+                    ],
+                    'info' => {
+                      'comment_at_end' => {
+                        'args' => [
+                          {
+                            'text' => ' comment',
+                            'type' => 'misc_arg'
+                          }
+                        ],
+                        'cmdname' => 'c',
+                        'extra' => {
+                          'misc_args' => [
+                            ' comment'
+                          ]
+                        }
+                      }
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'inc_file.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            }
+          ]
+        },
+        {
           'contents' => [
             {
               'source_marks' => [
@@ -26,55 +75,6 @@ $result_trees{'include_comment'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'inc_file.texi'
-                  }
-                ],
-                'info' => {
-                  'comment_at_end' => {
-                    'args' => [
-                      {
-                        'text' => ' comment',
-                        'type' => 'misc_arg'
-                      }
-                    ],
-                    'cmdname' => 'c',
-                    'extra' => {
-                      'misc_args' => [
-                        ' comment'
-                      ]
-                    }
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'include',
-            'extra' => {
-              'text_arg' => 'inc_file.texi'
-            },
-            'info' => {
-              'spaces_before_argument' => ' '
-            },
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          'location' => 'content',
-          'position' => 0,
-          'sourcemark_type' => 'include',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

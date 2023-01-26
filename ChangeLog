@@ -1,5 +1,15 @@
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_register_source_mark),
+	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
+	tp/Texinfo/XS/parsetexi/source_marks.c (new_source_mark)
+	(register_source_mark): always associate source mark to the
+	previous element, and create an empty element if there is
+	none.  The index in contents is unreliable as the tree may
+	be modified, for example when adding a preamble.
+
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_def_args),
 	tp/Texinfo/XS/parsetexi/def.c (split_def_args): keep track of
 	source marks when splitting @def* arguments.

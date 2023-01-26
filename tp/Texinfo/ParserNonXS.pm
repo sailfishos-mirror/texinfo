@@ -1293,35 +1293,34 @@ sub _register_source_mark
   my $mark_element;
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
+    $mark_element = $current;
     if (exists ($current->{'text'})) {
       $source_mark->{'location'} = 'text';
       $source_mark->{'position'} = length($current->{'text'});
-      $mark_element = $current;
-    } else {
-      #print STDERR "source_mark: element: "
-      # .Texinfo::Common::debug_print_element_short($element)."; Contents:\n";
-      #foreach my $content (@{$element->{'contents'}}) {
-      #  print STDERR "      * CC "
-      #    .Texinfo::Common::debug_print_element_short($content)."\n";
-      #}
-      $mark_element = $element;
-      $source_mark->{'location'} = 'content';
-      $source_mark->{'position'} = scalar(@{$element->{'contents'}});
     }
+    #print STDERR "source_mark: element: "
+    # .Texinfo::Common::debug_print_element_short($element)."; Contents:\n";
+    #foreach my $content (@{$element->{'contents'}}) {
+    #  print STDERR "      * CC "
+    #    .Texinfo::Common::debug_print_element_short($content)."\n";
+    #}
   } else {
     #print STDERR "source_mark: empty element: "
     #  .Texinfo::Common::debug_print_element_short($element)."\n";
-    $mark_element = $element;
-    $source_mark->{'location'} = 'content';
-    $source_mark->{'position'} = 0;
+    # add an empty element only used for source marks
+    $mark_element = {'parent' => $element};
+    $element->{'contents'} = [] unless (defined($element->{'contents'}));
+    push @{$element->{'contents'}}, $mark_element;
   }
 
-  # cannot currently happen
-  if (!defined($mark_element)) {
-    return;
-  }
-  print STDERR "MARKS: $source_mark->{'sourcemark_type'} "
-    ."$source_mark->{'counter'} $source_mark->{'location'} "
+  ## cannot currently happen
+  #if (!defined($mark_element)) {
+  #  return;
+  #}
+  print STDERR "MARKS: $source_mark->{'sourcemark_type'} c: "
+    .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
+    .", ".(defined($source_mark->{'location'})
+             ? $source_mark->{'location'}: 'UNDEF')." "
      .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF')
      .' '.Texinfo::Common::debug_print_element_short($mark_element)."\n"
         if ($self->{'DEBUG'});

@@ -33,8 +33,9 @@ new_source_mark (enum source_mark_type type)
   memset (source_mark, 0, sizeof (*source_mark));
 
   source_mark->type = type;
-  source_mark->status = SM_status_none;
   source_mark->counter = -1;
+  source_mark->status = SM_status_none;
+  source_mark->location = source_mark_location_none;
   return source_mark;
 }
 
@@ -100,26 +101,21 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   if (e->contents.number > 0)
     {
       ELEMENT *last_child = last_contents_child (e);
+      mark_element = last_child;
       /* use last_child->text.space and not last_child->text.end
-         to associate to element with set but empty text string */
+         to associate to element text when the test string is set
+         but empty */
       if (last_child->text.space > 0)
         {
-          mark_element = last_child;
           source_mark->location = source_mark_location_text;
           source_mark->position = last_child->text.end;
-        }
-      else
-        {
-          mark_element = e;
-          source_mark->location = source_mark_location_content;
-          source_mark->position = e->contents.number;
         }
     }
   else
     {
-      mark_element = e;
-      source_mark->location = source_mark_location_content;
-      source_mark->position = 0;
+      /* add an empty element only used for source marks */
+      mark_element = new_element(ET_NONE);
+      add_to_element_contents (e, mark_element);
     }
 
   add_source_mark (source_mark, mark_element);

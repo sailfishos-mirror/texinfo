@@ -10,6 +10,75 @@ $result_trees{'include_with_setfilename'} = {
     {
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'included_file_with_setfilename.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => ' 
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'included_file_with_setfilename.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'include',
+              'status' => 'start'
+            },
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'included_file.info'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => '
+'
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'setfilename',
+                'extra' => {
+                  'text_arg' => 'included_file.info'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
+                },
+                'source_info' => {
+                  'file_name' => 'included_file_with_setfilename.texi',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'setfilename'
+            }
+          ]
+        },
+        {
           'text' => '
 ',
           'type' => 'empty_line'
@@ -59,77 +128,6 @@ $result_trees{'include_with_setfilename'} = {
             'line_nr' => 2,
             'macro' => ''
           }
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'included_file_with_setfilename.texi'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => ' 
-'
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'include',
-            'extra' => {
-              'text_arg' => 'included_file_with_setfilename.texi'
-            },
-            'info' => {
-              'spaces_before_argument' => ' '
-            },
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          'location' => 'content',
-          'position' => 0,
-          'sourcemark_type' => 'include',
-          'status' => 'start'
-        },
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'included_file.info'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => '
-'
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'setfilename',
-            'extra' => {
-              'text_arg' => 'included_file.info'
-            },
-            'info' => {
-              'spaces_before_argument' => ' '
-            },
-            'source_info' => {
-              'file_name' => 'included_file_with_setfilename.texi',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          'location' => 'content',
-          'position' => 0,
-          'sourcemark_type' => 'setfilename'
         }
       ],
       'type' => 'before_node_section'

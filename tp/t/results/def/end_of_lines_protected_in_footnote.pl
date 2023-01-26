@@ -169,7 +169,13 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'cmdname' => '@',
                                   'extra' => {
                                     'def_role' => 'arg'
-                                  }
+                                  },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 3,
+                                      'sourcemark_type' => 'defline_continuation'
+                                    }
+                                  ]
                                 },
                                 {
                                   'extra' => {
@@ -199,14 +205,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'source_marks' => [
-                                {
-                                  'counter' => 3,
-                                  'location' => 'content',
-                                  'position' => 6,
-                                  'sourcemark_type' => 'defline_continuation'
-                                }
-                              ],
                               'type' => 'block_line_arg'
                             }
                           ],
