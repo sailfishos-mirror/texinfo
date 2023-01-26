@@ -1,5 +1,11 @@
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): if generating reference results,
+	do not process skipped tests at all, to avoid increasing the
+	number of tests, as the number of tests is 1.
+
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/Makefile.am (test_files), t/19def.t:
 	add the end_of_lines_protected_non_ascii test with non-ASCII
 	character counted in source marks.  Skipped for now as the
