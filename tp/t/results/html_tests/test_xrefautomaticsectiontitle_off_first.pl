@@ -602,6 +602,12 @@ $result_converted{'html'}->{'test_xrefautomaticsectiontitle_off_first'} = '<!DOC
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -614,7 +620,7 @@ $result_converted{'html'}->{'test_xrefautomaticsectiontitle_off_first'} = '<!DOC
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 
 <ul class="mini-toc">
@@ -626,7 +632,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 
 <p>See <a class="xref" href="#chap">chap</a>.
 </p>

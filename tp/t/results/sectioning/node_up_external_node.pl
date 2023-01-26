@@ -674,6 +674,12 @@ $result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -683,7 +689,7 @@ $result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -691,7 +697,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 <p>
 Next: <a href="manual1.html#Top" accesskey="n" rel="next">(manual1)</a>, Previous: <a href="manual2.html#Top" accesskey="p" rel="prev">(manual2)</a>, Up: <a href="manual3.html#Top" accesskey="u" rel="up">(manual3)</a> &nbsp; </p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 
 
 

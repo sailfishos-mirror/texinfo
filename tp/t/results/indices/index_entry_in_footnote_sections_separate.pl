@@ -512,7 +512,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <p>
  &nbsp; [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="index_005fentry_005fin_005ffootnote">index_entry_in_footnote</h1>
+<h1 class="top" id="index_005fentry_005fin_005ffootnote"><span>index_entry_in_footnote<a class="copiable-link" href=\'#index_005fentry_005fin_005ffootnote\'> &para;</a></span></h1>
 
 <p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -525,7 +525,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <p>
  &nbsp; [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="appendix" id="index">Appendix A index</h2>
+<h2 class="appendix" id="index"><span>Appendix A index<a class="copiable-link" href=\'#index\'> &para;</a></span></h2>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">

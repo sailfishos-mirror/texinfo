@@ -2352,7 +2352,7 @@ $result_floats{'accentenc_enable_encoding'} = {};
 
 $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
 <div class="top-level-extent" id="Top-node">
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> ¶</a></span></h1>
 
 <p>should be e&lsquo;: è è
 </p>

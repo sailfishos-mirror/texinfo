@@ -4842,7 +4842,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top">Top</h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 <dl class="first-defvr">
 <dt class="defvr" id="index-d_002d_002defvr_005fname"><span class="category-def">c&ndash;ategory: </span><span><strong class="def-name">d--efvr_name</strong><a class="copiable-link" href=\'#index-d_002d_002defvr_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
@@ -4978,7 +4978,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
 
-<h3 class="heading" id="Functions">Functions</h3>
+<h3 class="heading" id="Functions"><span>Functions<a class="copiable-link" href=\'#Functions\'> &para;</a></span></h3>
 <div class="printindex fn-printindex">
 <table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
@@ -5014,7 +5014,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </td></tr></table>
 </div>
 
-<h3 class="heading" id="Types">Types</h3>
+<h3 class="heading" id="Types"><span>Types<a class="copiable-link" href=\'#Types\'> &para;</a></span></h3>
 <div class="printindex tp-printindex">
 <table class="tp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
@@ -5025,7 +5025,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </table>
 </div>
 
-<h3 class="heading" id="Variables">Variables</h3>
+<h3 class="heading" id="Variables"><span>Variables<a class="copiable-link" href=\'#Variables\'> &para;</a></span></h3>
 <div class="printindex vr-printindex">
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>

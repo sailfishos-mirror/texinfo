@@ -6749,6 +6749,12 @@ $result_converted{'html'}->{'numbering_captions_listoffloats'} = '<!DOCTYPE html
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -6759,7 +6765,7 @@ $result_converted{'html'}->{'numbering_captions_listoffloats'} = '<!DOCTYPE html
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
-<h1 class="top" id="Test-floats">Test floats</h1>
+<h1 class="top" id="Test-floats"><span>Test floats<a class="copiable-link" href=\'#Test-floats\'> &para;</a></span></h1>
 
 <div class="float" id="text-with-a-lot-of-features">
 
@@ -6807,7 +6813,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 <p>
 Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="A-chapter">1 A chapter</h2>
+<h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href=\'#A-chapter\'> &para;</a></span></h2>
 
 <div class="float" id="text-in-chapter">
 <p>Text in chapter
@@ -6837,7 +6843,7 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 </div>
-<h3 class="section" id="A-section">1.1 A section</h3>
+<h3 class="section" id="A-section"><span>1.1 A section<a class="copiable-link" href=\'#A-section\'> &para;</a></span></h3>
 
 <div class="float" id="text-in-section">
 
@@ -6852,7 +6858,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 <p>
 Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with unnumbsubsec</a>, Previous: <a href="#chapter" accesskey="p" rel="prev">A chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="unnumbered" id="Unnumbered-1">Unnumbered</h2>
+<h2 class="unnumbered" id="Unnumbered-1"><span>Unnumbered<a class="copiable-link" href=\'#Unnumbered-1\'> &para;</a></span></h2>
 
 <div class="float" id="unnumbered-float">
 <p>unnum
@@ -6870,7 +6876,7 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 <p>
 Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 </div>
-<h3 class="section" id="Section-within-unnumbered-1">Section within unnumbered</h3>
+<h3 class="section" id="Section-within-unnumbered-1"><span>Section within unnumbered<a class="copiable-link" href=\'#Section-within-unnumbered-1\'> &para;</a></span></h3>
 
 
 <div class="float" id="Section-within-unnumbered-float">
@@ -6884,7 +6890,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 <p>
 Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float</a>, Previous: <a href="#Unnumbered" accesskey="p" rel="prev">Unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chapter-with-unnumbsubsec-1">2 Chapter with unnumbsubsec</h2>
+<h2 class="chapter" id="Chapter-with-unnumbsubsec-1"><span>2 Chapter with unnumbsubsec<a class="copiable-link" href=\'#Chapter-with-unnumbsubsec-1\'> &para;</a></span></h2>
 
 <div class="float" id="Chapter-with-subsec-float">
 <p>Chap
@@ -6898,7 +6904,7 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 <p>
 Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unnumbsubsec</a> &nbsp; </p>
 </div>
-<h3 class="unnumberedsec" id="unnumbered-sec-1">unnumbered sec</h3>
+<h3 class="unnumberedsec" id="unnumbered-sec-1"><span>unnumbered sec<a class="copiable-link" href=\'#unnumbered-sec-1\'> &para;</a></span></h3>
 
 <div class="float" id="unnumbered-sec-float">
 <p>Chap
@@ -6915,7 +6921,7 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 <p>
 Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Previous: <a href="#Chapter-with-unnumbsubsec" accesskey="p" rel="prev">Chapter with unnumbsubsec</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="appendix" id="Appendix-for-float-1">Appendix A Appendix for float</h2>
+<h2 class="appendix" id="Appendix-for-float-1"><span>Appendix A Appendix for float<a class="copiable-link" href=\'#Appendix-for-float-1\'> &para;</a></span></h2>
 
 <div class="float" id="appendix-sec-float">
 
@@ -6928,7 +6934,7 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 <p>
 Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for float</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<h2 class="unnumbered" id="list-of-floats-1">list of floats</h2>
+<h2 class="unnumbered" id="list-of-floats-1"><span>list of floats<a class="copiable-link" href=\'#list-of-floats-1\'> &para;</a></span></h2>
 
 <p>See <a class="ref" href="#text-in-section">Text 1.3</a>.
 And (see <a class="pxref" href="#text-in-chapter">Text 1.1</a>).

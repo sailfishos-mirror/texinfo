@@ -19749,7 +19749,7 @@ $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top-section">top section</h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
@@ -19760,7 +19760,7 @@ $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="chapter-1">1 chapter</h2>
+<h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href=\'#chapter-1\'> &para;</a></span></h2>
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-fname"><span class="category-def">Func: </span><span><strong class="def-name">fname</strong> <var class="def-var-arguments">a&mdash;rg1 a&ndash;rg2</var><a class="copiable-link" href=\'#index-fname\'> &para;</a></span></dt>

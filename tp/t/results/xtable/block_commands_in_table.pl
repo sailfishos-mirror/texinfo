@@ -1436,7 +1436,7 @@ _second item_
 
 
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-level-extent" id="Top">
-<h1 class="top" id="Element">Element</h1>
+<h1 class="top" id="Element"><span>Element<a class="copiable-link" href=\'#Element\'> &para;</a></span></h1>
 
 <dl class="table">
 <dt><em class="emph">first item</em></dt>

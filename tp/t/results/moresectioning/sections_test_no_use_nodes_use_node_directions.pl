@@ -647,6 +647,12 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#top" rel="start" title="top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -657,7 +663,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top">top</h1>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
@@ -668,7 +674,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter">1 chapter</h2>
+<h2 class="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
@@ -679,7 +685,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h3 class="section">1.1 section</h3>
+<h3 class="section"><span>1.1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 <ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
@@ -690,7 +696,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h4 class="subsection">1.1.1 subsection</h4>
+<h4 class="subsection"><span>1.1.1 subsection<a class="copiable-link" href=\'#subsection\'> &para;</a></span></h4>
 
 <ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
@@ -701,7 +707,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h4 class="subsubsection">1.1.1.1 subsubsection</h4>
+<h4 class="subsubsection"><span>1.1.1.1 subsubsection<a class="copiable-link" href=\'#subsubsection\'> &para;</a></span></h4>
 
 <hr>
 </div>
@@ -714,7 +720,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h1 class="part">part</h1>
+<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
@@ -723,7 +729,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-in-part">
-<h2 class="chapter">2 chapter in part</h2>
+<h2 class="chapter"><span>2 chapter in part<a class="copiable-link" href=\'#chapter-in-part\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -732,7 +738,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter">3 second chapter in part</h2>
+<h2 class="chapter"><span>3 second chapter in part<a class="copiable-link" href=\'#second-chapter-in-part\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -741,7 +747,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h2 class="unnumbered">unnumbered</h2>
+<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href=\'#unnumbered\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -750,7 +756,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h2 class="appendix">Appendix A appendix</h2>
+<h2 class="appendix"><span>Appendix A appendix<a class="copiable-link" href=\'#appendix\'> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
@@ -761,7 +767,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <p>
  &nbsp; </p>
 </div>
-<h3 class="appendixsec">A.1 appendixsec</h3>
+<h3 class="appendixsec"><span>A.1 appendixsec<a class="copiable-link" href=\'#appendixsec\'> &para;</a></span></h3>
 </div>
 </div>
 </div>

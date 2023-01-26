@@ -514,6 +514,12 @@ $result_converted{'html'}->{'chapter_between_nodes_with_appendix_nomenu'} = '<!D
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -524,13 +530,13 @@ $result_converted{'html'}->{'chapter_between_nodes_with_appendix_nomenu'} = '<!D
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top-section">top section</h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Main" accesskey="1">Main</a></li>
 <li><a href="#Additional" accesskey="2">Annex</a></li>
 </ul>
 <div class="chapter-level-extent" id="Main">
-<h2 class="chapter">1 Main</h2>
+<h2 class="chapter"><span>1 Main<a class="copiable-link" href=\'#Main\'> &para;</a></span></h2>
 <p>Top node
 </p>
 
@@ -541,7 +547,7 @@ $result_converted{'html'}->{'chapter_between_nodes_with_appendix_nomenu'} = '<!D
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
-<h2 class="appendix" id="Annex">Appendix A Annex</h2>
+<h2 class="appendix" id="Annex"><span>Appendix A Annex<a class="copiable-link" href=\'#Annex\'> &para;</a></span></h2>
 </div>
 </div>
 

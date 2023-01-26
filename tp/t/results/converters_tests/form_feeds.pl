@@ -1436,14 +1436,14 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="first-node"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node">first&#12;node</h4>
+<h4 class="node"><span>first&#12;node<a class="copiable-link" href=\'#first-node\'> &para;</a></span></h4>
 
 &#12; &#12;
 

@@ -458,7 +458,7 @@ $result_converted{'html_text'}->{'commands'} = '<p>@ TeX &nbsp;&euml; &icirc; &a
 </p>
 <a class="index-entry-id" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>
 
-<h2 class="majorheading" id="majorheading-in-b">majorheading <b class="b">in b</b></h2>
+<h2 class="majorheading" id="majorheading-in-b"><span>majorheading <b class="b">in b</b><a class="copiable-link" href=\'#majorheading-in-b\'> &para;</a></span></h2>
 ';
 
 

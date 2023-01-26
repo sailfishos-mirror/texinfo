@@ -279,13 +279,19 @@ $result_converted{'html'}->{'setfilename_on_top_and_after_node'} = '<!DOCTYPE ht
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="In-top-">In top </h1>
+<h1 class="top" id="In-top-"><span>In top <a class="copiable-link" href=\'#In-top-\'> &para;</a></span></h1>
 
 </div>
 

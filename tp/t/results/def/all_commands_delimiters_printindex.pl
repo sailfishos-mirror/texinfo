@@ -12964,7 +12964,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top">Top</h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 <dl class="first-deffn">
 <dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><strong class="def-name"><var class="var">forward--char</var></strong> <var class="def-var-arguments"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
 </dl>
@@ -13153,7 +13153,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <dt class="deftypefn" id="index-fun_005fname1"><span class="category-def">var then code: </span><span><code class="def-type">ret_type1</code> <strong class="def-name">fun_name1</strong> <code class="def-code-arguments"><var class="var">A1</var> <code class="code">A2</code> <var class="var">A3</var> <code class="code">A4</code></code><a class="copiable-link" href=\'#index-fun_005fname1\'> &para;</a></span></dt>
 </dl>
 
-<h3 class="heading" id="Functions">Functions</h3>
+<h3 class="heading" id="Functions"><span>Functions<a class="copiable-link" href=\'#Functions\'> &para;</a></span></h3>
 <div class="printindex fn-printindex">
 <table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>,</b></a>
  &nbsp; 
@@ -13245,7 +13245,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </td></tr></table>
 </div>
 
-<h3 class="heading" id="Types">Types</h3>
+<h3 class="heading" id="Types"><span>Types<a class="copiable-link" href=\'#Types\'> &para;</a></span></h3>
 <div class="printindex tp-printindex">
 <table class="tp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
@@ -13271,7 +13271,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </td></tr></table>
 </div>
 
-<h3 class="heading" id="Variables">Variables</h3>
+<h3 class="heading" id="Variables"><span>Variables<a class="copiable-link" href=\'#Variables\'> &para;</a></span></h3>
 <div class="printindex vr-printindex">
 <table class="vr-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 

@@ -550,6 +550,12 @@ $result_converted{'html'}->{'top_node_up_explicit_no_nodes'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="The top">
 <link href="http://etop.example.org" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -560,7 +566,7 @@ $result_converted{'html'}->{'top_node_up_explicit_no_nodes'} = '<!DOCTYPE html>
 <p>
  Up : <a href="http://etop.example.org" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<h1 class="top" id="The-top">The top</h1>
+<h1 class="top" id="The-top"><span>The top<a class="copiable-link" href=\'#The-top\'> &para;</a></span></h1>
 
 <p>Just a top node.
 </p>
@@ -574,7 +580,7 @@ $result_converted{'html'}->{'top_node_up_explicit_no_nodes'} = '<!DOCTYPE html>
 <p>
  Up : <a href="#Top" accesskey="u" rel="up">The top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="A-chapter">1 A chapter</h2>
+<h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href=\'#A-chapter\'> &para;</a></span></h2>
 
 <p>Without the chapter, no up node from top is generated.
 </p></div>

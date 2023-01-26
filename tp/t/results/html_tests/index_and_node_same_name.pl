@@ -250,7 +250,9 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html>
 <link href="#index-node" rel="index" title="index node">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
+span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.entries-header-printindex {text-align:left}
@@ -263,8 +265,8 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 
 <body lang="en">
 <div class="top-level-extent" id="top">
-<h1 class="top">top</h1>
-<h4 class="node" id="index-node">index node</h4>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
+<h4 class="node" id="index-node"><span>index node<a class="copiable-link" href=\'#index-node\'> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">

@@ -291,6 +291,8 @@ $result_converted{'html'}->{'text_before_top_and_summarycontents_after_title'} =
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -313,7 +315,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>Some text before top
 </p>
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <p>In top.
 </p>
@@ -321,7 +323,7 @@ ul.toc-numbered-mark {list-style: none}
 <li><a href="#the-chap" accesskey="1">the chap</a></li>
 </ul>
 <div class="chapter-level-extent" id="the-chap">
-<h2 class="chapter">1 the chap</h2>
+<h2 class="chapter"><span>1 the chap<a class="copiable-link" href=\'#the-chap\'> &para;</a></span></h2>
 
 
 </div>

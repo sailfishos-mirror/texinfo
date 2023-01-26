@@ -391,6 +391,8 @@ $result_converted{'html'}->{'comment_on_menu_line'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
@@ -411,13 +413,13 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </td></tr>
 </table>
 
-<h2 class="chapter" id="first-1">1 first</h2>
+<h2 class="chapter" id="first-1"><span>1 first<a class="copiable-link" href=\'#first-1\'> &para;</a></span></h2>
 <hr>
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 </div>
 
 

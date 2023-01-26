@@ -266,6 +266,12 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -273,13 +279,13 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 <body lang="en">
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="top-section">top section</h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <div class="chapter-level-extent" id="chap">
-<h2 class="chapter">1 chap</h2>
+<h2 class="chapter"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
 </div>
 </div>
 

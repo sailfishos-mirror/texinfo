@@ -393,7 +393,7 @@ $result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node-id" id
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <div class="example">
@@ -406,7 +406,7 @@ node name</a>
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node">nnn the node name</h4>
+<h4 class="node"><span>nnn the node name<a class="copiable-link" href=\'#nnn-the-node-name\'> &para;</a></span></h4>
 ';
 
 1;

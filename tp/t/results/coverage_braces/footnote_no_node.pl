@@ -132,7 +132,7 @@ F(1).
 
 
 $result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-extent" id="top">
-<h1 class="top">top</h1>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <p>F<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p><div class="footnotes-segment">

@@ -2837,7 +2837,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -2848,7 +2848,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap">1 chap</h2>
+<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-name"><span class="category-def">Function:<br> </span><span><code class="def-type">data-type</code><br> <strong class="def-name">name</strong> <code class="def-code-arguments">arguments...</code><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>

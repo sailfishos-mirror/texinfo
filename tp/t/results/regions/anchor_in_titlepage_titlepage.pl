@@ -456,6 +456,12 @@ $result_converted{'html'}->{'anchor_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -469,19 +475,19 @@ $result_converted{'html'}->{'anchor_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#nchap" accesskey="n" rel="next">nchap</a> &nbsp; </p>
 </div>
-<h1 class="top">top</h1>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Top" accesskey="1">Chapter</a></li>
 </ul>
 <div class="chapter-level-extent" id="Top">
 
-<h2 class="chapter" id="Chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
 <hr>
 <a class="node-id" id="nchap"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Chapter</a> &nbsp; </p>
 </div>
-<h4 class="node">nchap</h4>
+<h4 class="node"><span>nchap<a class="copiable-link" href=\'#nchap\'> &para;</a></span></h4>
 
 <p>See <a class="xref" href="#in-titlepage">in titlepage</a>.
 </p></div>

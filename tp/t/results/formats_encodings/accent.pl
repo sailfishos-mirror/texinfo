@@ -2396,7 +2396,7 @@ should be e‘: è è
 
 
 $result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="Top-node">
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <p>should be e&lsquo;: &egrave; &egrave;
 </p>

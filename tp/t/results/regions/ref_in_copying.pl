@@ -593,6 +593,12 @@ $result_converted{'html'}->{'ref_in_copying'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -604,7 +610,7 @@ $result_converted{'html'}->{'ref_in_copying'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <p><a class="ref" href="#GFDL">GFDL</a>
 </p>
@@ -618,7 +624,7 @@ Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="GFDL-1">1 GFDL</h2>
+<h2 class="chapter" id="GFDL-1"><span>1 GFDL<a class="copiable-link" href=\'#GFDL-1\'> &para;</a></span></h2>
 
 </div>
 </div>

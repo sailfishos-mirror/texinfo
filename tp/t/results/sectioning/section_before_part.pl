@@ -194,6 +194,8 @@ $result_converted{'html'}->{'section_before_part'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -203,11 +205,11 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="section-level-extent" id="section">
-<h3 class="section">1 section</h3>
+<h3 class="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part">part</h1>
+<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
 <hr>
 
 <div class="element-contents" id="SEC_Contents">

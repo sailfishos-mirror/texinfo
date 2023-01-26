@@ -542,6 +542,8 @@ $result_converted{'html'}->{'contents_at_document_begin_separate_element'} = '<!
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -556,7 +558,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chapter 1</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="top" id="Contents-at-beginning">Contents at beginning</h1>
+<h1 class="top" id="Contents-at-beginning"><span>Contents at beginning<a class="copiable-link" href=\'#Contents-at-beginning\'> &para;</a></span></h1>
 
 <p>Content at the beginning.
 </p>
@@ -570,7 +572,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chapter 1</a> &nbsp; [<a href=
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Contents at beginning</a>, Up: <a href="#Top" accesskey="u" rel="up">Contents at beginning</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h2 class="chapter" id="Chapter-1">1 Chapter 1</h2>
+<h2 class="chapter" id="Chapter-1"><span>1 Chapter 1<a class="copiable-link" href=\'#Chapter-1\'> &para;</a></span></h2>
 
 <p>The chapter
 </p>

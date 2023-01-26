@@ -97,13 +97,19 @@ $result_converted{'html'}->{'one_subsection'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="subsection-level-extent" id="The-subsection">
-<h4 class="subsection">1 The subsection</h4>
+<h4 class="subsection"><span>1 The subsection<a class="copiable-link" href=\'#The-subsection\'> &para;</a></span></h4>
 </div>
 
 

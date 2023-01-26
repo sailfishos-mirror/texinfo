@@ -402,6 +402,12 @@ $result_converted{'html'}->{'unknown_language'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -409,7 +415,7 @@ $result_converted{'html'}->{'unknown_language'} = '<!DOCTYPE html>
 <body lang="unknown">
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="unknkown-language">unknkown language</h1>
+<h1 class="top" id="unknkown-language"><span>unknkown language<a class="copiable-link" href=\'#unknkown-language\'> &para;</a></span></h1>
 
 <p>Unknown language. See <a class="xref" href="#Top">unknkown language</a>.
 </p>

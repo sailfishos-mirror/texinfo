@@ -578,6 +578,12 @@ $result_converted{'html'}->{'no_menu'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -600,7 +606,7 @@ Next: <a href="#c1" accesskey="n" rel="next">c1</a> &nbsp; </p>
 <p>
 Next: <a href="#c2" accesskey="n" rel="next">c2</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="c1-1">1 c1</h2>
+<h2 class="chapter" id="c1-1"><span>1 c1<a class="copiable-link" href=\'#c1-1\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -609,7 +615,7 @@ Next: <a href="#c2" accesskey="n" rel="next">c2</a> &nbsp; </p>
 <p>
 Next: <a href="#c3" accesskey="n" rel="next">c3</a>, Previous: <a href="#c1" accesskey="p" rel="prev">c1</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="c2-1">2 c2</h2>
+<h2 class="chapter" id="c2-1"><span>2 c2<a class="copiable-link" href=\'#c2-1\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -618,7 +624,7 @@ Next: <a href="#c3" accesskey="n" rel="next">c3</a>, Previous: <a href="#c1" acc
 <p>
 Previous: <a href="#c2" accesskey="p" rel="prev">c2</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="c3-1">3 c3</h2>
+<h2 class="chapter" id="c3-1"><span>3 c3<a class="copiable-link" href=\'#c3-1\'> &para;</a></span></h2>
 </div>
 </div>
 

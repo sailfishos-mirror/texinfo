@@ -825,7 +825,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Index">1 Index</h2>
+<h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href=\'#Index\'> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-aaa-bbb-sort-as-c"></a>
 <a class="index-entry-id" id="index-aaa-"></a>

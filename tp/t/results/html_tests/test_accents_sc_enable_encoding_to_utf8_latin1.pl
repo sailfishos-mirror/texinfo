@@ -1342,7 +1342,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_latin1
 <p>
    </p>
 </div>
-<h1 class="top" id="top-section">top section</h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> ¶</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#node-chap" accesskey="1">chapter</a></li>
@@ -1353,7 +1353,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_latin1
 <p>
    </p>
 </div>
-<h2 class="chapter" id="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> ¶</a></span></h2>
 
 <p>“in double q”. ‘in simple q’.
 </p>

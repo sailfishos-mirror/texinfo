@@ -260,6 +260,12 @@ $result_converted{'html'}->{'section_node_before_part'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -267,11 +273,11 @@ $result_converted{'html'}->{'section_node_before_part'} = '<!DOCTYPE html>
 <body lang="en">
 
 <div class="section-level-extent" id="Top">
-<h3 class="section" id="section">1 section</h3>
+<h3 class="section" id="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part">part</h1>
+<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
 <hr>
 </div>
 

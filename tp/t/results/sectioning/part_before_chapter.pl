@@ -219,20 +219,26 @@ $result_converted{'html'}->{'part_before_chapter'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="part-level-extent" id="part">
-<h1 class="part">part</h1>
+<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter">
-<h2 class="chapter">1 chapter</h2>
+<h2 class="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 </div>
 </div>
 

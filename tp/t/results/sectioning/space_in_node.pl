@@ -628,6 +628,12 @@ $result_converted{'html'}->{'space_in_node'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -638,7 +644,7 @@ $result_converted{'html'}->{'space_in_node'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -646,21 +652,21 @@ Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a> &
 <p>
 Next: <a href="#Test-title" accesskey="n" rel="next">Test               title</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">Chap first  here</h4>
+<h4 class="node"><span>Chap first  here<a class="copiable-link" href=\'#Chap-first-here\'> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="Test-title"></a><div class="nav-panel">
 <p>
 Next: <a href="#Last-with-spaces" accesskey="n" rel="next">Last with spaces</a>, Previous: <a href="#Chap-first-here" accesskey="p" rel="prev">Chap first  here</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">Test               title</h4>
+<h4 class="node"><span>Test               title<a class="copiable-link" href=\'#Test-title\'> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="Last-with-spaces"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               title</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">Last with spaces</h4>
+<h4 class="node"><span>Last with spaces<a class="copiable-link" href=\'#Last-with-spaces\'> &para;</a></span></h4>
 
 
 

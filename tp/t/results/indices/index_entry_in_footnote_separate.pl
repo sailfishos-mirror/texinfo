@@ -611,7 +611,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
@@ -621,7 +621,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node">First</h4>
+<h4 class="node"><span>First<a class="copiable-link" href=\'#First\'> &para;</a></span></h4>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#First_cp_letter-C"><b>C</b></a>

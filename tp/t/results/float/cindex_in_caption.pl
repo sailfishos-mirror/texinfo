@@ -463,7 +463,9 @@ $result_converted{'html'}->{'cindex_in_caption'} = '<!DOCTYPE html>
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
+span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.entries-header-printindex {text-align:left}
@@ -475,7 +477,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top">Top</h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <dl class="listoffloats">
 <dt><a href="#label">fl 1</a></dt><dd class="caption-in-listoffloats"><p>in caption

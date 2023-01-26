@@ -401,7 +401,7 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 ';
 
 
-$result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="Top">Top</h1>
+$result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <a class="index-entry-id" id="index-awk-POSIX-and"></a>
 <a class="index-entry-id" id="index-awk-POSIX-and-1"></a>

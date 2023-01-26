@@ -368,7 +368,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 <p>In top<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 <ul class="mini-toc">
@@ -380,7 +380,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chap">1 Chap</h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
 
 <hr>
 </div>

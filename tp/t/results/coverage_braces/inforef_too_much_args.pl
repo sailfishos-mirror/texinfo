@@ -166,7 +166,7 @@ $result_converted{'plaintext'}->{'inforef_too_much_args'} = '*note cross ref nam
 ';
 
 
-$result_converted{'html_text'}->{'inforef_too_much_args'} = '<h4 class="node" id="chapter">chapter</h4>
+$result_converted{'html_text'}->{'inforef_too_much_args'} = '<h4 class="node" id="chapter"><span>chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h4>
 
 <p>See <a data-manual="file name, spurious arg" href="file%20name%2c%20spurious%20arg.html#chapter">(file name, spurious arg)cross ref name</a>
 </p>';

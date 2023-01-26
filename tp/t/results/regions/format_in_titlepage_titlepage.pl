@@ -262,7 +262,9 @@ $result_converted{'html'}->{'format_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.format-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -277,7 +279,7 @@ pre.format-preformatted {font-family: inherit}
 
 <hr>
 
-<h1 class="node" id="Top">Top</h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 

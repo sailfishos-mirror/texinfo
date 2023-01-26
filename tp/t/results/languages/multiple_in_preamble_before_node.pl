@@ -950,7 +950,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top-section">top section</h1>
+<h1 class="top" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -961,7 +961,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap">1 chap</h2>
+<h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
 <dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instance Variable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>

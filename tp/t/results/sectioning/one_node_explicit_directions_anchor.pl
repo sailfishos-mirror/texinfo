@@ -282,12 +282,18 @@ $result_converted{'html'}->{'one_node_explicit_directions_anchor'} = '<!DOCTYPE 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#one-node" rel="start" title="one node">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
-<h4 class="node" id="one-node">one node</h4>
+<h4 class="node" id="one-node"><span>one node<a class="copiable-link" href=\'#one-node\'> &para;</a></span></h4>
 <p>Top node
 </p>
 <p>anchor ref <a class="anchor" id="ref"></a>.

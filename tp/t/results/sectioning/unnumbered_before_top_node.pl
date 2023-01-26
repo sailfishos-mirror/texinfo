@@ -316,15 +316,21 @@ $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="unnumbered-level-extent" id="before-nodes">
-<h2 class="unnumbered">before nodes</h2>
+<h2 class="unnumbered"><span>before nodes<a class="copiable-link" href=\'#before-nodes\'> &para;</a></span></h2>
 
-<h1 class="node" id="Top">Top</h1>
+<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 <p>Top node
 </p>
 <h1 class="titlefont">Title titlefont</h1>

@@ -661,7 +661,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -669,7 +669,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 
 <p>Para.
 </p>
@@ -680,7 +680,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node">second</h4>
+<h4 class="node"><span>second<a class="copiable-link" href=\'#second\'> &para;</a></span></h4>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">

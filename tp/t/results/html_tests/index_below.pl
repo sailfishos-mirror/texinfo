@@ -471,7 +471,9 @@ $result_converted{'html'}->{'index_below'} = '<!DOCTYPE html>
 <link href="#chap" rel="index" title="1 chap">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
+span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.entries-header-printindex {text-align:left}
@@ -488,7 +490,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top">top</h1>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
@@ -499,7 +501,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter">1 chap</h2>
+<h2 class="chapter"><span>1 chap<a class="copiable-link" href=\'#chap\'> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
@@ -510,7 +512,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <p>
  Up : <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h3 class="section">1.1 sec</h3>
+<h3 class="section"><span>1.1 sec<a class="copiable-link" href=\'#sec\'> &para;</a></span></h3>
 
 <a class="index-entry-id" id="index-entry"></a>
 <div class="printindex cp-printindex">

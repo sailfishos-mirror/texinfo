@@ -758,6 +758,12 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#node1" rel="start" title="node1">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -767,7 +773,7 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node">node1</h4>
+<h4 class="node"><span>node1<a class="copiable-link" href=\'#node1\'> &para;</a></span></h4>
 
 <hr>
 <div class="nav-panel">

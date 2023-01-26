@@ -521,14 +521,14 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 
 
 <dl class="first-deffn first-defun-alias-first-deffn">

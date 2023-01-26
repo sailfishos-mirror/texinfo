@@ -202,6 +202,8 @@ $result_converted{'html'}->{'no_argument_and_contents'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -212,7 +214,7 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="en">
 
 <div class="top-level-extent" id="for-example">
-<h1 class="top">for example</h1>
+<h1 class="top"><span>for example<a class="copiable-link" href=\'#for-example\'> &para;</a></span></h1>
 
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
@@ -225,7 +227,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="chapter-level-extent">
-<h2 class="chapter">1 </h2>
+<h2 class="chapter"><span>1 </span></h2>
 
 </div>
 </div>

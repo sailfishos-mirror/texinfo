@@ -4051,7 +4051,7 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="test-quotes">test quotes</h1>
+<h1 class="top" id="test-quotes"><span>test quotes<a class="copiable-link" href=\'#test-quotes\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">Chapter</a></li>
@@ -4062,7 +4062,7 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
 
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
 code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>

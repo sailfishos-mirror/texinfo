@@ -614,6 +614,12 @@ $result_converted{'html'}->{'nodes_after_top_before_chapter_not_split'} = '<!DOC
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -623,7 +629,7 @@ $result_converted{'html'}->{'nodes_after_top_before_chapter_not_split'} = '<!DOC
 <p>
 Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 <p>Top node
 </p>
 <hr>
@@ -631,7 +637,7 @@ Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p
 <p>
 Next: <a href="#third-node" accesskey="n" rel="next">chapter</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">second node</h4>
+<h4 class="node"><span>second node<a class="copiable-link" href=\'#second-node\'> &para;</a></span></h4>
 
 <p>second node
 </p>
@@ -641,7 +647,7 @@ Next: <a href="#third-node" accesskey="n" rel="next">chapter</a>, Previous: <a h
 <p>
 Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 </div>
 
 

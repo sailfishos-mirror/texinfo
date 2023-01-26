@@ -460,6 +460,12 @@ $result_converted{'html'}->{'equivalent_nodes'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -469,7 +475,7 @@ $result_converted{'html'}->{'equivalent_nodes'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -477,7 +483,7 @@ Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</s
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">&lsquo;<samp class="samp">node</samp>&rsquo;</h4>
+<h4 class="node"><span>&lsquo;<samp class="samp">node</samp>&rsquo;<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
 
 <p>See <a class="xref" href="#node">&lsquo;<samp class="samp">node</samp>&rsquo;</a>.
 </p>

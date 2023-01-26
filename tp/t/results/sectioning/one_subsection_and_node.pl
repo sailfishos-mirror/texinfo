@@ -194,13 +194,19 @@ $result_converted{'html'}->{'one_subsection_and_node'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#one-node" rel="start" title="one node">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="subsection-level-extent" id="one-node">
-<h4 class="subsection" id="The-subsection">1 The subsection</h4>
+<h4 class="subsection" id="The-subsection"><span>1 The subsection<a class="copiable-link" href=\'#The-subsection\'> &para;</a></span></h4>
 </div>
 
 

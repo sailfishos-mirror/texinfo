@@ -1101,6 +1101,12 @@ $result_converted{'html'}->{'part_node_part_appendix'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -1111,7 +1117,7 @@ $result_converted{'html'}->{'part_node_part_appendix'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -1121,26 +1127,26 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h1 class="part">Part 1</h1>
+<h1 class="part"><span>Part 1<a class="copiable-link" href=\'#Part-1\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#chapter-node" accesskey="1">chapter</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-node">
-<h2 class="chapter" id="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 
 </div>
 </div>
 <div class="part-level-extent" id="Part-Appendix">
-<h1 class="part">Part Appendix</h1>
+<h1 class="part"><span>Part Appendix<a class="copiable-link" href=\'#Part-Appendix\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#Appendix" accesskey="1">Appendix</a></li>
 </ul>
 <div class="appendix-level-extent" id="Appendix">
-<h2 class="appendix">Appendix A Appendix</h2>
+<h2 class="appendix"><span>Appendix A Appendix<a class="copiable-link" href=\'#Appendix\'> &para;</a></span></h2>
 </div>
 </div>
 

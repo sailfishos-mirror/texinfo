@@ -1028,6 +1028,8 @@ $result_converted{'html'}->{'contents_and_parts'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -1041,7 +1043,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>
 Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 
 <div class="element-contents" id="SEC_Contents">
@@ -1085,7 +1087,7 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 <p>
 Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="part">part 1: part 1</h1>
+<h1 class="part"><span>part 1: part 1<a class="copiable-link" href=\'#part-1_003a-part-1\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
@@ -1093,7 +1095,7 @@ Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a>, Previous
 <li><a href="#chapter-2-node" accesskey="2">chapter 2</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-1-node">
-<h2 class="chapter" id="chapter-1">1 chapter 1</h2>
+<h2 class="chapter" id="chapter-1"><span>1 chapter 1<a class="copiable-link" href=\'#chapter-1\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1102,7 +1104,7 @@ Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a>, Previous
 <p>
 Next: <a href="#chapter-3-node" accesskey="n" rel="next">chapter 3</a>, Previous: <a href="#chapter-1-node" accesskey="p" rel="prev">chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h2 class="chapter" id="chapter-2">2 chapter 2</h2>
+<h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href=\'#chapter-2\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -1112,14 +1114,14 @@ Next: <a href="#chapter-3-node" accesskey="n" rel="next">chapter 3</a>, Previous
 <p>
 Previous: <a href="#chapter-2-node" accesskey="p" rel="prev">chapter 2</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="part">part2: part2</h1>
+<h1 class="part"><span>part2: part2<a class="copiable-link" href=\'#part2_003a-part2\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#chapter-3-node" accesskey="1">chapter 3</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-3-node">
-<h2 class="chapter" id="chapter-3">3 chapter 3</h2>
+<h2 class="chapter" id="chapter-3"><span>3 chapter 3<a class="copiable-link" href=\'#chapter-3\'> &para;</a></span></h2>
 
 </div>
 </div>

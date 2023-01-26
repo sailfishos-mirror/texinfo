@@ -484,7 +484,7 @@ $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-
 <p>
  &nbsp; [<a href="#index-node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="Test-index-entry-with-node-name-clash">Test index entry with node name clash</h1>
+<h1 class="top" id="Test-index-entry-with-node-name-clash"><span>Test index entry with node name clash<a class="copiable-link" href=\'#Test-index-entry-with-node-name-clash\'> &para;</a></span></h1>
 
 <p>Text.
 </p>
@@ -499,7 +499,7 @@ $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-
 <p>
  &nbsp; [<a href="#index-node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="index-node-1">1 index node</h2>
+<h2 class="chapter" id="index-node-1"><span>1 index node<a class="copiable-link" href=\'#index-node-1\'> &para;</a></span></h2>
 
 <p>in index node node, with the same name than index entry.
 </p>

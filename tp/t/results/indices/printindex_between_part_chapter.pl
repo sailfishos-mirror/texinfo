@@ -912,7 +912,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <p>
  &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <a class="index-entry-id" id="index-top1"></a>
 <a class="index-entry-id" id="index-top1-1"></a>
@@ -926,7 +926,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <p>
  &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="part">Part 1</h1>
+<h1 class="part"><span>Part 1<a class="copiable-link" href=\'#Part-1\'> &para;</a></span></h1>
 <hr>
 
 <div class="printindex cp-printindex">
@@ -967,7 +967,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <li><a href="#node-chap2" accesskey="2">chapter 2</a></li>
 </ul>
 <div class="chapter-level-extent" id="node-chap1">
-<h2 class="chapter" id="chapter-1">1 chapter 1</h2>
+<h2 class="chapter" id="chapter-1"><span>1 chapter 1<a class="copiable-link" href=\'#chapter-1\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -976,7 +976,7 @@ $result_converted{'html_text'}->{'printindex_between_part_chapter'} = '<div clas
 <p>
  &nbsp; [<a href="#node-chap1" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="chapter-2">2 chapter 2</h2>
+<h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href=\'#chapter-2\'> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-chap2"></a>
 <a class="index-entry-id" id="index-chap2-1"></a>

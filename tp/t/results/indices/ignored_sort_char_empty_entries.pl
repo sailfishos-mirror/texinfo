@@ -618,7 +618,7 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <p>
  &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node">node</h4>
+<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_002d"></a>
 <a class="index-entry-id" id="index-_002d_002d"></a>

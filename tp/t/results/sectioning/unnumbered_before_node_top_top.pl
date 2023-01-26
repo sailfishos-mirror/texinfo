@@ -513,19 +513,25 @@ $result_converted{'html'}->{'unnumbered_before_node_top_top'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="unnumbered-level-extent" id="before-nodes">
-<h2 class="unnumbered">before nodes</h2>
+<h2 class="unnumbered"><span>before nodes<a class="copiable-link" href=\'#before-nodes\'> &para;</a></span></h2>
 
 <p>in unnumbered
 </p>
 </div>
 <div class="unnumbered-level-extent" id="Top">
-<h2 class="unnumbered top-level-set-unnumbered" id="top-section">top section</h2>
+<h2 class="unnumbered top-level-set-unnumbered" id="top-section"><span>top section<a class="copiable-link" href=\'#top-section\'> &para;</a></span></h2>
 <p>Top node
 </p></div>
 

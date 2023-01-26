@@ -662,7 +662,7 @@ $result_converted{'html_text'}->{'weird_accents_disable_encoding'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">Chapter</a></li>
@@ -673,7 +673,7 @@ $result_converted{'html_text'}->{'weird_accents_disable_encoding'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href=\'#Chapter\'> &para;</a></span></h2>
 
 <p>&#297;&#772;
 </p>

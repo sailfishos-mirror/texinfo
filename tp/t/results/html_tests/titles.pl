@@ -329,7 +329,9 @@ $result_converted{'html'}->{'titles'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 h1.settitle {text-align:center}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -342,7 +344,7 @@ h1.settitle {text-align:center}
 
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>
+<h1 class="top" id="Top-of-_0040title-HTML-test"><span>Top of @title <small class="sc">HTML</small> <code class="code">test</code><a class="copiable-link" href=\'#Top-of-_0040title-HTML-test\'> &para;</a></span></h1>
 
 <p>Top.
 </p>

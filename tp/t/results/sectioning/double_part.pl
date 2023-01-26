@@ -1082,6 +1082,12 @@ $result_converted{'html'}->{'double_part'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -1092,7 +1098,7 @@ $result_converted{'html'}->{'double_part'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -1102,13 +1108,13 @@ Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h1 class="part">part first</h1>
+<h1 class="part"><span>part first<a class="copiable-link" href=\'#part-first\'> &para;</a></span></h1>
 <hr>
 
 <p>Text part first.
 </p></div>
 <div class="part-level-extent" id="part-second">
-<h1 class="part">part second</h1>
+<h1 class="part"><span>part second<a class="copiable-link" href=\'#part-second\'> &para;</a></span></h1>
 <hr>
 <p>Text part second.
 </p>
@@ -1116,7 +1122,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <li><a href="#node-chapter" accesskey="1">chapter after 2 parts</a></li>
 </ul>
 <div class="chapter-level-extent" id="node-chapter">
-<h2 class="chapter" id="chapter-after-2-parts">1 chapter after 2 parts</h2>
+<h2 class="chapter" id="chapter-after-2-parts"><span>1 chapter after 2 parts<a class="copiable-link" href=\'#chapter-after-2-parts\'> &para;</a></span></h2>
 
 </div>
 </div>

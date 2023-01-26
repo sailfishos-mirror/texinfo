@@ -486,6 +486,12 @@ $result_converted{'html'}->{'section_before_top'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -496,7 +502,7 @@ $result_converted{'html'}->{'section_before_top'} = '<!DOCTYPE html>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h3 class="section" id="section">1 section</h3>
+<h3 class="section" id="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -505,7 +511,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <p>
 Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>
 </div>
-<h3 class="unnumberedsec top-level-set-unnumberedsec" id="top">top</h3>
+<h3 class="unnumberedsec top-level-set-unnumberedsec" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h3>
 
 </div>
 

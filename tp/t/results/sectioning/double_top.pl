@@ -306,6 +306,12 @@ $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="ToP">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -315,7 +321,7 @@ $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>
-<h1 class="node">ToP</h1>
+<h1 class="node"><span>ToP<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <hr>
 <div class="nav-panel">

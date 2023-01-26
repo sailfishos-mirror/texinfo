@@ -1064,6 +1064,8 @@ $result_converted{'html'}->{'space_and_commands_in_menu_node'} = '<!DOCTYPE html
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
@@ -1078,7 +1080,7 @@ td.menu-entry-destination {vertical-align: top}
 <p>
 Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="1">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -1107,7 +1109,7 @@ Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <p>
 Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chap">1 Chap</h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
 </div>
 </div>
 

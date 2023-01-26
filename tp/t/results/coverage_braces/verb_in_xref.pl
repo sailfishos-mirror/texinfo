@@ -198,7 +198,7 @@ ggg : Top.
 ';
 
 
-$result_converted{'html_text'}->{'verb_in_xref'} = '<h1 class="node" id="Top">Top</h1>
+$result_converted{'html_text'}->{'verb_in_xref'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <p>See <a class="xref" href="#Top"><code class="verb">with<br>verb<br><br>ggg&nbsp;</code></a>.
 </p>';

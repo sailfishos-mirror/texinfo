@@ -162,6 +162,12 @@ $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -169,7 +175,7 @@ $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 <body lang="en">
 <blockquote class="quotation">
 
-<h3 class="heading" id="in-quotation-_0040-heading">in quotation @ <em class="emph">heading</em></h3>
+<h3 class="heading" id="in-quotation-_0040-heading"><span>in quotation @ <em class="emph">heading</em><a class="copiable-link" href=\'#in-quotation-_0040-heading\'> &para;</a></span></h3>
 
 </blockquote>
 

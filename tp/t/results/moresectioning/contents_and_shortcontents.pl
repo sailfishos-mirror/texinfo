@@ -715,6 +715,8 @@ $result_converted{'html'}->{'contents_and_shortcontents'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -724,7 +726,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="top-level-extent" id="top">
-<h1 class="top">top</h1>
+<h1 class="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
@@ -777,25 +779,25 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="chapter-level-extent" id="chapter">
-<h2 class="chapter">1 chapter</h2>
+<h2 class="chapter"><span>1 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="section-level-extent" id="section">
-<h3 class="section">1.1 section</h3>
+<h3 class="section"><span>1.1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 <ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <div class="subsection-level-extent" id="subsection">
-<h4 class="subsection">1.1.1 subsection</h4>
+<h4 class="subsection"><span>1.1.1 subsection<a class="copiable-link" href=\'#subsection\'> &para;</a></span></h4>
 
 <ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <div class="subsubsection-level-extent" id="subsubsection">
-<h4 class="subsubsection">1.1.1.1 subsubsection</h4>
+<h4 class="subsubsection"><span>1.1.1.1 subsubsection<a class="copiable-link" href=\'#subsubsection\'> &para;</a></span></h4>
 
 </div>
 </div>
@@ -803,7 +805,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="part-level-extent" id="part">
-<h1 class="part">part</h1>
+<h1 class="part"><span>part<a class="copiable-link" href=\'#part\'> &para;</a></span></h1>
 <hr>
 
 <ul class="mini-toc">
@@ -812,25 +814,25 @@ ul.toc-numbered-mark {list-style: none}
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
 <div class="chapter-level-extent" id="chapter-in-part">
-<h2 class="chapter">2 chapter in part</h2>
+<h2 class="chapter"><span>2 chapter in part<a class="copiable-link" href=\'#chapter-in-part\'> &para;</a></span></h2>
 
 </div>
 <div class="chapter-level-extent" id="second-chapter-in-part">
-<h2 class="chapter">3 second chapter in part</h2>
+<h2 class="chapter"><span>3 second chapter in part<a class="copiable-link" href=\'#second-chapter-in-part\'> &para;</a></span></h2>
 
 </div>
 <div class="unnumbered-level-extent" id="unnumbered">
-<h2 class="unnumbered">unnumbered</h2>
+<h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href=\'#unnumbered\'> &para;</a></span></h2>
 
 </div>
 <div class="appendix-level-extent" id="appendix">
-<h2 class="appendix">Appendix A appendix</h2>
+<h2 class="appendix"><span>Appendix A appendix<a class="copiable-link" href=\'#appendix\'> &para;</a></span></h2>
 
 <ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <div class="appendixsec-level-extent" id="appendixsec">
-<h3 class="appendixsec">A.1 appendixsec</h3>
+<h3 class="appendixsec"><span>A.1 appendixsec<a class="copiable-link" href=\'#appendixsec\'> &para;</a></span></h3>
 
 
 </div>

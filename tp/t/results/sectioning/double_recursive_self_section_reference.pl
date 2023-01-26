@@ -356,6 +356,12 @@ $result_converted{'html'}->{'double_recursive_self_section_reference'} = '<!DOCT
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#n1" rel="start" title="n1">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -366,7 +372,7 @@ $result_converted{'html'}->{'double_recursive_self_section_reference'} = '<!DOCT
 <p>
 Next: <a href="#n2" accesskey="n" rel="next"><a class="ref" href="#n1"><a class="ref" href="#n2">n2</a></a></a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="n2-1">1 <a class="ref" href="#n2"><a class="ref" href="#n1"><a class="ref" href="#n2">n2</a></a></a></h2>
+<h2 class="chapter" id="n2-1"><span>1 <a class="ref" href="#n2"><a class="ref" href="#n1"><a class="ref" href="#n2">n2</a></a></a><a class="copiable-link" href=\'#n2-1\'> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -375,7 +381,7 @@ Next: <a href="#n2" accesskey="n" rel="next"><a class="ref" href="#n1"><a class=
 <p>
 Previous: <a href="#n1" accesskey="p" rel="prev"><a class="ref" href="#n2">n2</a></a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="n1-1">2 <a class="ref" href="#n1"><a class="ref" href="#n2">n2</a></a></h2>
+<h2 class="chapter" id="n1-1"><span>2 <a class="ref" href="#n1"><a class="ref" href="#n2">n2</a></a><a class="copiable-link" href=\'#n1-1\'> &para;</a></span></h2>
 </div>
 
 

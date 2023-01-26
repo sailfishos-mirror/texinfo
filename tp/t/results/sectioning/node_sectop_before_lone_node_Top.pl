@@ -463,6 +463,12 @@ $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE htm
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#node-before" rel="start" title="node before">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -474,7 +480,7 @@ $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE htm
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top-sectionning">top sectionning</h1>
+<h1 class="top" id="top-sectionning"><span>top sectionning<a class="copiable-link" href=\'#top-sectionning\'> &para;</a></span></h1>
 
 <p>in node before
 </p>
@@ -486,7 +492,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top
 <p>
 Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <p>in node Top
 </p>
@@ -496,7 +502,7 @@ Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp;
 <p>
 Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="chap-1">1 chap</h2>
+<h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href=\'#chap-1\'> &para;</a></span></h2>
 
 <p>in chap
 </p></div>

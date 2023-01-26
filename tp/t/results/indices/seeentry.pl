@@ -712,7 +712,7 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Index">1 Index</h2>
+<h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href=\'#Index\'> &para;</a></span></h2>
 
 
 

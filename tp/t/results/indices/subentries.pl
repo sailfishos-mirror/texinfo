@@ -1195,7 +1195,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Index">1 Index</h2>
+<h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href=\'#Index\'> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-a_002d_002d_002da"></a>
 <a class="index-entry-id" id="index-b_002d_002d_002db-c_002d_002d_002dc"></a>

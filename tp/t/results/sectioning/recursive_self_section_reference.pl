@@ -203,13 +203,19 @@ $result_converted{'html'}->{'recursive_self_section_reference'} = '<!DOCTYPE htm
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#sharp" rel="start" title="sharp">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
 
 <body lang="en">
 <div class="chapter-level-extent" id="sharp">
-<h2 class="chapter" id="sharp-tuple">1 <a class="ref" href="#sharp">sharp</a> tuple</h2>
+<h2 class="chapter" id="sharp-tuple"><span>1 <a class="ref" href="#sharp">sharp</a> tuple<a class="copiable-link" href=\'#sharp-tuple\'> &para;</a></span></h2>
 </div>
 
 

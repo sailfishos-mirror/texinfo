@@ -444,6 +444,12 @@ Copying.
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -454,14 +460,14 @@ Copying.
 <p>
 Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">node</h4>
+<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
 
 
 <p>Copying.

@@ -861,6 +861,12 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <link href="http://www.gnu.org/manual/" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -871,7 +877,7 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="http://www.gnu.org/manual/" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<h1 class="top" id="internal-top-node-up">internal top node up</h1>
+<h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href=\'#internal-top-node-up\'> &para;</a></span></h1>
 
 
 <hr>
@@ -879,7 +885,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Previous: <a href="di
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 </div>
 
 

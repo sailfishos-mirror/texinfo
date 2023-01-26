@@ -730,6 +730,8 @@ $result_converted{'html'}->{'equivalent_nodes_defined_linked'} = '<!DOCTYPE html
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
@@ -743,7 +745,7 @@ td.menu-entry-destination {vertical-align: top}
 <p>
 Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 </div>
-<h1 class="node">Top</h1>
+<h1 class="node"><span>Top<a class="copiable-link" href=\'#Top\'> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><strong class="strong">node</strong></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -755,7 +757,7 @@ Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node">node</h4>
+<h4 class="node"><span>node<a class="copiable-link" href=\'#node\'> &para;</a></span></h4>
 
 <div class="float">
 <p>A figure

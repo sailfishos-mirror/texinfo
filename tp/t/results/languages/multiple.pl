@@ -1247,7 +1247,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">Chap</a></li>
@@ -1258,7 +1258,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" 
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="chapter" id="Chap">1 Chap</h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
 <dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span class="category-def">Instance Variable de <code class="code">fr</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>

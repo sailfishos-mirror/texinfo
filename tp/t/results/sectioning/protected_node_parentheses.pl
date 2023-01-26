@@ -568,6 +568,12 @@ $result_converted{'html'}->{'protected_node_parentheses'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -579,7 +585,7 @@ $result_converted{'html'}->{'protected_node_parentheses'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name</a> &nbsp; </p>
 </div>
-<h1 class="top" id="top">top</h1>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h1>
 
 
 <hr>
@@ -587,7 +593,7 @@ Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node">(manual) name</h4>
+<h4 class="node"><span>(manual) name<a class="copiable-link" href=\'#g_t_0028manual_0029-name\'> &para;</a></span></h4>
 
 <a class="anchor" id="g_t_0028manual2_0029-name2"></a>
 <p><a class="ref" href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.

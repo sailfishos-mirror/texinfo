@@ -623,6 +623,12 @@ $result_converted{'html'}->{'anchor_in_footnote_separate'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -633,7 +639,7 @@ $result_converted{'html'}->{'anchor_in_footnote_separate'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
-<h1 class="top" id="Top-1">Top</h1>
+<h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href=\'#Top-1\'> &para;</a></span></h1>
 
 <p>In top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -647,7 +653,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="Chap">1 Chap</h2>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href=\'#Chap\'> &para;</a></span></h2>
 
 <p><a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
 </p><hr>

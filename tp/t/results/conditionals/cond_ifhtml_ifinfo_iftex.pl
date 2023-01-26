@@ -448,6 +448,12 @@ $result_converted{'html'}->{'cond_ifhtml_ifinfo_iftex'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -460,7 +466,7 @@ This is html text.
 </p>
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="conditionals">conditionals</h1>
+<h1 class="top" id="conditionals"><span>conditionals<a class="copiable-link" href=\'#conditionals\'> &para;</a></span></h1>
 
 
 <p>This is ifinfo text.

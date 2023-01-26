@@ -898,6 +898,8 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
@@ -930,7 +932,7 @@ td.menu-entry-destination {vertical-align: top}
 <a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="section-level-extent" id="section">
-<h3 class="section">1 section</h3>
+<h3 class="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>

@@ -770,6 +770,12 @@ $result_converted{'html'}->{'section_chapter_before_top_nodes'} = '<!DOCTYPE htm
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -780,7 +786,7 @@ $result_converted{'html'}->{'section_chapter_before_top_nodes'} = '<!DOCTYPE htm
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href="#chapter-node" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
-<h3 class="section" id="section">1 section</h3>
+<h3 class="section" id="section"><span>1 section<a class="copiable-link" href=\'#section\'> &para;</a></span></h3>
 
 <hr>
 </div>
@@ -789,7 +795,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href=
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#section-node" accesskey="p" rel="prev">section</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h3 class="section chapter-level-set-section" id="chapter">2 chapter</h3>
+<h3 class="section chapter-level-set-section" id="chapter"><span>2 chapter<a class="copiable-link" href=\'#chapter\'> &para;</a></span></h3>
 
 
 <hr>
@@ -799,7 +805,7 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#secti
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<h3 class="unnumberedsec top-level-set-unnumberedsec" id="top">top</h3>
+<h3 class="unnumberedsec top-level-set-unnumberedsec" id="top"><span>top<a class="copiable-link" href=\'#top\'> &para;</a></span></h3>
 
 
 </div>

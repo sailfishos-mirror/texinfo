@@ -641,6 +641,12 @@ $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <link href="http://www.gnu.org/manual/" rel="up" title="@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
 
 
 </head>
@@ -651,7 +657,7 @@ $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html>
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://www.gnu.org/manual/" accesskey="u" rel="up">@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals</a> &nbsp; </p>
 </div>
-<h1 class="top" id="internal-top-node-up">internal top node up</h1>
+<h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href=\'#internal-top-node-up\'> &para;</a></span></h1>
 
 
 <hr>
@@ -659,7 +665,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://w
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">internal top node up</a> &nbsp; </p>
 </div>
-<h4 class="node">first</h4>
+<h4 class="node"><span>first<a class="copiable-link" href=\'#first\'> &para;</a></span></h4>
 </div>
 
 
