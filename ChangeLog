@@ -1,5 +1,11 @@
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Basic Formatting Customization): separate
+	information about API and result in the default case for
+	format_heading_text.
+
+2023-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): if generating reference results,
 	do not process skipped tests at all, to avoid increasing the
 	number of tests, as the number of tests is 1.

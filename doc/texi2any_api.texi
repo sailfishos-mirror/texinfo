@@ -2656,12 +2656,12 @@ gives an information on the @@-command the heading is associated to and can be
 @code{undef}, for instance for special elements headings.
 
 @var{$id} is an optional identifier, and @var{\%element} is an optional
-Texinfo tree element associated with the heading.
+Texinfo tree element associated with the heading.  @var{$target} is the
+id of the element this heading is referring to.
 
-@var{$target} is the id of the element this heading is referring to.
-If the @var{$target} or @var{$id} are specified, a copiable anchor
-will be generated and injected into the heading.  In the case both are
-specified, @var{$id} is preferred over @var{$target}, as it is closer
+In the default case, if the @var{$target} or @var{$id} are specified, a
+copiable anchor will be generated and injected into the heading.  In the case
+both are specified, @var{$id} is preferred over @var{$target}, as it is closer
 to the element the user sees the anchor on.
 @end deftypefn
 
