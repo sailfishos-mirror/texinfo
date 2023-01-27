@@ -321,15 +321,13 @@ our %default_converter_customization = (
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT'   => undef,  # in textcontent format
   # used in TexinfoXML/SXML
-  # Reset by the main program, therefore this value is only used
-  # in converter tests.  Does not need to be updated every time a DTD
-  # is released, but it should be good to update from time to time
-  # to avoid test results that are not valid against their reported DTD.
-  'TEXINFO_DTD_VERSION'   => '7.1',  # this is not the value documented,
-                                     # but it is better for the tests to
-                                     # have a fixed value.
-                                     # The main program sets the
-                                     # variable to the documented value.
+  # Reset by the main program, therefore this value is only used in converter
+  # tests that use the perl modules directly.  Does not need to match with the
+  # documented value used in the main program, nor to be updated every time a
+  # DTD is released, to have a fixed value for the tests.  However, it should
+  # be good to update from time to time to avoid test results that are not
+  # valid against their reported DTD.
+  'TEXINFO_DTD_VERSION'   => '7.1',
 );
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -437,7 +435,6 @@ our @variable_string_settables = (
 'T4H_MATH_CONVERSION',
 'T4H_TEX_CONVERSION',
 'TEXI2HTML',
-'TEXINFO_DTD_VERSION',
 'TEXINFO_OUTPUT_FORMAT',
 'TOC_LINKS',
 'TOP_FILE',

@@ -1,3 +1,11 @@
+2023-01-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables): remove
+	TEXINFO_DTD_VERSION' which is also in
+	%default_converter_customization.
+
+	Change in comments in various files.
+
 2023-01-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_item_command)

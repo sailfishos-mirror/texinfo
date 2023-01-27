@@ -10,17 +10,19 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Add some elements of texinfo that are not of interest in the
-tree, like beginning and end of included file, @ protecting
-end of line in @def*, begin and end of user defined macro
-or value expansion.  Add source_marks in the tree.
+Add elements of texinfo that are not of interest in the
+tree to source_marks. begin and end of user defined macro
+or value expansion. aliases.
 
-In a similar way, keep the information about aliases in the tree?
-And about @setfilename in included files which is for now completly
-removed (consistently with documentation).
+done: source_marks structures, with beginning and end of included file, @
+protecting end of line in @def*, @setfilename in included files.
 
 Bugs
 ====
+
+XS parser uses bytes length and not number of characters in source marks.
+Could use mbrtowc, maybe through the mbslen gnulib module.  But requires
+setting the locale, may not work on windows.
 
 HTML API
 ========

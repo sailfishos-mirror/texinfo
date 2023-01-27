@@ -165,9 +165,9 @@ my %extensions = (
   'latex_text' => 'tex',
 );
 
-#my %xml_converter_defaults
-#    = Texinfo::Convert::TexinfoXML::converter_defaults(undef, undef);
-#my $XML_DTD_VERSION = $xml_converter_defaults{'TEXINFO_DTD_VERSION'};
+# This is, in general, different from the documented version, which
+# is set in the texi2any main program.  This value should only be
+# used in t/*.t tests.
 my $XML_DTD_VERSION
   = $Texinfo::Common::default_converter_customization{'TEXINFO_DTD_VERSION'};
 
@@ -194,7 +194,13 @@ my $arg_output;
 my $nr_comparisons = 9;
 
 Getopt::Long::Configure("gnu_getopt");
-# complete: output a complete texinfo file based on the test
+# complete: output a complete texinfo file based on the test.  Does not
+#           run the tests at all.
+# generate: run the tests and reset reference results instead of comparing
+#           with reference results.
+# output: run the test, compare with references, and output the test results
+#         (even if not the same as references) in output files per output
+#         format.
 GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug,
            'c|complete' => \$arg_complete, 'o|output' => \$arg_output);
 
@@ -475,7 +481,7 @@ my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
 
 # in general, the 'parent' keys adds lot of non legible information,
 # however to punctually test for regressions on this information, the
-# best is to add it in @avoided_keys_tree
+# best is to add it in tree tests by removing from @avoided_keys_tree.
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'structure', 'menu_child', 'unit_next', 'directions', 'page_next',
@@ -501,7 +507,6 @@ foreach my $avoided_key(@avoided_keys_nodes) {
 }
 sub filter_nodes_keys { [grep {!$avoided_keys_nodes{$_}}
    ( sort keys %{$_[0]} )] }
-#my @avoided_compare_nodes = (@avoided_keys_nodes, 'node_up', 'node_prev');
 
 my %avoided_keys_menus;
 my @avoided_keys_menus = (@sections_keys, @contents_keys, @node_keys);

@@ -216,9 +216,11 @@ Locale::Messages::bindtextdomain($messages_textdomain,
 # * script shipped as part of texinfo or as a standalone perl module
 #   (although standalone module infrastructure was removed in 2019)
 
-# When shipped as a perl modules, $hardcoded_version is set to undef here
+# When the script could be shipped with perl modules independently from
+# the remaining of Texinfo, $hardcoded_version was set to undef here
 # by a sed one liner.  The consequence is that configure.ac is not used
-# to retrieve the version number.
+# to retrieve the version number, version came from Texinfo::Common in that
+# case.
 # Otherwise this is only used as a safety value, and should never be used 
 # in practice as a regexp extracts the version from configure.ac.
 my $hardcoded_version = "0.00-hardcoded";
@@ -242,8 +244,8 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
     # This should never be used, but is a safety value
     $configured_version = $hardcoded_version if (!defined($configured_version));
   } else {
-    # used in the standalone perl module, as $hardcoded_version is undef
-    # and it should never be configured in that setup
+    # was used in the standalone perl module, as $hardcoded_version is undef
+    # and it should never be configured in that setup.
     require Texinfo::Common;
     $configured_version = $Texinfo::Common::VERSION;
   }
@@ -274,7 +276,9 @@ $configured_url = 'http://www.gnu.org/software/texinfo/'
   if ($configured_url eq '@' .'PACKAGE_URL@');
 
 my $texinfo_dtd_version = '@TEXINFO_DTD_VERSION@';
-# $hardcoded_version is undef for a standalone perl module
+# $hardcoded_version is undef for a standalone perl module (standalone
+# infrastructure was removed in 2019).  The code is kept in case it becomes
+# useful again, for a standalone perl module or in some specific cases.
 if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   $texinfo_dtd_version = undef;
   if (defined($hardcoded_version)) {
