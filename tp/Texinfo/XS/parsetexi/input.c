@@ -409,43 +409,32 @@ next_text (ELEMENT *current)
   while (input_number > 0)
     {
       /* Check for pending input. */
-      INPUT *i = &input_stack[input_number - 1];
+      INPUT *input = &input_stack[input_number - 1];
 
-      switch (i->type)
+      switch (input->type)
         {
           char *p, *new;
         case IN_text:
-          if (!*i->ptext)
-            {
-              /* End of text reached. */
-              free (i->text);
-              if (i->value_flag)
-                {
-                  value_expansion_nr--;
-                  free (i->value_flag);
-                }
-              else if (i->source_info.macro)
-                macro_expansion_nr--;
-              break;
-            }
+          if (!*input->ptext)
+            break;
           /* Split off a line of input. */
-          p = strchrnul (i->ptext, '\n');
-          new = strndup (i->ptext, p - i->ptext + 1);
+          p = strchrnul (input->ptext, '\n');
+          new = strndup (input->ptext, p - input->ptext + 1);
           if (*p)
-            i->ptext = p + 1;
+            input->ptext = p + 1;
           else
-            i->ptext = p; /* The next time, we will pop the input source. */
+            input->ptext = p; /* The next time, we will pop the input source. */
 
-          if (!i->source_info.macro && !i->value_flag)
-            i->source_info.line_nr++;
+          if (!input->source_info.macro && !input->value_flag)
+            input->source_info.line_nr++;
 
-          current_source_info = i->source_info;
+          current_source_info = input->source_info;
 
           return new;
 
           break;
         case IN_file:
-          input_file = input_stack[input_number - 1].file;
+          input_file = input->file;
           status = getline (&line, &n, input_file);
           if (status != -1)
             {
@@ -470,12 +459,13 @@ next_text (ELEMENT *current)
                     source_mark->line = convert_to_utf8 (strdup (comment+1));
                   else
                     source_mark->line = 0;
-                  input_push_text(strdup(""), i->source_info.line_nr, 0, 0);
+                  input_push_text(strdup(""),
+                                  input->source_info.line_nr, 0, 0);
                   set_input_source_mark(source_mark);
                 }
 
-              i->source_info.line_nr++;
-              current_source_info = i->source_info;
+              input->source_info.line_nr++;
+              current_source_info = input->source_info;
 
               return convert_to_utf8 (line);
             }
@@ -485,27 +475,37 @@ next_text (ELEMENT *current)
           fatal ("unknown input source type");
         }
 
-      /* Top input source failed.  Pop it and try the next one. */
-      
-      if (input_stack[input_number - 1].type == IN_file)
+      /* Top input source failed.  Close, pop, and try the next one. */
+      if (input->type == IN_file)
         {
-          FILE *file = input_stack[input_number - 1].file;
+          FILE *file = input->file;
 
           if (file != stdin)
             {
-              if (fclose (input_stack[input_number - 1].file) == EOF)
+              if (fclose (input->file) == EOF)
                 fprintf (stderr, "error on closing %s: %s",
-                        input_stack[input_number - 1].source_info.file_name,
+                        input->source_info.file_name,
                         strerror (errno));
             }
         }
+      else
+        {
+          /* End of text reached. */
+          free (input->text);
+          if (input->value_flag)
+            {
+              value_expansion_nr--;
+              free (input->value_flag);
+            }
+          else if (input->source_info.macro)
+            macro_expansion_nr--;
+        }
 
-      if (input_stack[input_number - 1].input_source_mark)
+      if (input->input_source_mark)
         {
           /* FIXME free the input_source_mark here, when it is not
              associated to an element, for delcomment for example */
-          SOURCE_MARK *input_source_mark
-            = input_stack[input_number - 1].input_source_mark;
+          SOURCE_MARK *input_source_mark = input->input_source_mark;
           SOURCE_MARK *end_include_source_mark
             = new_source_mark(input_source_mark->type);
           end_include_source_mark->counter = input_source_mark->counter;

@@ -1,5 +1,15 @@
 2023-01-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text),
+	tp/Texinfo/XS/parsetexi/input.c (next_text): move code related to
+	end of text input to the same place as end of file input.
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text),
+	tp/Texinfo/XS/parsetexi/input.c (next_text): rename $previous_input
+	as $input, and i as input, and use input consistently in the XS parser.
+
+2023-01-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (@variable_string_settables): remove
 	TEXINFO_DTD_VERSION' which is also in
 	%default_converter_customization.

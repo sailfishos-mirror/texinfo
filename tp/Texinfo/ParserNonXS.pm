@@ -2284,19 +2284,7 @@ sub _next_text($;$)
     if (exists($input->{'th'})) {
       my $texthandle = $input->{'th'};
       my $next_line = <$texthandle>;
-      if (!defined($next_line)) {
-        if ($input->{'input_source_info'}->{'macro'} ne '') {
-          my $top_macro = shift @{$self->{'macro_stack'}};
-          print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
-            ." $top_macro->{'args'}->[0]->{'text'}\n"
-              if ($self->{'DEBUG'});
-        } elsif (defined($input->{'value_flag'})) {
-          my $top_value = shift @{$self->{'value_stack'}};
-          print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
-            . "$top_value\n"
-              if ($self->{'DEBUG'});
-        }
-      } else {
+      if (defined($next_line)) {
         # need to decode to characters
         $next_line = Encode::decode('utf8', $next_line);
         $input->{'input_source_info'}->{'line_nr'} += 1
@@ -2339,19 +2327,33 @@ sub _next_text($;$)
         return ($line, { %{$input->{'input_source_info'}} });
       }
     }
-    my $previous_input = $self->{'input'}->[0];
+    # Top input source failed.  Close, pop, and try the next one.
+    if (exists($input->{'th'})) {
+      # End of text reached.
+      # FIXME close $input->{'th'} explicitly?
+      if ($input->{'input_source_info'}->{'macro'} ne '') {
+        my $top_macro = shift @{$self->{'macro_stack'}};
+        print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
+          ." $top_macro->{'args'}->[0]->{'text'}\n"
+            if ($self->{'DEBUG'});
+      } elsif (defined($input->{'value_flag'})) {
+        my $top_value = shift @{$self->{'value_stack'}};
+        print STDERR "SHIFT VALUE_STACK(@{$self->{'value_stack'}}):"
+          . "$top_value\n"
+            if ($self->{'DEBUG'});
+      }
     # Don't close STDIN
-    if ($previous_input->{'fh'}
-        and $previous_input->{'input_source_info'}->{'file_name'} ne '-') {
-      if (!close($previous_input->{'fh'})) {
+    } elsif ($input->{'fh'}
+             and $input->{'input_source_info'}->{'file_name'} ne '-') {
+      if (!close($input->{'fh'})) {
         # need to decode for error message
         my $file_name_encoding;
-        if (defined($previous_input->{'file_name_encoding'})) {
-          $file_name_encoding = $previous_input->{'file_name_encoding'};
+        if (defined($input->{'file_name_encoding'})) {
+          $file_name_encoding = $input->{'file_name_encoding'};
         } else {
           $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         }
-        my $file_name = $previous_input->{'input_source_info'}->{'file_name'};
+        my $file_name = $input->{'input_source_info'}->{'file_name'};
         if (defined($file_name_encoding)) {
           $file_name = decode($file_name_encoding, $file_name);
         }
@@ -2359,19 +2361,19 @@ sub _next_text($;$)
                              sprintf(__("error on closing %s: %s"),
                                      $file_name, $!));
       }
-      delete $previous_input->{'fh'};
+      delete $input->{'fh'};
     }
 
-    if (defined($previous_input->{'input_source_mark'})) {
+    if (defined($input->{'input_source_mark'})) {
       my $end_source_mark
           = { 'sourcemark_type' =>
-               $previous_input->{'input_source_mark'}->{'sourcemark_type'},
+               $input->{'input_source_mark'}->{'sourcemark_type'},
               'counter' =>
-               $previous_input->{'input_source_mark'}->{'counter'},
+               $input->{'input_source_mark'}->{'counter'},
             };
       $end_source_mark->{'line'}
-        = $previous_input->{'input_source_mark'}->{'line'}
-          if (defined($previous_input->{'input_source_mark'}->{'line'}));
+        = $input->{'input_source_mark'}->{'line'}
+          if (defined($input->{'input_source_mark'}->{'line'}));
       $end_source_mark->{'status'} = 'end'
           if ($end_source_mark->{'sourcemark_type'} eq 'include');
       _register_source_mark($self, $current,
@@ -2381,7 +2383,7 @@ sub _next_text($;$)
     # source_info, even when nothing is returned and the first input
     # file is closed.
     if (scalar(@{$self->{'input'}}) == 1) {
-      return (undef, { %{$previous_input->{'input_source_info'}} });
+      return (undef, { %{$input->{'input_source_info'}} });
     } else {
       shift @{$self->{'input'}};
     }
