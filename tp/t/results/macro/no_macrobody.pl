@@ -67,6 +67,33 @@ $result_trees{'no_macrobody'} = {
           'type' => 'empty_line'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'line arg'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'nomacrobody'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -84,6 +111,33 @@ $result_trees{'no_macrobody'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'arg brace'
+              }
+            ],
+            'extra' => {
+              'name' => 'nomacrobody'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 2,
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

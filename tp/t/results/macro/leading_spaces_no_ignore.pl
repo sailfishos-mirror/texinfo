@@ -73,6 +73,26 @@ $result_trees{'leading_spaces_no_ignore'} = {
           'type' => 'empty_line'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mymacro'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '  ',
           'type' => 'spaces_before_paragraph'
         },
@@ -83,6 +103,15 @@ $result_trees{'leading_spaces_no_ignore'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 6,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '  text
 '
             }

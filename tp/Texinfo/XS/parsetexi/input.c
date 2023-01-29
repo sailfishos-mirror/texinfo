@@ -501,7 +501,7 @@ next_text (ELEMENT *current)
             macro_expansion_nr--;
         }
 
-      if (input->input_source_mark)
+      if (input->input_source_mark && current)
         {
           /* FIXME free the input_source_mark here, when it is not
              associated to an element, for delcomment for example */
@@ -510,7 +510,8 @@ next_text (ELEMENT *current)
             = new_source_mark(input_source_mark->type);
           end_include_source_mark->counter = input_source_mark->counter;
           end_include_source_mark->line = input_source_mark->line;
-          if (input_source_mark->type == SM_type_include)
+          if (input_source_mark->type == SM_type_include
+              || input_source_mark->type == SM_type_macro_expansion)
             end_include_source_mark->status = SM_status_end;
           register_source_mark(current, end_include_source_mark);
         }

@@ -120,7 +120,14 @@ $result_trees{'value_in_macro_body'} = {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'testvaluebody'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -128,6 +135,26 @@ $result_trees{'value_in_macro_body'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'macro_arg1'
+              }
+            ],
+            'extra' => {
+              'name' => 'testvaluebody'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

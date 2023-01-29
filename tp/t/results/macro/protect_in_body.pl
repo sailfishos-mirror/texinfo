@@ -78,6 +78,29 @@ $result_trees{'protect_in_body'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '@samp{f\\irst arg}'
+                      },
+                      {
+                        'text' => 'second arg '
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 4,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'the result: '
             },
             {
@@ -132,7 +155,14 @@ $result_trees{'protect_in_body'} = {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => ' after macro.

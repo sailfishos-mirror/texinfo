@@ -74,8 +74,37 @@ $result_trees{'macro_zero'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '0
 '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'zero'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

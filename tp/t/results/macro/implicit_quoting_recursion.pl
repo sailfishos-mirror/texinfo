@@ -78,11 +78,183 @@ $result_trees{'implicit_quoting_recursion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'location' => 'text',
+                  'position' => 4,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 5,
+                  'location' => 'text',
+                  'position' => 6,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 4,
+                  'location' => 'text',
+                  'position' => 8,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 3,
+                  'location' => 'text',
+                  'position' => 10,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 13,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 16,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'natopocotuototam
 '
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}'
+              },
+              {
+                'text' => 'tam'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}'
+              },
+              {
+                'text' => 'oto'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 3,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@cat{@cat{@cat{na, to}, po}, co}'
+              },
+              {
+                'text' => 'tu'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 4,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@cat{@cat{na, to}, po}'
+              },
+              {
+                'text' => 'co'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 5,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@cat{na, to}'
+              },
+              {
+                'text' => 'po'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 6,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'na'
+              },
+              {
+                'text' => 'to'
+              }
+            ],
+            'extra' => {
+              'name' => 'cat'
+            },
+            'type' => 'rmacro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

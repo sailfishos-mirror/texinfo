@@ -91,6 +91,15 @@ $result_trees{'macro_for_end'} = {
                     'spaces_after_argument' => '
 '
                   },
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 0,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'type' => 'line_arg'
                 }
               ],
@@ -112,7 +121,27 @@ $result_trees{'macro_for_end'} = {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'myend'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         }
       ],
       'type' => 'before_node_section'

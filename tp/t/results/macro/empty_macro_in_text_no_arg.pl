@@ -69,6 +69,28 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'texnl'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'This.  It.
 '
             }
@@ -136,6 +158,28 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'texnltwo'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'This 2 see.  A.
 '
             }

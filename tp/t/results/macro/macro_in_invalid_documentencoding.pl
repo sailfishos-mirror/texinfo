@@ -67,6 +67,15 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 4,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'badm'
                 }
               ],
@@ -74,6 +83,26 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                 'spaces_after_argument' => '
 '
               },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'badmacro'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'line_arg'
             }
           ],

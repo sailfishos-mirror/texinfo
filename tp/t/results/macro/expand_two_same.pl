@@ -136,9 +136,40 @@ $result_trees{'expand_two_same'} = {
 '
             }
           ],
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'a simple @code{
+arg}
+'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrotwo'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'location' => 'text',
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -155,8 +186,37 @@ $result_trees{'expand_two_same'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 72,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'With a doubles arg arg with comma , here  and re arg with comma , here 
 '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'arg with comma , here '
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrotwo'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

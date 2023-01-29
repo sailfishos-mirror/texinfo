@@ -23,6 +23,7 @@
 #include "text.h"
 #include "input.h"
 #include "convert.h"
+#include "source_marks.h"
 
 static MACRO *macro_list;
 static size_t macro_number;
@@ -273,7 +274,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
             {
               line_error ("@%s missing closing brace", command_name(cmd));
               line = "\n";
-              free (arg.text);
+              arg_list[arg_number++] = arg.text;
               goto funexit;
             }
           pline = line;
@@ -495,8 +496,12 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   MACRO *macro_record;
   ELEMENT *macro;
   TEXT expanded;
+  char *expanded_macro_text;
   char **arguments = 0;
   int args_number;
+  SOURCE_MARK *macro_source_mark;
+  ELEMENT *sm_macro_element;
+  enum element_type sm_macro_elt_type;
 
   line = *line_inout;
   text_init (&expanded);
@@ -576,9 +581,51 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                       "use @rmacro if needed", command_name(cmd));
           expanded.text[0] = '\0';
           expanded.end = 0;
+          goto funexit;
         }
     }
 
+  if (macro->cmd == CM_macro)
+    sm_macro_elt_type = ET_macro_call;
+  else
+    sm_macro_elt_type = ET_rmacro_call;
+
+  sm_macro_element = new_element (sm_macro_elt_type);
+  add_extra_string_dup (sm_macro_element, "name", command_name(cmd));
+  if (arguments)
+    {
+      int i = 0;
+      while (arguments[i] != 0)
+        {
+          ELEMENT *e = new_element (ET_NONE);
+          text_append (&e->text, arguments[i]);
+          add_to_element_args (sm_macro_element, e);
+          i++;
+        }
+    }
+
+  // 3958 Pop macro stack
+
+  macro_source_mark = new_source_mark (SM_type_macro_expansion);
+  macro_source_mark->status = SM_status_start;
+  macro_source_mark->element = sm_macro_element;
+  register_source_mark(current, macro_source_mark);
+
+  macro_expansion_nr++;
+
+  /* Put expansion in front of the current line. */
+  input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
+  line = strchr (line, '\0');
+  if (expanded.text)
+    expanded_macro_text = expanded.text;
+  else
+    /* we want to always have a text for the source mark */
+    expanded_macro_text = strdup("");
+  input_push_text (expanded_macro_text, current_source_info.line_nr,
+                   command_name(cmd), 0);
+  set_input_source_mark (macro_source_mark);
+
+ funexit:
   /* Free arguments. */
   if (arguments)
     {
@@ -591,16 +638,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
       free (arguments);
     }
 
-  // 3958 Pop macro stack
-
-  /* Put expansion in front of the current line. */
-  macro_expansion_nr++;
-  input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
-  line = strchr (line, '\0');
-  input_push_text (expanded.text, current_source_info.line_nr,
-                   command_name(cmd), 0);
-
-funexit:
   *line_inout = line;
   return current;
 }

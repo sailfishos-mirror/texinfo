@@ -70,11 +70,35 @@ $result_trees{'user_defined_txiinternalvalue'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'user internalvalue
 '
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'extra' => {
+              'name' => 'txiinternalvalue'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

@@ -143,6 +143,33 @@ $result_trees{'cpp_directives_after_macros'} = {
               'type' => 'empty_line'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'noargsspaces'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 2,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '  ',
               'type' => 'spaces_before_paragraph'
             }
@@ -199,6 +226,33 @@ $result_trees{'cpp_directives_after_macros'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'emptyexpansion'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 2,
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'end'
         }
       ],
       'type' => 'before_node_section'

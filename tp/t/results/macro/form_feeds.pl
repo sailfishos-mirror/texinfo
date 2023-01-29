@@ -156,6 +156,15 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 6,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'n arg2
 '
             }
@@ -176,6 +185,15 @@ $result_trees{'form_feeds'} = {
               'cmdname' => '{'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 8,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'rgline v
 '
             }
@@ -186,6 +204,47 @@ $result_trees{'form_feeds'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'arg1'
+              },
+              {
+                'text' => 'arg2'
+              }
+            ],
+            'extra' => {
+              'name' => 'mymacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'a@{rgline'
+              }
+            ],
+            'extra' => {
+              'name' => 'oneargmacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

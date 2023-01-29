@@ -74,10 +74,39 @@ $result_trees{'macro_one_arg_end_of_file'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'Arg .'
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'onearg'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

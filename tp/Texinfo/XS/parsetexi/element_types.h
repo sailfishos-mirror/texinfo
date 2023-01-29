@@ -70,6 +70,8 @@ ET_elided_block,
 ET_delimiter,
 ET_spaces,
 ET_untranslated,
+ET_macro_call,
+ET_rmacro_call,
 };
 
 extern char *element_type_names[];

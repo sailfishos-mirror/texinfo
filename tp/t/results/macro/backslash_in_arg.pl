@@ -99,6 +99,15 @@ $result_trees{'backslash_in_arg'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 3,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '\\\\q'
                 }
               ],
@@ -139,6 +148,15 @@ $result_trees{'backslash_in_arg'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'location' => 'text',
+                      'position' => 2,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '\\r'
                 }
               ],
@@ -179,6 +197,15 @@ $result_trees{'backslash_in_arg'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'location' => 'text',
+                      'position' => 2,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '\\q'
                 }
               ],
@@ -219,6 +246,15 @@ $result_trees{'backslash_in_arg'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'location' => 'text',
+                      'position' => 2,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '\\r'
                 }
               ],
@@ -307,7 +343,81 @@ $result_trees{'backslash_in_arg'} = {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => '\\\\q'
+              }
+            ],
+            'extra' => {
+              'name' => 'funindex'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => '\\r'
+              }
+            ],
+            'extra' => {
+              'name' => 'funindex'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 3,
+          'element' => {
+            'args' => [
+              {
+                'text' => '\\q'
+              }
+            ],
+            'extra' => {
+              'name' => 'funindex'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 4,
+          'element' => {
+            'args' => [
+              {
+                'text' => '\\r'
+              }
+            ],
+            'extra' => {
+              'name' => 'funindex'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -355,7 +465,61 @@ $result_nodes{'backslash_in_arg'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'source_marks' => [
+    {
+      'counter' => 1,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 2,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 3,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 4,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    }
+  ]
 };
 
 $result_menus{'backslash_in_arg'} = {
@@ -364,7 +528,61 @@ $result_menus{'backslash_in_arg'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'source_marks' => [
+    {
+      'counter' => 1,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 2,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 3,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    },
+    {
+      'counter' => 4,
+      'element' => {
+        'extra' => {
+          'name' => 'funindex'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    }
+  ]
 };
 
 $result_errors{'backslash_in_arg'} = [];

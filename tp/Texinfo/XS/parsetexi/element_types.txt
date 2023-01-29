@@ -97,3 +97,7 @@ spaces
 # for inserted text in def commands
 untranslated
 
+# for macro expansion source marks
+macro_call
+rmacro_call
+

@@ -75,7 +75,14 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'text' => 'macro_i--n_pass'
                 },
                 {
-                  'cmdname' => '@'
+                  'cmdname' => '@',
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 },
                 {
                   'text' => 'texi_commands.info'
@@ -85,6 +92,26 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                 'spaces_after_argument' => '
 '
               },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'begin-file'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'line_arg'
             }
           ],
@@ -172,13 +199,40 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'text' => 'ISO-8859-1'
                 },
                 {
-                  'cmdname' => '@'
+                  'cmdname' => '@',
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 }
               ],
               'info' => {
                 'spaces_after_argument' => '
 '
               },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'latin1'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'line_arg'
             }
           ],
@@ -338,6 +392,21 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                       'spaces_after_argument' => '
 '
                     },
+                    'source_marks' => [
+                      {
+                        'counter' => 3,
+                        'element' => {
+                          'extra' => {
+                            'name' => 'multiinclude'
+                          },
+                          'type' => 'macro_call'
+                        },
+                        'location' => 'text',
+                        'position' => 1,
+                        'sourcemark_type' => 'macro_expansion',
+                        'status' => 'start'
+                      }
+                    ],
                     'type' => 'line_arg'
                   }
                 ],
@@ -435,6 +504,15 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                         'cmdname' => '@'
                       },
                       {
+                        'source_marks' => [
+                          {
+                            'counter' => 3,
+                            'location' => 'text',
+                            'position' => 11,
+                            'sourcemark_type' => 'macro_expansion',
+                            'status' => 'end'
+                          }
+                        ],
                         'text' => 'f--ile.texi'
                       }
                     ],
@@ -489,6 +567,15 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'location' => 'text',
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'in themacro
 '
             }
@@ -544,7 +631,27 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
         'file_name' => '',
         'line_nr' => 19,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 4,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'themacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -612,6 +719,21 @@ $result_sectioning{'macro_and_commands_in_early_commands'} = {
           }
         },
         'info' => {},
+        'source_marks' => [
+          {
+            'counter' => 4,
+            'element' => {
+              'extra' => {
+                'name' => 'themacro'
+              },
+              'type' => 'macro_call'
+            },
+            'location' => 'text',
+            'position' => 0,
+            'sourcemark_type' => 'macro_expansion',
+            'status' => 'start'
+          }
+        ],
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -630,6 +752,21 @@ $result_nodes{'macro_and_commands_in_early_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {},
+      'source_marks' => [
+        {
+          'counter' => 4,
+          'element' => {
+            'extra' => {
+              'name' => 'themacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'structure' => {}
     },
     'normalized' => 'Top'

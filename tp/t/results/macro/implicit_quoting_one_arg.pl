@@ -94,7 +94,14 @@ $result_trees{'implicit_quoting_one_arg'} = {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => 'FIXAME'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -102,6 +109,26 @@ $result_trees{'implicit_quoting_one_arg'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'Many arguments, separated by commas, are processed here'
+              }
+            ],
+            'extra' => {
+              'name' => 'FIXAME'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

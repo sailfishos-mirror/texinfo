@@ -1,3 +1,46 @@
+2023-01-29  Patrice Dumas  <pertusus@free.fr>
+
+	Source mark for macro expansion
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_handle_macro): use a separate function to handle a macro call, as in
+	the XS parser.  Get a new line right after handling the macro.  Note
+	that it leads to somewhat better output than simply waiting for the
+	next text to come in parse_texi.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro, _next_text),
+	tp/Texinfo/XS/parsetexi/input.c (next_text),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
+	(source_marks_reset_counters): handle macro expansion source marks.
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text),
+	tp/Texinfo/XS/parsetexi/input.c (next_text): do not register a source
+	mark if the current element is not defined.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): if macro
+	call is missing a close brace, register the unterminated argument,
+	as the perl parser does.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): remove
+	contents of accent commands when the next character is used as
+	argument in the perl parser. It matters to have the contents removed
+	here when there are source marks, though it is not completly clear why
+	and what would be the best to do. Add comments for the XS parser.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): handle undefined lines
+	getting out of _process_remaining_on_line.  Can now happen with
+	next_text after macro expansion handling in case the macro expansion
+	happens right before the end of a text fragment.
+
+	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element_short),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark): add a
+	debugging function that prints the element information in a similar
+	way as Texinfo::Common::debug_print_element_short.
+
 2023-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Rename "simple text" commands as "basic inline" commands

@@ -89,7 +89,14 @@ $result_trees{'redefine_texinfo_macro'} = {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'code'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -97,6 +104,26 @@ $result_trees{'redefine_texinfo_macro'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'code'
+              }
+            ],
+            'extra' => {
+              'name' => 'code'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

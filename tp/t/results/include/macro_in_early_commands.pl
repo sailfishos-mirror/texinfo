@@ -129,6 +129,40 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 13,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 2,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'info'
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'end-file-name'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'location' => 'text',
+                      'position' => 13,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 2,
+                      'location' => 'text',
+                      'position' => 31,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'macro_in_passtexi_commands.info'
                 }
               ],
@@ -136,6 +170,26 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_after_argument' => '
 '
               },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'begin-file'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'line_arg'
             }
           ],
@@ -278,6 +332,15 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'location' => 'text',
+                      'position' => 10,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'ISO-8859-1'
                 }
               ],
@@ -285,6 +348,33 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_after_argument' => '
 '
               },
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'latin1'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'line_arg'
             }
           ],
@@ -372,6 +462,21 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'empty_line'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 3,
+          'element' => {
+            'extra' => {
+              'name' => 'documentencoding-command'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     },
     {
@@ -446,6 +551,21 @@ $result_trees{'macro_in_early_commands'} = {
                       'spaces_after_argument' => '
 '
                     },
+                    'source_marks' => [
+                      {
+                        'counter' => 5,
+                        'element' => {
+                          'extra' => {
+                            'name' => 'multiinclude'
+                          },
+                          'type' => 'macro_call'
+                        },
+                        'location' => 'text',
+                        'position' => 1,
+                        'sourcemark_type' => 'macro_expansion',
+                        'status' => 'start'
+                      }
+                    ],
                     'type' => 'line_arg'
                   }
                 ],
@@ -537,6 +657,15 @@ $result_trees{'macro_in_early_commands'} = {
                   {
                     'contents' => [
                       {
+                        'source_marks' => [
+                          {
+                            'counter' => 5,
+                            'location' => 'text',
+                            'position' => 13,
+                            'sourcemark_type' => 'macro_expansion',
+                            'status' => 'end'
+                          }
+                        ],
                         'text' => 'inc_file.texi'
                       }
                     ],
@@ -591,6 +720,15 @@ $result_trees{'macro_in_early_commands'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'location' => 'text',
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'in themacro
 '
             }
@@ -621,8 +759,37 @@ $result_trees{'macro_in_early_commands'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 7,
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'texi_commands.info
 '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 7,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'info'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'end-file-name'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -636,7 +803,27 @@ $result_trees{'macro_in_early_commands'} = {
         'file_name' => '',
         'line_nr' => 26,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 6,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'themacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -715,6 +902,21 @@ $result_sectioning{'macro_in_early_commands'} = {
           }
         },
         'info' => {},
+        'source_marks' => [
+          {
+            'counter' => 6,
+            'element' => {
+              'extra' => {
+                'name' => 'themacro'
+              },
+              'type' => 'macro_call'
+            },
+            'location' => 'text',
+            'position' => 0,
+            'sourcemark_type' => 'macro_expansion',
+            'status' => 'start'
+          }
+        ],
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -733,6 +935,21 @@ $result_nodes{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {},
+      'source_marks' => [
+        {
+          'counter' => 6,
+          'element' => {
+            'extra' => {
+              'name' => 'themacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'structure' => {}
     },
     'normalized' => 'Top'

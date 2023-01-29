@@ -1388,15 +1388,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               free (tmp);
             }
 
+          debug ("CLOSED conditional %s", command_name(end_cmd));
+
           /* Ignore until end of line */
           if (!strchr (line, '\n'))
             {
               line = new_line ();
-              debug ("IGNORE CLOSE LINE");
+              debug ("IGNORE CLOSE line: %s", line);
             }
           destroy_element_and_children (popped);
 
-          debug ("CLOSED conditional %s", command_name(end_cmd));
         }
       /* anything remaining on the line and any other line is ignored here */
       retval = GET_A_NEW_LINE;
@@ -1572,7 +1573,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       line = line_after_command;
       current = handle_macro (current, &line, cmd);
       free (allocated_line);
-      allocated_line = next_text (0);
+      allocated_line = next_text (current);
       line = allocated_line;
       retval = STILL_MORE_TO_PROCESS;
       goto funexit;
@@ -1787,11 +1788,23 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               line_error ("@dotless expects `i' or `j' as argument, "
                           "not `%c'", *line);
             }
-          /* FIXME not clear that it can happen, there is no need for that
-             in the pure perl parser.  If it can happen could be needed
-             to reparent source marks */
+          /* REMARK it happens in the test suite at least with macros
+             and accents, and requires source marks to be transmitted */
           while (current->contents.number > 0)
-            destroy_element (pop_element_from_contents (current, 0));
+            {
+              ELEMENT *popped_element = pop_element_from_contents (current, 1);
+              /* current is the accent command.  So far only saw empty elements
+                 for the removed elements */
+              /*
+              debug_nonl ("REMOVE content. Accent: ");
+              debug_print_element_short (current, 1);
+              debug ("");
+              debug_nonl ("       removed: ");
+              debug_print_element_short (popped_element, 0);
+              debug ("");
+              */
+              destroy_element (popped_element);
+            }
           line++;
           current = current->parent;
         }
@@ -2091,22 +2104,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     }
   else /*  End of line */
     {
-      if (current->type)
-        debug ("END LINE (%s)", element_type_names[current->type]);
-      else if (current->cmd)
-        debug ("END LINE (@%s)", command_name(current->cmd));
-      else
-        debug ("END LINE");
-      if (current->parent)
-        {
-          debug_nonl (" <- ");
-          if (current->parent->cmd)
-            debug_nonl("@%s", command_name(current->parent->cmd));
-          if (current->parent->type)
-            debug_nonl("(%s)", element_type_names[current->parent->type]);
-          debug ("");
-          debug ("");
-        }
+      debug_nonl ("END LINE ");
+      debug_print_element_short (current, 1);
+      debug ("");
 
       if (*line == '\n')
         {

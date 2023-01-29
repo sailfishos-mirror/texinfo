@@ -79,14 +79,34 @@ $result_trees{'line_after_recursive_call'} = {
 '
             },
             {
-              'text' => ' xxx
-'
-            },
-            {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 3,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'fff'
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'extra' => {
+              'name' => 'mac'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'
@@ -101,12 +121,10 @@ ggg
 fff
 @end macro
 ggg
- xxx
 fff';
 
 
 $result_texts{'line_after_recursive_call'} = 'ggg
- xxx
 fff';
 
 $result_errors{'line_after_recursive_call'} = [

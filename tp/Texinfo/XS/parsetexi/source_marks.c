@@ -18,11 +18,14 @@
 #include "source_marks.h"
 #include "tree.h"
 #include "errors.h"
+/* for debugging only */
+#include "parser.h"
 
 int include_counter = 0;
 int setfilename_counter = 0;
 int delcomment_counter = 0;
 int defline_continuation_counter = 0;
+int macro_expansion_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -96,6 +99,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           defline_continuation_counter++;
           source_mark->counter = defline_continuation_counter;
         }
+      else if (source_mark->type == SM_type_macro_expansion)
+        {
+          macro_expansion_counter++;
+          source_mark->counter = macro_expansion_counter;
+        }
     }
 
   if (e->contents.number > 0)
@@ -104,7 +112,8 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       mark_element = last_child;
       /* use last_child->text.space and not last_child->text.end
          to associate to element text when the test string is set
-         but empty */
+         but empty.
+         FIXME this looks like a wrong way to do it */
       if (last_child->text.space > 0)
         {
           source_mark->location = source_mark_location_text;
@@ -118,6 +127,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       add_to_element_contents (e, mark_element);
     }
 
+  debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
+              source_mark->counter, source_mark->location,
+              source_mark->status);
+  debug_print_element_short (mark_element, 1);
+  debug("");
   add_source_mark (source_mark, mark_element);
 }
 
@@ -128,4 +142,5 @@ source_marks_reset_counters (void)
   setfilename_counter = 0;
   delcomment_counter = 0;
   defline_continuation_counter = 0;
+  macro_expansion_counter = 0;
 }

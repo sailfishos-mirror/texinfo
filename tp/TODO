@@ -24,6 +24,13 @@ XS parser uses bytes length and not number of characters in source marks.
 Could use mbrtowc, maybe through the mbslen gnulib module.  But requires
 setting the locale, may not work on windows.
 
+l 325 macro.c: instead of 1+(arg_space += 5), min (1+(arg_space + 5), 1 + args_total)
+              if (arg_number == arg_space)
+                {
+                  arg_list = realloc (arg_list,
+                                      (1+(arg_space += 5)) * sizeof (char *));
+
+
 HTML API
 ========
 

@@ -78,6 +78,26 @@ $result_trees{'macro_for_ignored_line_command'} = {
           'cmdname' => 'page'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'pagemacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],

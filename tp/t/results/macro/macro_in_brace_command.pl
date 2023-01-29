@@ -162,13 +162,69 @@ $result_trees{'macro_in_brace_command'} = {
                         {
                           'contents' => [
                             {
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'location' => 'text',
+                                  'position' => 13,
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
                               'text' => 'foo-expansion'
                             },
                             {
-                              'cmdname' => '@'
+                              'cmdname' => '@',
+                              'source_marks' => [
+                                {
+                                  'counter' => 2,
+                                  'element' => {
+                                    'args' => [
+                                      {
+                                        'text' => ''
+                                      }
+                                    ],
+                                    'extra' => {
+                                      'name' => 'abar'
+                                    },
+                                    'type' => 'macro_call'
+                                  },
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'start'
+                                }
+                              ]
                             },
                             {
+                              'source_marks' => [
+                                {
+                                  'counter' => 2,
+                                  'location' => 'text',
+                                  'position' => 13,
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
                               'text' => 'bar-expansion'
+                            }
+                          ],
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'text' => ''
+                                  }
+                                ],
+                                'extra' => {
+                                  'name' => 'foo'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'location' => 'text',
+                              'position' => 0,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
                             }
                           ],
                           'type' => 'brace_command_arg'

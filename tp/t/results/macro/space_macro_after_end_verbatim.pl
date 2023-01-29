@@ -89,6 +89,33 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'spaces'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'location' => 'text',
+                          'position' => 9,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 9,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim'
                     }
                   ],

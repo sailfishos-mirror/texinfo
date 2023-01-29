@@ -264,6 +264,26 @@ $result_trees{'complex_argument'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'macrofour'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'location' => 'text',
+                          'position' => 2,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => '4 1'
                     }
                   ],
@@ -293,6 +313,15 @@ $result_trees{'complex_argument'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '4
 '
             },
@@ -301,6 +330,26 @@ $result_trees{'complex_argument'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'macrofour'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'location' => 'text',
+                          'position' => 12,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'doubleafter 1'
                     }
                   ],
@@ -330,6 +379,15 @@ $result_trees{'complex_argument'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '4
 '
             }
@@ -516,8 +574,37 @@ $result_trees{'complex_argument'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '4
 '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 4,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrofour'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -530,6 +617,15 @@ $result_trees{'complex_argument'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '&&&& 
 '
             }
@@ -563,11 +659,38 @@ $result_trees{'complex_argument'} = {
                 'file_name' => '',
                 'line_nr' => 41,
                 'macro' => 'macroseven'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
 '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 5,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'aaa'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macroseven'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -576,6 +699,47 @@ $result_trees{'complex_argument'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => '@verb{% @macrotwo %}
+@c @macrofour
+@pagesizes 4 @macrofour{}
+@headings doubleafter @macrofour{}
+@verbatim
+@macrotwo
+@end verbatim
+@ignore
+@macrofour
+@end ignore
+@macro macroseven {truc}
+@emph{\\truc\\}
+@end macro
+macroseven defined
+@ifinfo
+@macrofour
+@end ifinfo
+@iftex
+@macrotwo{aa,bb}
+@end iftex
+@macrofour{}
+'
+              }
+            ],
+            'extra' => {
+              'name' => 'macrothree'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

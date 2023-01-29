@@ -661,6 +661,15 @@ $result_trees{'table_nested'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 12,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'After table.
 '
                 }
@@ -700,7 +709,27 @@ $result_trees{'table_nested'} = {
             'file_name' => '',
             'line_nr' => 26,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'myvtable'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'text' => '
@@ -1201,6 +1230,15 @@ $result_trees{'table_nested'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'location' => 'text',
+                      'position' => 12,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'After table.
 '
                 }
@@ -1240,7 +1278,27 @@ $result_trees{'table_nested'} = {
             'file_name' => '',
             'line_nr' => 31,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'myvtable'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'text' => '
@@ -1753,6 +1811,15 @@ $result_trees{'table_nested'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'location' => 'text',
+                          'position' => 12,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'After table.
 '
                     }
@@ -1792,7 +1859,27 @@ $result_trees{'table_nested'} = {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'myvtable'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'args' => [

@@ -336,6 +336,15 @@ $result_trees{'star_at_command_formatting'} = {
 '
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'location' => 'text',
+                  'position' => 13,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'And end para.
 '
             }
@@ -572,8 +581,37 @@ $result_trees{'star_at_command_formatting'} = {
 '
                 },
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'location' => 'text',
+                      'position' => 13,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'And end para.
 '
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mymacro'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'preformatted'
@@ -662,6 +700,26 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'text' => ' not at eol.
 '
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mymacro'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'paragraph'
@@ -848,6 +906,15 @@ $result_trees{'star_at_command_formatting'} = {
 '
                 },
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'location' => 'text',
+                      'position' => 13,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'And end para.
 '
                 }
@@ -893,6 +960,26 @@ $result_trees{'star_at_command_formatting'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'mymacro'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

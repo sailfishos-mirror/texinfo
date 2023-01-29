@@ -107,7 +107,14 @@ $result_trees{'protect_in_body_line_arg'} = {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => ' '
@@ -136,6 +143,21 @@ $result_trees{'protect_in_body_line_arg'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'extra' => {
+              'name' => 'macroone'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

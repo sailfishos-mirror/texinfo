@@ -67,5 +67,7 @@ char *element_type_names[] = {
 "delimiter",
 "spaces",
 "untranslated",
+"macro_call",
+"rmacro_call",
 
 };

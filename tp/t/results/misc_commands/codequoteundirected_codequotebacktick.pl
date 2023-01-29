@@ -486,7 +486,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => ' '
                     },
                     {
-                      'cmdname' => '*'
+                      'cmdname' => '*',
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ]
                     },
                     {
                       'text' => '
@@ -848,7 +855,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => ' '
                     },
                     {
-                      'cmdname' => '*'
+                      'cmdname' => '*',
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ]
                     },
                     {
                       'text' => '
@@ -1230,7 +1244,19 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => ' '
                     },
                     {
-                      'cmdname' => '*'
+                      'cmdname' => '*',
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        },
+                        {
+                          'counter' => 1,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ]
                     },
                     {
                       'text' => '
@@ -1272,7 +1298,81 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 'file_name' => '',
                 'line_nr' => 30,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'allquotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'args' => [
@@ -1736,7 +1836,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => ' '
             },
             {
-              'cmdname' => '*'
+              'cmdname' => '*',
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -2098,7 +2205,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => ' '
             },
             {
-              'cmdname' => '*'
+              'cmdname' => '*',
+              'source_marks' => [
+                {
+                  'counter' => 7,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -2480,7 +2594,19 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => ' '
             },
             {
-              'cmdname' => '*'
+              'cmdname' => '*',
+              'source_marks' => [
+                {
+                  'counter' => 8,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 5,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -2748,7 +2874,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => ' '
                 },
                 {
-                  'cmdname' => '*'
+                  'cmdname' => '*',
+                  'source_marks' => [
+                    {
+                      'counter' => 10,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 },
                 {
                   'text' => '
@@ -2758,6 +2891,44 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => '
 ',
                   'type' => 'empty_line'
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 9,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'allquotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 10,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'preformatted'
@@ -3110,7 +3281,14 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => ' '
                 },
                 {
-                  'cmdname' => '*'
+                  'cmdname' => '*',
+                  'source_marks' => [
+                    {
+                      'counter' => 11,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 },
                 {
                   'text' => '
@@ -3120,6 +3298,26 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => '
 ',
                   'type' => 'empty_line'
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 11,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'preformatted'
@@ -3492,11 +3690,43 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => ' '
                 },
                 {
-                  'cmdname' => '*'
+                  'cmdname' => '*',
+                  'source_marks' => [
+                    {
+                      'counter' => 12,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 9,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 },
                 {
                   'text' => '
 '
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 12,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'preformatted'
@@ -3550,7 +3780,81 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         'file_name' => '',
         'line_nr' => 43,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 5,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'allquotes'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 6,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'quotes'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 7,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'quotes'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        },
+        {
+          'counter' => 8,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'quotes'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -3835,6 +4139,60 @@ $result_sectioning{'codequoteundirected_codequotebacktick'} = {
                 }
               },
               'info' => {},
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'allquotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 6,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 7,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 8,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'quotes'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -3877,6 +4235,60 @@ $result_nodes{'codequoteundirected_codequotebacktick'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'info' => {},
+          'source_marks' => [
+            {
+              'counter' => 5,
+              'element' => {
+                'extra' => {
+                  'name' => 'allquotes'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 6,
+              'element' => {
+                'extra' => {
+                  'name' => 'quotes'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 7,
+              'element' => {
+                'extra' => {
+                  'name' => 'quotes'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 8,
+              'element' => {
+                'extra' => {
+                  'name' => 'quotes'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'structure' => {
             'section_number' => 1
           }

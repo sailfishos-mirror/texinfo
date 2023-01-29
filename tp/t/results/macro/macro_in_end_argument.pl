@@ -84,6 +84,15 @@ $result_trees{'macro_in_end_argument'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 9,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'cartouche'
                     }
                   ],
@@ -91,6 +100,26 @@ $result_trees{'macro_in_end_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'acartouche'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'location' => 'text',
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'line_arg'
                 }
               ],

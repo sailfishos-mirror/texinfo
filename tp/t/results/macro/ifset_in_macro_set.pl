@@ -96,6 +96,27 @@ $result_trees{'ifset_in_macro_set'} = {
           'type' => 'empty_line'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'arg
+'
+              }
+            ],
+            'extra' => {
+              'name' => 'note'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],

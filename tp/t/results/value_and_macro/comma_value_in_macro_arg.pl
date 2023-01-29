@@ -140,7 +140,14 @@ $result_trees{'comma_value_in_macro_arg'} = {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'macro1'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -148,6 +155,26 @@ $result_trees{'comma_value_in_macro_arg'} = {
             }
           ],
           'type' => 'paragraph'
+        }
+      ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'args' => [
+              {
+                'text' => 'arg1 @value{comma} arg2 '
+              }
+            ],
+            'extra' => {
+              'name' => 'macro1'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

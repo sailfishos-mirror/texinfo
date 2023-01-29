@@ -126,6 +126,21 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
           'type' => 'empty_line'
         }
       ],
+      'source_marks' => [
+        {
+          'counter' => 1,
+          'element' => {
+            'extra' => {
+              'name' => 'beginifset'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],

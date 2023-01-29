@@ -16,6 +16,7 @@
 #include <config.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "parser.h"
 
@@ -43,4 +44,42 @@ debug_nonl (char *s, ...)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
+}
+
+void
+debug_print_element_short (ELEMENT *e, int print_parent)
+{
+  if (e->cmd)
+    debug_nonl("@%s", command_name(e->cmd));
+  if (e->type)
+    debug_nonl("(%s)", element_type_names[e->type]);
+  if (e->text.end > 0)
+    {
+      char *end_of_line = strchr (e->text.text, '\n');
+      char *element_text = e->text.text;
+      if (end_of_line) {
+        char *p;
+        element_text = malloc ((e->text.end + 2) * sizeof(char));
+        memcpy (element_text, e->text.text, e->text.end);
+        p = element_text + (end_of_line - e->text.text);
+        *p = '\\';
+        *(p+1) = 'n';
+        *(p+2) = '\0';
+      }
+      debug_nonl ("[T: %s]", element_text);
+      if (end_of_line)
+        free (element_text);
+    }
+  if (e->args.number)
+    debug_nonl ("[A%d]", e->args.number);
+  if (e->contents.number)
+    debug_nonl ("[C%d]", e->contents.number);
+  if (print_parent && e->parent)
+    {
+      debug_nonl (" <- ");
+      if (e->parent->cmd)
+        debug_nonl("@%s", command_name(e->parent->cmd));
+      if (e->parent->type)
+        debug_nonl("(%s)", element_type_names[e->parent->type]);
+    }
 }

@@ -239,6 +239,26 @@ $result_trees{'test_image'} = {
 '
                 }
               ],
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'files-char'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'type' => 'paragraph'
             },
             {
@@ -507,6 +527,15 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'location' => 'text',
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '.
 '
                 }
@@ -987,6 +1016,15 @@ $result_trees{'test_image'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'location' => 'text',
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '.
 '
             }
@@ -1448,8 +1486,37 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'location' => 'text',
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '.
 '
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'files-char'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 0,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ],
               'type' => 'preformatted'
@@ -1929,6 +1996,15 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'location' => 'text',
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '.
 '
                 }
@@ -2353,10 +2429,39 @@ $result_trees{'test_image'} = {
                           }
                         },
                         {
+                          'source_marks' => [
+                            {
+                              'counter' => 5,
+                              'location' => 'text',
+                              'position' => 1,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
                           'text' => '.'
                         }
                       ],
                       'type' => 'paragraph'
+                    }
+                  ],
+                  'source_marks' => [
+                    {
+                      'counter' => 5,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'files-char'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'location' => 'text',
+                      'position' => 0,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
                     }
                   ],
                   'type' => 'brace_command_context'
@@ -2426,7 +2531,27 @@ $result_trees{'test_image'} = {
             'file_name' => '',
             'line_nr' => 23,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 4,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'files-char'
+                },
+                'type' => 'macro_call'
+              },
+              'location' => 'text',
+              'position' => 0,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'text' => '
@@ -2493,7 +2618,27 @@ $result_trees{'test_image'} = {
         'file_name' => '',
         'line_nr' => 12,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 2,
+          'element' => {
+            'args' => [
+              {
+                'text' => ''
+              }
+            ],
+            'extra' => {
+              'name' => 'files-char'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ]
     }
   ],
   'type' => 'document_root'
@@ -2576,7 +2721,22 @@ $result_nodes{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'source_marks' => [
+    {
+      'counter' => 2,
+      'element' => {
+        'extra' => {
+          'name' => 'files-char'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    }
+  ]
 };
 
 $result_menus{'test_image'} = {
@@ -2584,7 +2744,22 @@ $result_menus{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'source_marks' => [
+    {
+      'counter' => 2,
+      'element' => {
+        'extra' => {
+          'name' => 'files-char'
+        },
+        'type' => 'macro_call'
+      },
+      'location' => 'text',
+      'position' => 0,
+      'sourcemark_type' => 'macro_expansion',
+      'status' => 'start'
+    }
+  ]
 };
 
 $result_errors{'test_image'} = [
@@ -2838,6 +3013,21 @@ $result_floats{'test_image'} = {
         }
       },
       'info' => {},
+      'source_marks' => [
+        {
+          'counter' => 4,
+          'element' => {
+            'extra' => {
+              'name' => 'files-char'
+            },
+            'type' => 'macro_call'
+          },
+          'location' => 'text',
+          'position' => 0,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'start'
+        }
+      ],
       'structure' => {
         'float_number' => 1
       }

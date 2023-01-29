@@ -61,7 +61,7 @@ use if $] >= 5.014, re => '/a';
 #no autovivification qw(fetch delete exists store strict);
 
 # debug
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 use Data::Dumper;
 
 # to detect if an encoding may be used to open the files
@@ -1313,10 +1313,6 @@ sub _register_source_mark
     push @{$element->{'contents'}}, $mark_element;
   }
 
-  ## cannot currently happen
-  #if (!defined($mark_element)) {
-  #  return;
-  #}
   print STDERR "MARKS: $source_mark->{'sourcemark_type'} c: "
     .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
     .", ".(defined($source_mark->{'location'})
@@ -2364,7 +2360,7 @@ sub _next_text($;$)
       delete $input->{'fh'};
     }
 
-    if (defined($input->{'input_source_mark'})) {
+    if (defined($input->{'input_source_mark'}) and defined($current)) {
       my $end_source_mark
           = { 'sourcemark_type' =>
                $input->{'input_source_mark'}->{'sourcemark_type'},
@@ -2375,7 +2371,8 @@ sub _next_text($;$)
         = $input->{'input_source_mark'}->{'line'}
           if (defined($input->{'input_source_mark'}->{'line'}));
       $end_source_mark->{'status'} = 'end'
-          if ($end_source_mark->{'sourcemark_type'} eq 'include');
+          if ($end_source_mark->{'sourcemark_type'} eq 'include'
+              or $end_source_mark->{'sourcemark_type'} eq 'macro_expansion');
       _register_source_mark($self, $current,
                             $end_source_mark);
     }
@@ -2750,7 +2747,6 @@ sub _isolate_last_space
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       $current->{'info'}->{'spaces_after_argument'}
                  = $current->{'contents'}->[-1]->{'text'};
-      # FIXME transfer mark sources text to content?
       _pop_element_from_contents($current, 1);
     } else {
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
@@ -4348,6 +4344,96 @@ sub _setup_document_root_and_before_node_section()
   return ($document_root, $before_node_section);
 }
 
+sub _handle_macro($$$$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $line = shift;
+  my $source_info = shift;
+  my $command = shift;
+
+  my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
+  my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
+  my $arguments = [];
+  if ($line =~ s/^\s*{\s*//) { # macro with args
+    # FIXME keep separators information for source mark
+    ($arguments, $line, $source_info)
+     = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
+  } elsif (($args_number >= 2) or ($args_number <1)) {
+  # as agreed on the bug-texinfo mailing list, no warn when zero
+  # arg and not called with {}.
+    $self->_line_warn(sprintf(__(
+ "\@%s defined with zero or more than one argument should be invoked with {}"),
+                              $command), $source_info)
+       if ($args_number >= 2);
+  } else {
+    if ($line !~ /\n/) {
+      ($line, $source_info) = _new_line($self);
+      $line = '' if (!defined($line));
+    }
+    # FIXME keep separators information for source mark
+    $line =~ s/^\s*// if ($line =~ /\S/);
+    my $has_end_of_line = chomp $line;
+    $arguments = [$line];
+    $line = "\n" if ($has_end_of_line);
+  }
+  my $expanded = _expand_macro_body($self,
+                            $self->{'macros'}->{$command},
+                            $arguments, $source_info);
+  print STDERR "MACROBODY: $expanded".'||||||'."\n"
+    if ($self->{'DEBUG'});
+  chomp($expanded);
+
+  if ($self->{'MAX_MACRO_CALL_NESTING'}
+      and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
+    $self->_line_warn(sprintf(__(
+  "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
+                          $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+    goto funexit;
+  }
+
+  if ($expanded_macro->{'cmdname'} eq 'macro') {
+    my $found = 0;
+    foreach my $macro (@{$self->{'macro_stack'}}) {
+      if ($macro->{'args'}->[0]->{'text'} eq $command) {
+        $self->_line_error(sprintf(__(
+       "recursive call of macro %s is not allowed; use \@rmacro if needed"),
+                                   $command), $source_info);
+        $found = 1;
+        last;
+      }
+    }
+    goto funexit if ($found);
+  }
+
+  unshift @{$self->{'macro_stack'}}, $expanded_macro;
+  print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
+    if ($self->{'DEBUG'});
+  # first put the line that was interrupted by the macro call
+  # on the input pending text with information stack
+  _input_push_text($self, $line, $source_info->{'line_nr'});
+  # then put the following macro expansion lines with information on the
+  # pending text
+  _input_push_text($self, $expanded, $source_info->{'line_nr'},
+                   $expanded_macro->{'args'}->[0]->{'text'});
+  my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
+                           'status' => 'start'};
+  my $sm_macro_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
+   'extra' => {'name' => $command}};
+  if (scalar(@$arguments)) {
+    $sm_macro_element->{'args'} = [];
+    foreach my $arg (@$arguments) {
+      push @{$sm_macro_element->{'args'}}, {'text' => $arg};
+    }
+  }
+  $macro_source_mark->{'element'} = $sm_macro_element;
+  _register_source_mark($self, $current, $macro_source_mark);
+  $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
+  $line = '';
+ funexit:
+  return ($line, $source_info);
+}
+
 my $STILL_MORE_TO_PROCESS = 0;
 my $GET_A_NEW_LINE = 1;
 my $FINISHED_TOTALLY = -1;
@@ -4603,69 +4689,14 @@ sub _process_remaining_on_line($$$$)
     if ($self->{'macros'}->{$command}) {
       substr($line, 0, $at_command_length) = '';
 
-      my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
-      my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-      my $arguments = [];
-      if ($line =~ s/^\s*{\s*//) { # macro with args
-        ($arguments, $line, $source_info)
-         = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
-      } elsif (($args_number >= 2) or ($args_number <1)) {
-      # as agreed on the bug-texinfo mailing list, no warn when zero
-      # arg and not called with {}.
-        $self->_line_warn(sprintf(__(
- "\@%s defined with zero or more than one argument should be invoked with {}"),
-                                  $command), $source_info)
-           if ($args_number >= 2);
-      } else {
-        if ($line !~ /\n/) {
-          ($line, $source_info) = _new_line($self);
-          $line = '' if (!defined($line));
-        }
-        $line =~ s/^\s*// if ($line =~ /\S/);
-        my $has_end_of_line = chomp $line;
-        $arguments = [$line];
-        $line = "\n" if ($has_end_of_line);
-      }
-      my $expanded = _expand_macro_body($self,
-                                 $self->{'macros'}->{$command},
-                                 $arguments, $source_info);
-      print STDERR "MACROBODY: $expanded".'||||||'."\n"
-         if ($self->{'DEBUG'});
-      chomp($expanded);
-
-      if ($self->{'MAX_MACRO_CALL_NESTING'}
-          and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
-        $self->_line_warn(sprintf(__(
-  "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
-                              $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-        goto funexit;
-      }
-
-      if ($expanded_macro->{'cmdname'} eq 'macro') {
-        my $found = 0;
-        foreach my $macro (@{$self->{'macro_stack'}}) {
-          if ($macro->{'args'}->[0]->{'text'} eq $command) {
-            $self->_line_error(sprintf(__(
-           "recursive call of macro %s is not allowed; use \@rmacro if needed"),
-                                       $command), $source_info);
-            $found = 1;
-            last;
-          }
-        }
-        goto funexit if ($found);
-      }
-
-      unshift @{$self->{'macro_stack'}}, $expanded_macro;
-      print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
-        if ($self->{'DEBUG'});
-      # first put the line that was interrupted by the macro call
-      # on the input pending text with information stack
-      _input_push_text($self, $line, $source_info->{'line_nr'});
-      # then put the following macro expansion lines with information on the
-      # pending text
-      _input_push_text($self, $expanded, $source_info->{'line_nr'},
-                       $expanded_macro->{'args'}->[0]->{'text'});
-      $line = '';
+      # TODO check that the $line here, which is discarded right after
+      # is necessarily empty
+      ($line, $source_info)
+        = _handle_macro($self, $current, $line, $source_info, $command);
+      # FIXME this is the same as in the XS parser, and it gives somewhat better
+      # results in test cases, avoiding useless text.  But it is unclear why
+      # it is so and if it is not covering up some other bug.
+      ($line, $source_info) = _next_text($self, $current);
       goto funexit;
     }
     # expand value if it can change the line.  It considered again
@@ -4827,6 +4858,15 @@ sub _process_remaining_on_line($$$$)
            __("%c%s expects `i' or `j' as argument, not `%s'"),
                                    ord('@'), $current->{'cmdname'}, $1),
                            $source_info);
+      }
+      # FIXME this is like the XS parser, and it matters to have the contents
+      # removed here when there are source marks.  It is not clear why there
+      # are contents to begin with, nor what would be the best, remove them
+      # as is done here, or keep them as contents.  Also, in theory the
+      # elements may have text/args/contents, although never saw anything
+      # else than empty elements.
+      while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+        my $removed_element = _pop_element_from_contents($current, 1);
       }
       $current = $current->{'parent'};
     } else {
@@ -6314,6 +6354,12 @@ sub _parse_texi($$$)
         last;
       } elsif ($status == $FINISHED_TOTALLY) {
         goto finished_totally;
+      }
+      # can happen if there is macro expansion at the end of a text fragment.
+      # Not sure that it can happen otherwise.
+      if (! defined($line)) {
+        $current = _end_line($self, $current, $source_info);
+        last;
       }
     }
   }

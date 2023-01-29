@@ -98,6 +98,29 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'first arg'
+                      },
+                      {
+                        'text' => 'second arg'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 15,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => '2 simple args. result of a macro with first arg and 
 '
             }
@@ -126,6 +149,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim.'
                     }
                   ],
@@ -164,6 +196,26 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'aaa @samp{a macro , } bbb'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'comma in command. result of a macro with aaa '
             },
             {
@@ -213,6 +265,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim.'
                     }
                   ],
@@ -251,6 +312,21 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 18,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'call on the line. result of a macro with  and 
 '
             }
@@ -279,6 +355,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim my arg.'
                     }
                   ],
@@ -317,6 +402,29 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'first arg'
+                      },
+                      {
+                        'text' => '@macroone{nested second arg}'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 16,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'recursive call. result of a macro with first arg and 
 '
             }
@@ -345,6 +453,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim.'
                     }
                   ],
@@ -383,6 +500,29 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'first , arg'
+                      },
+                      {
+                        'text' => '{} \\ '
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 15,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'protect stuff. result of a macro with first , arg and 
 '
             }
@@ -411,6 +551,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 5,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim.'
                     }
                   ],
@@ -449,6 +598,33 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'arg 1
+
+now'
+                      },
+                      {
+                        'text' => 'arg3
+
+'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroone'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'location' => 'text',
+                  'position' => 16,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'multi-line arg. result of a macro with arg 1
 '
             }
@@ -501,6 +677,15 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 6,
+                          'location' => 'text',
+                          'position' => 8,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'verbatim.'
                     }
                   ],
