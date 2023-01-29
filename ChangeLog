@@ -1,5 +1,10 @@
 2023-01-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): do not
+	allocate more space than the number of macro arguments.
+
+2023-01-29  Patrice Dumas  <pertusus@free.fr>
+
 	Source mark for macro expansion
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)

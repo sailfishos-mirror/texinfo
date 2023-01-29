@@ -325,9 +325,13 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
               /* Add the last argument read to the list. */
               if (arg_number == arg_space)
                 {
-                  arg_list = realloc (arg_list,
-                                      (1+(arg_space += 5)) * sizeof (char *));
                   /* Include space for terminating null element. */
+                  size_t new_arg_space = args_total + 1;
+                  /* unless at the end, only allocate next 5 args */
+                  if (1 + arg_space + 5 < new_arg_space)
+                    new_arg_space = 1 + (arg_space += 5);
+                  arg_list = realloc (arg_list,
+                                      new_arg_space * sizeof (char *));
                   if (!arg_list)
                     fatal ("realloc failed");
                 }
