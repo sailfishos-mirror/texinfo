@@ -1,3 +1,17 @@
+2023-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix 'info (manual)slash/in/node'
+
+	* info/info.c (main, get_initial_file): Move code checking for
+	slash in argument to get_initial_file, and don't check for argument
+	as a file if it begins with '('.
+	(main): Move code adding user provided directory to INFOPATH
+	after call to get_initial_code.
+	(get_initial_file): Decrement argc as intended.
+
+	Arash Esbati <arash@gnu.org> reported that
+	"info '(latex2e)\indent & \noindent'" didn't work on Msys2.
+
 2023-01-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text),
