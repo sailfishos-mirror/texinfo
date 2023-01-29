@@ -980,7 +980,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
      plain text
      full text
-     simple text
+     basic inline
      full line
      full line no refs
 
@@ -988,8 +988,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   int ok = 0; /* Whether nesting is allowed. */
 
-  /* Whether command is a "simple text" command */
-  int simple_text_command = 0;
+  /* Whether command is a "basic inline" command */
+  int basic_inline_command = 0;
 
   enum command_id outer = current->parent->cmd;
   unsigned long outer_flags = command_data(outer).flags;
@@ -997,12 +997,12 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   // much TODO here.
 
-  if (outer_flags & CF_contain_simple_text
-      /* not in CF_contain_simple_text since index entry flags are not set
+  if (outer_flags & CF_contain_basic_inline
+      /* not in CF_contain_basic_inline since index entry flags are not set
          in command_data.txt, and also index commands are dynamically added */
       || outer_flags & CF_index_entry_command)
     {
-      simple_text_command = 1;
+      basic_inline_command = 1;
     }
 
   /* first three conditions check if in the main contents of the commands
@@ -1028,7 +1028,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       if (cmd == CM_c || cmd == CM_comment)
         ok = 1;
     }
-  else if (simple_text_command
+  else if (basic_inline_command
            /* "full text commands" */
            || (outer_flags & CF_brace)
                  && (command_data(outer).data == BRACE_style_other
@@ -1091,7 +1091,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
          text" commands on valid brace commands. */
       if (outer_flags & (CF_sectioning_heading | CF_def)
           || (!current->parent->cmd && current_context () == ct_def)
-          || simple_text_command)
+          || basic_inline_command)
         {
           if (cmd == CM_titlefont
               || cmd == CM_anchor
@@ -1101,8 +1101,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
             ok = 0;
         }
 
-      /* Exceptions for "simple text commands" only for brace commands. */
-      if (simple_text_command)
+      /* Exceptions for "basic inline commands" only for brace commands. */
+      if (basic_inline_command)
         {
           if (cmd == CM_xref
               || cmd == CM_ref

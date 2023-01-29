@@ -1,5 +1,22 @@
 2023-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Rename "simple text" commands as "basic inline" commands
+
+	* tp/Texinfo/commmand_data.txt:
+	Replace contain_simple_text flag with contain_basic_inline.
+	* tp/Texinfo/XS/parsetexi/commands.h:
+	Replace CF_contain_simple_text flag with CF_contain_basic_inline.
+	* tp/Texinfo/ParserNonXS.pm
+	(%contain_simple_text_commands, %contain_basic_inline_commands)
+	(%in_simple_text_with_refs_commands)
+	(%in_basic_inline_with_refs_commands)
+	(%in_simple_text_commands,  %in_basic_inline_commands)
+	(%simple_text_commands, %basic_inline_commands)
+	(%simple_text_with_refs_commands, %basic_inline_with_refs_commands):
+	Rename.
+
+2023-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix 'info (manual)slash/in/node'
 
 	* info/info.c (main, get_initial_file): Move code checking for

@@ -83,7 +83,7 @@ void wipe_user_commands (void);
 #define CF_close_paragraph		0x00100000
 /* for commands containing simple text only, corresponding to paragraph
    text without @ref, @footnote, @titlefont, @anchor nor @verb. */
-#define CF_contain_simple_text        	0x00200000
+#define CF_contain_basic_inline        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
 /* unused                               0x01000000 */

@@ -236,7 +236,7 @@ my %parser_default_configuration = (
 # no_paragraph_commands   the same as %default_no_paragraph_commands
 #                         below, with index
 #                         entry commands dynamically added
-# simple_text_commands    the same as %simple_text_commands below, but
+# basic_inline_commands   the same as %basic_inline_commands below, but
 #                         with index entry commands dynamically added
 # current_node            last seen node.
 # current_section         last seen section.
@@ -278,7 +278,7 @@ my %brace_commands            = %Texinfo::Commands::brace_commands;
 my %commands_args_number      = %Texinfo::Commands::commands_args_number;
 my %accent_commands           = %Texinfo::Commands::accent_commands;
 my %contain_plain_text_commands = %Texinfo::Commands::contain_plain_text_commands;
-my %contain_simple_text_commands = %Texinfo::Commands::contain_simple_text_commands;
+my %contain_basic_inline_commands = %Texinfo::Commands::contain_basic_inline_commands;
 my %block_commands            = %Texinfo::Commands::block_commands;
 my %blockitem_commands        = %Texinfo::Commands::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Commands::close_paragraph_commands;
@@ -452,17 +452,17 @@ delete $in_full_text_commands{'caption'};
 delete $in_full_text_commands{'shortcaption'};
 
 # commands that may appear inside sectioning commands
-my %in_simple_text_with_refs_commands = %in_full_text_commands;
-foreach my $not_in_simple_text_with_refs_commands ('titlefont',
+my %in_basic_inline_with_refs_commands = %in_full_text_commands;
+foreach my $not_in_basic_inline_with_refs_commands ('titlefont',
                                    'anchor', 'footnote', 'verb') {
-  delete $in_simple_text_with_refs_commands{
-                                 $not_in_simple_text_with_refs_commands};
+  delete $in_basic_inline_with_refs_commands{
+                                 $not_in_basic_inline_with_refs_commands};
 }
 
-# commands that may happen in simple text arguments
-my %in_simple_text_commands = %in_simple_text_with_refs_commands;
-foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
-  delete $in_simple_text_commands{$not_in_simple_text_command};
+# commands that are basic inline content
+my %in_basic_inline_commands = %in_basic_inline_with_refs_commands;
+foreach my $not_in_basic_inline_command('xref', 'ref', 'pxref', 'inforef') {
+  delete $in_basic_inline_commands{$not_in_basic_inline_command};
 }
 
 
@@ -470,16 +470,16 @@ foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
 # commands
 my %plain_text_commands = %contain_plain_text_commands;
 
-# commands that only accept simple text as argument in any context.
-my %simple_text_commands = %contain_simple_text_commands;
+# commands that only accept basic inline content as an argument
+my %basic_inline_commands = %contain_basic_inline_commands;
 
-my %simple_text_with_refs_commands = (%sectioning_heading_commands,
+my %basic_inline_with_refs_commands = (%sectioning_heading_commands,
                                       %def_commands);
 
 # commands that accept full text, but no block or top-level commands
 my %full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
-  next if (exists($simple_text_commands{$brace_command})
+  next if (exists($basic_inline_commands{$brace_command})
            or exists($plain_text_commands{$brace_command}));
   if ($brace_commands{$brace_command} eq 'style_code'
       or $brace_commands{$brace_command} eq 'style_other'
@@ -502,20 +502,20 @@ $full_line_commands{'itemx'} = 1;
 # There are additional context tests, to make sure, for instance that we are
 # testing @-commands on the block, line or node @-command line and not
 # in the content.
-# Index entry commands are dynamically set as %in_simple_text_commands
+# Index entry commands are dynamically set as %in_basic_inline_commands
 my %default_valid_nestings;
 
 foreach my $command (keys(%plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
-foreach my $command (keys(%simple_text_commands)) {
-  $default_valid_nestings{$command} = \%in_simple_text_commands;
+foreach my $command (keys(%basic_inline_commands)) {
+  $default_valid_nestings{$command} = \%in_basic_inline_commands;
 }
 foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
 }
-foreach my $command (keys(%simple_text_with_refs_commands)) {
-  $default_valid_nestings{$command} = \%in_simple_text_with_refs_commands;
+foreach my $command (keys(%basic_inline_with_refs_commands)) {
+  $default_valid_nestings{$command} = \%in_basic_inline_with_refs_commands;
 }
 
 # @this* commands should not appear in any line command except for
@@ -551,7 +551,7 @@ foreach my $index (keys(%index_names)) {
   my $one_letter_prefix = substr($index, 0, 1);
   foreach my $prefix ($index, $one_letter_prefix) {
     $default_no_paragraph_commands{$prefix.'index'} = 1;
-    $default_valid_nestings{$prefix.'index'} = \%in_simple_text_commands;
+    $default_valid_nestings{$prefix.'index'} = \%in_basic_inline_commands;
   }
 }
 
@@ -689,7 +689,7 @@ sub parser(;$$)
         $parser->{'line_commands'}->{$prefix.'index'} = 'line';
         $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
         $parser->{'valid_nestings'}->{$prefix.'index'}
-                                 = \%in_simple_text_commands;
+                                 = \%in_basic_inline_commands;
         $parser->{'command_index'}->{$prefix.'index'} = $index;
       }
     }
@@ -4293,9 +4293,9 @@ sub _check_valid_nesting {
         $invalid_parent = $current->{'parent'}->{'cmdname'};
       }
     } elsif ($self->_top_context() eq 'ct_def'
-      # FIXME instead of hardcoding in_simple_text_with_refs_commands
+      # FIXME instead of hardcoding in_basic_inline_with_refs_commands
       # it would be better to use the parent command valid_nesting.
-             and !$in_simple_text_with_refs_commands{$command}) {
+             and !$in_basic_inline_with_refs_commands{$command}) {
       my $def_block = $current;
       while ($def_block->{'parent'}
              and (!$def_block->{'parent'}->{'type'}
@@ -6568,7 +6568,7 @@ sub _parse_line_command_args($$$)
         }
         $self->{'line_commands'}->{$name.'index'} = 'line';
         $self->{'no_paragraph_commands'}->{$name.'index'} = 1;
-        $self->{'valid_nestings'}->{$name.'index'} = \%in_simple_text_commands;
+        $self->{'valid_nestings'}->{$name.'index'} = \%in_basic_inline_commands;
         $self->{'command_index'}->{$name.'index'} = $name;
       }
     } else {
@@ -7719,7 +7719,7 @@ forming a row.
 
 A paragraph.  The C<contents> of a paragraph (like other container
 elements for Texinfo content) are elements representing the contents of
-the paragraph in the order they occur, such as simple text elements
+the paragraph in the order they occur, such as text elements
 without a C<cmdname> or C<type>, or @-command elements for commands
 appearing in the paragraph.
 
