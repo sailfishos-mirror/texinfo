@@ -18,6 +18,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "parser.h"
 #include "text.h"
@@ -30,6 +33,20 @@ const char *digit_chars = "0123456789";
 
 // [^\S\r\n] in Perl
 const char *whitespace_chars_except_newline = " \t\v\f";
+
+/* count characters, not bytes. */
+size_t
+count_convert_u8 (char *text)
+{
+  /* FIXME error checking? */
+  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  size_t result = u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
+
+  free (resultbuf);
+
+  return result;
+}
 
 /* Check if the contents of S2 appear at S1). */
 int

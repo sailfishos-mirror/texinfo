@@ -15,6 +15,9 @@
 
 #include <config.h>
 #include <string.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "parser.h"
 #include "text.h"
@@ -201,20 +204,32 @@ split_def_args (ELEMENT *current, int starting_idx)
       char *p;
       ELEMENT *new;
       int len;
-      int current_position = 0;
-      int previous_position = 0;
+      /* count UTF-8 encoded Unicode characters for source marks locations */
+      size_t current_position = 0;
+      size_t previous_position = 0;
+      uint8_t *u8_text = 0;
+      uint8_t *u8_p;
+
       if (e->type == ET_bracketed)
         {
           isolate_last_space (e);
           e->type = ET_bracketed_def_content;
           continue;
         }
+
       if (e->text.end == 0)
         continue;
+
       p = e->text.text;
+
+      if (e->source_mark_list.number)
+        u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                            iconveh_question_mark);
+      u8_p = u8_text;
 
       while (1)
         {
+          size_t u8_len = 0;
           len = strspn (p, whitespace_chars);
           if (len)
             {
@@ -226,7 +241,13 @@ split_def_args (ELEMENT *current, int starting_idx)
               len = strcspn (p, whitespace_chars);
               new = new_element (ET_NONE);
             }
-          current_position += len;
+          if (u8_text)
+            {
+              u8_len = u8_mbsnlen (u8_p, len);
+              u8_p += u8_len;
+              current_position += u8_len;
+            }
+
           while (e->source_mark_list.number)
             {
               SOURCE_MARK *source_mark
@@ -251,6 +272,7 @@ split_def_args (ELEMENT *current, int starting_idx)
           previous_position = current_position;
         }
       destroy_element (remove_from_contents (current, i--));
+      free (u8_text);
     }
 }
 

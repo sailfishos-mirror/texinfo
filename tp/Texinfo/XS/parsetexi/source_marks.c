@@ -14,14 +14,10 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <string.h>
-#include <stdbool.h>
-#include "uniconv.h"
-#include "unistr.h"
 
 #include "source_marks.h"
 #include "tree.h"
 #include "errors.h"
-/* for debugging only */
 #include "parser.h"
 
 int include_counter = 0;
@@ -70,15 +66,6 @@ add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
       for (i = 0; i < source_mark_list->number; i++)
         add_source_mark (source_mark_list->list[i], e);
     }
-}
-
-/* count characters, not bytes. */
-size_t
-count_convert_u8 (char *text)
-{
-  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
-                                                 iconveh_question_mark);
-  return u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
 }
 
 /* ELEMENT should be the parent container.

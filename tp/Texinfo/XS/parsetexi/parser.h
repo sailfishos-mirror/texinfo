@@ -152,6 +152,7 @@ ELEMENT *handle_separator (ELEMENT *current, char separator,
                            char **line_inout);
 
 /* In parser.c */
+size_t count_convert_u8 (char *text);
 ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond);
 enum command_id pop_conditional_stack (void);
