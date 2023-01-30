@@ -124,7 +124,7 @@ deffn
 @end deffn
 '],
 ['end_of_lines_protected_non_ascii',
-undef, {'test_file' => 'end_of_lines_protected_non_ascii.texi', 'skip' => 'XS counts bytes not characters' },
+undef, {'test_file' => 'end_of_lines_protected_non_ascii.texi',},# 'skip' => 'XS counts bytes not characters' },
 ],
 ['empty_def_command',
 '@deffn empty deffn

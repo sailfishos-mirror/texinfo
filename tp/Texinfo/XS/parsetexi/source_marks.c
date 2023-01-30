@@ -14,6 +14,9 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <string.h>
+#include <stdbool.h>
+#include "uniconv.h"
+#include "unistr.h"
 
 #include "source_marks.h"
 #include "tree.h"
@@ -69,6 +72,15 @@ add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
     }
 }
 
+/* count characters, not bytes. */
+size_t
+count_convert_u8 (char *text)
+{
+  uint8_t *resultbuf = u8_strconv_from_encoding (text, "UTF-8",
+                                                 iconveh_question_mark);
+  return u8_mbsnlen (resultbuf, u8_strlen (resultbuf));
+}
+
 /* ELEMENT should be the parent container.
    The source mark is put in the last content if it is text
    or registered in the parent container. */
@@ -117,13 +129,13 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       if (last_child->text.space > 0)
         {
           source_mark->location = source_mark_location_text;
-          source_mark->position = last_child->text.end;
+          source_mark->position = count_convert_u8 (last_child->text.text);
         }
     }
   else
     {
       /* add an empty element only used for source marks */
-      mark_element = new_element(ET_NONE);
+      mark_element = new_element (ET_NONE);
       add_to_element_contents (e, mark_element);
     }
 

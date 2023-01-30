@@ -1,3 +1,9 @@
+2023-01-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/source_marks.c (count_convert_u8)
+	(register_source_mark): set the mark source position in text
+	as an index in characters, not bytes.
+
 2023-01-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): do not
