@@ -79,6 +79,10 @@ gnulib/lib/malloc/dynarray-skeleton.gl.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h
 tp/Texinfo/XS/gnulib/lib/unistd.h
+tp/Texinfo/XS/gnulib/lib/iconv.h
+tp/Texinfo/XS/gnulib/lib/stdckdint.h
+tp/Texinfo/XS/gnulib/lib/uniconv.h
+tp/Texinfo/XS/gnulib/lib/unistr.h
 
 gnulib/lib/**/.dirstamp
 
@@ -274,6 +278,8 @@ tp/Texinfo/XS/stamp-h1
 tp/Texinfo/XS/gnulib/lib/.libs
 tp/Texinfo/XS/gnulib/lib/*.lo
 tp/Texinfo/XS/gnulib/lib/libgnu.la
+tp/Texinfo/XS/gnulib/lib/uniconv/*.lo
+tp/Texinfo/XS/gnulib/lib/unistr/*.lo
 tp/Texinfo/XS/gnulib/lib/uniwidth/*.lo
 
 tp/Texinfo/XS/gnulib/lib/alloca.h
