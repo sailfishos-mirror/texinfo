@@ -552,7 +552,7 @@ store_source_mark_list (ELEMENT *e)
 #define SAVE_S_M_STATUS(X) \
            case SM_status_ ## X: \
            sv = newSVpv_utf8 (#X, 0);\
-           hv_store (source_mark, "status", strlen ("status"), sv, 0); \
+           STORE ("status", sv); \
            break;
 
           switch (s_mark->status)
@@ -564,7 +564,7 @@ store_source_mark_list (ELEMENT *e)
 #define SAVE_S_M_LOCATION(X) \
            case source_mark_location_ ## X: \
            sv = newSVpv_utf8 (#X, 0);\
-           hv_store (source_mark, "location", strlen ("location"), sv, 0); \
+           STORE ("location", sv); \
            break;
 
           switch (s_mark->location)
