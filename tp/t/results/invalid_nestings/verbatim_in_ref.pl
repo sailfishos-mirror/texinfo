@@ -198,6 +198,15 @@ $result_errors{'verbatim_in_ref'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verbatim should not appear anywhere inside @xref
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@verbatim should not appear anywhere inside @xref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@xref missing closing brace
 ',
     'file_name' => '',

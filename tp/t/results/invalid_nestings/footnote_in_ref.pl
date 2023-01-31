@@ -173,6 +173,15 @@ $result_errors{'footnote_in_ref'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @xref
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @xref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@xref missing closing brace
 ',
     'file_name' => '',

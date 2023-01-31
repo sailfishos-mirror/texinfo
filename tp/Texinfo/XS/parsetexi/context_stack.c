@@ -18,26 +18,72 @@
 
 #include "parser.h"
 
-static enum context *stack;
-static enum command_id *commands_stack;
+static enum context *context_stack;
 static size_t top; /* One above last pushed context. */
 static size_t space;
+
+/* Kept in sync with context_stack. */
+static COMMAND_STACK command_stack;
+
+/* Generic command stack functions */
+
+void
+reset_command_stack (COMMAND_STACK *stack)
+{
+  stack->top = 0;
+  stack->space = 0;
+  free (stack->stack);
+  stack->stack = 0;
+}
+
+void
+push_command (COMMAND_STACK *stack, enum command_id cmd)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (enum command_id));
+    }
+
+  stack->stack[stack->top] = cmd;
+  stack->top++;
+}
+
+enum command_id
+pop_command (COMMAND_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("command stack empty");
+
+  return stack->stack[--stack->top];
+}
+
+enum command_id
+top_command (COMMAND_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("command stack empty");
+
+  return stack->stack[stack->top - 1];
+}
+
+
+/* Context stacks */
 
 void
 reset_context_stack (void)
 {
   top = 0;
+  reset_command_stack (&command_stack);
 }
 
 void
 push_context (enum context c, enum command_id cmd)
 {
   if (top >= space)
-    {
-      stack = realloc (stack, (space += 5) * sizeof (enum context));
-      commands_stack
-        = realloc (commands_stack, (space += 5) * sizeof (enum command_id));
-    }
+    context_stack = realloc (context_stack,
+                             (space += 5) * sizeof (enum context));
 
   debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s @%s", top,
          c == ct_preformatted ? "preformatted"
@@ -45,9 +91,10 @@ push_context (enum context c, enum command_id cmd)
          : c == ct_def ? "def"
          : c == ct_brace_command ? "brace_command"
          : "", command_name(cmd));
-  stack[top] = c;
-  commands_stack[top] = cmd;
+  context_stack[top] = c;
   top++;
+
+  push_command (&command_stack, cmd);
 }
 
 enum context
@@ -56,8 +103,10 @@ pop_context ()
   if (top == 0)
     fatal ("context stack empty");
 
+  (void) pop_command (&command_stack);
+
   debug (">>>>>>>>>>>>>POPPING STACK AT %d", top - 1);
-  return stack[--top];
+  return context_stack[--top];
 }
 
 enum context
@@ -66,7 +115,7 @@ current_context (void)
   if (top == 0)
     return ct_NONE;
 
-  return stack[top - 1];
+  return context_stack[top - 1];
 }
 
 enum command_id
@@ -78,8 +127,8 @@ current_context_command (void)
     return CM_NONE;
   for (i = top -1; i >= 0; i--)
     {
-      if (commands_stack[i] != CM_NONE)
-        return commands_stack[i];
+      if (command_stack.stack[i] != CM_NONE)
+        return command_stack.stack[i];
     }
   return CM_NONE;
 }
@@ -162,10 +211,10 @@ in_preformatted_context_not_menu()
     {
       enum context ct;
       enum command_id cmd;
-      ct = stack[i];
+      ct = context_stack[i];
       if (ct != ct_line && ct != ct_preformatted)
         return 0;
-      cmd = commands_stack[i];
+      cmd = command_stack.stack[i];
       if (command_data(cmd).flags & CF_block
           && command_data(cmd).data != BLOCK_menu
           && ct == ct_preformatted)

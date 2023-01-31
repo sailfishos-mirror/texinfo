@@ -859,6 +859,15 @@ $result_errors{'spaces_in_node_names'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => '@verb should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @menu entry node name `c@ \' different from node name `c@w{  }\'
 ',
     'file_name' => '',

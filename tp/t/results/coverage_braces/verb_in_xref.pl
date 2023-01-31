@@ -183,6 +183,15 @@ $result_errors{'verb_in_xref'} = [
     'macro' => '',
     'text' => '@verb should not appear in @xref',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @xref
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@verb should not appear anywhere inside @xref',
+    'type' => 'warning'
   }
 ];
 

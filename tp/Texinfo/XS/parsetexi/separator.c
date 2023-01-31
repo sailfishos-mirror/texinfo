@@ -157,7 +157,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             }
           if (command_data(command).flags & CF_ref)
             {
-              nesting_context.xref++;
+              push_command (&nesting_context.basic_inline_stack, command);
             }
         }
       debug ("OPENED");
@@ -285,7 +285,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       else if (command_data(closed_command).flags & CF_ref)
         {
           ELEMENT *ref = current->parent;
-          nesting_context.xref--;
+          (void) pop_command (&nesting_context.basic_inline_stack);
           if (ref->args.number > 0)
             {
               if ((closed_command == CM_inforef

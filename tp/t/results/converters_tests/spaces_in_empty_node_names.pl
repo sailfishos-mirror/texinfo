@@ -694,6 +694,15 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => '@verb should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'empty node name after expansion `@ @ \'
 ',
     'file_name' => '',

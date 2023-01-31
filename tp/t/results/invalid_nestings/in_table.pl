@@ -1098,12 +1098,39 @@ $result_errors{'in_table'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @item should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 12,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @center should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 12,
     'macro' => '',
     'text' => '@center should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @center should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 12,
+    'macro' => '',
+    'text' => '@center should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @ref',
     'type' => 'warning'
   },
   {
@@ -1116,6 +1143,33 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @vtable should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => '@vtable should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
@@ -1125,12 +1179,57 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 20,
     'macro' => '',
     'text' => '@cindex should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @printindex should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 25,
+    'macro' => '',
+    'text' => '@printindex should not appear anywhere inside @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @printindex should not appear anywhere inside @ref
+',
+    'file_name' => '',
+    'line_nr' => 27,
+    'macro' => '',
+    'text' => '@printindex should not appear anywhere inside @ref',
     'type' => 'warning'
   },
   {

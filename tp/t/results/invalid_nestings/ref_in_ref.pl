@@ -150,12 +150,12 @@ $result_errors{'ref_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @ref should not appear anywhere inside cross-reference
+    'error_line' => 'warning: @ref should not appear anywhere inside @ref
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@ref should not appear anywhere inside cross-reference',
+    'text' => '@ref should not appear anywhere inside @ref',
     'type' => 'warning'
   },
   {

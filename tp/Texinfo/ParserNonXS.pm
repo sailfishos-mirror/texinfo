@@ -626,7 +626,6 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
 my %nesting_context_init = (
                          'footnote' => 0,
                          'caption' => 0,
-                         'xref' => 0
 );
 
 # Interface and internal functions for input management
@@ -657,6 +656,7 @@ sub parser(;$$)
   # other initializations
   $parser->{'definfoenclose'} = {};
   $parser->{'nesting_context'} = {%nesting_context_init};
+  $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
 
   # handle user provided state.
 
@@ -4322,11 +4322,11 @@ sub _check_valid_nesting_context
     $self->_line_warn(sprintf(
         __("\@%s should not appear anywhere inside caption"),
           $command), $source_info);
-  } elsif ($Texinfo::Commands::ref_commands{$command}
-         and $self->{'nesting_context'}->{'xref'}) {
-    $self->_line_warn(sprintf(
-        __("\@%s should not appear anywhere inside cross-reference"),
-          $command), $source_info);
+  } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack'})
+             and @{$self->{'nesting_context'}->{'basic_inline_stack'}} > 0
+             and !$in_basic_inline_commands{$command}) {
+    $invalid_context
+      = $self->{'nesting_context'}->{'basic_inline_stack'}->[-1];
   }
   $self->_line_warn(sprintf(
         __("\@%s should not appear anywhere inside \@%s"),
@@ -5813,7 +5813,8 @@ sub _process_remaining_on_line($$$$)
           }
           $self->_push_context('ct_inlineraw', $command)
             if ($command eq 'inlineraw');
-          $self->{'nesting_context'}->{'xref'} += 1
+          push @{$self->{'nesting_context'}->{'basic_inline_stack'}},
+               $command
             if ($Texinfo::Commands::ref_commands{$command});
         }
         print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
@@ -5913,7 +5914,7 @@ sub _process_remaining_on_line($$$$)
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
           my $ref = $current->{'parent'};
-          $self->{'nesting_context'}->{'xref'} -= 1;
+          pop @{$self->{'nesting_context'}->{'basic_inline_stack'}};
           if (@{$ref->{'args'}}) {
             my @args;
             for $a (@{$ref->{'args'}}) {

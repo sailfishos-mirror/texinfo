@@ -1,3 +1,33 @@
+2023-01-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Nesting context basic inline stack
+
+	* tp/Texinfo/XS/parsetexi/context_stack.h
+	(COMMAND_STACK): New type.
+	* tp/Texinfo/XS/parsetexi/context_stack.c
+	(reset_command_stack, push_command, pop_command):
+	New functions to operate on COMMAND_STACK.
+	(reset_context_stack, push_context, pop_context)
+	(current_context_command):
+	Use COMMAND_STACK for the command part of the context stack.
+
+	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
+	Replace xref counter with basic_inline_stack, which can be used
+	more generally for any command that should only contain basic
+	inline content.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
+	Call reset_command_stack on nesting_context.basic_inline_stack.
+	* tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace) <ref command>:
+	Call push_command and pop_command respectively on
+	nesting_context.basic_inline_stack
+
+	* tp/Texinfo/ParserNonXS.pm: Corresponding changes.
+	(parser): Initialise basic_inline_stack.
+	(_process_remaining_on_line) <ref commands>:
+	Push and pop basic_inline_stack.
+	(_check_valid_nesting_context): Check basic_inline_stack.
+
 2023-01-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_register_source_mark),

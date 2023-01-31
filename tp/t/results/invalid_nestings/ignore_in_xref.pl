@@ -200,6 +200,15 @@ $result_errors{'ignore_in_xref'} = [
     'macro' => '',
     'text' => '@ignore should not appear in @xref',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ignore should not appear anywhere inside @xref
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@ignore should not appear anywhere inside @xref',
+    'type' => 'warning'
   }
 ];
 

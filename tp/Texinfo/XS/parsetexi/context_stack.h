@@ -53,11 +53,23 @@ void reset_region_stack (void);
 
 
 
+typedef struct {
+  enum command_id *stack;
+  size_t top;   /* One above last pushed context. */
+  size_t space;
+} COMMAND_STACK;
+
+void reset_command_stack (COMMAND_STACK *stack);
+void push_command (COMMAND_STACK *stack, enum command_id cmd);
+enum command_id pop_command (COMMAND_STACK *stack);
+enum command_id top_command (COMMAND_STACK *stack);
+
+
 /* Used to check indirect nesting, e.g. @footnote{@emph{@footnote{...}}} */
 typedef struct {
     int footnote;
     int caption;
-    int xref;
+    COMMAND_STACK basic_inline_stack;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;

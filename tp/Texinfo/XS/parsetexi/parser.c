@@ -1170,11 +1170,35 @@ check_valid_nesting_context (enum command_id cmd)
       line_warn ("@%s should not appear anywhere inside caption",
         command_name(cmd));
     }
-  else if ((command_data(cmd).flags & CF_ref) && nesting_context.xref > 0)
+  else if (nesting_context.basic_inline_stack.top > 0)
     {
-      line_warn
-        ("@%s should not appear anywhere inside cross-reference",
-         command_name(cmd));
+      unsigned long flags = command_data(cmd).flags;
+      int data = command_data(cmd).data;
+
+      if (!((flags & (CF_accent | CF_brace))      /* inclusions */
+             || ((flags & CF_nobrace) && data == NOBRACE_symbol)
+             || cmd == CM_c
+             || cmd == CM_comment
+             || cmd == CM_refill
+             || cmd == CM_columnfractions
+             || cmd == CM_set
+             || cmd == CM_clear
+             || cmd == CM_end
+             || ((flags & CF_block)
+                && (data == BLOCK_format_raw || data == BLOCK_conditional))
+           )
+          || (flags & CF_ref)                     /* exclusions */
+          || cmd == CM_caption
+          || cmd == CM_shortcaption
+          || cmd == CM_titlefont
+          || cmd == CM_anchor
+          || cmd == CM_footnote
+          || cmd == CM_verb)
+        invalid_context = top_command (&nesting_context.basic_inline_stack);
+
+      /* FIXME: This may not match exactly the definition of a basic inline
+         command in check_valid_nesting.  We should only need to
+         define what these commands are in one place. */
     }
 
   if (invalid_context)
