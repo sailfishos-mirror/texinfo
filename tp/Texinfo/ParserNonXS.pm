@@ -236,7 +236,7 @@ my %parser_default_configuration = (
 # no_paragraph_commands   the same as %default_no_paragraph_commands
 #                         below, with index
 #                         entry commands dynamically added
-# basic_inline_commands   the same as %basic_inline_commands below, but
+# basic_inline_commands   the same as %contain_basic_inline_commands below, but
 #                         with index entry commands dynamically added
 # current_node            last seen node.
 # current_section         last seen section.
@@ -466,35 +466,28 @@ foreach my $not_in_basic_inline_command('xref', 'ref', 'pxref', 'inforef') {
 }
 
 
-# commands that only accept plain text, ie only accent, symbol and glyph
-# commands
-my %plain_text_commands = %contain_plain_text_commands;
-
-# commands that only accept basic inline content as an argument
-my %basic_inline_commands = %contain_basic_inline_commands;
-
-my %basic_inline_with_refs_commands = (%sectioning_heading_commands,
+my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
                                       %def_commands);
 
 # commands that accept full text, but no block or top-level commands
-my %full_text_commands;
+my %contain_full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
-  next if (exists($basic_inline_commands{$brace_command})
-           or exists($plain_text_commands{$brace_command}));
+  next if (exists($contain_basic_inline_commands{$brace_command})
+           or exists($contain_plain_text_commands{$brace_command}));
   if ($brace_commands{$brace_command} eq 'style_code'
       or $brace_commands{$brace_command} eq 'style_other'
       or $brace_commands{$brace_command} eq 'style_no_code') {
-    $full_text_commands{$brace_command} = 1;
+    $contain_full_text_commands{$brace_command} = 1;
   }
 }
 
 # commands that accept almost the same as in full text, except
 # what does not make sense on a line.
-my %full_line_commands;
-$full_line_commands{'center'} = 1;
-$full_line_commands{'exdent'} = 1;
-$full_line_commands{'item'} = 1;
-$full_line_commands{'itemx'} = 1;
+my %contain_full_line_commands;
+$contain_full_line_commands{'center'} = 1;
+$contain_full_line_commands{'exdent'} = 1;
+$contain_full_line_commands{'item'} = 1;
+$contain_full_line_commands{'itemx'} = 1;
 
 # Fill the valid nestings hash.  The keys are the containing commands and
 # the values arrays of commands that are allowed to occur inside those
@@ -505,16 +498,17 @@ $full_line_commands{'itemx'} = 1;
 # Index entry commands are dynamically set as %in_basic_inline_commands
 my %default_valid_nestings;
 
-foreach my $command (keys(%plain_text_commands)) {
+foreach my $command (keys(%contain_plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
-foreach my $command (keys(%basic_inline_commands)) {
+foreach my $command (keys(%contain_basic_inline_commands)) {
   $default_valid_nestings{$command} = \%in_basic_inline_commands;
 }
-foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
+foreach my $command (keys(%contain_full_text_commands),
+                     keys(%contain_full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
 }
-foreach my $command (keys(%basic_inline_with_refs_commands)) {
+foreach my $command (keys(%contain_basic_inline_with_refs_commands)) {
   $default_valid_nestings{$command} = \%in_basic_inline_with_refs_commands;
 }
 
