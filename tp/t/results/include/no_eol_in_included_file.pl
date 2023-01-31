@@ -43,7 +43,6 @@ $result_trees{'no_eol_in_included_file'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 12,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -56,7 +55,6 @@ $result_trees{'no_eol_in_included_file'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 3,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

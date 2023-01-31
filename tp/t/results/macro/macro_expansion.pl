@@ -115,7 +115,6 @@ $result_trees{'macro_expansion'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 15,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -152,7 +151,6 @@ $result_trees{'macro_expansion'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -210,7 +208,6 @@ $result_trees{'macro_expansion'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -268,7 +265,6 @@ $result_trees{'macro_expansion'} = {
                       'source_marks' => [
                         {
                           'counter' => 2,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -321,7 +317,6 @@ $result_trees{'macro_expansion'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -358,7 +353,6 @@ $result_trees{'macro_expansion'} = {
                       'source_marks' => [
                         {
                           'counter' => 3,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -419,7 +413,6 @@ $result_trees{'macro_expansion'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -456,7 +449,6 @@ $result_trees{'macro_expansion'} = {
                       'source_marks' => [
                         {
                           'counter' => 4,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -517,7 +509,6 @@ $result_trees{'macro_expansion'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 15,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -554,7 +545,6 @@ $result_trees{'macro_expansion'} = {
                       'source_marks' => [
                         {
                           'counter' => 5,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -619,7 +609,6 @@ now'
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -680,7 +669,6 @@ now'
                       'source_marks' => [
                         {
                           'counter' => 6,
-                          'location' => 'text',
                           'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'

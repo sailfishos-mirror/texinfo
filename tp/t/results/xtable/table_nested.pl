@@ -664,7 +664,6 @@ $result_trees{'table_nested'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'location' => 'text',
                       'position' => 12,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -724,8 +723,6 @@ $result_trees{'table_nested'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -1233,7 +1230,6 @@ $result_trees{'table_nested'} = {
                   'source_marks' => [
                     {
                       'counter' => 2,
-                      'location' => 'text',
                       'position' => 12,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -1293,8 +1289,6 @@ $result_trees{'table_nested'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -1814,7 +1808,6 @@ $result_trees{'table_nested'} = {
                       'source_marks' => [
                         {
                           'counter' => 3,
-                          'location' => 'text',
                           'position' => 12,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -1874,8 +1867,6 @@ $result_trees{'table_nested'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }

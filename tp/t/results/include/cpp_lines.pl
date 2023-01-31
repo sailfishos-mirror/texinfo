@@ -300,7 +300,6 @@ $result_trees{'cpp_lines'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 12,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -454,7 +453,6 @@ $result_trees{'cpp_lines'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 14,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -530,7 +528,6 @@ $result_trees{'cpp_lines'} = {
                   'macro' => ''
                 }
               },
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'start'
@@ -581,7 +578,6 @@ $result_trees{'cpp_lines'} = {
           'source_marks' => [
             {
               'counter' => 1,
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'end'
@@ -1096,8 +1092,6 @@ $result_trees{'cpp_lines'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -1114,8 +1108,6 @@ $result_trees{'cpp_lines'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }
@@ -1304,8 +1296,6 @@ $result_nodes{'cpp_lines'} = {
         },
         'type' => 'macro_call'
       },
-      'location' => 'text',
-      'position' => 0,
       'sourcemark_type' => 'macro_expansion',
       'status' => 'start'
     },
@@ -1317,8 +1307,6 @@ $result_nodes{'cpp_lines'} = {
         },
         'type' => 'macro_call'
       },
-      'location' => 'text',
-      'position' => 0,
       'sourcemark_type' => 'macro_expansion',
       'status' => 'start'
     }
@@ -1340,8 +1328,6 @@ $result_menus{'cpp_lines'} = {
         },
         'type' => 'macro_call'
       },
-      'location' => 'text',
-      'position' => 0,
       'sourcemark_type' => 'macro_expansion',
       'status' => 'start'
     },
@@ -1353,8 +1339,6 @@ $result_menus{'cpp_lines'} = {
         },
         'type' => 'macro_call'
       },
-      'location' => 'text',
-      'position' => 0,
       'sourcemark_type' => 'macro_expansion',
       'status' => 'start'
     }

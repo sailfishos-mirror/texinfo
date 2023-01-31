@@ -73,7 +73,6 @@ $result_trees{'empty_macro_argument'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -91,14 +90,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 9,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -116,14 +113,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 3,
-                  'location' => 'text',
                   'position' => 14,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -141,14 +136,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 15,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 4,
-                  'location' => 'text',
                   'position' => 19,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -233,7 +226,6 @@ $result_trees{'empty_macro_argument'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'location' => 'text',
                   'position' => 2,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -251,14 +243,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 3,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 6,
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -276,14 +266,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 6,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 7,
-                  'location' => 'text',
                   'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -301,14 +289,12 @@ $result_trees{'empty_macro_argument'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 9,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 8,
-                  'location' => 'text',
                   'position' => 12,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -334,8 +320,6 @@ $result_trees{'empty_macro_argument'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -352,8 +336,6 @@ $result_trees{'empty_macro_argument'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

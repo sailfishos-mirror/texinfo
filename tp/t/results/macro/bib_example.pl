@@ -359,7 +359,6 @@ $result_trees{'bib_example'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -3460,8 +3459,6 @@ $result_trees{'bib_example'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -3478,8 +3475,6 @@ $result_trees{'bib_example'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }
@@ -3640,7 +3635,6 @@ $result_trees{'bib_example'} = {
                       'source_marks' => [
                         {
                           'counter' => 3,
-                          'location' => 'text',
                           'position' => 10,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -3835,7 +3829,6 @@ $result_trees{'bib_example'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 33,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -3870,7 +3863,6 @@ $result_trees{'bib_example'} = {
                       'source_marks' => [
                         {
                           'counter' => 6,
-                          'location' => 'text',
                           'position' => 10,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -3893,8 +3885,6 @@ $result_trees{'bib_example'} = {
                         },
                         'type' => 'macro_call'
                       },
-                      'location' => 'text',
-                      'position' => 0,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
                     }
@@ -3923,7 +3913,6 @@ $result_trees{'bib_example'} = {
                           'source_marks' => [
                             {
                               'counter' => 7,
-                              'location' => 'text',
                               'position' => 10,
                               'sourcemark_type' => 'macro_expansion',
                               'status' => 'end'
@@ -3950,7 +3939,6 @@ $result_trees{'bib_example'} = {
                             },
                             'type' => 'macro_call'
                           },
-                          'location' => 'text',
                           'position' => 1,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'start'
@@ -4000,14 +3988,12 @@ $result_trees{'bib_example'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'location' => 'text',
                   'position' => 2,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 4,
-                  'location' => 'text',
                   'position' => 3,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -4042,8 +4028,6 @@ $result_trees{'bib_example'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -4139,8 +4123,6 @@ $result_trees{'bib_example'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }

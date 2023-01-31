@@ -147,7 +147,6 @@ $result_trees{'nested_macro_call'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 7,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -165,21 +164,18 @@ $result_trees{'nested_macro_call'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 7,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 15,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

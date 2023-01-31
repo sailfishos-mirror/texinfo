@@ -55,7 +55,6 @@ $result_trees{'end_of_lines_protected'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'location' => 'text',
                           'position' => 1,
                           'sourcemark_type' => 'defline_continuation'
                         }
@@ -82,7 +81,6 @@ $result_trees{'end_of_lines_protected'} = {
                           'source_marks' => [
                             {
                               'counter' => 2,
-                              'location' => 'text',
                               'position' => 5,
                               'sourcemark_type' => 'defline_continuation'
                             }

@@ -158,8 +158,6 @@ $result_trees{'protect_in_body_one_arg'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

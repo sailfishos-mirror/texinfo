@@ -531,7 +531,7 @@ store_source_mark_list (ELEMENT *e)
               different size"). */
           source_mark_counter = (IV) (intptr_t) s_mark->counter;
           STORE ("counter", newSViv (source_mark_counter));
-          if (s_mark->location != source_mark_location_none)
+          if (s_mark->position > 0)
             {
               source_mark_position = (IV) (intptr_t) s_mark->position;
               STORE ("position", newSViv (source_mark_position));
@@ -560,16 +560,6 @@ store_source_mark_list (ELEMENT *e)
               SAVE_S_M_STATUS (start)
               SAVE_S_M_STATUS (end)
               SAVE_S_M_STATUS (fail)
-            }
-#define SAVE_S_M_LOCATION(X) \
-           case source_mark_location_ ## X: \
-           sv = newSVpv_utf8 (#X, 0);\
-           STORE ("location", sv); \
-           break;
-
-          switch (s_mark->location)
-            {
-              SAVE_S_M_LOCATION (text)
             }
 
 #define SAVE_S_M_TYPE(X) \

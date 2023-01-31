@@ -37,7 +37,6 @@ new_source_mark (enum source_mark_type type)
   source_mark->type = type;
   source_mark->counter = -1;
   source_mark->status = SM_status_none;
-  source_mark->location = source_mark_location_none;
   return source_mark;
 }
 
@@ -109,15 +108,8 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     {
       ELEMENT *last_child = last_contents_child (e);
       mark_element = last_child;
-      /* use last_child->text.space and not last_child->text.end
-         to associate to element text when the test string is set
-         but empty.
-         FIXME this looks like a wrong way to do it */
-      if (last_child->text.space > 0)
-        {
-          source_mark->location = source_mark_location_text;
-          source_mark->position = count_convert_u8 (last_child->text.text);
-        }
+      if (last_child->text.end > 0)
+        source_mark->position = count_convert_u8 (last_child->text.text);
     }
   else
     {
@@ -127,7 +119,7 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     }
 
   debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
-              source_mark->counter, source_mark->location,
+              source_mark->counter, source_mark->position,
               source_mark->status);
   debug_print_element_short (mark_element, 1);
   debug("");

@@ -77,7 +77,6 @@ $result_trees{'recursive_call_in_argument'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -104,8 +103,6 @@ $result_trees{'recursive_call_in_argument'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

@@ -87,8 +87,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -105,8 +103,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -123,8 +119,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -141,8 +135,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -159,8 +151,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -177,8 +167,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -195,8 +183,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -213,8 +199,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -231,8 +215,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -249,8 +231,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -267,8 +247,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -285,8 +263,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -303,8 +279,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -321,8 +295,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -339,8 +311,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -357,8 +327,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -375,8 +343,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -393,8 +359,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -411,8 +375,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -429,8 +391,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -447,8 +407,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -465,8 +423,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -483,8 +439,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -501,8 +455,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -519,8 +471,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -537,8 +487,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -555,8 +503,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -573,8 +519,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -591,8 +535,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -609,8 +551,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -627,8 +567,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -645,8 +583,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -663,8 +599,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -681,8 +615,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -699,8 +631,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -717,8 +647,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -735,8 +663,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -753,8 +679,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -771,8 +695,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -789,8 +711,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -807,8 +727,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -825,8 +743,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -843,8 +759,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -861,8 +775,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -879,8 +791,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -897,8 +807,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -915,8 +823,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -933,8 +839,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -951,8 +855,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -969,8 +871,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -987,8 +887,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1005,8 +903,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1023,8 +919,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1041,8 +935,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1059,8 +951,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1077,8 +967,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1095,8 +983,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1113,8 +999,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1131,8 +1015,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1149,8 +1031,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1167,8 +1047,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1185,8 +1063,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1203,8 +1079,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1221,8 +1095,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1239,8 +1111,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1257,8 +1127,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1275,8 +1143,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1293,8 +1159,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1311,8 +1175,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1329,8 +1191,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1347,8 +1207,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1365,8 +1223,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1383,8 +1239,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1401,8 +1255,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1419,8 +1271,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1437,8 +1287,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1455,8 +1303,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1473,8 +1319,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1491,8 +1335,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1509,8 +1351,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1527,8 +1367,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1545,8 +1383,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1563,8 +1399,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1581,8 +1415,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1599,8 +1431,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1617,8 +1447,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1635,8 +1463,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1653,8 +1479,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1671,8 +1495,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1689,8 +1511,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1707,8 +1527,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1725,8 +1543,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1743,8 +1559,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1761,8 +1575,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1779,8 +1591,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1797,8 +1607,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1815,8 +1623,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1833,8 +1639,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1851,8 +1655,6 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1869,708 +1671,506 @@ $result_trees{'recursive_call_in_rmacro'} = {
                 },
                 'type' => 'rmacro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
             {
               'counter' => 100,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 99,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 98,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 97,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 96,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 95,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 94,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 93,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 92,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 91,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 90,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 89,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 88,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 87,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 86,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 85,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 84,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 83,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 82,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 81,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 80,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 79,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 78,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 77,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 76,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 75,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 74,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 73,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 72,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 71,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 70,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 69,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 68,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 67,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 66,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 65,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 64,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 63,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 62,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 61,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 60,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 59,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 58,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 57,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 56,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 55,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 54,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 53,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 52,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 51,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 50,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 49,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 48,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 47,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 46,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 45,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 44,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 43,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 42,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 41,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 40,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 39,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 38,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 37,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 36,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 35,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 34,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 33,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 32,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 31,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 30,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 29,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 28,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 27,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 26,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 25,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 24,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 23,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 22,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 21,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 20,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 19,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 18,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 17,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 16,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 15,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 14,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 13,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 12,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 11,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 10,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 9,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 8,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 7,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 6,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 5,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 4,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 3,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 2,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             },
             {
               'counter' => 1,
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
             }

@@ -181,7 +181,6 @@ $result_trees{'two_macros_on_a_line'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -199,14 +198,12 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 21,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -230,8 +227,6 @@ $result_trees{'two_macros_on_a_line'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -271,7 +266,6 @@ $result_trees{'two_macros_on_a_line'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'location' => 'text',
                   'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -289,14 +283,12 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 4,
-                  'location' => 'text',
                   'position' => 21,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -315,8 +307,6 @@ $result_trees{'two_macros_on_a_line'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -356,7 +346,6 @@ $result_trees{'two_macros_on_a_line'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'location' => 'text',
                   'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -369,14 +358,12 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 6,
-                  'location' => 'text',
                   'position' => 21,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -400,8 +387,6 @@ $result_trees{'two_macros_on_a_line'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -449,8 +434,6 @@ in macro'
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -472,7 +455,6 @@ in macro'
               'source_marks' => [
                 {
                   'counter' => 7,
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -490,14 +472,12 @@ in macro'
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 6,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 8,
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

@@ -182,7 +182,6 @@ $result_trees{'macro_in_ifset_set'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -209,8 +208,6 @@ $result_trees{'macro_in_ifset_set'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

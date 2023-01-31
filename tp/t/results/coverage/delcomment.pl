@@ -102,8 +102,6 @@ $result_trees{'delcomment'} = {
                   'counter' => 1,
                   'line' => ' this is a comment.
 ',
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'delcomment'
                 }
               ],

@@ -110,7 +110,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                           'source_marks' => [
                             {
                               'counter' => 1,
-                              'location' => 'text',
                               'position' => 6,
                               'sourcemark_type' => 'macro_expansion',
                               'status' => 'end'
@@ -164,7 +163,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 7,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -191,8 +189,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -209,8 +205,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

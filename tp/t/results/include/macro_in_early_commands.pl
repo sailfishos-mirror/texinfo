@@ -132,7 +132,6 @@ $result_trees{'macro_in_early_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'location' => 'text',
                       'position' => 13,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -150,14 +149,12 @@ $result_trees{'macro_in_early_commands'} = {
                         },
                         'type' => 'macro_call'
                       },
-                      'location' => 'text',
                       'position' => 13,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
                     },
                     {
                       'counter' => 2,
-                      'location' => 'text',
                       'position' => 31,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -184,7 +181,6 @@ $result_trees{'macro_in_early_commands'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -335,7 +331,6 @@ $result_trees{'macro_in_early_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 4,
-                      'location' => 'text',
                       'position' => 10,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -351,8 +346,6 @@ $result_trees{'macro_in_early_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
@@ -369,7 +362,6 @@ $result_trees{'macro_in_early_commands'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -471,8 +463,6 @@ $result_trees{'macro_in_early_commands'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }
@@ -560,7 +550,6 @@ $result_trees{'macro_in_early_commands'} = {
                           },
                           'type' => 'macro_call'
                         },
-                        'location' => 'text',
                         'position' => 1,
                         'sourcemark_type' => 'macro_expansion',
                         'status' => 'start'
@@ -582,7 +571,6 @@ $result_trees{'macro_in_early_commands'} = {
                   'macro' => ''
                 }
               },
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'start'
@@ -660,7 +648,6 @@ $result_trees{'macro_in_early_commands'} = {
                         'source_marks' => [
                           {
                             'counter' => 5,
-                            'location' => 'text',
                             'position' => 13,
                             'sourcemark_type' => 'macro_expansion',
                             'status' => 'end'
@@ -700,7 +687,6 @@ $result_trees{'macro_in_early_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
@@ -723,7 +709,6 @@ $result_trees{'macro_in_early_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -762,7 +747,6 @@ $result_trees{'macro_in_early_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 7,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -786,8 +770,6 @@ $result_trees{'macro_in_early_commands'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -818,8 +800,6 @@ $result_trees{'macro_in_early_commands'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }
@@ -911,8 +891,6 @@ $result_sectioning{'macro_in_early_commands'} = {
               },
               'type' => 'macro_call'
             },
-            'location' => 'text',
-            'position' => 0,
             'sourcemark_type' => 'macro_expansion',
             'status' => 'start'
           }
@@ -944,8 +922,6 @@ $result_nodes{'macro_in_early_commands'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

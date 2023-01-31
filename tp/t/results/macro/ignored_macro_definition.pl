@@ -116,7 +116,6 @@ $result_trees{'ignored_macro_definition'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 7,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -143,8 +142,6 @@ $result_trees{'ignored_macro_definition'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

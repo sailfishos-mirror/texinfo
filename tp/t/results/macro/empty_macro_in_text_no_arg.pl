@@ -78,14 +78,12 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -167,14 +165,12 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

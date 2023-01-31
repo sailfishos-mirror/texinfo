@@ -531,7 +531,6 @@ $result_trees{'glossary'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -727,7 +726,6 @@ $result_trees{'glossary'} = {
                           'source_marks' => [
                             {
                               'counter' => 2,
-                              'location' => 'text',
                               'position' => 5,
                               'sourcemark_type' => 'macro_expansion',
                               'status' => 'end'
@@ -990,7 +988,6 @@ $result_trees{'glossary'} = {
                           'source_marks' => [
                             {
                               'counter' => 4,
-                              'location' => 'text',
                               'position' => 5,
                               'sourcemark_type' => 'macro_expansion',
                               'status' => 'end'
@@ -1056,8 +1053,6 @@ $result_trees{'glossary'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1080,8 +1075,6 @@ $result_trees{'glossary'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1098,8 +1091,6 @@ $result_trees{'glossary'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -1197,7 +1188,6 @@ $result_trees{'glossary'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -1250,8 +1240,6 @@ $result_trees{'glossary'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -1263,8 +1251,6 @@ $result_trees{'glossary'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }
@@ -1430,8 +1416,6 @@ $result_sectioning{'glossary'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
@@ -1443,8 +1427,6 @@ $result_sectioning{'glossary'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
-                  'position' => 0,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
@@ -1505,8 +1487,6 @@ $result_nodes{'glossary'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             },
@@ -1518,8 +1498,6 @@ $result_nodes{'glossary'} = {
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }

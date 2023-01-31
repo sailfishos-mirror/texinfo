@@ -77,7 +77,6 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'location' => 'text',
                           'position' => 1,
                           'sourcemark_type' => 'defline_continuation'
                         }
@@ -227,7 +226,6 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'source_marks' => [
                         {
                           'counter' => 2,
-                          'location' => 'text',
                           'position' => 2,
                           'sourcemark_type' => 'defline_continuation'
                         }

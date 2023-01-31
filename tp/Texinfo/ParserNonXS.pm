@@ -1294,8 +1294,7 @@ sub _register_source_mark
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
     $mark_element = $current;
-    if (exists ($current->{'text'})) {
-      $source_mark->{'location'} = 'text';
+    if (defined($current->{'text'}) and $current->{'text'} ne '') {
       $source_mark->{'position'} = length($current->{'text'});
     }
     #print STDERR "source_mark: element: "
@@ -1315,8 +1314,8 @@ sub _register_source_mark
 
   print STDERR "MARKS: $source_mark->{'sourcemark_type'} c: "
     .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
-    .", ".(defined($source_mark->{'location'})
-             ? $source_mark->{'location'}: 'UNDEF')." "
+    .", ".(defined($source_mark->{'position'})
+             ? $source_mark->{'position'}: 'UNDEF')." "
      .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF')
      .' '.Texinfo::Common::debug_print_element_short($mark_element)."\n"
         if ($self->{'DEBUG'});

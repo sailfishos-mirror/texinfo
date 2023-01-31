@@ -133,7 +133,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
               'counter' => 2,
               'line' => ' this is a comment.
 ',
-              'location' => 'text',
               'position' => 2,
               'sourcemark_type' => 'delcomment'
             }
@@ -181,7 +180,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
                   'counter' => 3,
                   'line' => ' this is a comment.
 ',
-                  'location' => 'text',
                   'position' => 2,
                   'sourcemark_type' => 'delcomment'
                 }
@@ -217,8 +215,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'counter' => 1,
           'line' => ' this is a comment.
 ',
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'delcomment'
         }
       ],

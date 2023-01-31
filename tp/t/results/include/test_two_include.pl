@@ -43,7 +43,6 @@ $result_trees{'test_two_include'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -267,7 +266,6 @@ $result_trees{'test_two_include'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 17,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -280,7 +278,6 @@ $result_trees{'test_two_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

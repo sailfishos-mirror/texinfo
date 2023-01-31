@@ -152,8 +152,6 @@ arg}
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }
@@ -164,7 +162,6 @@ arg}
           'source_marks' => [
             {
               'counter' => 1,
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
@@ -189,7 +186,6 @@ arg}
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 72,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -213,8 +209,6 @@ arg}
                 },
                 'type' => 'macro_call'
               },
-              'location' => 'text',
-              'position' => 0,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
             }

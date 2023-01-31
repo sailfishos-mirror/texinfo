@@ -95,7 +95,6 @@ $result_trees{'protect_in_body'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'

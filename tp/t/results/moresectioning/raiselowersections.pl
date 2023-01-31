@@ -482,7 +482,6 @@ $result_trees{'raiselowersections'} = {
                   'macro' => ''
                 }
               },
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'start'
@@ -952,7 +951,6 @@ $result_trees{'raiselowersections'} = {
           'source_marks' => [
             {
               'counter' => 1,
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'end'

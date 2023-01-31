@@ -73,7 +73,6 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -95,8 +94,6 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

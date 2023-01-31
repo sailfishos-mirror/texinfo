@@ -49,7 +49,6 @@ $result_trees{'double_include'} = {
                                 'macro' => ''
                               }
                             },
-                            'location' => 'text',
                             'position' => 14,
                             'sourcemark_type' => 'include',
                             'status' => 'start'
@@ -77,7 +76,6 @@ $result_trees{'double_include'} = {
                   'macro' => ''
                 }
               },
-              'location' => 'text',
               'position' => 1,
               'sourcemark_type' => 'include',
               'status' => 'start'
@@ -93,7 +91,6 @@ $result_trees{'double_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
@@ -106,7 +103,6 @@ $result_trees{'double_include'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

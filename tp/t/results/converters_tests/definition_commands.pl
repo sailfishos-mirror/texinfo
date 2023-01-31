@@ -10727,7 +10727,6 @@ $result_trees{'definition_commands'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'location' => 'text',
                           'position' => 1,
                           'sourcemark_type' => 'defline_continuation'
                         }

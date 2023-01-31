@@ -48,7 +48,6 @@ $result_trees{'simple_no_eol'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

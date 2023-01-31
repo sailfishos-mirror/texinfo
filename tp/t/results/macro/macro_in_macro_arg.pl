@@ -222,14 +222,12 @@ $result_trees{'macro_in_macro_arg'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 3,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 3,
-                  'location' => 'text',
                   'position' => 34,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -242,7 +240,6 @@ $result_trees{'macro_in_macro_arg'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -269,8 +266,6 @@ $result_trees{'macro_in_macro_arg'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -287,8 +282,6 @@ $result_trees{'macro_in_macro_arg'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

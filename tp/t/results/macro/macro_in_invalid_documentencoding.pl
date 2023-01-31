@@ -70,7 +70,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'location' => 'text',
                       'position' => 4,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
@@ -97,7 +96,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'

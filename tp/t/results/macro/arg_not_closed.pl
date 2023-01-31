@@ -89,14 +89,12 @@ $result_trees{'arg_not_closed'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 5,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

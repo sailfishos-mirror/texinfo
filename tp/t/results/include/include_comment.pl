@@ -64,7 +64,6 @@ $result_trees{'include_comment'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

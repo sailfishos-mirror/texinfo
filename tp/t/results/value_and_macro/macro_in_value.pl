@@ -117,7 +117,6 @@ $result_trees{'macro_in_value'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
@@ -140,7 +139,6 @@ $result_trees{'macro_in_value'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

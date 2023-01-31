@@ -110,7 +110,6 @@ $result_trees{'protect_comma_macro_line'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 31,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -137,8 +136,6 @@ $result_trees{'protect_comma_macro_line'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

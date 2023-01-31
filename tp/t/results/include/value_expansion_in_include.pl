@@ -189,7 +189,6 @@ $result_trees{'value_expansion_in_include'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 17,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -219,7 +218,6 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 36,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
@@ -317,7 +315,6 @@ $result_trees{'value_expansion_in_include'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -347,7 +344,6 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 36,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
@@ -445,7 +441,6 @@ $result_trees{'value_expansion_in_include'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -475,7 +470,6 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'location' => 'text',
                   'position' => 36,
                   'sourcemark_type' => 'include',
                   'status' => 'end'

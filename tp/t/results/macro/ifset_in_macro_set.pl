@@ -111,8 +111,6 @@ $result_trees{'ifset_in_macro_set'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

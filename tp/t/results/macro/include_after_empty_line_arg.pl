@@ -125,7 +125,6 @@ $result_trees{'include_after_empty_line_arg'} = {
                       'macro' => ''
                     }
                   },
-                  'location' => 'text',
                   'position' => 1,
                   'sourcemark_type' => 'include',
                   'status' => 'start'
@@ -138,7 +137,6 @@ $result_trees{'include_after_empty_line_arg'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 18,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
@@ -165,8 +163,6 @@ $result_trees{'include_after_empty_line_arg'} = {
             },
             'type' => 'macro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

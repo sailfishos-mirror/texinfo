@@ -81,42 +81,36 @@ $result_trees{'implicit_quoting_recursion'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'location' => 'text',
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 5,
-                  'location' => 'text',
                   'position' => 6,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 4,
-                  'location' => 'text',
                   'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 3,
-                  'location' => 'text',
                   'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 2,
-                  'location' => 'text',
                   'position' => 13,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 16,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
@@ -146,8 +140,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -167,8 +159,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -188,8 +178,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -209,8 +197,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -230,8 +216,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         },
@@ -251,8 +235,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             },
             'type' => 'rmacro_call'
           },
-          'location' => 'text',
-          'position' => 0,
           'sourcemark_type' => 'macro_expansion',
           'status' => 'start'
         }

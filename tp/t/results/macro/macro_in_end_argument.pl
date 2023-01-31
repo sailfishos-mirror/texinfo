@@ -87,7 +87,6 @@ $result_trees{'macro_in_end_argument'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'location' => 'text',
                           'position' => 9,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
@@ -114,7 +113,6 @@ $result_trees{'macro_in_end_argument'} = {
                         },
                         'type' => 'macro_call'
                       },
-                      'location' => 'text',
                       'position' => 1,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'

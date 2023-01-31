@@ -800,14 +800,12 @@ $result_trees{'at_commands_in_raw'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'location' => 'text',
                   'position' => 20,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'location' => 'text',
                   'position' => 31,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'

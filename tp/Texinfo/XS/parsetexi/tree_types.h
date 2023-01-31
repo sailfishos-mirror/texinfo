@@ -50,10 +50,6 @@ enum source_mark_type { SM_type_none,
                         SM_type_macro_expansion
 };
 
-enum source_mark_location { source_mark_location_none,
-                            source_mark_location_text
-};
-
 enum source_mark_status {
     SM_status_none,
     SM_status_start,
@@ -88,7 +84,6 @@ typedef struct ASSOCIATED_INFO {
 typedef struct SOURCE_MARK {
     enum source_mark_type type;
     enum source_mark_status status;
-    enum source_mark_location location;
     size_t position;
     int counter;
     struct ELEMENT *element; /* needed for elements removed
