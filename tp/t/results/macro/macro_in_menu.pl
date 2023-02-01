@@ -519,12 +519,6 @@ $result_trees{'macro_in_menu'} = {
                       },
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
-                    },
-                    {
-                      'counter' => 4,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
                     }
                   ],
                   'type' => 'preformatted'
@@ -535,6 +529,14 @@ $result_trees{'macro_in_menu'} = {
             {
               'args' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
@@ -575,29 +577,6 @@ $result_trees{'macro_in_menu'} = {
                           },
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'start'
-                        },
-                        {
-                          'counter' => 5,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 6,
-                          'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
-                            'extra' => {
-                              'name' => 'aspace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
                         }
                       ],
                       'type' => 'preformatted'
@@ -625,6 +604,31 @@ $result_trees{'macro_in_menu'} = {
             {
               'args' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 5,
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 6,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aspace'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },

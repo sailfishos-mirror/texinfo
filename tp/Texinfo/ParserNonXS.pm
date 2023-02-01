@@ -4895,11 +4895,7 @@ sub _process_remaining_on_line($$$$)
     } else {
       print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
       # this is the menu star collected previously
-      # FIXME this should lead to readding an empty element for
-      # source marks and source marks not to be well placed.
-      # Instead source marks should be transferred directly to
-      # menu_entry_leading_text
-      _pop_element_from_contents($self, $current, 1);
+      my $menu_star_element = _pop_element_from_contents($self, $current);
       $line =~ s/^(\s+)//;
       my $leading_text = '*' . $1;
       # FIXME remove empty description too?  In that case there won't be
@@ -4942,6 +4938,11 @@ sub _process_remaining_on_line($$$$)
                                'parent' => $current },
                              { 'type' => 'menu_entry_name',
                                'parent' => $current } ];
+      # transfer source marks from removed menu star to leading text
+      if ($menu_star_element->{'source_marks'}) {
+        _add_source_marks($menu_star_element->{'source_marks'},
+                          $current->{'args'}->[0]);
+      }
       $current = $current->{'args'}->[-1];
     }
   # after a separator in menu

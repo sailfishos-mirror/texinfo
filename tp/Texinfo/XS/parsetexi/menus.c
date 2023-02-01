@@ -22,6 +22,7 @@
 #include "text.h"
 #include "convert.h"
 #include "labels.h"
+#include "source_marks.h"
 
 /* Save 'menu_entry_name' 'menu_entry_node', and 'menu_entry_description'
    extra keys on the top-level @menu element. */
@@ -123,12 +124,15 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
            && last_contents_child(current)->type == ET_internal_menu_star)
     {
       ELEMENT *menu_entry, *leading_text, *entry_name;
+      ELEMENT *menu_star_element;
       int leading_spaces;
 
       debug ("MENU ENTRY (certainly)");
-      leading_spaces = strspn (line, whitespace_chars);
 
-      destroy_element (pop_element_from_contents (current, 1));
+      /* this is the menu star collected previously */
+      menu_star_element = pop_element_from_contents (current, 0);
+
+      leading_spaces = strspn (line, whitespace_chars);
 
       if (current->type == ET_preformatted
           && current->parent->type == ET_menu_comment)
@@ -160,6 +164,10 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
 
       menu_entry = new_element (ET_menu_entry);
       leading_text = new_element (ET_menu_entry_leading_text);
+      /* transfer source marks from removed menu star to leading text */
+      add_source_marks (&menu_star_element->source_mark_list, leading_text);
+      menu_star_element->source_mark_list.number = 0;
+      destroy_element (menu_star_element);
       entry_name = new_element (ET_menu_entry_name);
       add_to_element_contents (current, menu_entry);
       add_to_element_args (menu_entry, leading_text);
