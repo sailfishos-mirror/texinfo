@@ -300,11 +300,7 @@ $result_trees{'macro_in_accent'} = {
                           },
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'start'
-                        }
-                      ]
-                    },
-                    {
-                      'source_marks' => [
+                        },
                         {
                           'counter' => 4,
                           'position' => 1,

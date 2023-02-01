@@ -61,7 +61,8 @@ $result_trees{'include_space_comment'} = {
               'sourcemark_type' => 'include',
               'status' => 'start'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'contents' => [

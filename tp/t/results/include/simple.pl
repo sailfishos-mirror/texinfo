@@ -48,7 +48,8 @@ $result_trees{'simple'} = {
               'sourcemark_type' => 'include',
               'status' => 'start'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'contents' => [

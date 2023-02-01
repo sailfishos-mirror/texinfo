@@ -48,7 +48,8 @@ $result_trees{'macro_definition_in_include'} = {
               'sourcemark_type' => 'include',
               'status' => 'start'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'args' => [

@@ -1641,7 +1641,8 @@ $result_trees{'macro_in_misc_commands'} = {
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
                     }
-                  ]
+                  ],
+                  'text' => ''
                 }
               ],
               'source_info' => {
@@ -1775,7 +1776,8 @@ $result_trees{'macro_in_misc_commands'} = {
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
                     }
-                  ]
+                  ],
+                  'text' => ''
                 }
               ],
               'extra' => {

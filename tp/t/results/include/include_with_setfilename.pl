@@ -84,7 +84,8 @@ $result_trees{'include_with_setfilename'} = {
               },
               'sourcemark_type' => 'setfilename'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'text' => '

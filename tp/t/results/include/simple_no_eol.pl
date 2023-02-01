@@ -42,7 +42,8 @@ $result_trees{'simple_no_eol'} = {
               'sourcemark_type' => 'include',
               'status' => 'start'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'contents' => [

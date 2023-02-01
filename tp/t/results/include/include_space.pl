@@ -48,7 +48,8 @@ $result_trees{'include_space'} = {
               'sourcemark_type' => 'include',
               'status' => 'start'
             }
-          ]
+          ],
+          'text' => ''
         },
         {
           'contents' => [

@@ -1302,7 +1302,8 @@ sub _place_source_mark
     }
   } else {
     # add an empty element only used for source marks
-    $mark_element = {'parent' => $element};
+    # 'text' is here to have merge_text work as expected
+    $mark_element = {'parent' => $element, 'text' => ''};
     $element->{'contents'} = [] unless (defined($element->{'contents'}));
     push @{$element->{'contents'}}, $mark_element;
     $add_element = 'add';
