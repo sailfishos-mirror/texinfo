@@ -26,11 +26,6 @@ $result_trees{'raw_block_on_line'} = {
                     }
                   ],
                   'cmdname' => 'tex',
-                  'contents' => [
-                    {
-                      'type' => 'rawpreformatted'
-                    }
-                  ],
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,

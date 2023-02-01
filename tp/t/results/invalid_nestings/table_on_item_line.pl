@@ -69,11 +69,6 @@ $result_trees{'table_on_item_line'} = {
                                 }
                               ],
                               'cmdname' => 'table',
-                              'contents' => [
-                                {
-                                  'type' => 'before_item'
-                                }
-                              ],
                               'extra' => {
                                 'command_as_argument' => {}
                               },

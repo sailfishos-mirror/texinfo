@@ -24,9 +24,6 @@ check that there is a test of something like
 
 @syncodeindex@cpfn{}
 
-Also check that the situation of the following fixme is tested:
-# FIXME element popped here may be readded if it contains a source mark
-
 Same for
 # FIXME transfer source marks
 
@@ -34,9 +31,8 @@ Source marks of element popped can lead to empty element readded for the source
 mark leading to an infinite loop. Such a situation should maybe be handled in
 _pop_element_from_contents
 
-Test for the case of
-          # FIXME not sure that it is possible to have source marks, nor
-          # that they will be correctly placed
+Check position in t/*macro.t macro_in_menu starspaces macro expansion
+          # FIXME check if correctly placed
 
 Test for the case of
 # FIXME check with source mark as it could be problematic
@@ -44,10 +40,6 @@ Test for the case of
 Test for the case of
       # FIXME check that there is a test case for this situation with
       # a source mark
-
-Test for the case of
-      # FIXME check whether a source mark can happen here and if it is
-      # correctly handled
 
 Test for the cases of (but how to be sure that all possibilities are tested?)
       # FIXME if first in parent and with source mark, this

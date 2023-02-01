@@ -335,6 +335,7 @@ close_current (ELEMENT *current,
   else if (current->type != ET_NONE)
     {
       enum context c;
+      ELEMENT *element_to_remove = 0;
       debug ("CLOSING type %s", element_type_names[current->type]);
       switch (current->type)
         {
@@ -347,20 +348,6 @@ close_current (ELEMENT *current,
               /* remove spaces element from tree and update extra values */
               abort_empty_line (&current, 0);
            }
-          current = current->parent;
-
-          break;
-        case ET_menu_comment:
-        case ET_menu_entry_description:
-          /* Remove empty menu_comment */
-          if (current->type == ET_menu_comment
-              && current->contents.number == 0)
-            {
-              current = current->parent;
-              destroy_element (pop_element_from_contents (current, 1));
-            }
-          else
-            current = current->parent;
 
           break;
         case ET_line_arg:
@@ -375,7 +362,6 @@ close_current (ELEMENT *current,
                  we close the command too. */
               end_line_misc_line (current);
             }
-          current = current->parent;
 
           break;
         case ET_block_line_arg:
@@ -388,11 +374,25 @@ close_current (ELEMENT *current,
             {
               end_line_starting_block (current);
             }
-          current = current->parent;
+
           break;
         default:
-          current = current->parent;
+
           break;
+        }
+      /* remove element without contents nor associated information */
+      if (current->contents.number == 0
+          && current->args.number == 0
+          && current->text.end == 0
+          && current->info_info->info_number == 0
+          && current->source_mark_list.number == 0)
+        element_to_remove = current;
+      current = current->parent;
+      if (element_to_remove)
+        {
+          ELEMENT *last_child = last_contents_child (current);
+          if (last_child == element_to_remove)
+            destroy_element (pop_element_from_contents (current, 0));
         }
     }
   else

@@ -2058,16 +2058,6 @@ sub _close_current($$$;$$)
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
-    } elsif ($current->{'type'} eq 'menu_comment'
-             or $current->{'type'} eq 'menu_entry_description') {
-      # Remove empty menu_comment
-      # FIXME check whether a source mark can happen here and if it is
-      # correctly handled
-      if ($current->{'type'} eq 'menu_comment'
-          and (!$current->{'contents'}
-               or !scalar(@{$current->{'contents'}}))) {
-        _pop_element_from_contents($self, $current->{'parent'}, 1);
-      }
     } elsif ($current->{'parent'}
              and $current->{'parent'}->{'type'}
              and $current->{'parent'}->{'type'} eq 'def_line') {
@@ -2083,7 +2073,22 @@ sub _close_current($$$;$$)
     # empty types, not closed or associated to a command that is not closed
     delete $current->{'contents'}
       if ($current->{'contents'} and !@{$current->{'contents'}});
+    # remove element without contents nor associated information
+    my $element_to_remove;
+    if (not $current->{'contents'}
+        and not $current->{'args'}
+        and (not defined($current->{'text'}) or $current->{'text'} eq '')
+        and not $current->{'info'}
+        and (not $current->{'source_marks'}
+             or not scalar(@{$current->{'source_marks'}}))) {
+      $element_to_remove = $current;
+    }
     $current = $current->{'parent'};
+    _pop_element_from_contents($self, $current)
+      if ($element_to_remove
+          and $current->{'contents'}
+          and scalar(@{$current->{'contents'}})
+          and $current->{'contents'}->[-1] eq $element_to_remove);
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
     $self->_bug_message("No type nor cmdname when closing",
@@ -3366,19 +3371,6 @@ sub _end_line_misc_line($$$)
     # Reparent the "@end" element to be a child of the block element.
     my $end = _pop_element_from_contents($self, $current);
     if ($block_commands{$end_command} ne 'conditional') {
-      # here close some empty types.  Typically empty preformatted
-      # that would have been closed anyway in _close_commands, but
-      # also other types (rawpreformatted, before_item), some which
-      # may also have been closed anyway.
-      if (not defined($current->{'cmdname'}) and $current->{'type'}
-          and !$current->{'contents'}
-          and $current->{'parent'}) {
-        # FIXME element popped here may be readded if it contains a source mark
-        my $removed = _pop_element_from_contents($self, $current->{'parent'}, 1);
-        print STDERR "popping at end command $end_command: $removed->{'type'}\n"
-         if ($self->{'DEBUG'});
-        $current = $current->{'parent'};
-      }
       my $closed_command;
       ($closed_command, $current)
          = _close_commands($self, $current, $source_info, $end_command);
@@ -4907,12 +4899,14 @@ sub _process_remaining_on_line($$$$)
                )) {
         my $menu = $current->{'parent'}->{'parent'};
         if (!$current->{'contents'}) {
-          # FIXME not sure that it is possible to have source marks, nor
-          # that they will be correctly placed
+          # FIXME check if correctly placed
+          # source marks here are tested in t/*macro.t macro_in_menu
+          # with starspaces macro expansion
           _pop_element_from_contents($self, $current->{'parent'}, 1);
           if (not $current->{'parent'}
               or not $current->{'parent'}->{'contents'}
               or not scalar(@{$current->{'parent'}->{'contents'}})) {
+            # also tested in the same test as the previous one
             _pop_element_from_contents($self, $menu, 1);
           }
         }

@@ -1841,17 +1841,6 @@ end_line_misc_line (ELEMENT *current)
       if (command_data(end_id).data != BLOCK_conditional)
         {
           ELEMENT *closed_command;
-          /* here close some empty types.  Typically empty preformatted
-             that would have been closed anyway in _close_commands, but
-             also other types (rawpreformatted, before_item), some which
-             may also have been closed anyway. */
-          if (!current->cmd && current->type != ET_NONE
-              && (current->contents.number == 0) && current->parent)
-             {
-               current = current->parent;
-               destroy_element (pop_element_from_contents (current, 1));
-               debug ("popping at end command");
-             }
           /* This closes tree elements (e.g. paragraphs) until we reach
              end_command.  It can print an error if another block command
              is found first. */

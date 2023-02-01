@@ -1243,11 +1243,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'table',
-                  'contents' => [
-                    {
-                      'type' => 'before_item'
-                    }
-                  ],
                   'extra' => {
                     'command_as_argument' => {}
                   },
