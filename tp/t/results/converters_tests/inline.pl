@@ -33,7 +33,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -70,7 +72,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -107,7 +111,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -144,7 +150,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -284,7 +292,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -336,7 +346,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -373,7 +385,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -410,7 +424,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -447,7 +463,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -572,7 +590,9 @@ $result_trees{'inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }

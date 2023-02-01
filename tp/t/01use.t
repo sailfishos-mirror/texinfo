@@ -86,7 +86,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
            {
              'cmdname' => 'end',
              'info' => {
-                         'spaces_before_argument' => ' '
+                         'spaces_before_argument' => {'text' => ' '},
                        },
              'extra' => {
                          'text_arg' => 'multitable',
@@ -100,8 +100,8 @@ my $manual_tree = { 'cmdname' => 'multitable',
                     },
                   ],
                   'info' => {
-                              'spaces_after_argument' => '
-',
+                              'spaces_after_argument' => {'text' => '
+',},
                             },
                 }
               ],

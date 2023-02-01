@@ -25,8 +25,10 @@ $result_trees{'double_index_entry'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,8 +49,10 @@ $result_trees{'double_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -69,7 +73,9 @@ $result_trees{'double_index_entry'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -106,8 +112,10 @@ $result_trees{'double_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -128,7 +136,9 @@ $result_trees{'double_index_entry'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -146,8 +156,10 @@ $result_trees{'double_index_entry'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -212,8 +224,10 @@ $result_trees{'double_index_entry'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -223,7 +237,9 @@ $result_trees{'double_index_entry'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -259,7 +275,9 @@ $result_trees{'double_index_entry'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -290,8 +308,10 @@ $result_trees{'double_index_entry'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -312,8 +332,10 @@ $result_trees{'double_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -334,7 +356,9 @@ $result_trees{'double_index_entry'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -357,8 +381,10 @@ $result_trees{'double_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -370,7 +396,9 @@ $result_trees{'double_index_entry'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -403,7 +431,9 @@ $result_trees{'double_index_entry'} = {
         'normalized' => 'other-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

@@ -40,8 +40,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -51,7 +53,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 'text_arg' => 'nodes_before_top_and_sections.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -92,13 +96,17 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -115,8 +123,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -132,8 +142,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -154,7 +166,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -186,8 +200,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -199,7 +215,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -225,8 +243,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -238,7 +258,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -259,8 +281,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -325,8 +349,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -336,7 +362,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -385,7 +413,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'first-before-top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -416,8 +446,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -438,8 +470,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -460,7 +494,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -487,8 +523,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -500,7 +538,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -531,8 +571,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -553,7 +595,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -597,7 +641,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'node-in-menu-before-top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -617,7 +663,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -628,8 +676,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -645,8 +695,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -667,7 +719,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -694,8 +748,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -707,7 +763,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -729,8 +787,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -742,7 +802,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -778,8 +840,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -791,7 +855,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -828,7 +894,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -845,8 +913,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -862,8 +932,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -884,7 +956,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -916,8 +990,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1080,8 +1156,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1091,7 +1169,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1114,7 +1194,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1150,9 +1232,13 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
-',
-            'spaces_before_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1174,8 +1260,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1196,7 +1284,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1214,8 +1304,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1236,7 +1328,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1254,8 +1348,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1276,7 +1372,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1302,8 +1400,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1315,7 +1415,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1332,8 +1434,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1398,8 +1502,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1409,7 +1515,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1459,7 +1567,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'first'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1490,8 +1600,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1502,8 +1614,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1617,8 +1731,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1628,7 +1744,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1657,8 +1775,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1670,7 +1790,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1708,7 +1830,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'second'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1728,7 +1852,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -1739,7 +1865,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -1750,9 +1878,13 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
-',
-            'spaces_before_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1773,8 +1905,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1795,7 +1929,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1813,8 +1949,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1835,7 +1973,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1853,8 +1993,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1875,7 +2017,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1918,7 +2062,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'another'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1943,13 +2089,17 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -1960,8 +2110,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1977,8 +2129,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1999,7 +2153,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2022,8 +2178,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2035,7 +2193,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2057,8 +2217,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2079,7 +2241,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2097,8 +2261,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2119,7 +2285,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2142,8 +2310,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2155,7 +2325,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2198,7 +2370,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'a-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2234,8 +2408,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2270,7 +2446,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2287,8 +2465,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2309,8 +2489,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2322,7 +2504,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2338,7 +2522,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2366,7 +2552,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -2377,8 +2565,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2399,8 +2589,10 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2421,7 +2613,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
@@ -2464,7 +2658,9 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         'normalized' => 'node-in-chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',

@@ -20,8 +20,10 @@ $result_trees{'weird_accents_disable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -33,7 +35,9 @@ $result_trees{'weird_accents_disable_encoding'} = {
                 'text_arg' => 'ISO-8859-1'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -61,8 +65,10 @@ $result_trees{'weird_accents_disable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -83,7 +89,9 @@ $result_trees{'weird_accents_disable_encoding'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -100,8 +108,10 @@ $result_trees{'weird_accents_disable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -116,7 +126,9 @@ $result_trees{'weird_accents_disable_encoding'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -133,8 +145,10 @@ $result_trees{'weird_accents_disable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -155,7 +169,9 @@ $result_trees{'weird_accents_disable_encoding'} = {
         'normalized' => 'chap'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -172,8 +188,10 @@ $result_trees{'weird_accents_disable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -478,7 +496,9 @@ $result_trees{'weird_accents_disable_encoding'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

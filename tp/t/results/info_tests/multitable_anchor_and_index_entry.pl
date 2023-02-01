@@ -19,8 +19,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -45,8 +47,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -59,7 +63,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -263,8 +269,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -285,7 +293,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -388,8 +398,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -399,7 +411,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 'text_arg' => 'multitable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -413,7 +427,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
             'max_columns' => 2
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -451,8 +467,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -567,8 +585,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -589,7 +609,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -744,8 +766,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -755,7 +779,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 'text_arg' => 'multitable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -782,7 +808,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -804,8 +832,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -817,7 +847,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -909,7 +941,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

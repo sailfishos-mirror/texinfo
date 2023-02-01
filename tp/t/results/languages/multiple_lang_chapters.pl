@@ -30,8 +30,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'utf-8'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -81,8 +85,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -92,7 +98,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'ja'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -120,8 +128,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -142,7 +152,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -159,8 +171,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -176,8 +190,10 @@ $result_trees{'multiple_lang_chapters'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -438,8 +454,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -449,7 +467,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -478,8 +498,10 @@ $result_trees{'multiple_lang_chapters'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -489,7 +511,9 @@ $result_trees{'multiple_lang_chapters'} = {
             'text_arg' => 'ja'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -500,7 +524,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -517,8 +543,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -539,7 +567,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'chapter-ja'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -556,8 +586,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -671,8 +703,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -727,8 +761,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -738,7 +774,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'defivar'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -748,7 +786,9 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -770,8 +810,10 @@ $result_trees{'multiple_lang_chapters'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -781,7 +823,9 @@ $result_trees{'multiple_lang_chapters'} = {
             'text_arg' => 'en'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -792,7 +836,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -809,8 +855,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -831,7 +879,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'chapter-en'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -848,8 +898,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -963,8 +1015,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -1019,8 +1073,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1030,7 +1086,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'defivar'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1040,7 +1098,9 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1062,8 +1122,10 @@ $result_trees{'multiple_lang_chapters'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1073,7 +1135,9 @@ $result_trees{'multiple_lang_chapters'} = {
             'text_arg' => 'fr_FR'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1084,7 +1148,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1101,8 +1167,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1123,7 +1191,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'chapter-fr_005fFR'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1140,8 +1210,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1216,8 +1288,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -1272,8 +1346,10 @@ $result_trees{'multiple_lang_chapters'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1283,7 +1359,9 @@ $result_trees{'multiple_lang_chapters'} = {
                 'text_arg' => 'defivar'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1293,7 +1371,9 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1315,8 +1395,10 @@ $result_trees{'multiple_lang_chapters'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1326,7 +1408,9 @@ $result_trees{'multiple_lang_chapters'} = {
             'text_arg' => 'de'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1337,7 +1421,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1354,8 +1440,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1376,7 +1464,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'chapter-de'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1393,8 +1483,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1415,8 +1507,10 @@ $result_trees{'multiple_lang_chapters'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1426,7 +1520,9 @@ $result_trees{'multiple_lang_chapters'} = {
             'text_arg' => 'pt_BR'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1437,7 +1533,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1454,8 +1552,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1476,7 +1576,9 @@ $result_trees{'multiple_lang_chapters'} = {
         'normalized' => 'chapter-pt_005fBR'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -1493,8 +1595,10 @@ $result_trees{'multiple_lang_chapters'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1548,7 +1652,9 @@ $result_trees{'multiple_lang_chapters'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

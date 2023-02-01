@@ -127,7 +127,7 @@ sub convert_to_texinfo($)
       $result .= '{';
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {
-         $result .= $element->{'info'}->{'spaces_before_argument'};
+         $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
       }
     }
     if (defined($element->{'contents'})) {
@@ -136,7 +136,7 @@ sub convert_to_texinfo($)
       }
     }
     if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
-      $result .= $element->{'info'}->{'spaces_after_argument'};
+      $result .= $element->{'info'}->{'spaces_after_argument'}->{'text'};
     }
     if ($element->{'info'} and $element->{'info'}->{'comment_at_end'}) {
       $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'})
@@ -168,24 +168,24 @@ sub _expand_cmd_args_to_texi($) {
          and ($def_commands{$cmdname}
               or $block_commands{$cmdname} eq 'multitable')
          and $cmd->{'args'}) {
-     $result .= $cmd->{'info'}->{'spaces_before_argument'}
+     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
        if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
      foreach my $arg (@{$cmd->{'args'}}) {
         $result .= convert_to_texinfo($arg);
     }
   # arg_line set for line_commands with type special and @macro
   } elsif ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     $result .= $cmd->{'info'}->{'arg_line'};
   } elsif (($block_commands{$cmdname} or $cmdname eq 'node')
             and defined($cmd->{'args'})) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     foreach my $arg (@{$cmd->{'args'}}) {
       next if $arg->{'type'} and $ignored_types{$arg->{'type'}};
       if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'info'}->{'spaces_before_argument'};
+        $result .= $arg->{'info'}->{'spaces_before_argument'}->{'text'};
       }
       $result .= convert_to_texinfo($arg);
       $result .= ',';
@@ -202,7 +202,7 @@ sub _expand_cmd_args_to_texi($) {
     }
     if ($cmd->{'info'}
         and $cmd->{'info'}->{'spaces_before_argument'}) {
-      $result .= $cmd->{'info'}->{'spaces_before_argument'};
+      $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'};
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
@@ -212,7 +212,7 @@ sub _expand_cmd_args_to_texi($) {
         $arg_nr++;
       }
       if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'info'}->{'spaces_before_argument'};
+        $result .= $arg->{'info'}->{'spaces_before_argument'}->{'text'};
       }
       $result .= convert_to_texinfo($arg);
     }
@@ -221,7 +221,7 @@ sub _expand_cmd_args_to_texi($) {
     }
     $result .= '}' if ($braces);
   } else {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
   }
   $result .= '{'.$cmd->{'info'}->{'flag'}.'}' if ($cmdname eq 'value');

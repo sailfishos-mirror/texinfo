@@ -25,8 +25,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -64,8 +68,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -80,7 +86,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -97,8 +105,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -119,7 +129,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -136,8 +148,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -153,8 +167,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -222,8 +238,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -233,7 +251,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -260,8 +280,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -284,8 +306,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -306,7 +330,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -358,8 +384,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -369,7 +397,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -396,8 +426,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -420,8 +452,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -442,7 +476,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -489,8 +525,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -500,7 +538,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -527,8 +567,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -546,8 +588,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -568,7 +612,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -620,8 +666,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -631,7 +679,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -658,8 +708,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -683,8 +735,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -705,7 +759,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -755,8 +811,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -766,7 +824,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -793,8 +853,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -812,8 +874,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -834,7 +898,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -868,8 +934,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -890,7 +958,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -908,8 +978,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -930,7 +1002,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -977,8 +1051,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -988,7 +1064,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1014,7 +1092,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

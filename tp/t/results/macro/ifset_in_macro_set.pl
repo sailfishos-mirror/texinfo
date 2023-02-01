@@ -46,8 +46,10 @@ $result_trees{'ifset_in_macro_set'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -57,7 +59,9 @@ $result_trees{'ifset_in_macro_set'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

@@ -142,8 +142,10 @@ $result_trees{'value_expansion_in_include'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -170,8 +172,10 @@ $result_trees{'value_expansion_in_include'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -181,7 +185,9 @@ $result_trees{'value_expansion_in_include'} = {
                       'text_arg' => 'incl-incl.txi'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => '',
@@ -251,8 +257,10 @@ $result_trees{'value_expansion_in_include'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -263,7 +271,9 @@ $result_trees{'value_expansion_in_include'} = {
             'text_arg' => 'incl-incl.txi'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -296,8 +306,10 @@ $result_trees{'value_expansion_in_include'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -307,7 +319,9 @@ $result_trees{'value_expansion_in_include'} = {
                       'text_arg' => 'incl-incl.txi'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => '',
@@ -377,8 +391,10 @@ $result_trees{'value_expansion_in_include'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -389,7 +405,9 @@ $result_trees{'value_expansion_in_include'} = {
             'text_arg' => 'incl-incl.txi'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -422,8 +440,10 @@ $result_trees{'value_expansion_in_include'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -433,7 +453,9 @@ $result_trees{'value_expansion_in_include'} = {
                       'text_arg' => 'incl-incl.txi'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => '',
@@ -503,8 +525,10 @@ $result_trees{'value_expansion_in_include'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -515,7 +539,9 @@ $result_trees{'value_expansion_in_include'} = {
             'text_arg' => 'incl-incl.txi'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -539,7 +565,9 @@ $result_trees{'value_expansion_in_include'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

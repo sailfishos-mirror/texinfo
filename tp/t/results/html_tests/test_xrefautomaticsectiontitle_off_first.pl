@@ -23,8 +23,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -36,7 +38,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -61,8 +65,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -83,7 +89,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -100,8 +108,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -117,8 +127,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -183,8 +195,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -194,7 +208,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -217,7 +233,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -234,8 +252,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -256,7 +276,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         'normalized' => 'chap'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -273,8 +295,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -336,8 +360,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -349,7 +375,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -401,7 +429,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

@@ -15,8 +15,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -37,8 +39,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -59,7 +63,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -119,8 +125,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -199,8 +207,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -231,7 +241,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'original_def_cmdname' => 'defunx'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -263,8 +275,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -274,7 +288,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'text_arg' => 'defun'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -284,7 +300,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -312,8 +330,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'block_line_arg'
                     }
@@ -333,8 +353,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -355,7 +377,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -372,8 +396,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -394,7 +420,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -417,8 +445,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -428,7 +458,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'text_arg' => 'ftable'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -441,7 +473,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'command_as_argument' => {}
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -463,8 +497,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -476,7 +512,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -498,8 +536,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -509,7 +549,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'text_arg' => 'copying'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -544,8 +586,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -566,7 +610,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -583,8 +629,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -614,8 +662,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -680,8 +730,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -691,7 +743,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -714,7 +768,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -731,8 +787,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -754,7 +812,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -771,8 +831,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -798,8 +860,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -811,7 +875,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -827,7 +893,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

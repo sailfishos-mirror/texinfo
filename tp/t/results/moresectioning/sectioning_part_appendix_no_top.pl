@@ -20,8 +20,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -35,7 +37,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -60,8 +64,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -75,7 +81,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -100,8 +108,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -115,7 +125,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -140,8 +152,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -155,7 +169,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -180,8 +196,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -196,7 +214,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -213,8 +233,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -231,7 +253,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           'associated_part' => {}
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -256,8 +280,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -271,7 +297,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -296,8 +324,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -311,7 +341,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -336,8 +368,10 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -351,7 +385,9 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -376,15 +412,19 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
         ],
         'cmdname' => 'appendixsec',
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

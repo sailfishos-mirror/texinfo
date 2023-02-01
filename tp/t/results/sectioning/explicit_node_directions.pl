@@ -20,8 +20,10 @@ $result_trees{'explicit_node_directions'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -41,8 +43,10 @@ $result_trees{'explicit_node_directions'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -156,8 +160,10 @@ $result_trees{'explicit_node_directions'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -167,7 +173,9 @@ $result_trees{'explicit_node_directions'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -203,7 +211,9 @@ $result_trees{'explicit_node_directions'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -236,7 +246,9 @@ $result_trees{'explicit_node_directions'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -255,8 +267,10 @@ $result_trees{'explicit_node_directions'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -316,7 +330,9 @@ $result_trees{'explicit_node_directions'} = [
           'normalized' => 'second-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -360,8 +376,10 @@ $result_trees{'explicit_node_directions'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -395,7 +413,9 @@ $result_trees{'explicit_node_directions'} = [
           'normalized' => 'third-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

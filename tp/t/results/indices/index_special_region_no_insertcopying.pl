@@ -30,8 +30,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -52,8 +54,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -74,7 +78,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -191,8 +197,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -213,7 +221,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -254,8 +264,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -267,7 +279,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -289,8 +303,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -300,7 +316,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     'text_arg' => 'copying'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -324,8 +342,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -346,8 +366,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -368,7 +390,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -478,8 +502,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -500,7 +526,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -556,8 +584,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -567,7 +597,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     'text_arg' => 'titlepage'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -602,8 +634,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -624,7 +658,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -641,8 +677,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -650,7 +688,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -667,8 +707,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -740,8 +782,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -762,7 +806,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -780,8 +826,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -831,7 +879,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         'def_role' => 'name'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -842,8 +892,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -885,8 +937,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -941,8 +995,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -972,8 +1028,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -983,7 +1041,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1011,8 +1071,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             },
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1027,8 +1089,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                       'args' => [
                         {
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -1062,8 +1126,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -1084,7 +1150,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1107,8 +1175,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1118,7 +1188,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 'text_arg' => 'ftable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1145,8 +1217,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1211,8 +1285,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1222,7 +1298,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1244,7 +1322,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1261,8 +1341,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1284,7 +1366,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
         'normalized' => 'Copying-and-indices'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1301,8 +1385,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1337,8 +1423,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1359,7 +1447,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1382,8 +1472,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1404,7 +1496,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1592,8 +1686,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1605,7 +1701,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1622,8 +1720,10 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1635,7 +1735,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1666,7 +1768,9 @@ $result_trees{'index_special_region_no_insertcopying'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region_no_insertcopying.texi',

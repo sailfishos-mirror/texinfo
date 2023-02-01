@@ -19,8 +19,10 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -66,8 +68,10 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -77,7 +81,9 @@ $result_trees{'formats_only_title_comments'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -165,8 +171,10 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -176,7 +184,9 @@ $result_trees{'formats_only_title_comments'} = {
                 'text_arg' => 'enumerate'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -189,7 +199,9 @@ $result_trees{'formats_only_title_comments'} = {
             'enumerate_specification' => '1'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -217,8 +229,10 @@ $result_trees{'formats_only_title_comments'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -264,8 +278,10 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -275,7 +291,9 @@ $result_trees{'formats_only_title_comments'} = {
                 'text_arg' => 'table'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -288,7 +306,9 @@ $result_trees{'formats_only_title_comments'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -332,7 +352,9 @@ $result_trees{'formats_only_title_comments'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -362,8 +384,10 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -373,7 +397,9 @@ $result_trees{'formats_only_title_comments'} = {
                 'text_arg' => 'vtable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -386,7 +412,9 @@ $result_trees{'formats_only_title_comments'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -412,8 +440,10 @@ $result_trees{'formats_only_title_comments'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -426,7 +456,9 @@ $result_trees{'formats_only_title_comments'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -479,8 +511,10 @@ $result_trees{'formats_only_title_comments'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -490,7 +524,9 @@ $result_trees{'formats_only_title_comments'} = {
                 'text_arg' => 'multitable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -504,7 +540,9 @@ $result_trees{'formats_only_title_comments'} = {
             'max_columns' => 2
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

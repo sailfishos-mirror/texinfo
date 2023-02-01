@@ -19,8 +19,10 @@ $result_trees{'index_entry_in_preformatted'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -41,7 +43,9 @@ $result_trees{'index_entry_in_preformatted'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -58,8 +62,10 @@ $result_trees{'index_entry_in_preformatted'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -74,7 +80,9 @@ $result_trees{'index_entry_in_preformatted'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -91,8 +99,10 @@ $result_trees{'index_entry_in_preformatted'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -113,7 +123,9 @@ $result_trees{'index_entry_in_preformatted'} = {
         'normalized' => 'chap'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -130,8 +142,10 @@ $result_trees{'index_entry_in_preformatted'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -147,8 +161,10 @@ $result_trees{'index_entry_in_preformatted'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -166,8 +182,10 @@ $result_trees{'index_entry_in_preformatted'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -188,7 +206,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -231,7 +251,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                             ]
                           }
                         },
-                        'spaces_after_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -252,7 +274,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -274,8 +298,10 @@ $result_trees{'index_entry_in_preformatted'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -296,7 +322,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -317,8 +345,10 @@ $result_trees{'index_entry_in_preformatted'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -328,7 +358,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                 'text_arg' => 'example'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -346,7 +378,9 @@ $result_trees{'index_entry_in_preformatted'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

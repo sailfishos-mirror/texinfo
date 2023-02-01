@@ -73,7 +73,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
   // TODO extra spaces
   k = lookup_info (e, "spaces_before_argument");
   if (k)
-    ADD((char *)k->value);
+    ADD((char *)k->value->text.text);
 
   // TODO multitable or block command
 
@@ -118,11 +118,11 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
             }
           k = lookup_info (e->args.list[i], "spaces_before_argument");
           if (k)
-            ADD((char *)k->value);
+            ADD((char *)k->value->text.text);
           convert_to_texinfo_internal (e->args.list[i], result);
           k = lookup_info (e->args.list[i], "spaces_after_argument");
           if (k)
-            ADD((char *)k->value);
+            ADD((char *)k->value->text.text);
         }
 
       if (e->cmd == CM_verb)
@@ -158,7 +158,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
           ADD("{");
           k = lookup_info (e, "spaces_before_argument");
           if (k)
-            ADD((char *)k->value);
+            ADD((char *)k->value->text.text);
         }
       if (e->contents.number > 0)
         {

@@ -40,8 +40,10 @@ $result_trees{'manual_simple_utf8_with_error'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -62,7 +64,9 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
@@ -79,8 +83,10 @@ $result_trees{'manual_simple_utf8_with_error'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -95,7 +101,9 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
@@ -112,8 +120,10 @@ $result_trees{'manual_simple_utf8_with_error'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -141,7 +151,9 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         'normalized' => '_00e9sseul_00e9'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
@@ -158,8 +170,10 @@ $result_trees{'manual_simple_utf8_with_error'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -180,7 +194,9 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         'normalized' => 'Chapitr_00e9'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',
@@ -197,8 +213,10 @@ $result_trees{'manual_simple_utf8_with_error'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -223,7 +241,9 @@ $result_trees{'manual_simple_utf8_with_error'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'manual_simple_utf8_with_error.texi',

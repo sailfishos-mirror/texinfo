@@ -20,8 +20,10 @@ $result_trees{'unnumbered_before_node_top_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -49,7 +51,9 @@ $result_trees{'unnumbered_before_node_top_top'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -74,8 +78,10 @@ $result_trees{'unnumbered_before_node_top_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -96,7 +102,9 @@ $result_trees{'unnumbered_before_node_top_top'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -113,8 +121,10 @@ $result_trees{'unnumbered_before_node_top_top'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -133,7 +143,9 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

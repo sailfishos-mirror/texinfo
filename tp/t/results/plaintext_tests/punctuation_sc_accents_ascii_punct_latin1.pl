@@ -35,8 +35,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -48,7 +50,9 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                 'text_arg' => 'ISO-8859-1'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
@@ -76,8 +80,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -98,7 +104,9 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
@@ -115,8 +123,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -131,7 +141,9 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
@@ -148,8 +160,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -170,7 +184,9 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
         'normalized' => 'node-chap'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
@@ -187,8 +203,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1162,7 +1180,9 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',

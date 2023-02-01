@@ -59,7 +59,9 @@ $result_trees{'ref_empty_node'} = {
                 },
                 {
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -70,7 +72,9 @@ $result_trees{'ref_empty_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -117,7 +121,9 @@ $result_trees{'ref_empty_node'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -128,7 +134,9 @@ $result_trees{'ref_empty_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -139,7 +147,9 @@ $result_trees{'ref_empty_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -150,7 +160,9 @@ $result_trees{'ref_empty_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -161,7 +173,9 @@ $result_trees{'ref_empty_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }

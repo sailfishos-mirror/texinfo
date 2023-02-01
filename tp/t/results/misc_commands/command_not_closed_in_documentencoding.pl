@@ -35,7 +35,9 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
             'missing_argument' => 1
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

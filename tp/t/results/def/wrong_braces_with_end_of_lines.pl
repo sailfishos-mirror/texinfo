@@ -65,22 +65,26 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => '
-',
-                        'spaces_before_argument' => '   '
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'position' => 1,
+                              'sourcemark_type' => 'defline_continuation'
+                            }
+                          ],
+                          'text' => '   '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 1,
-                          'sourcemark_type' => 'defline_continuation'
-                        }
-                      ],
                       'type' => 'bracketed_def_content'
                     }
                   ],
@@ -146,8 +150,10 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -157,7 +163,9 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -167,7 +175,9 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -254,8 +264,10 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -319,8 +331,10 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -330,7 +344,9 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -340,7 +356,9 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

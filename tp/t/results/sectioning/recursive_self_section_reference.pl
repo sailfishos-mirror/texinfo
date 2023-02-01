@@ -25,8 +25,10 @@ $result_trees{'recursive_self_section_reference'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'recursive_self_section_reference'} = {
         'normalized' => 'sharp'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -91,8 +95,10 @@ $result_trees{'recursive_self_section_reference'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -100,7 +106,9 @@ $result_trees{'recursive_self_section_reference'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

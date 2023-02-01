@@ -51,7 +51,9 @@ $result_trees{'good_comment'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -81,7 +83,9 @@ $result_trees{'good_comment'} = {
                 'text_arg' => 'multitable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -95,7 +99,9 @@ $result_trees{'good_comment'} = {
             'max_columns' => 3
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

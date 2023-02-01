@@ -26,8 +26,10 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -48,7 +50,9 @@ $result_trees{'two_nodes_at_the_end'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -65,8 +69,10 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -82,8 +88,10 @@ $result_trees{'two_nodes_at_the_end'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -246,8 +254,10 @@ $result_trees{'two_nodes_at_the_end'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -257,7 +267,9 @@ $result_trees{'two_nodes_at_the_end'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -280,7 +292,9 @@ $result_trees{'two_nodes_at_the_end'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -313,7 +327,9 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -324,7 +340,9 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -335,9 +353,13 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
-',
-              'spaces_before_argument' => ' '
+              'spaces_after_argument' => {
+                'text' => '
+'
+              },
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           }
@@ -376,7 +398,9 @@ $result_trees{'two_nodes_at_the_end'} = [
           'normalized' => 'chapter-1'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -393,8 +417,10 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -409,7 +435,9 @@ $result_trees{'two_nodes_at_the_end'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -426,8 +454,10 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -469,7 +499,9 @@ $result_trees{'two_nodes_at_the_end'} = [
           'normalized' => 'node-after-chapter-1'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -486,8 +518,10 @@ $result_trees{'two_nodes_at_the_end'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -508,7 +542,9 @@ $result_trees{'two_nodes_at_the_end'} = [
           'normalized' => 'node-after-chapter-2'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

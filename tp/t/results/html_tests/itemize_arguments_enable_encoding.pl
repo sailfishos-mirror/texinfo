@@ -23,8 +23,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -66,8 +68,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -77,7 +81,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -87,7 +93,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -109,8 +117,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -152,8 +162,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -163,7 +175,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -173,7 +187,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -210,8 +226,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -274,8 +292,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -285,7 +305,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -295,7 +317,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -317,8 +341,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -360,8 +386,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -371,7 +399,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -381,7 +411,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -403,8 +435,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -446,8 +480,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -457,7 +493,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -467,7 +505,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -489,8 +529,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -532,8 +574,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -543,7 +587,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -553,7 +599,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -581,8 +629,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -640,8 +690,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -651,7 +703,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -664,7 +718,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -727,8 +783,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -817,8 +875,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -828,7 +888,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -838,7 +900,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -871,8 +935,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -930,8 +996,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -941,7 +1009,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -954,7 +1024,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -989,8 +1061,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1048,8 +1122,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1059,7 +1135,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1069,7 +1147,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1097,8 +1177,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1140,8 +1222,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1151,7 +1235,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1164,7 +1250,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1199,8 +1287,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1258,8 +1348,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1269,7 +1361,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1279,7 +1373,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1301,8 +1397,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1350,8 +1448,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1361,7 +1461,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1371,7 +1473,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1393,8 +1497,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1442,8 +1548,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1453,7 +1561,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1463,7 +1573,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1496,8 +1608,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1555,8 +1669,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1566,7 +1682,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1579,7 +1697,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1614,8 +1734,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1673,8 +1795,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1684,7 +1808,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1694,7 +1820,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1727,8 +1855,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1786,8 +1916,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1797,7 +1929,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1810,7 +1944,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1845,8 +1981,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1904,8 +2042,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1915,7 +2055,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1925,7 +2067,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1998,8 +2142,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2098,8 +2244,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2109,7 +2257,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2119,7 +2269,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -2192,8 +2344,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2292,8 +2446,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2303,7 +2459,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2313,7 +2471,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -2458,8 +2618,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2630,8 +2792,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2641,7 +2805,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2651,7 +2817,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -2796,8 +2964,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2968,8 +3138,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2979,7 +3151,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2989,7 +3163,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3125,8 +3301,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3288,8 +3466,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3299,7 +3479,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3309,7 +3491,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3337,8 +3521,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3396,8 +3582,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3407,7 +3595,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3420,7 +3610,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3456,8 +3648,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3518,8 +3712,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3529,7 +3725,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3542,7 +3740,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3580,8 +3780,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3642,8 +3844,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3653,7 +3857,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3663,7 +3869,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3727,8 +3935,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3789,8 +3999,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3800,7 +4012,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3813,7 +4027,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3851,8 +4067,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3913,8 +4131,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3924,7 +4144,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3934,7 +4156,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3967,8 +4191,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4026,8 +4252,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4037,7 +4265,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -4050,7 +4280,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -4085,8 +4317,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4144,8 +4378,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4155,7 +4391,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -4165,7 +4403,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -4187,8 +4427,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4198,7 +4440,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'text_arg' => 'fr'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -4226,8 +4470,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4285,8 +4531,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4296,7 +4544,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -4309,7 +4559,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -4344,8 +4596,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4403,8 +4657,10 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4414,7 +4670,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -4424,7 +4682,9 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

@@ -20,7 +20,9 @@ $result_trees{'all_spaces'} = {
                     }
                   ],
                   "info" => {
-                    "spaces_after_argument" => "\n"
+                    "spaces_after_argument" => {
+                      "text" => "\n"
+                    }
                   },
                   "type" => "line_arg"
                 }
@@ -32,7 +34,9 @@ $result_trees{'all_spaces'} = {
                 "text_arg" => "utf-8"
               },
               "info" => {
-                "spaces_before_argument" => " "
+                "spaces_before_argument" => {
+                  "text" => " "
+                }
               },
               "source_info" => {
                 "file_name" => "all_spaces.texi",
@@ -59,7 +63,9 @@ $result_trees{'all_spaces'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -413,7 +419,9 @@ $result_trees{'all_spaces'} = {
         "normalized" => "Top"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "all_spaces.texi",

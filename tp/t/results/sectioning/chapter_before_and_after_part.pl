@@ -26,8 +26,10 @@ $result_trees{'chapter_before_and_after_part'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -41,7 +43,9 @@ $result_trees{'chapter_before_and_after_part'} = [
           }
         ],
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -66,8 +70,10 @@ $result_trees{'chapter_before_and_after_part'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -82,7 +88,9 @@ $result_trees{'chapter_before_and_after_part'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -99,8 +107,10 @@ $result_trees{'chapter_before_and_after_part'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -132,7 +142,9 @@ $result_trees{'chapter_before_and_after_part'} = [
           'associated_part' => {}
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

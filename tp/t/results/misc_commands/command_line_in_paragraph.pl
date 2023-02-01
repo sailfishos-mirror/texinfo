@@ -24,8 +24,10 @@ $result_trees{'command_line_in_paragraph'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '  
+                    'spaces_after_argument' => {
+                      'text' => '  
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -35,7 +37,9 @@ $result_trees{'command_line_in_paragraph'} = {
                 'text_arg' => 'en'
               },
               'info' => {
-                'spaces_before_argument' => '  '
+                'spaces_before_argument' => {
+                  'text' => '  '
+                }
               },
               'source_info' => {
                 'file_name' => '',

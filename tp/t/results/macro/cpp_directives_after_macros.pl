@@ -44,8 +44,10 @@ $result_trees{'cpp_directives_after_macros'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -55,7 +57,9 @@ $result_trees{'cpp_directives_after_macros'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'cpp_directives_after_macros.texi',
@@ -102,8 +106,10 @@ $result_trees{'cpp_directives_after_macros'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -113,7 +119,9 @@ $result_trees{'cpp_directives_after_macros'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'cpp_directives_after_macros.texi',

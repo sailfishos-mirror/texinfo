@@ -25,8 +25,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'quote_node_names'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
@@ -59,8 +63,10 @@ $result_trees{'quote_node_names'} = {
       'args' => [
         {
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -91,7 +97,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -140,7 +148,9 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'type' => 'line_arg'
                     },
@@ -176,7 +186,9 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'type' => 'line_arg'
                     },
@@ -196,9 +208,13 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
-',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -250,7 +266,9 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'normal-node'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
@@ -292,7 +310,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -344,7 +364,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -360,8 +382,10 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -382,7 +406,9 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'blah_003ablah'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
@@ -424,7 +450,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -476,7 +504,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -492,8 +522,10 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -514,7 +546,9 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'blumpty_002efump'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
@@ -556,7 +590,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -684,8 +720,10 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -706,7 +744,9 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'secret_002cnode'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
@@ -927,7 +967,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -938,7 +980,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -999,7 +1043,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1010,7 +1056,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1071,7 +1119,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1082,7 +1132,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1093,7 +1145,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -1146,7 +1200,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1157,7 +1213,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1168,7 +1226,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -1221,7 +1281,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1232,7 +1294,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -1243,7 +1307,9 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -1278,8 +1344,10 @@ $result_trees{'quote_node_names'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1667,8 +1735,10 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1678,7 +1748,9 @@ $result_trees{'quote_node_names'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'nodequote.texi',
@@ -1716,8 +1788,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1746,7 +1820,9 @@ $result_trees{'quote_node_names'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
@@ -1764,8 +1840,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1780,7 +1858,9 @@ $result_trees{'quote_node_names'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
@@ -1798,8 +1878,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1814,7 +1896,9 @@ $result_trees{'quote_node_names'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
@@ -1847,8 +1931,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1863,7 +1949,9 @@ $result_trees{'quote_node_names'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',
@@ -1880,8 +1968,10 @@ $result_trees{'quote_node_names'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1918,7 +2008,9 @@ $result_trees{'quote_node_names'} = {
         'normalized' => 'top-secret-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'nodequote.texi',

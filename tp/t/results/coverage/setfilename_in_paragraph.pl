@@ -27,8 +27,10 @@ $result_trees{'setfilename_in_paragraph'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -38,7 +40,9 @@ $result_trees{'setfilename_in_paragraph'} = {
             'text_arg' => 'setfilename_in_paragraph.info'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

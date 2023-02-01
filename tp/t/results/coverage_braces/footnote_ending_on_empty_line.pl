@@ -38,7 +38,9 @@ $result_trees{'footnote_ending_on_empty_line'} = {
               ],
               'cmdname' => 'footnote',
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

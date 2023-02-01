@@ -728,12 +728,17 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
              the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
           KEY_PAIR *k;
-          ELEMENT *e = pop_element_from_contents (current, 1);
+          ELEMENT *e = pop_element_from_contents (current, 0);
+          ELEMENT *spaces_element = new_element (ET_NONE);
 
           k = lookup_extra (last_child, "spaces_associated_command");
           owning_element = (ELEMENT *) k->value;
-          add_info_string_dup (owning_element, "spaces_before_argument",
-                               e->text.text);
+          text_append (&spaces_element->text, e->text.text);
+          add_source_marks (&e->source_mark_list,
+                            spaces_element);
+          e->source_mark_list.number = 0;
+          add_info_element_oot (owning_element, "spaces_before_argument",
+                                spaces_element);
           destroy_element (e);
         }
     }
@@ -750,6 +755,7 @@ isolate_last_space_internal (ELEMENT *current)
   ELEMENT *last_elt;
   char *text;
   int text_len;
+  ELEMENT *spaces_element = new_element (ET_NONE);
 
   last_elt = last_contents_child (current);
   text = element_text (last_elt);
@@ -759,9 +765,13 @@ isolate_last_space_internal (ELEMENT *current)
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
     {
-      add_info_string_dup (current, "spaces_after_argument",
-                           last_elt->text.text);
-      destroy_element (pop_element_from_contents (current, 1));
+      text_append (&spaces_element->text, last_elt->text.text);
+      add_source_marks (&last_elt->source_mark_list,
+                        spaces_element);
+      last_elt->source_mark_list.number = 0;
+      add_info_element_oot (current, "spaces_after_argument",
+                            spaces_element);
+      destroy_element (pop_element_from_contents (current, 0));
     }
   else
     {
@@ -783,8 +793,9 @@ isolate_last_space_internal (ELEMENT *current)
       text[text_len - trailing_spaces] = '\0';
       last_elt->text.end -= trailing_spaces;
 
-      add_info_string_dup (current, "spaces_after_argument",
-                           t.text);
+      text_append (&spaces_element->text, t.text);
+      add_info_element_oot (current, "spaces_after_argument",
+                            spaces_element);
     }
 }
 
@@ -1816,7 +1827,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                && *line != '\0' && *line != '@')
         {
           ELEMENT *e, *e2;
-          debug ("ACCENT");
+          debug ("ACCENT following_arg");
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
           e2 = new_element (ET_NONE);
@@ -1833,7 +1844,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              and accents, and requires source marks to be transmitted */
           while (current->contents.number > 0)
             {
-              ELEMENT *popped_element = pop_element_from_contents (current, 1);
+              ELEMENT *popped_element = pop_element_from_contents (current, 0);
+              add_source_marks (&popped_element->source_mark_list, e);
+              popped_element->source_mark_list.number = 0;
               /* current is the accent command.  So far only saw empty elements
                  for the removed elements */
               /*

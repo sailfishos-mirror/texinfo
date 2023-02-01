@@ -40,8 +40,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -62,7 +64,9 @@ $result_trees{'contents_in_middle_section'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -79,8 +83,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -110,8 +116,10 @@ $result_trees{'contents_in_middle_section'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -176,8 +184,10 @@ $result_trees{'contents_in_middle_section'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -187,7 +197,9 @@ $result_trees{'contents_in_middle_section'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'contents_in_middle_section.texi',
@@ -210,7 +222,9 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -227,8 +241,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -249,7 +265,9 @@ $result_trees{'contents_in_middle_section'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -266,8 +284,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -288,8 +308,10 @@ $result_trees{'contents_in_middle_section'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -403,8 +425,10 @@ $result_trees{'contents_in_middle_section'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -414,7 +438,9 @@ $result_trees{'contents_in_middle_section'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'contents_in_middle_section.texi',
@@ -437,7 +463,9 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -454,8 +482,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -476,7 +506,9 @@ $result_trees{'contents_in_middle_section'} = {
         'normalized' => 'section'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -493,8 +525,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -538,7 +572,9 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -555,8 +591,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -577,7 +615,9 @@ $result_trees{'contents_in_middle_section'} = {
         'normalized' => 'section1'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',
@@ -594,8 +634,10 @@ $result_trees{'contents_in_middle_section'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -624,7 +666,9 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_section.texi',

@@ -19,8 +19,10 @@ $result_trees{'menu_in_deffn'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -73,8 +75,10 @@ $result_trees{'menu_in_deffn'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -116,8 +120,10 @@ $result_trees{'menu_in_deffn'} = {
                   'args' => [
                     {
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'block_line_arg'
                     }
@@ -187,8 +193,10 @@ $result_trees{'menu_in_deffn'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -198,7 +206,9 @@ $result_trees{'menu_in_deffn'} = {
                         'text_arg' => 'menu'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -225,8 +235,10 @@ $result_trees{'menu_in_deffn'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -236,7 +248,9 @@ $result_trees{'menu_in_deffn'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -246,7 +260,9 @@ $result_trees{'menu_in_deffn'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -270,7 +286,9 @@ $result_trees{'menu_in_deffn'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

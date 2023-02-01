@@ -19,8 +19,10 @@ $result_trees{'space_in_def_for_index'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -49,8 +51,12 @@ $result_trees{'space_in_def_for_index'} = {
                         'def_role' => 'category'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -76,8 +82,12 @@ $result_trees{'space_in_def_for_index'} = {
                         'def_role' => 'name'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -103,8 +113,12 @@ $result_trees{'space_in_def_for_index'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -128,8 +142,10 @@ $result_trees{'space_in_def_for_index'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -223,8 +239,10 @@ $result_trees{'space_in_def_for_index'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -255,7 +273,9 @@ $result_trees{'space_in_def_for_index'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -273,8 +293,10 @@ $result_trees{'space_in_def_for_index'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -284,7 +306,9 @@ $result_trees{'space_in_def_for_index'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -294,7 +318,9 @@ $result_trees{'space_in_def_for_index'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -316,8 +342,10 @@ $result_trees{'space_in_def_for_index'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -329,7 +357,9 @@ $result_trees{'space_in_def_for_index'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -354,7 +384,9 @@ $result_trees{'space_in_def_for_index'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

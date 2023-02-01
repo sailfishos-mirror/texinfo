@@ -25,8 +25,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -41,7 +43,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -58,8 +62,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -73,7 +79,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -90,8 +98,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -105,7 +115,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -122,8 +134,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -137,7 +151,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -154,8 +170,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -169,7 +187,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -186,8 +206,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -202,7 +224,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -219,8 +243,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -237,7 +263,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         'associated_part' => {}
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -254,8 +282,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -269,7 +299,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -286,8 +318,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -301,7 +335,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -318,8 +354,10 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -333,7 +371,9 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -350,15 +390,19 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'appendixsec',
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

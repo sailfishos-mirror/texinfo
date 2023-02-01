@@ -20,8 +20,10 @@ $result_trees{'part_before_section'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -36,7 +38,9 @@ $result_trees{'part_before_section'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -53,8 +57,10 @@ $result_trees{'part_before_section'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => ' 
+              'spaces_after_argument' => {
+                'text' => ' 
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -64,7 +70,9 @@ $result_trees{'part_before_section'} = [
           'associated_part' => {}
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

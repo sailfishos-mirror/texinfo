@@ -162,7 +162,7 @@ sub _convert($$)
           and $arg->{'type'} eq 'block_line_arg'
           and $arg->{'info'} and $arg->{'info'}->{'spaces_after_argument'}
           and $result =~ /\S/) {
-        $result .= $arg->{'info'}->{'spaces_after_argument'};
+        $result .= $arg->{'info'}->{'spaces_after_argument'}->{'text'};
       }
     }
   }

@@ -13,8 +13,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -34,8 +36,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -48,7 +52,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                         ]
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -143,8 +149,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                               'args' => [
                                 {
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'block_line_arg'
                                 }
@@ -165,8 +173,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                         }
                                       ],
                                       'info' => {
-                                        'spaces_after_argument' => '
+                                        'spaces_after_argument' => {
+                                          'text' => '
 '
+                                        }
                                       },
                                       'type' => 'line_arg'
                                     }
@@ -176,7 +186,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                     'text_arg' => 'verbatim'
                                   },
                                   'info' => {
-                                    'spaces_before_argument' => ' '
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -223,8 +235,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -235,7 +249,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                 'text_arg' => 'inc_file.texi'
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -271,8 +287,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -282,7 +300,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                     'text_arg' => 'multitable'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -296,7 +316,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                 'max_columns' => 2
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -313,8 +335,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -324,7 +348,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                 'text_arg' => 'example'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

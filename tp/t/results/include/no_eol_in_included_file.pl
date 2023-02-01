@@ -24,8 +24,10 @@ $result_trees{'no_eol_in_included_file'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -35,7 +37,9 @@ $result_trees{'no_eol_in_included_file'} = {
                       'text_arg' => 'include_noeol.texi'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => '',

@@ -13,8 +13,10 @@ $result_trees{'flushright_not_closed_and_format'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -39,8 +41,10 @@ $result_trees{'flushright_not_closed_and_format'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -65,8 +69,10 @@ $result_trees{'flushright_not_closed_and_format'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -76,7 +82,9 @@ $result_trees{'flushright_not_closed_and_format'} = {
                     'text_arg' => 'quotation'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',

@@ -20,8 +20,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -33,7 +35,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                 ]
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -55,8 +59,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -68,7 +74,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                 ]
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -85,8 +93,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -111,8 +121,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -122,7 +134,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                     'text_arg' => 'titlepage'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -151,8 +165,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -164,7 +180,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                 ]
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

@@ -20,8 +20,10 @@ $result_trees{'top_no_argument_and_content'} = {
       'args' => [
         {
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }

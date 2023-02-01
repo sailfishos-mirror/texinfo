@@ -149,7 +149,9 @@ $result_trees{'nested_in_sc'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_before_argument' => ' '
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
                                   },
                                   'type' => 'brace_command_arg'
                                 }

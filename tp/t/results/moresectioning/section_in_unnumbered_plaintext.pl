@@ -35,8 +35,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -57,7 +59,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -74,8 +78,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -125,8 +131,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -387,8 +395,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -398,7 +408,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -421,7 +433,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -438,8 +452,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -460,7 +476,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -477,8 +495,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -494,8 +514,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -560,8 +582,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -571,7 +595,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -594,7 +620,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -611,8 +639,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -633,7 +663,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'section-in-chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -650,8 +682,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -666,7 +700,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -683,8 +719,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -705,7 +743,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -722,8 +762,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -739,8 +781,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -805,8 +849,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -816,7 +862,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -839,7 +887,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -856,8 +906,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -878,7 +930,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'section-in-unnumbered'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -895,8 +949,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -911,7 +967,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -928,8 +986,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -950,7 +1010,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'chapter-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -967,8 +1029,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -984,8 +1048,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1099,8 +1165,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1110,7 +1178,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -1133,7 +1203,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1150,8 +1222,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1172,7 +1246,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1189,8 +1265,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1206,8 +1284,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1419,8 +1499,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1430,7 +1512,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -1453,7 +1537,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1470,8 +1556,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1492,7 +1580,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1509,8 +1599,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1525,7 +1617,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1542,8 +1636,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1564,7 +1660,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1581,8 +1679,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1597,7 +1697,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1614,8 +1716,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1636,7 +1740,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub2-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1653,8 +1759,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1669,7 +1777,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1686,8 +1796,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1708,7 +1820,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub2-2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1725,8 +1839,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1741,7 +1857,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1758,8 +1876,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1780,7 +1900,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-2_002d1'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1797,8 +1919,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1814,8 +1938,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1880,8 +2006,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1891,7 +2019,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -1914,7 +2044,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1931,8 +2063,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1953,7 +2087,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-2_002d1'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -1970,8 +2106,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1991,7 +2129,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2008,8 +2148,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2030,7 +2172,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'chapter-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2047,8 +2191,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2064,8 +2210,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2326,8 +2474,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2337,7 +2487,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -2360,7 +2512,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2377,8 +2531,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2399,7 +2555,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2416,8 +2574,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2433,8 +2593,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2646,8 +2808,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2657,7 +2821,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -2680,7 +2846,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2697,8 +2865,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2719,7 +2889,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2736,8 +2908,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2752,7 +2926,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2769,8 +2945,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2791,7 +2969,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2808,8 +2988,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2824,7 +3006,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2841,8 +3025,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2863,7 +3049,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub2-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2880,8 +3068,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2896,7 +3086,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2913,8 +3105,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2935,7 +3129,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub2-3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2952,8 +3148,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2968,7 +3166,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -2985,8 +3185,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3007,7 +3209,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'section-3_002d1'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3024,8 +3228,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3040,7 +3246,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3057,8 +3265,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3079,7 +3289,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-3_002d2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3096,8 +3308,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3113,8 +3327,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3179,8 +3395,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3190,7 +3408,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -3213,7 +3433,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3230,8 +3452,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3252,7 +3476,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-3_002d2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3269,8 +3495,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3285,7 +3513,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3302,8 +3532,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3324,7 +3556,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'section-3_002d3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3341,8 +3575,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3358,8 +3594,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3424,8 +3662,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3435,7 +3675,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -3458,7 +3700,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3475,8 +3719,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3497,7 +3743,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'subsection-3_002d3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3514,8 +3762,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3530,7 +3780,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3547,8 +3799,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3569,7 +3823,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-3_002d4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3586,8 +3842,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3603,8 +3861,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3669,8 +3929,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3680,7 +3942,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -3703,7 +3967,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3720,8 +3986,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3742,7 +4010,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-3_002d4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3759,8 +4029,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3775,7 +4047,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3792,8 +4066,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3814,7 +4090,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3831,8 +4109,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3848,8 +4128,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3914,8 +4196,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3925,7 +4209,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -3948,7 +4234,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -3965,8 +4253,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3987,7 +4277,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumberedsec-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4004,8 +4296,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4021,8 +4315,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4234,8 +4530,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4245,7 +4543,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
@@ -4268,7 +4568,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4285,8 +4587,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4307,7 +4611,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4324,8 +4630,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4340,7 +4648,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4357,8 +4667,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4379,7 +4691,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4396,8 +4710,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4412,7 +4728,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4429,8 +4747,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4451,7 +4771,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'unnumbered-sub2-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4468,8 +4790,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4484,7 +4808,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4501,8 +4827,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4523,7 +4851,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         'normalized' => 'numbered-sub2-4'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',
@@ -4540,8 +4870,10 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4549,7 +4881,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       'cmdname' => 'subsection',
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'section_in_unnumbered_text.texi',

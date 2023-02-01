@@ -25,8 +25,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -64,8 +68,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -115,8 +121,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -137,7 +145,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
                             }
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -175,7 +185,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -192,8 +204,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -215,7 +229,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
         'normalized' => 'Index'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -232,8 +248,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -254,8 +272,10 @@ $result_trees{'index_entry_in_footnote_sections'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -267,7 +287,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -278,7 +300,9 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

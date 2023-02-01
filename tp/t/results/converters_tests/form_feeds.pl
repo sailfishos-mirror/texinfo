@@ -19,8 +19,10 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -48,7 +50,9 @@ $result_trees{'form_feeds'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -65,8 +69,10 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -285,8 +291,10 @@ $result_trees{'form_feeds'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -311,8 +319,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -322,7 +332,9 @@ $result_trees{'form_feeds'} = {
                 'text_arg' => 'example'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -351,15 +363,19 @@ $result_trees{'form_feeds'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'center',
           'info' => {
-            'spaces_before_argument' => '  '
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -376,15 +392,19 @@ $result_trees{'form_feeds'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'center',
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -446,8 +466,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'category'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -473,8 +497,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'name'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -500,8 +528,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -527,8 +559,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -554,8 +590,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -566,8 +606,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -617,8 +659,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'category'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -644,8 +690,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'name'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -671,8 +721,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -698,8 +752,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -725,8 +783,12 @@ $result_trees{'form_feeds'} = {
                         'def_role' => 'arg'
                       },
                       'info' => {
-                        'spaces_after_argument' => ' ',
-                        'spaces_before_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -737,8 +799,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -769,7 +833,9 @@ $result_trees{'form_feeds'} = {
                 'original_def_cmdname' => 'deffnx'
               },
               'info' => {
-                'spaces_before_argument' => '  '
+                'spaces_before_argument' => {
+                  'text' => '  '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -801,8 +867,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -812,7 +880,9 @@ $result_trees{'form_feeds'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -822,7 +892,9 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => '  '
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -839,8 +911,10 @@ $result_trees{'form_feeds'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -897,7 +971,9 @@ $result_trees{'form_feeds'} = {
                 'float' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -959,7 +1035,9 @@ $result_trees{'form_feeds'} = {
                 'float' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -989,8 +1067,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1000,7 +1080,9 @@ $result_trees{'form_feeds'} = {
                 'text_arg' => 'float'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1036,7 +1118,9 @@ $result_trees{'form_feeds'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'block_line_arg'
             },
@@ -1047,9 +1131,13 @@ $result_trees{'form_feeds'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' 
-',
-                'spaces_before_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' 
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1074,8 +1162,10 @@ $result_trees{'form_feeds'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1085,7 +1175,9 @@ $result_trees{'form_feeds'} = {
                 'text_arg' => 'float'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1107,7 +1199,9 @@ $result_trees{'form_feeds'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1129,8 +1223,10 @@ $result_trees{'form_feeds'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1145,7 +1241,9 @@ $result_trees{'form_feeds'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -1174,7 +1272,9 @@ $result_trees{'form_feeds'} = {
         'normalized' => 'first-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

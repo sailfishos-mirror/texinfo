@@ -40,8 +40,10 @@ $result_trees{'simplest_no_node_section'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -51,7 +53,9 @@ $result_trees{'simplest_no_node_section'} = {
                 'text_arg' => 'simplest_no_node_section.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'simplest_no_node_section.texi',

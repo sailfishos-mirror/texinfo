@@ -34,7 +34,9 @@ $result_trees{'comments_on_misc_command_line'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => '  '
+                'spaces_after_argument' => {
+                  'text' => '  '
+                }
               },
               'type' => 'line_arg'
             }
@@ -44,7 +46,9 @@ $result_trees{'comments_on_misc_command_line'} = {
             'text_arg' => 'comments_on_misc_command_line.info'
           },
           'info' => {
-            'spaces_before_argument' => '  '
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -77,7 +81,9 @@ $result_trees{'comments_on_misc_command_line'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => '  '
+                'spaces_after_argument' => {
+                  'text' => '  '
+                }
               },
               'type' => 'line_arg'
             }
@@ -91,7 +97,9 @@ $result_trees{'comments_on_misc_command_line'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -124,7 +132,9 @@ $result_trees{'comments_on_misc_command_line'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'line_arg'
             }
@@ -136,7 +146,9 @@ $result_trees{'comments_on_misc_command_line'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -194,14 +206,18 @@ $result_trees{'comments_on_misc_command_line'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'pagesizes',
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -243,14 +259,18 @@ $result_trees{'comments_on_misc_command_line'} = {
                     ]
                   }
                 },
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

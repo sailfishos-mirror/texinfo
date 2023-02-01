@@ -401,6 +401,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
           char *arg = 0;
           ELEMENT *line_args;
           ELEMENT *e;
+          ELEMENT *spaces_before = new_element (ET_NONE);
+          ELEMENT *spaces_after = new_element (ET_NONE);
 
           if (cmd == CM_set)
             arg = "on";
@@ -424,9 +426,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
           line_args = new_element (ET_line_arg);
           add_to_element_args (misc, line_args);
           add_extra_misc_args (misc, "misc_args", args);
-          add_info_string_dup (misc, "spaces_before_argument", " ");
+          text_append (&spaces_before->text, " ");
+          add_info_element_oot (misc, "spaces_before_argument", spaces_before);
 
-          add_info_string_dup (line_args, "spaces_after_argument", "\n");
+          text_append (&spaces_after->text, "\n");
+          add_info_element_oot (line_args, "spaces_after_argument",
+                                spaces_after);
 
           e = new_element (ET_NONE);
           text_append (&e->text, arg);

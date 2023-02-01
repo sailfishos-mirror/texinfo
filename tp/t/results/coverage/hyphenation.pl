@@ -23,7 +23,9 @@ $result_trees{'hyphenation'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'brace_command_arg'
             }

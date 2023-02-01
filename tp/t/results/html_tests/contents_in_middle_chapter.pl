@@ -40,8 +40,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -62,7 +64,9 @@ $result_trees{'contents_in_middle_chapter'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',
@@ -79,8 +83,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -110,8 +116,10 @@ $result_trees{'contents_in_middle_chapter'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -176,8 +184,10 @@ $result_trees{'contents_in_middle_chapter'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -187,7 +197,9 @@ $result_trees{'contents_in_middle_chapter'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'contents_in_middle_chapter.texi',
@@ -210,7 +222,9 @@ $result_trees{'contents_in_middle_chapter'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',
@@ -227,8 +241,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -249,7 +265,9 @@ $result_trees{'contents_in_middle_chapter'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',
@@ -266,8 +284,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -312,8 +332,10 @@ $result_trees{'contents_in_middle_chapter'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -378,8 +400,10 @@ $result_trees{'contents_in_middle_chapter'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -389,7 +413,9 @@ $result_trees{'contents_in_middle_chapter'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'contents_in_middle_chapter.texi',
@@ -412,7 +438,9 @@ $result_trees{'contents_in_middle_chapter'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',
@@ -429,8 +457,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -451,7 +481,9 @@ $result_trees{'contents_in_middle_chapter'} = {
         'normalized' => 'section'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',
@@ -468,8 +500,10 @@ $result_trees{'contents_in_middle_chapter'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -498,7 +532,9 @@ $result_trees{'contents_in_middle_chapter'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_in_middle_chapter.texi',

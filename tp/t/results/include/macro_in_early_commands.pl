@@ -32,8 +32,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -89,8 +93,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -100,7 +106,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -164,9 +172,20 @@ $result_trees{'macro_in_early_commands'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'text_arg' => 'macro_in_passtexi_commands.info'
+          },
+          'info' => {
+            'spaces_before_argument' => {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -186,15 +205,8 @@ $result_trees{'macro_in_early_commands'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'line_arg'
+              'text' => ' '
             }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'text_arg' => 'macro_in_passtexi_commands.info'
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -230,8 +242,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -241,7 +255,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -288,8 +304,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -299,7 +317,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -340,9 +360,22 @@ $result_trees{'macro_in_early_commands'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentencoding',
+          'extra' => {
+            'input_encoding_name' => 'iso-8859-1',
+            'input_perl_encoding' => 'iso-8859-1',
+            'text_arg' => 'ISO-8859-1'
+          },
+          'info' => {
+            'spaces_before_argument' => {
               'source_marks' => [
                 {
                   'counter' => 3,
@@ -367,17 +400,8 @@ $result_trees{'macro_in_early_commands'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'line_arg'
+              'text' => ' '
             }
-          ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'iso-8859-1',
-            'input_perl_encoding' => 'iso-8859-1',
-            'text_arg' => 'ISO-8859-1'
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -418,8 +442,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -429,7 +455,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -478,8 +506,10 @@ $result_trees{'macro_in_early_commands'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -500,7 +530,9 @@ $result_trees{'macro_in_early_commands'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -517,8 +549,10 @@ $result_trees{'macro_in_early_commands'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -538,9 +572,20 @@ $result_trees{'macro_in_early_commands'} = {
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'cmdname' => 'include',
+                'extra' => {
+                  'text_arg' => 'macro_included.texi'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
                     'source_marks' => [
                       {
                         'counter' => 5,
@@ -555,15 +600,8 @@ $result_trees{'macro_in_early_commands'} = {
                         'status' => 'start'
                       }
                     ],
-                    'type' => 'line_arg'
+                    'text' => ' '
                   }
-                ],
-                'cmdname' => 'include',
-                'extra' => {
-                  'text_arg' => 'macro_included.texi'
-                },
-                'info' => {
-                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -603,8 +641,10 @@ $result_trees{'macro_in_early_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -614,7 +654,9 @@ $result_trees{'macro_in_early_commands'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'macro_included.texi',
@@ -657,8 +699,10 @@ $result_trees{'macro_in_early_commands'} = {
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -668,7 +712,9 @@ $result_trees{'macro_in_early_commands'} = {
                   'text_arg' => 'inc_file.texi'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -779,7 +825,9 @@ $result_trees{'macro_in_early_commands'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

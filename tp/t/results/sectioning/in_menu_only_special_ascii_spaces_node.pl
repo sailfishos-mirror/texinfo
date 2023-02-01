@@ -25,7 +25,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -46,7 +48,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         "normalized" => "Top"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -63,7 +67,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -78,7 +84,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "args" => [
             {
               "info" => {
-                "spaces_after_argument" => "\n"
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
               },
               "type" => "block_line_arg"
             }
@@ -168,7 +176,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                     }
                   ],
                   "info" => {
-                    "spaces_after_argument" => "\n"
+                    "spaces_after_argument" => {
+                      "text" => "\n"
+                    }
                   },
                   "type" => "line_arg"
                 }
@@ -178,7 +188,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                 "text_arg" => "menu"
               },
               "info" => {
-                "spaces_before_argument" => " "
+                "spaces_before_argument" => {
+                  "text" => " "
+                }
               },
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -200,7 +212,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -212,7 +226,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "args" => [
         {
           "info" => {
-            "spaces_after_argument" => " \r\n"
+            "spaces_after_argument" => {
+              "text" => " \r\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -238,7 +254,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -252,7 +270,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -264,7 +284,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "args" => [
         {
           "info" => {
-            "spaces_after_argument" => " \t\f\n"
+            "spaces_after_argument" => {
+              "text" => " \t\f\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -290,7 +312,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -304,7 +328,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",

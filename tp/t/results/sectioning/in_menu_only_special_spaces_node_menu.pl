@@ -34,7 +34,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -55,7 +57,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         "normalized" => "Top"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -72,7 +76,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -87,7 +93,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
           "args" => [
             {
               "info" => {
-                "spaces_after_argument" => "\n"
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
               },
               "type" => "block_line_arg"
             }
@@ -369,7 +377,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
                     }
                   ],
                   "info" => {
-                    "spaces_after_argument" => "\n"
+                    "spaces_after_argument" => {
+                      "text" => "\n"
+                    }
                   },
                   "type" => "line_arg"
                 }
@@ -379,7 +389,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
                 "text_arg" => "menu"
               },
               "info" => {
-                "spaces_before_argument" => " "
+                "spaces_before_argument" => {
+                  "text" => " "
+                }
               },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -405,7 +417,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -422,7 +436,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -443,7 +459,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         "normalized" => "_2002_2003_2002"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -460,7 +478,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -474,7 +494,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -486,7 +508,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       "args" => [
         {
           "info" => {
-            "spaces_after_argument" => " \t\f\13\n"
+            "spaces_after_argument" => {
+              "text" => " \t\f\13\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -512,7 +536,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -526,7 +552,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -538,7 +566,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       "args" => [
         {
           "info" => {
-            "spaces_after_argument" => " \r\n"
+            "spaces_after_argument" => {
+              "text" => " \r\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -564,7 +594,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -578,7 +610,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -595,7 +629,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -616,7 +652,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         "normalized" => "_0085_00a0_1680"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -633,7 +671,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -647,7 +687,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -664,7 +706,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -685,7 +729,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         "normalized" => "_180e_2003"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -702,7 +748,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -716,7 +764,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -733,7 +783,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -760,7 +812,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
         "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
       },
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -777,7 +831,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
             }
           ],
           "info" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
           },
           "type" => "line_arg"
         }
@@ -791,7 +847,9 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       ],
       "extra" => {},
       "info" => {
-        "spaces_before_argument" => " "
+        "spaces_before_argument" => {
+          "text" => " "
+        }
       },
       "source_info" => {
         "file_name" => "in_menu_only_special_spaces_node.texi",

@@ -25,8 +25,10 @@ $result_trees{'complex_float'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'complex_float'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -64,8 +68,10 @@ $result_trees{'complex_float'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -95,8 +101,10 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -111,7 +119,9 @@ $result_trees{'complex_float'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -137,8 +147,10 @@ $result_trees{'complex_float'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -203,8 +215,10 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -214,7 +228,9 @@ $result_trees{'complex_float'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -251,9 +267,13 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
-',
-                'spaces_before_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -326,8 +346,10 @@ $result_trees{'complex_float'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -348,7 +370,9 @@ $result_trees{'complex_float'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -389,8 +413,10 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -410,15 +436,19 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => ' 
+                                'spaces_after_argument' => {
+                                  'text' => ' 
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
                           ],
                           'cmdname' => 'item',
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -455,8 +485,10 @@ $result_trees{'complex_float'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -466,7 +498,9 @@ $result_trees{'complex_float'} = {
                     'text_arg' => 'table'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -479,7 +513,9 @@ $result_trees{'complex_float'} = {
                 'command_as_argument' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -516,8 +552,10 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -563,8 +601,10 @@ $result_trees{'complex_float'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -574,7 +614,9 @@ $result_trees{'complex_float'} = {
                     'text_arg' => 'itemize'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -587,7 +629,9 @@ $result_trees{'complex_float'} = {
                 'command_as_argument' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -936,8 +980,10 @@ $result_trees{'complex_float'} = {
                       'args' => [
                         {
                           'info' => {
-                            'spaces_after_argument' => ' 
+                            'spaces_after_argument' => {
+                              'text' => ' 
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -962,8 +1008,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -973,7 +1021,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'example'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -1051,8 +1101,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -1072,15 +1124,19 @@ $result_trees{'complex_float'} = {
                                         }
                                       ],
                                       'info' => {
-                                        'spaces_after_argument' => ' 
+                                        'spaces_after_argument' => {
+                                          'text' => ' 
 '
+                                        }
                                       },
                                       'type' => 'line_arg'
                                     }
                                   ],
                                   'cmdname' => 'item',
                                   'info' => {
-                                    'spaces_before_argument' => ' '
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -1117,8 +1173,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -1128,7 +1186,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'table'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -1141,7 +1201,9 @@ $result_trees{'complex_float'} = {
                         'command_as_argument' => {}
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -1188,8 +1250,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -1328,8 +1392,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -1339,7 +1405,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'multitable'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -1366,7 +1434,9 @@ $result_trees{'complex_float'} = {
                         ]
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -1389,8 +1459,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -1411,7 +1483,9 @@ $result_trees{'complex_float'} = {
                             }
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -1452,8 +1526,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -1499,8 +1575,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -1510,7 +1588,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'itemize'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -1523,7 +1603,9 @@ $result_trees{'complex_float'} = {
                         'command_as_argument' => {}
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -1839,7 +1921,9 @@ $result_trees{'complex_float'} = {
                 'float' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2103,8 +2187,10 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -2114,7 +2200,9 @@ $result_trees{'complex_float'} = {
                 'text_arg' => 'float'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -2139,7 +2227,9 @@ $result_trees{'complex_float'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -2155,7 +2245,9 @@ $result_trees{'complex_float'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -2172,8 +2264,10 @@ $result_trees{'complex_float'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2194,7 +2288,9 @@ $result_trees{'complex_float'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -2211,8 +2307,10 @@ $result_trees{'complex_float'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2241,9 +2339,13 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
-',
-                'spaces_before_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -2306,8 +2408,10 @@ $result_trees{'complex_float'} = {
                       'args' => [
                         {
                           'info' => {
-                            'spaces_after_argument' => ' 
+                            'spaces_after_argument' => {
+                              'text' => ' 
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -2332,8 +2436,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -2343,7 +2449,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'example'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -2387,8 +2495,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -2408,15 +2518,19 @@ $result_trees{'complex_float'} = {
                                         }
                                       ],
                                       'info' => {
-                                        'spaces_after_argument' => ' 
+                                        'spaces_after_argument' => {
+                                          'text' => ' 
 '
+                                        }
                                       },
                                       'type' => 'line_arg'
                                     }
                                   ],
                                   'cmdname' => 'item',
                                   'info' => {
-                                    'spaces_before_argument' => ' '
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -2453,8 +2567,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -2464,7 +2580,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'table'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -2477,7 +2595,9 @@ $result_trees{'complex_float'} = {
                         'command_as_argument' => {}
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -2524,8 +2644,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -2664,8 +2786,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -2675,7 +2799,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'multitable'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -2702,7 +2828,9 @@ $result_trees{'complex_float'} = {
                         ]
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -2725,8 +2853,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -2747,7 +2877,9 @@ $result_trees{'complex_float'} = {
                             }
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -2788,8 +2920,10 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'block_line_arg'
                         }
@@ -2835,8 +2969,10 @@ $result_trees{'complex_float'} = {
                                 }
                               ],
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'line_arg'
                             }
@@ -2846,7 +2982,9 @@ $result_trees{'complex_float'} = {
                             'text_arg' => 'itemize'
                           },
                           'info' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -2859,7 +2997,9 @@ $result_trees{'complex_float'} = {
                         'command_as_argument' => {}
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -3209,7 +3349,9 @@ $result_trees{'complex_float'} = {
                 'float' => {}
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3236,8 +3378,10 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3247,7 +3391,9 @@ $result_trees{'complex_float'} = {
                 'text_arg' => 'float'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -3271,7 +3417,9 @@ $result_trees{'complex_float'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -3328,7 +3476,9 @@ $result_trees{'complex_float'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

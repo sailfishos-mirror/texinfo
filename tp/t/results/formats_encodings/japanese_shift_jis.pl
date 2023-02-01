@@ -30,8 +30,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'japanese_shift_jis'} = {
                 'text_arg' => 'shift_jis'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -65,8 +69,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -76,7 +82,9 @@ $result_trees{'japanese_shift_jis'} = {
                 'text_arg' => 'japanese_shift_jis.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -93,8 +101,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -102,7 +112,9 @@ $result_trees{'japanese_shift_jis'} = {
               'cmdname' => 'settitle',
               'extra' => {},
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -124,8 +136,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -135,7 +149,9 @@ $result_trees{'japanese_shift_jis'} = {
                 'text_arg' => 'ja'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -163,8 +179,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -185,7 +203,9 @@ $result_trees{'japanese_shift_jis'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',
@@ -202,8 +222,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -219,8 +241,10 @@ $result_trees{'japanese_shift_jis'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -337,8 +361,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -348,7 +374,9 @@ $result_trees{'japanese_shift_jis'} = {
                 'text_arg' => 'copying'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -391,8 +419,10 @@ $result_trees{'japanese_shift_jis'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -506,8 +536,10 @@ $result_trees{'japanese_shift_jis'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -517,7 +549,9 @@ $result_trees{'japanese_shift_jis'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -540,7 +574,9 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',
@@ -557,8 +593,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -579,7 +617,9 @@ $result_trees{'japanese_shift_jis'} = {
         'normalized' => 'Preface'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',
@@ -596,8 +636,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -631,7 +673,9 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',
@@ -648,8 +692,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -670,7 +716,9 @@ $result_trees{'japanese_shift_jis'} = {
         'normalized' => 'Introduction'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',
@@ -687,8 +735,10 @@ $result_trees{'japanese_shift_jis'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -717,7 +767,9 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'japanese_shift_jis.texi',

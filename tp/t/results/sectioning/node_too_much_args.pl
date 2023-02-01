@@ -22,13 +22,17 @@ $result_trees{'node_too_much_args'} = {
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
         {
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -45,7 +49,9 @@ $result_trees{'node_too_much_args'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => '  '
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
           'type' => 'line_arg'
         }
@@ -73,7 +79,9 @@ $result_trees{'node_too_much_args'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

@@ -328,8 +328,10 @@ $result_trees{'documentlanguage_unknown'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -339,7 +341,9 @@ $result_trees{'documentlanguage_unknown'} = {
                 'text_arg' => 'documentlanguage.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
@@ -361,8 +365,10 @@ $result_trees{'documentlanguage_unknown'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -372,7 +378,9 @@ $result_trees{'documentlanguage_unknown'} = {
                 'text_arg' => 'pt'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
@@ -400,8 +408,10 @@ $result_trees{'documentlanguage_unknown'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -422,7 +432,9 @@ $result_trees{'documentlanguage_unknown'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
@@ -439,8 +451,10 @@ $result_trees{'documentlanguage_unknown'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -455,7 +469,9 @@ $result_trees{'documentlanguage_unknown'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
@@ -472,8 +488,10 @@ $result_trees{'documentlanguage_unknown'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -495,7 +513,9 @@ $result_trees{'documentlanguage_unknown'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
@@ -512,8 +532,10 @@ $result_trees{'documentlanguage_unknown'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -642,8 +664,10 @@ $result_trees{'documentlanguage_unknown'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -713,8 +737,10 @@ $result_trees{'documentlanguage_unknown'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -724,7 +750,9 @@ $result_trees{'documentlanguage_unknown'} = {
                 'text_arg' => 'deftypemethod'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
@@ -734,7 +762,9 @@ $result_trees{'documentlanguage_unknown'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
@@ -756,8 +786,10 @@ $result_trees{'documentlanguage_unknown'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -769,7 +801,9 @@ $result_trees{'documentlanguage_unknown'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
@@ -785,7 +819,9 @@ $result_trees{'documentlanguage_unknown'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',

@@ -28,7 +28,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -45,7 +47,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -62,9 +66,13 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
-',
-              'spaces_before_argument' => ' '
+              'spaces_after_argument' => {
+                'text' => '
+'
+              },
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           }
@@ -101,7 +109,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -118,8 +128,10 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -135,8 +147,10 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -201,8 +215,10 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -212,7 +228,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -235,7 +253,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',
@@ -263,7 +283,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
           },
           {
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -274,7 +296,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -291,9 +315,13 @@ $result_trees{'non_automatic_top_node_up_url'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
-',
-              'spaces_before_argument' => ' '
+              'spaces_after_argument' => {
+                'text' => '
+'
+              },
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           }
@@ -326,7 +354,9 @@ $result_trees{'non_automatic_top_node_up_url'} = [
           'normalized' => 'first'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => '',

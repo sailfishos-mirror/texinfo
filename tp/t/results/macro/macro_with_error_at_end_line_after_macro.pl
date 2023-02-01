@@ -36,8 +36,10 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -47,7 +49,9 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -75,16 +79,18 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => '
 '
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
                 }
-              ],
+              },
               'type' => 'line_arg'
             }
           ],

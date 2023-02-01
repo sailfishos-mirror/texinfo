@@ -56,7 +56,9 @@ $result_trees{'unclosed_verb_on_section_line'} = {
       ],
       'cmdname' => 'section',
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

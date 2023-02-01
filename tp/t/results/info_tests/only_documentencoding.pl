@@ -27,7 +27,9 @@ $result_trees{'only_documentencoding'} = {
             'text_arg' => 'ISO-8859-1'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

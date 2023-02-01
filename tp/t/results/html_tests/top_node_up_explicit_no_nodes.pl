@@ -33,7 +33,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -50,7 +52,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -67,9 +71,13 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
-',
-            'spaces_before_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -105,7 +113,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -122,8 +132,10 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -153,8 +165,10 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -219,8 +233,10 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -230,7 +246,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -253,7 +271,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -270,8 +290,10 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -292,7 +314,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
         'normalized' => 'Chap'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -309,8 +333,10 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -334,7 +360,9 @@ $result_trees{'top_node_up_explicit_no_nodes'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

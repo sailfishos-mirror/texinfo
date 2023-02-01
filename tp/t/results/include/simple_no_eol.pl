@@ -29,7 +29,9 @@ $result_trees{'simple_no_eol'} = {
                   'text_arg' => 'inc_file.texi'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',

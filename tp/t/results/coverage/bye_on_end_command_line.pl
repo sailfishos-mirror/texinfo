@@ -13,8 +13,10 @@ $result_trees{'bye_on_end_command_line'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -46,7 +48,9 @@ $result_trees{'bye_on_end_command_line'} = {
                 'text_arg' => 'cartouche'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

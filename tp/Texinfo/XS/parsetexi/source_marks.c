@@ -63,18 +63,45 @@ add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
     {
       int i;
       for (i = 0; i < source_mark_list->number; i++)
-        add_source_mark (source_mark_list->list[i], e);
+        {
+          add_source_mark (source_mark_list->list[i], e);
+        }
     }
 }
 
-/* ELEMENT should be the parent container.
-   The source mark is put in the last content if it is text
-   or registered in the parent container. */
+/* ELEMENT should be the parent container. */
 void
-register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
+place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   ELEMENT *mark_element;
 
+  source_mark->position = 0;
+  if (e->contents.number > 0)
+    {
+      ELEMENT *last_child = last_contents_child (e);
+      mark_element = last_child;
+      if (last_child->text.end > 0)
+        source_mark->position = count_convert_u8 (last_child->text.text);
+    }
+  else
+    {
+      /* add an empty element only used for source marks */
+      mark_element = new_element (ET_NONE);
+      add_to_element_contents (e, mark_element);
+    }
+
+  debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
+              source_mark->counter, source_mark->position,
+              source_mark->status);
+  debug_print_element_short (mark_element, 1);
+  debug("");
+  add_source_mark (source_mark, mark_element);
+}
+
+/* ELEMENT should be the parent container. */
+void
+register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
+{
   if (source_mark->counter == -1)
     {
       if (source_mark->type == SM_type_include)
@@ -104,26 +131,7 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
         }
     }
 
-  if (e->contents.number > 0)
-    {
-      ELEMENT *last_child = last_contents_child (e);
-      mark_element = last_child;
-      if (last_child->text.end > 0)
-        source_mark->position = count_convert_u8 (last_child->text.text);
-    }
-  else
-    {
-      /* add an empty element only used for source marks */
-      mark_element = new_element (ET_NONE);
-      add_to_element_contents (e, mark_element);
-    }
-
-  debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
-              source_mark->counter, source_mark->position,
-              source_mark->status);
-  debug_print_element_short (mark_element, 1);
-  debug("");
-  add_source_mark (source_mark, mark_element);
+  place_source_mark (e, source_mark);
 }
 
 void

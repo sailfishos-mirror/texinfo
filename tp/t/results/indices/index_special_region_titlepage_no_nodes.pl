@@ -40,8 +40,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -51,7 +53,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 'text_arg' => 'index_special_region.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region.texi',
@@ -68,8 +72,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -90,8 +96,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -112,7 +120,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
@@ -229,8 +239,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -251,7 +263,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region.texi',
@@ -292,8 +306,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -305,7 +321,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
@@ -327,8 +345,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -338,7 +358,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     'text_arg' => 'copying'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
@@ -362,8 +384,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -384,8 +408,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -406,7 +432,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
@@ -516,8 +544,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -538,7 +568,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => 'index_special_region.texi',
@@ -594,8 +626,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -605,7 +639,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     'text_arg' => 'titlepage'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'index_special_region.texi',
@@ -640,8 +676,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -662,7 +700,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region.texi',
@@ -679,8 +719,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -688,7 +730,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region.texi',
@@ -705,8 +749,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -777,8 +823,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -799,7 +847,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region.texi',
@@ -817,8 +867,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -868,7 +920,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         'def_role' => 'name'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region.texi',
@@ -879,8 +933,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -922,8 +978,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -978,8 +1036,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1009,8 +1069,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1020,7 +1082,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 'text_arg' => 'deffn'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region.texi',
@@ -1048,8 +1112,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             },
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1064,8 +1130,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                       'args' => [
                         {
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -1099,8 +1167,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -1121,7 +1191,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_special_region.texi',
@@ -1144,8 +1216,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1155,7 +1229,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 'text_arg' => 'ftable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region.texi',
@@ -1182,8 +1258,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1248,8 +1326,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1259,7 +1339,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_special_region.texi',
@@ -1281,7 +1363,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
         }
       ],
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region.texi',
@@ -1298,8 +1382,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1321,7 +1407,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
         'normalized' => 'Copying-and-indices'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region.texi',
@@ -1338,8 +1426,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1374,8 +1464,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1396,7 +1488,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region.texi',
@@ -1419,8 +1513,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1441,7 +1537,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region.texi',
@@ -1628,8 +1726,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1641,7 +1741,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region.texi',
@@ -1658,8 +1760,10 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1671,7 +1775,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_special_region.texi',
@@ -1702,7 +1808,9 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_special_region.texi',

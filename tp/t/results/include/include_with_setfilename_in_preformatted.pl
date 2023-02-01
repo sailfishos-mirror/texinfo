@@ -13,8 +13,10 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -36,8 +38,10 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                               }
                             ],
                             'info' => {
-                              'spaces_after_argument' => '
+                              'spaces_after_argument' => {
+                                'text' => '
 '
+                              }
                             },
                             'type' => 'line_arg'
                           }
@@ -47,7 +51,9 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                           'text_arg' => 'included_file_with_setfilename.texi'
                         },
                         'info' => {
-                          'spaces_before_argument' => ' '
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'source_info' => {
                           'file_name' => '',
@@ -73,8 +79,10 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -84,7 +92,9 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                       'text_arg' => 'included_file.info'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => 'included_file_with_setfilename.texi',
@@ -139,7 +149,9 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                 'text_arg' => 'example'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

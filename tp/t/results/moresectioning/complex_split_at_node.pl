@@ -48,8 +48,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -81,7 +83,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -93,8 +97,10 @@ $result_trees{'complex_split_at_node'} = [
         'args' => [
           {
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -105,8 +111,10 @@ $result_trees{'complex_split_at_node'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -416,8 +424,10 @@ $result_trees{'complex_split_at_node'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -427,7 +437,9 @@ $result_trees{'complex_split_at_node'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => 'complex_sectioning_case.texi',
@@ -491,8 +503,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -526,7 +540,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'First-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -543,8 +559,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -569,8 +587,10 @@ $result_trees{'complex_split_at_node'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -748,8 +768,10 @@ $result_trees{'complex_split_at_node'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -759,7 +781,9 @@ $result_trees{'complex_split_at_node'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => 'complex_sectioning_case.texi',
@@ -782,7 +806,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -807,8 +833,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -829,7 +857,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'unnumbered'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -846,8 +876,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -863,8 +895,10 @@ $result_trees{'complex_split_at_node'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -1076,8 +1110,10 @@ $result_trees{'complex_split_at_node'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -1087,7 +1123,9 @@ $result_trees{'complex_split_at_node'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => 'complex_sectioning_case.texi',
@@ -1110,7 +1148,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1135,8 +1175,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1157,7 +1199,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'unnumbered-sub'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1174,8 +1218,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1190,7 +1236,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1215,8 +1263,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1237,7 +1287,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'numbered-sub'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1254,8 +1306,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1270,7 +1324,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1295,8 +1351,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1317,7 +1375,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'unnumbered-sub2'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1334,8 +1394,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1350,7 +1412,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1375,8 +1439,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1397,7 +1463,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'numbered-sub2'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1414,8 +1482,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1430,7 +1500,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1455,8 +1527,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1477,7 +1551,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'unnumbered2'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1494,8 +1570,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1511,8 +1589,10 @@ $result_trees{'complex_split_at_node'} = [
             'args' => [
               {
                 'info' => {
-                  'spaces_after_argument' => '
+                  'spaces_after_argument' => {
+                    'text' => '
 '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -1577,8 +1657,10 @@ $result_trees{'complex_split_at_node'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -1588,7 +1670,9 @@ $result_trees{'complex_split_at_node'} = [
                   'text_arg' => 'menu'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => 'complex_sectioning_case.texi',
@@ -1611,7 +1695,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1636,8 +1722,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1658,7 +1746,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'numbered-sub3'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1675,8 +1765,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1696,7 +1788,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1721,8 +1815,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1743,7 +1839,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'numbered'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1760,8 +1858,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1776,7 +1876,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => '  '
+          'spaces_before_argument' => {
+            'text' => '  '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1815,8 +1917,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1866,7 +1970,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'between-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1910,8 +2016,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -1966,7 +2074,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'Second-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -1983,8 +2093,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2013,7 +2125,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -2038,8 +2152,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2060,7 +2176,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'Third-node-unnumbered'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -2077,8 +2195,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2107,7 +2227,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -2140,7 +2262,9 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => '  '
+              'spaces_before_argument' => {
+                'text' => '  '
+              }
             },
             'type' => 'line_arg'
           },
@@ -2151,7 +2275,9 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           },
@@ -2162,9 +2288,13 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
-',
-              'spaces_before_argument' => ' '
+              'spaces_after_argument' => {
+                'text' => '
+'
+              },
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2203,7 +2333,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'continuity'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -2220,8 +2352,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2254,7 +2388,9 @@ $result_trees{'complex_split_at_node'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',
@@ -2298,8 +2434,10 @@ $result_trees{'complex_split_at_node'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -2355,7 +2493,9 @@ $result_trees{'complex_split_at_node'} = [
           'normalized' => 'Last-node-no-description'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'complex_sectioning_case.texi',

@@ -61,8 +61,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -83,7 +85,9 @@ $result_trees{'contents_at_document_begin_inline'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
@@ -100,8 +104,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -131,8 +137,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -197,8 +205,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -208,7 +218,9 @@ $result_trees{'contents_at_document_begin_inline'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'contents_at_document_begin.texi',
@@ -231,7 +243,9 @@ $result_trees{'contents_at_document_begin_inline'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
@@ -248,8 +262,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -270,7 +286,9 @@ $result_trees{'contents_at_document_begin_inline'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',
@@ -287,8 +305,10 @@ $result_trees{'contents_at_document_begin_inline'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -317,7 +337,9 @@ $result_trees{'contents_at_document_begin_inline'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'contents_at_document_begin.texi',

@@ -105,8 +105,12 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' ',
-                    'spaces_before_argument' => ' '
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -153,8 +157,12 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' ',
-                    'spaces_before_argument' => ' '
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }

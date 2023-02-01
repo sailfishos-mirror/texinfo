@@ -19,8 +19,10 @@ $result_trees{'next_no_prev_to_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -36,8 +38,10 @@ $result_trees{'next_no_prev_to_node'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -151,8 +155,10 @@ $result_trees{'next_no_prev_to_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -162,7 +168,9 @@ $result_trees{'next_no_prev_to_node'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -198,7 +206,9 @@ $result_trees{'next_no_prev_to_node'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -223,7 +233,9 @@ $result_trees{'next_no_prev_to_node'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         },
@@ -237,9 +249,13 @@ $result_trees{'next_no_prev_to_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
-',
-            'spaces_before_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -280,7 +296,9 @@ $result_trees{'next_no_prev_to_node'} = {
         'normalized' => 'first-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -311,9 +329,13 @@ $result_trees{'next_no_prev_to_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => ' 
-',
-            'spaces_before_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => ' 
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -342,7 +364,9 @@ $result_trees{'next_no_prev_to_node'} = {
         'normalized' => 'no-return'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

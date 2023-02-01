@@ -445,8 +445,8 @@ sub _leading_spaces_arg($)
 {
   my $element = shift;
   if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'}
-      and $element->{'info'}->{'spaces_before_argument'} ne '') {
-    return ['spaces', $element->{'info'}->{'spaces_before_argument'}];
+      and $element->{'info'}->{'spaces_before_argument'}->{'text'} ne '') {
+    return ['spaces', $element->{'info'}->{'spaces_before_argument'}->{'text'}];
   } else {
     return ();
   }
@@ -464,7 +464,8 @@ sub _end_line_spaces
       and $element->{'args'}->[-1]->{'info'}
       and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
     # spaces and form feeds only, protection is needed for form feeds
-    my $spaces = $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'};
+    my $spaces
+      = $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}->{'text'};
     chomp $spaces;
     $end_spaces = $self->txi_markup_protect_text($spaces);
   }
@@ -494,7 +495,7 @@ sub _trailing_spaces_arg($)
 
   if ($element->{'info'} and
       $element->{'info'}->{'spaces_after_argument'}) {
-    my $spaces = $element->{'info'}->{'spaces_after_argument'};
+    my $spaces = $element->{'info'}->{'spaces_after_argument'}->{'text'};
     chomp($spaces);
     if ($spaces ne '') {
       return ['trailingspaces', $spaces];
@@ -1127,7 +1128,7 @@ sub _convert($$;$)
               and $element->{'args'}->[$arg_index]
                                       ->{'info'}->{'spaces_after_argument'}) {
             $arg .= $element->{'args'}->[$arg_index]
-                   ->{'info'}->{'spaces_after_argument'};
+                   ->{'info'}->{'spaces_after_argument'}->{'text'};
           }
 
           if (!defined($main_cmdname) or $arg ne '' or scalar(@$attribute) > 0

@@ -45,7 +45,9 @@ $result_trees{'setfilename'} = {
                 'text_arg' => 'file_comment'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -62,8 +64,10 @@ $result_trees{'setfilename'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '   
+                    'spaces_after_argument' => {
+                      'text' => '   
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -73,7 +77,9 @@ $result_trees{'setfilename'} = {
                 'text_arg' => 'file_and_spaces'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -106,7 +112,9 @@ $result_trees{'setfilename'} = {
                         ]
                       }
                     },
-                    'spaces_after_argument' => ' '
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -116,7 +124,9 @@ $result_trees{'setfilename'} = {
                 'text_arg' => 'file_space_comment'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -158,8 +168,10 @@ $result_trees{'setfilename'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -169,7 +181,9 @@ $result_trees{'setfilename'} = {
                 'missing_argument' => 1
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

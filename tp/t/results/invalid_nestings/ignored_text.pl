@@ -19,7 +19,9 @@ $result_trees{'ignored_text'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => ' '
+            'spaces_after_argument' => {
+              'text' => ' '
+            }
           },
           'type' => 'line_arg'
         }
@@ -40,7 +42,9 @@ $result_trees{'ignored_text'} = {
         'normalized' => 'before-ignore'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

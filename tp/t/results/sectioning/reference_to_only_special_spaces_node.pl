@@ -35,8 +35,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -57,7 +59,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -74,8 +78,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -90,7 +96,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -107,8 +115,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -129,7 +139,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         'normalized' => '_2002_2003_2002'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -146,8 +158,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -170,7 +184,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -181,7 +197,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -217,7 +235,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -249,8 +269,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -267,7 +289,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         ]
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -299,8 +323,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -361,7 +387,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -402,7 +430,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'reference_to_only_special_spaces_node.texi',

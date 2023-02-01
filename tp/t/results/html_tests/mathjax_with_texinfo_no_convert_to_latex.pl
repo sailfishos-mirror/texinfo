@@ -13,8 +13,10 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -115,8 +117,10 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -126,7 +130,9 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                 'text_arg' => 'displaymath'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

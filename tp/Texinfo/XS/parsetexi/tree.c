@@ -20,6 +20,8 @@
 #include "errors.h"
 #include "tree.h"
 #include "source_marks.h"
+/* for debug */
+#include "parser.h"
 
 //int element_counter;
 

@@ -311,15 +311,19 @@ $result_trees{'bib_example'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
               ],
               'cmdname' => 'settitle',
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
@@ -340,8 +344,10 @@ $result_trees{'bib_example'} = {
                           }
                         ],
                         'info' => {
-                          'spaces_after_argument' => '
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
                         },
                         'type' => 'line_arg'
                       }
@@ -351,7 +357,9 @@ $result_trees{'bib_example'} = {
                       'text_arg' => 'my-bib-macros.texi'
                     },
                     'info' => {
-                      'spaces_before_argument' => ' '
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'source_info' => {
                       'file_name' => 'bib-example.texi',
@@ -2641,8 +2649,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -2652,7 +2662,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -2736,8 +2748,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -2747,7 +2761,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -2855,8 +2871,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -2866,7 +2884,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -2974,8 +2994,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -2985,7 +3007,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -3097,8 +3121,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -3108,7 +3134,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -3163,8 +3191,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -3174,7 +3204,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -3311,8 +3343,10 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -3322,7 +3356,9 @@ $result_trees{'bib_example'} = {
                     'text_arg' => 'macro'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'my-bib-macros.texi',
@@ -3490,8 +3526,10 @@ $result_trees{'bib_example'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3512,7 +3550,9 @@ $result_trees{'bib_example'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
@@ -3529,8 +3569,10 @@ $result_trees{'bib_example'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3546,8 +3588,10 @@ $result_trees{'bib_example'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -3705,8 +3749,10 @@ $result_trees{'bib_example'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -3716,7 +3762,9 @@ $result_trees{'bib_example'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
@@ -3739,7 +3787,9 @@ $result_trees{'bib_example'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
@@ -3756,8 +3806,10 @@ $result_trees{'bib_example'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3778,7 +3830,9 @@ $result_trees{'bib_example'} = {
         'normalized' => 'Introduction'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
@@ -3795,8 +3849,10 @@ $result_trees{'bib_example'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -3898,7 +3954,9 @@ $result_trees{'bib_example'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -3922,28 +3980,11 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
-                            'extra' => {
-                              'name' => 'mybibnode'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
                         }
-                      ],
+                      },
                       'type' => 'line_arg'
                     }
                   ],
@@ -3963,7 +4004,28 @@ $result_trees{'bib_example'} = {
                     'normalized' => 'References'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 7,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'mybibnode'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 1,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
@@ -4042,7 +4104,9 @@ $result_trees{'bib_example'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',
@@ -4060,8 +4124,10 @@ $result_trees{'bib_example'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -4093,8 +4159,10 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -4229,8 +4297,10 @@ $result_trees{'bib_example'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -4240,7 +4310,9 @@ $result_trees{'bib_example'} = {
                 'text_arg' => 'itemize'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
@@ -4253,7 +4325,9 @@ $result_trees{'bib_example'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'bib-example.texi',
@@ -4269,7 +4343,9 @@ $result_trees{'bib_example'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'bib-example.texi',

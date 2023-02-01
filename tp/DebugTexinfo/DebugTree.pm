@@ -177,12 +177,12 @@ sub _print_tree($$;$$)
   if ($element->{'info'}
       and defined($element->{'info'}->{'spaces_before_argument'})) {
     $result .= ' '
-    .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}).'/';
+    .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}->{'text'}).'/';
   }
   if ($element->{'info'}
       and defined($element->{'info'}->{'spaces_after_argument'})) {
     $result .= ' '
-    .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}).'/';
+    .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}->{'text'}).'/';
   }
   $result .= "\n";
   if ($element->{'info'}

@@ -38,7 +38,9 @@ $result_trees{'good_space_comment'} = {
                             ]
                           }
                         },
-                        'spaces_after_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -51,7 +53,9 @@ $result_trees{'good_space_comment'} = {
                     ]
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -81,7 +85,9 @@ $result_trees{'good_space_comment'} = {
                 'text_arg' => 'multitable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -95,7 +101,9 @@ $result_trees{'good_space_comment'} = {
             'max_columns' => 2
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

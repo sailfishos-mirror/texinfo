@@ -69,7 +69,9 @@ $result_trees{'raw_and_comments'} = {
                         ]
                       }
                     },
-                    'spaces_after_argument' => '  '
+                    'spaces_after_argument' => {
+                      'text' => '  '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -79,7 +81,9 @@ $result_trees{'raw_and_comments'} = {
                 'text_arg' => 'tex'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -89,7 +93,9 @@ $result_trees{'raw_and_comments'} = {
             }
           ],
           'info' => {
-            'spaces_before_argument' => '  '
+            'spaces_before_argument' => {
+              'text' => '  '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -168,7 +174,9 @@ $result_trees{'raw_and_comments'} = {
                             ]
                           }
                         },
-                        'spaces_after_argument' => '  '
+                        'spaces_after_argument' => {
+                          'text' => '  '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -178,7 +186,9 @@ $result_trees{'raw_and_comments'} = {
                     'text_arg' => 'xml'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -188,7 +198,9 @@ $result_trees{'raw_and_comments'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

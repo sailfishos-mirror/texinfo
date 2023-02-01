@@ -39,8 +39,10 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -164,7 +166,9 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
         'normalized' => 'one-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

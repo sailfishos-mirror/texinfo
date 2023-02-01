@@ -1342,7 +1342,8 @@ sub format_comment_or_return_end_line($$)
     $end_line = $self->convert_tree($comment);
   } elsif ($element->{'args'} and $element->{'args'}->[-1]->{'info'}
       and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
-    my $text = $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'};
+    my $text = $element->{'args'}->[-1]
+                   ->{'info'}->{'spaces_after_argument'}->{'text'};
     if (chomp($text)) {
       $end_line = "\n";
     } else {

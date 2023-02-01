@@ -25,8 +25,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -47,7 +49,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -59,8 +63,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
       'args' => [
         {
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -89,8 +95,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -112,7 +120,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
         'normalized' => 'chapter-index'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -129,8 +139,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -218,8 +230,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -230,7 +244,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 'sortas' => 'C---S1'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -240,7 +256,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -259,7 +277,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'line_arg'
             }
@@ -302,8 +322,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' 
+                    'spaces_after_argument' => {
+                      'text' => ' 
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -321,7 +343,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -365,7 +389,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => ' '
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -400,8 +426,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -412,7 +440,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                     'sortas' => 'D'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -422,7 +452,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -432,7 +464,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -452,7 +486,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
               },
               'type' => 'line_arg'
             }
@@ -494,8 +530,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -505,7 +543,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                     'level' => 2
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -515,7 +555,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -525,7 +567,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -550,8 +594,10 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -563,7 +609,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -574,7 +622,9 @@ $result_trees{'subentry_and_sortas_spaces'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',

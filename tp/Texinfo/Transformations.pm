@@ -119,10 +119,12 @@ sub fill_gaps_in_sectioning($)
             $Texinfo::Common::level_to_structuring_command{'unnumbered'}
                                                   ->[$current_section_level],
             'parent' => $root,
-            'info' => {'spaces_before_argument' => ' '},
           };
+          $new_section->{'info'} = {'spaces_before_argument' =>
+                                                {'text' => ' ',}};
           my $line_arg = {'type' => 'line_arg', 'parent' => $new_section,
-                          'info' => {'spaces_after_argument' => "\n"}};
+                          'info' => {'spaces_after_argument'
+                                                   => {'text' => "\n",}}};
           $new_section->{'args'} = [$line_arg];
           my $asis_command = {'cmdname' => 'asis',
                               'parent' => $line_arg};
@@ -249,14 +251,14 @@ sub _new_node($$$$)
             and $labels->{$parsed_node->{'normalized'}})) {
     $node = {'cmdname' => 'node',
              'args' => [
-               {'type' => 'line_arg',
-                'info' =>
-                    {'spaces_after_argument' => $spaces_after_argument}}
+               {'type' => 'line_arg',}
              ],
-             'info' => {'spaces_before_argument' => ' '},
              'extra' => {}};
+    $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
     my $node_line_arg = $node->{'args'}->[0];
     $node_line_arg->{'parent'} = $node;
+    $node_line_arg->{'info'} = {'spaces_after_argument' =>
+                                     {'text' => $spaces_after_argument}};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
       if (defined($comment_at_end));
     @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});

@@ -81,7 +81,9 @@ $result_trees{'form_feed_in_brace_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => ''
+                    'spaces_before_argument' => {
+                      'text' => ''
+                    }
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -92,7 +94,9 @@ $result_trees{'form_feed_in_brace_commands'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_before_argument' => '  '
+                    'spaces_before_argument' => {
+                      'text' => '  '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -130,8 +134,10 @@ $result_trees{'form_feed_in_brace_commands'} = {
               ],
               'cmdname' => 'footnote',
               'info' => {
-                'spaces_before_argument' => ' 
+                'spaces_before_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -172,7 +178,9 @@ $result_trees{'form_feed_in_brace_commands'} = {
               ],
               'cmdname' => 'footnote',
               'info' => {
-                'spaces_before_argument' => '  '
+                'spaces_before_argument' => {
+                  'text' => '  '
+                }
               },
               'source_info' => {
                 'file_name' => '',

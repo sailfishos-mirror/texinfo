@@ -85,8 +85,12 @@ $result_trees{'test_errormsg'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '   ',
-                    'spaces_before_argument' => '  '
+                    'spaces_after_argument' => {
+                      'text' => '   '
+                    },
+                    'spaces_before_argument' => {
+                      'text' => '  '
+                    }
                   },
                   'type' => 'brace_command_arg'
                 }

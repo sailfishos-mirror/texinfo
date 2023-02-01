@@ -62,8 +62,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -79,8 +81,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -337,8 +341,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -348,7 +354,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -384,7 +392,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
@@ -416,8 +426,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -528,7 +540,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
         'normalized' => '_00e1'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
@@ -560,8 +574,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -672,7 +688,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
         'normalized' => '_00e2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
@@ -689,8 +707,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -711,7 +731,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
         'normalized' => 'chapter'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
@@ -728,8 +750,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -745,8 +769,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -826,8 +852,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -837,7 +865,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -860,7 +890,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',
@@ -892,8 +924,10 @@ $result_trees{'node_footnote_use_node_separate'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1004,7 +1038,9 @@ $result_trees{'node_footnote_use_node_separate'} = {
         'normalized' => '_00e0'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'node_footnote.texi',

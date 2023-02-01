@@ -32,8 +32,10 @@ $result_trees{'macro_in_accent'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'macro_in_accent'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -90,8 +94,10 @@ $result_trees{'macro_in_accent'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -101,7 +107,9 @@ $result_trees{'macro_in_accent'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -135,6 +143,24 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aletter'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -150,22 +176,6 @@ $result_trees{'macro_in_accent'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'aletter'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
@@ -181,6 +191,24 @@ $result_trees{'macro_in_accent'} = {
                   'contents' => [
                     {
                       'text' => 'a'
+                    }
+                  ],
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aletter'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
                     }
                   ],
                   'type' => 'following_arg'
@@ -195,22 +223,6 @@ $result_trees{'macro_in_accent'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'aletter'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
@@ -228,6 +240,24 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aletter'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -238,22 +268,6 @@ $result_trees{'macro_in_accent'} = {
                 'macro' => ''
               },
               'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'aletter'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
                 {
                   'counter' => 3,
                   'sourcemark_type' => 'macro_expansion',
@@ -333,6 +347,45 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_marks' => [
+                    {
+                      'counter' => 5,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aspace'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 5,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 6,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'aletter'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -346,43 +399,6 @@ $result_trees{'macro_in_accent'} = {
                 'macro' => ''
               },
               'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'aspace'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'aletter'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
                 {
                   'counter' => 6,
                   'sourcemark_type' => 'macro_expansion',

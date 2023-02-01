@@ -1,3 +1,34 @@
+2023-02-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/DebugTexinfo/DebugTree.pm (_print_tree),
+	tp/Texinfo/Convert/Converter.pm (format_comment_or_return_end_line),
+	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_leading_spaces_arg, _end_line_spaces, _trailing_spaces_arg)
+	(_convert), tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_abort_empty_line, _isolate_last_space)
+	(_process_remaining_on_line), tp/Texinfo/Structuring.pm
+	(new_block_command), tp/Texinfo/Transformations.pm
+	(fill_gaps_in_sectioning, _new_node),
+	tp/Texinfo/XS/parsetexi/convert.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line)
+	(isolate_last_space_internal): add "spaces_before_argument" and
+	"spaces_after_argument" as elements with text such that they can hold
+	source marks too.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): reassociate
+	source marks in accent with following arg to the following_arg type.
+
+	* tp/Texinfo/ParserNonXS.pm (_place_source_mark),
+	tp/Texinfo/XS/parsetexi/source_marks.c (place_source_mark): separate
+	placing a source mark and registering a source mark.
+
+	* tp/Texinfo/ParserNonXS.pm (_pop_element_from_contents): add $self
+	as argument.  Update callers.
+
 2023-01-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm

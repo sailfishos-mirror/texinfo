@@ -40,8 +40,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -62,7 +64,9 @@ $result_trees{'index_table_chapter_no_node'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -79,8 +83,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -91,8 +97,10 @@ $result_trees{'index_table_chapter_no_node'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -255,8 +263,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -266,7 +276,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
@@ -289,7 +301,9 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -306,8 +320,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -328,7 +344,9 @@ $result_trees{'index_table_chapter_no_node'} = {
         'normalized' => 'node-with-ftable-and-vtable'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -345,8 +363,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -367,8 +387,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -389,7 +411,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -418,8 +442,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -440,7 +466,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
@@ -486,8 +514,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -507,8 +537,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -529,7 +561,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
@@ -546,8 +580,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -568,7 +604,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
@@ -605,8 +643,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -616,7 +656,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                 'text_arg' => 'vtable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
@@ -629,7 +671,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -670,8 +714,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -691,8 +737,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -713,7 +761,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
@@ -730,8 +780,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -752,7 +804,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
@@ -793,8 +847,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -815,7 +871,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                         }
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => 'index_table.texi',
@@ -852,8 +910,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -863,7 +923,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                 'text_arg' => 'ftable'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
@@ -876,7 +938,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             'command_as_argument' => {}
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -892,7 +956,9 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -909,8 +975,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -932,7 +1000,9 @@ $result_trees{'index_table_chapter_no_node'} = {
         'normalized' => 'node-with-printindex'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -949,8 +1019,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -971,8 +1043,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -984,7 +1058,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1001,8 +1077,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1014,7 +1092,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1031,8 +1111,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1044,7 +1126,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1060,7 +1144,9 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -1077,8 +1163,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1100,7 +1188,9 @@ $result_trees{'index_table_chapter_no_node'} = {
         'normalized' => 'indices-refs'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -1117,8 +1207,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1129,8 +1221,10 @@ $result_trees{'index_table_chapter_no_node'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1195,8 +1289,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1206,7 +1302,9 @@ $result_trees{'index_table_chapter_no_node'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'index_table.texi',
@@ -1230,8 +1328,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1252,7 +1352,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1270,8 +1372,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1292,7 +1396,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1310,8 +1416,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1332,7 +1440,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1350,8 +1460,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1372,7 +1484,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1390,8 +1504,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1412,7 +1528,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1430,8 +1548,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1452,7 +1572,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1470,8 +1592,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1492,7 +1616,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1510,8 +1636,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1532,7 +1660,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1550,8 +1680,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1572,7 +1704,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1590,8 +1724,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1612,7 +1748,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1630,8 +1768,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1652,7 +1792,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1670,8 +1812,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1692,7 +1836,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1710,8 +1856,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1732,7 +1880,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1750,8 +1900,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1772,7 +1924,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1790,8 +1944,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1812,7 +1968,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1830,8 +1988,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1852,7 +2012,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1870,8 +2032,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1892,7 +2056,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1910,8 +2076,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1932,7 +2100,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1950,8 +2120,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -1972,7 +2144,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -1990,8 +2164,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2012,7 +2188,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2030,8 +2208,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2052,7 +2232,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2070,8 +2252,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2092,7 +2276,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2110,8 +2296,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2132,7 +2320,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2150,8 +2340,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2172,7 +2364,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2190,8 +2384,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2212,7 +2408,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2230,8 +2428,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2252,7 +2452,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2270,8 +2472,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2292,7 +2496,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2310,8 +2516,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2332,7 +2540,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2350,8 +2560,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2372,7 +2584,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2390,8 +2604,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2412,7 +2628,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2430,8 +2648,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2452,7 +2672,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2470,8 +2692,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2492,7 +2716,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2510,8 +2736,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2532,7 +2760,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2550,8 +2780,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2572,7 +2804,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2590,8 +2824,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2612,7 +2848,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2630,8 +2868,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2652,7 +2892,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2670,8 +2912,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2692,7 +2936,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2710,8 +2956,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2732,7 +2980,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2750,8 +3000,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2772,7 +3024,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2790,8 +3044,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2812,7 +3068,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2830,8 +3088,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2852,7 +3112,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2870,8 +3132,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2892,7 +3156,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2910,8 +3176,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2932,7 +3200,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2950,8 +3220,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -2972,7 +3244,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -2990,8 +3264,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3012,7 +3288,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3030,8 +3308,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3052,7 +3332,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3070,8 +3352,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3092,7 +3376,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3110,8 +3396,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3132,7 +3420,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3150,8 +3440,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3172,7 +3464,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3190,8 +3484,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3212,7 +3508,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3230,8 +3528,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3252,7 +3552,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3270,8 +3572,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3292,7 +3596,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3310,8 +3616,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3332,7 +3640,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3350,8 +3660,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3372,7 +3684,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3390,8 +3704,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3412,7 +3728,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3430,8 +3748,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3452,7 +3772,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3470,8 +3792,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3492,7 +3816,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3510,8 +3836,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3532,7 +3860,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3550,8 +3880,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3572,7 +3904,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3590,8 +3924,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3612,7 +3948,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3630,8 +3968,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3652,7 +3992,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3670,8 +4012,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3692,7 +4036,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3710,8 +4056,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3732,7 +4080,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3750,8 +4100,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3772,7 +4124,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3790,8 +4144,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3812,7 +4168,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3830,8 +4188,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3852,7 +4212,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3870,8 +4232,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3892,7 +4256,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3910,8 +4276,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3932,7 +4300,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3950,8 +4320,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -3972,7 +4344,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -3990,8 +4364,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4012,7 +4388,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4030,8 +4408,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4052,7 +4432,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4070,8 +4452,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4092,7 +4476,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4110,8 +4496,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4132,7 +4520,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4150,8 +4540,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4172,7 +4564,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4190,8 +4584,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4212,7 +4608,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4230,8 +4628,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4252,7 +4652,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4270,8 +4672,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4292,7 +4696,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4310,8 +4716,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4332,7 +4740,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4350,8 +4760,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4372,7 +4784,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4390,8 +4804,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4412,7 +4828,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4430,8 +4848,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4452,7 +4872,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4470,8 +4892,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4492,7 +4916,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4510,8 +4936,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4532,7 +4960,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4550,8 +4980,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4572,7 +5004,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4590,8 +5024,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4612,7 +5048,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4630,8 +5068,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4652,7 +5092,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4670,8 +5112,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4692,7 +5136,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4710,8 +5156,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4732,7 +5180,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4750,8 +5200,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4772,7 +5224,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4790,8 +5244,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4812,7 +5268,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4830,8 +5288,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4852,7 +5312,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4870,8 +5332,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4892,7 +5356,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4910,8 +5376,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4932,7 +5400,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4950,8 +5420,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -4972,7 +5444,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -4990,8 +5464,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5012,7 +5488,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5030,8 +5508,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5052,7 +5532,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5070,8 +5552,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5092,7 +5576,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5110,8 +5596,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5132,7 +5620,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5150,8 +5640,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5172,7 +5664,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5190,8 +5684,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5212,7 +5708,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5230,8 +5728,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5252,7 +5752,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5270,8 +5772,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5292,7 +5796,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5310,8 +5816,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5332,7 +5840,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5350,8 +5860,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5372,7 +5884,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5390,8 +5904,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5412,7 +5928,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5430,8 +5948,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5452,7 +5972,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5470,8 +5992,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5492,7 +6016,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5510,8 +6036,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5532,7 +6060,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5550,8 +6080,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5572,7 +6104,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5590,8 +6124,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5612,7 +6148,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5630,8 +6168,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5652,7 +6192,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5670,8 +6212,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5692,7 +6236,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5710,8 +6256,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5732,7 +6280,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5750,8 +6300,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5772,7 +6324,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5790,8 +6344,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5812,7 +6368,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5830,8 +6388,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5852,7 +6412,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5870,8 +6432,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5892,7 +6456,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5910,8 +6476,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5932,7 +6500,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5950,8 +6520,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -5972,7 +6544,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -5990,8 +6564,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6012,7 +6588,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6030,8 +6608,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6052,7 +6632,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6070,8 +6652,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6092,7 +6676,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6110,8 +6696,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6132,7 +6720,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6150,8 +6740,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6172,7 +6764,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6190,8 +6784,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6212,7 +6808,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6230,8 +6828,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6252,7 +6852,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6270,8 +6872,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6292,7 +6896,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6310,8 +6916,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6332,7 +6940,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6387,8 +6997,10 @@ $result_trees{'index_table_chapter_no_node'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -6400,7 +7012,9 @@ $result_trees{'index_table_chapter_no_node'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6416,7 +7030,9 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -6442,8 +7058,10 @@ $result_trees{'index_table_chapter_no_node'} = {
         },
         {
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -6467,7 +7085,9 @@ $result_trees{'index_table_chapter_no_node'} = {
         'normalized' => 'node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',
@@ -6484,8 +7104,10 @@ $result_trees{'index_table_chapter_no_node'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -6529,7 +7151,9 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'index_table.texi',

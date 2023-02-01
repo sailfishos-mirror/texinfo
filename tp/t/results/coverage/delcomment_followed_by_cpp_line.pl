@@ -35,8 +35,10 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -46,7 +48,9 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
                 'text_arg' => 'delcomment.info'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'delcomment_followed_by_cpp_line.texi',

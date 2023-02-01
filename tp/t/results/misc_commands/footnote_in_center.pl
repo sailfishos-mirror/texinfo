@@ -42,8 +42,10 @@ $result_trees{'footnote_in_center'} = {
                           'args' => [
                             {
                               'info' => {
-                                'spaces_after_argument' => '
+                                'spaces_after_argument' => {
+                                  'text' => '
 '
+                                }
                               },
                               'type' => 'block_line_arg'
                             }
@@ -65,8 +67,10 @@ $result_trees{'footnote_in_center'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'block_line_arg'
                                 }
@@ -86,15 +90,19 @@ $result_trees{'footnote_in_center'} = {
                                                 }
                                               ],
                                               'info' => {
-                                                'spaces_after_argument' => '
+                                                'spaces_after_argument' => {
+                                                  'text' => '
 '
+                                                }
                                               },
                                               'type' => 'line_arg'
                                             }
                                           ],
                                           'cmdname' => 'item',
                                           'info' => {
-                                            'spaces_before_argument' => ' '
+                                            'spaces_before_argument' => {
+                                              'text' => ' '
+                                            }
                                           },
                                           'source_info' => {
                                             'file_name' => '',
@@ -131,8 +139,10 @@ $result_trees{'footnote_in_center'} = {
                                         }
                                       ],
                                       'info' => {
-                                        'spaces_after_argument' => ' 
+                                        'spaces_after_argument' => {
+                                          'text' => ' 
 '
+                                        }
                                       },
                                       'type' => 'line_arg'
                                     }
@@ -142,7 +152,9 @@ $result_trees{'footnote_in_center'} = {
                                     'text_arg' => 'table'
                                   },
                                   'info' => {
-                                    'spaces_before_argument' => ' '
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -155,7 +167,9 @@ $result_trees{'footnote_in_center'} = {
                                 'command_as_argument' => {}
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -172,8 +186,10 @@ $result_trees{'footnote_in_center'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -183,7 +199,9 @@ $result_trees{'footnote_in_center'} = {
                                 'text_arg' => 'example'
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -214,15 +232,19 @@ $result_trees{'footnote_in_center'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'center',
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

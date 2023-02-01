@@ -51,8 +51,10 @@ $result_trees{'ifclear_in_ifset_set'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -62,7 +64,9 @@ $result_trees{'ifclear_in_ifset_set'} = {
             'text_arg' => 'junky   - ok, ignored'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -79,8 +83,10 @@ $result_trees{'ifclear_in_ifset_set'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -90,7 +96,9 @@ $result_trees{'ifclear_in_ifset_set'} = {
             'text_arg' => 'ifset'
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

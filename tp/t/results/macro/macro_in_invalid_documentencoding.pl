@@ -32,8 +32,10 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -79,9 +83,20 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentencoding',
+          'extra' => {
+            'text_arg' => 'badm'
+          },
+          'info' => {
+            'spaces_before_argument' => {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -101,15 +116,8 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'line_arg'
+              'text' => ' '
             }
-          ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'text_arg' => 'badm'
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

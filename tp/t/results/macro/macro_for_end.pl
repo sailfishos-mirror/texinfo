@@ -32,8 +32,10 @@ $result_trees{'macro_for_end'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -43,7 +45,9 @@ $result_trees{'macro_for_end'} = {
                 'text_arg' => 'macro'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -71,8 +75,10 @@ $result_trees{'macro_for_end'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -88,16 +94,11 @@ $result_trees{'macro_for_end'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
-                  },
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
                     }
-                  ],
+                  },
                   'type' => 'line_arg'
                 }
               ],
@@ -106,7 +107,16 @@ $result_trees{'macro_for_end'} = {
                 'text_arg' => 'cartouche'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

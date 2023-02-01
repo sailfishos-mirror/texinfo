@@ -45,7 +45,9 @@ $result_trees{'include_comment'} = {
                   'text_arg' => 'inc_file.texi'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => '',

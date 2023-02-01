@@ -18,8 +18,10 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -31,7 +33,9 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -53,8 +57,10 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -66,7 +72,9 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

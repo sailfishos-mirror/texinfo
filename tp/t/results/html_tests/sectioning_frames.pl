@@ -62,8 +62,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -95,7 +97,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -107,8 +111,10 @@ $result_trees{'sectioning_frames'} = {
       'args' => [
         {
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -119,8 +125,10 @@ $result_trees{'sectioning_frames'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -548,8 +556,10 @@ $result_trees{'sectioning_frames'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -559,7 +569,9 @@ $result_trees{'sectioning_frames'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
@@ -615,8 +627,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -650,7 +664,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'First-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -667,8 +683,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -693,8 +711,10 @@ $result_trees{'sectioning_frames'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -872,8 +892,10 @@ $result_trees{'sectioning_frames'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -883,7 +905,9 @@ $result_trees{'sectioning_frames'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
@@ -906,7 +930,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -923,8 +949,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -945,7 +973,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'unnumbered'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -962,8 +992,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -979,8 +1011,10 @@ $result_trees{'sectioning_frames'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1192,8 +1226,10 @@ $result_trees{'sectioning_frames'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1203,7 +1239,9 @@ $result_trees{'sectioning_frames'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
@@ -1226,7 +1264,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1243,8 +1283,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1265,7 +1307,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'unnumbered-sub'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1282,8 +1326,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1298,7 +1344,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1315,8 +1363,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1337,7 +1387,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'numbered-sub'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1354,8 +1406,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1370,7 +1424,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1387,8 +1443,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1409,7 +1467,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'unnumbered-sub2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1426,8 +1486,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1442,7 +1504,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1459,8 +1523,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1481,7 +1547,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'numbered-sub2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1498,8 +1566,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1514,7 +1584,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1531,8 +1603,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1553,7 +1627,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'unnumbered2'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1570,8 +1646,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1587,8 +1665,10 @@ $result_trees{'sectioning_frames'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -1653,8 +1733,10 @@ $result_trees{'sectioning_frames'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -1664,7 +1746,9 @@ $result_trees{'sectioning_frames'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
@@ -1687,7 +1771,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1704,8 +1790,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1726,7 +1814,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'numbered-sub3'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1743,8 +1833,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1764,7 +1856,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1781,8 +1875,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1803,7 +1899,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'numbered'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1820,8 +1918,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1836,7 +1936,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => '  '
+        'spaces_before_argument' => {
+          'text' => '  '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1867,8 +1969,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -1918,7 +2022,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'between-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -1954,8 +2060,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2010,7 +2118,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'Second-node'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -2027,8 +2137,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2057,7 +2169,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -2074,8 +2188,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2096,7 +2212,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'Third-node-unnumbered'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -2113,8 +2231,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2148,7 +2268,9 @@ $result_trees{'sectioning_frames'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',
@@ -2184,8 +2306,10 @@ $result_trees{'sectioning_frames'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -2241,7 +2365,9 @@ $result_trees{'sectioning_frames'} = {
         'normalized' => 'Last-node-no-description'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => 'sectioning.texi',

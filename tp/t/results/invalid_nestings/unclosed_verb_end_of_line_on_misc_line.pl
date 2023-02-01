@@ -48,7 +48,9 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
             'text_arg' => 'name '
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',

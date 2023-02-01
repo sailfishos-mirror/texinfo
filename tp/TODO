@@ -17,6 +17,55 @@ or value expansion. aliases.
 done: source_marks structures, with beginning and end of included file, @
 protecting end of line in @def*, @setfilename in included files.
 
+check that there is a test of something like
+@macro cpfn
+ cp fn
+@end macro
+
+@syncodeindex@cpfn{}
+
+Also check that the situation of the following fixme is tested:
+# FIXME element popped here may be readded if it contains a source mark
+
+Same for
+# FIXME transfer source marks
+
+Source marks of element popped from accents are associated to the accent
+command parent otherwise an empty element will be readded for the source
+mark leading to an infinite loop
+1) it is not clear that it leads to the correct location of source marks
+2) such a situation could probably happen in more cases and should maybe
+  be handled in _pop_element_from_contents
+
+Add code + test for the case of
+      # FIXME this should lead to readding an empty element for
+      # source marks and source marks not to be well placed.
+      # Instead source marks should be transferred directly to
+      # menu_entry_leading_text
+
+Test for the case of
+          # FIXME not sure that it is possible to have source marks, nor
+          # that they will be correctly placed
+
+Test for the case of
+# FIXME check with source mark as it could be problematic
+
+Test for the case of
+      # FIXME check that there is a test case for this situation with
+      # a source mark
+
+Test for the case of
+      # FIXME check whether a source mark can happen here and if it is
+      # correctly handled
+
+Test for the cases of (but how to be sure that all possibilities are tested?)
+      # FIXME if first in parent and with source mark, this
+      # should lead to readding an element for the source mark.
+      # Could even lead to infinite loops.
+      # It could be problematic in some cases, need some tests.
+
+
+
 Bugs
 ====
 

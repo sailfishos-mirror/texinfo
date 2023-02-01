@@ -18,8 +18,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => '
+                'spaces_before_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'brace_command_arg'
             }
@@ -52,8 +54,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => ' 
+                'spaces_before_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'brace_command_arg'
             }
@@ -94,8 +98,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => '
+                'spaces_before_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'brace_command_arg'
             }
@@ -136,8 +142,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => ' 
+                'spaces_before_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'brace_command_arg'
             }
@@ -178,8 +186,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => '
+                'spaces_before_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'brace_command_arg'
             }
@@ -220,8 +230,10 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                 }
               ],
               'info' => {
-                'spaces_before_argument' => ' 
+                'spaces_before_argument' => {
+                  'text' => ' 
 '
+                }
               },
               'type' => 'brace_command_arg'
             }

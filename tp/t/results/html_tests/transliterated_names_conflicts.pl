@@ -41,8 +41,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -63,7 +65,9 @@ $result_trees{'transliterated_names_conflicts'} = [
           'normalized' => 'Top'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
@@ -80,8 +84,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -96,7 +102,9 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
@@ -121,8 +129,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -143,7 +153,9 @@ $result_trees{'transliterated_names_conflicts'} = [
           'normalized' => 'Pr_00e9s'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
@@ -160,8 +172,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -176,7 +190,9 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
@@ -201,8 +217,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -223,7 +241,9 @@ $result_trees{'transliterated_names_conflicts'} = [
           'normalized' => 'Other-node'
         },
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',
@@ -240,8 +260,10 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             ],
             'info' => {
-              'spaces_after_argument' => '
+              'spaces_after_argument' => {
+                'text' => '
 '
+              }
             },
             'type' => 'line_arg'
           }
@@ -304,9 +326,13 @@ $result_trees{'transliterated_names_conflicts'} = [
                   }
                 ],
                 'info' => {
-                  'spaces_after_argument' => '
-',
-                  'spaces_before_argument' => ' '
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  },
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'block_line_arg'
               }
@@ -331,8 +357,10 @@ $result_trees{'transliterated_names_conflicts'} = [
                       }
                     ],
                     'info' => {
-                      'spaces_after_argument' => '
+                      'spaces_after_argument' => {
+                        'text' => '
 '
+                      }
                     },
                     'type' => 'line_arg'
                   }
@@ -342,7 +370,9 @@ $result_trees{'transliterated_names_conflicts'} = [
                   'text_arg' => 'float'
                 },
                 'info' => {
-                  'spaces_before_argument' => ' '
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'source_info' => {
                   'file_name' => 'transliterated_names_conflicts.texi',
@@ -365,7 +395,9 @@ $result_trees{'transliterated_names_conflicts'} = [
               }
             },
             'info' => {
-              'spaces_before_argument' => ' '
+              'spaces_before_argument' => {
+                'text' => ' '
+              }
             },
             'source_info' => {
               'file_name' => 'transliterated_names_conflicts.texi',
@@ -381,7 +413,9 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'extra' => {},
         'info' => {
-          'spaces_before_argument' => ' '
+          'spaces_before_argument' => {
+            'text' => ' '
+          }
         },
         'source_info' => {
           'file_name' => 'transliterated_names_conflicts.texi',

@@ -1282,7 +1282,16 @@ sub _register_source_mark
     $source_mark->{'counter'}
       = $self->{'source_mark_counters'}->{$counter_name};
   }
+  _place_source_mark($self, $element, $source_mark);
+}
 
+sub _place_source_mark
+{
+  my ($self, $element, $source_mark) = @_;
+
+  # for debug
+  my $add_element = 'no-add';
+  delete $source_mark->{'position'};
   # the element that holds the source mark
   my $mark_element;
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
@@ -1291,19 +1300,12 @@ sub _register_source_mark
     if (defined($current->{'text'}) and $current->{'text'} ne '') {
       $source_mark->{'position'} = length($current->{'text'});
     }
-    #print STDERR "source_mark: element: "
-    # .Texinfo::Common::debug_print_element_short($element)."; Contents:\n";
-    #foreach my $content (@{$element->{'contents'}}) {
-    #  print STDERR "      * CC "
-    #    .Texinfo::Common::debug_print_element_short($content)."\n";
-    #}
   } else {
-    #print STDERR "source_mark: empty element: "
-    #  .Texinfo::Common::debug_print_element_short($element)."\n";
     # add an empty element only used for source marks
     $mark_element = {'parent' => $element};
     $element->{'contents'} = [] unless (defined($element->{'contents'}));
     push @{$element->{'contents'}}, $mark_element;
+    $add_element = 'add';
   }
 
   print STDERR "MARKS: $source_mark->{'sourcemark_type'} c: "
@@ -1311,10 +1313,15 @@ sub _register_source_mark
     .", ".(defined($source_mark->{'position'})
              ? $source_mark->{'position'}: 'UNDEF')." "
      .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF')
-     .' '.Texinfo::Common::debug_print_element_short($mark_element)."\n"
+     ." $add_element ".Texinfo::Common::debug_print_element_short($mark_element)
+      .' '.Texinfo::Common::debug_print_element_short($element)."\n"
         if ($self->{'DEBUG'});
         ;
-  _add_source_marks([$source_mark], $mark_element);
+
+  if (!$mark_element->{'source_marks'}) {
+    $mark_element->{'source_marks'} = [];
+  }
+  push @{$mark_element->{'source_marks'}}, $source_mark;
 }
 
 sub _add_source_marks($$)
@@ -1627,8 +1634,10 @@ sub _end_preformatted($$$;$$)
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'DEBUG'});
     # completly remove void preformatted contexts
     if (!$current->{'contents'}) {
+      # FIXME check that there is a test case for this situation with
+      # a source mark
       my $removed
-       = _pop_element_from_contents($current->{'parent'}, 1);
+       = _pop_element_from_contents($self, $current->{'parent'}, 1);
       print STDERR "popping $removed->{'type'}\n" if ($self->{'DEBUG'});
     }
     $current = $current->{'parent'};
@@ -1775,7 +1784,7 @@ sub _gather_previous_item($$;$$)
                              eq 'c'
                           or $before_item->{'contents'}->[-1]->{'cmdname'}
                              eq 'comment')))) {
-        my $element = _pop_element_from_contents($before_item);
+        my $element = _pop_element_from_contents($self, $before_item);
         unshift @{$table_term->{'contents'}}, $element;
       }
     }
@@ -2023,7 +2032,7 @@ sub _close_current($$$;$$)
                            $source_info);
         if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
           # In ignored conditional.
-          _pop_element_from_contents($current->{'parent'});
+          _pop_element_from_contents($self, $current->{'parent'});
         }
       }
       _pop_block_command_contexts($self, $current, $source_info);
@@ -2052,10 +2061,12 @@ sub _close_current($$$;$$)
     } elsif ($current->{'type'} eq 'menu_comment'
              or $current->{'type'} eq 'menu_entry_description') {
       # Remove empty menu_comment
+      # FIXME check whether a source mark can happen here and if it is
+      # correctly handled
       if ($current->{'type'} eq 'menu_comment'
           and (!$current->{'contents'}
                or !scalar(@{$current->{'contents'}}))) {
-        _pop_element_from_contents($current->{'parent'}, 1);
+        _pop_element_from_contents($self, $current->{'parent'}, 1);
       }
     } elsif ($current->{'parent'}
              and $current->{'parent'}->{'type'}
@@ -2559,48 +2570,17 @@ sub _set_non_ignored_space_in_index_before_command($)
   }
 }
 
-# for debug
-sub _check_popped_source_marks
+sub _pop_element_from_contents($$;$)
 {
-  my $popped_element = shift;
-  my $level = shift;
-
-  if ($popped_element->{'source_marks'}) {
-    print STDERR "BUG: level $level element with source_marks\n";
-  }
-  if ($popped_element->{'args'}) {
-    my $arg_nr = 0;
-    foreach my $arg (@{$popped_element->{'args'}}) {
-      _check_popped_source_marks($arg, $level . 'A'.$arg_nr);
-      $arg_nr += 1;
-    }
-  }
-  if ($popped_element->{'contents'}) {
-    my $content_nr = 0;
-    foreach my $content (@{$popped_element->{'contents'}}) {
-      _check_popped_source_marks($content, $level . 'C'.$content_nr);
-      $content_nr += 1;
-    }
-  }
-}
-
-sub _pop_element_from_contents($;$$)
-{
+  my $self = shift;
   my $parent_element = shift;
   my $reparent_source_marks = shift;
-  my $check_source_marks = shift;
 
   my $popped_element = pop @{$parent_element->{'contents'}};
-  #if ($popped_element->{'source_marks'}
-  #    and scalar(@{$popped_element->{'source_marks'}})) {
-  #  print STDERR "BUG: popping element with source_marks\n";
-  #  cluck;
-  #}
   if ($reparent_source_marks and $popped_element->{'source_marks'}) {
     _add_source_marks($popped_element->{'source_marks'},
                       $parent_element);
   }
-  _check_popped_source_marks($popped_element, 'I') if ($check_source_marks);
   delete $parent_element->{'contents'}
     if (scalar(@{$parent_element->{'contents'}}) == 0);
 
@@ -2635,7 +2615,11 @@ sub _abort_empty_line {
 
     # remove empty 'empty*before'.  Happens in many situations.
     if ($spaces_element->{'text'} eq '') {
-      _pop_element_from_contents($current, 1);
+      # FIXME if first in parent and with source mark, this
+      # should lead to readding an element for the source mark.
+      # Could even lead to infinite loops.
+      # It could be problematic in some cases, need some tests.
+      _pop_element_from_contents($self, $current, 1);
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2648,12 +2632,15 @@ sub _abort_empty_line {
              or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
       # the 'info' hash as 'spaces_before_argument'.
-      _pop_element_from_contents($current, 1);
+      _pop_element_from_contents($self, $current);
       my $owning_element
         = $spaces_element->{'extra'}->{'spaces_associated_command'};
       #$owning_element->{'info'} = {} if (! $owning_element->{'info'});
+      my $new_space_element = {'text' => $spaces_element->{'text'},};
+      _add_source_marks($spaces_element->{'source_marks'}, $new_space_element)
+        if ($spaces_element->{'source_marks'});
       $owning_element->{'info'}->{'spaces_before_argument'}
-        = $spaces_element->{'text'};
+        = $new_space_element;
     }
 
     return 1;
@@ -2696,7 +2683,7 @@ sub _isolate_last_space
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
     #$current->{'info'} = {} if (!$current->{'info'});
     $current->{'info'}->{'comment_at_end'}
-                           = _pop_element_from_contents($current);
+                           = _pop_element_from_contents($self, $current);
     # TODO: @c should probably not be allowed inside most brace commands
     # as this would be difficult to implement properly in TeX.
   }
@@ -2738,12 +2725,17 @@ sub _isolate_last_space
     # Store final spaces in 'spaces_after_argument'.
     #$current->{'info'} = {} if (!$current->{'info'});
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
+      my $spaces_after_argument = _pop_element_from_contents($self, $current);
+      my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
+      _add_source_marks($spaces_after_argument->{'source_marks'}, $new_space_element)
+        if ($spaces_after_argument->{'source_marks'});
       $current->{'info'}->{'spaces_after_argument'}
-                 = $current->{'contents'}->[-1]->{'text'};
-      _pop_element_from_contents($current, 1);
+                 = $new_space_element;
     } else {
+      # FIXME transfer source marks that are located in the spaces
+      # put in spaces_after_argument
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
-      $current->{'info'}->{'spaces_after_argument'} = $1;
+      $current->{'info'}->{'spaces_after_argument'} = {'text' => $1,};
     }
   }
 }
@@ -3372,7 +3364,7 @@ sub _end_line_misc_line($$$)
     # More processing of @end
     print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
     # Reparent the "@end" element to be a child of the block element.
-    my $end = _pop_element_from_contents($current);
+    my $end = _pop_element_from_contents($self, $current);
     if ($block_commands{$end_command} ne 'conditional') {
       # here close some empty types.  Typically empty preformatted
       # that would have been closed anyway in _close_commands, but
@@ -3381,7 +3373,8 @@ sub _end_line_misc_line($$$)
       if (not defined($current->{'cmdname'}) and $current->{'type'}
           and !$current->{'contents'}
           and $current->{'parent'}) {
-        my $removed = _pop_element_from_contents($current->{'parent'}, 1);
+        # FIXME element popped here may be readded if it contains a source mark
+        my $removed = _pop_element_from_contents($self, $current->{'parent'}, 1);
         print STDERR "popping at end command $end_command: $removed->{'type'}\n"
          if ($self->{'DEBUG'});
         $current = $current->{'parent'};
@@ -3426,7 +3419,7 @@ sub _end_line_misc_line($$$)
       # removed element.  For the XS parser it is also easier to
       # manage the source mark memory which can stay associated
       # to the element.
-      my $removed_element = _pop_element_from_contents($current);
+      my $removed_element = _pop_element_from_contents($self, $current);
       $source_mark->{'element'} = $removed_element;
       _register_source_mark($self, $current, $source_mark);
     }
@@ -3844,7 +3837,8 @@ sub _end_line($$$)
     print STDERR "END EMPTY LINE\n" if ($self->{'DEBUG'});
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
-      my $empty_line = _pop_element_from_contents($current);
+      # FIXME transfer source marks
+      my $empty_line = _pop_element_from_contents($self, $current);
       $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
       $empty_line->{'parent'} = $current;
@@ -3853,12 +3847,13 @@ sub _end_line($$$)
              and $current->{'parent'}->{'type'}
              and $current->{'parent'}->{'type'} eq 'menu_entry_description')  {
       # FIXME transfer source marks
-      my $empty_line = _pop_element_from_contents($current, 0);
+      my $empty_line = _pop_element_from_contents($self, $current, 0);
       my $preformatted = $current;
       $current = $current->{'parent'};
       if (not $preformatted->{'contents'} or
           not scalar(@{$preformatted->{'contents'}})) {
-        _pop_element_from_contents($current);
+        # FIXME transfer source marks
+        _pop_element_from_contents($self, $current);
       }
 
       # first parent is menu_entry
@@ -3891,7 +3886,7 @@ sub _end_line($$$)
           and $current->{'contents'}->[-1]->{'cmdname'}
           and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-        $end_comment = _pop_element_from_contents($current);
+        $end_comment = _pop_element_from_contents($self, $current);
       }
       if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
            # empty if only the end of line or spaces, including non ascii spaces
@@ -3908,7 +3903,7 @@ sub _end_line($$$)
       my $menu_type_reopened = 'menu_description';
       print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'DEBUG'});
       my $menu = $current->{'parent'}->{'parent'};
-      my $menu_entry = _pop_element_from_contents($menu);
+      my $menu_entry = _pop_element_from_contents($self, $menu);
       if ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
           and $menu->{'contents'}->[-1]->{'type'}
           and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
@@ -4556,7 +4551,7 @@ sub _process_remaining_on_line($$$$)
         if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
       $current = $current->{'parent'};
       # Remove an ignored block @if*
-      my $conditional = _pop_element_from_contents($current);
+      my $conditional = _pop_element_from_contents($self, $current);
       if (!defined($conditional->{'cmdname'}
           or $conditional->{'cmdname'} ne $end_command)) {
         $self->_bug_message(
@@ -4632,7 +4627,8 @@ sub _process_remaining_on_line($$$$)
   #   after a protection of @\n in @def* line
   #   at the end of an expanded Texinfo fragment
   while ($line eq '') {
-    print STDERR "EMPTY TEXT\n"
+    print STDERR "EMPTY TEXT in: "
+     .Texinfo::Common::debug_print_element_short($current)."\n"
       if ($self->{'DEBUG'});
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
@@ -4859,7 +4855,12 @@ sub _process_remaining_on_line($$$$)
       # elements may have text/args/contents, although never saw anything
       # else than empty elements.
       while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
-        my $removed_element = _pop_element_from_contents($current, 1);
+        # FIXME not clear that it leads to a correct location of source marks
+        my $removed_element = _pop_element_from_contents($self, $current);
+        if ($removed_element->{'source_marks'}
+            and scalar(@{$removed_element->{'source_marks'}})) {
+          _add_source_marks($removed_element->{'source_marks'}, $following_arg);
+        }
       }
       $current = $current->{'parent'};
     } else {
@@ -4894,7 +4895,11 @@ sub _process_remaining_on_line($$$$)
     } else {
       print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
       # this is the menu star collected previously
-      _pop_element_from_contents($current, 1);
+      # FIXME this should lead to readding an empty element for
+      # source marks and source marks not to be well placed.
+      # Instead source marks should be transferred directly to
+      # menu_entry_leading_text
+      _pop_element_from_contents($self, $current, 1);
       $line =~ s/^(\s+)//;
       my $leading_text = '*' . $1;
       # FIXME remove empty description too?  In that case there won't be
@@ -4906,13 +4911,13 @@ sub _process_remaining_on_line($$$$)
                )) {
         my $menu = $current->{'parent'}->{'parent'};
         if (!$current->{'contents'}) {
-          # not sure that it is possible to have source marks, nor
+          # FIXME not sure that it is possible to have source marks, nor
           # that they will be correctly placed
-          _pop_element_from_contents($current->{'parent'}, 1);
+          _pop_element_from_contents($self, $current->{'parent'}, 1);
           if (not $current->{'parent'}
               or not $current->{'parent'}->{'contents'}
               or not scalar(@{$current->{'parent'}->{'contents'}})) {
-            _pop_element_from_contents($menu, 1);
+            _pop_element_from_contents($self, $menu, 1);
           }
         }
         $current = $menu;
@@ -5296,10 +5301,11 @@ sub _process_remaining_on_line($$$$)
                    'parent' => $current,
                    'source_info' => $source_info,
                    'extra' => {'misc_args' => [$arg],},
-                   'info' => {'spaces_before_argument' => ' '}};
+                   'info' => {'spaces_before_argument' => {'text' => ' '}}};
           my $misc_line_args = {'type' => 'line_arg',
                  'parent' => $misc,
-                 'info' => {'spaces_after_argument' => "\n"}};
+                 'info' => {'spaces_after_argument'
+                              => {'text' => "\n",}}};
           $misc->{'args'} = [$misc_line_args];
           $misc_line_args->{'contents'} = [
             { 'text' => $arg,
@@ -5411,7 +5417,7 @@ sub _process_remaining_on_line($$$$)
             if ($current->{'cmdname'}
                 and $current->{'cmdname'} eq $base_command) {
               # popped element should be the same as $misc
-              _pop_element_from_contents($current);
+              _pop_element_from_contents($self, $current);
               _gather_def_item($current, $command);
               push @{$current->{'contents'}}, $misc;
             }
@@ -5581,7 +5587,8 @@ sub _process_remaining_on_line($$$$)
           my $menu;
           # This is for @detailmenu within @menu
           $menu = $current->{'parent'};
-          _pop_element_from_contents($menu, 1)
+          # FIXME check with source mark as it could be problematic
+          _pop_element_from_contents($self, $menu, 1)
             if (not $current->{'contents'}
                 or not scalar(@{$current->{'contents'}}));
 

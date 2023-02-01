@@ -15,8 +15,10 @@ $result_trees{'float_copying'} = {
               'args' => [
                 {
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'block_line_arg'
                 }
@@ -45,9 +47,13 @@ $result_trees{'float_copying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
-',
-                        'spaces_before_argument' => ' '
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'type' => 'block_line_arg'
                     }
@@ -145,8 +151,10 @@ $result_trees{'float_copying'} = {
                                                 }
                                               ],
                                               'info' => {
-                                                'spaces_after_argument' => '
+                                                'spaces_after_argument' => {
+                                                  'text' => '
 '
+                                                }
                                               },
                                               'type' => 'line_arg'
                                             }
@@ -167,7 +175,9 @@ $result_trees{'float_copying'} = {
                                             }
                                           },
                                           'info' => {
-                                            'spaces_before_argument' => ' '
+                                            'spaces_before_argument' => {
+                                              'text' => ' '
+                                            }
                                           },
                                           'source_info' => {
                                             'file_name' => '',
@@ -185,8 +195,10 @@ $result_trees{'float_copying'} = {
                                                 }
                                               ],
                                               'info' => {
-                                                'spaces_after_argument' => '
+                                                'spaces_after_argument' => {
+                                                  'text' => '
 '
+                                                }
                                               },
                                               'type' => 'line_arg'
                                             }
@@ -207,7 +219,9 @@ $result_trees{'float_copying'} = {
                                             }
                                           },
                                           'info' => {
-                                            'spaces_before_argument' => ' '
+                                            'spaces_before_argument' => {
+                                              'text' => ' '
+                                            }
                                           },
                                           'source_info' => {
                                             'file_name' => '',
@@ -248,8 +262,10 @@ $result_trees{'float_copying'} = {
                                                         }
                                                       ],
                                                       'info' => {
-                                                        'spaces_after_argument' => '
+                                                        'spaces_after_argument' => {
+                                                          'text' => '
 '
+                                                        }
                                                       },
                                                       'type' => 'line_arg'
                                                     }
@@ -271,7 +287,9 @@ $result_trees{'float_copying'} = {
                                                     'normalized' => 'Copying-and-floats'
                                                   },
                                                   'info' => {
-                                                    'spaces_before_argument' => ' '
+                                                    'spaces_before_argument' => {
+                                                      'text' => ' '
+                                                    }
                                                   },
                                                   'source_info' => {
                                                     'file_name' => '',
@@ -310,8 +328,10 @@ $result_trees{'float_copying'} = {
                                   ],
                                   'cmdname' => 'footnote',
                                   'info' => {
-                                    'spaces_before_argument' => '
+                                    'spaces_before_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -372,8 +392,10 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -394,7 +416,9 @@ $result_trees{'float_copying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -412,8 +436,10 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'info' => {
-                                    'spaces_after_argument' => '
+                                    'spaces_after_argument' => {
+                                      'text' => '
 '
+                                    }
                                   },
                                   'type' => 'line_arg'
                                 }
@@ -434,7 +460,9 @@ $result_trees{'float_copying'} = {
                                 }
                               },
                               'info' => {
-                                'spaces_before_argument' => ' '
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -471,8 +499,10 @@ $result_trees{'float_copying'} = {
                             }
                           ],
                           'info' => {
-                            'spaces_after_argument' => '
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
                           },
                           'type' => 'line_arg'
                         }
@@ -482,7 +512,9 @@ $result_trees{'float_copying'} = {
                         'text_arg' => 'float'
                       },
                       'info' => {
-                        'spaces_before_argument' => ' '
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -505,7 +537,9 @@ $result_trees{'float_copying'} = {
                     }
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -522,8 +556,10 @@ $result_trees{'float_copying'} = {
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => {
+                          'text' => '
 '
+                        }
                       },
                       'type' => 'line_arg'
                     }
@@ -533,7 +569,9 @@ $result_trees{'float_copying'} = {
                     'text_arg' => 'copying'
                   },
                   'info' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -568,8 +606,10 @@ $result_trees{'float_copying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -590,7 +630,9 @@ $result_trees{'float_copying'} = {
         'normalized' => 'Top'
       },
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -607,8 +649,10 @@ $result_trees{'float_copying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -644,8 +688,10 @@ $result_trees{'float_copying'} = {
           'args' => [
             {
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'block_line_arg'
             }
@@ -710,8 +756,10 @@ $result_trees{'float_copying'} = {
                     }
                   ],
                   'info' => {
-                    'spaces_after_argument' => '
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
                   },
                   'type' => 'line_arg'
                 }
@@ -721,7 +769,9 @@ $result_trees{'float_copying'} = {
                 'text_arg' => 'menu'
               },
               'info' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -744,7 +794,9 @@ $result_trees{'float_copying'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
@@ -762,8 +814,10 @@ $result_trees{'float_copying'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => '
+            'spaces_after_argument' => {
+              'text' => '
 '
+            }
           },
           'type' => 'line_arg'
         }
@@ -819,8 +873,10 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -835,7 +891,9 @@ $result_trees{'float_copying'} = {
             }
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -857,8 +915,10 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -870,7 +930,9 @@ $result_trees{'float_copying'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -887,8 +949,10 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'info' => {
-                'spaces_after_argument' => '
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
               },
               'type' => 'line_arg'
             }
@@ -900,7 +964,9 @@ $result_trees{'float_copying'} = {
             ]
           },
           'info' => {
-            'spaces_before_argument' => ' '
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
           },
           'source_info' => {
             'file_name' => '',
@@ -911,7 +977,9 @@ $result_trees{'float_copying'} = {
       ],
       'extra' => {},
       'info' => {
-        'spaces_before_argument' => ' '
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
       },
       'source_info' => {
         'file_name' => '',
