@@ -2071,6 +2071,29 @@ sub _close_current($$$;$$)
     } elsif ($current->{'type'} eq 'block_line_arg') {
       _end_line_starting_block($self, $current, $source_info);
     }
+    # FIXME this does not work as intended for menu entries because they
+    # are in args
+    ## remove empty child that only holds a source mark, reparenting the
+    ## source park to the current element
+    #if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 1) {
+    #  my $child_element = $current->{'contents'}->[0];
+    #  if (not defined($child_element->{'cmdname'})
+    #      and not $child_element->{'contents'}
+    #      and not $child_element->{'args'}
+    #      and (not defined($child_element->{'text'})
+    #           or $child_element->{'text'} eq '')
+    #      and not $child_element->{'info'}) {
+    #    if ($child_element->{'source_marks'}
+    #        and scalar(@{$child_element->{'source_marks'}})) {
+    #      _add_source_marks($child_element->{'source_marks'}, $current);
+    #    }
+    #    print STDERR "REMOVE empty child "
+    #      .Texinfo::Common::debug_print_element_short($child_element)
+    #      .' '.Texinfo::Common::debug_print_element_short($current)."\n"
+    #        if ($self->{'DEBUG'});
+    #    _pop_element_from_contents($self, $current);
+    #  }
+    #}
     # empty types, not closed or associated to a command that is not closed
     delete $current->{'contents'}
       if ($current->{'contents'} and !@{$current->{'contents'}});
@@ -2083,10 +2106,14 @@ sub _close_current($$$;$$)
         and (not $current->{'source_marks'}
              or not scalar(@{$current->{'source_marks'}}))) {
       $element_to_remove = $current;
+      print STDERR "REMOVE empty type "
+        .Texinfo::Common::debug_print_element_short($current)."\n"
+          if ($self->{'DEBUG'});
     }
     $current = $current->{'parent'};
     _pop_element_from_contents($self, $current)
       if ($element_to_remove
+          # this is to avoid args, not sure that it can happen
           and $current->{'contents'}
           and scalar(@{$current->{'contents'}})
           and $current->{'contents'}->[-1] eq $element_to_remove);
@@ -2584,8 +2611,13 @@ sub _pop_element_from_contents($$;$)
 
   my $popped_element = pop @{$parent_element->{'contents'}};
   if ($reparent_source_marks and $popped_element->{'source_marks'}) {
+    # FIXME this is wrong, the source mark ends up at a wrong location
     _add_source_marks($popped_element->{'source_marks'},
                       $parent_element);
+    # This would be better, but leads to empty elements being kept.
+    #foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
+    #  _place_source_mark($self, $parent_element, $source_mark);
+    #}
   }
   delete $parent_element->{'contents'}
     if (scalar(@{$parent_element->{'contents'}}) == 0);
