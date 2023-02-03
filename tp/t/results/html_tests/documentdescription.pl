@@ -266,7 +266,6 @@ $result_trees{'documentdescription'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -300,7 +299,6 @@ $result_sectioning{'documentdescription'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 0,

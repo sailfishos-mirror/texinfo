@@ -172,7 +172,6 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -295,7 +294,6 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,

@@ -230,7 +230,6 @@ $result_trees{'defcondx_Ubar'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -295,7 +294,6 @@ $result_sectioning{'defcondx_Ubar'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 0,

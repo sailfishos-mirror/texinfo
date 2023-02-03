@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+ParserNonXS.pm
+a . not followed by a space.  Not a separator.
+use _pop_element_from_contents
+
 Add elements of texinfo that are not of interest in the
 tree to source_marks. begin and end of user defined macro
 or value expansion. aliases.

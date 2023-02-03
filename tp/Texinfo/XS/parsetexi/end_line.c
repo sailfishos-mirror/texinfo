@@ -2189,9 +2189,9 @@ end_line (ELEMENT *current)
               int j;
 
               entry = last_contents_child(menu);
-              for (j = entry->args.number - 1; j >= 0; j--)
+              for (j = entry->contents.number - 1; j >= 0; j--)
                 {
-                  ELEMENT *e = args_child_by_index (entry, j);
+                  ELEMENT *e = contents_child_by_index (entry, j);
                   if (e->type == ET_menu_entry_description)
                     {
                       description = e;
@@ -2206,7 +2206,7 @@ end_line (ELEMENT *current)
                   /* "Normally this cannot happen." */
                   bug ("no description in menu entry");
                   e = new_element (ET_menu_entry_description);
-                  add_to_element_args (entry, e);
+                  add_to_element_contents (entry, e);
                   description_or_menu_comment = e;
                 }
             }
@@ -2245,9 +2245,9 @@ end_line (ELEMENT *current)
           {
           /* FIXME check that source marks are transfered */
           int i, j;
-          for (i = 0; i < menu_entry->args.number; i++)
+          for (i = 0; i < menu_entry->contents.number; i++)
             {
-              ELEMENT *arg = args_child_by_index(menu_entry, i);
+              ELEMENT *arg = contents_child_by_index(menu_entry, i);
               if (arg->text.end > 0)
                 current = merge_text (current, arg->text.text);
               else

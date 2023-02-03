@@ -1,3 +1,26 @@
+2023-02-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert), tp/Texinfo/ParserNonXS.pm
+	(_close_current, _end_line, _register_extra_menu_entry_information)
+	(_enter_menu_entry_node, _process_remaining_on_line),
+	tp/Texinfo/Structuring.pm (new_node_menu_entry),
+	tp/Texinfo/Transformations.pm (menu_to_simple_menu),
+	tp/Texinfo/XS/parsetexi/close.c (close_current),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information, enter_menu_entry_node)
+	(handle_menu), tp/Texinfo/XS/parsetexi/separator.c (handle_separator):
+	use 'contents' for menu_entry contents, and not 'args'.
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Texinfo.pm,
+	tp/Texinfo/Convert/TexinfoMarkup.pm, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm:
+	avoid autovivification in any case.
+
 2023-02-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_place_source_mark),

@@ -6440,11 +6440,11 @@ sub _convert_menu_entry_type($$$)
      if ($element->{'extra'});
   # external node
   my $external_node;
-  if ($node_entry->{'manual_content'}) {
+  if ($node_entry and $node_entry->{'manual_content'}) {
     $href = $self->command_href($node_entry, undef, $element);
     $external_node = 1;
   # may not be defined in case of menu entry node consisting only of spaces
-  } elsif (defined($node_entry->{'normalized'})) {
+  } elsif ($node_entry and defined($node_entry->{'normalized'})) {
     my $node = $self->label_command($node_entry->{'normalized'});
     if ($node) {
       # if !NODE_NAME_IN_MENU, we pick the associated section, except if
@@ -6479,8 +6479,9 @@ sub _convert_menu_entry_type($$$)
   my $in_string = $self->in_string();
   if ($self->_in_preformatted_in_menu() or $in_string) {
     my $result_name_node = '';
+    #return '' if (!$element->{'contents'});
+    my @args = @{$element->{'contents'}};
     my $i = 0;
-    my @args = @{$element->{'args'}};
     while (@args) {
       last if ($args[0]->{'type'}
                and $args[0]->{'type'} eq 'menu_entry_description');
@@ -6536,12 +6537,14 @@ sub _convert_menu_entry_type($$$)
                                   'convert menu_entry_name');
     }
     if (!defined($name) or $name eq '') {
-      if ($node_entry->{'manual_content'}) {
+      if ($node_entry and $node_entry->{'manual_content'}) {
         $name = $self->command_text($node_entry);
-      } else {
+      } elsif ($node_entry) {
         $name = $self->convert_tree({'type' => '_code',
                           'contents' => $node_entry->{'node_content'}},
                           'menu_arg name');
+      } else {
+        $name = '';
       }
     }
     $name =~ s/^\s*//;
@@ -10794,7 +10797,8 @@ sub output($$)
       my $command = $self->{'global_commands'}->{$fulltitle_command};
       next if (!$command->{'args'}
                or (!$command->{'args'}->[0]->{'contents'}
-                   or $command->{'extra'}->{'missing_argument'}));
+                   or ($command->{'extra'}
+                       and $command->{'extra'}->{'missing_argument'})));
       print STDERR "Using $fulltitle_command as title\n"
         if ($self->get_conf('DEBUG'));
       $fulltitle = {'contents' => $command->{'args'}->[0]->{'contents'}};

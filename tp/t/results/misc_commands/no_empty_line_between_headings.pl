@@ -47,7 +47,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             }
           ],
           'cmdname' => 'subheading',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -60,7 +59,6 @@ $result_trees{'no_empty_line_between_headings'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -90,7 +88,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -120,7 +117,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -158,19 +154,16 @@ $result_sectioning{'no_empty_line_between_headings'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'section_level' => 2,

@@ -70,7 +70,6 @@ $result_trees{'footnote_no_node'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -103,7 +102,6 @@ $result_sectioning{'footnote_no_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 0,

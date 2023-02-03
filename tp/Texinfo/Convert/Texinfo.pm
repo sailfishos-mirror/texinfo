@@ -193,7 +193,8 @@ sub _expand_cmd_args_to_texi($) {
     $result =~ s/,$//;
   } elsif (defined($cmd->{'args'})) {
     my $braces;
-    $braces = 1 if ($cmd->{'args'}->[0]->{'type'}
+    $braces = 1 if (scalar(@{$cmd->{'args'}})
+                    and $cmd->{'args'}->[0]->{'type'}
                     and ($cmd->{'args'}->[0]->{'type'} eq 'brace_command_arg'
                          or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context'));
     $result .= '{' if ($braces);

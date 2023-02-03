@@ -328,7 +328,6 @@ $result_trees{'pagetype'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -435,7 +434,6 @@ $result_sectioning{'pagetype'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

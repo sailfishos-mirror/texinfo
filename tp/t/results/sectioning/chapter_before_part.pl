@@ -79,7 +79,6 @@ $result_trees{'chapter_before_part'} = [
           }
         ],
         'cmdname' => 'part',
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => {
             'text' => ' '
@@ -131,7 +130,6 @@ $result_sectioning{'chapter_before_part'} = {
                   'extra' => {
                     'unit_command' => {
                       'cmdname' => 'part',
-                      'extra' => {},
                       'info' => {},
                       'structure' => {
                         'associated_unit' => {},
@@ -210,7 +208,6 @@ $result_elements{'chapter_before_part'} = [
           'extra' => {
             'unit_command' => {
               'cmdname' => 'part',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'associated_unit' => {}

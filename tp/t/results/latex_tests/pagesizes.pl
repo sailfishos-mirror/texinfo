@@ -333,7 +333,6 @@ $result_trees{'pagesizes'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -426,7 +425,6 @@ $result_sectioning{'pagesizes'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

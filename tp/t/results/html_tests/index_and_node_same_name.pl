@@ -28,7 +28,6 @@ $result_trees{'index_and_node_same_name'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -204,7 +203,6 @@ $result_sectioning{'index_and_node_same_name'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 0,

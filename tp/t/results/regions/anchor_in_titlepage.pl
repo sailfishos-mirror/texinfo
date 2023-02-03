@@ -130,7 +130,6 @@ $result_trees{'anchor_in_titlepage'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -350,7 +349,6 @@ $result_sectioning{'anchor_in_titlepage'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [

@@ -241,7 +241,6 @@ $result_trees{'fonttextsize'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -321,7 +320,6 @@ $result_trees{'fonttextsize'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -401,7 +399,6 @@ $result_trees{'fonttextsize'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -481,7 +478,6 @@ $result_trees{'fonttextsize'} = {
           }
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -527,7 +523,6 @@ $result_trees{'fonttextsize'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -642,13 +637,11 @@ $result_sectioning{'fonttextsize'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'section_level' => 3,
@@ -658,7 +651,6 @@ $result_sectioning{'fonttextsize'} = {
                         },
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'section_level' => 3,
@@ -669,7 +661,6 @@ $result_sectioning{'fonttextsize'} = {
                         },
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'section_level' => 3,
@@ -680,7 +671,6 @@ $result_sectioning{'fonttextsize'} = {
                         },
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
                           'info' => {},
                           'structure' => {
                             'section_level' => 3,

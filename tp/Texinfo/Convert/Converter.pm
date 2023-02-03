@@ -814,10 +814,13 @@ sub set_tree_unit_file($$$)
   if (!defined($filename)) {
     cluck("set_tree_unit_file: filename not defined\n");
   }
+  if (!defined($tree_unit)) {
+    cluck("set_tree_unit_file: tree_unit not defined\n");
+  }
 
   $filename = $self->register_normalize_case_filename($filename);
 
-  $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
+  $tree_unit->{'structure'} = {} if (!$tree_unit->{'structure'});
 
   # This should never happen, set_tree_unit_file is called once per
   # tree unit.
@@ -951,9 +954,13 @@ sub _set_tree_units_files($$$$$$)
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_unit) = $self->_get_root_element($node_top);
-      die "BUG: No element for top node" if (!defined($node_top));
-      $self->set_file_path($top_node_filename, $destination_directory);
-      $self->set_tree_unit_file($node_top_unit, $top_node_filename);
+      if (!defined($node_top_unit)) {
+        print STDERR "No element for top node (".scalar(@$tree_units)." units)\n"
+         if ($self->get_conf('DEBUG'));
+      } else {
+        $self->set_file_path($top_node_filename, $destination_directory);
+        $self->set_tree_unit_file($node_top_unit, $top_node_filename);
+      }
     }
     my $file_nr = 0;
     my $previous_page;
@@ -1250,7 +1257,8 @@ sub float_type_number($$)
 
   my $tree;
   if ($type) {
-    if (defined($float->{'structure'}->{'float_number'})) {
+    if (defined($float->{'structure'})
+        and defined($float->{'structure'}->{'float_number'})) {
       $tree = $self->gdt("{float_type} {float_number}",
           {'float_type' => $type,
             'float_number' => $float->{'structure'}->{'float_number'}});
@@ -1258,7 +1266,8 @@ sub float_type_number($$)
       $tree = $self->gdt("{float_type}",
           {'float_type' => $type});
     }
-  } elsif (defined($float->{'structure'}->{'float_number'})) {
+  } elsif (defined($float->{'structure'})
+           and defined($float->{'structure'}->{'float_number'})) {
     $tree = $self->gdt("{float_number}",
        {'float_number' => $float->{'structure'}->{'float_number'}});
   }

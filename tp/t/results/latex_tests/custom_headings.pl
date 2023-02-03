@@ -420,7 +420,6 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -555,7 +554,6 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -659,7 +657,6 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -793,7 +790,6 @@ $result_sectioning{'custom_headings'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
                     'info' => {},
                     'structure' => {
                       'section_level' => 2,
@@ -811,7 +807,6 @@ $result_sectioning{'custom_headings'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,
@@ -824,7 +819,6 @@ $result_sectioning{'custom_headings'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

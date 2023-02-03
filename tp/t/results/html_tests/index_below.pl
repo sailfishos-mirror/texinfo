@@ -36,7 +36,6 @@ $result_trees{'index_below'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => {
             'text' => ' '
@@ -254,7 +253,6 @@ $result_sectioning{'index_below'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {
@@ -378,7 +376,6 @@ $result_elements{'index_below'} = [
     'extra' => {
       'unit_command' => {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {}

@@ -1561,7 +1561,6 @@ $result_trees{'float_and_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1701,7 +1700,6 @@ $result_trees{'float_and_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1903,7 +1901,6 @@ $result_sectioning{'float_and_refs'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,
@@ -1916,7 +1913,6 @@ $result_sectioning{'float_and_refs'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

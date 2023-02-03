@@ -627,7 +627,7 @@ sub _convert($;$)
       $options->{_code_options}--;
     }
   } elsif ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
-    foreach my $arg (@{$element->{'args'}}) {
+    foreach my $arg (@{$element->{'contents'}}) {
       if ($arg->{'type'} eq 'menu_entry_node') {
         $options->{_code_options}++;
         $result .= _convert($arg, $options);
@@ -642,6 +642,7 @@ sub _convert($;$)
       chomp($result);
       $result .= "\n";
     }
+    return $result;
   }
   if ($element->{'contents'}) {
     my $in_code;

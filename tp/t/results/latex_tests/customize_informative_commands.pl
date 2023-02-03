@@ -34,7 +34,6 @@ $result_trees{'customize_informative_commands'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -63,7 +62,6 @@ $result_sectioning{'customize_informative_commands'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,

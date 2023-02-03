@@ -174,7 +174,6 @@ $result_trees{'settitle_and_headings'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -225,7 +224,6 @@ $result_sectioning{'settitle_and_headings'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,

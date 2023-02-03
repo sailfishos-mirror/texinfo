@@ -167,7 +167,6 @@ $result_trees{'section_before_after_top_node'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -241,7 +240,6 @@ $result_sectioning{'section_before_after_top_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 1,

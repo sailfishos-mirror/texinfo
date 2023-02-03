@@ -810,7 +810,8 @@ sub _convert($$;$)
           my $pending_empty_directions = '';
           foreach my $direction(@node_directions) {
             my $format_element = 'node'.lc($direction);
-            if ($element->{'structure'}->{'node_'.lc($direction)}) {
+            if ($element->{'structure'}
+                and $element->{'structure'}->{'node_'.lc($direction)}) {
               my $node_direction
                      = $element->{'structure'}->{'node_'.lc($direction)};
               my $node_name = '';
@@ -1293,14 +1294,14 @@ sub _convert($$;$)
       if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
         $self->{'document_context'}->[-1]->{'raw'} = 1;
       } else {
+        my @end_command_spaces;
         my $end_command;
         if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
             and $element->{'contents'}->[-1]->{'cmdname'}
             and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           $end_command = $element->{'contents'}->[-1];
+          push @end_command_spaces, _leading_spaces_arg($end_command);
         }
-        my @end_command_spaces;
-        push @end_command_spaces, _leading_spaces_arg($end_command);
         if (scalar(@end_command_spaces)) {
           $end_command_spaces[0]->[0] = 'endspaces';
         }
@@ -1601,6 +1602,32 @@ sub _convert($$;$)
       $result .= "\n";
     }
   }
+  my $arg_nr = -1;
+  if ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
+    foreach my $arg (@{$element->{'contents'}}) {
+      $arg_nr++;
+      my $in_code = 0;
+      if ($arg->{'type'} eq 'menu_entry_node') {
+        $in_code = 1;
+      }
+      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
+        if ($in_code);
+      $result .= $self->_convert($arg);
+      pop @{$self->{'document_context'}->[-1]->{'monospace'}}
+        if ($in_code);
+    }
+    # FIXME do not do something specific for menus
+    if ($element->{'type'}) {
+      if (defined($type_elements{$element->{'type'}})) {
+        $result
+          .= $self->txi_markup_close_element($type_elements{$element->{'type'}});
+      }
+    }
+    #foreach my $format_element (@close_format_elements) {
+    #  $result .= $self->txi_markup_close_element($format_element);
+    #}
+    return $result;
+  }
   if ($element->{'contents'}) {
     my $in_code;
     if ($element->{'cmdname'}
@@ -1618,21 +1645,6 @@ sub _convert($$;$)
     }
     pop @{$self->{'document_context'}->[-1]->{'monospace'}}
       if ($in_code);
-  }
-  my $arg_nr = -1;
-  if ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
-    foreach my $arg (@{$element->{'args'}}) {
-      $arg_nr++;
-      my $in_code = 0;
-      if ($arg->{'type'} eq 'menu_entry_node') {
-        $in_code = 1;
-      }
-      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
-        if ($in_code);
-      $result .= $self->_convert($arg);
-      pop @{$self->{'document_context'}->[-1]->{'monospace'}}
-        if ($in_code);
-    }
   }
   if ($element->{'type'}) {
     if (defined($type_elements{$element->{'type'}})) {

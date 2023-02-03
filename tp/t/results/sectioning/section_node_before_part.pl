@@ -115,7 +115,6 @@ $result_trees{'section_node_before_part'} = {
         }
       ],
       'cmdname' => 'part',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -172,7 +171,6 @@ $result_sectioning{'section_node_before_part'} = {
       },
       {
         'cmdname' => 'part',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_level' => 0,

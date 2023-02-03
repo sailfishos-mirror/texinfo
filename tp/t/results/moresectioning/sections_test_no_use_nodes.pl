@@ -41,7 +41,6 @@ $result_trees{'sections_test_no_use_nodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -478,7 +477,6 @@ $result_sectioning{'sections_test_no_use_nodes'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [

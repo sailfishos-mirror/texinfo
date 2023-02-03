@@ -152,7 +152,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -206,7 +205,6 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
               'info' => {},
               'structure' => {
                 'section_level' => 1,

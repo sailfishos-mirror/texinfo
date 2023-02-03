@@ -62,7 +62,6 @@ $result_trees{'no_argument_and_contents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -147,7 +146,6 @@ $result_sectioning{'no_argument_and_contents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [

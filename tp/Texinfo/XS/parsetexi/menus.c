@@ -31,9 +31,9 @@ register_extra_menu_entry_information (ELEMENT *current)
 {
   int i;
 
-  for (i = 0; i < current->args.number; i++)
+  for (i = 0; i < current->contents.number; i++)
     {
-      ELEMENT *arg = current->args.list[i];
+      ELEMENT *arg = current->contents.list[i];
 
       if (arg->type == ET_menu_entry_name)
         {
@@ -77,7 +77,7 @@ enter_menu_entry_node (ELEMENT *current)
   ELEMENT *description, *preformatted;
 
   description = new_element (ET_menu_entry_description);
-  add_to_element_args (current, description);
+  add_to_element_contents (current, description);
   register_extra_menu_entry_information (current);
   current->source_info = current_source_info;
   remember_internal_xref (current);
@@ -170,8 +170,8 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       destroy_element (menu_star_element);
       entry_name = new_element (ET_menu_entry_name);
       add_to_element_contents (current, menu_entry);
-      add_to_element_args (menu_entry, leading_text);
-      add_to_element_args (menu_entry, entry_name);
+      add_to_element_contents (menu_entry, leading_text);
+      add_to_element_contents (menu_entry, entry_name);
       current = entry_name;
 
       text_append (&leading_text->text, "*");
@@ -187,13 +187,13 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
     }
   /* After a separator in a menu (which would have been added in
      handle_separator in separator.c). */
-  else if (current->args.number > 0
-           && last_args_child (current)->type == ET_menu_entry_separator)
+  else if (current->contents.number > 0
+           && last_contents_child (current)->type == ET_menu_entry_separator)
     {
       ELEMENT *last_child;
       char *separator;
 
-      last_child = last_args_child (current);
+      last_child = last_contents_child (current);
       separator = last_child->text.text;
 
       /* Separator is "::". */
@@ -207,11 +207,12 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       /* A "." not followed by a space.  Not a separator. */
       else if (!strcmp (separator, ".") && !strchr (whitespace_chars, *line))
         {
-          pop_element_from_args (current);
-          current = last_args_child (current);
+          pop_element_from_contents (current, 0);
+          current = last_contents_child (current);
           merge_text (current, last_child->text.text);
           destroy_element (last_child);
         }
+      /* here we collect spaces following separators. */
       else if (strchr (whitespace_chars_except_newline, *line))
         {
           int n;
@@ -225,7 +226,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           ELEMENT *entry_name;
 
           debug ("MENU NODE no entry %s", separator);
-          entry_name = args_child_by_index (current, -2);
+          entry_name = contents_child_by_index (current, -2);
 
           /* Change it from ET_menu_entry_name (i.e. the label). */
           entry_name->type = ET_menu_entry_node;
@@ -238,7 +239,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
 
           debug ("MENU ENTRY %s", separator);
           entry_node = new_element (ET_menu_entry_node);
-          add_to_element_args (current, entry_node);
+          add_to_element_contents (current, entry_node);
           current = entry_node;
         }
       else

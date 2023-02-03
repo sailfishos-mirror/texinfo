@@ -3234,9 +3234,9 @@ sub _convert($$)
       }
     } elsif ($element->{'type'} eq 'menu_entry') {
       my $entry_name_seen = 0;
-      foreach my $arg (@{$element->{'args'}}) {
-        my ($pre_quote, $post_quote);
-        if ($arg->{'type'} eq 'menu_entry_node') {
+      foreach my $content (@{$element->{'contents'}}) {
+        if ($content->{'type'} eq 'menu_entry_node') {
+          my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
@@ -3244,11 +3244,11 @@ sub _convert($$)
           $result .= _count_added($self, $formatter->{'container'},
                            add_pending_word($formatter->{'container'}, 1));
 
-          # note that $arg->{'contents'} may be undefined in rare case
+          # note that $content->{'contents'} may be undefined in rare case
           # such as in sectionning in_menu_only_special_ascii_spaces_node
           # test
           my $node_text = _convert($self, {'type' => '_code',
-                                      'contents' => $arg->{'contents'}});
+                                      'contents' => $content->{'contents'}});
 
           $node_text .= _count_added($self, $formatter->{'container'},
                            add_pending_word($formatter->{'container'}, 1));
@@ -3279,9 +3279,10 @@ sub _convert($$)
             }
           }
           $result .= $pre_quote . $node_text . $post_quote;
-        } elsif ($arg->{'type'} eq 'menu_entry_name') {
+        } elsif ($content->{'type'} eq 'menu_entry_name') {
+          my ($pre_quote, $post_quote);
           $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
-          my $entry_name = _convert($self, $arg);
+          my $entry_name = _convert($self, $content);
           delete $self->{'formatters'}->[-1]->{'no_added_eol'};
           my $formatter = $self->{'formatters'}->[-1];
           $entry_name .= _count_added($self,
@@ -3301,10 +3302,9 @@ sub _convert($$)
           }
           $result .= $pre_quote . $entry_name . $post_quote;
         } else {
-          $result .= _convert($self, $arg);
+          $result .= _convert($self, $content);
         }
       }
-
       # If we are nested inside an @example, a 'menu_entry_description' may not
       # have been processed yet, and we need to output any pending spaces
       # before 'end_line' throws them away.  The argument to 'add_pending_word'
@@ -3322,6 +3322,7 @@ sub _convert($$)
         $result = $self->ensure_end_of_line($result) ;
       }
 
+      return $result;
     } elsif ($element->{'type'} eq 'frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
       set_space_protection($formatter->{'container'}, undef, undef, undef, 1);

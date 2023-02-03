@@ -166,7 +166,6 @@ $result_trees{'unnumbered_top_without_node_nodes'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => {
             'text' => ' '
@@ -418,7 +417,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {},

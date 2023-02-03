@@ -763,7 +763,6 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -1359,7 +1358,6 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [

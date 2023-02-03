@@ -56,8 +56,7 @@ use strict;
 # used to match Unicode character classes.
 use if $] >= 5.014, re => '/a';
 
-# check that autovivification do not happen incorrectly.  If set,
-# need to uncomment many 'extra' key hash initialization
+# check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
 
 # debug
@@ -649,6 +648,7 @@ sub parser(;$$)
 
   # other initializations
   $parser->{'definfoenclose'} = {};
+  $parser->{'source_mark_counters'} = {};
   $parser->{'nesting_context'} = {%nesting_context_init};
   $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
 
@@ -750,6 +750,7 @@ sub simple_parser(;$)
 
   # other initializations
   $parser->{'definfoenclose'} = {};
+  $parser->{'source_mark_counters'} = {};
   $parser->{'nesting_context'} = {%nesting_context_init};
 
   $parser->_init_context_stack();
@@ -1773,23 +1774,26 @@ sub _gather_previous_item($$;$$)
     for my $child (@{$new_contents}) {
       $child->{'parent'} = $table_term;
     }
-    if (defined($before_item)) {
+    if (defined($before_item) and $before_item->{'contents'}
+        and scalar(@{$before_item->{'contents'}})) {
       # reparent any trailing index entries in the before_item to the
       # beginning of table term
-      while ($before_item->{'contents'}->[-1]
-               and (($before_item->{'contents'}->[-1]->{'type'}
-                     and $before_item->{'contents'}->[-1]->{'type'}
-                       eq 'index_entry_command')
-                    or ($before_item->{'contents'}->[-1]->{'cmdname'}
-                     and ($before_item->{'contents'}->[-1]->{'cmdname'}
-                             eq 'c'
-                          or $before_item->{'contents'}->[-1]->{'cmdname'}
-                             eq 'comment')))) {
+      while ($before_item->{'contents'}
+             and scalar(@{$before_item->{'contents'}})
+             and (($before_item->{'contents'}->[-1]->{'type'}
+                   and $before_item->{'contents'}->[-1]->{'type'}
+                     eq 'index_entry_command')
+                  or ($before_item->{'contents'}->[-1]->{'cmdname'}
+                   and ($before_item->{'contents'}->[-1]->{'cmdname'}
+                           eq 'c'
+                        or $before_item->{'contents'}->[-1]->{'cmdname'}
+                           eq 'comment')))) {
         my $element = _pop_element_from_contents($self, $before_item);
         unshift @{$table_term->{'contents'}}, $element;
       }
     }
-    if (scalar(@{$table_after_terms->{'contents'}})) {
+    if ($table_after_terms->{'contents'}
+        and scalar(@{$table_after_terms->{'contents'}})) {
       push @{$table_entry->{'contents'}}, $table_after_terms;
       $table_after_terms->{'parent'} = $table_entry;
     }
@@ -2103,6 +2107,10 @@ sub _close_current($$$;$$)
         and not $current->{'args'}
         and (not defined($current->{'text'}) or $current->{'text'} eq '')
         and not $current->{'info'}
+        # for consistency with XS parser.
+        and $current->{'type'} ne 'menu_entry_name'
+        and $current->{'type'} ne 'menu_entry_node'
+        and $current->{'type'} ne 'menu_entry_description'
         and (not $current->{'source_marks'}
              or not scalar(@{$current->{'source_marks'}}))) {
       $element_to_remove = $current;
@@ -2677,6 +2685,7 @@ sub _abort_empty_line {
       my $new_space_element = {'text' => $spaces_element->{'text'},};
       _add_source_marks($spaces_element->{'source_marks'}, $new_space_element)
         if ($spaces_element->{'source_marks'});
+      $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
       $owning_element->{'info'}->{'spaces_before_argument'}
         = $new_space_element;
     }
@@ -2719,7 +2728,7 @@ sub _isolate_last_space
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    #$current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'} = {} if (!$current->{'info'});
     $current->{'info'}->{'comment_at_end'}
                            = _pop_element_from_contents($self, $current);
     # TODO: @c should probably not be allowed inside most brace commands
@@ -2767,12 +2776,14 @@ sub _isolate_last_space
       my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
       _add_source_marks($spaces_after_argument->{'source_marks'}, $new_space_element)
         if ($spaces_after_argument->{'source_marks'});
+      $current->{'info'} = {} if (!exists($current->{'info'}));
       $current->{'info'}->{'spaces_after_argument'}
                  = $new_space_element;
     } else {
       # FIXME transfer source marks that are located in the spaces
       # put in spaces_after_argument
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
+      $current->{'info'} = {} if (!exists($current->{'info'}));
       $current->{'info'}->{'spaces_after_argument'} = {'text' => $1,};
     }
   }
@@ -3056,7 +3067,7 @@ sub _parse_def($$$)
   }
 
   for my $pair (@result, @args_results) {
-    #$pair->[1]->{'extra'} = {} if (!$pair->[1]->{'extra'});
+    $pair->[1]->{'extra'} = {} if (!$pair->[1]->{'extra'});
     $pair->[1]->{'extra'}->{'def_role'} = $pair->[0];
   }
 
@@ -3115,7 +3126,7 @@ sub _enter_index_entry($$$$$$$)
       $index_entry->{'index_ignore_chars'}->{$ignored_char} = 1;
     }
   }
-  if (defined $current->{'extra'}->{'sortas'}) {
+  if (defined($current->{'extra'}) and defined($current->{'extra'}->{'sortas'})) {
     $index_entry->{'sortas'} = $current->{'extra'}->{'sortas'};
   }
   if (@{$self->{'regions_stack'}}) {
@@ -3129,6 +3140,7 @@ sub _enter_index_entry($$$$$$$)
 
   push @{$index->{'index_entries'}}, $index_entry;
 
+  $current->{'extra'} = {} if (!defined($current->{'extra'}));
   $current->{'extra'}->{'index_entry'} = $index_entry;
 }
 
@@ -3200,12 +3212,15 @@ sub _end_line_misc_line($$$)
 
   if ($self->{'line_commands'}->{$command} eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);
-    $current->{'extra'}->{'misc_args'} = $args if (defined($args));
+    if (defined($args)) {
+      $current->{'extra'} = {} if (!defined($current->{'extra'}));
+      $current->{'extra'}->{'misc_args'} = $args;
+    }
   } elsif ($self->{'line_commands'}->{$command} eq 'text') {
     my ($text, $superfluous_arg)
       = _convert_to_text($current->{'args'}->[0]);
 
-    #$current->{'extra'} = {} if (!$current->{'extra'});
+    $current->{'extra'} = {} if (!$current->{'extra'});
     if ($text eq '') {
       if (not $superfluous_arg) {
         $self->_command_warn($current, $source_info,
@@ -3334,7 +3349,7 @@ sub _end_line_misc_line($$$)
                      $command, $texi_line);
     }
   } elsif ($command eq 'node') {
-    #$current->{'extra'} = {} if (!$current->{'extra'});
+    $current->{'extra'} = {} if (!$current->{'extra'});
     foreach my $arg (@{$current->{'args'}}) {
       my $node = _parse_node_manual($arg);
       push @{$current->{'extra'}->{'nodes_manuals'}}, $node;
@@ -3352,6 +3367,7 @@ sub _end_line_misc_line($$$)
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
         $current->{'extra'}->{'node_preceding_part'} = $part;
+        $part->{'extra'} = {} if (!defined($part->{'extra'}));
         $part->{'extra'}->{'part_following_node'} = $current;
       }
     }
@@ -3366,7 +3382,7 @@ sub _end_line_misc_line($$$)
     if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
       $self->_command_warn($current, $source_info,
              __("\@%s missing argument"), $command);
-      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'missing_argument'} = 1;
     } else {
       if (($command eq 'item' or $command eq 'itemx')
@@ -3468,6 +3484,7 @@ sub _end_line_misc_line($$$)
       # This is the multitable block_line_arg line context
       $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
       $current = $current->{'parent'};
+      $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'max_columns'} = 0;
       if ($misc_cmd->{'extra'}
           and defined($misc_cmd->{'extra'}->{'misc_args'})) {
@@ -3488,11 +3505,14 @@ sub _end_line_misc_line($$$)
       if ($self->{'current_node'}
          and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
         $self->{'current_node'}->{'extra'}->{'associated_section'} = $current;
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'associated_node'} = $self->{'current_node'};
       }
       if ($self->{'current_part'}) {
+        $current->{'extra'} = {} if (!defined($current->{'extra'}));
         $current->{'extra'}->{'associated_part'} = $self->{'current_part'};
+        $self->{'current_part'}->{'extra'} = {}
+          if (!defined($self->{'current_part'}->{'extra'}));
         $self->{'current_part'}->{'extra'}->{'part_associated_section'}
                                                  = $current;
         if ($current->{'cmdname'} eq 'top') {
@@ -3648,7 +3668,7 @@ sub _end_line_starting_block($$$)
       }
     }
     my $multitable = $current->{'parent'};
-    #$multitable->{'extra'} = {} if (!$multitable->{'extra'});
+    $multitable->{'extra'} = {} if (!$multitable->{'extra'});
     $multitable->{'extra'}->{'max_columns'} = scalar(@prototype_row);
     if (!scalar(@prototype_row)) {
       $self->_command_warn($multitable, $source_info,
@@ -3675,8 +3695,10 @@ sub _end_line_starting_block($$$)
     #$type = $current->{'extra'}->{'type'}->{'normalized'};
     #push @{$self->{'floats'}->{$type}}, $current;
     _register_label($self->{'targets'}, $current, $float_label);
-    $current->{'extra'}->{'float_section'} = $self->{'current_section'}
-      if (defined($self->{'current_section'}));
+    if (defined($self->{'current_section'})) {
+      $current->{'extra'} = {} if (!defined($current->{'extra'}));
+      $current->{'extra'}->{'float_section'} = $self->{'current_section'};
+    }
 
     # all the commands with @item
   } elsif ($current->{'cmdname'}
@@ -3701,7 +3723,7 @@ sub _end_line_starting_block($$$)
           $spec = $arg->{'text'};
         }
       }
-      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'enumerate_specification'} = $spec;
     } elsif ($block_commands{$current->{'cmdname'}} eq 'item_line') {
       if (!$current->{'extra'}
@@ -3794,12 +3816,12 @@ sub _end_line_starting_block($$$)
                          'type' => 'command_as_argument_inserted',
                          'parent' => $block_line_arg };
         unshift @{$block_line_arg->{'contents'}}, $inserted;
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'command_as_argument'} = $inserted;
       }
     } elsif ($block_commands{$current->{'cmdname'}}
              and $block_commands{$current->{'cmdname'}} eq 'item_line') {
-      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!$current->{'extra'});
       if (!$current->{'extra'}->{'command_as_argument'}) {
         my $inserted =  { 'cmdname' => 'asis',
                           'type' => 'command_as_argument_inserted',
@@ -3934,7 +3956,7 @@ sub _end_line($$$)
           and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
         my $entry = $menu->{'contents'}->[-1];
         my $description;
-        foreach my $entry_element (reverse(@{$entry->{'args'}})) {
+        foreach my $entry_element (reverse(@{$entry->{'contents'}})) {
           if ($entry_element->{'type'} eq 'menu_entry_description') {
             $description = $entry_element;
             last;
@@ -3944,11 +3966,11 @@ sub _end_line($$$)
           $description_or_menu_comment = $description;
         } else {
           # Normally this cannot happen
-          $self->_bug_message("No description in menu_entry",
+          $self->_bug_message("no description in menu_entry",
                                $source_info, $current);
-          push @{$entry->{'args'}}, {'type' => 'menu_entry_description',
+          push @{$entry->{'contents'}}, {'type' => 'menu_entry_description',
                                      'parent' => $entry, };
-          $description_or_menu_comment = $entry->{'args'}->[-1];
+          $description_or_menu_comment = $entry->{'contents'}->[-1];
         }
       } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
                and $menu->{'contents'}->[-1]->{'type'}
@@ -3981,8 +4003,8 @@ sub _end_line($$$)
         print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
       }
       # FIXME check that source marks are transfered
-      while (@{$menu_entry->{'args'}}) {
-        my $arg = shift @{$menu_entry->{'args'}};
+      while (@{$menu_entry->{'contents'}}) {
+        my $arg = shift @{$menu_entry->{'contents'}};
         if (defined($arg->{'text'})) {
           $current = _merge_text($self, $current, $arg->{'text'});
         } elsif ($arg->{'contents'}) {
@@ -4141,9 +4163,9 @@ sub _register_extra_menu_entry_information($$;$)
 {
   my ($self, $current, $source_info) = @_;
 
-  foreach my $arg (@{$current->{'args'}}) {
+  foreach my $arg (@{$current->{'contents'}}) {
     if ($arg->{'type'} eq 'menu_entry_name') {
-      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'menu_entry_name'} = $arg;
       if (not $arg->{'contents'} or scalar(@{$arg->{'contents'}}) == 0) {
         $self->_line_warn(sprintf(__("empty menu entry name in `%s'"),
@@ -4158,11 +4180,11 @@ sub _register_extra_menu_entry_information($$;$)
         }
       } else {
         my $parsed_entry_node = _parse_node_manual($arg);
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'menu_entry_node'} = $parsed_entry_node;
       }
     } elsif ($arg->{'type'} eq 'menu_entry_description') {
-      #$current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!$current->{'extra'});
       $current->{'extra'}->{'menu_entry_description'} = $arg;
     }
   }
@@ -4174,7 +4196,7 @@ sub _enter_menu_entry_node($$$)
 
   my $description = { 'type' => 'menu_entry_description',
                       'parent' => $current };
-  push @{$current->{'args'}}, $description;
+  push @{$current->{'contents'}}, $description;
   _register_extra_menu_entry_information($self, $current, $source_info);
   $current->{'source_info'} = $source_info;
   push @{$self->{'internal_references'}}, $current;
@@ -4210,6 +4232,8 @@ sub _register_command_as_argument($$)
   print STDERR "FOR PARENT \@$cmd_as_arg->{'parent'}->{'parent'}->{'cmdname'} ".
          "command_as_argument $cmd_as_arg->{'cmdname'}\n" if ($self->{'DEBUG'});
   $cmd_as_arg->{'type'} = 'command_as_argument' if (!$cmd_as_arg->{'type'});
+  $cmd_as_arg->{'parent'}->{'parent'}->{'extra'} = {}
+    if (!defined($cmd_as_arg->{'parent'}->{'parent'}->{'extra'}));
   $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
     = $cmd_as_arg;
   if ($cmd_as_arg->{'cmdname'} eq 'kbd'
@@ -4598,7 +4622,7 @@ sub _process_remaining_on_line($$$$)
   # in @verb. type should be 'brace_command_arg'
   } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
          and $current->{'parent'}->{'cmdname'} eq 'verb') {
-    #$current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
+    $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
     # collect the first character if not already done
     if (!defined($current->{'parent'}->{'info'}->{'delimiter'})) {
       if ($line =~ /^$/) {
@@ -4833,7 +4857,7 @@ sub _process_remaining_on_line($$$$)
         }
         $additional_newline = 1;
       }
-      #$current->{'info'} = {} if (!$current->{'info'});
+      $current->{'info'} = {} if (!$current->{'info'});
       if (!defined($current->{'info'}->{'spaces_after_cmd_before_arg'})) {
         $line =~ s/^(\s+)//;
         $current->{'info'}->{'spaces_after_cmd_before_arg'} = $added_space;
@@ -4960,52 +4984,52 @@ sub _process_remaining_on_line($$$$)
                                         'parent' => $current,
                                       };
       $current = $current->{'contents'}->[-1];
-      $current->{'args'} = [ { 'type' => 'menu_entry_leading_text',
-                               'text' => $leading_text,
-                               'parent' => $current },
-                             { 'type' => 'menu_entry_name',
-                               'parent' => $current } ];
+      $current->{'contents'} = [ { 'type' => 'menu_entry_leading_text',
+                                   'text' => $leading_text,
+                                   'parent' => $current },
+                                 { 'type' => 'menu_entry_name',
+                                   'parent' => $current } ];
       # transfer source marks from removed menu star to leading text
       if ($menu_star_element->{'source_marks'}) {
         _add_source_marks($menu_star_element->{'source_marks'},
-                          $current->{'args'}->[0]);
+                          $current->{'contents'}->[0]);
       }
-      $current = $current->{'args'}->[-1];
+      $current = $current->{'contents'}->[-1];
     }
   # after a separator in menu
-  } elsif ($current->{'args'} and @{$current->{'args'}}
-           and $current->{'args'}->[-1]->{'type'}
-           and $current->{'args'}->[-1]->{'type'} eq 'menu_entry_separator') {
+  } elsif ($current->{'contents'} and @{$current->{'contents'}}
+           and $current->{'contents'}->[-1]->{'type'}
+           and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
     print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
-    my $separator = $current->{'args'}->[-1]->{'text'};
+    my $separator = $current->{'contents'}->[-1]->{'text'};
     # separator is ::, we concatenate and let the while restart
     # in order to collect spaces below
     if ($separator eq ':' and $line =~ s/^(:)//) {
-      $current->{'args'}->[-1]->{'text'} .= $1;
+      $current->{'contents'}->[-1]->{'text'} .= $1;
     # a . not followed by a space.  Not a separator.
     } elsif ($separator eq '.' and $line =~ /^\S/) {
-      pop @{$current->{'args'}};
-      $current = $current->{'args'}->[-1];
+      pop @{$current->{'contents'}};
+      $current = $current->{'contents'}->[-1];
       $current = _merge_text($self, $current, $separator);
     # here we collect spaces following separators.
     } elsif ($line =~ s/^([^\S\r\n]+)//) {
       # FIXME a trailing end of line could be considered to be part
       # of the separator. Right now it is part of the description,
       # since it is catched (in the next while) as one of the case below
-      $current->{'args'}->[-1]->{'text'} .= $1;
+      $current->{'contents'}->[-1]->{'text'} .= $1;
     # now handle the menu part that was closed
     } elsif ($separator =~ /^::/) {
       print STDERR "MENU NODE no name $separator\n" if ($self->{'DEBUG'});
       # it was previously registered as menu_entry_name, it is
       # changed to node
-      $current->{'args'}->[-2]->{'type'} = 'menu_entry_node';
+      $current->{'contents'}->[-2]->{'type'} = 'menu_entry_node';
       $current = _enter_menu_entry_node($self, $current, $source_info);
     # end of the menu entry name
     } elsif ($separator =~ /^:/) {
       print STDERR "MENU ENTRY $separator\n" if ($self->{'DEBUG'});
-      push @{$current->{'args'}}, { 'type' => 'menu_entry_node',
-                                    'parent' => $current };
-      $current = $current->{'args'}->[-1];
+      push @{$current->{'contents'}}, { 'type' => 'menu_entry_node',
+                                        'parent' => $current };
+      $current = $current->{'contents'}->[-1];
     # anything else is the end of the menu node following a menu_entry_name
     } else {
       print STDERR "MENU NODE $separator\n" if ($self->{'DEBUG'});
@@ -5349,7 +5373,7 @@ sub _process_remaining_on_line($$$$)
                   'parent' => $current->{'contents'}->[-1] };
             }
             if (scalar(@$args) and $arg_spec ne 'skipline') {
-              #$misc->{'extra'} = {} if (!$misc->{'extra'});
+              $misc->{'extra'} = {} if (!$misc->{'extra'});
               $misc->{'extra'}->{'misc_args'} = $args;
             }
           } else {
@@ -5404,6 +5428,7 @@ sub _process_remaining_on_line($$$$)
                 sprintf(__("\@%s should only appear in an index entry"),
                         $command), $source_info);
             }
+            $parent->{'extra'} = {} if (!defined($parent->{'extra'}));
             $parent->{'extra'}->{'subentry'} = $misc;
             my $subentry_level = 1;
             if ($parent->{'cmdname'} eq 'subentry') {
@@ -5480,14 +5505,14 @@ sub _process_remaining_on_line($$$$)
                     and $parent->{'type'} eq 'brace_command_context');
             if ($parent->{'cmdname'}) {
               if ($parent->{'cmdname'} eq 'titlepage') {
-                #$current->{'extra'} = {} if (!$current->{'extra'});
+                $current->{'extra'} = {} if (!$current->{'extra'});
                 $current->{'extra'}->{'titlepage'} = $parent;
                 $found = 1;
               } elsif ($parent->{'cmdname'} eq 'quotation' or
                   $parent->{'cmdname'} eq 'smallquotation') {
-                #$parent->{'extra'} = {} if (!$parent->{'extra'});
+                $parent->{'extra'} = {} if (!$parent->{'extra'});
                 push @{$parent->{'extra'}->{'authors'}}, $current;
-                #$current->{'extra'} = {} if (!$current->{'extra'});
+                $current->{'extra'} = {} if (!$current->{'extra'});
                 $current->{'extra'}->{'quotation'} = $parent;
                 $found = 1;
               }
@@ -5734,16 +5759,16 @@ sub _process_remaining_on_line($$$$)
       }
       $current = $current->{'contents'}->[-1];
       if ($command eq 'click') {
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
       } elsif ($command eq 'kbd'
                and _kbd_formatted_as_code($self, $current)) {
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'code'} = 1;
       }
       if ($self->{'definfoenclose'}->{$command}) {
         $current->{'type'} = 'definfoenclose_command';
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'begin'}
           = $self->{'definfoenclose'}->{$command}->[0];
         $current->{'extra'}->{'end'}
@@ -5798,12 +5823,14 @@ sub _process_remaining_on_line($$$$)
               $float = $current->{'parent'}->{'parent'};
             }
             if ($float) {
-              if ($float->{'extra'}->{$command}) {
+              if ($float->{'extra'} and $float->{'extra'}->{$command}) {
                 $self->_line_warn(sprintf(__("ignoring multiple \@%s"),
                                           $command), $source_info);
               } else {
-                #$current->{'parent'}->{'extra'} = {} if (!$current->{'parent'}->{'extra'});
+                $current->{'parent'}->{'extra'} = {}
+                    if (!$current->{'parent'}->{'extra'});
                 $current->{'parent'}->{'extra'}->{'float'} = $float;
+                $float->{'extra'} = {} if (!defined($float->{'extra'}));
                 $float->{'extra'}->{$command} = $current->{'parent'};
               }
             }
@@ -5937,7 +5964,7 @@ sub _process_remaining_on_line($$$$)
             _register_label($self->{'targets'}, $current->{'parent'},
                             $parsed_anchor);
             if (@{$self->{'regions_stack'}}) {
-              #$current->{'extra'} = {} if (!$current->{'extra'});
+              $current->{'extra'} = {} if (!$current->{'extra'});
               $current->{'extra'}->{'region'} = $self->{'regions_stack'}->[-1];
             }
           }
@@ -5969,7 +5996,7 @@ sub _process_remaining_on_line($$$$)
                     and !$parsed_ref_node->{'manual_content'}) {
                   push @{$self->{'internal_references'}}, $ref;
                 }
-                #$ref->{'extra'} = {} if (!$ref->{'extra'});
+                $ref->{'extra'} = {} if (!$ref->{'extra'});
                 $ref->{'extra'}->{'node_argument'} = $parsed_ref_node
               }
             }
@@ -6004,7 +6031,7 @@ sub _process_remaining_on_line($$$$)
                __("\@image missing filename argument"), $source_info);
           }
           if (defined $self->{'info'}->{'input_perl_encoding'}) {
-            #$image->{'extra'} = {} if (!$image->{'extra'});
+            $image->{'extra'} = {} if (!$image->{'extra'});
             $image->{'extra'}->{'input_perl_encoding'}
                = $self->{'info'}->{'input_perl_encoding'};
           }
@@ -6093,9 +6120,13 @@ sub _process_remaining_on_line($$$$)
             if ($command eq 'sortas') {
               my ($arg, $superfluous_arg) = _convert_to_text($current);
               if (defined($arg)) {
+                $index_element->{'extra'} = {}
+                  if (!defined($index_element->{'extra'}));
                 $index_element->{'extra'}->{$command} = $arg;
               }
             } else {
+              $index_element->{'extra'} = {}
+                if (!defined($index_element->{'extra'}));
               $index_element->{'extra'}->{$command} = $current->{'parent'};
             }
           }
@@ -6134,7 +6165,7 @@ sub _process_remaining_on_line($$$$)
       if ($brace_commands{$current->{'cmdname'}}
           and $brace_commands{$current->{'cmdname'}} eq 'inline') {
         my $expandp = 0;
-        #$current->{'extra'} = {} if (!$current->{'extra'});
+        $current->{'extra'} = {} if (!$current->{'extra'});
         if (! $current->{'extra'}->{'format'}) {
           my $inline_type;
           if (defined $current->{'args'}->[0]
@@ -6259,18 +6290,19 @@ sub _process_remaining_on_line($$$$)
              and $current->{'parent'}->{'cmdname'}
              and $current->{'parent'}->{'cmdname'} eq 'node') {
       $self->_line_warn(__("superfluous arguments for node"), $source_info);
-    # end of menu node (. must be followed by a space to stop the node).
+    # After a separator in a menu, end of menu node
+    # (. must be followed by a space to stop the node).
     } elsif (($separator =~ /[,\t.]/ and $current->{'type'}
            and $current->{'type'} eq 'menu_entry_node')
            or ($separator eq ':' and $current->{'type'}
              and $current->{'type'} eq 'menu_entry_name')) {
       $current = $current->{'parent'};
-      push @{$current->{'args'}}, { 'type' => 'menu_entry_separator',
-                             'text' => $separator,
-                             'parent' => $current };
+      push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
+                                        'text' => $separator,
+                                        'parent' => $current };
     } elsif ($separator eq "\f" and $current->{'type'}
              and $current->{'type'} eq 'paragraph') {
-      # form feed stops and restart a paragraph.
+      # A form feed stops and restart a paragraph.
       $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, {'text' => $separator,
                                        'type' => 'empty_line',
@@ -6549,7 +6581,7 @@ sub _parse_line_command_args($$$)
   if (!$arg->{'contents'}) {
     $self->_command_error($line_command, $source_info,
                __("\@%s missing argument"), $command);
-    #$line_command->{'extra'} = {} if (!$line_command->{'extra'});
+    $line_command->{'extra'} = {} if (!$line_command->{'extra'});
     $line_command->{'extra'}->{'missing_argument'} = 1;
     return undef;
   }

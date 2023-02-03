@@ -74,7 +74,6 @@ $result_trees{'titles'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

@@ -119,7 +119,6 @@ $result_trees{'documentation_examples'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

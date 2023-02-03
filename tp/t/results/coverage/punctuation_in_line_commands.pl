@@ -682,7 +682,6 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

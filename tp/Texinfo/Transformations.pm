@@ -373,6 +373,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
         push @contents, $new_node;
         push @added_nodes, $new_node;
         $new_node->{'extra'}->{'associated_section'} = $content;
+        $content->{'extra'} = {} if (!$content->{'extra'});
         $content->{'extra'}->{'associated_node'} = $new_node;
         $new_node->{'parent'} = $content->{'parent'};
         # reassociate index entries and menus
@@ -747,8 +748,8 @@ sub menu_to_simple_menu($)
       $content->{'parent'} = $preformatted;
 
       my $in_description;
-      my @args = @{$content->{'args'}};
-      @{$content->{'args'}} = ();
+      my @args = @{$content->{'contents'}};
+      @{$content->{'contents'}} = ();
       while (@args) {
         if ($args[0]->{'type'} and $args[0]->{'type'} eq 'menu_entry_description') {
           my $description = shift @args;
@@ -757,7 +758,7 @@ sub menu_to_simple_menu($)
           last;
         } else {
           my $arg = shift @args;
-          push @{$content->{'args'}}, $arg;
+          push @{$content->{'contents'}}, $arg;
         }
       }
     } elsif ($content->{'cmdname'}

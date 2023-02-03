@@ -74,7 +74,6 @@ $result_trees{'shorttitlepage'} = {
             }
           ],
           'cmdname' => 'shorttitlepage',
-          'extra' => {},
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

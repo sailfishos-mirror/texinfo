@@ -45,7 +45,6 @@ $result_trees{'top_without_node_nodes'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {},
         'info' => {
           'spaces_before_argument' => {
             'text' => ' '
@@ -210,7 +209,6 @@ $result_sectioning{'top_without_node_nodes'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'associated_unit' => {

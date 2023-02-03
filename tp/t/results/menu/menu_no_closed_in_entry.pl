@@ -24,7 +24,7 @@ $result_trees{'menu_no_closed_in_entry'} = {
           'cmdname' => 'menu',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'

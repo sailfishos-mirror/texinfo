@@ -3679,7 +3679,7 @@ sub _convert($$)
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).
-        if ($element->{'extra'}->{'associated_node'}) {
+        if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
           my $associated_node = $element->{'extra'}->{'associated_node'};
           my $node_label
             = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});

@@ -41,7 +41,6 @@ $result_trees{'contents_and_shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -526,7 +525,6 @@ $result_sectioning{'contents_and_shortcontents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'info' => {},
         'structure' => {
           'section_childs' => [
