@@ -1,5 +1,14 @@
 2023-02-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information)
+	tp/Texinfo/Structuring.pm (new_node_menu_entry),
+	tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information): do not register
+	'menu_entry_description' and 'menu_entry_name' in menu_entry 'extra',
+	they are easy to get from menu_entry contents.
+
+2023-02-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_substitute_references),
 	tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type),
 	tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information),

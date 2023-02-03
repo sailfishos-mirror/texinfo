@@ -1627,8 +1627,7 @@ sub new_node_menu_entry
     Texinfo::Common::protect_colon_in_tree($menu_entry_name);
   }
 
-  my $entry = {'type' => 'menu_entry',
-               'extra' => {'menu_entry_name' => $menu_entry_name}};
+  my $entry = {'type' => 'menu_entry', 'extra' => {}};
 
   my $menu_entry_node = {'type' => 'menu_entry_node'};
   $menu_entry_node->{'contents'}
@@ -1679,8 +1678,6 @@ sub new_node_menu_entry
      = Texinfo::Convert::NodeNameNormalization::normalize_node(
                                         {'contents' => $content } );
   }
-
-  $entry->{'extra'}->{'menu_entry_description'} = $description;
 
   return $entry;
 }

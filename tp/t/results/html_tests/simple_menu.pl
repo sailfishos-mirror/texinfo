@@ -121,193 +121,6 @@ $result_trees{'simple_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'menu_entry_description' => {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'description
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'bullet',
-                                  'type' => 'command_as_argument_inserted'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'cmdname' => 'itemize',
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'text' => 'idescr
-'
-                                    }
-                                  ],
-                                  'type' => 'preformatted'
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 1
-                              },
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 8,
-                                'macro' => ''
-                              }
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'itemize'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'cmdname' => 'end',
-                              'extra' => {
-                                'text_arg' => 'itemize'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 9,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'extra' => {
-                            'command_as_argument' => {}
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 7,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'cmdname' => 'html',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in html
-'
-                                    }
-                                  ],
-                                  'type' => 'rawpreformatted'
-                                },
-                                {
-                                  'args' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'html'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'end',
-                                  'extra' => {
-                                    'text_arg' => 'html'
-                                  },
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 12,
-                                    'macro' => ''
-                                  }
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 10,
-                                'macro' => ''
-                              }
-                            },
-                            {
-                              'text' => 'AAA
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'after_menu_description_line'
-                            },
-                            {
-                              'text' => 'CCC
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    },
                     'menu_entry_node_label' => {
                       'manual_content' => [
                         {}
@@ -321,12 +134,186 @@ $result_trees{'simple_menu'} = {
                   },
                   'type' => 'menu_entry'
                 },
-                {}
+                {
+                  'text' => 'description
+'
+                }
               ],
               'type' => 'preformatted'
             },
-            {},
-            {},
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'type' => 'command_as_argument_inserted'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'itemize',
+              'contents' => [
+                {
+                  'cmdname' => 'item',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => ' ',
+                          'type' => 'ignorable_spaces_after_command'
+                        },
+                        {
+                          'text' => 'idescr
+'
+                        }
+                      ],
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'extra' => {
+                    'item_number' => 1
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 8,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'itemize'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'text_arg' => 'itemize'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'extra' => {
+                'command_as_argument' => {}
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
+            },
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'cmdname' => 'html',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'in html
+'
+                        }
+                      ],
+                      'type' => 'rawpreformatted'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'html'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'end',
+                      'extra' => {
+                        'text_arg' => 'html'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 12,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 10,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => 'AAA
+'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'after_menu_description_line'
+                },
+                {
+                  'text' => 'CCC
+'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                }
+              ],
+              'type' => 'preformatted'
+            },
             {
               'args' => [
                 {
@@ -617,20 +604,6 @@ $result_trees{'simple_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'menu_entry_description' => {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    },
                     'menu_entry_node_label' => {
                       'manual_content' => [
                         {}
@@ -644,7 +617,10 @@ $result_trees{'simple_menu'} = {
                   },
                   'type' => 'menu_entry'
                 },
-                {},
+                {
+                  'text' => '
+'
+                },
                 {
                   'text' => '
 ',
@@ -685,24 +661,6 @@ $result_trees{'simple_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'menu_entry_description' => {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'description
-'
-                            },
-                            {
-                              'text' => 'in description
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    },
                     'menu_entry_node_label' => {
                       'manual_content' => [
                         {}
@@ -716,8 +674,14 @@ $result_trees{'simple_menu'} = {
                   },
                   'type' => 'menu_entry'
                 },
-                {},
-                {},
+                {
+                  'text' => 'description
+'
+                },
+                {
+                  'text' => 'in description
+'
+                },
                 {
                   'contents' => [
                     {
@@ -744,20 +708,6 @@ $result_trees{'simple_menu'} = {
                     }
                   ],
                   'extra' => {
-                    'menu_entry_description' => {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    },
                     'menu_entry_node_label' => {
                       'manual_content' => [
                         {}
@@ -771,7 +721,10 @@ $result_trees{'simple_menu'} = {
                   },
                   'type' => 'menu_entry'
                 },
-                {},
+                {
+                  'text' => '
+'
+                },
                 {
                   'text' => '
 ',
@@ -822,193 +775,6 @@ $result_trees{'simple_menu'} = {
                         }
                       ],
                       'extra' => {
-                        'menu_entry_description' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'detaildescription
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'bullet',
-                                      'type' => 'command_as_argument_inserted'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'cmdname' => 'itemize',
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => ' ',
-                                          'type' => 'ignorable_spaces_after_command'
-                                        },
-                                        {
-                                          'text' => 'idetaildescr
-'
-                                        }
-                                      ],
-                                      'type' => 'preformatted'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'item_number' => 1
-                                  },
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 41,
-                                    'macro' => ''
-                                  }
-                                },
-                                {
-                                  'args' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'itemize'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'end',
-                                  'extra' => {
-                                    'text_arg' => 'itemize'
-                                  },
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 42,
-                                    'macro' => ''
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'command_as_argument' => {}
-                              },
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 40,
-                                'macro' => ''
-                              }
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'args' => [
-                                    {
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'block_line_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'html',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'detailin detailhtml
-'
-                                        }
-                                      ],
-                                      'type' => 'rawpreformatted'
-                                    },
-                                    {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'html'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'cmdname' => 'end',
-                                      'extra' => {
-                                        'text_arg' => 'html'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'source_info' => {
-                                        'file_name' => '',
-                                        'line_nr' => 45,
-                                        'macro' => ''
-                                      }
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 43,
-                                    'macro' => ''
-                                  }
-                                },
-                                {
-                                  'text' => 'detailAAA
-'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'after_menu_description_line'
-                                },
-                                {
-                                  'text' => 'detailCCC
-'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'menu_entry_description'
-                        },
                         'menu_entry_node_label' => {
                           'manual_content' => [
                             {}
@@ -1022,12 +788,186 @@ $result_trees{'simple_menu'} = {
                       },
                       'type' => 'menu_entry'
                     },
-                    {}
+                    {
+                      'text' => 'detaildescription
+'
+                    }
                   ],
                   'type' => 'preformatted'
                 },
-                {},
-                {},
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'type' => 'command_as_argument_inserted'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'cmdname' => 'itemize',
+                  'contents' => [
+                    {
+                      'cmdname' => 'item',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ' ',
+                              'type' => 'ignorable_spaces_after_command'
+                            },
+                            {
+                              'text' => 'idetaildescr
+'
+                            }
+                          ],
+                          'type' => 'preformatted'
+                        }
+                      ],
+                      'extra' => {
+                        'item_number' => 1
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 41,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'itemize'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'end',
+                      'extra' => {
+                        'text_arg' => 'itemize'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 42,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'extra' => {
+                    'command_as_argument' => {}
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 40,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'cmdname' => 'html',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'detailin detailhtml
+'
+                            }
+                          ],
+                          'type' => 'rawpreformatted'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'html'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'end',
+                          'extra' => {
+                            'text_arg' => 'html'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 45,
+                            'macro' => ''
+                          }
+                        }
+                      ],
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 43,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => 'detailAAA
+'
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'after_menu_description_line'
+                    },
+                    {
+                      'text' => 'detailCCC
+'
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'type' => 'preformatted'
+                },
                 {
                   'args' => [
                     {
@@ -1318,20 +1258,6 @@ $result_trees{'simple_menu'} = {
                         }
                       ],
                       'extra' => {
-                        'menu_entry_description' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'menu_entry_description'
-                        },
                         'menu_entry_node_label' => {
                           'manual_content' => [
                             {}
@@ -1345,7 +1271,10 @@ $result_trees{'simple_menu'} = {
                       },
                       'type' => 'menu_entry'
                     },
-                    {},
+                    {
+                      'text' => '
+'
+                    },
                     {
                       'text' => '
 ',
@@ -1386,24 +1315,6 @@ $result_trees{'simple_menu'} = {
                         }
                       ],
                       'extra' => {
-                        'menu_entry_description' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'detaildescription
-'
-                                },
-                                {
-                                  'text' => 'in detaildescription
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'menu_entry_description'
-                        },
                         'menu_entry_node_label' => {
                           'manual_content' => [
                             {}
@@ -1417,8 +1328,14 @@ $result_trees{'simple_menu'} = {
                       },
                       'type' => 'menu_entry'
                     },
-                    {},
-                    {},
+                    {
+                      'text' => 'detaildescription
+'
+                    },
+                    {
+                      'text' => 'in detaildescription
+'
+                    },
                     {
                       'contents' => [
                         {
@@ -1445,20 +1362,6 @@ $result_trees{'simple_menu'} = {
                         }
                       ],
                       'extra' => {
-                        'menu_entry_description' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'menu_entry_description'
-                        },
                         'menu_entry_node_label' => {
                           'manual_content' => [
                             {}
@@ -1472,7 +1375,10 @@ $result_trees{'simple_menu'} = {
                       },
                       'type' => 'menu_entry'
                     },
-                    {},
+                    {
+                      'text' => '
+'
+                    },
                     {
                       'text' => '
 ',
@@ -1572,34 +1478,20 @@ $result_trees{'simple_menu'} = {
 };
 $result_trees{'simple_menu'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'simple_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[2] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[2];
+$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[6] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[7] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[1];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[8]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[8]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[9] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[8]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[2] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[2];
+$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[1] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[5]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[6] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[7] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[5]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[1];
 $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[8]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[8]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[9] = $result_trees{'simple_menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[6]{'contents'}[8]{'extra'}{'menu_entry_description'}{'contents'}[0]{'contents'}[0];
 
 $result_texis{'simple_menu'} = '
 @node Top

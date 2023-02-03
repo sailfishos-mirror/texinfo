@@ -4168,8 +4168,6 @@ sub _register_extra_menu_entry_information($$;$)
 
   foreach my $arg (@{$current->{'contents'}}) {
     if ($arg->{'type'} eq 'menu_entry_name') {
-      $current->{'extra'} = {} if (!$current->{'extra'});
-      $current->{'extra'}->{'menu_entry_name'} = $arg;
       if (not $arg->{'contents'} or scalar(@{$arg->{'contents'}}) == 0) {
         $self->_line_warn(sprintf(__("empty menu entry name in `%s'"),
                    Texinfo::Convert::Texinfo::convert_to_texinfo($current)),
@@ -4186,9 +4184,6 @@ sub _register_extra_menu_entry_information($$;$)
         $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'menu_entry_node_label'} = $parsed_entry_node;
       }
-    } elsif ($arg->{'type'} eq 'menu_entry_description') {
-      $current->{'extra'} = {} if (!$current->{'extra'});
-      $current->{'extra'}->{'menu_entry_description'} = $arg;
     }
   }
 }
@@ -8086,10 +8081,8 @@ line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
 
 =item C<menu_entry>
 
-The I<menu_entry_description> and I<menu_entry_name> keys
-are associated with the corresponding tree elements. The
-I<menu_entry_node_label> value is a hash with information about the parsed
-node entry; its keys are the same as those appearing in the
+The I<menu_entry_node_label> value is a hash with information about the
+parsed node entry; its keys are the same as those appearing in the
 elements of the I<nodes_manuals> array for C<@node>.
 
 =item C<@multitable>

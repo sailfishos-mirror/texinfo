@@ -120,9 +120,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_description" => {}
-              },
+              "extra" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 5,
@@ -157,9 +155,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_description" => {}
-              },
+              "extra" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 6,
@@ -343,8 +339,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
 };
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"extra"}{"menu_entry_description"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"extra"}{"menu_entry_description"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"contents"}[3];
 
 $result_texis{'in_menu_only_special_ascii_spaces_node'} = '@node Top
 @top top

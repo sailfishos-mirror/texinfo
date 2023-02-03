@@ -1261,7 +1261,6 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                 }
               ],
               'extra' => {
-                'menu_entry_description' => {},
                 'menu_entry_node_label' => {
                   'node_content' => [
                     {}
@@ -1831,7 +1830,6 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'co
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[1];
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[10]{'args'}[0];
-$result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[3];
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}{'contents'}[4]{'args'}[0]{'contents'}[0];

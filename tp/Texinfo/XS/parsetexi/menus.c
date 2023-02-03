@@ -24,8 +24,7 @@
 #include "labels.h"
 #include "source_marks.h"
 
-/* Save 'menu_entry_name' 'menu_entry_node', and 'menu_entry_description'
-   extra keys on the top-level @menu element. */
+/* Save 'menu_entry_node_label' extra keys on the top-level @menu element. */
 void
 register_extra_menu_entry_information (ELEMENT *current)
 {
@@ -37,7 +36,6 @@ register_extra_menu_entry_information (ELEMENT *current)
 
       if (arg->type == ET_menu_entry_name)
         {
-          add_extra_element (current, "menu_entry_name", arg);
           if (arg->contents.number == 0)
             {
               char *texi = convert_to_texinfo (current);
@@ -61,10 +59,6 @@ register_extra_menu_entry_information (ELEMENT *current)
           else
             add_extra_node_spec (current, "menu_entry_node_label",
                                  parsed_entry_node);
-        }
-      else if (arg->type == ET_menu_entry_description)
-        {
-          add_extra_element (current, "menu_entry_description", arg);
         }
     }
 }
