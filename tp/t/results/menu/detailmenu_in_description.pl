@@ -63,7 +63,7 @@ $result_trees{'detailmenu_in_description'} = {
               ],
               'extra' => {
                 'menu_entry_description' => {},
-                'menu_entry_node' => {
+                'menu_entry_node_label' => {
                   'node_content' => [
                     {}
                   ],
@@ -126,7 +126,7 @@ $result_trees{'detailmenu_in_description'} = {
                   ],
                   'extra' => {
                     'menu_entry_description' => {},
-                    'menu_entry_node' => {
+                    'menu_entry_node_label' => {
                       'node_content' => [
                         {}
                       ],
@@ -225,9 +225,9 @@ $result_trees{'detailmenu_in_description'} = {
   'type' => 'document_root'
 };
 $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'detailmenu_in_description'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'detailmenu_in_description'} = '
 @menu

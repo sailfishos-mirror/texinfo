@@ -602,7 +602,7 @@ sub _normalized_entry_associated_internal_node($;$)
   my $entry = shift;
   my $labels = shift;
 
-  my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
+  my $entry_node = $entry->{'extra'}->{'menu_entry_node_label'};
   # 'normalized' is added by Texinfo::Structuring::associate_internal_references
   # so it could be possible not to have 'normalized' set.  In that case, it could
   # still be determined with NodeNameNormalization::normalize_node.

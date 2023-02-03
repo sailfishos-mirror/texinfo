@@ -4184,7 +4184,7 @@ sub _register_extra_menu_entry_information($$;$)
       } else {
         my $parsed_entry_node = _parse_node_manual($arg);
         $current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'menu_entry_node'} = $parsed_entry_node;
+        $current->{'extra'}->{'menu_entry_node_label'} = $parsed_entry_node;
       }
     } elsif ($arg->{'type'} eq 'menu_entry_description') {
       $current->{'extra'} = {} if (!$current->{'extra'});
@@ -7396,11 +7396,9 @@ may also have an associated type when such information is needed.
 The children of an @-command or of other container element are in the array
 referred to with the C<args> key or with the C<contents> key.  The C<args> key
 is for arguments of @-commands, either in braces or on the rest of the line
-after the command, depending on the type of command.  C<args> is also used for
-the elements of a menu entry, as a menu entry is well-structured with a limited
-number of arguments.  The C<contents> key array holds the contents of the
-texinfo code appearing within a block @-command, within a container, or within
-a C<@node> or sectioning @-command.
+after the command, depending on the type of command.  The C<contents> key array
+holds the contents of the texinfo code appearing within a block @-command,
+within a container, or within a C<@node> or sectioning @-command.
 
 Another important key for the elements is the C<extra> key which is
 associated to a hash reference and holds all kinds of information that
@@ -7444,8 +7442,7 @@ a type associated.
 
 =item args
 
-Arguments in braces or on @-command line, and the elements of a menu entry.
-An array reference.
+Arguments in braces or on @-command line.  An array reference.
 
 =item contents
 
@@ -7804,8 +7801,8 @@ A I<menu_entry> holds a full menu entry, like
 
   * node::    description.
 
-The different elements of the menu entry are directly in the
-I<menu_entry> C<args> array reference.
+The different elements of the menu entry are in the
+I<menu_entry> C<contents> array reference.
 
 I<menu_entry_leading_text> holds the star and following spaces.
 I<menu_entry_name> is the menu entry name (if present), I<menu_entry_node>
@@ -8091,7 +8088,7 @@ line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
 
 The I<menu_entry_description> and I<menu_entry_name> keys
 are associated with the corresponding tree elements. The
-I<menu_entry_node> value is a hash with information about the parsed
+I<menu_entry_node_label> value is a hash with information about the parsed
 node entry; its keys are the same as those appearing in the
 elements of the I<nodes_manuals> array for C<@node>.
 

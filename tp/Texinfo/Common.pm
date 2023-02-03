@@ -1743,7 +1743,7 @@ sub _collect_commands_list_in_tree($$$)
 # extra->node_content
 # extra->node_argument
 # extra->explanation_contents
-# extra->menu_entry_node
+# extra->menu_entry_node_label
 
 sub _copy_tree($$$);
 sub _copy_tree($$$)
@@ -1878,7 +1878,7 @@ sub _substitute_references($$$)
                 or ($key eq 'index_entry')
                 or ($current->{'type'}
                     and $current->{'type'} eq 'menu_entry'
-                    and $key eq 'menu_entry_node')) {
+                    and $key eq 'menu_entry_node_label')) {
               $new->{'extra'}->{$key} = {};
               foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
                 if (ref($current->{'extra'}->{$key}->{$type_key}) eq '') {

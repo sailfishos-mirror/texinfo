@@ -59,7 +59,7 @@ register_extra_menu_entry_information (ELEMENT *current)
                 line_error ("empty node name in menu entry");
             }
           else
-            add_extra_node_spec (current, "menu_entry_node",
+            add_extra_node_spec (current, "menu_entry_node_label",
                                  parsed_entry_node);
         }
       else if (arg->type == ET_menu_entry_description)

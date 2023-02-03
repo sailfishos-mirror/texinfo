@@ -177,7 +177,7 @@ $result_trees{'non_empty_part'} = {
               ],
               'extra' => {
                 'menu_entry_description' => {},
-                'menu_entry_node' => {
+                'menu_entry_node_label' => {
                   'node_content' => [
                     {}
                   ],
@@ -226,7 +226,7 @@ $result_trees{'non_empty_part'} = {
               ],
               'extra' => {
                 'menu_entry_description' => {},
-                'menu_entry_node' => {
+                'menu_entry_node_label' => {
                   'node_content' => [
                     {}
                   ],
@@ -860,9 +860,9 @@ $result_trees{'non_empty_part'} = {
 $result_trees{'non_empty_part'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[3];
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[1];
 $result_trees{'non_empty_part'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[4];
 $result_trees{'non_empty_part'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[7]{'args'}[0]{'contents'}[0];

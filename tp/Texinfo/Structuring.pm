@@ -376,22 +376,22 @@ sub _check_menu_entry($$$$$)
   my $menu_content = shift;
 
   my $normalized_menu_node
-      = $menu_content->{'extra'}->{'menu_entry_node'}->{'normalized'};
+      = $menu_content->{'extra'}->{'menu_entry_node_label'}->{'normalized'};
 
   my $menu_node = $labels->{$normalized_menu_node};
 
   if (!$menu_node) {
     $registrar->line_error($customization_information,
       sprintf(__("\@%s reference to nonexistent node `%s'"), $command,
-           node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'})),
+        node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node_label'})),
       $menu_content->{'source_info'});
   } else {
     if (!_check_node_same_texinfo_code($menu_node,
-                           $menu_content->{'extra'}->{'menu_entry_node'})) {
+                           $menu_content->{'extra'}->{'menu_entry_node_label'})) {
       $registrar->line_warn($customization_information,
        sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
          $command,
-         node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'}),
+         node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node_label'}),
          $menu_node->{'cmdname'},
          node_extra_to_texi($menu_node->{'extra'})),
        $menu_content->{'source_info'});
@@ -504,14 +504,14 @@ sub set_menus_node_directions($$$$$$)
         }
         foreach my $menu_content (@{$menu_contents->{'contents'}}) {
           if ($menu_content->{'extra'}
-             and $menu_content->{'extra'}->{'menu_entry_node'}) {
+             and $menu_content->{'extra'}->{'menu_entry_node_label'}) {
             my $menu_node;
             my $external_node;
-            if (!$menu_content->{'extra'}->{'menu_entry_node'}
+            if (!$menu_content->{'extra'}->{'menu_entry_node_label'}
                                                    ->{'manual_content'}) {
               $menu_node = $labels->{
                       $menu_content->{'extra'}
-                                   ->{'menu_entry_node'}->{'normalized'}};
+                              ->{'menu_entry_node_label'}->{'normalized'}};
 
               if ($check_menu_entries) {
                 _check_menu_entry($registrar, $customization_information,
@@ -531,7 +531,8 @@ sub set_menus_node_directions($$$$$$)
             } else {
               $external_node = 1;
               $menu_node
-                = {'extra' => $menu_content->{'extra'}->{'menu_entry_node'}};
+                = {'extra'
+                   => $menu_content->{'extra'}->{'menu_entry_node_label'}};
             }
             if ($menu_node) {
               if ($previous_node) {
@@ -562,8 +563,8 @@ sub set_menus_node_directions($$$$$$)
       foreach my $detailmenu (@{$global_commands->{'detailmenu'}}) {
         foreach my $menu_content (@{$detailmenu->{'contents'}}) {
           if ($menu_content->{'extra'}
-             and $menu_content->{'extra'}->{'menu_entry_node'}) {
-            if (!$menu_content->{'extra'}->{'menu_entry_node'}
+             and $menu_content->{'extra'}->{'menu_entry_node_label'}) {
+            if (!$menu_content->{'extra'}->{'menu_entry_node_label'}
                                                    ->{'manual_content'}) {
               _check_menu_entry($registrar, $customization_information,
                                 $labels, 'detailmenu', $menu_content);
@@ -1454,7 +1455,7 @@ sub print_element_directions($)
 }
 
 # For each internal reference command, set the 'normalized' key in the
-# 'menu_entry_node' for menu entries, and 'node_argument' for @*ref.
+# 'menu_entry_node_label' for menu entries, and 'node_argument' for @*ref.
 # Set the 'label' key in the 'extra' hash of the reference tree element
 # with 'node_argument' to the associated labeled tree element.
 sub associate_internal_references($$$$$)
@@ -1468,7 +1469,7 @@ sub associate_internal_references($$$$$)
   return if (!defined($refs));
   foreach my $ref (@$refs) {
     my $node_arg;
-    $node_arg = $ref->{'extra'}->{'menu_entry_node'} if ($ref->{'extra'});
+    $node_arg = $ref->{'extra'}->{'menu_entry_node_label'} if ($ref->{'extra'});
 
     if (defined $node_arg) {
       if ($node_arg->{'node_content'}) {
@@ -1669,12 +1670,12 @@ sub new_node_menu_entry
   }
 
   my $modified_node_content;
-  ($entry->{'extra'}->{'menu_entry_node'}, $modified_node_content) =
+  ($entry->{'extra'}->{'menu_entry_node_label'}, $modified_node_content) =
     Texinfo::Common::parse_node_manual($menu_entry_node);
   $menu_entry_node->{'contents'} = $modified_node_content;
-  my $content = $entry->{'extra'}->{'menu_entry_node'}->{'node_content'};
+  my $content = $entry->{'extra'}->{'menu_entry_node_label'}->{'node_content'};
   if ($content) {
-    $entry->{'extra'}->{'menu_entry_node'}->{'normalized'}
+    $entry->{'extra'}->{'menu_entry_node_label'}->{'normalized'}
      = Texinfo::Convert::NodeNameNormalization::normalize_node(
                                         {'contents' => $content } );
   }
@@ -2098,7 +2099,7 @@ X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without fourth of
 fifth argument and menu entries) have an associated node, anchor or float.
-Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash for
+Set the C<normalized> key in the C<extra> hash C<menu_entry_node_label> hash for
 menu entries and in the C<extra> hash C<node_argument> hash for internal
 references C<@ref> and similar @-commands.  Set the C<label> key in the
 C<extra> hash of the reference tree element to the associated labeled tree

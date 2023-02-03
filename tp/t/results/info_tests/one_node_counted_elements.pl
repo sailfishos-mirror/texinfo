@@ -262,7 +262,7 @@ $result_trees{'one_node_counted_elements'} = {
               ],
               'extra' => {
                 'menu_entry_description' => {},
-                'menu_entry_node' => {
+                'menu_entry_node_label' => {
                   'manual_content' => [
                     {}
                   ]
@@ -462,7 +462,7 @@ $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'conten
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[3];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'label'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[0]{'contents'}[0];

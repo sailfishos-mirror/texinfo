@@ -164,7 +164,7 @@ $result_trees{'verb_in_menu_description'} = {
               ],
               'extra' => {
                 'menu_entry_description' => {},
-                'menu_entry_node' => {
+                'menu_entry_node_label' => {
                   'manual_content' => [
                     {}
                   ]
@@ -250,7 +250,7 @@ $result_trees{'verb_in_menu_description'} = {
 $result_trees{'verb_in_menu_description'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'verb_in_menu_description'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'verb_in_menu_description'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'verb_in_menu_description'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'verb_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 
 $result_texis{'verb_in_menu_description'} = '@node Top
 @top top

@@ -6432,11 +6432,31 @@ sub _convert_menu_entry_type($$$)
   my $type = shift;
   my $element = shift;
 
+  my $name_entry;
+  my $menu_description;
+  my $menu_entry_node;
+  my $menu_entry_leading_text;
+  my @menu_entry_separators;
+
+  foreach my $arg (@{$element->{'contents'}}) {
+    if ($arg->{'type'} eq 'menu_entry_leading_text') {
+      $menu_entry_leading_text = $arg;
+    } elsif ($arg->{'type'} eq 'menu_entry_name') {
+      $name_entry = $arg;
+    } elsif ($arg->{'type'} eq 'menu_entry_description') {
+      $menu_description = $arg;
+    } elsif ($arg->{'type'} eq 'menu_entry_separator') {
+      push @menu_entry_separators, $arg;
+    } elsif ($arg->{'type'} eq 'menu_entry_node') {
+      $menu_entry_node = $arg;
+    }
+  }
+
   my $href = '';
   my $rel = '';
   my $section;
   my $node_entry;
-  $node_entry = $element->{'extra'}->{'menu_entry_node'}
+  $node_entry = $element->{'extra'}->{'menu_entry_node_label'}
      if ($element->{'extra'});
   # external node
   my $external_node;
@@ -6478,40 +6498,39 @@ sub _convert_menu_entry_type($$$)
 
   my $in_string = $self->in_string();
   if ($self->_in_preformatted_in_menu() or $in_string) {
-    my $result_name_node = '';
-    #return '' if (!$element->{'contents'});
-    my @args = @{$element->{'contents'}};
-    my $i = 0;
-    while (@args) {
-      last if ($args[0]->{'type'}
-               and $args[0]->{'type'} eq 'menu_entry_description');
-      my $arg = shift @args;
-      if ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_node') {
-        # $arg->{'contents'} seems to always be defined.  If it is
-        # not the case, it should not be an issue as an undefined
-        # 'contents' is ignored.
-        my $name = $self->convert_tree(
-           {'type' => '_code', 'contents' => $arg->{'contents'}},
-                         "menu_arg menu_entry_node preformatted [$i]");
-        if ($href ne '' and !$in_string) {
-          $result_name_node .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
-        } else {
-          $result_name_node .= $name;
-        }
-      } elsif ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_leading_text') {
-        my $text = $arg->{'text'};
-        $text =~ s/\*/$MENU_SYMBOL/;
-        $result_name_node .= $text;
-      } else {
-        $result_name_node
-          .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
-      }
-      $i++;
+    my $leading_text = $menu_entry_leading_text->{'text'};
+    $leading_text =~ s/\*/$MENU_SYMBOL/;
+    my $result_name_node = $leading_text;
+
+    if ($name_entry) {
+      $result_name_node
+        .= $self->convert_tree($name_entry,
+                               "menu_arg menu_entry_name preformatted");
+      my $name_separator = shift @menu_entry_separators;
+      $result_name_node
+        .= $self->convert_tree($name_separator,
+                               "menu_arg name separator preformatted");
     }
-    my $description = '';
-    foreach my $arg (@args) {
-      $description .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
-      $i++;
+
+    if ($menu_entry_node) {
+      # 'contents' seems to always be defined.  If it is
+      # not the case, it should not be an issue as an undefined
+      # 'contents' is ignored.
+      my $name = $self->convert_tree(
+         {'type' => '_code',
+          'contents' => $menu_entry_node->{'contents'}},
+                       "menu_arg menu_entry_node preformatted");
+      if ($href ne '' and !$in_string) {
+        $result_name_node .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
+      } else {
+        $result_name_node .= $name;
+      }
+    }
+    if (scalar(@menu_entry_separators)) {
+      my $node_separator = shift @menu_entry_separators;
+      $result_name_node
+        .= $self->convert_tree($node_separator,
+                               "menu_arg node separator preformatted");
     }
 
     if (!$self->get_conf('SIMPLE_MENU') and not $in_string) {
@@ -6519,6 +6538,13 @@ sub _convert_menu_entry_type($$$)
       $result_name_node = $self->html_attribute_class('pre', [$pre_class]).'>'
                                                . $result_name_node . '</pre>';
     }
+
+    my $description = '';
+    if ($menu_description) {
+      $description .= $self->convert_tree($menu_description,
+                                          "menu_arg description preformatted");
+    }
+
     return $result_name_node . $description;
   }
 
@@ -6532,9 +6558,8 @@ sub _convert_menu_entry_type($$$)
     }
   }
   if (!defined($name) or $name eq '') {
-    if ($element->{'extra'}->{'menu_entry_name'}) {
-      $name = $self->convert_tree($element->{'extra'}->{'menu_entry_name'},
-                                  'convert menu_entry_name');
+    if ($name_entry) {
+      $name = $self->convert_tree($name_entry, 'convert menu_entry_name');
     }
     if (!defined($name) or $name eq '') {
       if ($node_entry and $node_entry->{'manual_content'}) {
@@ -6555,9 +6580,9 @@ sub _convert_menu_entry_type($$$)
     $name = "$MENU_SYMBOL ".$name;
   }
   my $description = '';
-  if ($element->{'extra'}->{'menu_entry_description'}) {
-    $description = $self->convert_tree($element->{'extra'}->{'menu_entry_description'},
-                                        'menu_arg description');
+  if ($menu_description) {
+    $description = $self->convert_tree($menu_description,
+                                       'menu_arg description');
     if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
       $description = '' if (_simplify_text_for_comparison($name_no_number)
                            eq _simplify_text_for_comparison($description));
