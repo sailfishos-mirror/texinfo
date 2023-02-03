@@ -2110,10 +2110,6 @@ sub _close_current($$$;$$)
         and not $current->{'args'}
         and (not defined($current->{'text'}) or $current->{'text'} eq '')
         and not $current->{'info'}
-        # for consistency with XS parser.
-        and $current->{'type'} ne 'menu_entry_name'
-        and $current->{'type'} ne 'menu_entry_node'
-        and $current->{'type'} ne 'menu_entry_description'
         and (not $current->{'source_marks'}
              or not scalar(@{$current->{'source_marks'}}))) {
       $element_to_remove = $current;

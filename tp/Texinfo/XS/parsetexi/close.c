@@ -388,13 +388,7 @@ close_current (ELEMENT *current,
           && current->args.number == 0
           && current->text.end == 0
           && current->info_info->info_number == 0
-          && current->source_mark_list.number == 0
-          /* these are registered in extrat in menu.c
-             register_extra_menu_entry_information
-             FIXME remove? */
-          && current->type != ET_menu_entry_name
-          && current->type != ET_menu_entry_node
-          && current->type != ET_menu_entry_description)
+          && current->source_mark_list.number == 0)
         element_to_remove = current;
       current = current->parent;
       if (element_to_remove)

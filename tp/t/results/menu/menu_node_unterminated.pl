@@ -78,9 +78,6 @@ $result_trees{'menu_node_unterminated'} = {
                     }
                   ],
                   'type' => 'menu_entry_node'
-                },
-                {
-                  'type' => 'menu_entry_description'
                 }
               ],
               'extra' => {
