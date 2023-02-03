@@ -3835,7 +3835,17 @@ $result_menus{'complex_float'} = {
 };
 $result_menus{'complex_float'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'complex_float'};
 
-$result_errors{'complex_float'} = [];
+$result_errors{'complex_float'} = [
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @shortcaption
+',
+    'file_name' => '',
+    'line_nr' => 87,
+    'macro' => '',
+    'text' => '@verb should not appear anywhere inside @shortcaption',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'complex_float'} = {

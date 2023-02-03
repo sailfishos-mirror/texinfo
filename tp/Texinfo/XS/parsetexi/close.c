@@ -46,6 +46,9 @@ close_brace_command (ELEMENT *current,
         nesting_context.caption--;
     }
 
+  if (command_flags(current) & CF_contain_basic_inline)
+    (void) pop_command (&nesting_context.basic_inline_stack);
+
   if (current->cmd != CM_verb)
     goto yes;
   k = lookup_info (current, "delimiter");

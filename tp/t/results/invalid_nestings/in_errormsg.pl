@@ -300,6 +300,15 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @anchor should not appear anywhere inside @errormsg
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@anchor should not appear anywhere inside @errormsg',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @ref should not appear in @errormsg
 ',
     'file_name' => '',
@@ -309,12 +318,30 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @ref should not appear anywhere inside @errormsg
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @errormsg',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @table should not appear in @errormsg
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
     'text' => '@table should not appear in @errormsg',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @table should not appear anywhere inside @errormsg
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => '@table should not appear anywhere inside @errormsg',
     'type' => 'warning'
   },
   {

@@ -2263,7 +2263,17 @@ $result_menus{'test_allowcodebreaks'} = {
   'info' => {}
 };
 
-$result_errors{'test_allowcodebreaks'} = [];
+$result_errors{'test_allowcodebreaks'} = [
+  {
+    'error_line' => 'warning: @anchor should not appear anywhere inside @w (possibly involving @testallowcodebreakspara)
+',
+    'file_name' => '',
+    'line_nr' => 29,
+    'macro' => 'testallowcodebreakspara',
+    'text' => '@anchor should not appear anywhere inside @w',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'test_allowcodebreaks'} = {};

@@ -1506,6 +1506,9 @@ sub _close_brace_command($$$;$$$)
         or $current->{'cmdname'} eq 'shortcaption');
   }
 
+  pop @{$self->{'nesting_context'}->{'basic_inline_stack'}}
+    if ($contain_basic_inline_commands{$current->{'cmdname'}});
+
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'info'}->{'delimiter'} eq '') {
     if (defined($closed_block_command)) {
@@ -5798,6 +5801,8 @@ sub _process_remaining_on_line($$$$)
         }
 
         $current = $current->{'args'}->[-1];
+        push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
+          if ($contain_basic_inline_commands{$command});
         if ($self->{'brace_commands'}->{$command} eq 'context') {
           if ($command eq 'caption' or $command eq 'shortcaption') {
             my $float;
@@ -5870,9 +5875,6 @@ sub _process_remaining_on_line($$$$)
           }
           $self->_push_context('ct_inlineraw', $command)
             if ($command eq 'inlineraw');
-          push @{$self->{'nesting_context'}->{'basic_inline_stack'}},
-               $command
-            if ($Texinfo::Commands::ref_commands{$command});
         }
         print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
           .(defined($current->{'parent'}->{'remaining_args'}) ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
@@ -5971,7 +5973,6 @@ sub _process_remaining_on_line($$$$)
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
           my $ref = $current->{'parent'};
-          pop @{$self->{'nesting_context'}->{'basic_inline_stack'}};
           if (@{$ref->{'args'}}) {
             my @args;
             for $a (@{$ref->{'args'}}) {

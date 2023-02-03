@@ -152,6 +152,15 @@ $result_errors{'ref_in_anchor'} = [
     'macro' => '',
     'text' => '@ref should not appear in @anchor',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ref should not appear anywhere inside @anchor
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @anchor',
+    'type' => 'warning'
   }
 ];
 

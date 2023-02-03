@@ -2838,21 +2838,12 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
     'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
-',
-    'file_name' => '',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2865,6 +2856,15 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
@@ -2874,12 +2874,48 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
-    'line_nr' => 14,
+    'line_nr' => 9,
     'macro' => 'files-char',
     'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2892,21 +2928,12 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
     'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
-',
-    'file_name' => '',
-    'line_nr' => 14,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2919,12 +2946,66 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
-    'line_nr' => 20,
+    'line_nr' => 14,
     'macro' => 'files-char',
     'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2937,21 +3018,12 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
     'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
-',
-    'file_name' => '',
-    'line_nr' => 20,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2964,12 +3036,66 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
-    'line_nr' => 24,
+    'line_nr' => 20,
     'macro' => 'files-char',
     'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -2982,21 +3108,12 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
     'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
-',
-    'file_name' => '',
-    'line_nr' => 24,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -3009,12 +3126,66 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
-    'line_nr' => 26,
+    'line_nr' => 24,
     'macro' => 'files-char',
     'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -3027,12 +3198,12 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
     'macro' => 'files-char',
-    'text' => '@verb should not appear in @image',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   },
   {
@@ -3045,12 +3216,66 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
     'macro' => 'files-char',
     'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear in @image',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => 'files-char',
+    'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
   }
 ];

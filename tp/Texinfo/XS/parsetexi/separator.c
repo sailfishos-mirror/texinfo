@@ -43,6 +43,8 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       arg = new_element (ET_NONE);
       add_to_element_args (current, arg);
       current = arg;
+      if (command_data(command).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack, command);
 
       if (command == CM_verb)
         {
@@ -154,10 +156,6 @@ handle_open_brace (ELEMENT *current, char **line_inout)
 
               if (command == CM_inlineraw)
                 push_context (ct_inlineraw, command);
-            }
-          if (command_data(command).flags & CF_ref)
-            {
-              push_command (&nesting_context.basic_inline_stack, command);
             }
         }
       debug ("OPENED");
@@ -285,7 +283,6 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       else if (command_data(closed_command).flags & CF_ref)
         {
           ELEMENT *ref = current->parent;
-          (void) pop_command (&nesting_context.basic_inline_stack);
           if (ref->args.number > 0)
             {
               if ((closed_command == CM_inforef

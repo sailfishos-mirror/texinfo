@@ -1,3 +1,25 @@
+2023-02-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use nesting context basic inline stack more generally
+
+	* tp/Texinfo/ParserNonXS.pm
+	(_process_remaining_on_line) <contain basic inline>:
+	Push command on stack.
+	(_close_brace_command) <contain basic inline>:
+	Pop command from stack.
+	(_process_remaining_on_line) <ref commands>:
+	No longer push and pop basic_inline_stack.
+
+	* tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace) <CF_contain_basic_inline>:
+	Push nesting_context.basic_inline_stack.
+	* tp/Texinfo/XS/parsetexi/close.c
+	(close_brace_command) <CF_contain_basic_line>:
+	Pop nesting_context.basic_inline_stack.
+	* tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace) <ref command>:
+	No longer call push_command or pop_command on stack.
+
 2023-02-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line): use

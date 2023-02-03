@@ -225,6 +225,15 @@ $result_sectioning{'section_in_math'}{'structure'}{'section_childs'}[1]{'structu
 
 $result_errors{'section_in_math'} = [
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @math
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @math',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'misplaced {
 ',
     'file_name' => '',
@@ -249,6 +258,15 @@ $result_errors{'section_in_math'} = [
     'line_nr' => 8,
     'macro' => '',
     'text' => '@section should not appear in @math',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @math
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @math',
     'type' => 'warning'
   },
   {
