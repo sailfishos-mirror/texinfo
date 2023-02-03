@@ -5008,7 +5008,8 @@ sub _process_remaining_on_line($$$$)
       $current->{'contents'}->[-1]->{'text'} .= $1;
     # a . not followed by a space.  Not a separator.
     } elsif ($separator eq '.' and $line =~ /^\S/) {
-      pop @{$current->{'contents'}};
+      # FIXME transfer source marks in separator element
+      _pop_element_from_contents($self, $current);
       $current = $current->{'contents'}->[-1];
       $current = _merge_text($self, $current, $separator);
     # here we collect spaces following separators.
