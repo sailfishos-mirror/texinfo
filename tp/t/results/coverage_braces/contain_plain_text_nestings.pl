@@ -938,15 +938,6 @@ $result_errors{'contain_plain_text_nestings'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @ref should not appear in @w
-',
-    'file_name' => '',
-    'line_nr' => 13,
-    'macro' => '',
-    'text' => '@ref should not appear in @w',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @ref should not appear anywhere inside @w
 ',
     'file_name' => '',

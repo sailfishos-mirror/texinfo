@@ -471,8 +471,7 @@ my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
 # commands that accept full text, but no block or top-level commands
 my %contain_full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
-  next if (exists($contain_basic_inline_commands{$brace_command})
-           or exists($contain_plain_text_commands{$brace_command}));
+  next if (exists($contain_plain_text_commands{$brace_command}));
   if ($brace_commands{$brace_command} eq 'style_code'
       or $brace_commands{$brace_command} eq 'style_other'
       or $brace_commands{$brace_command} eq 'style_no_code') {
@@ -500,9 +499,16 @@ my %default_valid_nestings;
 foreach my $command (keys(%contain_plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
+
+# Brace commands are now checked for basic inline content using
+# the stack of commands in 'nesting_context'.
+#
 foreach my $command (keys(%contain_basic_inline_commands)) {
-  $default_valid_nestings{$command} = \%in_basic_inline_commands;
+  if (!$brace_commands{$command}) {
+    $default_valid_nestings{$command} = \%in_basic_inline_commands;
+  }
 }
+
 foreach my $command (keys(%contain_full_text_commands),
                      keys(%contain_full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
@@ -516,7 +522,7 @@ foreach my $command (keys(%contain_basic_inline_with_refs_commands)) {
 # on heading specification commands lines, such as indicatric @-commands.
 foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
   foreach my $command (keys(%heading_spec_commands)) {
-    $default_valid_nestings{$command}->{$in_heading_spec} = 1
+    $default_valid_nestings{$command}->{$in_heading_spec} = 1;
   }
   foreach my $brace_command (keys (%brace_commands)) {
     if ($brace_commands{$brace_command} eq 'style_code'

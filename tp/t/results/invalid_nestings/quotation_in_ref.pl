@@ -202,15 +202,6 @@ $result_menus{'quotation_in_ref'} = {
 
 $result_errors{'quotation_in_ref'} = [
   {
-    'error_line' => 'warning: @quotation should not appear in @xref
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@quotation should not appear in @xref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @quotation should not appear anywhere inside @xref
 ',
     'file_name' => '',

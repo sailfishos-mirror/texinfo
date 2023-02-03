@@ -17834,15 +17834,6 @@ $result_errors{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @ref
-',
-    'file_name' => '',
-    'line_nr' => 165,
-    'macro' => '',
-    'text' => '@verb should not appear in @ref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @verb should not appear anywhere inside @ref
 ',
     'file_name' => '',

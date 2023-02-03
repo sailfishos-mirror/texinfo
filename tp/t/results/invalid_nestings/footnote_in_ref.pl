@@ -170,15 +170,6 @@ $result_menus{'footnote_in_ref'} = {
 
 $result_errors{'footnote_in_ref'} = [
   {
-    'error_line' => 'warning: @footnote should not appear in @xref
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@footnote should not appear in @xref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @footnote should not appear anywhere inside @xref
 ',
     'file_name' => '',

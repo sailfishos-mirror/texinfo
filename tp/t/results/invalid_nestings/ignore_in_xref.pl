@@ -205,15 +205,6 @@ $result_menus{'ignore_in_xref'} = {
 
 $result_errors{'ignore_in_xref'} = [
   {
-    'error_line' => 'warning: @ignore should not appear in @xref
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@ignore should not appear in @xref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @ignore should not appear anywhere inside @xref
 ',
     'file_name' => '',

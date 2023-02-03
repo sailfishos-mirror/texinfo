@@ -244,15 +244,6 @@ Topsecond item
 
 $result_errors{'item_in_ref'} = [
   {
-    'error_line' => 'warning: @item should not appear in @ref
-',
-    'file_name' => '',
-    'line_nr' => 6,
-    'macro' => '',
-    'text' => '@item should not appear in @ref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @item should not appear anywhere inside @ref
 ',
     'file_name' => '',

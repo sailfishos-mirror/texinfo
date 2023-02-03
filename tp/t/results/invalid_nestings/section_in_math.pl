@@ -252,15 +252,6 @@ $result_errors{'section_in_math'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: @section should not appear in @math
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@section should not appear in @math',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @section should not appear anywhere inside @math
 ',
     'file_name' => '',

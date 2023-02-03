@@ -145,15 +145,6 @@ $result_menus{'ref_in_ref'} = {
 
 $result_errors{'ref_in_ref'} = [
   {
-    'error_line' => 'warning: @ref should not appear in @ref
-',
-    'file_name' => '',
-    'line_nr' => 2,
-    'macro' => '',
-    'text' => '@ref should not appear in @ref',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @ref should not appear anywhere inside @ref
 ',
     'file_name' => '',
