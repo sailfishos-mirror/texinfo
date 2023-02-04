@@ -385,6 +385,36 @@ a
 
 @pagemacro{} on the line
 '],
+['macro_in_empty_table_empty_before_item',
+'@macro emptymacro
+@end macro
+
+@table @code
+@emptymacro{}@end table
+'],
+['macro_in_table_empty_before_item',
+'@macro emptymacro
+@end macro
+
+@table @code
+@emptymacro{}@item citem
+@end table
+'],
+['macro_in_empty_multitable_empty_before_item',
+'@macro emptymacro
+@end macro
+
+@multitable @columnfractions 0.4 .6 5.
+@emptymacro{}@end multitable
+'],
+['macro_in_multitable_empty_before_item',
+'@macro emptymacro
+@end macro
+
+@multitable @columnfractions 0.4 .6 5.
+@emptymacro{}@item fc @tab sc
+@end multitable
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)

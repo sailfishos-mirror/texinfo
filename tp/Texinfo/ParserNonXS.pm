@@ -1684,9 +1684,11 @@ sub _close_container($$)
   if (_is_container_empty($current)) {
     if ($current->{'source_marks'}
         and scalar(@{$current->{'source_marks'}})) {
-      # keep the element to keep the source mark, but remove the type.
-      # FIXME need a test for a container other than preformatted
-      delete $current->{'type'};
+      # Keep the element to keep the source mark, but remove some types.
+      # Keep before_item in order not to add empty table definition in
+      # gather_previous_item.
+      # TODO add test with type different from before_item and preformatted
+      delete $current->{'type'} if ($current->{'type'} ne 'before_item');
     } else {
       $element_to_remove = $current;
     }
@@ -1807,17 +1809,21 @@ sub _gather_previous_item($$;$$)
   }
   $splice_idx2 = $contents_count if !defined($splice_idx2);
 
-  my $new_contents = [];
-  @{$new_contents} = splice @{$current->{'contents'}},
-                            $splice_idx, $splice_idx2 - $splice_idx;
-  my $table_after_terms = {'type' => $type,
+  my $table_after_terms;
+  if ($splice_idx2 - $splice_idx) {
+    my $new_contents = [];
+    @{$new_contents} = splice @{$current->{'contents'}},
+                              $splice_idx, $splice_idx2 - $splice_idx;
+    $table_after_terms = {'type' => $type,
                            'contents' => $new_contents};
-  for my $child (@{$new_contents}) {
-    $child->{'parent'} = $table_after_terms;
+    foreach my $child (@{$new_contents}) {
+      $child->{'parent'} = $table_after_terms;
+    }
   }
 
   if ($type eq 'table_definition') {
     my $before_item;
+
     # setup a table_entry
     my $table_entry = {'type' => 'table_entry',
                     'parent' => $current,
@@ -1845,12 +1851,14 @@ sub _gather_previous_item($$;$$)
     }
     $splice_idx3 = 0 if !defined($splice_idx3);
 
-    $new_contents = [];
-    @{$new_contents} = splice @{$current->{'contents'}},
-                              $splice_idx3, $splice_idx - $splice_idx3;
-    $table_term->{'contents'} = $new_contents;
-    for my $child (@{$new_contents}) {
-      $child->{'parent'} = $table_term;
+    if ($splice_idx3 - $splice_idx) {
+      my $new_contents = [];
+      @{$new_contents} = splice @{$current->{'contents'}},
+                                $splice_idx3, $splice_idx - $splice_idx3;
+      $table_term->{'contents'} = $new_contents;
+      for my $child (@{$new_contents}) {
+        $child->{'parent'} = $table_term;
+      }
     }
     if (defined($before_item) and $before_item->{'contents'}
         and scalar(@{$before_item->{'contents'}})) {
@@ -1870,20 +1878,22 @@ sub _gather_previous_item($$;$$)
         unshift @{$table_term->{'contents'}}, $element;
       }
     }
-    if ($table_after_terms->{'contents'}
-        and scalar(@{$table_after_terms->{'contents'}})) {
+    if ($table_after_terms) {
+      # $table_after_terms necessarily with contents if defined
       push @{$table_entry->{'contents'}}, $table_after_terms;
       $table_after_terms->{'parent'} = $table_entry;
     }
     splice @{$current->{'contents'}}, $splice_idx3, 0, $table_entry;
   } else {
-    my $after_paragraph = _check_no_text($table_after_terms);
-    if ($after_paragraph) {
-      $self->_line_error(__("\@itemx must follow \@item"), $source_info);
-    }
-    if (scalar(@{$table_after_terms->{'contents'}})) {
-      splice @{$current->{'contents'}}, $splice_idx, 0, $table_after_terms;
-      $table_after_terms->{'parent'} = $current;
+    if ($table_after_terms) {
+      my $after_paragraph = _check_no_text($table_after_terms);
+      if ($after_paragraph) {
+        $self->_line_error(__("\@itemx must follow \@item"), $source_info);
+      }
+      if (scalar(@{$table_after_terms->{'contents'}})) {
+        splice @{$current->{'contents'}}, $splice_idx, 0, $table_after_terms;
+        $table_after_terms->{'parent'} = $current;
+      }
     }
   }
 }
@@ -2008,7 +2018,6 @@ sub _close_command_cleanup($$) {
       if ($before_item) {
         if ($before_item->{'contents'}
             and scalar(@{$before_item->{'contents'}}) > 0
-            and @{$before_item->{'contents'}}
             and $before_item->{'contents'}->[-1]->{'cmdname'}
             and $before_item->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           my $end = _pop_element_from_contents($self, $before_item);
@@ -2018,8 +2027,9 @@ sub _close_command_cleanup($$) {
         # remove empty before_items.  Both conditions can happen, the first
         # if the before item remained empty, the second if after removing end
         # and spaces it became empty.
-        if (!$before_item->{'contents'} or
-            scalar(@{$before_item->{'contents'}}) == 0) {
+        if (_is_container_empty($before_item)
+            and not ($before_item->{'source_marks'}
+                     and scalar(@{$before_item->{'source_marks'}}))) {
           if ($leading_spaces) {
             my $space = shift @{$current->{'contents'}};
             shift @{$current->{'contents'}};
@@ -2030,12 +2040,14 @@ sub _close_command_cleanup($$) {
         } else {
           # warn if not empty before_item, but format is empty
           my $empty_before_item = 1;
-          foreach my $before_item_content (@{$before_item->{'contents'}}) {
-            if (!$before_item_content->{'cmdname'} or
-                  ($before_item_content->{'cmdname'} ne 'c'
-                   and $before_item_content->{'cmdname'} ne 'comment')) {
-              $empty_before_item = 0;
-              last;
+          if ($before_item->{'contents'}) {
+            foreach my $before_item_content (@{$before_item->{'contents'}}) {
+              if (!$before_item_content->{'cmdname'} or
+                    ($before_item_content->{'cmdname'} ne 'c'
+                     and $before_item_content->{'cmdname'} ne 'comment')) {
+                $empty_before_item = 0;
+                last;
+              }
             }
           }
           if (!$empty_before_item) {
@@ -2648,10 +2660,6 @@ sub _pop_element_from_contents($$;$)
 
   my $popped_element = pop @{$parent_element->{'contents'}};
   if ($reparent_source_marks and $popped_element->{'source_marks'}) {
-    # FIXME this is wrong, the source mark ends up at a wrong location
-    #_add_source_marks($popped_element->{'source_marks'},
-    #                  $parent_element);
-    # This would be better, but leads to empty elements being kept.
     foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
       _place_source_mark($self, $parent_element, $source_mark);
     }

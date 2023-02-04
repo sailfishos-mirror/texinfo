@@ -1,3 +1,29 @@
+2023-02-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_close_container),
+	tp/Texinfo/XS/parsetexi/close.c (close_container): keep before_item
+	type even if it contains only source marks, as a before_item signals
+	in gather_previous_item that there is no need to add an empty table
+	definition.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup): keep a
+	before_item even if it is empty if it contains a source mark.
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item): check the
+	length of added contents for table definition and for table term
+	and add contents only if there is some.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup): do not
+	autovivify an empty contents for before_item.
+
+	* tp/t/22xtable.t, tp/Makefile.tres: add empty_table for a regular
+	empty @table.
+
+	* tp/t/60macro.t, tp/Makefile.tres: add tests with macro expansion in
+	empty before_item, for @table and @multitable, and with empty
+	table/multitable and not empty.
+
 2023-02-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Basic inline context for line args

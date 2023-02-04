@@ -59,6 +59,10 @@ VTable
 @item in item before end table
 @end vtable
 '],
+['empty_table',
+'@table @code
+@end table
+'],
 ['long_item',
 '@table @emph
 @item first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa

@@ -128,7 +128,7 @@ close_container (ELEMENT *current)
           child_element->source_mark_list.number = 0;
 
           debug_nonl ("REMOVE empty child ");
-          debug_print_element_short (child_element, 1); debug("");
+          debug_print_element_short (child_element, 1); debug ("");
           destroy_element (pop_element_from_contents (current, 0));
         }
     }
@@ -136,13 +136,18 @@ close_container (ELEMENT *current)
   if (is_container_empty (current))
     {
       if (current->source_mark_list.number > 0)
-       /* keep the element to keep the source mark, but remove the type. */
-        current->type = ET_NONE;
+        {
+          /* Keep the element to keep the source mark, but remove some types.
+            Keep before_item in order not to add empty table definition in
+            gather_previous_item. */
+          if (current->type != ET_before_item)
+            current->type = ET_NONE;
+        }
       else
         {
           element_to_remove = current;
           debug_nonl ("CONTAINER EMPTY ");
-          debug_print_element_short (current, 1); debug("");
+          debug_print_element_short (current, 1); debug ("");
         }
     }
 
@@ -156,7 +161,7 @@ close_container (ELEMENT *current)
       if (last_child == element_to_remove)
         {
           debug_nonl ("REMOVE empty type ");
-          debug_print_element_short (last_child, 1); debug("");
+          debug_print_element_short (last_child, 1); debug ("");
           destroy_element (pop_element_from_contents (current, 0));
         }
     }
@@ -270,7 +275,8 @@ close_command_cleanup (ELEMENT *current)
             }
 
           /* Now if the ET_before_item is empty, remove it. */
-          if (before_item->contents.number == 0)
+          if (is_container_empty (before_item)
+              && before_item->source_mark_list.number == 0)
             {
               destroy_element (remove_from_contents (current,
                                                 have_leading_spaces ? 1 : 0));

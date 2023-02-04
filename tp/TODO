@@ -17,10 +17,7 @@ or value expansion. aliases.
 done: source_marks structures, with beginning and end of included file, @
 protecting end of line in @def*, @setfilename in included files.
 
-Fix
-# FIXME this is wrong, the source mark ends up at a wrong location
-
-# FIXME need a test for a container other than preformatted
+# TODO add test with type different from before_item and preformatted
 
 check that there is a test of something like
 @macro cpfn
