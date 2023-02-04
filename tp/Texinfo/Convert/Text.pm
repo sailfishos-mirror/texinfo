@@ -626,31 +626,15 @@ sub _convert($;$)
       $result = _convert({'contents' => \@contents}, $options);
       $options->{_code_options}--;
     }
-  } elsif ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
-    foreach my $arg (@{$element->{'contents'}}) {
-      if ($arg->{'type'} eq 'menu_entry_node') {
-        $options->{_code_options}++;
-        $result .= _convert($arg, $options);
-        $options->{_code_options}--;
-      } else {
-        $result .= _convert($arg, $options);
-      }
-    }
-    if (!$element->{'parent'}->{'type'}
-        or ($element->{'parent'}->{'type'} ne 'preformatted'
-            and $element->{'parent'}->{'type'} ne 'rawpreformatted')) {
-      chomp($result);
-      $result .= "\n";
-    }
-    return $result;
   }
   if ($element->{'contents'}) {
     my $in_code;
-    if ($element->{'cmdname'}
-        and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
-             or $Texinfo::Commands::math_commands{$element->{'cmdname'}}
-             or (defined($Texinfo::Commands::block_commands{$element->{'cmdname'}})
-                 and $Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'raw'))) {
+    if (($element->{'cmdname'}
+         and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
+              or $Texinfo::Commands::math_commands{$element->{'cmdname'}}
+              or (defined($Texinfo::Commands::block_commands{$element->{'cmdname'}})
+                  and $Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'raw')))
+         or ($element->{'type'} and $element->{'type'} eq 'menu_entry_node')) {
       $in_code = 1;
     }
     if (ref($element->{'contents'}) ne 'ARRAY') {
@@ -662,11 +646,18 @@ sub _convert($;$)
     }
     $options->{_code_options}-- if ($in_code);
   }
-  $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed'
-         and (!$element->{'parent'}->{'type'} or
-              ($element->{'parent'}->{'type'} ne 'block_line_arg'
-               and $element->{'parent'}->{'type'} ne 'line_arg')));
+  if ($element->{'type'} and $element->{'type'} eq 'bracketed'
+      and (!$element->{'parent'}->{'type'} or
+            ($element->{'parent'}->{'type'} ne 'block_line_arg'
+             and $element->{'parent'}->{'type'} ne 'line_arg'))) {
+    $result = '{'.$result.'}';
+  } elsif ($element->{'type'} and $element->{'type'} eq 'menu_entry'
+           and (!$element->{'parent'}->{'type'}
+                or ($element->{'parent'}->{'type'} ne 'preformatted'
+                    and $element->{'parent'}->{'type'} ne 'rawpreformatted'))) {
+    chomp($result);
+    $result .= "\n";
+  }
   #print STDERR "  RR ($element) -> $result\n";
   return $result;
 }
