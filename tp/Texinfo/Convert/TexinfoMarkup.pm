@@ -1602,37 +1602,12 @@ sub _convert($$;$)
       $result .= "\n";
     }
   }
-  my $arg_nr = -1;
-  if ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
-    foreach my $arg (@{$element->{'contents'}}) {
-      $arg_nr++;
-      my $in_code = 0;
-      if ($arg->{'type'} eq 'menu_entry_node') {
-        $in_code = 1;
-      }
-      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
-        if ($in_code);
-      $result .= $self->_convert($arg);
-      pop @{$self->{'document_context'}->[-1]->{'monospace'}}
-        if ($in_code);
-    }
-    # FIXME do not do something specific for menus
-    if ($element->{'type'}) {
-      if (defined($type_elements{$element->{'type'}})) {
-        $result
-          .= $self->txi_markup_close_element($type_elements{$element->{'type'}});
-      }
-    }
-    #foreach my $format_element (@close_format_elements) {
-    #  $result .= $self->txi_markup_close_element($format_element);
-    #}
-    return $result;
-  }
   if ($element->{'contents'}) {
     my $in_code;
-    if ($element->{'cmdname'}
-        and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
-             or $Texinfo::Commands::math_commands{$element->{'cmdname'}})) {
+    if (($element->{'cmdname'}
+         and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
+              or $Texinfo::Commands::math_commands{$element->{'cmdname'}}))
+         or $element->{'type'} and $element->{'type'} eq 'menu_entry_node') {
       $in_code = 1;
     }
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1

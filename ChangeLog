@@ -1,5 +1,10 @@
 2023-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): do not handle
+	menu entry differently from other contents.
+
+2023-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_close_container),
 	tp/Texinfo/XS/parsetexi/close.c (close_container): keep before_item
 	type even if it contains only source marks, as a before_item signals
