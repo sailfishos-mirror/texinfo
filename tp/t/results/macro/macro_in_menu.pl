@@ -516,6 +516,30 @@ $result_trees{'macro_in_menu'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'spaces'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 3,
+                          'position' => 2,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => '  
 ',
                       'type' => 'after_menu_description_line'

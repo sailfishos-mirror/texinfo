@@ -26,6 +26,9 @@ check that there is a test of something like
 
 @syncodeindex@cpfn{}
 
+Add test for
+# FIXME add test, the source mark should be transferred ok
+
 Same for
 # FIXME transfer source marks
 

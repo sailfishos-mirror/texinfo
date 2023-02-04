@@ -18,6 +18,15 @@
 
 2023-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line): transfer source marks
+	from the empty line after menu description.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add focused test of empty string
+	macro expansion in empty line after menu description.
+
+2023-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (import): never load the abort_empty_line
 	XS override as the function is not up to date with the changes needed
 	for source marks.  Do not load the merge_text override either, as it

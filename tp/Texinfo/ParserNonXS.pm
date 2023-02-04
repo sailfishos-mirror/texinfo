@@ -99,7 +99,7 @@ sub import {
     # not loaded because it uses the abort_empty_line XS override
     #Texinfo::XSLoader::override ("Texinfo::Parser::_merge_text",
     #  "Texinfo::MiscXS::merge_text");
-    # TODO not up tp date with the changes for source marks
+    # TODO not up to date with the changes for source marks
     #Texinfo::XSLoader::override ("Texinfo::Parser::_abort_empty_line",
     #  "Texinfo::MiscXS::abort_empty_line");
     Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
@@ -1683,6 +1683,7 @@ sub _close_container($$)
       # TODO add test with type different from before_item and preformatted
       delete $current->{'type'} if ($current->{'type'} ne 'before_item');
     } else {
+      #print STDERR "TTTTTTTTTTT $current->{'type'}\n";
       $element_to_remove = $current;
     }
   }
@@ -3921,7 +3922,7 @@ sub _end_line($$$)
     print STDERR "END EMPTY LINE\n" if ($self->{'DEBUG'});
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
-      # FIXME transfer source marks
+      # FIXME add test, the source mark should be transferred ok
       my $empty_line = _pop_element_from_contents($self, $current);
       $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
@@ -3930,14 +3931,22 @@ sub _end_line($$$)
              and $current->{'type'} eq 'preformatted'
              and $current->{'parent'}->{'type'}
              and $current->{'parent'}->{'type'} eq 'menu_entry_description')  {
-      # FIXME transfer source marks
+      # happens for an empty line following a menu_description
       my $empty_line = _pop_element_from_contents($self, $current, 0);
       my $preformatted = $current;
       $current = $current->{'parent'};
       if (not $preformatted->{'contents'} or
           not scalar(@{$preformatted->{'contents'}})) {
-        # FIXME transfer source marks
-        _pop_element_from_contents($self, $current);
+        my $empty_preformatted = _pop_element_from_contents($self, $current);
+        # it should not be possible to have associated source marks
+        # as the source marks are either associated to the menu description
+        # or to the empty line after the menu description.  Leave a message
+        # in case it happens in the future/some unexpected case.
+        if ($self->get_conf('TEST')
+            and $empty_preformatted->{'source_marks'}
+            and scalar(@{$empty_preformatted->{'source_marks'}})) {
+          print STDERR "BUG: source_marks in menu description preformatted\n";
+        }
       }
 
       # first parent is menu_entry
@@ -3951,9 +3960,16 @@ sub _end_line($$$)
                                         'parent' => $current,
                                         'contents' => [] };
       $current = $current->{'contents'}->[-1];
-      push @{$current->{'contents'}}, { 'type' => 'after_menu_description_line',
+      my $after_menu_description_line = {
+                                        'type' => 'after_menu_description_line',
                                         'text' => $empty_line->{'text'},
                                         'parent' => $current };
+      if ($empty_line->{'source_marks'}
+          and scalar(@{$empty_line->{'source_marks'}})) {
+        _add_source_marks($empty_line->{'source_marks'},
+                          $after_menu_description_line);
+      }
+      push @{$current->{'contents'}}, $after_menu_description_line;
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n" if ($self->{'DEBUG'});
     } elsif (!$no_paragraph_contexts{$self->_top_context()}) {
       $current = _end_paragraph($self, $current, $source_info);

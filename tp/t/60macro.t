@@ -362,6 +362,18 @@ menu comment
 * 3rd node: entry.@aspace{}description
 @end menu
 '],
+# this is actually already tested in macro_in_menu, but this
+# test is more focused
+['macro_in_menu_description',
+'@macro emptystring
+
+@end macro
+
+@menu
+* Copying Conditions::          Your rights.
+@emptystring{}
+@end menu
+'],
 ['macro_in_accent',
 '@macro aletter
 a
