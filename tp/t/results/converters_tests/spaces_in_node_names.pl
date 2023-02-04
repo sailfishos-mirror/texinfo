@@ -857,15 +857,6 @@ $result_menus{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'m
 
 $result_errors{'spaces_in_node_names'} = [
   {
-    'error_line' => 'warning: @verb should not appear in @node
-',
-    'file_name' => '',
-    'line_nr' => 11,
-    'macro' => '',
-    'text' => '@verb should not appear in @node',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @verb should not appear anywhere inside @node
 ',
     'file_name' => '',

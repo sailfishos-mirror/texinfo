@@ -850,15 +850,6 @@ $result_menus{'titlepage_with_commands_classical'} = {
 
 $result_errors{'titlepage_with_commands_classical'} = [
   {
-    'error_line' => 'warning: @footnote should not appear in @author
-',
-    'file_name' => '',
-    'line_nr' => 10,
-    'macro' => '',
-    'text' => '@footnote should not appear in @author',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @footnote should not appear anywhere inside @author
 ',
     'file_name' => '',

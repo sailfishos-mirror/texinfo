@@ -1,3 +1,15 @@
+2023-02-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Eliminate duplicate warning messages
+
+	* tp/Texinfo/ParserNonXS.pm (%default_valid_nestings):
+	Do not add line commands with basic inline content.
+	Do not add 'in_heading_spec' commands to the hashes for
+	'heading_spec' commands because these are currently included
+	as basic inline content.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Do not check any line commands for basic inline content.
+
 2023-02-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (_convert): do not handle menu entry

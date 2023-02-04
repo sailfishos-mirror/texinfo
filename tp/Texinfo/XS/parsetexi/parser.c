@@ -1019,14 +1019,14 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   // much TODO here.
 
   if (outer_flags & CF_contain_basic_inline
-      && !(outer_flags & CF_brace)
+      && !(outer_flags & (CF_brace | CF_line))
       /* not in CF_contain_basic_inline since index entry flags are not set
          in command_data.txt, and also index commands are dynamically added */
       || outer_flags & CF_index_entry_command)
     {
       basic_inline_command = 1;
     }
-  /* Note that brace commands are now checked for basic inline content
+  /* Note that brace and line commands are now checked for basic inline content
      in check_valid_nesting_context instead. */
 
   /* first three conditions check if in the main contents of the commands
@@ -1111,8 +1111,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
               ok = 1;
         }
 
-      /* Now add more restrictions for "full line no refs" commands and "simple 
-         text" commands on valid brace commands. */
+      /* Now add more restrictions for "full line no refs" commands and
+         "basic inline" commands on valid brace commands. */
       if (outer_flags & (CF_sectioning_heading | CF_def)
           || (!current->parent->cmd && current_context () == ct_def)
           || basic_inline_command)

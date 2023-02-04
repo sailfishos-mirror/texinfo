@@ -17816,15 +17816,6 @@ $result_menus{'at_commands_in_refs_latin1'}{'structure'}{'menu_child'}{'structur
 
 $result_errors{'at_commands_in_refs_latin1'} = [
   {
-    'error_line' => 'warning: @verb should not appear in @node
-',
-    'file_name' => '',
-    'line_nr' => 98,
-    'macro' => '',
-    'text' => '@verb should not appear in @node',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @verb should not appear anywhere inside @node
 ',
     'file_name' => '',

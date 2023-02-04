@@ -17740,15 +17740,6 @@ $result_menus{'at_commands_in_refs'}{'structure'}{'menu_child'}{'structure'}{'me
 
 $result_errors{'at_commands_in_refs'} = [
   {
-    'error_line' => 'warning: @verb should not appear in @node
-',
-    'file_name' => '',
-    'line_nr' => 95,
-    'macro' => '',
-    'text' => '@verb should not appear in @node',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @verb should not appear anywhere inside @node
 ',
     'file_name' => '',

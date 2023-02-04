@@ -505,7 +505,7 @@ foreach my $command (keys(%contain_plain_text_commands)) {
 # the stacks of commands in 'nesting_context'.
 #
 foreach my $command (keys(%contain_basic_inline_commands)) {
-  if (!$brace_commands{$command}) {
+  if (!$brace_commands{$command} && !$line_commands{$command}) {
     $default_valid_nestings{$command} = \%in_basic_inline_commands;
   }
 }
@@ -521,15 +521,6 @@ foreach my $command (keys(%contain_basic_inline_with_refs_commands)) {
 # @this* commands should not appear in any line command except for
 # page heading specification commands and can also appear in brace @-commands,
 # on heading specification commands lines, such as indicatric @-commands.
-foreach my $command (keys(%heading_spec_commands)) {
-
-  # duplicate hash to avoid modifying shared structure
-  $default_valid_nestings{$command} = { %{$default_valid_nestings{$command}} };
-
-  foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
-    $default_valid_nestings{$command}->{$in_heading_spec} = 1;
-  }
-}
 
 foreach my $brace_command (keys (%brace_commands)) {
   if ($brace_commands{$brace_command} eq 'style_code'
