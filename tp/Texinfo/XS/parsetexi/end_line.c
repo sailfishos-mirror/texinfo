@@ -2302,7 +2302,8 @@ end_line (ELEMENT *current)
      line commands are nested (always incorrectly?) */
   if (current_context () == ct_line || current_context () == ct_def)
     {
-      debug ("Still opened line command");
+      debug_nonl ("Still opened line command %d:", current_context ());
+      debug_print_element_short (current, 1); debug("");
       if (current_context () == ct_def)
         {
           while (current->parent

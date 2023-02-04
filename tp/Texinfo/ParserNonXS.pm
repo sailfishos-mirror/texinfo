@@ -2119,17 +2119,21 @@ sub _close_current($$$;$$)
         and (not $current->{'source_marks'}
              or not scalar(@{$current->{'source_marks'}}))) {
       $element_to_remove = $current;
-      print STDERR "REMOVE empty type "
-        .Texinfo::Common::debug_print_element_short($current)."\n"
-          if ($self->{'DEBUG'});
     }
     $current = $current->{'parent'};
-    _pop_element_from_contents($self, $current)
-      if ($element_to_remove
-          # this is to avoid args, not sure that it can happen
-          and $current->{'contents'}
-          and scalar(@{$current->{'contents'}})
-          and $current->{'contents'}->[-1] eq $element_to_remove);
+
+    if ($element_to_remove
+        # this is to avoid removing empty containers in args,
+        # happens with brace commands not closed at the end of
+        # a manual
+        and $current->{'contents'}
+        and scalar(@{$current->{'contents'}})
+        and $current->{'contents'}->[-1] eq $element_to_remove) {
+      print STDERR "REMOVE empty type "
+        .Texinfo::Common::debug_print_element_short($element_to_remove)."\n"
+          if ($self->{'DEBUG'});
+      _pop_element_from_contents($self, $current);
+    }
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
     $self->_bug_message("No type nor cmdname when closing",

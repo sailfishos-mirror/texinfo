@@ -390,12 +390,20 @@ close_current (ELEMENT *current,
           && current->info_info->info_number == 0
           && current->source_mark_list.number == 0)
         element_to_remove = current;
+
       current = current->parent;
       if (element_to_remove)
         {
           ELEMENT *last_child = last_contents_child (current);
+          /* this is to avoid removing empty containers in args,
+             happens with brace commands not closed at the end of
+             a manual */
           if (last_child == element_to_remove)
-            destroy_element (pop_element_from_contents (current, 0));
+            {
+              debug_nonl ("REMOVE empty type ");
+              debug_print_element_short (last_child, 1); debug("");
+              destroy_element (pop_element_from_contents (current, 0));
+            }
         }
     }
   else

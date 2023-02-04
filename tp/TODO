@@ -17,8 +17,6 @@ or value expansion. aliases.
 done: source_marks structures, with beginning and end of included file, @
 protecting end of line in @def*, @setfilename in included files.
 
-use contents for menu entry.
-
 Fix
 # FIXME this is wrong, the source mark ends up at a wrong location
 
