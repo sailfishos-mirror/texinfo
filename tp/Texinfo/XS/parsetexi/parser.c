@@ -604,14 +604,7 @@ end_preformatted (ELEMENT *current,
   if (current->type == ET_preformatted)
     {
       debug ("CLOSE PREFORMATTED");
-      if (current->contents.number == 0)
-        {
-          current = current->parent;
-          destroy_element (pop_element_from_contents (current, 1));
-          debug ("popping");
-        }
-      else
-        current = current->parent;
+      current = close_container(current);
     }
   return current;
 }

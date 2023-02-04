@@ -158,6 +158,25 @@ $result_trees{'arg_body_expansion_order'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => '@othermacro{}'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'redefineothermacro'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -235,7 +254,25 @@ $result_trees{'arg_body_expansion_order'} = {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => 'redefineothermacro'
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'othermacro'
+                },
+                'type' => 'macro_call'
+              },
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'contents' => [
@@ -259,40 +296,6 @@ $result_trees{'arg_body_expansion_order'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => '@othermacro{}'
-              }
-            ],
-            'extra' => {
-              'name' => 'redefineothermacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'othermacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

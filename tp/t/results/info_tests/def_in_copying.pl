@@ -174,26 +174,27 @@ $result_trees{'def_in_copying'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'mymacro'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 11,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => 'In copying
 '
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
                 }
               ],
               'type' => 'paragraph'
@@ -474,26 +475,27 @@ $result_trees{'def_in_copying'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mymacro'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 8,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'In text
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'mymacro'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

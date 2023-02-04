@@ -78,6 +78,27 @@ $result_trees{'expand_two_same'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'a simple @code{
+arg}
+'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macrotwo'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 12,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Call macro2
 '
             },
@@ -140,26 +161,6 @@ $result_trees{'expand_two_same'} = {
 '
             }
           ],
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => 'a simple @code{
-arg}
-'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'macrotwo'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'type' => 'paragraph'
         },
         {
@@ -183,6 +184,25 @@ arg}
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'arg with comma , here '
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macrotwo'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 24,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Call macro2 with 2 args
 '
             },
@@ -197,24 +217,6 @@ arg}
               ],
               'text' => 'With a doubles arg arg with comma , here  and re arg with comma , here 
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => 'arg with comma , here '
-                  }
-                ],
-                'extra' => {
-                  'name' => 'macrotwo'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

@@ -3402,6 +3402,22 @@ $result_trees{'bib_example'} = {
                   'counter' => 1,
                   'sourcemark_type' => 'include',
                   'status' => 'end'
+                },
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'References'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mybibuselist'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
               ]
             },
@@ -3426,7 +3442,25 @@ $result_trees{'bib_example'} = {
               'info' => {
                 'arg_line' => ' mybiblist true
 '
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'References'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mybibsetrefnode'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'args' => [
@@ -3479,40 +3513,6 @@ $result_trees{'bib_example'} = {
             }
           ],
           'type' => 'preamble_before_content'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'References'
-              }
-            ],
-            'extra' => {
-              'name' => 'mybibuselist'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'References'
-              }
-            ],
-            'extra' => {
-              'name' => 'mybibsetrefnode'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'
@@ -3899,7 +3899,28 @@ $result_trees{'bib_example'} = {
                   ' %**else if
 '
                 ]
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '@mybibnode{}'
+                      },
+                      {
+                        'text' => 'LaTeX2e'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'mybibmakeref'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'text' => '(See item [LaTeX2e] in '
@@ -3912,30 +3933,33 @@ $result_trees{'bib_example'} = {
                       'source_marks' => [
                         {
                           'counter' => 6,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'mybibnode'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
+                      'text' => ''
+                    },
+                    {
+                      'source_marks' => [
+                        {
+                          'counter' => 6,
                           'position' => 10,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
                       'text' => 'References'
-                    }
-                  ],
-                  'source_marks' => [
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'extra' => {
-                          'name' => 'mybibnode'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -4028,6 +4052,7 @@ $result_trees{'bib_example'} = {
                 },
                 'node_argument' => {
                   'node_content' => [
+                    {},
                     {}
                   ],
                   'normalized' => 'References'
@@ -4064,27 +4089,6 @@ $result_trees{'bib_example'} = {
             {
               'text' => 'currently supported in Texinfo.
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 5,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '@mybibnode{}'
-                  },
-                  {
-                    'text' => 'LaTeX2e'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'mybibmakeref'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -4165,27 +4169,28 @@ $result_trees{'bib_example'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 8,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'LaTeX2e'
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'mybibitem'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => '
 ',
                   'type' => 'empty_line'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => 'LaTeX2e'
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'mybibitem'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
                 }
               ],
               'type' => 'before_item'
@@ -4378,6 +4383,7 @@ $result_trees{'bib_example'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_c
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'node_argument'}{'node_content'}[1] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[1];
 $result_trees{'bib_example'}{'contents'}[5] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'};
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];

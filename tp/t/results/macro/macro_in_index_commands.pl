@@ -268,7 +268,25 @@ $result_trees{'macro_in_index_commands'} = {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'syncodeindexcommand'
+                },
+                'type' => 'macro_call'
+              },
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'args' => [
@@ -711,24 +729,6 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         }
       ],
-      'source_marks' => [
-        {
-          'counter' => 3,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'syncodeindexcommand'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ],
       'type' => 'before_node_section'
     },
     {
@@ -751,6 +751,25 @@ $result_trees{'macro_in_index_commands'} = {
       'cmdname' => 'node',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 6,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'trucindexcommand'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1281,25 +1300,7 @@ $result_trees{'macro_in_index_commands'} = {
         'file_name' => '',
         'line_nr' => 36,
         'macro' => ''
-      },
-      'source_marks' => [
-        {
-          'counter' => 6,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'trucindexcommand'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ]
+      }
     }
   ],
   'type' => 'document_root'
@@ -1402,20 +1403,7 @@ $result_nodes{'macro_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 6,
-      'element' => {
-        'extra' => {
-          'name' => 'trucindexcommand'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_menus{'macro_in_index_commands'} = {
@@ -1424,20 +1412,7 @@ $result_menus{'macro_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 6,
-      'element' => {
-        'extra' => {
-          'name' => 'trucindexcommand'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_errors{'macro_in_index_commands'} = [

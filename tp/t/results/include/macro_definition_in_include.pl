@@ -123,6 +123,25 @@ $result_trees{'macro_definition_in_include'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'themacro'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Call macro
 '
             },
@@ -137,24 +156,6 @@ $result_trees{'macro_definition_in_include'} = {
               ],
               'text' => 'in themacro
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'themacro'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

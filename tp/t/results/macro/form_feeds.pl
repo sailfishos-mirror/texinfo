@@ -141,6 +141,28 @@ $result_trees{'form_feeds'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'arg1'
+                  },
+                  {
+                    'text' => 'arg2'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mymacro'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -179,6 +201,25 @@ $result_trees{'form_feeds'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'a@{rgline'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'oneargmacro'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -210,43 +251,6 @@ $result_trees{'form_feeds'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'arg1'
-              },
-              {
-                'text' => 'arg2'
-              }
-            ],
-            'extra' => {
-              'name' => 'mymacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'a@{rgline'
-              }
-            ],
-            'extra' => {
-              'name' => 'oneargmacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

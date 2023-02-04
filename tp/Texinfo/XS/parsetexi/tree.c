@@ -380,14 +380,27 @@ ELEMENT *
 pop_element_from_contents (ELEMENT *parent, int reparent_source_marks)
 {
   ELEMENT_LIST *list = &parent->contents;
+  ELEMENT *popped_element = list->list[list->number -1];
+
+  /* remove the popped element now, such that replaced source marks are placed
+     on the preceding element */
+  list->number--;
 
   if (reparent_source_marks)
     {
-      add_source_marks (&(list->list[list->number -1]->source_mark_list),
-                        parent);
-      list->list[list->number -1]->source_mark_list.number = 0;
+      if (popped_element->source_mark_list.number)
+        {
+          SOURCE_MARK_LIST *source_mark_list = &popped_element->source_mark_list;
+
+          int i;
+          for (i = 0; i < source_mark_list->number; i++)
+            {
+              place_source_mark (parent, source_mark_list->list[i]);
+            }
+          source_mark_list->number = 0;
+        }
     }
-  return list->list[--list->number];
+  return popped_element;
 }
 
 ELEMENT *

@@ -107,6 +107,7 @@ typedef struct GLOBAL_INFO {
 
 
 /* In close.c */
+ELEMENT *close_container (ELEMENT *current);
 void close_command_cleanup (ELEMENT *current);
 ELEMENT *close_commands (ELEMENT *current, enum command_id closed_block_command,
                          ELEMENT **closed_element, enum command_id);

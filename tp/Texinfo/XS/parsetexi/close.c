@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "parser.h"
+#include "source_marks.h"
 
 /* Return CURRENT->parent.  The other arguments are used if an error message
    should be printed. */
@@ -96,6 +97,69 @@ close_all_style_commands (ELEMENT *current,
     current = close_brace_command (current->parent,
                            closed_block_command, interrupting_command, 1);
 
+  return current;
+}
+
+int
+is_container_empty (ELEMENT *current)
+{
+  if (current->contents.number == 0
+      && current->args.number == 0
+      && current->text.end == 0
+      && current->info_info->info_number == 0)
+    return 1;
+  return 0;
+}
+
+/* this should only be called for non @-command elements otherwise
+   empty command elements will be removed */
+ELEMENT *
+close_container (ELEMENT *current)
+{
+  ELEMENT *element_to_remove = 0;
+
+  /* remove an empty content that only holds source marks */
+  if (current->contents.number == 1)
+    {
+      ELEMENT *child_element = last_contents_child (current);
+      if ((!child_element->cmd) && is_container_empty (child_element))
+        {
+          add_source_marks (&child_element->source_mark_list, current);
+          child_element->source_mark_list.number = 0;
+
+          debug_nonl ("REMOVE empty child ");
+          debug_print_element_short (child_element, 1); debug("");
+          destroy_element (pop_element_from_contents (current, 0));
+        }
+    }
+  /* remove element without contents nor associated information */
+  if (is_container_empty (current))
+    {
+      if (current->source_mark_list.number > 0)
+       /* keep the element to keep the source mark, but remove the type. */
+        current->type = ET_NONE;
+      else
+        {
+          element_to_remove = current;
+          debug_nonl ("CONTAINER EMPTY ");
+          debug_print_element_short (current, 1); debug("");
+        }
+    }
+
+  current = current->parent;
+  if (element_to_remove)
+    {
+      ELEMENT *last_child = last_contents_child (current);
+      /* this is to avoid removing empty containers in args,
+         happens with brace commands not closed at the end of
+         a manual */
+      if (last_child == element_to_remove)
+        {
+          debug_nonl ("REMOVE empty type ");
+          debug_print_element_short (last_child, 1); debug("");
+          destroy_element (pop_element_from_contents (current, 0));
+        }
+    }
   return current;
 }
 
@@ -338,8 +402,6 @@ close_current (ELEMENT *current,
   else if (current->type != ET_NONE)
     {
       enum context c;
-      ELEMENT *element_to_remove = 0;
-      debug ("CLOSING type %s", element_type_names[current->type]);
       switch (current->type)
         {
         case ET_bracketed:
@@ -350,7 +412,7 @@ close_current (ELEMENT *current,
             {
               /* remove spaces element from tree and update extra values */
               abort_empty_line (&current, 0);
-           }
+            }
 
           break;
         case ET_line_arg:
@@ -383,28 +445,7 @@ close_current (ELEMENT *current,
 
           break;
         }
-      /* remove element without contents nor associated information */
-      if (current->contents.number == 0
-          && current->args.number == 0
-          && current->text.end == 0
-          && current->info_info->info_number == 0
-          && current->source_mark_list.number == 0)
-        element_to_remove = current;
-
-      current = current->parent;
-      if (element_to_remove)
-        {
-          ELEMENT *last_child = last_contents_child (current);
-          /* this is to avoid removing empty containers in args,
-             happens with brace commands not closed at the end of
-             a manual */
-          if (last_child == element_to_remove)
-            {
-              debug_nonl ("REMOVE empty type ");
-              debug_print_element_short (last_child, 1); debug("");
-              destroy_element (pop_element_from_contents (current, 0));
-            }
-        }
+      current = close_container(current);
     }
   else
     {

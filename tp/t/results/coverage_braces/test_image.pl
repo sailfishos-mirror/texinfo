@@ -98,6 +98,25 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'files-char'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 17,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => 'Text in copying.
 '
                 },
@@ -245,24 +264,6 @@ $result_trees{'test_image'} = {
                 {
                   'text' => '
 '
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'files-char'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
                 }
               ],
               'type' => 'paragraph'
@@ -622,6 +623,25 @@ $result_trees{'test_image'} = {
       'cmdname' => 'node',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'files-char'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1110,6 +1130,27 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'files-char'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                },
+                {
                   'args' => [
                     {
                       'contents' => [
@@ -1538,24 +1579,6 @@ $result_trees{'test_image'} = {
 '
                 }
               ],
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'files-char'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
               'type' => 'preformatted'
             },
             {
@@ -1632,6 +1655,27 @@ $result_trees{'test_image'} = {
           ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'files-char'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
+              'text' => ''
+            },
             {
               'args' => [
                 {
@@ -2075,6 +2119,27 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 5,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'files-char'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
+                      'text' => ''
+                    },
+                    {
                       'args' => [
                         {
                           'contents' => [
@@ -2507,24 +2572,6 @@ $result_trees{'test_image'} = {
                       'type' => 'paragraph'
                     }
                   ],
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'extra' => {
-                          'name' => 'files-char'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
                   'type' => 'brace_command_context'
                 }
               ],
@@ -2598,25 +2645,7 @@ $result_trees{'test_image'} = {
             'file_name' => '',
             'line_nr' => 23,
             'macro' => ''
-          },
-          'source_marks' => [
-            {
-              'counter' => 4,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'files-char'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ]
+          }
         },
         {
           'text' => '
@@ -2689,31 +2718,13 @@ $result_trees{'test_image'} = {
         'file_name' => '',
         'line_nr' => 12,
         'macro' => ''
-      },
-      'source_marks' => [
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'files-char'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ]
+      }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5];
+$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
+$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[6];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'type'}{'content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'contents'}[0];
@@ -2790,20 +2801,7 @@ $result_nodes{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 2,
-      'element' => {
-        'extra' => {
-          'name' => 'files-char'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_menus{'test_image'} = {
@@ -2811,20 +2809,7 @@ $result_menus{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 2,
-      'element' => {
-        'extra' => {
-          'name' => 'files-char'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_errors{'test_image'} = [
@@ -3078,19 +3063,6 @@ $result_floats{'test_image'} = {
         }
       },
       'info' => {},
-      'source_marks' => [
-        {
-          'counter' => 4,
-          'element' => {
-            'extra' => {
-              'name' => 'files-char'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ],
       'structure' => {
         'float_number' => 1
       }

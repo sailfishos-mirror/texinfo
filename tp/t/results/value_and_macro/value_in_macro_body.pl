@@ -99,6 +99,25 @@ $result_trees{'value_in_macro_body'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'macro_arg1'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'testvaluebody'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -139,24 +158,6 @@ $result_trees{'value_in_macro_body'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'macro_arg1'
-              }
-            ],
-            'extra' => {
-              'name' => 'testvaluebody'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

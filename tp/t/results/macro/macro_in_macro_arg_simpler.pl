@@ -142,6 +142,42 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => '@macrooneone{}text for macro2'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrothree'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrooneone'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -174,40 +210,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => '@macrooneone{}text for macro2'
-              }
-            ],
-            'extra' => {
-              'name' => 'macrothree'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'macrooneone'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

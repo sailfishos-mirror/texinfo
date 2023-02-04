@@ -96,6 +96,15 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => ' this is a comment.
+',
+                  'position' => 1,
+                  'sourcemark_type' => 'delcomment'
+                }
+              ],
               'text' => '
 ',
               'type' => 'empty_line'
@@ -212,14 +221,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'line' => ' this is a comment.
-',
-          'sourcemark_type' => 'delcomment'
         }
       ],
       'type' => 'before_node_section'

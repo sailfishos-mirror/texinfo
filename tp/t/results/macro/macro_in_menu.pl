@@ -403,6 +403,37 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
+                  'contents' => [
+                    {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'starspaces'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
+                      'text' => ''
+                    }
+                  ],
+                  'type' => 'preformatted'
+                }
+              ],
+              'type' => 'menu_comment'
+            },
+            {
+              'contents' => [
+                {
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
@@ -490,26 +521,27 @@ $result_trees{'macro_in_menu'} = {
                       'type' => 'after_menu_description_line'
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => ''
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'astar'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 13,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'menu comment
 '
-                    }
-                  ],
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'extra' => {
-                          'name' => 'astar'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
                     }
                   ],
                   'type' => 'preformatted'
@@ -548,26 +580,27 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'contents' => [
                         {
+                          'source_marks' => [
+                            {
+                              'counter' => 5,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'text' => ''
+                                  }
+                                ],
+                                'extra' => {
+                                  'name' => 'astar'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 1,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
                           'text' => '
 '
-                        }
-                      ],
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
-                            'extra' => {
-                              'name' => 'astar'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
                         }
                       ],
                       'type' => 'preformatted'
@@ -914,25 +947,7 @@ $result_trees{'macro_in_menu'} = {
             'file_name' => '',
             'line_nr' => 26,
             'macro' => ''
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'starspaces'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ]
+          }
         }
       ],
       'type' => 'before_node_section'
@@ -940,11 +955,11 @@ $result_trees{'macro_in_menu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[3]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'macro_in_menu'} = '
 @macro astar

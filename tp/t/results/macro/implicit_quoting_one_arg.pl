@@ -76,6 +76,25 @@ $result_trees{'implicit_quoting_one_arg'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'Many arguments, separated by commas, are processed here'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'FIXAME'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -113,24 +132,6 @@ $result_trees{'implicit_quoting_one_arg'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'Many arguments, separated by commas, are processed here'
-              }
-            ],
-            'extra' => {
-              'name' => 'FIXAME'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

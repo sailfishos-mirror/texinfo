@@ -86,6 +86,25 @@ $result_trees{'protect_comma_macro_line'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'arg,  comma \\,'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrotwo'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -124,24 +143,6 @@ $result_trees{'protect_comma_macro_line'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'arg,  comma \\,'
-              }
-            ],
-            'extra' => {
-              'name' => 'macrotwo'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

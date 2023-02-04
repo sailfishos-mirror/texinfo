@@ -1631,6 +1631,69 @@ sub _end_paragraph($$$;$$)
   return $current;
 }
 
+sub _is_container_empty($)
+{
+  my $current = shift;
+  if (not $current->{'contents'}
+      and not $current->{'args'}
+      and (not defined($current->{'text'}) or $current->{'text'} eq '')
+      and not $current->{'info'}) {
+    return 1;
+  }
+  return 0;
+}
+
+sub _close_container($$)
+{
+  my $self = shift;
+  my $current = shift;
+
+  # remove an empty content that only holds source marks
+  if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 1) {
+    my $child_element = $current->{'contents'}->[0];
+    if (not defined($child_element->{'cmdname'})
+        and _is_container_empty($child_element)) {
+      if ($child_element->{'source_marks'}
+          and scalar(@{$child_element->{'source_marks'}})) {
+        _add_source_marks($child_element->{'source_marks'}, $current);
+      }
+      print STDERR "REMOVE empty child "
+         .Texinfo::Common::debug_print_element_short($child_element)
+          .' '.Texinfo::Common::debug_print_element_short($current)."\n"
+            if ($self->{'DEBUG'});
+      _pop_element_from_contents($self, $current);
+    }
+  }
+
+  # remove element without contents nor associated information
+  my $element_to_remove;
+  if (_is_container_empty($current)) {
+    if ($current->{'source_marks'}
+        and scalar(@{$current->{'source_marks'}})) {
+      # keep the element to keep the source mark, but remove the type.
+      # FIXME need a test for a container other than preformatted
+      delete $current->{'type'};
+    } else {
+      $element_to_remove = $current;
+    }
+  }
+  $current = $current->{'parent'};
+
+  if ($element_to_remove
+      # this is to avoid removing empty containers in args,
+      # happens with brace commands not closed at the end of
+      # a manual
+      and $current->{'contents'}
+      and scalar(@{$current->{'contents'}})
+      and $current->{'contents'}->[-1] eq $element_to_remove) {
+    print STDERR "REMOVE empty type "
+      .Texinfo::Common::debug_print_element_short($element_to_remove)."\n"
+        if ($self->{'DEBUG'});
+    _pop_element_from_contents($self, $current);
+  }
+  return $current;
+}
+
 # close brace commands except for @caption, @footnote then the preformatted
 sub _end_preformatted($$$;$$)
 {
@@ -1643,15 +1706,7 @@ sub _end_preformatted($$$;$$)
 
   if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'DEBUG'});
-    # completly remove void preformatted contexts
-    if (!$current->{'contents'}) {
-      # FIXME check that there is a test case for this situation with
-      # a source mark
-      my $removed
-       = _pop_element_from_contents($self, $current->{'parent'}, 1);
-      print STDERR "popping $removed->{'type'}\n" if ($self->{'DEBUG'});
-    }
-    $current = $current->{'parent'};
+    $current = _close_container($self, $current);
   }
   return $current;
 }
@@ -1821,9 +1876,9 @@ sub _gather_previous_item($$;$$)
 
 # Starting from the end, gather everything util the def_line to put in
 # a def_item
-sub _gather_def_item($;$)
+sub _gather_def_item($$;$)
 {
-  my ($current, $next_command) = @_;
+  my ($self, $current, $next_command) = @_;
 
   my $type;
   # means that we are between a @def*x and a @def
@@ -1848,7 +1903,7 @@ sub _gather_def_item($;$)
         and $current->{'contents'}->[-1]->{'type'} eq 'def_line') {
       last;
     } else {
-      my $item_content = pop @{$current->{'contents'}};
+      my $item_content = _pop_element_from_contents($self, $current);
       $item_content->{'parent'} = $def_item;
       unshift @{$def_item->{'contents'}}, $item_content;
     }
@@ -1904,7 +1959,7 @@ sub _close_command_cleanup($$) {
   if ($def_commands{$current->{'cmdname'}}) {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
-    _gather_def_item($current);
+    _gather_def_item($self, $current);
   }
 
   if ($block_commands{$current->{'cmdname'}}
@@ -1942,7 +1997,7 @@ sub _close_command_cleanup($$) {
             and @{$before_item->{'contents'}}
             and $before_item->{'contents'}->[-1]->{'cmdname'}
             and $before_item->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-          my $end = pop @{$before_item->{'contents'}};
+          my $end = _pop_element_from_contents($self, $before_item);
           $end->{'parent'} = $current;
           push @{$current->{'contents'}}, $end;
         }
@@ -2084,56 +2139,7 @@ sub _close_current($$$;$$)
     } elsif ($current->{'type'} eq 'block_line_arg') {
       _end_line_starting_block($self, $current, $source_info);
     }
-    # FIXME this does not work as intended for menu entries because they
-    # are in args
-    ## remove empty child that only holds a source mark, reparenting the
-    ## source park to the current element
-    #if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 1) {
-    #  my $child_element = $current->{'contents'}->[0];
-    #  if (not defined($child_element->{'cmdname'})
-    #      and not $child_element->{'contents'}
-    #      and not $child_element->{'args'}
-    #      and (not defined($child_element->{'text'})
-    #           or $child_element->{'text'} eq '')
-    #      and not $child_element->{'info'}) {
-    #    if ($child_element->{'source_marks'}
-    #        and scalar(@{$child_element->{'source_marks'}})) {
-    #      _add_source_marks($child_element->{'source_marks'}, $current);
-    #    }
-    #    print STDERR "REMOVE empty child "
-    #      .Texinfo::Common::debug_print_element_short($child_element)
-    #      .' '.Texinfo::Common::debug_print_element_short($current)."\n"
-    #        if ($self->{'DEBUG'});
-    #    _pop_element_from_contents($self, $current);
-    #  }
-    #}
-    # empty types, not closed or associated to a command that is not closed
-    delete $current->{'contents'}
-      if ($current->{'contents'} and !@{$current->{'contents'}});
-    # remove element without contents nor associated information
-    my $element_to_remove;
-    if (not $current->{'contents'}
-        and not $current->{'args'}
-        and (not defined($current->{'text'}) or $current->{'text'} eq '')
-        and not $current->{'info'}
-        and (not $current->{'source_marks'}
-             or not scalar(@{$current->{'source_marks'}}))) {
-      $element_to_remove = $current;
-    }
-    $current = $current->{'parent'};
-
-    if ($element_to_remove
-        # this is to avoid removing empty containers in args,
-        # happens with brace commands not closed at the end of
-        # a manual
-        and $current->{'contents'}
-        and scalar(@{$current->{'contents'}})
-        and $current->{'contents'}->[-1] eq $element_to_remove) {
-      print STDERR "REMOVE empty type "
-        .Texinfo::Common::debug_print_element_short($element_to_remove)."\n"
-          if ($self->{'DEBUG'});
-      _pop_element_from_contents($self, $current);
-    }
+    $current = _close_container($self, $current);
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
     $self->_bug_message("No type nor cmdname when closing",
@@ -2629,12 +2635,12 @@ sub _pop_element_from_contents($$;$)
   my $popped_element = pop @{$parent_element->{'contents'}};
   if ($reparent_source_marks and $popped_element->{'source_marks'}) {
     # FIXME this is wrong, the source mark ends up at a wrong location
-    _add_source_marks($popped_element->{'source_marks'},
-                      $parent_element);
+    #_add_source_marks($popped_element->{'source_marks'},
+    #                  $parent_element);
     # This would be better, but leads to empty elements being kept.
-    #foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
-    #  _place_source_mark($self, $parent_element, $source_mark);
-    #}
+    foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
+      _place_source_mark($self, $parent_element, $source_mark);
+    }
   }
   delete $parent_element->{'contents'}
     if (scalar(@{$parent_element->{'contents'}}) == 0);
@@ -3502,7 +3508,7 @@ sub _end_line_misc_line($$$)
         $current->{'extra'}->{'columnfractions'} = $misc_cmd;
       }
       push @{$current->{'contents'}}, { 'type' => 'before_item',
-                                      'contents' => [], 'parent', $current };
+                                        'parent', $current };
       $current = $current->{'contents'}->[-1];
     }
   } elsif ($root_commands{$command}) {
@@ -3645,34 +3651,37 @@ sub _end_line_starting_block($$$)
              and $current->{'parent'}->{'cmdname'} eq 'multitable') {
     # parse the prototypes and put them in a special arg
     my @prototype_row;
-    foreach my $content (@{$current->{'contents'}}) {
-      if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
-        # TODO the 'extra' information in $content is not copied over,
-        # at least leading/trailing spaces (something else?).
-        my $bracketed_prototype
-          = { 'type' => 'bracketed_multitable_prototype' };
-        $bracketed_prototype->{'contents'} = $content->{'contents'}
-          if ($content->{'contents'});
-        push @prototype_row, $bracketed_prototype;
-      } elsif ($content->{'text'}) {
-        # TODO: this should be a warning or an error - all prototypes
-        # on a @multitable line should be in braces, as documented in the
-        # Texinfo manual.
-        if ($content->{'text'} =~ /\S/) {
-          foreach my $prototype (split /\s+/, $content->{'text'}) {
-            push @prototype_row, { 'text' => $prototype,
-                                   'type' => 'row_prototype' }
-              unless ($prototype eq '');
+    if ($current->{'contents'})
+    {
+      foreach my $content (@{$current->{'contents'}}) {
+        if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+          # TODO the 'extra' information in $content is not copied over,
+          # at least leading/trailing spaces (something else?).
+          my $bracketed_prototype
+            = { 'type' => 'bracketed_multitable_prototype' };
+          $bracketed_prototype->{'contents'} = $content->{'contents'}
+            if ($content->{'contents'});
+          push @prototype_row, $bracketed_prototype;
+        } elsif ($content->{'text'}) {
+          # TODO: this should be a warning or an error - all prototypes
+          # on a @multitable line should be in braces, as documented in the
+          # Texinfo manual.
+          if ($content->{'text'} =~ /\S/) {
+            foreach my $prototype (split /\s+/, $content->{'text'}) {
+              push @prototype_row, { 'text' => $prototype,
+                                     'type' => 'row_prototype' }
+                unless ($prototype eq '');
+            }
           }
-        }
-      } else {
-        if (!$content->{'cmdname'}
-              or ($content->{'cmdname'} ne 'c'
-                  and $content->{'cmdname'} ne 'comment')) {
-          $self->_command_warn($current, $source_info,
-              __("unexpected argument on \@%s line: %s"),
-                   $current->{'parent'}->{'cmdname'},
-                   Texinfo::Convert::Texinfo::convert_to_texinfo($content));
+        } else {
+          if (!$content->{'cmdname'}
+                or ($content->{'cmdname'} ne 'c'
+                    and $content->{'cmdname'} ne 'comment')) {
+            $self->_command_warn($current, $source_info,
+                __("unexpected argument on \@%s line: %s"),
+                     $current->{'parent'}->{'cmdname'},
+                     Texinfo::Convert::Texinfo::convert_to_texinfo($content));
+          }
         }
       }
     }
@@ -5476,7 +5485,7 @@ sub _process_remaining_on_line($$$$)
                 and $current->{'cmdname'} eq $base_command) {
               # popped element should be the same as $misc
               _pop_element_from_contents($self, $current);
-              _gather_def_item($current, $command);
+              _gather_def_item($self, $current, $command);
               push @{$current->{'contents'}}, $misc;
             }
             if (!$current->{'cmdname'}
@@ -5731,7 +5740,6 @@ sub _process_remaining_on_line($$$$)
 
         $current->{'args'} = [ {
            'type' => 'block_line_arg',
-           'contents' => [],
            'parent' => $current } ];
 
         if ($commands_args_number{$command}) {

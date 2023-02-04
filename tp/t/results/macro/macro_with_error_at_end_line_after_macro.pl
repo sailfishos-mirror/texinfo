@@ -71,6 +71,25 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'aaa'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'witherror'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -103,24 +122,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
             'line_nr' => 5,
             'macro' => 'witherror'
           }
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'aaa'
-              }
-            ],
-            'extra' => {
-              'name' => 'witherror'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

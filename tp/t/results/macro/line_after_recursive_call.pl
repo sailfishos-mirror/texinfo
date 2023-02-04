@@ -74,7 +74,20 @@ $result_trees{'line_after_recursive_call'} = {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'extra' => {
+                  'name' => 'mac'
+                },
+                'type' => 'macro_call'
+              },
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'contents' => [
@@ -95,19 +108,6 @@ $result_trees{'line_after_recursive_call'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'extra' => {
-              'name' => 'mac'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

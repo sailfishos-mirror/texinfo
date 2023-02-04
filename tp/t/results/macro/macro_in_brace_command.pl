@@ -175,6 +175,27 @@ $result_trees{'macro_in_brace_command'} = {
                               'source_marks' => [
                                 {
                                   'counter' => 1,
+                                  'element' => {
+                                    'args' => [
+                                      {
+                                        'text' => ''
+                                      }
+                                    ],
+                                    'extra' => {
+                                      'name' => 'foo'
+                                    },
+                                    'type' => 'macro_call'
+                                  },
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'start'
+                                }
+                              ],
+                              'text' => ''
+                            },
+                            {
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
                                   'position' => 13,
                                   'sourcemark_type' => 'macro_expansion',
                                   'status' => 'end'
@@ -213,24 +234,6 @@ $result_trees{'macro_in_brace_command'} = {
                                 }
                               ],
                               'text' => 'bar-expansion'
-                            }
-                          ],
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'element' => {
-                                'args' => [
-                                  {
-                                    'text' => ''
-                                  }
-                                ],
-                                'extra' => {
-                                  'name' => 'foo'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
                             }
                           ],
                           'type' => 'brace_command_arg'

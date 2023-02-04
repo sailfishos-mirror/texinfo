@@ -75,6 +75,28 @@ $result_trees{'macro_name_with_hyphen'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'blah'
+                  },
+                  {
+                    'text' => '@code{bli-bli}'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macro-one'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -116,27 +138,6 @@ $result_trees{'macro_name_with_hyphen'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'blah'
-              },
-              {
-                'text' => '@code{bli-bli}'
-              }
-            ],
-            'extra' => {
-              'name' => 'macro-one'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

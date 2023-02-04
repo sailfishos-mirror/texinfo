@@ -97,6 +97,23 @@ $result_trees{'macro_expands_to_empty'} = {
               'counter' => 1,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
+            },
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'aa'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'foo'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
             }
           ],
           'text' => '
@@ -119,24 +136,6 @@ $result_trees{'macro_expands_to_empty'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'aa'
-              }
-            ],
-            'extra' => {
-              'name' => 'foo'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

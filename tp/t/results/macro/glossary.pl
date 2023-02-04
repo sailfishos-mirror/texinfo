@@ -705,7 +705,25 @@ $result_trees{'glossary'} = {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
                 'macro' => 'gentry'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '@glossarytext{}'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'expandglossary'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'args' => [
@@ -808,6 +826,31 @@ $result_trees{'glossary'} = {
               ]
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'id2'
+                      },
+                      {
+                        'text' => 'name2'
+                      },
+                      {
+                        'text' => 'text2'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'gentry'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 29,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' is used in many cases while
 '
             },
@@ -975,7 +1018,25 @@ $result_trees{'glossary'} = {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
                 'macro' => 'gentry'
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '@glossarytext{}'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'expandglossary'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ]
             },
             {
               'args' => [
@@ -1082,62 +1143,6 @@ $result_trees{'glossary'} = {
 '
             }
           ],
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '@glossarytext{}'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'expandglossary'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 3,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => 'id2'
-                  },
-                  {
-                    'text' => 'name2'
-                  },
-                  {
-                    'text' => 'text2'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'gentry'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 4,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '@glossarytext{}'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'expandglossary'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'type' => 'paragraph'
         },
         {
@@ -1221,6 +1226,38 @@ $result_trees{'glossary'} = {
       'cmdname' => 'chapter',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 5,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'glossary'
+                },
+                'type' => 'macro_call'
+              },
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 6,
+              'element' => {
+                'extra' => {
+                  'name' => 'glossarytext'
+                },
+                'type' => 'macro_call'
+              },
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
+          'text' => ''
+        },
+        {
           'text' => ' ',
           'type' => 'ignorable_spaces_after_command'
         },
@@ -1278,36 +1315,7 @@ $result_trees{'glossary'} = {
         'file_name' => 'glossary.texi',
         'line_nr' => 46,
         'macro' => ''
-      },
-      'source_marks' => [
-        {
-          'counter' => 5,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'glossary'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 6,
-          'element' => {
-            'extra' => {
-              'name' => 'glossarytext'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ]
+      }
     }
   ],
   'type' => 'document_root'
@@ -1320,7 +1328,7 @@ $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{
 $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[4]{'contents'}[1]{'contents'}[1] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
+$result_trees{'glossary'}{'contents'}[4]{'contents'}[2]{'contents'}[1] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
 
 $result_texis{'glossary'} = '\\input texinfo.tex
 
@@ -1459,30 +1467,6 @@ $result_sectioning{'glossary'} = {
                 }
               },
               'info' => {},
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'extra' => {
-                      'name' => 'glossary'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'extra' => {
-                      'name' => 'glossarytext'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1530,30 +1514,6 @@ $result_nodes{'glossary'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'info' => {},
-          'source_marks' => [
-            {
-              'counter' => 5,
-              'element' => {
-                'extra' => {
-                  'name' => 'glossary'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 6,
-              'element' => {
-                'extra' => {
-                  'name' => 'glossarytext'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'structure' => {
             'section_number' => 1
           }

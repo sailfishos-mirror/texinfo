@@ -306,6 +306,25 @@ $result_trees{'cpp_lines'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macr'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -459,6 +478,25 @@ $result_trees{'cpp_lines'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrtwo'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1131,41 +1169,7 @@ $result_trees{'cpp_lines'} = {
         'file_name' => 'g_f',
         'line_nr' => 70,
         'macro' => ''
-      },
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'macr'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        },
-        {
-          'counter' => 2,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'macrtwo'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ]
+      }
     },
     {
       'args' => [
@@ -1340,31 +1344,7 @@ $result_nodes{'cpp_lines'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 1,
-      'element' => {
-        'extra' => {
-          'name' => 'macr'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    },
-    {
-      'counter' => 2,
-      'element' => {
-        'extra' => {
-          'name' => 'macrtwo'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_menus{'cpp_lines'} = {
@@ -1372,31 +1352,7 @@ $result_menus{'cpp_lines'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
-  'source_marks' => [
-    {
-      'counter' => 1,
-      'element' => {
-        'extra' => {
-          'name' => 'macr'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    },
-    {
-      'counter' => 2,
-      'element' => {
-        'extra' => {
-          'name' => 'macrtwo'
-        },
-        'type' => 'macro_call'
-      },
-      'sourcemark_type' => 'macro_expansion',
-      'status' => 'start'
-    }
-  ]
+  'info' => {}
 };
 
 $result_errors{'cpp_lines'} = [

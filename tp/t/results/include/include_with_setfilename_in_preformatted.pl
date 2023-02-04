@@ -24,51 +24,44 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
           'cmdname' => 'example',
           'contents' => [
             {
-              'contents' => [
+              'source_marks' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'args' => [
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'included_file_with_setfilename.texi'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
+                            'text' => 'included_file_with_setfilename.texi'
                           }
                         ],
-                        'cmdname' => 'include',
-                        'extra' => {
-                          'text_arg' => 'included_file_with_setfilename.texi'
-                        },
                         'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
+                          'spaces_after_argument' => {
+                            'text' => '
+'
                           }
                         },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 2,
-                          'macro' => ''
-                        }
-                      },
-                      'sourcemark_type' => 'include',
-                      'status' => 'start'
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'include',
+                    'extra' => {
+                      'text_arg' => 'included_file_with_setfilename.texi'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 2,
+                      'macro' => ''
                     }
-                  ],
-                  'text' => ''
-                }
-              ],
-              'source_marks' => [
+                  },
+                  'sourcemark_type' => 'include',
+                  'status' => 'start'
+                },
                 {
                   'counter' => 1,
                   'element' => {
@@ -105,8 +98,7 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                   },
                   'sourcemark_type' => 'setfilename'
                 }
-              ],
-              'type' => 'preformatted'
+              ]
             },
             {
               'contents' => [

@@ -86,6 +86,27 @@ $result_trees{'complete_macro_for_end'} = {
           'cmdname' => 'cartouche',
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'theend'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
+              'text' => ''
+            },
+            {
               'args' => [
                 {
                   'contents' => [
@@ -124,25 +145,7 @@ $result_trees{'complete_macro_for_end'} = {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'theend'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ]
+          }
         }
       ],
       'type' => 'before_node_section'

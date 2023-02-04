@@ -71,6 +71,25 @@ $result_trees{'recursive_call_in_argument'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => '@anorecurse{}'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'anorecurse'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -91,24 +110,6 @@ $result_trees{'recursive_call_in_argument'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => '@anorecurse{}'
-              }
-            ],
-            'extra' => {
-              'name' => 'anorecurse'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

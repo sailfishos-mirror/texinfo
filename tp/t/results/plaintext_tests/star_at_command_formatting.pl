@@ -122,6 +122,25 @@ $result_trees{'star_at_command_formatting'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mymacro'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -376,6 +395,25 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'mymacro'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 8,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => 'Example
 '
                 },
@@ -598,24 +636,6 @@ $result_trees{'star_at_command_formatting'} = {
 '
                 }
               ],
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
               'type' => 'preformatted'
             },
             {
@@ -679,6 +699,25 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => ''
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'mymacro'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 10,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => 'Quotation
 '
                 },
@@ -708,24 +747,6 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'text' => ' not at eol.
 '
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
-                    'extra' => {
-                      'name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
                 }
               ],
               'type' => 'paragraph'
@@ -969,24 +990,6 @@ $result_trees{'star_at_command_formatting'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'mymacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

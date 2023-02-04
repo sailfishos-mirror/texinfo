@@ -211,6 +211,25 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '0'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'testallowcodebreakspara'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 29,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Before first allowcodebreaks
 '
             },
@@ -526,24 +545,6 @@ $result_trees{'test_allowcodebreaks'} = {
 '
             }
           ],
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '0'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'testallowcodebreakspara'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'type' => 'paragraph'
         },
         {
@@ -699,6 +700,25 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '1'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'testallowcodebreakspara'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 12,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'After false
 '
             },
@@ -1012,24 +1032,6 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'text' => '
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '1'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'testallowcodebreakspara'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -1649,6 +1651,25 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '2'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'testallowcodebreakspara'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 11,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'After true
 '
             },
@@ -1962,24 +1983,6 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'text' => '
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 6,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => '2'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'testallowcodebreakspara'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'

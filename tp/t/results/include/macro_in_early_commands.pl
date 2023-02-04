@@ -339,6 +339,20 @@ $result_trees{'macro_in_early_commands'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'element' => {
+                'extra' => {
+                  'name' => 'documentencoding-command'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -480,19 +494,6 @@ $result_trees{'macro_in_early_commands'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 3,
-          'element' => {
-            'extra' => {
-              'name' => 'documentencoding-command'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'
@@ -745,6 +746,25 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 6,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => ''
+                  }
+                ],
+                'extra' => {
+                  'name' => 'themacro'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -786,6 +806,25 @@ $result_trees{'macro_in_early_commands'} = {
               'cmdname' => '}'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 7,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'info'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'end-file-name'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => '
 '
             },
@@ -802,24 +841,6 @@ $result_trees{'macro_in_early_commands'} = {
 '
             }
           ],
-          'source_marks' => [
-            {
-              'counter' => 7,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => 'info'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'end-file-name'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'type' => 'paragraph'
         }
       ],
@@ -833,25 +854,7 @@ $result_trees{'macro_in_early_commands'} = {
         'file_name' => '',
         'line_nr' => 26,
         'macro' => ''
-      },
-      'source_marks' => [
-        {
-          'counter' => 6,
-          'element' => {
-            'args' => [
-              {
-                'text' => ''
-              }
-            ],
-            'extra' => {
-              'name' => 'themacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ]
+      }
     }
   ],
   'type' => 'document_root'
@@ -930,19 +933,6 @@ $result_sectioning{'macro_in_early_commands'} = {
           }
         },
         'info' => {},
-        'source_marks' => [
-          {
-            'counter' => 6,
-            'element' => {
-              'extra' => {
-                'name' => 'themacro'
-              },
-              'type' => 'macro_call'
-            },
-            'sourcemark_type' => 'macro_expansion',
-            'status' => 'start'
-          }
-        ],
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -961,19 +951,6 @@ $result_nodes{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {},
-      'source_marks' => [
-        {
-          'counter' => 6,
-          'element' => {
-            'extra' => {
-              'name' => 'themacro'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
-        }
-      ],
       'structure' => {}
     },
     'normalized' => 'Top'

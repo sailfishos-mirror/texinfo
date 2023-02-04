@@ -80,6 +80,28 @@ $result_trees{'too_much_args'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'one'
+                  },
+                  {
+                    'text' => 'two, three'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'twoargs'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -104,27 +126,6 @@ $result_trees{'too_much_args'} = {
             }
           ],
           'type' => 'paragraph'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => 'one'
-              },
-              {
-                'text' => 'two, three'
-              }
-            ],
-            'extra' => {
-              'name' => 'twoargs'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'

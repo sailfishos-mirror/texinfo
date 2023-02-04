@@ -223,6 +223,46 @@ $result_trees{'complex_argument'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => '@verb{% @macrotwo %}
+@c @macrofour
+@pagesizes 4 @macrofour{}
+@headings doubleafter @macrofour{}
+@verbatim
+@macrotwo
+@end verbatim
+@ignore
+@macrofour
+@end ignore
+@macro macroseven {truc}
+@emph{\\truc\\}
+@end macro
+macroseven defined
+@ifinfo
+@macrofour
+@end ifinfo
+@iftex
+@macrotwo{aa,bb}
+@end iftex
+@macrofour{}
+'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'macrothree'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -590,6 +630,25 @@ $result_trees{'complex_argument'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macrofour'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 19,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'macroseven defined
 '
             },
@@ -616,24 +675,6 @@ $result_trees{'complex_argument'} = {
               ],
               'text' => '4
 '
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 4,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
-                'extra' => {
-                  'name' => 'macrofour'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
             }
           ],
           'type' => 'paragraph'
@@ -668,6 +709,25 @@ $result_trees{'complex_argument'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'aaa'
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'macroseven'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'position' => 16,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'Call macroseven
 '
             },
@@ -701,69 +761,12 @@ $result_trees{'complex_argument'} = {
 '
             }
           ],
-          'source_marks' => [
-            {
-              'counter' => 5,
-              'element' => {
-                'args' => [
-                  {
-                    'text' => 'aaa'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'macroseven'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'type' => 'paragraph'
         },
         {
           'text' => '
 ',
           'type' => 'empty_line'
-        }
-      ],
-      'source_marks' => [
-        {
-          'counter' => 1,
-          'element' => {
-            'args' => [
-              {
-                'text' => '@verb{% @macrotwo %}
-@c @macrofour
-@pagesizes 4 @macrofour{}
-@headings doubleafter @macrofour{}
-@verbatim
-@macrotwo
-@end verbatim
-@ignore
-@macrofour
-@end ignore
-@macro macroseven {truc}
-@emph{\\truc\\}
-@end macro
-macroseven defined
-@ifinfo
-@macrofour
-@end ifinfo
-@iftex
-@macrotwo{aa,bb}
-@end iftex
-@macrofour{}
-'
-              }
-            ],
-            'extra' => {
-              'name' => 'macrothree'
-            },
-            'type' => 'macro_call'
-          },
-          'sourcemark_type' => 'macro_expansion',
-          'status' => 'start'
         }
       ],
       'type' => 'before_node_section'
