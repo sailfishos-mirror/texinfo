@@ -96,9 +96,6 @@ sub root_heading_command_to_texinfo($)
 # Following subroutines deal with transforming a texinfo tree into texinfo
 # text.  Should give the text that was used parsed, except for a few cases.
 
-# the second arguments, if defined triggers replaced
-# tree item to be shown, in the default case they are
-# not shown.
 # expand a tree to the corresponding texinfo.
 sub convert_to_texinfo($);
 sub convert_to_texinfo($)
@@ -116,9 +113,7 @@ sub convert_to_texinfo($)
     $result .= $element->{'text'};
   } else {
     if ($element->{'cmdname'}
-       or ($element->{'type'} and ($element->{'type'} eq 'def_line'
-                                or $element->{'type'} eq 'menu_entry'
-                                or $element->{'type'} eq 'menu_comment'))) {
+        or ($element->{'type'} and $element->{'type'} eq 'def_line')) {
       $result .= _expand_cmd_args_to_texi($element);
     }
     if ($element->{'type'}
@@ -163,35 +158,12 @@ sub _expand_cmd_args_to_texi($) {
       and exists ($cmd->{'info'}->{'spaces_after_cmd_before_arg'})) {
     $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'};
   }
-  # block line commands with arguments not separated by commas
-  if ($block_commands{$cmdname}
-         and ($def_commands{$cmdname}
-              or $block_commands{$cmdname} eq 'multitable')
-         and $cmd->{'args'}) {
-     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-     foreach my $arg (@{$cmd->{'args'}}) {
-        $result .= convert_to_texinfo($arg);
-    }
   # arg_line set for line_commands with type special and @macro
-  } elsif ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {
+  if ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     $result .= $cmd->{'info'}->{'arg_line'};
-  } elsif (($block_commands{$cmdname} or $cmdname eq 'node')
-            and defined($cmd->{'args'})) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-    foreach my $arg (@{$cmd->{'args'}}) {
-      next if $arg->{'type'} and $ignored_types{$arg->{'type'}};
-      if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'info'}->{'spaces_before_argument'}->{'text'};
-      }
-      $result .= convert_to_texinfo($arg);
-      $result .= ',';
-    }
-    $result =~ s/,$//;
-  } elsif (defined($cmd->{'args'})) {
+  } elsif ($cmd->{'args'}) {
     my $braces;
     $braces = 1 if (scalar(@{$cmd->{'args'}})
                     and $cmd->{'args'}->[0]->{'type'}
@@ -201,14 +173,22 @@ sub _expand_cmd_args_to_texi($) {
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'info'}->{'delimiter'};
     }
-    if ($cmd->{'info'}
-        and $cmd->{'info'}->{'spaces_before_argument'}) {
-      $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'};
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
+       if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
+    my $with_commas = 0;
+    if (($block_commands{$cmdname}
+         # block line commands with arguments not separated by commas
+         and not ($def_commands{$cmdname}
+                  or $block_commands{$cmdname} eq 'multitable'))
+        or $cmdname eq 'node'
+        or exists($brace_commands{$cmdname})
+        or ($cmd->{'type'} and $cmd->{'type'} eq 'definfoenclose_command')) {
+      $with_commas = 1;
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
-      if (exists($brace_commands{$cmdname}) or ($cmd->{'type'}
-                    and $cmd->{'type'} eq 'definfoenclose_command')) {
+      next if $arg->{'type'} and $ignored_types{$arg->{'type'}};
+      if ($with_commas) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;
       }
