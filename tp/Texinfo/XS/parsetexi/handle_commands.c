@@ -628,6 +628,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
       arg = new_element (ET_line_arg);
       add_to_element_args (current, arg);
 
+      if (command_data(cmd).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack_on_line,
+                      cmd == CM_item_LINE ? CM_item : cmd);
+
       /* LINE_specific commands arguments are handled in a specific way.
          The only other line commands that have more than one argument is
          node, so the following condition only applies to node */

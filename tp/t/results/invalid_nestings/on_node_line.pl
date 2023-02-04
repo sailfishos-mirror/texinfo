@@ -325,12 +325,30 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @ref should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @node',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @pxref should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => '@pxref should not appear in @node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @pxref should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@pxref should not appear anywhere inside @node',
     'type' => 'warning'
   },
   {
@@ -343,12 +361,30 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @anchor should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@anchor should not appear anywhere inside @node',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @footnote should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => '@footnote should not appear in @node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @node',
     'type' => 'warning'
   },
   {
@@ -367,6 +403,15 @@ $result_errors{'on_node_line'} = [
     'line_nr' => 1,
     'macro' => '',
     'text' => '@exdent should not appear in @node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @exdent should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@exdent should not appear anywhere inside @node',
     'type' => 'warning'
   }
 ];

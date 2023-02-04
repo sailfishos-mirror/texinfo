@@ -1,7 +1,7 @@
 /* context_stack.h - declarations for context_stack.c */
 #ifndef CONTEXT_STACK_H
 #define CONTEXT_STACK_H
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -70,6 +70,7 @@ typedef struct {
     int footnote;
     int caption;
     COMMAND_STACK basic_inline_stack;
+    COMMAND_STACK basic_inline_stack_on_line;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;

@@ -1,4 +1,4 @@
-/* Copyright 2010-2022 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1177,16 +1177,19 @@ check_valid_nesting_context (enum command_id cmd)
       line_warn ("@%s should not appear anywhere inside caption",
         command_name(cmd));
     }
-  else if (nesting_context.basic_inline_stack.top > 0)
+  else if (nesting_context.basic_inline_stack.top > 0
+           || nesting_context.basic_inline_stack_on_line.top > 0)
     {
       unsigned long flags = command_data(cmd).flags;
       int data = command_data(cmd).data;
 
-      if (!((flags & (CF_accent | CF_brace))      /* inclusions */
+      if (!(                                      /* inclusions */
+                (flags & (CF_accent | CF_brace | CF_in_heading_spec))
              || ((flags & CF_nobrace) && data == NOBRACE_symbol)
              || cmd == CM_c
              || cmd == CM_comment
              || cmd == CM_refill
+             || cmd == CM_subentry
              || cmd == CM_columnfractions
              || cmd == CM_set
              || cmd == CM_clear
@@ -1201,7 +1204,14 @@ check_valid_nesting_context (enum command_id cmd)
           || cmd == CM_anchor
           || cmd == CM_footnote
           || cmd == CM_verb)
-        invalid_context = top_command (&nesting_context.basic_inline_stack);
+        {
+          if (nesting_context.basic_inline_stack.top > 0)
+            invalid_context = top_command
+                                (&nesting_context.basic_inline_stack);
+          else
+            invalid_context = top_command
+                                (&nesting_context.basic_inline_stack_on_line);
+        }
 
       /* FIXME: This may not match exactly the definition of a basic inline
          command in check_valid_nesting.  We should only need to

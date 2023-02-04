@@ -433,7 +433,8 @@ foreach my $command (keys(%brace_commands), keys(%symbol_nobrace_commands)) {
 }
 # selected line commands
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
-                         'columnfractions', 'set', 'clear', 'end') {
+                         'columnfractions', 'set', 'clear', 'end',
+                         keys(%in_heading_spec_commands)) {
   $in_full_text_commands{$in_full_text_command} = 1;
 }
 # selected block commands
@@ -500,8 +501,8 @@ foreach my $command (keys(%contain_plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
 
-# Brace commands are now checked for basic inline content using
-# the stack of commands in 'nesting_context'.
+# Brace and line commands are now checked for basic inline content using
+# the stacks of commands in 'nesting_context'.
 #
 foreach my $command (keys(%contain_basic_inline_commands)) {
   if (!$brace_commands{$command}) {
@@ -520,14 +521,26 @@ foreach my $command (keys(%contain_basic_inline_with_refs_commands)) {
 # @this* commands should not appear in any line command except for
 # page heading specification commands and can also appear in brace @-commands,
 # on heading specification commands lines, such as indicatric @-commands.
-foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
-  foreach my $command (keys(%heading_spec_commands)) {
+foreach my $command (keys(%heading_spec_commands)) {
+
+  # duplicate hash to avoid modifying shared structure
+  $default_valid_nestings{$command} = { %{$default_valid_nestings{$command}} };
+
+  foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
     $default_valid_nestings{$command}->{$in_heading_spec} = 1;
   }
-  foreach my $brace_command (keys (%brace_commands)) {
-    if ($brace_commands{$brace_command} eq 'style_code'
-        or $brace_commands{$brace_command} eq 'style_other'
-        or $brace_commands{$brace_command} eq 'style_no_code') {
+}
+
+foreach my $brace_command (keys (%brace_commands)) {
+  if ($brace_commands{$brace_command} eq 'style_code'
+      or $brace_commands{$brace_command} eq 'style_other'
+      or $brace_commands{$brace_command} eq 'style_no_code') {
+
+    # duplicate hash to avoid modifying shared structure
+    $default_valid_nestings{$brace_command}
+     = { %{$default_valid_nestings{$brace_command}} };
+
+    foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
       $default_valid_nestings{$brace_command}->{$in_heading_spec} = 1;
     }
   }
@@ -657,6 +670,7 @@ sub parser(;$$)
   $parser->{'source_mark_counters'} = {};
   $parser->{'nesting_context'} = {%nesting_context_init};
   $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
 
   # handle user provided state.
 
@@ -3225,6 +3239,10 @@ sub _end_line_misc_line($$$)
   print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
      if ($self->{'DEBUG'});
 
+  if ($contain_basic_inline_commands{$command}) {
+    pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
+  }
+
   if ($self->{'line_commands'}->{$command} eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);
     if (defined($args)) {
@@ -4374,11 +4392,17 @@ sub _check_valid_nesting_context
         __("\@%s should not appear anywhere inside caption"),
           $command), $source_info);
   } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack'})
-             and @{$self->{'nesting_context'}->{'basic_inline_stack'}} > 0
-             and !$in_basic_inline_commands{$command}) {
+       and @{$self->{'nesting_context'}->{'basic_inline_stack'}} > 0
+       and !$in_basic_inline_commands{$command}) {
     $invalid_context
       = $self->{'nesting_context'}->{'basic_inline_stack'}->[-1];
+  } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack_on_line'})
+       and @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}} > 0
+       and !$in_basic_inline_commands{$command}) {
+    $invalid_context
+      = $self->{'nesting_context'}->{'basic_inline_stack_on_line'}->[-1];
   }
+
   $self->_line_warn(sprintf(
         __("\@%s should not appear anywhere inside \@%s"),
             $command, $invalid_context), $source_info)
@@ -5501,6 +5525,10 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'contents'}->[-1];
         $current->{'args'} = [{ 'type' => 'line_arg',
                                 'parent' => $current }];
+        if ($contain_basic_inline_commands{$command}) {
+          push @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}},
+               $command;
+        }
 
         # 'specific' commands arguments are handled in a specific way.
         # The only other line commands that have more than one argument is

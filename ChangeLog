@@ -1,5 +1,35 @@
 2023-02-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Basic inline context for line args
+
+	* tp/Texinfo/ParserNonXS.pm (%default_valid_nestings) <heading specs>:
+	Duplicate hashes to avoid modifying shared structure.
+	(%in_full_text_commands): Add all %in_heading_spec_commands.
+
+	(parser): Initialise 'basic_inline_stack_on_line' in addition to
+	'basic_inline_stack'.  Using a separate stack for line arguments
+	from that for braced arguments means we can push and pop in exactly
+	one place in the code from each stack, which will be more reliable
+	and easy to debug.
+	(_process_remaining_on_line) <line arg>: Push the new stack.
+	(_end_line_misc_line) <line arg>: Pop the new stack.
+
+	(_check_valid_nesting_context): Use 'basic_inline_stack_on_line'.
+
+	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
+	Add basic_inline_stack_on_line field.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf): Reset it.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
+	Pop.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	Push.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	Use new stack.  Update conditional for what counts as
+	basic inline content.
+
+2023-02-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: refer to some other text files in sources
 	* tp/t/README: advise to rebuild after git pull
 	* tp/tests/README: update test results with "make -k check copy-tests".

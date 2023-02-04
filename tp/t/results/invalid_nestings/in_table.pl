@@ -1132,6 +1132,42 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @indent should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@indent should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @titlefont should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@titlefont should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @anchor should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@anchor should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
@@ -1147,6 +1183,24 @@ $result_errors{'in_table'} = [
     'line_nr' => 8,
     'macro' => '',
     'text' => '@exdent should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @exdent should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@exdent should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ref should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @item',
     'type' => 'warning'
   },
   {
@@ -1177,12 +1231,30 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @center should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 12,
+    'macro' => '',
+    'text' => '@center should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 13,
     'macro' => '',
     'text' => '@cindex should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @item',
     'type' => 'warning'
   },
   {
@@ -1195,12 +1267,30 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 20,
     'macro' => '',
     'text' => '@cindex should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @cindex should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => '@cindex should not appear anywhere inside @item',
     'type' => 'warning'
   },
   {

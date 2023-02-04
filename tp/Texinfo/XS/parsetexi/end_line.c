@@ -1363,6 +1363,10 @@ end_line_misc_line (ELEMENT *current)
    
   debug ("MISC END %s", command_name(cmd));
 
+  if ((command_data(cmd).flags & CF_contain_basic_inline)
+      || cmd == CM_item) /* CM_item_LINE on stack */
+    (void) pop_command (&nesting_context.basic_inline_stack_on_line);
+
   if (pop_context () != ct_line)
     fatal ("line context expected");
 

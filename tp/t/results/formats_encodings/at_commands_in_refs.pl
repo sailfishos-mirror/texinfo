@@ -17749,6 +17749,15 @@ $result_errors{'at_commands_in_refs'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verb should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 95,
+    'macro' => '',
+    'text' => '@verb should not appear anywhere inside @node',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @chapter
 ',
     'file_name' => '',

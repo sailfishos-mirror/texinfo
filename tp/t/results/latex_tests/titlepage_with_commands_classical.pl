@@ -857,6 +857,24 @@ $result_errors{'titlepage_with_commands_classical'} = [
     'macro' => '',
     'text' => '@footnote should not appear in @author',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @author
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @author',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @displaymath should not appear anywhere inside @author
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => '',
+    'text' => '@displaymath should not appear anywhere inside @author',
+    'type' => 'warning'
   }
 ];
 

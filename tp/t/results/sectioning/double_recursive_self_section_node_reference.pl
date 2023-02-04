@@ -416,6 +416,15 @@ $result_errors{'double_recursive_self_section_node_reference'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @ref should not appear anywhere inside @node
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @node',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @ref to `to node1\', different from node name `to @ref{node1}\'
 ',
     'file_name' => '',

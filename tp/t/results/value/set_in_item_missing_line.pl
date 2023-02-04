@@ -360,6 +360,15 @@ $result_errors{'set_in_item_missing_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @item should not appear anywhere inside @item
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @item',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
