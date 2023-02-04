@@ -1,6 +1,4 @@
-This file describes the development environment for Texinfo.
-
-  Copyright 2002-2022 Free Software Foundation, Inc.
+  Copyright 2002-2023 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -9,6 +7,12 @@ This file describes the development environment for Texinfo.
 The development sources for GNU Texinfo are available through git
 at Savannah:
   https://savannah.gnu.org/git/?group=texinfo
+
+See also files:
+tp/README, tp/t/README, tp/tests/README, TODO, TODO.HTML
+
+Development tools
+-----------------
 
 This distribution uses whatever versions of Automake, Autoconf, and
 Gettext are listed in NEWS; usually the latest official releases.  If
@@ -35,10 +39,10 @@ Gettext or help2man not installed do not cause configure to fail,
 though configure shows if they were found.  This is because a release
 does not require those tools.  Indeed, both prerequisites and
 result files are shipped in a release, such that the tools are only
-needed if the prerequisite changed.  The tools are needed when building
-from developpement sources, however, as result files are not under version
-control.  Make will fail with an explicit missing command for help2man,
-and with a command not found error for a Gettext utility command.
+needed if the prerequisite changed.  The tools are needed, however, when
+building from development sources, as result files are not under version
+control.  Make will fail with an explicit "missing command" for help2man,
+and with a "command not found" error for a Gettext utility command.
 
 Running make in one particular subdirectory is possible, for example
 make -C info.  However there are interdependencies between the 

@@ -1,6 +1,6 @@
-texinfo/tp/tests/README
+tp/tests/README
 
-  Copyright 2010-2022 Free Software Foundation, Inc.
+  Copyright 2010-2023 Free Software Foundation, Inc.
 
   Copying and distribution of this README file, with or without
   modification, are permitted in any medium without royalty provided the
@@ -85,6 +85,7 @@ below for more.
 Regenerating test results
 =========================
 To update the test results, first the tests must be run as above.
+A quick way to update all the tests is to run "make -k check copy-tests".
 
 Giving -copy as the first argument to ../run_parser_all.sh or
 parser_tests.sh will cause the reference results to be copied

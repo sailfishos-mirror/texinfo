@@ -1,6 +1,6 @@
-texinfo/tp/t/README
+tp/t/README
 
-  Copyright 2010-2022 Free Software Foundation, Inc.
+  Copyright 2010-2023 Free Software Foundation, Inc.
 
   Copying and distribution of this README file, with or without
   modification, are permitted in any medium without royalty provided the
@@ -11,10 +11,13 @@ other copyright notice are hereby placed in the public domain.
 
 See also the tests in the tp/tests directory.
 
-
 These tests are run by "make check" under tp/.  (The test files are
-listed in tp/Makefile.tres, which is a generated file.)  A single .t
-test file can be run on its own with
+listed in tp/Makefile.tres, which is a generated file.)
+
+When running the tests after a git pull, if getting failures, re-run
+make to ensure XS modules are rebuilt.
+
+A single .t test file can be run on its own with
 
   perl -w t/03coverage_braces.t
 
