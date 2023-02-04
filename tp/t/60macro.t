@@ -427,6 +427,16 @@ a
 @emptymacro{}@item fc @tab sc
 @end multitable
 '],
+# tests a source mark on empty line after paragraph transfer in a focused way
+['macro_after_paragraph',
+'@macro mymacro
+
+after end of line
+@end macro
+
+In text.
+@mymacro{}
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)

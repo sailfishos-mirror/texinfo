@@ -3922,7 +3922,6 @@ sub _end_line($$$)
     print STDERR "END EMPTY LINE\n" if ($self->{'DEBUG'});
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
-      # FIXME add test, the source mark should be transferred ok
       my $empty_line = _pop_element_from_contents($self, $current);
       $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
