@@ -1,3 +1,21 @@
+2023-02-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Basic inline stack for index commands
+
+	* tp/Texinfo/ParserNonXS.pm (%default_basic_inline_commands):
+	Initialise from %contain_basic_inline_commands and add index commands.
+	(parser): Initialise $parser->{'basic_inline_commands'} therefrom.
+	This hash is already mentioned in comment at top of file.
+	(_close_brace_command, _end_line_misc_line)
+	(_process_remaining_on_line): Use 'basic_inline_commands' hash.
+	(_parse_line_command_args) <new index command>: Add to hash.
+
+	* tp/Texinfo/XS/parsetexi/indices.c (add_index_command):
+	Set CF_contain_basic_inline flag.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Eliminate check for CF_index_entry_command.
+	(check_valid_nesting_context): Reorder a couple of conditionals.
+
 2023-02-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (import): never load the abort_empty_line

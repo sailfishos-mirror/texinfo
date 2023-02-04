@@ -972,6 +972,15 @@ $result_errors{'contain_plain_text_nestings'} = [
     'macro' => '',
     'text' => '@ref should not appear in @sortas',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ref should not appear anywhere inside @cindex
+',
+    'file_name' => '',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => '@ref should not appear anywhere inside @cindex',
+    'type' => 'warning'
   }
 ];
 

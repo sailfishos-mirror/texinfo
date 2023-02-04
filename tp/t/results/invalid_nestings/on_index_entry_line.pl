@@ -174,39 +174,39 @@ $result_texts{'on_index_entry_line'} = '';
 
 $result_errors{'on_index_entry_line'} = [
   {
-    'error_line' => 'warning: @indent should not appear in @cindex
+    'error_line' => 'warning: @indent should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@indent should not appear in @cindex',
+    'text' => '@indent should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear in @cindex
+    'error_line' => 'warning: @titlefont should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@titlefont should not appear in @cindex',
+    'text' => '@titlefont should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear in @cindex
+    'error_line' => 'warning: @anchor should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear in @cindex',
+    'text' => '@anchor should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear in @cindex
+    'error_line' => 'warning: @footnote should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@footnote should not appear in @cindex',
+    'text' => '@footnote should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {
@@ -219,12 +219,12 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear in @cindex
+    'error_line' => 'warning: @exdent should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@exdent should not appear in @cindex',
+    'text' => '@exdent should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {

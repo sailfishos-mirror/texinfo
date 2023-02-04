@@ -179,12 +179,12 @@ $result_texts{'multitable_item_in_index'} = '';
 
 $result_errors{'multitable_item_in_index'} = [
   {
-    'error_line' => 'warning: @item should not appear in @vindex
+    'error_line' => 'warning: @item should not appear anywhere inside @vindex
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@item should not appear in @vindex',
+    'text' => '@item should not appear anywhere inside @vindex',
     'type' => 'warning'
   },
   {

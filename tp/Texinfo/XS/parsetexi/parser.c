@@ -1019,10 +1019,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   // much TODO here.
 
   if (outer_flags & CF_contain_basic_inline
-      && !(outer_flags & (CF_brace | CF_line))
-      /* not in CF_contain_basic_inline since index entry flags are not set
-         in command_data.txt, and also index commands are dynamically added */
-      || outer_flags & CF_index_entry_command)
+      && !(outer_flags & (CF_brace | CF_line)))
     {
       basic_inline_command = 1;
     }
@@ -1167,12 +1164,13 @@ void
 check_valid_nesting_context (enum command_id cmd)
 {
   enum command_id invalid_context = 0;
-  if (cmd == CM_footnote && nesting_context.footnote > 0)
+  if (nesting_context.footnote > 0
+      && cmd == CM_footnote)
     {
       invalid_context = CM_footnote;
     }
-  else if ((cmd == CM_caption || cmd == CM_shortcaption)
-             && nesting_context.caption > 0)
+  else if (nesting_context.caption > 0
+           && (cmd == CM_caption || cmd == CM_shortcaption))
     {
       line_warn ("@%s should not appear anywhere inside caption",
         command_name(cmd));

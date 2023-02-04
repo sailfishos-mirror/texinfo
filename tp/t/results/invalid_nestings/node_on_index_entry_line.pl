@@ -296,12 +296,12 @@ $result_errors{'node_on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @node should not appear in @cindex
+    'error_line' => 'warning: @node should not appear anywhere inside @cindex
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@node should not appear in @cindex',
+    'text' => '@node should not appear anywhere inside @cindex',
     'type' => 'warning'
   },
   {

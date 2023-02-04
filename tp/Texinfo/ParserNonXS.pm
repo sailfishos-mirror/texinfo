@@ -552,11 +552,12 @@ foreach my $name (keys(%index_names)) {
   }
 }
 
+my %default_basic_inline_commands = %contain_basic_inline_commands;
 foreach my $index (keys(%index_names)) {
   my $one_letter_prefix = substr($index, 0, 1);
   foreach my $prefix ($index, $one_letter_prefix) {
     $default_no_paragraph_commands{$prefix.'index'} = 1;
-    $default_valid_nestings{$prefix.'index'} = \%in_basic_inline_commands;
+    $default_basic_inline_commands{$prefix.'index'} = 1;
   }
 }
 
@@ -664,6 +665,7 @@ sub parser(;$$)
   $parser->{'nesting_context'} = {%nesting_context_init};
   $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
+  $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
 
   # handle user provided state.
 
@@ -695,8 +697,6 @@ sub parser(;$$)
       foreach my $prefix ($index, substr($index, 0, 1)) {
         $parser->{'line_commands'}->{$prefix.'index'} = 'line';
         $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
-        $parser->{'valid_nestings'}->{$prefix.'index'}
-                                 = \%in_basic_inline_commands;
         $parser->{'command_index'}->{$prefix.'index'} = $index;
       }
     }
@@ -1520,7 +1520,7 @@ sub _close_brace_command($$$;$$$)
   }
 
   pop @{$self->{'nesting_context'}->{'basic_inline_stack'}}
-    if ($contain_basic_inline_commands{$current->{'cmdname'}});
+    if ($self->{'basic_inline_commands'}->{$current->{'cmdname'}});
 
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'info'}->{'delimiter'} eq '') {
@@ -3240,7 +3240,7 @@ sub _end_line_misc_line($$$)
   print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
      if ($self->{'DEBUG'});
 
-  if ($contain_basic_inline_commands{$command}) {
+  if ($self->{'basic_inline_commands'}->{$command}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
 
@@ -5526,7 +5526,7 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'contents'}->[-1];
         $current->{'args'} = [{ 'type' => 'line_arg',
                                 'parent' => $current }];
-        if ($contain_basic_inline_commands{$command}) {
+        if ($self->{'basic_inline_commands'}->{$command}) {
           push @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}},
                $command;
         }
@@ -5840,7 +5840,7 @@ sub _process_remaining_on_line($$$$)
 
         $current = $current->{'args'}->[-1];
         push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
-          if ($contain_basic_inline_commands{$command});
+          if ($self->{'basic_inline_commands'}->{$command});
         if ($self->{'brace_commands'}->{$command} eq 'context') {
           if ($command eq 'caption' or $command eq 'shortcaption') {
             my $float;
@@ -6715,7 +6715,7 @@ sub _parse_line_command_args($$$)
         }
         $self->{'line_commands'}->{$name.'index'} = 'line';
         $self->{'no_paragraph_commands'}->{$name.'index'} = 1;
-        $self->{'valid_nestings'}->{$name.'index'} = \%in_basic_inline_commands;
+        $self->{'basic_inline_commands'}->{$name.'index'} = 1;
         $self->{'command_index'}->{$name.'index'} = $name;
       }
     } else {
