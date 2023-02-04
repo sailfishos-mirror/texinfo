@@ -45,6 +45,8 @@
 
 const char *whitespace_chars = " \t\f\v\r\n";
 
+/* currently not used as it is not up to date with the changes
+   for source marks */
 int
 xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
 {
@@ -218,6 +220,7 @@ delete_type:
   return 1;
 }
 
+/* currently not used as it calls xs_abort_empty_line */
 HV *
 xs_merge_text (HV *self, HV *current, SV *text_in)
 {
