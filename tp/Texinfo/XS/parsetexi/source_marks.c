@@ -57,8 +57,9 @@ add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 }
 
 void
-add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
+transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
 {
+  SOURCE_MARK_LIST *source_mark_list = &(from_e->source_mark_list);
   if (source_mark_list->number)
     {
       int i;
@@ -66,6 +67,7 @@ add_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *e)
         {
           add_source_mark (source_mark_list->list[i], e);
         }
+      source_mark_list->number = 0;
     }
 }
 

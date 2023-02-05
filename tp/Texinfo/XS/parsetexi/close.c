@@ -124,8 +124,7 @@ close_container (ELEMENT *current)
       ELEMENT *child_element = last_contents_child (current);
       if ((!child_element->cmd) && is_container_empty (child_element))
         {
-          add_source_marks (&child_element->source_mark_list, current);
-          child_element->source_mark_list.number = 0;
+          transfer_source_marks (child_element, current);
 
           debug_nonl ("REMOVE empty child ");
           debug_print_element_short (child_element, 1); debug ("");

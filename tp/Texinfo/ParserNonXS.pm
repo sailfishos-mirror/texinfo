@@ -1335,14 +1335,17 @@ sub _place_source_mark
   push @{$mark_element->{'source_marks'}}, $source_mark;
 }
 
-sub _add_source_marks($$)
+sub _transfer_source_marks($$)
 {
-  my $source_marks = shift;
+  my $from_e = shift;
   my $element = shift;
-  if (!$element->{'source_marks'}) {
-    $element->{'source_marks'} = [];
+  if ($from_e->{'source_marks'} and scalar(@{$from_e->{'source_marks'}})) {
+    if (!$element->{'source_marks'}) {
+      $element->{'source_marks'} = [];
+    }
+    push @{$element->{'source_marks'}}, @{$from_e->{'source_marks'}};
+    delete $from_e->{'source_marks'};
   }
-  push @{$element->{'source_marks'}}, @{$source_marks};
 }
 
 # parse a @macro line
@@ -1656,10 +1659,7 @@ sub _close_container($$)
     my $child_element = $current->{'contents'}->[0];
     if (not defined($child_element->{'cmdname'})
         and _is_container_empty($child_element)) {
-      if ($child_element->{'source_marks'}
-          and scalar(@{$child_element->{'source_marks'}})) {
-        _add_source_marks($child_element->{'source_marks'}, $current);
-      }
+      _transfer_source_marks($child_element, $current);
       print STDERR "REMOVE empty child "
          .Texinfo::Common::debug_print_element_short($child_element)
           .' '.Texinfo::Common::debug_print_element_short($current)."\n"
@@ -2280,10 +2280,7 @@ sub _merge_text {
          if ($self->{'DEBUG'});
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
-    if ($transfer_marks_element and $transfer_marks_element->{'source_marks'}
-        and scalar(@{$transfer_marks_element->{'source_marks'}})) {
-      _add_source_marks($transfer_marks_element->{'source_marks'}, $new_element);
-    }
+    _transfer_source_marks($transfer_marks_element, $new_element);
     push @{$current->{'contents'}}, $new_element;
     print STDERR "NEW TEXT: $text|||\n" if ($self->{'DEBUG'});
   }
@@ -2738,8 +2735,7 @@ sub _abort_empty_line {
         = $spaces_element->{'extra'}->{'spaces_associated_command'};
       #$owning_element->{'info'} = {} if (! $owning_element->{'info'});
       my $new_space_element = {'text' => $spaces_element->{'text'},};
-      _add_source_marks($spaces_element->{'source_marks'}, $new_space_element)
-        if ($spaces_element->{'source_marks'});
+      _transfer_source_marks($spaces_element, $new_space_element);
       $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
       $owning_element->{'info'}->{'spaces_before_argument'}
         = $new_space_element;
@@ -2829,9 +2825,7 @@ sub _isolate_last_space
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       my $spaces_after_argument = _pop_element_from_contents($self, $current);
       my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
-      _add_source_marks($spaces_after_argument->{'source_marks'},
-                        $new_space_element)
-        if ($spaces_after_argument->{'source_marks'});
+      _transfer_source_marks($spaces_after_argument, $new_space_element);
       $current->{'info'} = {} if (!exists($current->{'info'}));
       $current->{'info'}->{'spaces_after_argument'}
                  = $new_space_element;
@@ -3991,11 +3985,7 @@ sub _end_line($$$)
                                         'type' => 'after_menu_description_line',
                                         'text' => $empty_line->{'text'},
                                         'parent' => $current };
-      if ($empty_line->{'source_marks'}
-          and scalar(@{$empty_line->{'source_marks'}})) {
-        _add_source_marks($empty_line->{'source_marks'},
-                          $after_menu_description_line);
-      }
+      _transfer_source_marks($empty_line, $after_menu_description_line);
       push @{$current->{'contents'}}, $after_menu_description_line;
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n" if ($self->{'DEBUG'});
     } elsif (!$no_paragraph_contexts{$self->_top_context()}) {
@@ -4993,10 +4983,7 @@ sub _process_remaining_on_line($$$$)
       while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
         # TODO not clear that it leads to a correct location of source marks
         my $removed_element = _pop_element_from_contents($self, $current);
-        if ($removed_element->{'source_marks'}
-            and scalar(@{$removed_element->{'source_marks'}})) {
-          _add_source_marks($removed_element->{'source_marks'}, $following_arg);
-        }
+        _transfer_source_marks($removed_element, $following_arg);
       }
       $current = $current->{'parent'};
     } else {
@@ -5064,10 +5051,7 @@ sub _process_remaining_on_line($$$$)
                                  { 'type' => 'menu_entry_name',
                                    'parent' => $current } ];
       # transfer source marks from removed menu star to leading text
-      if ($menu_star_element->{'source_marks'}) {
-        _add_source_marks($menu_star_element->{'source_marks'},
-                          $current->{'contents'}->[0]);
-      }
+      _transfer_source_marks($menu_star_element, $current->{'contents'}->[0]);
       $current = $current->{'contents'}->[-1];
     }
   # after a separator in menu

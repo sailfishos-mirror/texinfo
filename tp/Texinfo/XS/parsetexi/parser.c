@@ -687,10 +687,7 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
     {
       ELEMENT *e = new_element (ET_NONE);
       if (transfer_marks_element)
-        {
-          add_source_marks (&(transfer_marks_element->source_mark_list), e);
-          transfer_marks_element->source_mark_list.number = 0;
-        }
+        transfer_source_marks (transfer_marks_element, e);
       text_append (&e->text, text);
       add_to_element_contents (current, e);
       debug ("NEW TEXT: %s|||", text);
@@ -762,9 +759,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           k = lookup_extra (last_child, "spaces_associated_command");
           owning_element = (ELEMENT *) k->value;
           text_append (&spaces_element->text, e->text.text);
-          add_source_marks (&e->source_mark_list,
-                            spaces_element);
-          e->source_mark_list.number = 0;
+          transfer_source_marks (e, spaces_element);
           add_info_element_oot (owning_element, "spaces_before_argument",
                                 spaces_element);
           destroy_element (e);
@@ -794,9 +789,7 @@ isolate_last_space_internal (ELEMENT *current)
   if (text[strspn (text, whitespace_chars)] == '\0')
     {
       text_append (&spaces_element->text, last_elt->text.text);
-      add_source_marks (&last_elt->source_mark_list,
-                        spaces_element);
-      last_elt->source_mark_list.number = 0;
+      transfer_source_marks (last_elt, spaces_element);
       add_info_element_oot (current, "spaces_after_argument",
                             spaces_element);
       destroy_element (pop_element_from_contents (current));
@@ -1862,8 +1855,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           while (current->contents.number > 0)
             {
               ELEMENT *popped_element = pop_element_from_contents (current);
-              add_source_marks (&popped_element->source_mark_list, e);
-              popped_element->source_mark_list.number = 0;
+              transfer_source_marks (popped_element, e);
               /* current is the accent command.  So far only saw empty elements
                  for the removed elements */
               /*

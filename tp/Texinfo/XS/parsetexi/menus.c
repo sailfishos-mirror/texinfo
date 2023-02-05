@@ -149,8 +149,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       menu_entry = new_element (ET_menu_entry);
       leading_text = new_element (ET_menu_entry_leading_text);
       /* transfer source marks from removed menu star to leading text */
-      add_source_marks (&menu_star_element->source_mark_list, leading_text);
-      menu_star_element->source_mark_list.number = 0;
+      transfer_source_marks (menu_star_element, leading_text);
       destroy_element (menu_star_element);
       entry_name = new_element (ET_menu_entry_name);
       add_to_element_contents (current, menu_entry);

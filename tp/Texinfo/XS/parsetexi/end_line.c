@@ -2145,8 +2145,7 @@ end_line (ELEMENT *current)
           current = e;
           e = new_element (ET_after_menu_description_line);
           text_append (&e->text, empty_line->text.text);
-          add_source_marks (&empty_line->source_mark_list, e);
-          empty_line->source_mark_list.number = 0;
+          transfer_source_marks (empty_line, e);
           destroy_element (empty_line);
           add_to_element_contents (current, e);
 
