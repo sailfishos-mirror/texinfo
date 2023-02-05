@@ -109,11 +109,12 @@ char *
 read_comment (char *line, char **comment_command)
 {
   char *p = line;
+  int len = strlen (line);
 
-  if (memcmp (p, "@c", 2) == 0)
+  if (len >= 2 && memcmp (p, "@c", 2) == 0)
     {
       p += 2;
-      if (memcmp (p, "omment", 6) == 0)
+      if (len >= 8 && memcmp (p, "omment", 6) == 0)
         p += 6;
       if (*p && *p != '@' && !strchr (whitespace_chars, *p))
         return 0; /* @c or @comment not terminated. */

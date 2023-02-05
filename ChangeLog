@@ -1,5 +1,11 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (read_comment): check string
+	length to avoid reading past the string end (found through valgrind
+	output).
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	Source mark for value expansion
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text, _process_remaining_on_line),
