@@ -220,7 +220,9 @@ delete_type:
   return 1;
 }
 
-/* currently not used as it calls xs_abort_empty_line */
+/* currently not used as it calls xs_abort_empty_line
+   and also because it is not up to date with the changes
+   for source marks (new merged_marks_element argument) */
 HV *
 xs_merge_text (HV *self, HV *current, SV *text_in)
 {

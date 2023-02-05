@@ -609,9 +609,12 @@ end_preformatted (ELEMENT *current,
   return current;
 }
 
-/* Add TEXT to the contents of CURRENT, maybe starting a new paragraph. */
+/* Add TEXT to the contents of CURRENT, maybe starting a new paragraph.
+   If TRANSFER_MARKS_ELEMENT is given, also transfer mark sources
+   from that element.
+   */
 ELEMENT *
-merge_text (ELEMENT *current, char *text)
+merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
 {
   int no_merge_with_following_text = 0;
   int leading_spaces = strspn (text, whitespace_chars);
@@ -659,13 +662,35 @@ merge_text (ELEMENT *current, char *text)
             && !strchr (last_child->text.text, '\n'))
       && !no_merge_with_following_text)
     {
-      /* Append text to contents */
+      /* Transfer source marks */
+      if (transfer_marks_element
+          && transfer_marks_element->source_mark_list.number > 0)
+        {
+          size_t additional_length = count_convert_u8 (last_child->text.text);
+          SOURCE_MARK_LIST *s_mark_list
+             = &(transfer_marks_element->source_mark_list);
+          int i;
+          for (i = 0; i < s_mark_list->number; i++)
+            {
+              SOURCE_MARK *source_mark = s_mark_list->list[i];
+              if (additional_length > 0)
+                source_mark->position += additional_length;
+              add_source_mark (source_mark, last_child);
+            }
+          transfer_marks_element->source_mark_list.number = 0;
+        }
+      /* Append text */
       text_append (&last_child->text, text);
       debug ("MERGED TEXT: %s|||", text);
     }
   else
     {
       ELEMENT *e = new_element (ET_NONE);
+      if (transfer_marks_element)
+        {
+          add_source_marks (&(transfer_marks_element->source_mark_list), e);
+          transfer_marks_element->source_mark_list.number = 0;
+        }
       text_append (&e->text, text);
       add_to_element_contents (current, e);
       debug ("NEW TEXT: %s|||", text);
@@ -1781,7 +1806,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                        current = current->parent;
                        saved = line[whitespaces_len];
                        line[whitespaces_len] = '\0';
-                       current = merge_text (current, line);
+                       current = merge_text (current, line, 0);
                        line += whitespaces_len;
                        *line = saved;
                        isolate_last_space (current);
@@ -2152,7 +2177,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         len = strcspn (line, "{}@,:\t.\n\f");
         saved = line[len];
         line[len] = '\0';
-        current = merge_text (current, line);
+        current = merge_text (current, line, 0);
         line += len;
         *line = saved;
       }
@@ -2168,7 +2193,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       if (*line == '\n')
         {
-          current = merge_text (current, "\n");
+          current = merge_text (current, "\n", 0);
           line++;
         }
       else

@@ -765,7 +765,7 @@ handle_separator (ELEMENT *current, char separator, char **line_inout)
       char t[2];
       t[0] = separator;
       t[1] = '\0';
-      current = merge_text (current, t);
+      current = merge_text (current, t, 0);
     }
 
   *line_inout = line;

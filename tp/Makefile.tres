@@ -1198,6 +1198,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_after_paragraph.pl \
   t/results/macro/macro_expands_to_empty.pl \
   t/results/macro/macro_expansion.pl \
+  t/results/macro/macro_for_dot_in_menu_not_separator.pl \
   t/results/macro/macro_for_end.pl \
   t/results/macro/macro_for_ignored_line_command.pl \
   t/results/macro/macro_imbricated_with_beginning_command_name.pl \

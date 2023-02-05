@@ -97,6 +97,7 @@ our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     # not loaded because it uses the abort_empty_line XS override
+    # TODO and not up to date with the changes for source marks
     #Texinfo::XSLoader::override ("Texinfo::Parser::_merge_text",
     #  "Texinfo::MiscXS::merge_text");
     # TODO not up to date with the changes for source marks
@@ -2220,9 +2221,11 @@ sub _close_commands($$$;$$)
 
 # begin paragraph if needed.  If not try to merge with the previous
 # content if it is also some text.
+# If $TRANSFER_MARKS_ELEMENT is given, also transfer mark sources
+# from that element.
 # NOTE - this sub has an XS override
 sub _merge_text {
-  my ($self, $current, $text) = @_;
+  my ($self, $current, $text, $transfer_marks_element) = @_;
 
   my $paragraph;
 
@@ -2257,13 +2260,36 @@ sub _merge_text {
       and scalar(@{$current->{'contents'}})
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
-    $current->{'contents'}->[-1]->{'text'} .= $text;
+    my $merged_to = $current->{'contents'}->[-1];
+    # Transfer source marks
+    if ($transfer_marks_element and $transfer_marks_element->{'source_marks'}
+        and scalar(@{$transfer_marks_element->{'source_marks'}})) {
+      $merged_to->{'source_marks'} = []
+        if (!defined($merged_to->{'source_marks'}));
+      my $additional_length = length($current->{'contents'}->[-1]->{'text'});
+      while (scalar(@{$transfer_marks_element->{'source_marks'}})) {
+        my $source_mark = shift @{$transfer_marks_element->{'source_marks'}};
+        if ($additional_length) {
+          $source_mark->{'position'} = 0
+            if (not defined($source_mark->{'position'}));
+          $source_mark->{'position'} += $additional_length;
+        }
+        push @{$merged_to->{'source_marks'}}, $source_mark;
+      }
+    }
+    # Append text
+    $merged_to->{'text'} .= $text;
     print STDERR "MERGED TEXT: $text|||in "
-      .Texinfo::Common::debug_print_element_short($current->{'contents'}->[-1])
+      .Texinfo::Common::debug_print_element_short($merged_to)
       ." last of: ".Texinfo::Common::debug_print_element_short($current)."\n"
          if ($self->{'DEBUG'});
   } else {
-    push @{$current->{'contents'}}, { 'text' => $text, 'parent' => $current };
+    my $new_element = { 'text' => $text, 'parent' => $current };
+    if ($transfer_marks_element and $transfer_marks_element->{'source_marks'}
+        and scalar(@{$transfer_marks_element->{'source_marks'}})) {
+      _add_source_marks($transfer_marks_element->{'source_marks'}, $new_element);
+    }
+    push @{$current->{'contents'}}, $new_element;
     print STDERR "NEW TEXT: $text|||\n" if ($self->{'DEBUG'});
   }
   return $current;
@@ -5040,10 +5066,9 @@ sub _process_remaining_on_line($$$$)
       $current->{'contents'}->[-1]->{'text'} .= $1;
     # a . not followed by a space.  Not a separator.
     } elsif ($separator eq '.' and $line =~ /^\S/) {
-      # FIXME transfer source marks in separator element
-      _pop_element_from_contents($self, $current);
+      my $popped_element = _pop_element_from_contents($self, $current);
       $current = $current->{'contents'}->[-1];
-      $current = _merge_text($self, $current, $separator);
+      $current = _merge_text($self, $current, $separator, $popped_element);
     # here we collect spaces following separators.
     } elsif ($line =~ s/^([^\S\r\n]+)//) {
       # FIXME a trailing end of line could be considered to be part

@@ -193,7 +193,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
         {
           pop_element_from_contents (current, 0);
           current = last_contents_child (current);
-          merge_text (current, last_child->text.text);
+          merge_text (current, last_child->text.text, last_child);
           destroy_element (last_child);
         }
       /* here we collect spaces following separators. */

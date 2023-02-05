@@ -385,6 +385,15 @@ menu comment
 @emptystring{}* Copying Conditions::          Your rights.
 @end menu
 '],
+['macro_for_dot_in_menu_not_separator',
+'@macro macrodot
+.
+@end macro
+
+@menu
+* ref: name@macrodot{}after@macrodot{} desc
+@end menu
+'],
 ['macro_in_menu_comment_closed_by_detailmenu',
 '@macro emptystring
 

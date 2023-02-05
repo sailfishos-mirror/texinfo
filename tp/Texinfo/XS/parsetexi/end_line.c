@@ -2255,7 +2255,7 @@ end_line (ELEMENT *current)
             {
               ELEMENT *arg = contents_child_by_index(menu_entry, i);
               if (arg->text.end > 0)
-                current = merge_text (current, arg->text.text);
+                current = merge_text (current, arg->text.text, 0);
               else
                 {
                   ELEMENT *e;
@@ -2264,7 +2264,7 @@ end_line (ELEMENT *current)
                       e = contents_child_by_index (arg, j);
                       if (e->text.end > 0)
                         {
-                          current = merge_text (current, e->text.text);
+                          current = merge_text (current, e->text.text, 0);
                           destroy_element (e);
                         }
                       else

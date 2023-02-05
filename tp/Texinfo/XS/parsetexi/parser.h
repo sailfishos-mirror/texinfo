@@ -174,7 +174,8 @@ ELEMENT *end_preformatted (ELEMENT *current,
 char *read_command_name (char **ptr);
 char *read_comment (char *line, char **comment_command);
 char *read_flag_name (char **ptr);
-ELEMENT *merge_text (ELEMENT *current, char *text);
+ELEMENT *merge_text (ELEMENT *current, char *text,
+                     ELEMENT *transfer_marks_element);
 void start_empty_line_after_command (ELEMENT *current, char **line_inout,
                                      ELEMENT *command);
 ELEMENT *begin_paragraph (ELEMENT *current);
