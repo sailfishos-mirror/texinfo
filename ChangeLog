@@ -1,3 +1,28 @@
+2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Basic inline stack for block line args
+
+	* tp/Texinfo/ParserNonXS.pm
+	(parser): Initialise 'basic_inline_stack_block'  stack.
+	(_process_remaining_on_line) <line arg>: Push the new stack.
+	(_end_line_starting_block)
+	(_end_line_misc_line) <@columnfractions>:
+	Pop the new stack.
+
+	(_check_valid_nesting_context): Use 'basic_inline_stack_on_line'.
+
+	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
+	Add basic_inline_stack_block field.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf): Reset it.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	Use new stack.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	Push.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	(end_line_misc_line) <@columnfractions>:
+	Pop.
+
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_merge_text, _process_remaining_on_line),

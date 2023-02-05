@@ -1003,6 +1003,8 @@ handle_block_command (ELEMENT *current, char **line_inout,
       current = bla;
       if (!(command_data(cmd).flags & CF_def))
         push_context (ct_line, cmd);
+      if (command_data(cmd).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack_block, cmd);
 
       block->source_info = current_source_info;
       register_global_command (block);

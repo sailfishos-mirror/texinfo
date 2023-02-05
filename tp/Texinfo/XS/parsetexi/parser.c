@@ -1201,12 +1201,13 @@ check_valid_nesting_context (enum command_id cmd)
         command_name(cmd));
     }
   else if (nesting_context.basic_inline_stack.top > 0
-           || nesting_context.basic_inline_stack_on_line.top > 0)
+           || nesting_context.basic_inline_stack_on_line.top > 0
+           || nesting_context.basic_inline_stack_block.top > 0)
     {
       unsigned long flags = command_data(cmd).flags;
       int data = command_data(cmd).data;
 
-      if (!(                                      /* inclusions */
+      if (!(                                             /* inclusions */
                 (flags & (CF_accent | CF_brace | CF_in_heading_spec))
              || ((flags & CF_nobrace) && data == NOBRACE_symbol)
              || cmd == CM_c
@@ -1220,7 +1221,7 @@ check_valid_nesting_context (enum command_id cmd)
              || ((flags & CF_block)
                 && (data == BLOCK_format_raw || data == BLOCK_conditional))
            )
-          || (flags & CF_ref)                     /* exclusions */
+          || (flags & (CF_ref | CF_INFOENCLOSE))      /* exclusions */
           || cmd == CM_caption
           || cmd == CM_shortcaption
           || cmd == CM_titlefont
@@ -1231,9 +1232,12 @@ check_valid_nesting_context (enum command_id cmd)
           if (nesting_context.basic_inline_stack.top > 0)
             invalid_context = top_command
                                 (&nesting_context.basic_inline_stack);
-          else
+          else if (nesting_context.basic_inline_stack_on_line.top > 0)
             invalid_context = top_command
                                 (&nesting_context.basic_inline_stack_on_line);
+          else if (nesting_context.basic_inline_stack_block.top > 0)
+            invalid_context = top_command
+                                (&nesting_context.basic_inline_stack_block);
         }
 
       /* FIXME: This may not match exactly the definition of a basic inline

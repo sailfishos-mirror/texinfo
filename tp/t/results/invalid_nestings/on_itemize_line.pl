@@ -308,12 +308,30 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @indent should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@indent should not appear anywhere inside @itemize',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @titlefont should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => '@titlefont should not appear in @itemize',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @titlefont should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@titlefont should not appear anywhere inside @itemize',
     'type' => 'warning'
   },
   {
@@ -326,12 +344,30 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @anchor should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@anchor should not appear anywhere inside @itemize',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @footnote should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => '@footnote should not appear in @itemize',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnote should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@footnote should not appear anywhere inside @itemize',
     'type' => 'warning'
   },
   {
@@ -353,12 +389,30 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @exdent should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@exdent should not appear anywhere inside @itemize',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @item should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
     'text' => '@item should not appear in @itemize',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@item should not appear anywhere inside @itemize',
     'type' => 'warning'
   },
   {

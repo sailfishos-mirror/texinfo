@@ -324,6 +324,15 @@ $result_errors{'section_on_multitable_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @multitable
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @multitable',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: empty multitable
 ',
     'file_name' => '',
@@ -357,6 +366,15 @@ $result_errors{'section_on_multitable_line'} = [
     'line_nr' => 3,
     'macro' => '',
     'text' => '@section should not appear in @multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @multitable
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @multitable',
     'type' => 'warning'
   },
   {
@@ -402,6 +420,15 @@ $result_errors{'section_on_multitable_line'} = [
     'line_nr' => 5,
     'macro' => '',
     'text' => '@section should not appear in @multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @multitable
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @multitable',
     'type' => 'warning'
   },
   {

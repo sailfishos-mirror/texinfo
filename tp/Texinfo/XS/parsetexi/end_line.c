@@ -1,5 +1,5 @@
 /* end_line.c -- what to do at the end of a whole line of input */
-/* Copyright 2010-2022 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1012,6 +1012,9 @@ end_line_starting_block (ELEMENT *current)
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
+  if (command_flags(current->parent) & CF_contain_basic_inline)
+      (void) pop_command (&nesting_context.basic_inline_stack_block);
+
   if (current->parent->cmd == CM_multitable)
     {
       /* Parse prototype row for a @multitable.  Handling
@@ -1917,6 +1920,9 @@ end_line_misc_line (ELEMENT *current)
         {
           if (pop_context () != ct_line)
             fatal ("line context expected");
+          (void) pop_command (&nesting_context.basic_inline_stack_block);
+          /* FIXME much better to pop contexts in only one place in the
+             source code. */
 
           current = current->parent;
 

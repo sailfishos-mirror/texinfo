@@ -1123,6 +1123,15 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @xref should not appear anywhere inside @table
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@xref should not appear anywhere inside @table',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @indent should not appear in @item
 ',
     'file_name' => '',

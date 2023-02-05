@@ -666,6 +666,7 @@ sub parser(;$$)
   $parser->{'nesting_context'} = {%nesting_context_init};
   $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
+  $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
 
   # handle user provided state.
@@ -3542,6 +3543,10 @@ sub _end_line_misc_line($$$)
     } else {
       # This is the multitable block_line_arg line context
       $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
+      pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
+      # FIXME much better to pop contexts in exactly one place in the
+      # source code.
+
       $current = $current->{'parent'};
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'max_columns'} = 0;
@@ -3691,9 +3696,14 @@ sub _end_line_starting_block($$$)
   my $command = $current->{'parent'}->{'cmdname'};
   $command = '' if !defined($command);
 
+  if ($self->{'basic_inline_commands'}->{$command}) {
+    pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
+  }
+
   print STDERR "END BLOCK LINE: "
      .Texinfo::Common::debug_print_element_short($current, 1)."\n"
        if ($self->{'DEBUG'});
+
   # @multitable args
   if ($command eq 'multitable') {
     # parse the prototypes and put them in a special arg
@@ -4435,6 +4445,11 @@ sub _check_valid_nesting_context
        and !$in_basic_inline_commands{$command}) {
     $invalid_context
       = $self->{'nesting_context'}->{'basic_inline_stack_on_line'}->[-1];
+  } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack_block'})
+       and @{$self->{'nesting_context'}->{'basic_inline_stack_block'}} > 0
+       and !$in_basic_inline_commands{$command}) {
+    $invalid_context
+      = $self->{'nesting_context'}->{'basic_inline_stack_block'}->[-1];
   }
 
   $self->_line_warn(sprintf(
@@ -5801,6 +5816,10 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'args'}->[-1];
         $self->_push_context('ct_line', $command)
           unless ($def_commands{$command});
+        if ($self->{'basic_inline_commands'}->{$command}) {
+          push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
+               $command;
+        }
         $block->{'source_info'} = $source_info;
         _register_global_command($self, $block, $source_info);
         $line = _start_empty_line_after_command($line, $current, $block);

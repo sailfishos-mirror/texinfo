@@ -71,6 +71,7 @@ typedef struct {
     int caption;
     COMMAND_STACK basic_inline_stack;
     COMMAND_STACK basic_inline_stack_on_line;
+    COMMAND_STACK basic_inline_stack_block;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;

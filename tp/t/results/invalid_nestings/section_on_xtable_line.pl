@@ -392,6 +392,15 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @vtable
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @vtable',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'missing @vtable argument
 ',
     'file_name' => '',
@@ -425,6 +434,15 @@ $result_errors{'section_on_xtable_line'} = [
     'line_nr' => 3,
     'macro' => '',
     'text' => '@section should not appear in @table',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @table
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @table',
     'type' => 'warning'
   },
   {
@@ -464,6 +482,15 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @table
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @table',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@section seen before @end table
 ',
     'file_name' => '',
@@ -497,6 +524,15 @@ $result_errors{'section_on_xtable_line'} = [
     'line_nr' => 7,
     'macro' => '',
     'text' => '@section should not appear in @ftable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @ftable
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @ftable',
     'type' => 'warning'
   },
   {

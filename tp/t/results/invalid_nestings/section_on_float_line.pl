@@ -145,6 +145,15 @@ $result_errors{'section_on_float_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @float
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @float',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@section seen before @end float
 ',
     'file_name' => '',

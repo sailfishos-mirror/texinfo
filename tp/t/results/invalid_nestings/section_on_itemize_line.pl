@@ -399,6 +399,15 @@ $result_errors{'section_on_itemize_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @itemize',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@section seen before @end itemize
 ',
     'file_name' => '',
@@ -426,6 +435,15 @@ $result_errors{'section_on_itemize_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @section should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @itemize',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@section seen before @end itemize
 ',
     'file_name' => '',
@@ -441,6 +459,15 @@ $result_errors{'section_on_itemize_line'} = [
     'line_nr' => 5,
     'macro' => '',
     'text' => '@section should not appear in @itemize',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @itemize',
     'type' => 'warning'
   },
   {
@@ -477,6 +504,15 @@ $result_errors{'section_on_itemize_line'} = [
     'line_nr' => 7,
     'macro' => '',
     'text' => '@section should not appear in @itemize',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @section should not appear anywhere inside @itemize
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@section should not appear anywhere inside @itemize',
     'type' => 'warning'
   },
   {
