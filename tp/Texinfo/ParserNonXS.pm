@@ -5674,19 +5674,19 @@ sub _process_remaining_on_line($$$$)
             and ($current->{'type'} eq 'menu_comment'
                  or $current->{'type'} eq 'menu_entry_description')) {
 
-          my $menu;
-          # This is for @detailmenu within @menu
-          $menu = $current->{'parent'};
-          # FIXME check with source mark as it could be problematic
-          _pop_element_from_contents($self, $menu, 1)
-            if (not $current->{'contents'}
-                or not scalar(@{$current->{'contents'}}));
-
-          if ($menu->{'type'} and $menu->{'type'} eq 'menu_entry') {
-            $menu = $menu->{'parent'};
+          # This is, in general, caused by @detailmenu within @menu
+          if ($current->{'type'} eq 'menu_comment') {
+            $current = _close_container($self, $current);
+          } else { # menu_entry_description
+            $current = _close_container($self, $current);
+            if ($current->{'type'} and $current->{'type'} eq 'menu_entry') {
+              $current = $current->{'parent'};
+            } else {
+              $self->_bug_message("menu description parent not a menu_entry",
+                                  $source_info, $current);
+              die;
+            }
           }
-
-          $current = $menu;
         }
         # the def command holds a line_def* which corresponds with the
         # definition line.  This allows to have a treatement similar

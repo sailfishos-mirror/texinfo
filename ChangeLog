@@ -1,6 +1,17 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	use close_container to close menu_comment or menu description
+	interrupted by a menu command, to handle correctly source marks
+	in closed containers.
+
+	* tp/t/60macro.t, tp/Makefile.tres: add
+	macro_in_menu_comment_closed_by_detailmenu test.
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/menus.c (handle_menu): use close_container
 	to close preformatted and menu_comment when starting a menu entry.
 

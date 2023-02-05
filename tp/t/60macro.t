@@ -385,6 +385,17 @@ menu comment
 @emptystring{}* Copying Conditions::          Your rights.
 @end menu
 '],
+['macro_in_menu_comment_closed_by_detailmenu',
+'@macro emptystring
+
+@end macro
+
+@menu
+@emptystring{}@detailmenu
+* second::
+@end detailmenu
+@end menu
+'],
 ['macro_in_accent',
 '@macro aletter
 a

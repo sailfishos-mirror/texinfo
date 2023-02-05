@@ -889,14 +889,21 @@ handle_block_command (ELEMENT *current, char **line_inout,
           && (current->type == ET_menu_comment
               || current->type == ET_menu_entry_description))
         {
-          /* This is for @detailmenu within @menu */
-          ELEMENT *menu = current->parent;
-          if (current->contents.number == 0)
-            destroy_element (pop_element_from_contents (menu, 1));
-
-          if (menu->type == ET_menu_entry)
-            menu = menu->parent;
-          current = menu;
+          /* This is, in general, caused by @detailmenu within @menu */
+          if (current->type == ET_menu_comment)
+            current = close_container(current);
+          else /* menu_entry_description */
+            {
+              current = close_container(current);
+              if (current->type == ET_menu_entry)
+                current = current->parent;
+              else
+                {
+                  bug_message ("menu description parent not a menu_entry: %s",
+                               element_type_name (current));
+                  abort ();
+                }
+            }
         }
 
       if (flags & CF_def)

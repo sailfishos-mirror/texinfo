@@ -29,9 +29,6 @@ mark leading to an infinite loop. Such a situation should maybe be handled in
 _pop_element_from_contents
 
 Test for the case of
-# FIXME check with source mark as it could be problematic
-
-Test for the case of
       # FIXME check that there is a test case for this situation with
       # a source mark
 
