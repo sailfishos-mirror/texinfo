@@ -1,3 +1,8 @@
+2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block):
+	Place command name in a variable to avoid accessing hash every time.
+
 2023-02-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/60macro.t: add test of macro expansion in
