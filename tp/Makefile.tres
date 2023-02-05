@@ -1216,6 +1216,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_in_macro_arg_simpler.pl \
   t/results/macro/macro_in_menu.pl \
   t/results/macro/macro_in_menu_comment_closed_by_detailmenu.pl \
+  t/results/macro/macro_in_menu_comment_like_entry.pl \
   t/results/macro/macro_in_menu_description.pl \
   t/results/macro/macro_in_misc_commands.pl \
   t/results/macro/macro_in_multitable_empty_before_item.pl \

@@ -28,8 +28,6 @@ Source marks of element popped can lead to empty element readded for the source
 mark leading to an infinite loop. Such a situation should maybe be handled in
 _pop_element_from_contents
 
-# FIXME check that source marks are transfered
-
 Test for the cases of (but how to be sure that all possibilities are tested?)
       # FIXME if first in parent and with source mark, this
       # should lead to readding an element for the source mark.

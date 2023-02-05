@@ -4076,16 +4076,17 @@ sub _end_line($$$)
         $current = $current->{'contents'}->[-1];
         print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
       }
-      # FIXME check that source marks are transfered
+      # source marks tested in t/*macro.t macro_in_menu_comment_like_entry
       while (@{$menu_entry->{'contents'}}) {
         my $arg = shift @{$menu_entry->{'contents'}};
         if (defined($arg->{'text'})) {
-          $current = _merge_text($self, $current, $arg->{'text'});
+          $current = _merge_text($self, $current, $arg->{'text'}, $arg);
         } elsif ($arg->{'contents'}) {
           while (@{$arg->{'contents'}}) {
             my $content = shift @{$arg->{'contents'}};
             if (defined($content->{'text'})) {
-              $current = _merge_text($self, $current, $content->{'text'});
+              $current = _merge_text($self, $current, $content->{'text'},
+                                     $content);
               $content = undef;
             } else {
               $content->{'parent'} = $current;

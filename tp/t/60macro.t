@@ -405,6 +405,16 @@ menu comment
 @end detailmenu
 @end menu
 '],
+['macro_in_menu_comment_like_entry',
+'
+@macro emptystring
+
+@end macro
+
+@menu
+*@emptystring{} a@emptystring{}5@b{b@emptystring{}}@emptystring{}: @c c
+@end menu
+'],
 ['macro_in_accent',
 '@macro aletter
 a

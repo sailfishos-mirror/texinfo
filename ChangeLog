@@ -1,3 +1,13 @@
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line): use merge_text argument
+	to transfer source marks when reconstructing text from an aborted menu
+	entry line.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add macro_in_menu_comment_like_entry
+	with source marks in text finally not considered as a menu entry.
+
 2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No more check for basic inline content in check_valid_nesting.

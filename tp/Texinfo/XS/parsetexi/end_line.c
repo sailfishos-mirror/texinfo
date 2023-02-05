@@ -2255,13 +2255,13 @@ end_line (ELEMENT *current)
               debug ("THEN MENU_COMMENT OPEN");
             }
           {
-          /* FIXME check that source marks are transfered */
+          /* source marks tested in *macro.t macro_in_menu_comment_like_entry */
           int i, j;
           for (i = 0; i < menu_entry->contents.number; i++)
             {
               ELEMENT *arg = contents_child_by_index(menu_entry, i);
               if (arg->text.end > 0)
-                current = merge_text (current, arg->text.text, 0);
+                current = merge_text (current, arg->text.text, arg);
               else
                 {
                   ELEMENT *e;
@@ -2270,7 +2270,7 @@ end_line (ELEMENT *current)
                       e = contents_child_by_index (arg, j);
                       if (e->text.end > 0)
                         {
-                          current = merge_text (current, e->text.text, 0);
+                          current = merge_text (current, e->text.text, e);
                           destroy_element (e);
                         }
                       else
