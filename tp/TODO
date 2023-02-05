@@ -17,8 +17,6 @@ or value expansion. aliases.
 done: source_marks structures, with beginning and end of included file, @
 protecting end of line in @def*, @setfilename in included files.
 
-# TODO add test with type different from before_item and preformatted
-
 check that there is a test of something like
 @macro cpfn
  cp fn
@@ -29,9 +27,6 @@ check that there is a test of something like
 Source marks of element popped can lead to empty element readded for the source
 mark leading to an infinite loop. Such a situation should maybe be handled in
 _pop_element_from_contents
-
-Check position in t/*macro.t macro_in_menu starspaces macro expansion
-          # FIXME check if correctly placed
 
 Test for the case of
 # FIXME check with source mark as it could be problematic

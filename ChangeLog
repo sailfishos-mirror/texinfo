@@ -1,3 +1,9 @@
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/menus.c (handle_menu): use close_container
+	to close preformatted and menu_comment when starting a menu entry.
+
 2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block):

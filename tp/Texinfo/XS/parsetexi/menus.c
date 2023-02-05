@@ -133,19 +133,9 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
         {
           ELEMENT *menu = current->parent->parent;
 
-          /* Remove an empty ET_preformatted, and an empty ET_menu_comment. */
-          if (current->contents.number == 0)
-            {
-              pop_element_from_contents (current->parent, 1);
-              if (current->parent->contents.number == 0)
-                {
-                  pop_element_from_contents (menu, 1);
-                  destroy_element (current->parent);
-                }
-              destroy_element (current);
-            }
-
-          current = menu;
+          /* Close ET_preformatted, and ET_menu_comment. */
+          current = close_container (current);
+          current = close_container (current);
         }
       else
         {

@@ -374,6 +374,17 @@ menu comment
 @emptystring{}
 @end menu
 '],
+# this is actually already tested in macro_in_menu with
+# @starspaces{}, but this test is more focused
+['macro_in_empty_menu_comment',
+'@macro emptystring
+
+@end macro
+
+@menu
+@emptystring{}* Copying Conditions::          Your rights.
+@end menu
+'],
 ['macro_in_accent',
 '@macro aletter
 a

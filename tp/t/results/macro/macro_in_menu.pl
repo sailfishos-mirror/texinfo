@@ -401,35 +401,24 @@ $result_trees{'macro_in_menu'} = {
           'cmdname' => 'menu',
           'contents' => [
             {
-              'contents' => [
+              'source_marks' => [
                 {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
-                            'extra' => {
-                              'name' => 'starspaces'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => ''
-                    }
-                  ],
-                  'type' => 'preformatted'
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'extra' => {
+                      'name' => 'starspaces'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
                 }
-              ],
-              'type' => 'menu_comment'
+              ]
             },
             {
               'contents' => [

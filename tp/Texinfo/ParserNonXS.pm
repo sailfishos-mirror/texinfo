@@ -1680,10 +1680,8 @@ sub _close_container($$)
       # Keep the element to keep the source mark, but remove some types.
       # Keep before_item in order not to add empty table definition in
       # gather_previous_item.
-      # TODO add test with type different from before_item and preformatted
       delete $current->{'type'} if ($current->{'type'} ne 'before_item');
     } else {
-      #print STDERR "TTTTTTTTTTT $current->{'type'}\n";
       $element_to_remove = $current;
     }
   }
@@ -4994,27 +4992,14 @@ sub _process_remaining_on_line($$$$)
       my $menu_star_element = _pop_element_from_contents($self, $current);
       $line =~ s/^(\s+)//;
       my $leading_text = '*' . $1;
-      # FIXME remove empty description too?  In that case there won't be
-      # a need to delete preformatted 'contents'
+      # FIXME remove empty description too?
       if ($current->{'type'} eq 'preformatted'
           and $current->{'parent'}->{'type'}
-          and ($current->{'parent'}->{'type'} eq 'menu_comment'
-               # or $current->{'parent'}->{'type'} eq 'menu_entry_description'
-               )) {
-        my $menu = $current->{'parent'}->{'parent'};
-        if (!$current->{'contents'}) {
-          # FIXME check if correctly placed
-          # source marks here are tested in t/*macro.t macro_in_menu
-          # with starspaces macro expansion
-          _pop_element_from_contents($self, $current->{'parent'}, 1);
-          if (not $current->{'parent'}
-              or not $current->{'parent'}->{'contents'}
-              or not scalar(@{$current->{'parent'}->{'contents'}})) {
-            # also tested in the same test as the previous one
-            _pop_element_from_contents($self, $menu, 1);
-          }
-        }
-        $current = $menu;
+          and $current->{'parent'}->{'type'} eq 'menu_comment') {
+        # close preformatted
+        $current = _close_container($self, $current);
+        # close menu_comment
+        $current = _close_container($self, $current);
       } else {
         # first parent preformatted, third is menu_entry
         if ($current->{'type'} ne 'preformatted'
