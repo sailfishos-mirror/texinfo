@@ -24,9 +24,6 @@ check that there is a test of something like
 
 @syncodeindex@cpfn{}
 
-in XS parser
-FIXME there is no such code in the pure perl parser
-
 Bugs
 ====
 

@@ -1946,13 +1946,6 @@ end_line_misc_line (ELEMENT *current)
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
       
-      /* Destroy all contents (TODO: check why do we do this?) */
-      /* FIXME there is no such code in the pure perl parser,
-         and it would be better to remove if not useful, as
-         if useful source mark information is lost */
-      while (last_contents_child (current))
-        destroy_element (pop_element_from_contents (current));
-
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
