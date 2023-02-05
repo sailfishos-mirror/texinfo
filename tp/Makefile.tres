@@ -1196,6 +1196,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/leading_spaces_no_ignore.pl \
   t/results/macro/line_after_recursive_call.pl \
   t/results/macro/macro_after_paragraph.pl \
+  t/results/macro/macro_before_specific_line_command_args.pl \
   t/results/macro/macro_expands_to_empty.pl \
   t/results/macro/macro_expansion.pl \
   t/results/macro/macro_for_dot_in_menu_not_separator.pl \

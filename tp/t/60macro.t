@@ -753,6 +753,13 @@ different
 
 @redefineothermacro{@othermacro{}}
 '],
+['macro_before_specific_line_command_args',
+'@macro cpfn
+ cp fn
+@end macro
+
+@syncodeindex@cpfn{}
+'],
 ['macro_in_index_commands',
 '@macro cp
 cp

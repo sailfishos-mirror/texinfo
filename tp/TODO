@@ -17,13 +17,6 @@ or value expansion. aliases.
 done: source_marks structures, with beginning and end of included file, @
 protecting end of line in @def*, @setfilename in included files.
 
-check that there is a test of something like
-@macro cpfn
- cp fn
-@end macro
-
-@syncodeindex@cpfn{}
-
 Bugs
 ====
 
