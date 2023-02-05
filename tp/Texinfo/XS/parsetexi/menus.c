@@ -124,7 +124,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       debug ("MENU ENTRY (certainly)");
 
       /* this is the menu star collected previously */
-      menu_star_element = pop_element_from_contents (current, 0);
+      menu_star_element = pop_element_from_contents (current);
 
       leading_spaces = strspn (line, whitespace_chars);
 
@@ -191,7 +191,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       /* A "." not followed by a space.  Not a separator. */
       else if (!strcmp (separator, ".") && !strchr (whitespace_chars, *line))
         {
-          pop_element_from_contents (current, 0);
+          pop_element_from_contents (current);
           current = last_contents_child (current);
           merge_text (current, last_child->text.text, last_child);
           destroy_element (last_child);

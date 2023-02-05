@@ -1842,7 +1842,7 @@ end_line_misc_line (ELEMENT *current)
       debug ("END COMMAND %s", end_command);
 
       /* Reparent the "@end" element to be a child of the block element. */
-      end_elt = pop_element_from_contents (current, 0);
+      end_elt = pop_element_from_contents (current);
 
       /* If not a conditional */
       if (command_data(end_id).data != BLOCK_conditional)
@@ -1896,7 +1896,7 @@ end_line_misc_line (ELEMENT *current)
             removed element.  For the XS parser it is also easier to
             manage the source mark memory which can stay associated
             to the element. */
-          source_mark->element = pop_element_from_contents (current, 0);
+          source_mark->element = pop_element_from_contents (current);
           register_source_mark(current, source_mark);
         }
       if (close_preformatted_command (cmd))
@@ -1951,7 +1951,7 @@ end_line_misc_line (ELEMENT *current)
          and it would be better to remove if not useful, as
          if useful source mark information is lost */
       while (last_contents_child (current))
-        destroy_element (pop_element_from_contents (current, 0));
+        destroy_element (pop_element_from_contents (current));
 
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
@@ -2113,7 +2113,7 @@ end_line (ELEMENT *current)
         {
           ELEMENT *e;
           /* Remove empty_line element. */
-          e = pop_element_from_contents (current, 0);
+          e = pop_element_from_contents (current);
 
           current = end_paragraph (current, 0, 0);
 
@@ -2125,11 +2125,11 @@ end_line (ELEMENT *current)
         {
           /* happens for an empty line following a menu_description */
           ELEMENT *empty_line, *e;
-          empty_line = pop_element_from_contents (current, 0);
+          empty_line = pop_element_from_contents (current);
           if (current->contents.number == 0)
             {
               current = current->parent;
-              destroy_element (pop_element_from_contents (current, 0));
+              destroy_element (pop_element_from_contents (current));
             }
           else
             current = current->parent;
@@ -2171,7 +2171,7 @@ end_line (ELEMENT *current)
           if (current->contents.number > 0
               && (last->cmd == CM_c || last->cmd == CM_comment))
             {
-              end_comment = pop_element_from_contents (current, 0);
+              end_comment = pop_element_from_contents (current);
             }
 
           /* If contents empty or is all whitespace. */
@@ -2193,7 +2193,7 @@ end_line (ELEMENT *current)
           ELEMENT *menu, *menu_entry, *description_or_menu_comment = 0;
           debug ("FINALLY NOT MENU ENTRY");
           menu = current->parent->parent;
-          menu_entry = pop_element_from_contents (menu, 0);
+          menu_entry = pop_element_from_contents (menu);
           if (menu->contents.number > 0
               && last_contents_child(menu)->type == ET_menu_entry)
             {

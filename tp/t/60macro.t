@@ -287,6 +287,23 @@ a word
 
 @aspace{} text after space.
 '],
+# the macro expansion is put in an @indentedblock to be at the
+# containing element beginning.  This is not so easy to do as
+# in a paragraph there is necessarilly something before and in text
+# there is often something before, for instance th @macro definition...
+# It needs to be right in an @-command to be first, though it could have
+# been in a brace command too.
+# Such a situation happens in tests testing for something else, but
+# not so often for the reason above.
+['macro_in_empty_text',
+'@macro emptystring
+
+@end macro
+
+@indentedblock
+@emptystring{}@@.
+@end indentedblock
+'],
 ['macro_in_end_argument',
 '@macro acartouche
 cartouche

@@ -2665,18 +2665,12 @@ sub _set_non_ignored_space_in_index_before_command($)
   }
 }
 
-sub _pop_element_from_contents($$;$)
+sub _pop_element_from_contents($$)
 {
   my $self = shift;
   my $parent_element = shift;
-  my $reparent_source_marks = shift;
 
   my $popped_element = pop @{$parent_element->{'contents'}};
-  if ($reparent_source_marks and $popped_element->{'source_marks'}) {
-    foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
-      _place_source_mark($self, $parent_element, $source_mark);
-    }
-  }
   delete $parent_element->{'contents'}
     if (scalar(@{$parent_element->{'contents'}}) == 0);
 
@@ -2711,11 +2705,22 @@ sub _abort_empty_line {
 
     # remove empty 'empty*before'.  Happens in many situations.
     if ($spaces_element->{'text'} eq '') {
-      # FIXME if first in parent and with source mark, this
-      # should lead to readding an element for the source mark.
-      # Could even lead to infinite loops.
-      # It could be problematic in some cases, need some tests.
-      _pop_element_from_contents($self, $current, 1);
+      my $popped_element = _pop_element_from_contents($self, $current);
+      # if first in parent and with source mark, placing a source mark
+      # should lead to readding an element for the source mark.  In that
+      # case, the type is not readded, such that it is actually relatively
+      # similar to the case of an empty line just below, except that an empty
+      # text string is left.
+      #
+      # Note that an empty text string first in parent does not happen often,
+      # as it cannot happen in paragraph, as there is some command or text that
+      # started the paragraph before, and being first in the main text out of
+      # paragraph does not happen often either.  The situation in which it
+      # happens is a macro expansion to an empty string right after an
+      # @-command opening (block or brace command).
+      foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
+        _place_source_mark($self, $current, $source_mark);
+      }
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2824,7 +2829,8 @@ sub _isolate_last_space
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       my $spaces_after_argument = _pop_element_from_contents($self, $current);
       my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
-      _add_source_marks($spaces_after_argument->{'source_marks'}, $new_space_element)
+      _add_source_marks($spaces_after_argument->{'source_marks'},
+                        $new_space_element)
         if ($spaces_after_argument->{'source_marks'});
       $current->{'info'} = {} if (!exists($current->{'info'}));
       $current->{'info'}->{'spaces_after_argument'}
@@ -3953,7 +3959,7 @@ sub _end_line($$$)
              and $current->{'parent'}->{'type'}
              and $current->{'parent'}->{'type'} eq 'menu_entry_description')  {
       # happens for an empty line following a menu_description
-      my $empty_line = _pop_element_from_contents($self, $current, 0);
+      my $empty_line = _pop_element_from_contents($self, $current);
       my $preformatted = $current;
       $current = $current->{'parent'};
       if (not $preformatted->{'contents'} or
@@ -4985,7 +4991,7 @@ sub _process_remaining_on_line($$$$)
       # elements may have text/args/contents, although never saw anything
       # else than empty elements.
       while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
-        # FIXME not clear that it leads to a correct location of source marks
+        # TODO not clear that it leads to a correct location of source marks
         my $removed_element = _pop_element_from_contents($self, $current);
         if ($removed_element->{'source_marks'}
             and scalar(@{$removed_element->{'source_marks'}})) {

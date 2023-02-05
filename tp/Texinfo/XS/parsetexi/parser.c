@@ -731,7 +731,17 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       /* Remove element altogether if it's empty. */
       if (last_child->text.end == 0)
         {
-          ELEMENT *e = pop_element_from_contents (current, 1);
+          ELEMENT *e = pop_element_from_contents (current);
+          if (e->source_mark_list.number)
+            {
+              SOURCE_MARK_LIST *source_mark_list = &e->source_mark_list;
+
+              int i;
+              for (i = 0; i < source_mark_list->number; i++)
+                place_source_mark (current, source_mark_list->list[i]);
+              source_mark_list->number = 0;
+            }
+
           destroy_element (e);
         }
       else if (last_child->type == ET_empty_line)
@@ -746,7 +756,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
              the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
           KEY_PAIR *k;
-          ELEMENT *e = pop_element_from_contents (current, 0);
+          ELEMENT *e = pop_element_from_contents (current);
           ELEMENT *spaces_element = new_element (ET_NONE);
 
           k = lookup_extra (last_child, "spaces_associated_command");
@@ -789,7 +799,7 @@ isolate_last_space_internal (ELEMENT *current)
       last_elt->source_mark_list.number = 0;
       add_info_element_oot (current, "spaces_after_argument",
                             spaces_element);
-      destroy_element (pop_element_from_contents (current, 0));
+      destroy_element (pop_element_from_contents (current));
     }
   else
     {
@@ -876,7 +886,7 @@ isolate_last_space (ELEMENT *current)
           || last_contents_child(current)->cmd == CM_comment))
     {
       add_info_element_oot (current, "comment_at_end",
-                             pop_element_from_contents (current, 0));
+                            pop_element_from_contents (current));
     }
 
   if (current->contents.number == 0)
@@ -1422,7 +1432,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           current = current->parent;
 
           /* Remove an ignored block. */
-          popped = pop_element_from_contents (current, 0);
+          popped = pop_element_from_contents (current);
           if (popped->cmd != end_cmd)
             fatal ("command mismatch for ignored block");
 
@@ -1851,7 +1861,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              and accents, and requires source marks to be transmitted */
           while (current->contents.number > 0)
             {
-              ELEMENT *popped_element = pop_element_from_contents (current, 0);
+              ELEMENT *popped_element = pop_element_from_contents (current);
               add_source_marks (&popped_element->source_mark_list, e);
               popped_element->source_mark_list.number = 0;
               /* current is the accent command.  So far only saw empty elements

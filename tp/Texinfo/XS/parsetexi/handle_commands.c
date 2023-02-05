@@ -606,7 +606,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
               if (current->cmd == base_command)
                 {
-                  ELEMENT *e = pop_element_from_contents (current, 0);
+                  ELEMENT *e = pop_element_from_contents (current);
                   /* e should be the same as misc */
                   /* Gather an "inter_def_item" element. */
                   gather_def_item (current, cmd);

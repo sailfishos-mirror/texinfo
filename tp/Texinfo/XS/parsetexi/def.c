@@ -56,7 +56,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       last_child = last_contents_child (current);
       if (last_child->type == ET_def_line)
         break;
-      item_content = pop_element_from_contents (current, 0);
+      item_content = pop_element_from_contents (current);
       insert_into_contents (def_item, item_content, 0);
     }
 

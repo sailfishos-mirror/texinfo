@@ -129,7 +129,7 @@ close_container (ELEMENT *current)
 
           debug_nonl ("REMOVE empty child ");
           debug_print_element_short (child_element, 1); debug ("");
-          destroy_element (pop_element_from_contents (current, 0));
+          destroy_element (pop_element_from_contents (current));
         }
     }
   /* remove element without contents nor associated information */
@@ -162,7 +162,7 @@ close_container (ELEMENT *current)
         {
           debug_nonl ("REMOVE empty type ");
           debug_print_element_short (last_child, 1); debug ("");
-          destroy_element (pop_element_from_contents (current, 0));
+          destroy_element (pop_element_from_contents (current));
         }
     }
   return current;
@@ -271,7 +271,7 @@ close_command_cleanup (ELEMENT *current)
           if (e && e->cmd == CM_end)
             {
               add_to_element_contents (current,
-                                     pop_element_from_contents (before_item, 0));
+                                     pop_element_from_contents (before_item));
             }
 
           /* Now if the ET_before_item is empty, remove it. */
@@ -390,7 +390,7 @@ close_current (ELEMENT *current,
                 {
                   parent = current->parent;
                   destroy_element_and_children (pop_element_from_contents
-                                                          (parent, 0));
+                                                          (parent));
                 }
             }
           pop_block_command_contexts (cmd);

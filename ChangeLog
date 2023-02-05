@@ -1,5 +1,16 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_pop_element_from_contents)
+	(_abort_empty_line), tp/Texinfo/XS/parsetexi/parser.c
+	(abort_empty_line), tp/Texinfo/XS/parsetexi/tree.c
+	(pop_element_from_contents): do reparenting of source marks in
+	abort_empty_line and not in pop_element_from_contents.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add an explicit test of empty
+	string with a macro call source mark first in an element.
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line): use merge_text argument
 	to transfer source marks when reconstructing text from an aborted menu

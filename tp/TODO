@@ -24,23 +24,11 @@ check that there is a test of something like
 
 @syncodeindex@cpfn{}
 
-Source marks of element popped can lead to empty element readded for the source
-mark leading to an infinite loop. Such a situation should maybe be handled in
-_pop_element_from_contents
-
-Test for the cases of (but how to be sure that all possibilities are tested?)
-      # FIXME if first in parent and with source mark, this
-      # should lead to readding an element for the source mark.
-      # Could even lead to infinite loops.
-      # It could be problematic in some cases, need some tests.
-
+in XS parser
+FIXME there is no such code in the pure perl parser
 
 Bugs
 ====
-
-XS parser uses bytes length and not number of characters in source marks.
-Could use mbrtowc, maybe through the mbslen gnulib module.  But requires
-setting the locale, may not work on windows.
 
 HTML API
 ========
