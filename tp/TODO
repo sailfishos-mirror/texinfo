@@ -11,11 +11,11 @@ Before next release
 ===================
 
 Add elements of texinfo that are not of interest in the
-tree to source_marks. begin and end of user defined macro
-or value expansion. aliases.
+tree to source_marks. aliases.
 
 done: source_marks structures, with beginning and end of included file, @
-protecting end of line in @def*, @setfilename in included files.
+protecting end of line in @def*, @setfilename in included files,
+begin and end of user defined macro and value expansion.
 
 Bugs
 ====

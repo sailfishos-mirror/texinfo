@@ -2468,7 +2468,8 @@ sub _next_text($;$)
           if (defined($input->{'input_source_mark'}->{'line'}));
       $end_source_mark->{'status'} = 'end'
           if ($end_source_mark->{'sourcemark_type'} eq 'include'
-              or $end_source_mark->{'sourcemark_type'} eq 'macro_expansion');
+              or $end_source_mark->{'sourcemark_type'} eq 'macro_expansion'
+              or $end_source_mark->{'sourcemark_type'} eq 'value_expansion');
       _register_source_mark($self, $current,
                             $end_source_mark);
     }
@@ -4872,6 +4873,10 @@ sub _process_remaining_on_line($$$$)
                            $source_info->{'macro'});
           _input_push_text($self, $self->{'values'}->{$value},
                            $source_info->{'line_nr'}, $source_info->{'macro'}, $value);
+          my $value_source_mark = {'sourcemark_type' => 'value_expansion',
+                                   'status' => 'start', 'line' => $value};
+          _register_source_mark($self, $current, $value_source_mark);
+          $self->{'input'}->[0]->{'input_source_mark'} = $value_source_mark;
           $line = '';
           goto funexit;
         }

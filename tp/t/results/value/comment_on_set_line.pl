@@ -109,6 +109,64 @@ $result_trees{'comment_on_set_line'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'x',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'line' => 'x',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 2,
+                  'line' => 'y',
+                  'position' => 5,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'line' => 'y',
+                  'position' => 5,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 3,
+                  'line' => 'z',
+                  'position' => 9,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 3,
+                  'line' => 'z',
+                  'position' => 10,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 4,
+                  'line' => 't',
+                  'position' => 14,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 4,
+                  'line' => 't',
+                  'position' => 18,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '!!, !!, !g!, !a vv!
 '
             }

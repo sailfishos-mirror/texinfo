@@ -1,5 +1,19 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	Source mark for value expansion
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/input.c (next_text),
+	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
+	(source_marks_reset_counters): register value expansion source marks.
+
+	* tp/Texinfo/XS/parsetexi/input.c (next_text): strdup line when
+	duplicating start source mark line for end source mark.
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_relocate_source_marks)
 	(_split_delimiters, _split_def_args), tp/Texinfo/XS/parsetexi/def.c
 	(relocate_source_marks, split_delimiters, split_def_args): add

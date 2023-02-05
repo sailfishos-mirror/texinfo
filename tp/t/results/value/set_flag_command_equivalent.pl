@@ -44,6 +44,22 @@ $result_trees{'set_flag_command_equivalent'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'line' => 'txicodequoteundirected',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 1,
+              'line' => 'txicodequoteundirected',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

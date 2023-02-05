@@ -47,6 +47,20 @@ $result_trees{'empty_value_in_line'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'line' => 'myspace',
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 1,
+              'line' => 'myspace',
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
+            }
+          ],
           'text' => ' 
 ',
           'type' => 'empty_line'

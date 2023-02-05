@@ -132,6 +132,22 @@ $result_trees{'value_in_macro_body'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'line' => 'bodyarg',
+                          'position' => 1,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'line' => 'bodyarg',
+                          'position' => 6,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => '\\\\arg\\  '
                     }
                   ],

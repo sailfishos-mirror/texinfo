@@ -40,6 +40,22 @@ $result_trees{'empty_set'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'myspace',
+                  'position' => 2,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'line' => 'myspace',
+                  'position' => 2,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => '1  1
 '
             }

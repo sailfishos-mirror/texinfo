@@ -90,6 +90,49 @@ $result_trees{'set_form_feed'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'line' => 'gg',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'line' => 'gg',
+                          'position' => 7,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        },
+                        {
+                          'counter' => 2,
+                          'line' => 'hh',
+                          'position' => 9,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 2,
+                          'line' => 'hh',
+                          'position' => 9,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        },
+                        {
+                          'counter' => 3,
+                          'line' => 'll',
+                          'position' => 11,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 3,
+                          'line' => 'll',
+                          'position' => 11,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'a\\a\\f\\\\. . '
                     }
                   ],

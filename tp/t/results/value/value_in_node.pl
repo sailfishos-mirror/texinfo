@@ -200,6 +200,21 @@ $result_trees{'value_in_node'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'line' => 'node1',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'line' => 'node1',
+                          'position' => 6,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'Node 1'
                     },
                     {
@@ -306,6 +321,15 @@ $result_trees{'value_in_node'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'line' => 'node1',
+                  'position' => 6,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'Node 1'
             }
           ],
@@ -375,6 +399,15 @@ $result_trees{'value_in_node'} = {
       },
       'info' => {
         'spaces_before_argument' => {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'line' => 'node1',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => ' '
         }
       },
@@ -459,6 +492,21 @@ $result_trees{'value_in_node'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'line' => 'sec1',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 3,
+                          'line' => 'sec1',
+                          'position' => 11,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'Section 1.1'
                     }
                   ],
@@ -618,6 +666,26 @@ $result_trees{'value_in_node'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'line' => 'node1',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        }
+                      ],
+                      'text' => ''
+                    },
+                    {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'line' => 'node1',
+                          'position' => 6,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'Node 1'
                     }
                   ],
@@ -629,6 +697,7 @@ $result_trees{'value_in_node'} = {
                 'label' => {},
                 'node_argument' => {
                   'node_content' => [
+                    {},
                     {}
                   ],
                   'normalized' => 'Node-1'
@@ -703,6 +772,7 @@ $result_trees{'value_in_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[3]{'node
 $result_trees{'value_in_node'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'value_in_node'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'value_in_node'}{'contents'}[3];
 $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[1] = $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
 $result_trees{'value_in_node'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'value_in_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'value_in_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'args'}[2]{'contents'}[0];

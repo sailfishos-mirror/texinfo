@@ -578,6 +578,7 @@ store_source_mark_list (ELEMENT *e)
               SAVE_S_M_TYPE (delcomment)
               SAVE_S_M_TYPE (defline_continuation)
               SAVE_S_M_TYPE (macro_expansion)
+              SAVE_S_M_TYPE (value_expansion)
             }
 
           av_push (av, newRV_inc ((SV *)source_mark));

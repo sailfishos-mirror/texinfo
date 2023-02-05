@@ -53,11 +53,29 @@ $result_trees{'value_node_directions'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'a--foo',
+                  'position' => 3,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'bar'
             }
           ],
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'a--foo',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -153,6 +171,22 @@ $result_trees{'value_node_directions'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'line' => 'a--foo',
+                  'position' => 4,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'line' => 'a--foo',
+                  'position' => 7,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'Var bar'
             }
           ],
@@ -168,8 +202,28 @@ $result_trees{'value_node_directions'} = {
       'cmdname' => 'top',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'line' => 'a--foo',
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
+          'text' => ''
+        },
+        {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'line' => 'a--foo',
+                  'position' => 3,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'bar
 '
             }
@@ -199,6 +253,15 @@ $result_trees{'value_node_directions'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'line' => 'a--foo',
+                  'position' => 3,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'bar'
             }
           ],
@@ -288,6 +351,15 @@ $result_trees{'value_node_directions'} = {
       },
       'info' => {
         'spaces_before_argument' => {
+          'source_marks' => [
+            {
+              'counter' => 4,
+              'line' => 'a--foo',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => ' '
         }
       },
@@ -355,11 +427,29 @@ $result_trees{'value_node_directions'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'line' => 'a--foo',
+                  'position' => 3,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'bar'
             }
           ],
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'line' => 'a--foo',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },

@@ -33,6 +33,15 @@ $result_trees{'simple'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'line' => 'a-_5b',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -58,7 +67,15 @@ $result_trees{'simple'} = {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'a-_5b',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => ' After value.

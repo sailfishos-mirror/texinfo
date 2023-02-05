@@ -88,6 +88,29 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'line' => 'cp',
+                      'position' => 2,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 2,
+                      'line' => 'fn',
+                      'position' => 3,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 2,
+                      'line' => 'fn',
+                      'position' => 5,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'cp fn'
                 }
               ],
@@ -109,6 +132,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'cp',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -116,7 +148,15 @@ $result_trees{'value_in_index_commands'} = {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          }
+          },
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'line' => 'syncodeindex_command',
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ]
         },
         {
           'args' => [
@@ -144,6 +184,14 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'line' => 'syncodeindex_command',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -197,6 +245,15 @@ $result_trees{'value_in_index_commands'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'line' => 'truc',
+                          'position' => 4,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'truc'
                     }
                   ],
@@ -217,6 +274,15 @@ $result_trees{'value_in_index_commands'} = {
               },
               'info' => {
                 'spaces_before_argument' => {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'line' => 'truc',
+                      'position' => 1,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'text' => ' '
                 }
               },
@@ -299,6 +365,15 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 5,
+                      'line' => 'codeidx',
+                      'position' => 7,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'codeidx'
                 }
               ],
@@ -319,6 +394,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'line' => 'codeidx',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -384,6 +468,15 @@ $result_trees{'value_in_index_commands'} = {
       'cmdname' => 'node',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 6,
+              'line' => 'trucindex_command',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -422,6 +515,14 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'line' => 'trucindex_command',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -517,7 +618,15 @@ $result_trees{'value_in_index_commands'} = {
                     'file_name' => '',
                     'line_nr' => 26,
                     'macro' => ''
-                  }
+                  },
+                  'source_marks' => [
+                    {
+                      'counter' => 7,
+                      'line' => 'defcodeindex_entry',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ]
                 }
               ],
               'info' => {
@@ -546,6 +655,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 7,
+                  'line' => 'defcodeindex_entry',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -566,6 +684,15 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 8,
+                      'line' => 'truc',
+                      'position' => 4,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'truc kindex'
                 }
               ],
@@ -595,6 +722,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 8,
+                  'line' => 'truc',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -610,6 +746,22 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 9,
+                      'line' => 'codeidx',
+                      'position' => 7,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 9,
+                      'line' => 'codeidx',
+                      'position' => 14,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'pindex codeidx'
                 }
               ],
@@ -668,6 +820,15 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 10,
+                      'line' => 'truc',
+                      'position' => 4,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'truc'
                 }
               ],
@@ -688,6 +849,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 10,
+                  'line' => 'truc',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },
@@ -716,6 +886,15 @@ $result_trees{'value_in_index_commands'} = {
             {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 11,
+                      'line' => 'cp',
+                      'position' => 2,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => 'cp'
                 }
               ],
@@ -736,6 +915,15 @@ $result_trees{'value_in_index_commands'} = {
           },
           'info' => {
             'spaces_before_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 11,
+                  'line' => 'cp',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => ' '
             }
           },

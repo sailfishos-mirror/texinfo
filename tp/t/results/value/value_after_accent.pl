@@ -42,6 +42,14 @@ $result_trees{'value_after_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'line' => 'a_letter',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -53,7 +61,15 @@ $result_trees{'value_after_accent'} = {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'a_letter',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -67,6 +83,14 @@ $result_trees{'value_after_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'line' => 'a_letter',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
                   'type' => 'following_arg'
                 }
               ],
@@ -75,7 +99,15 @@ $result_trees{'value_after_accent'} = {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'line' => 'a_letter',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             }
           ],
           'type' => 'paragraph'

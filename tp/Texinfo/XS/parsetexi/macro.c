@@ -624,7 +624,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     expanded_macro_text = expanded.text;
   else
     /* we want to always have a text for the source mark */
-    expanded_macro_text = strdup("");
+    expanded_macro_text = strdup ("");
   input_push_text (expanded_macro_text, current_source_info.line_nr,
                    command_name(cmd), 0);
   set_input_source_mark (macro_source_mark);

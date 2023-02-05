@@ -74,6 +74,19 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'line' => 'bracedletter',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -81,7 +94,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'bracedletter',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -89,6 +110,19 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'ringaccent',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'line' => 'unknowncmd',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -96,7 +130,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'line' => 'unknowncmd',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -114,6 +156,19 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => '^',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'line' => 'bracedletter',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -121,7 +176,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'line' => 'bracedletter',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -129,6 +192,19 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => '^',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 4,
+                      'line' => 'unknowncmd',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -136,7 +212,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'line' => 'unknowncmd',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -154,6 +238,19 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'code',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 5,
+                      'line' => 'bracedletter',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -161,7 +258,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 5,
+                  'line' => 'bracedletter',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '
@@ -169,6 +274,19 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'code',
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 6,
+                      'line' => 'unknowncmd',
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    }
+                  ],
+                  'text' => ''
+                }
+              ],
               'info' => {
                 'spaces_after_cmd_before_arg' => ' '
               },
@@ -176,7 +294,15 @@ $result_trees{'value_after_brace_command'} = {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 6,
+                  'line' => 'unknowncmd',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '

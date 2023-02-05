@@ -33,6 +33,15 @@ $result_trees{'spaces_before_value'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'line' => 'var',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -40,6 +49,15 @@ $result_trees{'spaces_before_value'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'var',
+                  'position' => 3,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'val
 '
             }

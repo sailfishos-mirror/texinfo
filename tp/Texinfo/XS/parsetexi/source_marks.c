@@ -25,6 +25,7 @@ int setfilename_counter = 0;
 int delcomment_counter = 0;
 int defline_continuation_counter = 0;
 int macro_expansion_counter = 0;
+int value_expansion_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -133,6 +134,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           macro_expansion_counter++;
           source_mark->counter = macro_expansion_counter;
         }
+      else if (source_mark->type == SM_type_value_expansion)
+        {
+          value_expansion_counter++;
+          source_mark->counter = value_expansion_counter;
+        }
     }
 
   place_source_mark (e, source_mark);
@@ -146,4 +152,5 @@ source_marks_reset_counters (void)
   delcomment_counter = 0;
   defline_continuation_counter = 0;
   macro_expansion_counter = 0;
+  value_expansion_counter = 0;
 }

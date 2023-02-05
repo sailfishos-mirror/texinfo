@@ -40,6 +40,22 @@ $result_trees{'empty_set_in_ifset'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => 'a',
+                  'position' => 13,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'line' => 'a',
+                  'position' => 13,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'a is set to:||.
 '
             }

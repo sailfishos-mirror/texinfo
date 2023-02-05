@@ -453,15 +453,15 @@ next_text (ELEMENT *current)
               if (comment)
                 {
                   SOURCE_MARK *source_mark
-                    = new_source_mark(SM_type_delcomment);
+                    = new_source_mark (SM_type_delcomment);
                   *comment = '\0';
                   if (*(comment+1) != '\0')
                     source_mark->line = convert_to_utf8 (strdup (comment+1));
                   else
                     source_mark->line = 0;
-                  input_push_text(strdup(""),
+                  input_push_text(strdup (""),
                                   input->source_info.line_nr, 0, 0);
-                  set_input_source_mark(source_mark);
+                  set_input_source_mark (source_mark);
                 }
 
               input->source_info.line_nr++;
@@ -509,9 +509,11 @@ next_text (ELEMENT *current)
           SOURCE_MARK *end_include_source_mark
             = new_source_mark(input_source_mark->type);
           end_include_source_mark->counter = input_source_mark->counter;
-          end_include_source_mark->line = input_source_mark->line;
+          if (input_source_mark->line)
+            end_include_source_mark->line = strdup(input_source_mark->line);
           if (input_source_mark->type == SM_type_include
-              || input_source_mark->type == SM_type_macro_expansion)
+              || input_source_mark->type == SM_type_macro_expansion
+              || input_source_mark->type == SM_type_value_expansion)
             end_include_source_mark->status = SM_status_end;
           register_source_mark(current, end_include_source_mark);
         }

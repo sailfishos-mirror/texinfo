@@ -1664,6 +1664,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
                   if (value)
                     {
+                      SOURCE_MARK *value_source_mark;
+
                       remaining_line++; /* past '}' */
                       if (conf.max_macro_call_nesting
                           && value_expansion_nr >= conf.max_macro_call_nesting)
@@ -1684,6 +1686,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                        current_source_info.line_nr,
                                        current_source_info.macro,
                                        strdup(flag));
+
+                      value_source_mark
+                          = new_source_mark (SM_type_value_expansion);
+                      value_source_mark->status = SM_status_start;
+                      value_source_mark->line = strdup(flag);
+                      register_source_mark(current, value_source_mark);
+                      set_input_source_mark (value_source_mark);
+
                       value_expansion_nr++;
 
                       /* Move 'line' to end of string so next input to

@@ -40,6 +40,22 @@ $result_trees{'not_only_characters'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => '-e_\'::;',
+                  'position' => 4,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'line' => '-e_\'::;',
+                  'position' => 6,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                }
+              ],
               'text' => 'Say hh.
 '
             }

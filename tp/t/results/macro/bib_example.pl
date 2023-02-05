@@ -3673,6 +3673,19 @@ $result_trees{'bib_example'} = {
                           'status' => 'start'
                         },
                         {
+                          'counter' => 1,
+                          'line' => 'mybibrefnode',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'line' => 'mybibrefnode',
+                          'position' => 10,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        },
+                        {
                           'counter' => 3,
                           'position' => 10,
                           'sourcemark_type' => 'macro_expansion',
@@ -3946,12 +3959,25 @@ $result_trees{'bib_example'} = {
                           },
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'start'
+                        },
+                        {
+                          'counter' => 2,
+                          'line' => 'mybibrefnode',
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'start'
                         }
                       ],
                       'text' => ''
                     },
                     {
                       'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'line' => 'mybibrefnode',
+                          'position' => 10,
+                          'sourcemark_type' => 'value_expansion',
+                          'status' => 'end'
+                        },
                         {
                           'counter' => 6,
                           'position' => 10,
@@ -3986,6 +4012,13 @@ $result_trees{'bib_example'} = {
                       'contents' => [
                         {
                           'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'line' => 'mybibrefnode',
+                              'position' => 10,
+                              'sourcemark_type' => 'value_expansion',
+                              'status' => 'end'
+                            },
                             {
                               'counter' => 7,
                               'position' => 10,
@@ -4038,6 +4071,13 @@ $result_trees{'bib_example'} = {
                           },
                           'position' => 1,
                           'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 3,
+                          'line' => 'mybibrefnode',
+                          'position' => 1,
+                          'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         }
                       ],

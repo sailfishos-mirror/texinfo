@@ -115,6 +115,13 @@ $result_trees{'macro_in_value'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
+                  'line' => 'flagab',
+                  'position' => 8,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                },
+                {
+                  'counter' => 1,
                   'element' => {
                     'extra' => {
                       'name' => 'ab'
@@ -145,6 +152,13 @@ $result_trees{'macro_in_value'} = {
                   'counter' => 1,
                   'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 1,
+                  'line' => 'flagab',
+                  'position' => 1,
+                  'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
               ],
