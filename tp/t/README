@@ -30,8 +30,8 @@ Another way to run a test out-source is:
   s=../../tp
   srcdir=$s ../pre-inst-env perl -w $s/t/92formatting.t empty
 
-where s is the path to the srcdir.  This allows you to run a single
-sub-test, here the sub-test with name "empty".
+where s is the path to the srcdir.  This allows you to run specific
+sub-tests, here the sub-test with name "empty".
 
 Most test files use a testing infrastructure from t/test_utils.pl.
 The run_all function from that file runs the tests that have been
@@ -83,7 +83,7 @@ file, as in
 
   perl -w t/03coverage_braces.t -g
 
-To regenerate a specific test reference file, the test name should be
+To regenerate specific tests reference files, the test names should be
 given as an argument.  For example, to just regenerate the reference
 files for the "test_image" test within t/03.coverage_braces.t, run
 
@@ -115,8 +115,8 @@ tests in t_texis/$test_category/ by running something along the lines of:
 
   perl -w t/60macro.t -c
 
-to create a Texinfo file for each of the tests in t/60macro.t, or for a
-specific test, here arg_body_expansion_order:
+to create a Texinfo file for each of the tests in t/60macro.t, or for
+specific tests, here arg_body_expansion_order:
 
   perl -w t/60macro.t -c arg_body_expansion_order
 

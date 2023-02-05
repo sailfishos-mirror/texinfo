@@ -204,8 +204,6 @@ Getopt::Long::Configure("gnu_getopt");
 GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug,
            'c|complete' => \$arg_complete, 'o|output' => \$arg_output);
 
-my $arg_test_case = shift @ARGV;
-
 sub protect_perl_string($)
 {
   my $string = shift;
@@ -1617,11 +1615,14 @@ sub run_all($$)
 
   my $test = new_test($name, $arg_generate, $arg_debug);
   my $ran_tests;
-  if (defined($arg_test_case)) {
-    foreach my $test_case (@$test_cases) {
-      if ($test_case->[0] eq $arg_test_case) {
-        $ran_tests = [ $test_case ];
-        last;
+  if (scalar(@ARGV)) {
+    $ran_tests = [];
+    foreach my $arg_test_case (@ARGV) {
+      foreach my $test_case (@$test_cases) {
+        if ($test_case->[0] eq $arg_test_case) {
+          push @$ran_tests, $test_case;
+          last;
+        }
       }
     }
   } else {
