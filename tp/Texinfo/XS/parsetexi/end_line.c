@@ -2121,6 +2121,8 @@ end_line (ELEMENT *current)
           empty_line = pop_element_from_contents (current);
           if (current->contents.number == 0)
             {
+              /* it should not be possible to have source marks associated
+                 to that container */
               current = current->parent;
               destroy_element (pop_element_from_contents (current));
             }

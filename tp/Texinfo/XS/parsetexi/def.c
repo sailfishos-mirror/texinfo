@@ -147,6 +147,29 @@ DEF_ALIAS def_aliases[] = {
   0, 0, 0
 };
 
+void
+relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
+                       size_t previous_position, size_t current_position)
+{
+  int i;
+  while (source_mark_list->number)
+    {
+      SOURCE_MARK *source_mark
+         = source_mark_list->list[0];
+      if ((source_mark->position > previous_position
+           || source_mark->position == 0)
+          && source_mark->position <= current_position)
+        {
+          source_mark->position
+            = source_mark->position - previous_position;
+          add_source_mark (source_mark, new_e);
+          remove_from_source_mark_list (source_mark_list, 0);
+        }
+      else
+        break;
+    }
+}
+
 /* Split non-space text elements into strings without [ ] ( ) , and single
    character strings with one of them. */
 static void
@@ -160,31 +183,64 @@ split_delimiters (ELEMENT *current, int starting_idx)
       char *p;
       ELEMENT *new;
       int len;
+      /* count UTF-8 encoded Unicode characters for source marks locations */
+      size_t current_position = 0;
+      size_t previous_position = 0;
+      uint8_t *u8_text = 0;
+      uint8_t *u8_p;
 
       if (e->type != ET_NONE
           || e->text.end == 0)
         continue;
       p = e->text.text;
 
+      if (e->source_mark_list.number)
+        u8_text = u8_strconv_from_encoding (p, "UTF-8",
+                                            iconveh_question_mark);
+      u8_p = u8_text;
+
       while (1)
         {
+          size_t u8_len = 0;
           if (strchr (chars, *p))
             {
               new = new_element (ET_delimiter);
               text_append_n (&new->text, p, 1);
+
+              if (u8_text)
+                {
+                  u8_len = u8_mbsnlen (u8_p, 1);
+                  u8_p += u8_len;
+                  current_position += u8_len;
+                }
+              relocate_source_marks (&(e->source_mark_list), new,
+                                     previous_position, current_position);
+
               insert_into_contents (current, new, i++);
               add_extra_string_dup (new, "def_role", "delimiter");
               if (!*++p)
                 break;
+              previous_position = current_position;
               continue;
             }
 
           len = strcspn (p, chars);
           new = new_element (ET_NONE);
           text_append_n (&new->text, p, len);
+
+          if (u8_text)
+            {
+              u8_len = u8_mbsnlen (u8_p, len);
+              u8_p += u8_len;
+              current_position += u8_len;
+            }
+          relocate_source_marks (&(e->source_mark_list), new,
+                                 previous_position, current_position);
+
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;
+          previous_position = current_position;
         }
       destroy_element (remove_from_contents (current, i--));
     }
@@ -248,23 +304,8 @@ split_def_args (ELEMENT *current, int starting_idx)
               current_position += u8_len;
             }
 
-          while (e->source_mark_list.number)
-            {
-              SOURCE_MARK *source_mark
-                 = e->source_mark_list.list[e->source_mark_list.number-1];
-              if ((source_mark->position > previous_position
-                   || source_mark->position == 0)
-                  && source_mark->position <= current_position)
-                {
-                  source_mark->position
-                    = source_mark->position - previous_position;
-                  add_source_mark (source_mark, new);
-                  e->source_mark_list.list[e->source_mark_list.number-1] = 0;
-                  e->source_mark_list.number--;
-                }
-              else
-                break;
-            }
+          relocate_source_marks (&(e->source_mark_list), new,
+                                 previous_position, current_position);
           text_append_n (&new->text, p, len);
           insert_into_contents (current, new, i++);
           if (!*(p += len))

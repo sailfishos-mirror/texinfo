@@ -1037,6 +1037,13 @@ two spaces   @@noindent @noindentmacro{}    @@refill @refillmacro{}
 
 @byemacro{}
 '],
+['macro_in_def_delimiters',
+'@macro string
+aa(b *c)
+@end macro
+
+@deffn Command forward-word count arg@string{} a (@string{}(bb@string{}]@string{} a
+'],
 # this does not lead to a recursive call with the current implementation
 ['recursive_call_in_argument',
 '@macro anorecurse{arg}

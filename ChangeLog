@@ -1,5 +1,24 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_relocate_source_marks)
+	(_split_delimiters, _split_def_args), tp/Texinfo/XS/parsetexi/def.c
+	(relocate_source_marks, split_delimiters, split_def_args): add
+	relocate_source_marks to help relocating source marks, taken from from
+	split_def_args.  Relocate source marks in split_delimiters using that
+	function.
+
+	* tp/Texinfo/XS/parsetexi/def.c (relocate_source_marks),
+	tp/Texinfo/XS/parsetexi/tree.c (remove_from_source_mark_list): correct
+	the source mark relcation code by starting from the first source mark,
+	and add remove_from_source_mark_list to be able to remove a source
+	mark from any position in the list.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add macro_in_def_delimiters
+	with macro expansion in delimiters and text that tests relocation of
+	source marks in split_delimiters.
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/60macro.t: add
 	macro_before_specific_line_command_args test.
 

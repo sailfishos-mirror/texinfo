@@ -2860,6 +2860,25 @@ sub _parse_node_manual($)
   return $parsed_node_manual;
 }
 
+sub _relocate_source_marks($$$$)
+{
+  my $remaining_source_marks = shift;
+  my $e = shift;
+  my $previous_position = shift;
+  my $current_position = shift;
+
+  while (scalar(@$remaining_source_marks)
+         and ($remaining_source_marks->[0]->{'position'} > $previous_position
+              or $remaining_source_marks->[0]->{'position'} == 0)
+         and $remaining_source_marks->[0]->{'position'} <= $current_position) {
+    my $source_mark = shift(@$remaining_source_marks);
+    $source_mark->{'position'}
+       = $source_mark->{'position'} - $previous_position;
+    $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
+    push @{$e->{'source_marks'}}, $source_mark;
+  }
+}
+
 # split non-space text elements into strings without [ ] ( ) , and single
 # character strings with one of them
 sub _split_delimiters
@@ -2874,16 +2893,37 @@ sub _split_delimiters
     my $type;
     my $chars = quotemeta '[](),';
     my $text = $root->{'text'};
+    my @remaining_source_marks;
+    my ($current_position, $previous_position);
+    if ($root->{'source_marks'}) {
+      @remaining_source_marks = @{$root->{'source_marks'}};
+      $current_position = 0;
+      $previous_position = 0;
+    }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
         push @elements, {'text' => $1, 'parent' => $root->{'parent'}};
+        if (scalar(@remaining_source_marks)) {
+          $current_position += length($1);
+          _relocate_source_marks(\@remaining_source_marks, $elements[-1],
+                                 $previous_position, $current_position);
+        }
       } elsif ($text =~ s/^([$chars])//) {
         push @elements, {'text' => $1, 'type' => 'delimiter',
                          'parent' => $root->{'parent'}};
+        if (scalar(@remaining_source_marks)) {
+          $current_position += length($1);
+          _relocate_source_marks(\@remaining_source_marks, $elements[-1],
+                                 $previous_position, $current_position);
+        }
       } else {
         last;
       }
+      if (scalar(@remaining_source_marks)) {
+        $previous_position = $current_position;
+      }
     }
+
     return @elements;
   }
 }
@@ -2914,16 +2954,8 @@ sub _split_def_args
       my $e = {'text' => $t };
       if (scalar(@remaining_source_marks)) {
         $current_position += length($t);
-        while (scalar(@remaining_source_marks)
-               and ($remaining_source_marks[0]->{'position'} > $previous_position
-                    or $remaining_source_marks[0]->{'position'} == 0)
-               and $remaining_source_marks[0]->{'position'} <= $current_position) {
-          my $source_mark = shift(@remaining_source_marks);
-          $source_mark->{'position'}
-            = $source_mark->{'position'} - $previous_position;
-          $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
-          push @{$e->{'source_marks'}}, $source_mark;
-        }
+        _relocate_source_marks(\@remaining_source_marks, $e, $previous_position,
+                               $current_position);
       }
       if ($type) {
         $e->{'type'} = $type;

@@ -1205,6 +1205,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_imbricated_with_beginning_command_name.pl \
   t/results/macro/macro_in_accent.pl \
   t/results/macro/macro_in_brace_command.pl \
+  t/results/macro/macro_in_def_delimiters.pl \
   t/results/macro/macro_in_empty_menu_comment.pl \
   t/results/macro/macro_in_empty_multitable_empty_before_item.pl \
   t/results/macro/macro_in_empty_table_empty_before_item.pl \
