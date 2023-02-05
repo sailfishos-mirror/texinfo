@@ -315,15 +315,6 @@ $result_sectioning{'section_on_multitable_line'}{'structure'}{'section_childs'}[
 
 $result_errors{'section_on_multitable_line'} = [
   {
-    'error_line' => 'warning: @section should not appear in @multitable
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@section should not appear in @multitable',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @section should not appear anywhere inside @multitable
 ',
     'file_name' => '',
@@ -357,15 +348,6 @@ $result_errors{'section_on_multitable_line'} = [
     'line_nr' => 3,
     'macro' => '',
     'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear in @multitable
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@section should not appear in @multitable',
     'type' => 'warning'
   },
   {
@@ -411,15 +393,6 @@ $result_errors{'section_on_multitable_line'} = [
     'line_nr' => 5,
     'macro' => '',
     'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear in @multitable
-',
-    'file_name' => '',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => '@section should not appear in @multitable',
     'type' => 'warning'
   },
   {

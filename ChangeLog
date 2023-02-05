@@ -1,5 +1,14 @@
 2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No more check for basic inline content in check_valid_nesting.
+
+	* tp/Texinfo/ParserNonXS.pm (%default_valid_nestings):
+	Do not add to from the %contain_basic_inline_commands hash.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Do not check or use CF_contain_basic_inline flag.
+
+2023-02-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Basic inline stack for block line args
 
 	* tp/Texinfo/ParserNonXS.pm

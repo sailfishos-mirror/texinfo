@@ -1114,15 +1114,6 @@ $result_menus{'in_table'} = {
 
 $result_errors{'in_table'} = [
   {
-    'error_line' => 'warning: @xref should not appear in @table
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@xref should not appear in @table',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @xref should not appear anywhere inside @table
 ',
     'file_name' => '',

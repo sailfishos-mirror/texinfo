@@ -213,15 +213,6 @@ $result_texts{'example_invalid_at_commands_arguments'} = '';
 
 $result_errors{'example_invalid_at_commands_arguments'} = [
   {
-    'error_line' => 'warning: @ref should not appear in @example
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@ref should not appear in @example',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @ref should not appear anywhere inside @example
 ',
     'file_name' => '',
@@ -231,30 +222,12 @@ $result_errors{'example_invalid_at_commands_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear in @example
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@anchor should not appear in @example',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @anchor should not appear anywhere inside @example
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
     'text' => '@anchor should not appear anywhere inside @example',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @example
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@center should not appear in @example',
     'type' => 'warning'
   },
   {

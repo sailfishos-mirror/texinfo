@@ -454,6 +454,9 @@ foreach my $block_command (keys(%block_commands)) {
 delete $in_full_text_commands{'caption'};
 delete $in_full_text_commands{'shortcaption'};
 
+# Note that checks for basic inline content are now done using the stacks of
+# commands in 'nesting_context'.
+
 # commands that may appear inside sectioning commands
 my %in_basic_inline_with_refs_commands = %in_full_text_commands;
 foreach my $not_in_basic_inline_with_refs_commands ('titlefont',
@@ -502,15 +505,6 @@ my %default_valid_nestings;
 
 foreach my $command (keys(%contain_plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
-}
-
-# Brace and line commands are now checked for basic inline content using
-# the stacks of commands in 'nesting_context'.
-#
-foreach my $command (keys(%contain_basic_inline_commands)) {
-  if (!$brace_commands{$command} && !$line_commands{$command}) {
-    $default_valid_nestings{$command} = \%in_basic_inline_commands;
-  }
 }
 
 foreach my $command (keys(%contain_full_text_commands),

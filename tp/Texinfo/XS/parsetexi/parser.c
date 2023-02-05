@@ -1025,31 +1025,18 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
      classified according to what commands they can contain:
 
      plain text
-     full text
-     basic inline
-     full line
-     full line no refs
+     full text/full line
+     basic inline with refs
 
    */
 
   int ok = 0; /* Whether nesting is allowed. */
-
-  /* Whether command is a "basic inline" command */
-  int basic_inline_command = 0;
 
   enum command_id outer = current->parent->cmd;
   unsigned long outer_flags = command_data(outer).flags;
   unsigned long cmd_flags = command_data(cmd).flags;
 
   // much TODO here.
-
-  if (outer_flags & CF_contain_basic_inline
-      && !(outer_flags & (CF_brace | CF_line)))
-    {
-      basic_inline_command = 1;
-    }
-  /* Note that brace and line commands are now checked for basic inline content
-     in check_valid_nesting_context instead. */
 
   /* first three conditions check if in the main contents of the commands
      or in the arguments where there is checking of nesting */
@@ -1074,12 +1061,10 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       if (cmd == CM_c || cmd == CM_comment)
         ok = 1;
     }
-  else if (basic_inline_command
-           /* "full text commands" */
-           || (outer_flags & CF_brace)
-                 && (command_data(outer).data == BRACE_style_other
-                      || command_data(outer).data == BRACE_style_code
-                      || command_data(outer).data == BRACE_style_no_code)
+  else if ((outer_flags & CF_brace)       /* "full text commands" */
+               && (command_data(outer).data == BRACE_style_other
+                || command_data(outer).data == BRACE_style_code
+                || command_data(outer).data == BRACE_style_no_code)
            /* "full line commands" */
            || outer == CM_center
            || outer == CM_exdent
@@ -1133,27 +1118,16 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
               ok = 1;
         }
 
-      /* Now add more restrictions for "full line no refs" commands and
-         "basic inline" commands on valid brace commands. */
+      /* Now add more restrictions for
+         "basic inline with refs" commands. */
       if (outer_flags & (CF_sectioning_heading | CF_def)
-          || (!current->parent->cmd && current_context () == ct_def)
-          || basic_inline_command)
+          || (!current->parent->cmd && current_context () == ct_def))
         {
           if (cmd == CM_titlefont
               || cmd == CM_anchor
               || cmd == CM_footnote
               || cmd == CM_verb
               || cmd == CM_indent || cmd == CM_noindent)
-            ok = 0;
-        }
-
-      /* Exceptions for "basic inline commands" only for brace commands. */
-      if (basic_inline_command)
-        {
-          if (cmd == CM_xref
-              || cmd == CM_ref
-              || cmd == CM_pxref
-              || cmd == CM_inforef)
             ok = 0;
         }
     }
@@ -1240,9 +1214,9 @@ check_valid_nesting_context (enum command_id cmd)
                                 (&nesting_context.basic_inline_stack_block);
         }
 
-      /* FIXME: This may not match exactly the definition of a basic inline
-         command in check_valid_nesting.  We should only need to
-         define what these commands are in one place. */
+      /* FIXME: This may not match exactly the definition of
+         "basic inline with refs" in check_valid_nesting.  We should
+         only need to define what these commands are in one place. */
     }
 
   if (invalid_context)

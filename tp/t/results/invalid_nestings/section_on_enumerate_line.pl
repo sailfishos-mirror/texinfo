@@ -199,15 +199,6 @@ $result_errors{'section_on_enumerate_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear in @enumerate
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@section should not appear in @enumerate',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: @section should not appear anywhere inside @enumerate
 ',
     'file_name' => '',
@@ -241,15 +232,6 @@ $result_errors{'section_on_enumerate_line'} = [
     'line_nr' => 3,
     'macro' => '',
     'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear in @enumerate
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@section should not appear in @enumerate',
     'type' => 'warning'
   },
   {
