@@ -67,6 +67,11 @@ $result_trees{'macro_in_empty_text'} = {
           }
         },
         {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
           'args' => [
             {
               'info' => {
@@ -146,14 +151,14 @@ $result_trees{'macro_in_empty_text'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 7,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
+            'line_nr' => 5,
             'macro' => ''
           }
         }
@@ -167,13 +172,15 @@ $result_trees{'macro_in_empty_text'} = {
 $result_texis{'macro_in_empty_text'} = '@macro emptystring
 
 @end macro
+
 @indentedblock
 @@.
 @end indentedblock
 ';
 
 
-$result_texts{'macro_in_empty_text'} = '@.
+$result_texts{'macro_in_empty_text'} = '
+@.
 ';
 
 $result_errors{'macro_in_empty_text'} = [];
