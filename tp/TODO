@@ -10,13 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Add elements of texinfo that are not of interest in the
-tree to source_marks. aliases.
-
-done: source_marks structures, with beginning and end of included file, @
-protecting end of line in @def*, @setfilename in included files,
-begin and end of user defined macro and value expansion.
-
 Bugs
 ====
 
@@ -108,6 +101,10 @@ the context command stack.
  @defunx g h j k l m
 
  @end defun
+
+
+Add source marks for alias. Not easy, as command elements are added in many
+places in the code.
 
 
 In HTML, some @-commands do not have an element with a class associated, or the
