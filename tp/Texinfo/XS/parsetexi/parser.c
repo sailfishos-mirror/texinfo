@@ -2015,7 +2015,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           && !abort_empty_line (&current, NULL)
           && ((cmd == CM_node || cmd == CM_bye)
               || (command_data(cmd).flags & CF_block)
-              || ((command_data(cmd).flags & CF_line)
+              || (command_data(cmd).flags & CF_line)
                   && cmd != CM_comment
                   && cmd != CM_c
                   && cmd != CM_columnfractions
