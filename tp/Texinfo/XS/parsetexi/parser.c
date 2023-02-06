@@ -105,23 +105,30 @@ element_type_name (ELEMENT *e)
   return element_type_names[(e)->type];
 }
 
+/* the pointer returned is past @c/@comment, whether there is indeed
+   a comment or not.  If there is a comment, *has_comment is set to 1 */
 char *
-read_comment (char *line, char **comment_command)
+read_comment (char *line, int *has_comment)
 {
   char *p = line;
   int len = strlen (line);
+
+  *has_comment = 0;
 
   if (len >= 2 && memcmp (p, "@c", 2) == 0)
     {
       p += 2;
       if (len >= 8 && memcmp (p, "omment", 6) == 0)
         p += 6;
+
+      /* TeX control sequence name ends at an escape character or
+         whitespace. */
       if (*p && *p != '@' && !strchr (whitespace_chars, *p))
-        return 0; /* @c or @comment not terminated. */
-      *comment_command = strndup(line+1, p - (line+1));
+        return p; /* @c or @comment not terminated. */
     }
   else
-    return 0; /* Trailing characters on line. */
+    return p; /* Trailing characters on line. */
+  *has_comment = 1;
   return p;
 }
 

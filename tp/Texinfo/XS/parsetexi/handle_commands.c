@@ -801,11 +801,10 @@ handle_block_command (ELEMENT *current, char **line_inout,
                   /* Check for a comment at the end of the line. */
                   if (*p)
                     {
-                      char *cmd_name;
+                      int has_comment;
 
-                      if (read_comment (p, &cmd_name))
-                        free (cmd_name);
-                      else
+                      read_comment (p, &has_comment);
+                      if (!has_comment)
                         goto bad_value;
                     }
                 }

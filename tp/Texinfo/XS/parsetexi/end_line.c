@@ -104,6 +104,7 @@ char *
 skip_comment (char *q, int *has_comment)
 {
   char *q1;
+
   while (1)
     {
       q1 = strstr (q, "@c");
@@ -112,16 +113,15 @@ skip_comment (char *q, int *has_comment)
           q = q + strlen (q);
           break;
         }
-      q = q1 + 2;
-      if (!memcmp (q, "omment", 6))
-        q += 6;
 
-      /* TeX control sequence name ends at an escape character or
-         whitespace. */
-      if (*q == '@' || strchr (whitespace_chars, *q))
+      /* q is advanced to after @c/@comment, whether there is indeed
+         a comment or not.  In case there is no @c/@comment, this allows
+         to advance on the line and search again for @c/@comment */
+      q = read_comment (q1, has_comment);
+      if (*has_comment)
         {
+          /* replace q at the start of the comment */
           q = q1;
-          *has_comment = 1;
           break;
         }
     }

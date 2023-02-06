@@ -1,3 +1,16 @@
+2023-02-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (skip_comment),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (read_comment): add an argument
+	to read_comment, set to 1 if there is a comment.  Remove the
+	comment_command argument of read_comment, the comment command is at
+	the line argument location, so if there is a comment the caller can
+	easily find the comment argument beginning.  Return a pointer past
+	@c/@comment, whether there is indeed a comment or not.
+	Update call in handle_block_command.
+	Use read_comment in skip_comment (removes a valgrind error).
+
 2023-02-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Reduce list of line commands that may occur other than at line start
