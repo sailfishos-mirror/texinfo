@@ -36,8 +36,10 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-echo "$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --out $basename/ $srcdir/../../t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../t/input_files/char_latin1_utf8_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --out $basename/ $srcdir/../../t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../t/input_files/char_latin1_utf8_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+set -x
+cmd="$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --out $basename/ $srcdir/../../t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../t/input_files/char_latin1_utf8_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+echo "$cmd" >> $logfile
+eval $cmd
 
 return_code=0
 ret=$?

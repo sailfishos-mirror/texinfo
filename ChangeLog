@@ -1,5 +1,10 @@
 2023-02-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/many_input_files/*.sh: use a variable for the command
+	run to avoid redundant code.
+
+2023-02-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/run_parser_all.sh: reindent a function.
 
 2023-02-06  Patrice Dumas  <pertusus@free.fr>
