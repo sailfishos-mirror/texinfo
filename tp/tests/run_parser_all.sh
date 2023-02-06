@@ -49,55 +49,55 @@ check_unicode_collate_ok ()
 
 check_latex2html_and_tex4ht ()
 {
-    use_latex2html=no
-    use_tex4ht=no
-    l2h_flags=
-    maybe_use_latex2html=no
-    if echo "$remaining" | grep '[-]l2h' >/dev/null; then
-      maybe_use_latex2html=yes
+  use_latex2html=no
+  use_tex4ht=no
+  l2h_flags=
+  maybe_use_latex2html=no
+  if echo "$remaining" | grep '[-]l2h' >/dev/null; then
+    maybe_use_latex2html=yes
+  fi
+  if echo "$remaining" | grep 'HTML_MATH l2h' >/dev/null; then
+    maybe_use_latex2html=yes
+  fi
+  if [ $maybe_use_latex2html = 'yes' ]; then
+    if [ "$no_latex2html" = 'yes' ]; then
+      echo "S: (no latex2html) $current"
+      return 1
     fi
-    if echo "$remaining" | grep 'HTML_MATH l2h' >/dev/null; then
-      maybe_use_latex2html=yes
+    use_latex2html=yes
+    if test z"$tmp_dir" = 'z'; then
+       tmp_dir=`mktemp -d l2h_t2h_XXXXXXXX`
+       if test z"$tmp_dir" = 'z'; then
+         echo "$0: mktemp failed" 1>&2
+         exit 1
+       fi
     fi
-    if [ $maybe_use_latex2html = 'yes' ]; then
-      if [ "$no_latex2html" = 'yes' ]; then
-        echo "S: (no latex2html) $current"
+    l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../t/init/l2h.init"
+  else
+    maybe_use_tex4ht=no
+    if echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
+      maybe_use_tex4ht=yes
+    fi
+    if echo "$remaining" | grep 'HTML_MATH t4h' >/dev/null; then
+      maybe_use_tex4ht=yes
+    fi
+    if [ $maybe_use_tex4ht = 'yes' ]; then
+      if test "$no_tex4ht" = 'yes' ; then
+        echo "S: (no tex4ht) $current"
         return 1
       fi
-      use_latex2html=yes
-      if test z"$tmp_dir" = 'z'; then
-         tmp_dir=`mktemp -d l2h_t2h_XXXXXXXX`
-         if test z"$tmp_dir" = 'z'; then
-           echo "$0: mktemp failed" 1>&2
-           exit 1
-         fi
-      fi
-      l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../t/init/l2h.init"
-    else
-      maybe_use_tex4ht=no
-      if echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
-        maybe_use_tex4ht=yes
-      fi
-      if echo "$remaining" | grep 'HTML_MATH t4h' >/dev/null; then
-        maybe_use_tex4ht=yes
-      fi
-      if [ $maybe_use_tex4ht = 'yes' ]; then
-        if test "$no_tex4ht" = 'yes' ; then
-          echo "S: (no tex4ht) $current"
-          return 1
-        fi
-        use_tex4ht=yes
-      fi
+      use_tex4ht=yes
     fi
-    if test $use_tex4ht = 'yes' || test $use_latex2html = 'yes' ; then
-      if echo "$remaining" | grep '[-]init mediawiki.pm' >/dev/null; then
-       if test "$no_html2wiki" = 'yes' ; then
-         echo "S: (no html2wiki) $current"
-         return 1
-       fi
-      fi
+  fi
+  if test $use_tex4ht = 'yes' || test $use_latex2html = 'yes' ; then
+    if echo "$remaining" | grep '[-]init mediawiki.pm' >/dev/null; then
+     if test "$no_html2wiki" = 'yes' ; then
+       echo "S: (no html2wiki) $current"
+       return 1
+     fi
     fi
-    return 0
+  fi
+  return 0
 }
 
 # process the output so we can get consistent output for the comparisons

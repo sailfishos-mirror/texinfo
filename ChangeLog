@@ -1,5 +1,9 @@
 2023-02-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/run_parser_all.sh: reindent a function.
+
+2023-02-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (skip_comment),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
 	tp/Texinfo/XS/parsetexi/parser.c (read_comment): add an argument
@@ -956,7 +960,7 @@
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): remove
-	setfilename or include from tre before starting a new preformatted,
+	setfilename or include from tree before starting a new preformatted,
 	in preformatted context.
 
 	* tp/t/80include.t, tp/Makefile.tres: add test
@@ -1046,7 +1050,7 @@
 
 	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t:
 	add filenameconflictwithspecialelement demonstrating conflict of
-	redirection file with special element, wwhich needs customizing the
+	redirection file with special element, which needs customizing the
 	special element file_string.
 
 2023-01-11  Patrice Dumas  <pertusus@free.fr>
