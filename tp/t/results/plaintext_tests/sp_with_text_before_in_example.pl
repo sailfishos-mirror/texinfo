@@ -136,7 +136,17 @@ sp
 text
 ';
 
-$result_errors{'sp_with_text_before_in_example'} = [];
+$result_errors{'sp_with_text_before_in_example'} = [
+  {
+    'error_line' => 'warning: @sp should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@sp should only appear at the beginning of a line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'sp_with_text_before_in_example'} = {};

@@ -351,6 +351,24 @@ xx jj
 
 $result_errors{'set_in_item_missing_line'} = [
   {
+    'error_line' => 'warning: @set should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@set should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @set should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@set should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @item should not appear in @item
 ',
     'file_name' => '',

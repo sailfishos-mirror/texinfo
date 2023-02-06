@@ -480,6 +480,15 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @vskip should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 21,
+    'macro' => '',
+    'text' => '@vskip should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',

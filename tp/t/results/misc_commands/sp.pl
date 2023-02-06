@@ -196,6 +196,24 @@ Text line after the text line followed by the sp.
 
 $result_errors{'sp'} = [
   {
+    'error_line' => 'warning: @sp should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@sp should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @sp should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@sp should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@sp arg must be numeric, not `2 a number after sp\'
 ',
     'file_name' => '',

@@ -756,6 +756,15 @@ $result_errors{'value_expansion_in_include'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => '',
+    'text' => '@verbatiminclude should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
@@ -765,12 +774,30 @@ $result_errors{'value_expansion_in_include'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 19,
+    'macro' => '',
+    'text' => '@verbatiminclude should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 22,
     'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => '',
+    'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
   }
 ];

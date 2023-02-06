@@ -521,6 +521,15 @@ index';
 
 $result_errors{'at_commands_glued_in_example'} = [
   {
+    'error_line' => 'warning: @sp should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => '@sp should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should only appear at the beginning of a line
 ',
     'file_name' => '',
