@@ -680,3 +680,9 @@ In tp/tests/, generate Texinfo file for Texinfo TeX coverage
 
 From doc/
 texi2pdf -I ../tp/tests/layout/ ../tp/tests/formatting_valid.texi
+
+mkdir -p val_res
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q perl -w $file > val_res/$bfile.out 2>&1 ; done
+
+For tests in tp/tests, a way to have valgrind -q prependend is to add, in tp/defs:
+prepended_command='valgrind -q'

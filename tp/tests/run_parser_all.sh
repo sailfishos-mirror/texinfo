@@ -172,6 +172,8 @@ LANGUAGE=en; export LANGUAGE
 
 prepended_command=
 #prepended_command=time
+# can also be put in ../defs to also affect tests in many_input_files
+#prepended_command='valgrind -q'
 
 main_command='texi2any.pl'
 
