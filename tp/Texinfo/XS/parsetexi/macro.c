@@ -251,9 +251,11 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
 
   char **arg_list = 0;
   size_t arg_number = 0;
-  size_t arg_space = 0;
+  size_t arg_space = 2;
 
-  arg_list = malloc (sizeof (char *));
+  /* minimum 2 element in arg_list, an argument, which can be an empty string and
+     the null delimiter */
+  arg_list = malloc (sizeof (char *) * 2);
   args_total = macro->args.number - 1;
 
   text_init (&arg);
@@ -325,6 +327,11 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
               /* Add the last argument read to the list. */
               if (arg_number == arg_space)
                 {
+                  /* note that if args_total is 0, new_arg_space will be 1
+                     which is not enough for the minimum of an argument and
+                     the terminating null element.  However, it is not possible
+                     to have arg_number == arg_space in that case, as arg_space
+                     is minimum 2 and arg_number is maximum 0 if args_total is 0 */
                   /* Include space for terminating null element. */
                   size_t new_arg_space = args_total + 1;
                   /* unless at the end, only allocate next 5 args */
