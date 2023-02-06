@@ -1,5 +1,14 @@
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): fix
+	arg_space, which is not the number of allocated elements in arg_list,
+	but comparable to arg_number, with 1 added to obtain the allocated
+	number of elements to add the null delimiter.  Change name of
+	new_arg_space to new_alloc_space to make clearer that it is the
+	allocated number of elements, not a space comparable to arg_number.
+
+2023-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): always
 	allocate 2 arg_list elements, for an argument, which can be an empty
 	string, and the null delimiter.  Initialize arg_space to 2

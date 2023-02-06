@@ -251,11 +251,13 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
 
   char **arg_list = 0;
   size_t arg_number = 0;
-  size_t arg_space = 2;
+  /* arg_space is set to be comparable to arg_number, so need to allocate
+     1 more for the null delimiter */
+  /* start with an argument, which can be an empty string */
+  size_t arg_space = 1;
 
-  /* minimum 2 element in arg_list, an argument, which can be an empty string and
-     the null delimiter */
-  arg_list = malloc (sizeof (char *) * 2);
+  /* allocate 1 more for the null delimiter */
+  arg_list = malloc (sizeof (char *) * (arg_space + 1));
   args_total = macro->args.number - 1;
 
   text_init (&arg);
@@ -327,18 +329,18 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
               /* Add the last argument read to the list. */
               if (arg_number == arg_space)
                 {
-                  /* note that if args_total is 0, new_arg_space will be 1
+                  /* note that if args_total is 0, new_alloc_space will be 1
                      which is not enough for the minimum of an argument and
                      the terminating null element.  However, it is not possible
                      to have arg_number == arg_space in that case, as arg_space
-                     is minimum 2 and arg_number is maximum 0 if args_total is 0 */
+                     is minimum 1 and arg_number is maximum 0 if args_total is 0 */
                   /* Include space for terminating null element. */
-                  size_t new_arg_space = args_total + 1;
+                  size_t new_alloc_space = args_total + 1;
                   /* unless at the end, only allocate next 5 args */
-                  if (1 + arg_space + 5 < new_arg_space)
-                    new_arg_space = 1 + (arg_space += 5);
+                  if (1 + arg_space + 5 < new_alloc_space)
+                    new_alloc_space = 1 + (arg_space += 5);
                   arg_list = realloc (arg_list,
-                                      new_arg_space * sizeof (char *));
+                                      new_alloc_space * sizeof (char *));
                   if (!arg_list)
                     fatal ("realloc failed");
                 }
