@@ -12957,8 +12957,11 @@ not @samp{-} or @samp{_} or others---they will work in some contexts,
 but not all, due to limitations in @TeX{}.
 
 The value is the remainder of the input line, and can contain anything.
+
+@ignore
 However, unlike most other commands which take the rest of the line as
 a value, @code{@@set} need not appear at the beginning of a line.
+@end ignore
 
 Write the @code{@@set} command like this:
 

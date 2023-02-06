@@ -390,11 +390,8 @@ foreach my $no_paragraph_command (keys(%line_commands)) {
   $begin_line_commands{$no_paragraph_command} = 1;
 }
 
-# verbatiminclude is not said to begin at the beginning of the line
-# in the manual
-foreach my $not_begin_line_command ('comment', 'c', 'sp', 'columnfractions',
-                                 'item', 'verbatiminclude',
-                                 'set', 'clear', 'vskip', 'subentry') {
+foreach my $not_begin_line_command ('comment', 'c', 'columnfractions',
+                                 'item', 'subentry') {
   delete $begin_line_commands{$not_begin_line_command};
 }
 

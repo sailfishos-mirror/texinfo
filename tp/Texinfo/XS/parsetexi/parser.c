@@ -2011,7 +2011,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       def_line_continuation = (current_context() == ct_def
                                && cmd == CM_NEWLINE);
       /* warn on not appearing at line beginning */
-      /* TODO maybe have a command flag for "begin line commands" */
       if (!def_line_continuation
           && !abort_empty_line (&current, NULL)
           && ((cmd == CM_node || cmd == CM_bye)
@@ -2019,13 +2018,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               || ((command_data(cmd).flags & CF_line)
                   && cmd != CM_comment
                   && cmd != CM_c
-                  && cmd != CM_sp
                   && cmd != CM_columnfractions
                   && cmd != CM_item
-                  && cmd != CM_verbatiminclude
-                  && cmd != CM_set
-                  && cmd != CM_clear
-                  && cmd != CM_vskip)
                   && cmd != CM_subentry))
         {
           line_warn ("@%s should only appear at the beginning of a line", 

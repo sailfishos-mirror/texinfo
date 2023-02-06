@@ -1,3 +1,16 @@
+2023-02-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Reduce list of line commands that may occur other than at line start
+
+	* tp/Texinfo/ParserNonXS.pm (%begin_line_commands):
+	Include @sp, @verbatiminclude, @set, @clear, @vskip.
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	Likewise.
+	* NEWS: Mention change for @set and @value, and better validity
+	checking in general.
+	* doc/texinfo.texi (@set @value): Do not say that @set can
+	occur at the beginning of a line.
+
 2023-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): fix
