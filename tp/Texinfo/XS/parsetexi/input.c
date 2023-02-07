@@ -461,6 +461,12 @@ next_text (ELEMENT *current)
                     source_mark->line = 0;
                   input_push_text(strdup (""),
                                   input->source_info.line_nr, 0, 0);
+                  /* if the input_stack was reallocated in input_push_text,
+                     the input pointer for the file may have been freed and
+                     re-created at another address.  Therefore we reset it.
+                     input_number has been increased too, so the input file
+                     being processed is now at input_number - 2 */
+                  input = &input_stack[input_number - 2];
                   set_input_source_mark (source_mark);
                 }
 
