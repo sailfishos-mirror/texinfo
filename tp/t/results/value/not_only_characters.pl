@@ -43,14 +43,22 @@ $result_trees{'not_only_characters'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => '-e_\'::;',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => '-e_\'::;'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'hh',
                   'position' => 4,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'line' => '-e_\'::;',
+                  'line' => 'hh',
                   'position' => 6,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

@@ -79,7 +79,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'line' => 'bracedletter',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'bracedletter'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '{a}',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -98,7 +106,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'bracedletter',
+                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -115,7 +123,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 2,
-                      'line' => 'unknowncmd',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'unknowncmd'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '@unknown',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -134,7 +150,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'unknowncmd',
+                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -161,7 +177,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 3,
-                      'line' => 'bracedletter',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'bracedletter'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '{a}',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -180,7 +204,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'line' => 'bracedletter',
+                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -197,7 +221,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 4,
-                      'line' => 'unknowncmd',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'unknowncmd'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '@unknown',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -216,7 +248,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 4,
-                  'line' => 'unknowncmd',
+                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -243,7 +275,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 5,
-                      'line' => 'bracedletter',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'bracedletter'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '{a}',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -262,7 +302,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'line' => 'bracedletter',
+                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -279,7 +319,15 @@ $result_trees{'value_after_brace_command'} = {
                   'source_marks' => [
                     {
                       'counter' => 6,
-                      'line' => 'unknowncmd',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'unknowncmd'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => '@unknown',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -298,7 +346,7 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'line' => 'unknowncmd',
+                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }

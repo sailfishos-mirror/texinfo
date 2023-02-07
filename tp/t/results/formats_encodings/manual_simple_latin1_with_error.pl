@@ -269,10 +269,12 @@ $result_trees{'manual_simple_latin1_with_error'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'value',
-          'info' => {
-            'flag' => "non_conn\x{f9}e"
-          }
+          'args' => [
+            {
+              'text' => "non_conn\x{f9}e"
+            }
+          ],
+          'cmdname' => 'value'
         },
         {
           'text' => '

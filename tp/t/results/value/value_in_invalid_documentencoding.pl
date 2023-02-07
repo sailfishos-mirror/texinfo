@@ -40,7 +40,7 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'line' => 'badvalue',
+                      'line' => 'bad',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -67,7 +67,15 @@ $result_trees{'value_in_invalid_documentencoding'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'badvalue',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'badvalue'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'bad',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'

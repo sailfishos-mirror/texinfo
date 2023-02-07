@@ -171,7 +171,7 @@ $result_trees{'value_expansion_in_include'} = {
                             'source_marks' => [
                               {
                                 'counter' => 1,
-                                'line' => 'testvar',
+                                'line' => 'incl-incl.txi',
                                 'position' => 13,
                                 'sourcemark_type' => 'value_expansion',
                                 'status' => 'end'
@@ -198,7 +198,15 @@ $result_trees{'value_expansion_in_include'} = {
                         'source_marks' => [
                           {
                             'counter' => 1,
-                            'line' => 'testvar',
+                            'element' => {
+                              'args' => [
+                                {
+                                  'text' => 'testvar'
+                                }
+                              ],
+                              'cmdname' => 'value'
+                            },
+                            'line' => 'incl-incl.txi',
                             'position' => 1,
                             'sourcemark_type' => 'value_expansion',
                             'status' => 'start'
@@ -274,7 +282,7 @@ $result_trees{'value_expansion_in_include'} = {
                   'source_marks' => [
                     {
                       'counter' => 2,
-                      'line' => 'testvar',
+                      'line' => 'incl-incl.txi',
                       'position' => 13,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -302,7 +310,15 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'testvar',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'testvar'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'incl-incl.txi',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
@@ -341,7 +357,7 @@ $result_trees{'value_expansion_in_include'} = {
                             'source_marks' => [
                               {
                                 'counter' => 3,
-                                'line' => 'test-var',
+                                'line' => 'incl-incl.tx',
                                 'position' => 12,
                                 'sourcemark_type' => 'value_expansion',
                                 'status' => 'end'
@@ -368,7 +384,15 @@ $result_trees{'value_expansion_in_include'} = {
                         'source_marks' => [
                           {
                             'counter' => 3,
-                            'line' => 'test-var',
+                            'element' => {
+                              'args' => [
+                                {
+                                  'text' => 'test-var'
+                                }
+                              ],
+                              'cmdname' => 'value'
+                            },
+                            'line' => 'incl-incl.tx',
                             'position' => 1,
                             'sourcemark_type' => 'value_expansion',
                             'status' => 'start'
@@ -444,7 +468,7 @@ $result_trees{'value_expansion_in_include'} = {
                   'source_marks' => [
                     {
                       'counter' => 4,
-                      'line' => 'test-var',
+                      'line' => 'incl-incl.tx',
                       'position' => 12,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -472,7 +496,15 @@ $result_trees{'value_expansion_in_include'} = {
               'source_marks' => [
                 {
                   'counter' => 4,
-                  'line' => 'test-var',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'test-var'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'incl-incl.tx',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
@@ -511,14 +543,22 @@ $result_trees{'value_expansion_in_include'} = {
                             'source_marks' => [
                               {
                                 'counter' => 5,
-                                'line' => 'test_var',
+                                'element' => {
+                                  'args' => [
+                                    {
+                                      'text' => 'test_var'
+                                    }
+                                  ],
+                                  'cmdname' => 'value'
+                                },
+                                'line' => 'ncl-incl.tx',
                                 'position' => 1,
                                 'sourcemark_type' => 'value_expansion',
                                 'status' => 'start'
                               },
                               {
                                 'counter' => 5,
-                                'line' => 'test_var',
+                                'line' => 'ncl-incl.tx',
                                 'position' => 12,
                                 'sourcemark_type' => 'value_expansion',
                                 'status' => 'end'
@@ -612,14 +652,22 @@ $result_trees{'value_expansion_in_include'} = {
                   'source_marks' => [
                     {
                       'counter' => 6,
-                      'line' => 'test_var',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'test_var'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => 'ncl-incl.tx',
                       'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     },
                     {
                       'counter' => 6,
-                      'line' => 'test_var',
+                      'line' => 'ncl-incl.tx',
                       'position' => 12,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'

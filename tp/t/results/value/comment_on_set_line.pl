@@ -112,56 +112,88 @@ $result_trees{'comment_on_set_line'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'x',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'x'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'line' => 'x',
+                  'line' => '',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 2,
-                  'line' => 'y',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'y'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '',
                   'position' => 5,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'line' => 'y',
+                  'line' => '',
                   'position' => 5,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 3,
-                  'line' => 'z',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'z'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'g',
                   'position' => 9,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 3,
-                  'line' => 'z',
+                  'line' => 'g',
                   'position' => 10,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 },
                 {
                   'counter' => 4,
-                  'line' => 't',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 't'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'a vv',
                   'position' => 14,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 4,
-                  'line' => 't',
+                  'line' => 'a vv',
                   'position' => 18,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

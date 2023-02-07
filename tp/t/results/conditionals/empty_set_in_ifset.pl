@@ -43,14 +43,22 @@ $result_trees{'empty_set_in_ifset'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'a',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'a'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '',
                   'position' => 13,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'line' => 'a',
+                  'line' => '',
                   'position' => 13,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

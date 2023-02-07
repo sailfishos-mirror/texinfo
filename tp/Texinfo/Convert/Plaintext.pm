@@ -2496,7 +2496,7 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}',
-                         {'value' => $element->{'info'}->{'flag'}});
+                                 {'value' => $element->{'args'}->[0]});
       if ($formatter->{'_top_formatter'}) {
         $expansion = {'type' => 'paragraph',
                       'contents' => [$expansion]};

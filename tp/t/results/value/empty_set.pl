@@ -43,14 +43,22 @@ $result_trees{'empty_set'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'myspace',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'myspace'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '',
                   'position' => 2,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 1,
-                  'line' => 'myspace',
+                  'line' => '',
                   'position' => 2,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

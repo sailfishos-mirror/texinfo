@@ -203,13 +203,21 @@ $result_trees{'value_in_node'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'line' => 'node1',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'node1'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => 'Node 1',
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 1,
-                          'line' => 'node1',
+                          'line' => 'Node 1',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -324,7 +332,7 @@ $result_trees{'value_in_node'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'node1',
+                  'line' => 'Node 1',
                   'position' => 6,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -402,7 +410,15 @@ $result_trees{'value_in_node'} = {
           'source_marks' => [
             {
               'counter' => 2,
-              'line' => 'node1',
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'node1'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => 'Node 1',
               'position' => 1,
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
@@ -495,13 +511,21 @@ $result_trees{'value_in_node'} = {
                       'source_marks' => [
                         {
                           'counter' => 3,
-                          'line' => 'sec1',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'sec1'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => 'Section 1.1',
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 3,
-                          'line' => 'sec1',
+                          'line' => 'Section 1.1',
                           'position' => 11,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -669,7 +693,15 @@ $result_trees{'value_in_node'} = {
                       'source_marks' => [
                         {
                           'counter' => 4,
-                          'line' => 'node1',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'node1'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => 'Node 1',
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         }
@@ -680,7 +712,7 @@ $result_trees{'value_in_node'} = {
                       'source_marks' => [
                         {
                           'counter' => 4,
-                          'line' => 'node1',
+                          'line' => 'Node 1',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

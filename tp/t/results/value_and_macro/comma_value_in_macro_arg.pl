@@ -139,14 +139,22 @@ $result_trees{'comma_value_in_macro_arg'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'line' => 'comma',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'comma'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => ',',
                           'position' => 5,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 1,
-                          'line' => 'comma',
+                          'line' => ',',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

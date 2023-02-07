@@ -1053,6 +1053,9 @@ sub _convert($$;$)
           pop @{$self->{'document_context'}};
         }
         return $command_result;
+      } elsif ($element->{'cmdname'} eq 'value') {
+        # value in tree corresponds to an unknown flag, ignored here
+        return '';
       }
 
 

@@ -102,10 +102,12 @@ $result_trees{'bad_syntax'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'value',
-          'info' => {
-            'flag' => 'unknown'
-          }
+          'args' => [
+            {
+              'text' => 'unknown'
+            }
+          ],
+          'cmdname' => 'value'
         },
         {
           'text' => '

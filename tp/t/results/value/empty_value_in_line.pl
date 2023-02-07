@@ -50,13 +50,21 @@ $result_trees{'empty_value_in_line'} = {
           'source_marks' => [
             {
               'counter' => 1,
-              'line' => 'myspace',
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'myspace'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => '',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
             },
             {
               'counter' => 1,
-              'line' => 'myspace',
+              'line' => '',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             }

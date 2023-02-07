@@ -166,9 +166,10 @@ sub _expand_cmd_args_to_texi($) {
   } elsif ($cmd->{'args'}) {
     my $braces;
     $braces = 1 if (scalar(@{$cmd->{'args'}})
-                    and $cmd->{'args'}->[0]->{'type'}
-                    and ($cmd->{'args'}->[0]->{'type'} eq 'brace_command_arg'
-                         or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context'));
+                    and ($cmd->{'args'}->[0]->{'type'}
+                          and ($cmd->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+                               or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context'))
+                         or $cmdname eq 'value');
     $result .= '{' if ($braces);
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'info'}->{'delimiter'};
@@ -205,7 +206,6 @@ sub _expand_cmd_args_to_texi($) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
   }
-  $result .= '{'.$cmd->{'info'}->{'flag'}.'}' if ($cmdname eq 'value');
   return $result;
 }
 

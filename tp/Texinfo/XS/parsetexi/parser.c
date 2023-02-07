@@ -992,6 +992,20 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   }
 }
 
+ELEMENT *
+new_value_element (enum command_id cmd, char *flag)
+{
+  ELEMENT *value_elt = new_element (ET_NONE);
+  ELEMENT *value_arg = new_element (ET_NONE);
+
+  value_elt->cmd = cmd;
+
+  text_append (&value_arg->text, flag);
+  add_to_element_args (value_elt, value_arg);
+
+  return value_elt;
+}
+
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
 int
 is_end_current_command (ELEMENT *current, char **line,
@@ -1673,6 +1687,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   if (value)
                     {
                       SOURCE_MARK *value_source_mark;
+                      ELEMENT *sm_value_element;
 
                       remaining_line++; /* past '}' */
                       if (conf.max_macro_call_nesting
@@ -1693,13 +1708,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       input_push_text (strdup (value),
                                        current_source_info.line_nr,
                                        current_source_info.macro,
-                                       strdup(flag));
+                                       strdup (flag));
 
                       value_source_mark
                           = new_source_mark (SM_type_value_expansion);
                       value_source_mark->status = SM_status_start;
-                      value_source_mark->line = strdup(flag);
-                      register_source_mark(current, value_source_mark);
+                      value_source_mark->line = strdup(value);
+                      sm_value_element = new_value_element (cmd, flag);
+                      value_source_mark->element = sm_value_element;
+
+                      register_source_mark (current, value_source_mark);
                       set_input_source_mark (value_source_mark);
 
                       value_expansion_nr++;
@@ -1947,10 +1965,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       line_warn ("undefined flag: %s", flag);
 
                       abort_empty_line (&current, NULL);
-                      value_elt = new_element (ET_NONE);
-                      value_elt->cmd = CM_value;
-                      add_info_string_dup (value_elt, "flag", flag);
 
+                      value_elt = new_value_element (cmd, flag);
                       add_to_element_contents (current, value_elt);
 
                       line++; /* past '}' */
@@ -1970,14 +1986,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   ELEMENT *txiinternalvalue_elt, *txiinternalvalue_arg;
 
                   abort_empty_line (&current, NULL);
-                  txiinternalvalue_elt = new_element (ET_NONE);
-                  txiinternalvalue_elt->cmd = CM_txiinternalvalue;
 
-                  /* FIXME or ET_misc_arg? */
-                  txiinternalvalue_arg = new_element (ET_NONE);
+                  txiinternalvalue_elt = new_value_element (cmd, flag);
 
-                  text_append (&txiinternalvalue_arg->text, flag);
-                  add_to_element_args (txiinternalvalue_elt, txiinternalvalue_arg);
 
                   add_to_element_contents (current, txiinternalvalue_elt);
 

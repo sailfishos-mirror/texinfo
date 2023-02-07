@@ -115,7 +115,15 @@ $result_trees{'macro_in_value'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'flagab',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'flagab'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '@ab',
                   'position' => 8,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
@@ -156,7 +164,7 @@ $result_trees{'macro_in_value'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => 'flagab',
+                  'line' => '@ab',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

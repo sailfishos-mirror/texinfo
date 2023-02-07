@@ -3507,7 +3507,7 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}',
-                          {'value' => $element->{'info'}->{'flag'}});
+                                 {'value' => $element->{'args'}->[0]});
       $expansion = {'type' => 'paragraph',
                     'contents' => [$expansion]};
       $result .= _convert($self, $expansion);

@@ -464,10 +464,12 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'value',
-          'info' => {
-            'flag' => 'flag'
-          }
+          'args' => [
+            {
+              'text' => 'flag'
+            }
+          ],
+          'cmdname' => 'value'
         },
         {
           'contents' => [

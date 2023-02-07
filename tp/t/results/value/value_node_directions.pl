@@ -56,7 +56,7 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'a--foo',
+                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -70,7 +70,15 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'a--foo',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'a--foo'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'bar',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
@@ -174,14 +182,22 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'a--foo',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'a--foo'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'bar',
                   'position' => 4,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
                 },
                 {
                   'counter' => 2,
-                  'line' => 'a--foo',
+                  'line' => 'bar',
                   'position' => 7,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -205,7 +221,15 @@ $result_trees{'value_node_directions'} = {
           'source_marks' => [
             {
               'counter' => 3,
-              'line' => 'a--foo',
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'a--foo'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => 'bar',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
             }
@@ -218,7 +242,7 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'line' => 'a--foo',
+                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -256,7 +280,7 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 4,
-                  'line' => 'a--foo',
+                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -354,7 +378,15 @@ $result_trees{'value_node_directions'} = {
           'source_marks' => [
             {
               'counter' => 4,
-              'line' => 'a--foo',
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'a--foo'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => 'bar',
               'position' => 1,
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
@@ -430,7 +462,7 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'line' => 'a--foo',
+                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -444,7 +476,15 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'line' => 'a--foo',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'a--foo'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => 'bar',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'

@@ -36,7 +36,15 @@ $result_trees{'simple'} = {
           'source_marks' => [
             {
               'counter' => 1,
-              'line' => 'a-_5b',
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'a-_5b'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => 'the value @b{b}',
               'position' => 1,
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
@@ -71,7 +79,7 @@ $result_trees{'simple'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'a-_5b',
+                  'line' => 'the value @b{b}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }

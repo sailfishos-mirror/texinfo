@@ -10,10 +10,12 @@ $result_trees{'unknown_value'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'value',
-          'info' => {
-            'flag' => 'unknown'
-          }
+          'args' => [
+            {
+              'text' => 'unknown'
+            }
+          ],
+          'cmdname' => 'value'
         }
       ],
       'type' => 'before_node_section'

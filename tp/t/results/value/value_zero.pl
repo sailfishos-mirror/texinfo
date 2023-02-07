@@ -38,7 +38,15 @@ $result_trees{'value_zero'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'zero',
+                  'element' => {
+                    'args' => [
+                      {
+                        'text' => 'zero'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '0',
                   'position' => 6,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'start'
@@ -51,7 +59,7 @@ $result_trees{'value_zero'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'zero',
+                  'line' => '0',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

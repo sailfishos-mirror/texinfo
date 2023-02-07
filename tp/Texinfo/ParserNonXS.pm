@@ -4498,6 +4498,25 @@ sub _setup_document_root_and_before_node_section()
   return ($document_root, $before_node_section);
 }
 
+sub _new_value_element($$;$)
+{
+  my $command = shift;
+  my $flag = shift;
+  my $current = shift;
+
+  my $value_elt = { 'cmdname' => $command,
+                      'args' => [] };
+  $value_elt->{'parent'} = $current if (defined($current));
+  # Add a 'brace_command_arg' container?  On the one hand it is
+  # not usefull, as there is no contents, only a flag, on the
+  # other end, it is different from other similar commands, like 'U'.
+  # Beware that it is also used for txiinternalvalue, which for
+  # now requires that structure, but it could easily be changed too.
+  push @{$value_elt->{'args'}}, {'text' => $flag,
+                                 'parent' => $value_elt};
+  return $value_elt;
+}
+
 sub _handle_macro($$$$$)
 {
   my $self = shift;
@@ -4879,9 +4898,13 @@ sub _process_remaining_on_line($$$$)
           _input_push_text($self, $remaining_line, $source_info->{'line_nr'},
                            $source_info->{'macro'});
           _input_push_text($self, $self->{'values'}->{$value},
-                           $source_info->{'line_nr'}, $source_info->{'macro'}, $value);
+                           $source_info->{'line_nr'},
+                           $source_info->{'macro'}, $value);
+          my $sm_value_element = _new_value_element($command, $value);
           my $value_source_mark = {'sourcemark_type' => 'value_expansion',
-                                   'status' => 'start', 'line' => $value};
+                                   'status' => 'start',
+                                   'line' => $self->{'values'}->{$value},
+                                   'element' => $sm_value_element};
           _register_source_mark($self, $current, $value_source_mark);
           $self->{'input'}->[0]->{'input_source_mark'} = $value_source_mark;
           $line = '';
@@ -5159,9 +5182,8 @@ sub _process_remaining_on_line($$$$)
             _abort_empty_line($self, $current);
             # caller should expand something along
             # gdt($self, '@{No value for `{value}\'@}', {'value' => $value});
-            push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                              'info' => {'flag' => $value},
-                                              'parent' => $current };
+            my $new_element = _new_value_element($command, $value, $current);
+            push @{$current->{'contents'}}, $new_element;
             $self->_line_warn(
                sprintf(__("undefined flag: %s"), $value), $source_info);
           # expansion of value already done above
@@ -5170,12 +5192,7 @@ sub _process_remaining_on_line($$$$)
         } else {
           # txiinternalvalue
           _abort_empty_line($self, $current);
-          my $new_element = { 'cmdname' => $command,
-                              'args' => [],
-                              'parent' => $current };
-          # type misc_arg?
-          push @{$new_element->{'args'}}, {'text' => $value,
-                                           'parent' => $new_element};
+          my $new_element = _new_value_element($command, $value, $current);
           push @{$current->{'contents'}}, $new_element;
         }
       } else {
@@ -7823,6 +7840,11 @@ leads to
   'args' => [{'type' => 'brace_command_arg',
               'contents' => [{'text' => 'in code'}]}]}
 
+As an exception, C<@value> flag argument is directly in the I<args> array
+reference, not in a I<brace_command_arg> container.  Note that only C<@value>
+commands that are not expanded because there is no corresponding value set
+are present as elements in the tree.
+
 =item bracketed
 
 This a special type containing content in brackets in the context
@@ -7979,12 +8001,6 @@ and for C<@macro> line.
 =item delimiter
 
 C<@verb> delimiter is in I<delimiter>.
-
-=item flag
-
-C<@value> tree element argument string is in I<flag>.  Only for a C<@value>
-command that is not expanded because there is no corresponding value set, as
-only those are present in the tree.
 
 =item spaces_after_argument
 

@@ -45,7 +45,15 @@ $result_trees{'value_after_accent'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'line' => 'a_letter',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'a_letter'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => 'a',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -65,7 +73,7 @@ $result_trees{'value_after_accent'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'a_letter',
+                  'line' => 'a',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -86,7 +94,15 @@ $result_trees{'value_after_accent'} = {
                   'source_marks' => [
                     {
                       'counter' => 2,
-                      'line' => 'a_letter',
+                      'element' => {
+                        'args' => [
+                          {
+                            'text' => 'a_letter'
+                          }
+                        ],
+                        'cmdname' => 'value'
+                      },
+                      'line' => 'a',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
@@ -103,7 +119,7 @@ $result_trees{'value_after_accent'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'a_letter',
+                  'line' => 'a',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }

@@ -93,41 +93,65 @@ $result_trees{'set_form_feed'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
-                          'line' => 'gg',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'gg'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => 'a\\a\\f\\\\',
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 1,
-                          'line' => 'gg',
+                          'line' => 'a\\a\\f\\\\',
                           'position' => 7,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
                         },
                         {
                           'counter' => 2,
-                          'line' => 'hh',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'hh'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => '',
                           'position' => 9,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 2,
-                          'line' => 'hh',
+                          'line' => '',
                           'position' => 9,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
                         },
                         {
                           'counter' => 3,
-                          'line' => 'll',
+                          'element' => {
+                            'args' => [
+                              {
+                                'text' => 'll'
+                              }
+                            ],
+                            'cmdname' => 'value'
+                          },
+                          'line' => '',
                           'position' => 11,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 3,
-                          'line' => 'll',
+                          'line' => '',
                           'position' => 11,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

@@ -2482,6 +2482,7 @@ my %default_commands_args = (
   'inlineifset' => [['monospacetext'],['normal']],
   'item' => [[]],
   'itemx' => [[]],
+  'value' => [['monospacestring']],
 );
 
 foreach my $explained_command (keys(%explained_commands)) {
@@ -2971,7 +2972,7 @@ sub _convert_value_command($$$$)
   my $args = shift;
 
   return $self->convert_tree($self->gdt('@{No value for `{value}\'@}',
-                                  {'value' => $command->{'info'}->{'flag'}}));
+                                  {'value' => $args->[0]->{'monospacestring'}}));
 }
 
 $default_commands_conversion{'value'} = \&_convert_value_command;
