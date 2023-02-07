@@ -36,6 +36,8 @@ replaced, elided, elided_block types.
 extra->'comment_at_end'
 likely in many line commands
 
+source marks.
+
 Other
 -----
 
@@ -145,11 +147,6 @@ as CSS because it is not style, but table or even line specific formatting.
 
 Missing tests
 =============
-
-Test node files that differ only in case.  This may be rather complicated,
-however, as seen in
-https://lists.gnu.org/archive/html/bug-texinfo/2013-02/msg00076.html
-This may be linked to a possible test of CASE_INSENSITIVE_FILENAMES.
 
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 

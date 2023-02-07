@@ -692,6 +692,28 @@ In top@footnote{Additional text}.
 ',{}, {'MONOLITHIC' => 0},],
 );
 
+my $file_name_case_insensitive_conflict_node = '@node Top
+@top top section
+
+@node chap
+@chapter Chapter
+
+@anchor{fOO}
+
+@node Foo
+@section Foo
+
+@node Bar
+@section Bar
+
+@node foo
+@section foo
+
+@xref{foo}
+
+@xref{Foo}
+';
+
 my @test_cases_file_text = (
 ['test_accents_sc_default',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'}],
@@ -792,6 +814,20 @@ my @file_tests = (
 
 @anchor{index}
 ', {}, {'SPLIT' => 'node'},
+],
+# Note that a test with nodes and output files that differ only in case can
+# only be tested with CASE_INSENSITIVE_FILENAMES set, otherwise on case
+# insensitive file systems the tests results would be different from the
+# results on case sensitive file systems.  Also the files with names differing
+# by case only would conflict and lead to errors if the reference file results
+# are setup from an archive, or from source version control.
+['file_name_case_insensitive_conflict_node',
+$file_name_case_insensitive_conflict_node,
+{}, {'SPLIT' => 'node', 'CASE_INSENSITIVE_FILENAMES' => 1},
+],
+['file_name_case_insensitive_conflict_node_no_redirections',
+$file_name_case_insensitive_conflict_node,
+{}, {'SPLIT' => 'node', 'NODE_FILES' => 0, 'CASE_INSENSITIVE_FILENAMES' => 1},
 ],
 ['file_name_case_insensitive_conflict_redirections',
 '@node Top

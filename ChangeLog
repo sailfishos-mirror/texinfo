@@ -1,5 +1,13 @@
 2023-02-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/html_tests.t: add the
+	file_name_case_insensitive_conflict_node and
+	file_name_case_insensitive_conflict_node_no_redirections test to test
+	conflicts with node names differing in case only without and with
+	NODE_FILES.
+
+2023-02-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	fix beginning of line condition nesting.
 

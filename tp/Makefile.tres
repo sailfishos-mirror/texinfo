@@ -558,6 +558,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename.pl \
   t/results/html_tests/empty_lines_at_beginning_no_setfilename_no_element.pl \
   t/results/html_tests/empty_titlefont.pl \
+  t/results/html_tests/file_name_case_insensitive_conflict_node.pl \
+  t/results/html_tests/file_name_case_insensitive_conflict_node/res_html \
+  t/results/html_tests/file_name_case_insensitive_conflict_node_no_redirections.pl \
+  t/results/html_tests/file_name_case_insensitive_conflict_node_no_redirections/res_html \
   t/results/html_tests/file_name_case_insensitive_conflict_redirections.pl \
   t/results/html_tests/file_name_case_insensitive_conflict_redirections/res_html \
   t/results/html_tests/file_name_conflict_with_Top.pl \
