@@ -1336,7 +1336,7 @@ sub _transfer_source_marks($$)
 {
   my $from_e = shift;
   my $element = shift;
-  if ($from_e->{'source_marks'} and scalar(@{$from_e->{'source_marks'}})) {
+  if ($from_e->{'source_marks'}) {
     if (!$element->{'source_marks'}) {
       $element->{'source_marks'} = [];
     }
@@ -1668,8 +1668,7 @@ sub _close_container($$)
   # remove element without contents nor associated information
   my $element_to_remove;
   if (_is_container_empty($current)) {
-    if ($current->{'source_marks'}
-        and scalar(@{$current->{'source_marks'}})) {
+    if ($current->{'source_marks'}) {
       # Keep the element to keep the source mark, but remove some types.
       # Keep before_item in order not to add empty table definition in
       # gather_previous_item.
@@ -2013,8 +2012,7 @@ sub _close_command_cleanup($$) {
         # if the before item remained empty, the second if after removing end
         # and spaces it became empty.
         if (_is_container_empty($before_item)
-            and not ($before_item->{'source_marks'}
-                     and scalar(@{$before_item->{'source_marks'}}))) {
+            and not $before_item->{'source_marks'}) {
           if ($leading_spaces) {
             my $space = shift @{$current->{'contents'}};
             shift @{$current->{'contents'}};
@@ -2254,8 +2252,8 @@ sub _merge_text {
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
     my $merged_to = $current->{'contents'}->[-1];
     # Transfer source marks
-    if ($transfer_marks_element and $transfer_marks_element->{'source_marks'}
-        and scalar(@{$transfer_marks_element->{'source_marks'}})) {
+    if ($transfer_marks_element
+        and $transfer_marks_element->{'source_marks'}) {
       $merged_to->{'source_marks'} = []
         if (!defined($merged_to->{'source_marks'}));
       my $additional_length = length($current->{'contents'}->[-1]->{'text'});
@@ -2268,6 +2266,7 @@ sub _merge_text {
         }
         push @{$merged_to->{'source_marks'}}, $source_mark;
       }
+      delete $transfer_marks_element->{'source_marks'};
     }
     # Append text
     $merged_to->{'text'} .= $text;
@@ -2716,6 +2715,7 @@ sub _abort_empty_line {
       foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
         _place_source_mark($self, $current, $source_mark);
       }
+      delete $popped_element->{'source_marks'};
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2881,7 +2881,7 @@ sub _relocate_source_marks($$$$)
 # character strings with one of them
 sub _split_delimiters
 {
-  my ($self, $root) = @_;
+  my ($self, $root, $current, $source_info) = @_;
 
   if (defined $root->{'type'} # 'spaces' for spaces
       or !defined $root->{'text'}) {
@@ -2897,6 +2897,7 @@ sub _split_delimiters
       @remaining_source_marks = @{$root->{'source_marks'}};
       $current_position = 0;
       $previous_position = 0;
+      delete $root->{'source_marks'};
     }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
@@ -2921,7 +2922,10 @@ sub _split_delimiters
         $previous_position = $current_position;
       }
     }
-
+    if (scalar(@remaining_source_marks)) {
+      $self->_bug_message("Remaining source mark in _split_delimiters",
+                          $source_info, $current);
+    }
     return @elements;
   }
 }
@@ -2929,7 +2933,7 @@ sub _split_delimiters
 # split text elements into whitespace and non-whitespace
 sub _split_def_args
 {
-  my ($self, $root) = @_;
+  my ($self, $root, $current, $source_info) = @_;
 
   if ($root->{'type'} and $root->{'type'} eq 'spaces_inserted') {
     return $root;
@@ -2947,6 +2951,7 @@ sub _split_def_args
       @remaining_source_marks = @{$root->{'source_marks'}};
       $current_position = 0;
       $previous_position = 0;
+      $root->{'source_marks'} = undef;
     }
     for my $t (@split_text) {
       my $e = {'text' => $t };
@@ -2967,6 +2972,10 @@ sub _split_def_args
         $previous_position = $current_position;
       }
     }
+    if (scalar(@remaining_source_marks)) {
+      $self->_bug_message("Remaining source mark in _split_def_args",
+                          $source_info, $current);
+    }
     return @elements;
   } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed') {
     _isolate_last_space($self, $root);
@@ -2976,9 +2985,9 @@ sub _split_def_args
 }
 
 # definition line parsing
-sub _parse_def($$$)
+sub _parse_def($$$$)
 {
-  my ($self, $command, $current) = @_;
+  my ($self, $command, $current, $source_info) = @_;
 
   return [] if (!$current->{'contents'});
   my $contents = $current->{'contents'};
@@ -3010,7 +3019,8 @@ sub _parse_def($$$)
 
     $command = $def_aliases{$command};
   }
-  @contents = map (_split_def_args($self, $_), @contents );
+  @contents = map (_split_def_args($self, $_, $current, $source_info),
+                   @contents );
   @new_contents = @contents;
 
   $current->{'contents'} = \@new_contents;
@@ -3105,7 +3115,8 @@ sub _parse_def($$$)
     splice @new_contents, -scalar(@contents);
   }
 
-  @contents = map (_split_delimiters($self, $_), @contents );
+  @contents = map (_split_delimiters($self, $_, $current, $source_info),
+                   @contents );
   @new_contents = (@new_contents, @contents);
 
   # Create the part of the def_args array for any arguments.
@@ -3638,7 +3649,7 @@ sub _end_line_def_line($$$)
 
   _isolate_last_space($self, $current);
 
-  my $arguments = _parse_def($self, $def_command, $current);
+  my $arguments = _parse_def($self, $def_command, $current, $source_info);
   if (scalar(@$arguments)) {
     #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
     my $def_parsed_hash = {};
@@ -3994,8 +4005,7 @@ sub _end_line($$$)
         # or to the empty line after the menu description.  Leave a message
         # in case it happens in the future/some unexpected case.
         if ($self->get_conf('TEST')
-            and $empty_preformatted->{'source_marks'}
-            and scalar(@{$empty_preformatted->{'source_marks'}})) {
+            and $empty_preformatted->{'source_marks'}) {
           print STDERR "BUG: source_marks in menu description preformatted\n";
         }
       }

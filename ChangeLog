@@ -1,3 +1,16 @@
+2023-02-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_transfer_source_marks, _close_container)
+	(_close_command_cleanup, _merge_text, _end_line): test only existence of
+	source_marks key, if it exists it is necessarily non-empty.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text, _abort_empty_line)
+	(_split_delimiters, _split_def_args): delete source_marks from the
+	source element after they have been transferred.
+
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters, _split_def_args)
+	(_parse_def): check that source marks have all been transferred.
+
 2023-02-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/html_tests.t: add the
