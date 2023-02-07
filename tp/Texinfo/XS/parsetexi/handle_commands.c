@@ -356,7 +356,15 @@ handle_line_command (ELEMENT *current, char **line_inout,
           input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
 
           save_src_info = current_source_info;
-          line2 = new_line ();
+          /* REMARK the source marks (mostly end of macro/value expansion) will
+             be associated to the previous element in current, as the command being
+             considered has not been added already, although the end of macro
+             expansion is located after the command opening.  Wrongly placed
+             mark sources are unavoidable, as the line is not parsed as usual
+             and macro/value expansion happen here in advance and not while
+             the remaining of the line is parsed. */
+
+          line2 = new_line (current);
           if (line2)
             {
               line = line2;

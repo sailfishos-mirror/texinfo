@@ -1292,6 +1292,16 @@ sub _register_source_mark
   _place_source_mark($self, $element, $source_mark);
 }
 
+sub _debug_show_source_mark
+{
+  my $source_mark = shift;
+  return "$source_mark->{'sourcemark_type'} c: "
+   .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
+    .", ".(defined($source_mark->{'position'})
+             ? $source_mark->{'position'}: 'UNDEF')." "
+     .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF');
+}
+
 sub _place_source_mark
 {
   my ($self, $element, $source_mark) = @_;
@@ -1316,11 +1326,7 @@ sub _place_source_mark
     $add_element = 'add';
   }
 
-  print STDERR "MARKS: $source_mark->{'sourcemark_type'} c: "
-    .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
-    .", ".(defined($source_mark->{'position'})
-             ? $source_mark->{'position'}: 'UNDEF')." "
-     .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF')
+  print STDERR "MARK: "._debug_show_source_mark($source_mark)
      ." $add_element ".Texinfo::Common::debug_print_element_short($mark_element)
       .' '.Texinfo::Common::debug_print_element_short($element)."\n"
         if ($self->{'DEBUG'});
@@ -2452,21 +2458,30 @@ sub _next_text($;$)
       delete $input->{'fh'};
     }
 
-    if (defined($input->{'input_source_mark'}) and defined($current)) {
-      my $end_source_mark;
-      if ($input->{'input_source_mark'}->{'sourcemark_type'} eq 'delcomment') {
-        $end_source_mark = $input->{'input_source_mark'};
+    if (defined($input->{'input_source_mark'})) {
+      if (defined($current)) {
+        my $end_source_mark;
+        if ($input->{'input_source_mark'}->{'sourcemark_type'} eq 'delcomment') {
+          $end_source_mark = $input->{'input_source_mark'};
+        } else {
+          $end_source_mark
+            = { 'sourcemark_type' =>
+                 $input->{'input_source_mark'}->{'sourcemark_type'},
+                'counter' =>
+                 $input->{'input_source_mark'}->{'counter'},
+              };
+          $end_source_mark->{'status'} = 'end';
+        }
+        _register_source_mark($self, $current,
+                              $end_source_mark);
       } else {
-        $end_source_mark
-          = { 'sourcemark_type' =>
-               $input->{'input_source_mark'}->{'sourcemark_type'},
-              'counter' =>
-               $input->{'input_source_mark'}->{'counter'},
-            };
-        $end_source_mark->{'status'} = 'end';
+        if ($self->{'DEBUG'}) {
+        #if (1) {
+          print STDERR "INPUT MARK MISSED: "
+            ._debug_show_source_mark($input->{'input_source_mark'})."\n";
+          cluck();
+        }
       }
-      _register_source_mark($self, $current,
-                            $end_source_mark);
     }
     # keep the first input level to have a permanent source for
     # source_info, even when nothing is returned and the first input
@@ -2480,16 +2495,16 @@ sub _next_text($;$)
 }
 
 # collect text and line numbers until an end of line is found.
-sub _new_line($)
+sub _new_line($;$)
 {
-  my ($self) = @_;
+  my ($self, $current) = @_;
 
   my $new_line = '';
   my $source_info;
 
   while (1) {
     my $new_text;
-    ($new_text, $source_info) = _next_text($self);
+    ($new_text, $source_info) = _next_text($self, $current);
     if (!defined($new_text)) {
       $new_line = undef if ($new_line eq '');
       last;
@@ -5434,10 +5449,19 @@ sub _process_remaining_on_line($$$$)
           }
         }
 
-        # complete the line if there was a user macro expansion
+        # Complete the line if there was a user macro expansion.
+        # REMARK the source marks (mostly end of macro/value expansion) will
+        # be associated to the previous element in $current, as the command being
+        # considered has not been added already, although the end of macro
+        # expansion is located after the command opening.  Wrongly placed
+        # mark sources are unavoidable, as the line is not parsed as usual
+        # and macro/value expansion happen here in advance and not while
+        # the remaining of the line is parsed.
+        # TODO add information on the mark source to communicate that the
+        # placement of mark sources is approximate?
         if ($line !~ /\n/) {
           my ($new_line, $new_line_source_info)
-                     = _new_line($self);
+                     = _new_line($self, $current);
           $line .= $new_line if (defined($new_line));
         }
         $misc = {'cmdname' => $command,

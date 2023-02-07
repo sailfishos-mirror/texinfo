@@ -345,6 +345,11 @@ $result_trees{'value_in_misc_commands'} = {
               'line' => '@afourpaper',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 4,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -652,6 +657,11 @@ $result_trees{'value_in_misc_commands'} = {
               'line' => '@raisesections',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 9,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -701,6 +711,11 @@ $result_trees{'value_in_misc_commands'} = {
               'line' => '@lowersections',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 10,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -2965,6 +2980,13 @@ $result_trees{'value_in_misc_commands'} = {
               'text' => 'page '
             }
           ],
+          'source_marks' => [
+            {
+              'counter' => 33,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
+            }
+          ],
           'type' => 'paragraph'
         },
         {
@@ -3174,6 +3196,13 @@ $result_trees{'value_in_misc_commands'} = {
               'text' => 'page '
             }
           ],
+          'source_marks' => [
+            {
+              'counter' => 37,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
+            }
+          ],
           'type' => 'paragraph'
         },
         {
@@ -3227,6 +3256,11 @@ $result_trees{'value_in_misc_commands'} = {
               'line' => '@contents',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 38,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -3505,6 +3539,12 @@ $result_trees{'value_in_misc_commands'} = {
               'position' => 1,
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 41,
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ],
           'text' => '
@@ -3567,6 +3607,11 @@ $result_trees{'value_in_misc_commands'} = {
               'line' => '@shortcontents',
               'sourcemark_type' => 'value_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 42,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -3646,7 +3691,14 @@ $result_trees{'value_in_misc_commands'} = {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 43,
+          'sourcemark_type' => 'value_expansion',
+          'status' => 'end'
+        }
+      ]
     },
     {
       'args' => [
@@ -3893,6 +3945,13 @@ $result_sectioning{'value_in_misc_commands'} = {
           }
         },
         'info' => {},
+        'source_marks' => [
+          {
+            'counter' => 43,
+            'sourcemark_type' => 'value_expansion',
+            'status' => 'end'
+          }
+        ],
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -3911,6 +3970,13 @@ $result_nodes{'value_in_misc_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'info' => {},
+      'source_marks' => [
+        {
+          'counter' => 43,
+          'sourcemark_type' => 'value_expansion',
+          'status' => 'end'
+        }
+      ],
       'structure' => {}
     },
     'normalized' => 'Top'

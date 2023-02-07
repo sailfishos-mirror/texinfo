@@ -1,5 +1,20 @@
 2023-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_new_line, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/input.c (new_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	pass current in new_line to get end of macro/value source marks
+	in line commands where there is no macro/value expansion.  Explain
+	in a comment that the location of the source mark cannot be accurate,
+	as the text is not parsed as usual in the tree.
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text, _debug_show_source_mark):
+	show mark source information for debugging with
+	_debug_show_source_mark, add code to show ignored source marks in
+	_next_text.
+
+2023-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/input.c (next_text): after calling
 	input_push_text for delcomment, set the input pointer again as the
 	input stack may have been reallocated.

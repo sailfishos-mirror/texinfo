@@ -4,7 +4,7 @@
 
 #include "tree_types.h"
 
-char *new_line (void);
+char *new_line (ELEMENT *current);
 char *next_text (ELEMENT *current);
 
 void save_line_directive (int line_nr, char *filename);

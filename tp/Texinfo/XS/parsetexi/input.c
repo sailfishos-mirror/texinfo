@@ -107,8 +107,9 @@ SOURCE_INFO current_source_info;
 
    Return value should not be freed by caller, and becomes invalid after
    a subsequent call. */
+/* CURRENT is the current container that can be used for source marks. */
 char *
-new_line (void)
+new_line (ELEMENT *current)
 {
   static TEXT t;
   char *new = 0;
@@ -117,7 +118,7 @@ new_line (void)
 
   while (1)
     {
-      new = next_text (0);
+      new = next_text (current);
       if (!new)
         break;
       text_append (&t, new);

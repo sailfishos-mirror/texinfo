@@ -816,6 +816,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 7,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -1201,6 +1206,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 12,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -1286,6 +1296,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 13,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -3917,6 +3932,13 @@ $result_trees{'macro_in_misc_commands'} = {
               'text' => 'page '
             }
           ],
+          'source_marks' => [
+            {
+              'counter' => 33,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
+            }
+          ],
           'type' => 'paragraph'
         },
         {
@@ -4177,6 +4199,13 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'noindent' => 1
           },
+          'source_marks' => [
+            {
+              'counter' => 39,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
+            }
+          ],
           'type' => 'paragraph'
         },
         {
@@ -4204,6 +4233,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 40,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -4257,6 +4291,13 @@ $result_trees{'macro_in_misc_commands'} = {
                 }
               ],
               'text' => 'page '
+            }
+          ],
+          'source_marks' => [
+            {
+              'counter' => 41,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ],
           'type' => 'paragraph'
@@ -4439,6 +4480,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 44,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -5061,6 +5107,12 @@ $result_trees{'macro_in_misc_commands'} = {
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 49,
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ],
           'text' => '
@@ -5159,6 +5211,11 @@ $result_trees{'macro_in_misc_commands'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 50,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -5274,7 +5331,14 @@ $result_trees{'macro_in_misc_commands'} = {
         'file_name' => '',
         'line_nr' => 204,
         'macro' => ''
-      }
+      },
+      'source_marks' => [
+        {
+          'counter' => 51,
+          'sourcemark_type' => 'macro_expansion',
+          'status' => 'end'
+        }
+      ]
     },
     {
       'args' => [
@@ -5623,6 +5687,13 @@ $result_sectioning{'macro_in_misc_commands'} = {
                 }
               },
               'info' => {},
+              'source_marks' => [
+                {
+                  'counter' => 51,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -5670,6 +5741,13 @@ $result_nodes{'macro_in_misc_commands'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'info' => {},
+          'source_marks' => [
+            {
+              'counter' => 51,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
+            }
+          ],
           'structure' => {
             'section_number' => 1
           }

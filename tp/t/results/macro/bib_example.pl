@@ -3459,6 +3459,16 @@ $result_trees{'bib_example'} = {
                   },
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 1,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
                 }
               ]
             },
