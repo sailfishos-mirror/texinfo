@@ -64,7 +64,6 @@ $result_trees{'empty_value_in_line'} = {
             },
             {
               'counter' => 1,
-              'line' => '',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             }

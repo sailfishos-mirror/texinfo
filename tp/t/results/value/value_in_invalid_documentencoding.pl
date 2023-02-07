@@ -40,7 +40,6 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'line' => 'bad',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'

@@ -164,7 +164,6 @@ $result_trees{'macro_in_value'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => '@ab',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

@@ -154,7 +154,6 @@ $result_trees{'comma_value_in_macro_arg'} = {
                         },
                         {
                           'counter' => 1,
-                          'line' => ',',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

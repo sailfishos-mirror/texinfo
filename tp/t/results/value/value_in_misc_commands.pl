@@ -106,7 +106,6 @@ $result_trees{'value_in_misc_commands'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => 'atext',
                   'position' => 9,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -149,7 +148,6 @@ $result_trees{'value_in_misc_commands'} = {
                     },
                     {
                       'counter' => 2,
-                      'line' => 'atext',
                       'position' => 19,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -288,7 +286,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 3,
-                      'line' => '200mm,150mm',
                       'position' => 11,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -389,7 +386,6 @@ $result_trees{'value_in_misc_commands'} = {
                     },
                     {
                       'counter' => 5,
-                      'line' => 'atext',
                       'position' => 32,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -442,7 +438,6 @@ $result_trees{'value_in_misc_commands'} = {
                     },
                     {
                       'counter' => 6,
-                      'line' => 'atext',
                       'position' => 23,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -495,7 +490,6 @@ $result_trees{'value_in_misc_commands'} = {
                     },
                     {
                       'counter' => 7,
-                      'line' => 'atext',
                       'position' => 36,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -566,7 +560,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 8,
-                      'line' => '0.1',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -862,7 +855,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 11,
-                      'line' => 'phi',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1045,7 +1037,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 12,
-                      'line' => '@strong',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
                     }
@@ -1079,7 +1070,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 13,
-                      'line' => 'strong',
                       'position' => 6,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1101,7 +1091,6 @@ $result_trees{'value_in_misc_commands'} = {
                     },
                     {
                       'counter' => 14,
-                      'line' => 'strong',
                       'position' => 14,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1196,7 +1185,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 15,
-                      'line' => '@strong',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
                     }
@@ -1290,7 +1278,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 16,
-                      'line' => 'code',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1598,7 +1585,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 17,
-                      'line' => 'asis',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1658,7 +1644,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 18,
-                      'line' => '0',
                       'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1718,7 +1703,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 19,
-                      'line' => 'none',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1778,7 +1762,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 20,
-                      'line' => '4',
                       'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1838,7 +1821,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 21,
-                      'line' => 'none',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -1898,7 +1880,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 22,
-                      'line' => '6',
                       'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2009,7 +1990,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 23,
-                      'line' => 'end',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2069,7 +2049,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 24,
-                      'line' => 'separate',
                       'position' => 8,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2157,7 +2136,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 25,
-                      'line' => 'ISO-8859-1',
                       'position' => 10,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2278,7 +2256,6 @@ $result_trees{'value_in_misc_commands'} = {
                       'source_marks' => [
                         {
                           'counter' => 26,
-                          'line' => 'en',
                           'position' => 2,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -2385,7 +2362,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 27,
-                      'line' => '@documentlanguage',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
                     }
@@ -2465,7 +2441,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 28,
-                      'line' => 'on',
                       'position' => 2,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2525,7 +2500,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 29,
-                      'line' => 'off',
                       'position' => 3,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2629,7 +2603,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 30,
-                      'line' => '10',
                       'position' => 2,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2772,7 +2745,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 31,
-                      'line' => 'false',
                       'position' => 5,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -2837,7 +2809,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 32,
-                      'line' => 'true',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -3040,7 +3011,6 @@ $result_trees{'value_in_misc_commands'} = {
           'source_marks' => [
             {
               'counter' => 34,
-              'line' => '@noindent',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             }
@@ -3083,7 +3053,6 @@ $result_trees{'value_in_misc_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 35,
-                  'line' => '@noindent',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -3128,7 +3097,6 @@ $result_trees{'value_in_misc_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 36,
-                  'line' => '@noindent',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -3365,7 +3333,6 @@ $result_trees{'value_in_misc_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 39,
-                  'line' => '@exdent',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -3415,7 +3382,6 @@ $result_trees{'value_in_misc_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 40,
-                      'line' => '2',
                       'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'

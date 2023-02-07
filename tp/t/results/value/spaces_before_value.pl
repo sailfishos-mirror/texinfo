@@ -60,7 +60,6 @@ $result_trees{'spaces_before_value'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'val',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

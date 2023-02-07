@@ -56,7 +56,6 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -197,7 +196,6 @@ $result_trees{'value_node_directions'} = {
                 },
                 {
                   'counter' => 2,
-                  'line' => 'bar',
                   'position' => 7,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -242,7 +240,6 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -280,7 +277,6 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 4,
-                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -462,7 +458,6 @@ $result_trees{'value_node_directions'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'line' => 'bar',
                   'position' => 3,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

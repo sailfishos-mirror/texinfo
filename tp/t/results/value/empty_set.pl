@@ -58,7 +58,6 @@ $result_trees{'empty_set'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => '',
                   'position' => 2,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

@@ -127,7 +127,6 @@ $result_trees{'comment_on_set_line'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => '',
                   'position' => 1,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -149,7 +148,6 @@ $result_trees{'comment_on_set_line'} = {
                 },
                 {
                   'counter' => 2,
-                  'line' => '',
                   'position' => 5,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -171,7 +169,6 @@ $result_trees{'comment_on_set_line'} = {
                 },
                 {
                   'counter' => 3,
-                  'line' => 'g',
                   'position' => 10,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -193,7 +190,6 @@ $result_trees{'comment_on_set_line'} = {
                 },
                 {
                   'counter' => 4,
-                  'line' => 'a vv',
                   'position' => 18,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

@@ -62,7 +62,6 @@ $result_trees{'set_flag_command_equivalent'} = {
             },
             {
               'counter' => 1,
-              'line' => '',
               'position' => 1,
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'

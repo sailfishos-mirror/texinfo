@@ -79,7 +79,6 @@ $result_trees{'simple'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'the value @b{b}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }

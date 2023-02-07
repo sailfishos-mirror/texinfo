@@ -2453,19 +2453,18 @@ sub _next_text($;$)
     }
 
     if (defined($input->{'input_source_mark'}) and defined($current)) {
-      my $end_source_mark
+      my $end_source_mark;
+      if ($input->{'input_source_mark'}->{'sourcemark_type'} eq 'delcomment') {
+        $end_source_mark = $input->{'input_source_mark'};
+      } else {
+        $end_source_mark
           = { 'sourcemark_type' =>
                $input->{'input_source_mark'}->{'sourcemark_type'},
               'counter' =>
                $input->{'input_source_mark'}->{'counter'},
             };
-      $end_source_mark->{'line'}
-        = $input->{'input_source_mark'}->{'line'}
-          if (defined($input->{'input_source_mark'}->{'line'}));
-      $end_source_mark->{'status'} = 'end'
-          if ($end_source_mark->{'sourcemark_type'} eq 'include'
-              or $end_source_mark->{'sourcemark_type'} eq 'macro_expansion'
-              or $end_source_mark->{'sourcemark_type'} eq 'value_expansion');
+        $end_source_mark->{'status'} = 'end';
+      }
       _register_source_mark($self, $current,
                             $end_source_mark);
     }

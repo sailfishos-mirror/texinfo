@@ -91,7 +91,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
-                      'line' => 'cp',
                       'position' => 2,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -113,7 +112,6 @@ $result_trees{'value_in_index_commands'} = {
                     },
                     {
                       'counter' => 2,
-                      'line' => 'fn',
                       'position' => 5,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -211,7 +209,6 @@ $result_trees{'value_in_index_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'line' => '@syncodeindex',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -272,7 +269,6 @@ $result_trees{'value_in_index_commands'} = {
                       'source_marks' => [
                         {
                           'counter' => 4,
-                          'line' => 'truc',
                           'position' => 4,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -400,7 +396,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 5,
-                      'line' => 'codeidx',
                       'position' => 7,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -566,7 +561,6 @@ $result_trees{'value_in_index_commands'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'line' => '@trucindex',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -670,7 +664,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 7,
-                      'line' => 'a @var{index entry} t@\'e @^{@dotless{i}}',
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
                     }
@@ -743,7 +736,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 8,
-                      'line' => 'truc',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -828,7 +820,6 @@ $result_trees{'value_in_index_commands'} = {
                     },
                     {
                       'counter' => 9,
-                      'line' => 'codeidx',
                       'position' => 14,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -895,7 +886,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 10,
-                      'line' => 'truc',
                       'position' => 4,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'
@@ -969,7 +959,6 @@ $result_trees{'value_in_index_commands'} = {
                   'source_marks' => [
                     {
                       'counter' => 11,
-                      'line' => 'cp',
                       'position' => 2,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'end'

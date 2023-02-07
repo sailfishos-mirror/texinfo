@@ -150,7 +150,6 @@ $result_trees{'value_in_macro_body'} = {
                         },
                         {
                           'counter' => 1,
-                          'line' => '\\arg\\',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

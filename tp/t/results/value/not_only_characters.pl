@@ -58,7 +58,6 @@ $result_trees{'not_only_characters'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => 'hh',
                   'position' => 6,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

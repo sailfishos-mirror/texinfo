@@ -1436,601 +1436,501 @@ $result_trees{'recursive_expansion_in_set'} = {
             },
             {
               'counter' => 100,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 99,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 98,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 97,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 96,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 95,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 94,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 93,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 92,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 91,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 90,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 89,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 88,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 87,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 86,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 85,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 84,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 83,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 82,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 81,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 80,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 79,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 78,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 77,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 76,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 75,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 74,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 73,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 72,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 71,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 70,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 69,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 68,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 67,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 66,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 65,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 64,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 63,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 62,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 61,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 60,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 59,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 58,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 57,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 56,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 55,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 54,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 53,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 52,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 51,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 50,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 49,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 48,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 47,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 46,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 45,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 44,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 43,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 42,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 41,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 40,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 39,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 38,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 37,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 36,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 35,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 34,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 33,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 32,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 31,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 30,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 29,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 28,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 27,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 26,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 25,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 24,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 23,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 22,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 21,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 20,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 19,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 18,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 17,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 16,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 15,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 14,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 13,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 12,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 11,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 10,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 9,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 8,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 7,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 6,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 5,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 4,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 3,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 2,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             },
             {
               'counter' => 1,
-              'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
               'status' => 'end'
             }

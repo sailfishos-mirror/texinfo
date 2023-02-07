@@ -98,7 +98,6 @@ $result_trees{'ignored_value_definition'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => 'outside',
                   'position' => 7,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'

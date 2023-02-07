@@ -217,7 +217,6 @@ $result_trees{'value_in_node'} = {
                         },
                         {
                           'counter' => 1,
-                          'line' => 'Node 1',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -332,7 +331,6 @@ $result_trees{'value_in_node'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => 'Node 1',
                   'position' => 6,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
@@ -525,7 +523,6 @@ $result_trees{'value_in_node'} = {
                         },
                         {
                           'counter' => 3,
-                          'line' => 'Section 1.1',
                           'position' => 11,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -712,7 +709,6 @@ $result_trees{'value_in_node'} = {
                       'source_marks' => [
                         {
                           'counter' => 4,
-                          'line' => 'Node 1',
                           'position' => 6,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

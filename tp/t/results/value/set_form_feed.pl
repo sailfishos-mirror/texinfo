@@ -107,7 +107,6 @@ $result_trees{'set_form_feed'} = {
                         },
                         {
                           'counter' => 1,
-                          'line' => 'a\\a\\f\\\\',
                           'position' => 7,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -129,7 +128,6 @@ $result_trees{'set_form_feed'} = {
                         },
                         {
                           'counter' => 2,
-                          'line' => '',
                           'position' => 9,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -151,7 +149,6 @@ $result_trees{'set_form_feed'} = {
                         },
                         {
                           'counter' => 3,
-                          'line' => '',
                           'position' => 11,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'

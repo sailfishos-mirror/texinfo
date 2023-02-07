@@ -3688,7 +3688,6 @@ $result_trees{'bib_example'} = {
                         },
                         {
                           'counter' => 1,
-                          'line' => 'References',
                           'position' => 10,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -3989,7 +3988,6 @@ $result_trees{'bib_example'} = {
                       'source_marks' => [
                         {
                           'counter' => 2,
-                          'line' => 'References',
                           'position' => 10,
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'end'
@@ -4030,7 +4028,6 @@ $result_trees{'bib_example'} = {
                           'source_marks' => [
                             {
                               'counter' => 3,
-                              'line' => 'References',
                               'position' => 10,
                               'sourcemark_type' => 'value_expansion',
                               'status' => 'end'

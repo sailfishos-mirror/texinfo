@@ -106,7 +106,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 1,
-                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -150,7 +149,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 2,
-                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -204,7 +202,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 3,
-                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -248,7 +245,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 4,
-                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -302,7 +298,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 5,
-                  'line' => '{a}',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }
@@ -346,7 +341,6 @@ $result_trees{'value_after_brace_command'} = {
               'source_marks' => [
                 {
                   'counter' => 6,
-                  'line' => '@unknown',
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
                 }

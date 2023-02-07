@@ -50,7 +50,7 @@ typedef struct {
     char *ptext; /* How far we are through 'text'.  Used to split 'text'
                     into lines. */
     char *value_flag; /* value flag if the input text is a @value
-                         explansion */
+                         expansion */
     SOURCE_MARK *input_source_mark;
 } INPUT;
 
@@ -503,18 +503,17 @@ next_text (ELEMENT *current)
 
       if (input->input_source_mark && current)
         {
-          /* FIXME free the input_source_mark here, when it is not
-             associated to an element, for delcomment for example */
           SOURCE_MARK *input_source_mark = input->input_source_mark;
-          SOURCE_MARK *end_include_source_mark
-            = new_source_mark(input_source_mark->type);
-          end_include_source_mark->counter = input_source_mark->counter;
-          if (input_source_mark->line)
-            end_include_source_mark->line = strdup(input_source_mark->line);
-          if (input_source_mark->type == SM_type_include
-              || input_source_mark->type == SM_type_macro_expansion
-              || input_source_mark->type == SM_type_value_expansion)
-            end_include_source_mark->status = SM_status_end;
+          SOURCE_MARK *end_include_source_mark;
+          if (input_source_mark->type == SM_type_delcomment)
+            end_include_source_mark = input_source_mark;
+          else
+            {
+              end_include_source_mark
+                = new_source_mark(input_source_mark->type);
+              end_include_source_mark->counter = input_source_mark->counter;
+              end_include_source_mark->status = SM_status_end;
+            }
           register_source_mark(current, end_include_source_mark);
         }
 

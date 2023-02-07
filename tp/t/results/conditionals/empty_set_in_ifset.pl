@@ -58,7 +58,6 @@ $result_trees{'empty_set_in_ifset'} = {
                 },
                 {
                   'counter' => 1,
-                  'line' => '',
                   'position' => 13,
                   'sourcemark_type' => 'value_expansion',
                   'status' => 'end'
