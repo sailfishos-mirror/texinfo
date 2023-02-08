@@ -1,3 +1,10 @@
+2023-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Stop text disappearing in Info nodes with encoding conversion
+
+	* info/util.c (text_buffer_iconv): Update text buffer length
+	after error so that we do not write over the same output again.
+
 2023-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	7.0.2 release
