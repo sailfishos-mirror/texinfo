@@ -1,3 +1,19 @@
+2023-02-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_relocate_source_marks),
+	tp/Texinfo/XS/parsetexi/source_marks.c (relocate_source_marks):
+	relocate source marks within a range, with the first source mark not
+	necessarily in range.  Move relocate_source_marks from def.c to
+	source_marks.c.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal):
+	relocate source marks corresponding to the new spaces element.
+
+	* tp/Texinfo/XS/parsetexi/source_marks.c
+	(remove_from_source_mark_list): move remove_from_source_mark_list from
+	tree.c to source_marks.c.
+
 2023-02-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_new_line, _process_remaining_on_line),

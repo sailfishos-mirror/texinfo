@@ -15,7 +15,6 @@ void insert_slice_into_contents (ELEMENT *to, int idx, ELEMENT *from,
                                  int start, int end);
 ELEMENT *remove_from_contents (ELEMENT *parent, int where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);
-SOURCE_MARK *remove_from_source_mark_list (SOURCE_MARK_LIST *list, int where);
 ELEMENT *last_args_child (ELEMENT *current);
 ELEMENT *last_contents_child (ELEMENT *current);
 ELEMENT *pop_element_from_args (ELEMENT *parent);

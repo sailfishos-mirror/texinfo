@@ -18,6 +18,11 @@ $result_trees{'double_include'} = {
                   {
                     'contents' => [
                       {
+                        'text' => 'inc_file.texi'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
                         'source_marks' => [
                           {
                             'counter' => 1,
@@ -53,16 +58,11 @@ $result_trees{'double_include'} = {
                                 'macro' => ''
                               }
                             },
-                            'position' => 14,
+                            'position' => 1,
                             'sourcemark_type' => 'include',
                             'status' => 'start'
                           }
                         ],
-                        'text' => 'inc_file.texi'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
                         'text' => ' '
                       }
                     },

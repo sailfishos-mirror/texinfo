@@ -3030,19 +3030,19 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 27,
-                      'position' => 9,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
                   'text' => 'separate'
                 }
               ],
               'info' => {
                 'spaces_after_argument' => {
+                  'source_marks' => [
+                    {
+                      'counter' => 27,
+                      'position' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => ' 
 '
                 }

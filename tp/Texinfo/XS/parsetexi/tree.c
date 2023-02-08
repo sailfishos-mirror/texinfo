@@ -428,21 +428,3 @@ args_child_by_index (ELEMENT *e, int index)
 
   return e->args.list[index];
 }
-
-SOURCE_MARK *
-remove_from_source_mark_list (SOURCE_MARK_LIST *list, int where)
-{
-  SOURCE_MARK *removed;
-
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number)
-    fatal ("source marks list index out of bounds");
-
-  removed = list->list[where];
-  memmove (&list->list[where], &list->list[where + 1],
-           (list->number - (where+1)) * sizeof (SOURCE_MARK *));
-  list->number--;
-  return removed;
-}

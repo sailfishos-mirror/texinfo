@@ -51,6 +51,13 @@ $result_trees{'end_of_line_end_file'} = {
                   ],
                   'info' => {
                     'spaces_after_argument' => {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'position' => 1,
+                          'sourcemark_type' => 'defline_continuation'
+                        }
+                      ],
                       'text' => ' '
                     }
                   },

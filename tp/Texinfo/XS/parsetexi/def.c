@@ -147,29 +147,6 @@ DEF_ALIAS def_aliases[] = {
   0, 0, 0
 };
 
-void
-relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
-                       size_t previous_position, size_t current_position)
-{
-  int i;
-  while (source_mark_list->number)
-    {
-      SOURCE_MARK *source_mark
-         = source_mark_list->list[0];
-      if ((source_mark->position > previous_position
-           || source_mark->position == 0)
-          && source_mark->position <= current_position)
-        {
-          source_mark->position
-            = source_mark->position - previous_position;
-          add_source_mark (source_mark, new_e);
-          remove_from_source_mark_list (source_mark_list, 0);
-        }
-      else
-        break;
-    }
-}
-
 /* Split non-space text elements into strings without [ ] ( ) , and single
    character strings with one of them. */
 static void

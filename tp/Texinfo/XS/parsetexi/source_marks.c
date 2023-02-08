@@ -154,3 +154,58 @@ source_marks_reset_counters (void)
   macro_expansion_counter = 0;
   value_expansion_counter = 0;
 }
+
+SOURCE_MARK *
+remove_from_source_mark_list (SOURCE_MARK_LIST *list, int where)
+{
+  SOURCE_MARK *removed;
+
+  if (where < 0)
+    where = list->number + where;
+
+  if (where < 0 || where > list->number)
+    fatal ("source marks list index out of bounds");
+
+  removed = list->list[where];
+  memmove (&list->list[where], &list->list[where + 1],
+           (list->number - (where+1)) * sizeof (SOURCE_MARK *));
+  list->number--;
+  return removed;
+}
+
+/* relocate SOURCE_MARKS source marks with position between
+   BEGIN_POSITION and END_POSITION to be relative to BEGIN_POSITION,
+   and move to element E. */
+void
+relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
+                       size_t begin_position, size_t end_position)
+{
+  int i;
+  int list_number = source_mark_list->number;
+  int *indices_to_remove;
+
+  indices_to_remove = malloc (sizeof(int) * list_number);
+  memset (indices_to_remove, 0, list_number);
+
+  for (i = 0; i < list_number; i++)
+    {
+      SOURCE_MARK *source_mark
+         = source_mark_list->list[i];
+      if ((begin_position == 0 && source_mark->position == 0)
+          || (source_mark->position > begin_position
+              && source_mark->position <= end_position))
+        {
+          indices_to_remove[i] = 1;
+          source_mark->position
+            = source_mark->position - begin_position;
+          add_source_mark (source_mark, new_e);
+        }
+      else if (source_mark->position > end_position)
+        break;
+    }
+  for (i = list_number - 1; i >= 0; i--)
+    {
+      if (indices_to_remove[i] == 1)
+        remove_from_source_mark_list (source_mark_list, i);
+    }
+}

@@ -2826,6 +2826,8 @@ sub _isolate_last_space
     return;
   }
 
+  my $last_element = $current->{'contents'}->[-1];
+
   print STDERR "ISOLATE SPACE ".$debug_str
     if ($self->{'DEBUG'});
 
@@ -2834,7 +2836,7 @@ sub _isolate_last_space
   } else {
     # Store final spaces in 'spaces_after_argument'.
     #$current->{'info'} = {} if (!$current->{'info'});
-    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
+    if ($last_element->{'text'} !~ /\S/) {
       my $spaces_after_argument = _pop_element_from_contents($self, $current);
       my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
       _transfer_source_marks($spaces_after_argument, $new_space_element);
@@ -2842,11 +2844,18 @@ sub _isolate_last_space
       $current->{'info'}->{'spaces_after_argument'}
                  = $new_space_element;
     } else {
-      # FIXME transfer source marks that are located in the spaces
-      # put in spaces_after_argument
-      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
+      my $end_position = length($last_element->{'text'});
+      $last_element->{'text'} =~ s/(\s+)$//;
+      my $new_space_element = {'text' => $1,};
+      if ($last_element->{'source_marks'}) {
+        my $begin_position = length($last_element->{'text'});
+        _relocate_source_marks($last_element->{'source_marks'}, $new_space_element,
+                               $begin_position, $end_position);
+        delete $last_element->{'source_marks'}
+          if (!scalar(@{$last_element->{'source_marks'}}));
+      }
       $current->{'info'} = {} if (!exists($current->{'info'}));
-      $current->{'info'}->{'spaces_after_argument'} = {'text' => $1,};
+      $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
     }
   }
 }
@@ -2872,22 +2881,42 @@ sub _parse_node_manual($)
   return $parsed_node_manual;
 }
 
+# relocate $SOURCE_MARKS source marks with position between
+# $BEGIN_POSITION and $END_POSITION to be relative to $BEGIN_POSITION,
+# and move to element $E.
 sub _relocate_source_marks($$$$)
 {
-  my $remaining_source_marks = shift;
+  my $source_marks = shift;
   my $e = shift;
-  my $previous_position = shift;
-  my $current_position = shift;
+  my $begin_position = shift;
+  my $end_position = shift;
 
-  while (scalar(@$remaining_source_marks)
-         and ($remaining_source_marks->[0]->{'position'} > $previous_position
-              or $remaining_source_marks->[0]->{'position'} == 0)
-         and $remaining_source_marks->[0]->{'position'} <= $current_position) {
-    my $source_mark = shift(@$remaining_source_marks);
-    $source_mark->{'position'}
-       = $source_mark->{'position'} - $previous_position;
-    $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
-    push @{$e->{'source_marks'}}, $source_mark;
+  my @indices_to_remove;
+  # collect source marks to remove starting from the beginning to keep
+  # the correct order in the $e element.  Order indices to remove
+  # in the reverse order to start from the last in order not to change
+  # the array order when the entry is splice'd away.
+  for (my $i = 0; $i < scalar(@$source_marks); $i++) {
+    my $source_mark = $source_marks->[$i];
+    if (($begin_position == 0
+         and (!defined($source_marks->[$i]->{'position'})
+              # this should never happen
+              or $source_marks->[$i]->{'position'} == 0))
+        or ($source_marks->[$i]->{'position'} > $begin_position
+            and $source_marks->[$i]->{'position'} <= $end_position)) {
+      unshift @indices_to_remove, $i;
+      $source_mark->{'position'}
+         = $source_mark->{'position'} - $begin_position;
+      $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
+      push @{$e->{'source_marks'}}, $source_mark;
+    } elsif ($source_marks->[$i]->{'position'} > $end_position) {
+      # only correct if positions are always monotonically increasing
+      # but should be the case for now
+      last;
+    }
+  }
+  foreach my $i (@indices_to_remove) {
+    splice (@$source_marks, $i, 1);
   }
 }
 
@@ -2937,7 +2966,10 @@ sub _split_delimiters
       }
     }
     if (scalar(@remaining_source_marks)) {
-      $self->_bug_message("Remaining source mark in _split_delimiters",
+      my $source_marks_str
+       = join ('|', map {_debug_show_source_mark($_)} (@remaining_source_marks));
+      $self->_bug_message(
+          "Remaining source mark in _split_delimiters: $source_marks_str",
                           $source_info, $current);
     }
     return @elements;
@@ -2967,7 +2999,7 @@ sub _split_def_args
       $previous_position = 0;
       $root->{'source_marks'} = undef;
     }
-    for my $t (@split_text) {
+    foreach my $t (@split_text) {
       my $e = {'text' => $t };
       if (scalar(@remaining_source_marks)) {
         $current_position += length($t);
@@ -2987,7 +3019,10 @@ sub _split_def_args
       }
     }
     if (scalar(@remaining_source_marks)) {
-      $self->_bug_message("Remaining source mark in _split_def_args",
+      my $source_marks_str
+       = join ('|', map {_debug_show_source_mark($_)} @remaining_source_marks);
+      $self->_bug_message(
+          "Remaining source mark in _split_def_args: $source_marks_str",
                           $source_info, $current);
     }
     return @elements;

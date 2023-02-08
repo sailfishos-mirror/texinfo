@@ -95,6 +95,11 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 {
                   'contents' => [
                     {
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
                       'source_marks' => [
                         {
                           'counter' => 1,
@@ -109,22 +114,17 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                             },
                             'type' => 'macro_call'
                           },
-                          'position' => 9,
+                          'position' => 1,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'start'
                         },
                         {
                           'counter' => 1,
-                          'position' => 9,
+                          'position' => 1,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => 'verbatim'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
                       'text' => ' '
                     }
                   },

@@ -805,6 +805,7 @@ isolate_last_space_internal (ELEMENT *current)
   else
     {
       int i, trailing_spaces;
+      size_t end_position;
       static TEXT t;
 
       text_reset (&t);
@@ -819,7 +820,15 @@ isolate_last_space_internal (ELEMENT *current)
                      text + text_len - trailing_spaces,
                      trailing_spaces);
 
+      if (last_elt->source_mark_list.number > 0)
+        end_position = count_convert_u8 (text);
       text[text_len - trailing_spaces] = '\0';
+      if (last_elt->source_mark_list.number > 0)
+        {
+          size_t begin_position = count_convert_u8 (text);
+          relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
+                                 begin_position, end_position);
+        }
       last_elt->text.end -= trailing_spaces;
 
       text_append (&spaces_element->text, t.text);
