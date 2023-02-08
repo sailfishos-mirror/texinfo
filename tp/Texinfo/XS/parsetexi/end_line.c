@@ -1009,13 +1009,32 @@ parse_float_type (ELEMENT *current)
 ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
+  KEY_PAIR *k;
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
   if (command_flags(current->parent) & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
 
-  if (current->parent->cmd == CM_multitable)
+  if (current->parent->cmd == CM_multitable
+      && (k = lookup_extra (current->parent, "columnfractions")))
+    {
+      ELEMENT *misc_cmd = k->value;
+      KEY_PAIR *misc_args;
+
+      if ((misc_args = lookup_extra (misc_cmd, "misc_args")))
+        {
+          add_extra_integer (current->parent, "max_columns",
+                             misc_args->value->contents.number);
+        }
+      else
+        {
+          add_extra_integer (current->parent, "max_columns", 0);
+          k->key = "";
+          k->type = extra_deleted;
+        }
+    }
+  else if (current->parent->cmd == CM_multitable)
     {
       /* Parse prototype row for a @multitable.  Handling
          of @columnfractions is done elsewhere. */
@@ -1907,9 +1926,6 @@ end_line_misc_line (ELEMENT *current)
     command_warn (misc_cmd, "@setfilename after the first element");
   else if (cmd == CM_columnfractions)
     {
-      ELEMENT *before_item;
-      KEY_PAIR *misc_args;
-
       /* Check if in multitable. */
       if (!current->parent || current->parent->cmd != CM_multitable)
         {
@@ -1918,26 +1934,7 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          if (pop_context () != ct_line)
-            fatal ("line context expected");
-          (void) pop_command (&nesting_context.basic_inline_stack_block);
-          /* FIXME much better to pop contexts in only one place in the
-             source code. */
-
-          current = current->parent;
-
-          if ((misc_args = lookup_extra (misc_cmd, "misc_args")))
-            {
-              add_extra_element (current, "columnfractions", misc_cmd);
-              add_extra_integer (current, "max_columns",
-                                 misc_args->value->contents.number);
-            }
-          else
-            add_extra_integer (current, "max_columns", 0);
-
-          before_item = new_element (ET_before_item);
-          add_to_element_contents (current, before_item);
-          current = before_item;
+          add_extra_element (current->parent, "columnfractions", misc_cmd);
         }
     }
   else if (command_data(cmd).flags & CF_root)

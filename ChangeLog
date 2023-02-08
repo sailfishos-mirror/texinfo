@@ -1,3 +1,14 @@
+2023-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Unify @multitable block line arg ending
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line) <@columnfractions>:
+	Do not close the @multitable block line element, so that
+	_end_line_starting_block will be called afterwards.  Only record
+	the @columnfractions command in the 'extra' hash.
+	(_end_line_starting_block): Check if columnfractions has been
+	set so to avoid reading line as prototype list.
+
 2023-02-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_relocate_source_marks),

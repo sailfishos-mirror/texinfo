@@ -3625,24 +3625,7 @@ sub _end_line_misc_line($$$)
              __("\@%s only meaningful on a \@multitable line"),
              $command);
     } else {
-      # This is the multitable block_line_arg line context
-      $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
-      pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
-      # FIXME much better to pop contexts in exactly one place in the
-      # source code.
-
-      $current = $current->{'parent'};
-      $current->{'extra'} = {} if (!defined($current->{'extra'}));
-      $current->{'extra'}->{'max_columns'} = 0;
-      if ($misc_cmd->{'extra'}
-          and defined($misc_cmd->{'extra'}->{'misc_args'})) {
-        $current->{'extra'}->{'max_columns'}
-            = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
-        $current->{'extra'}->{'columnfractions'} = $misc_cmd;
-      }
-      push @{$current->{'contents'}}, { 'type' => 'before_item',
-                                        'parent', $current };
-      $current = $current->{'contents'}->[-1];
+      $current->{'parent'}->{'extra'}->{'columnfractions'} = $misc_cmd;
     }
   } elsif ($root_commands{$command}) {
     $current = $current->{'contents'}->[-1];
@@ -3789,7 +3772,21 @@ sub _end_line_starting_block($$$)
        if ($self->{'DEBUG'});
 
   # @multitable args
-  if ($command eq 'multitable') {
+  if ($command eq 'multitable'
+        and defined($current->{'parent'}->{'extra'}->{'columnfractions'})) {
+    my $multitable = $current->{'parent'};
+    my $misc_cmd = $current->{'parent'}->{'extra'}->{'columnfractions'};
+
+    $multitable->{'extra'} = {} if (!defined($multitable->{'extra'}));
+    if ($misc_cmd->{'extra'}
+        and defined($misc_cmd->{'extra'}->{'misc_args'})) {
+      $multitable->{'extra'}->{'max_columns'}
+          = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
+    } else {
+      $multitable->{'extra'}->{'max_columns'} = 0;
+      delete $multitable->{'extra'}->{'columnfractions'};
+    }
+  } elsif ($command eq 'multitable') {
     # parse the prototypes and put them in a special arg
     my @prototype_row;
     if ($current->{'contents'}) {
