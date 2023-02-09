@@ -378,12 +378,12 @@ $result_errors{'set_in_item_missing_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @item should not appear anywhere inside @item
+    'error_line' => 'warning: @item should not appear on @item line
 ',
     'file_name' => '',
     'line_nr' => 8,
     'macro' => '',
-    'text' => '@item should not appear anywhere inside @item',
+    'text' => '@item should not appear on @item line',
     'type' => 'warning'
   },
   {

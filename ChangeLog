@@ -1,5 +1,14 @@
 2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Better worded error messages for line context
+
+	* tp/Texinfo/ParserNonXS.pm (_check_valid_nesting_context),
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	For line and block commands, refer to invalid command "on line" to
+	avoid confusion with block contents.
+
+2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
 	Use variable for current command throughout instead of struct access.
 

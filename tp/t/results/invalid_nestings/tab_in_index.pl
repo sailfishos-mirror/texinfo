@@ -243,12 +243,12 @@ $result_texts{'tab_in_index'} = 'one nonlettered character aaa
 
 $result_errors{'tab_in_index'} = [
   {
-    'error_line' => 'warning: @tab should not appear anywhere inside @vindex
+    'error_line' => 'warning: @tab should not appear on @vindex line
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => '@tab should not appear anywhere inside @vindex',
+    'text' => '@tab should not appear on @vindex line',
     'type' => 'warning'
   },
   {

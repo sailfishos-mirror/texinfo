@@ -316,39 +316,39 @@ $result_menus{'on_node_line'} = {
 
 $result_errors{'on_node_line'} = [
   {
-    'error_line' => 'warning: @ref should not appear anywhere inside @node
+    'error_line' => 'warning: @ref should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@ref should not appear anywhere inside @node',
+    'text' => '@ref should not appear on @node line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @pxref should not appear anywhere inside @node
+    'error_line' => 'warning: @pxref should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@pxref should not appear anywhere inside @node',
+    'text' => '@pxref should not appear on @node line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @node
+    'error_line' => 'warning: @anchor should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @node',
+    'text' => '@anchor should not appear on @node line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @node
+    'error_line' => 'warning: @footnote should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @node',
+    'text' => '@footnote should not appear on @node line',
     'type' => 'warning'
   },
   {
@@ -361,12 +361,12 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear anywhere inside @node
+    'error_line' => 'warning: @exdent should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@exdent should not appear anywhere inside @node',
+    'text' => '@exdent should not appear on @node line',
     'type' => 'warning'
   }
 ];

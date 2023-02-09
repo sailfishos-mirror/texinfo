@@ -974,12 +974,12 @@ $result_errors{'contain_plain_text_nestings'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @ref should not appear anywhere inside @cindex
+    'error_line' => 'warning: @ref should not appear on @cindex line
 ',
     'file_name' => '',
     'line_nr' => 16,
     'macro' => '',
-    'text' => '@ref should not appear anywhere inside @cindex',
+    'text' => '@ref should not appear on @cindex line',
     'type' => 'warning'
   }
 ];

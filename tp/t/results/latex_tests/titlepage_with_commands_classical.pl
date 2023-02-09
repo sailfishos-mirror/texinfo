@@ -850,21 +850,21 @@ $result_menus{'titlepage_with_commands_classical'} = {
 
 $result_errors{'titlepage_with_commands_classical'} = [
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @author
+    'error_line' => 'warning: @footnote should not appear on @author line
 ',
     'file_name' => '',
     'line_nr' => 10,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @author',
+    'text' => '@footnote should not appear on @author line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @displaymath should not appear anywhere inside @author
+    'error_line' => 'warning: @displaymath should not appear on @author line
 ',
     'file_name' => '',
     'line_nr' => 14,
     'macro' => '',
-    'text' => '@displaymath should not appear anywhere inside @author',
+    'text' => '@displaymath should not appear on @author line',
     'type' => 'warning'
   }
 ];

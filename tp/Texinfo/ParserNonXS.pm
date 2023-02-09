@@ -4491,22 +4491,32 @@ sub _check_valid_nesting_context
 {
   my ($self, $command, $source_info) = @_;
 
-  my $invalid_context;
-  if ($command eq 'footnote' and $self->{'nesting_context'}->{'footnote'}) {
-    $invalid_context = 'footnote';
-  }
-
   if (($command eq 'caption' or $command eq 'shortcaption')
       and $self->{'nesting_context'}->{'caption'}) {
     $self->_line_warn(sprintf(
         __("\@%s should not appear anywhere inside caption"),
           $command), $source_info);
+    return;
+  }
+
+  my $invalid_context;
+  if ($command eq 'footnote' and $self->{'nesting_context'}->{'footnote'}) {
+    $invalid_context = 'footnote';
   } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack'})
        and @{$self->{'nesting_context'}->{'basic_inline_stack'}} > 0
        and !$in_basic_inline_commands{$command}) {
     $invalid_context
       = $self->{'nesting_context'}->{'basic_inline_stack'}->[-1];
-  } elsif (defined($self->{'nesting_context'}->{'basic_inline_stack_on_line'})
+  }
+
+  if ($invalid_context) {
+    $self->_line_warn(sprintf(
+          __("\@%s should not appear anywhere inside \@%s"),
+              $command, $invalid_context), $source_info);
+    return;
+  }
+
+  if (defined($self->{'nesting_context'}->{'basic_inline_stack_on_line'})
        and @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}} > 0
        and !$in_basic_inline_commands{$command}) {
     $invalid_context
@@ -4525,10 +4535,12 @@ sub _check_valid_nesting_context
     }
   }
 
-  $self->_line_warn(sprintf(
-        __("\@%s should not appear anywhere inside \@%s"),
-            $command, $invalid_context), $source_info)
-    if ($invalid_context);
+  if ($invalid_context) {
+    $self->_line_warn(sprintf(
+          __("\@%s should not appear on \@%s line"),
+              $command, $invalid_context), $source_info);
+    return;
+  }
 }
 
 sub _setup_document_root_and_before_node_section()

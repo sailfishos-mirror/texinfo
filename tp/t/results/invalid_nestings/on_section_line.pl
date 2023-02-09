@@ -178,39 +178,39 @@ $result_sectioning{'on_section_line'}{'structure'}{'section_childs'}[0]{'structu
 
 $result_errors{'on_section_line'} = [
   {
-    'error_line' => 'warning: @noindent should not appear anywhere inside @section
+    'error_line' => 'warning: @noindent should not appear on @section line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@noindent should not appear anywhere inside @section',
+    'text' => '@noindent should not appear on @section line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear anywhere inside @section
+    'error_line' => 'warning: @titlefont should not appear on @section line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@titlefont should not appear anywhere inside @section',
+    'text' => '@titlefont should not appear on @section line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @section
+    'error_line' => 'warning: @anchor should not appear on @section line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @section',
+    'text' => '@anchor should not appear on @section line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @section
+    'error_line' => 'warning: @footnote should not appear on @section line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @section',
+    'text' => '@footnote should not appear on @section line',
     'type' => 'warning'
   },
   {
@@ -223,12 +223,12 @@ $result_errors{'on_section_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear anywhere inside @section
+    'error_line' => 'warning: @exdent should not appear on @section line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@exdent should not appear anywhere inside @section',
+    'text' => '@exdent should not appear on @section line',
     'type' => 'warning'
   }
 ];

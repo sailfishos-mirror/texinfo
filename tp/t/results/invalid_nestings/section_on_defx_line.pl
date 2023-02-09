@@ -303,12 +303,12 @@ $result_errors{'section_on_defx_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @deffnx
+    'error_line' => 'warning: @section should not appear on @deffnx line
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @deffnx',
+    'text' => '@section should not appear on @deffnx line',
     'type' => 'warning'
   },
   {

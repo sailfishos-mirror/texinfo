@@ -136,12 +136,12 @@ $result_errors{'section_on_float_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @float
+    'error_line' => 'warning: @section should not appear on @float line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @float',
+    'text' => '@section should not appear on @float line',
     'type' => 'warning'
   },
   {

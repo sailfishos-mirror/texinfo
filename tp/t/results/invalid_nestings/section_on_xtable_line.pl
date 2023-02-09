@@ -383,12 +383,12 @@ $result_sectioning{'section_on_xtable_line'}{'structure'}{'section_childs'}[3]{'
 
 $result_errors{'section_on_xtable_line'} = [
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @vtable
+    'error_line' => 'warning: @section should not appear on @vtable line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @vtable',
+    'text' => '@section should not appear on @vtable line',
     'type' => 'warning'
   },
   {
@@ -419,12 +419,12 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @table
+    'error_line' => 'warning: @section should not appear on @table line
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @table',
+    'text' => '@section should not appear on @table line',
     'type' => 'warning'
   },
   {
@@ -455,12 +455,12 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @table
+    'error_line' => 'warning: @section should not appear on @table line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @table',
+    'text' => '@section should not appear on @table line',
     'type' => 'warning'
   },
   {
@@ -491,12 +491,12 @@ $result_errors{'section_on_xtable_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @ftable
+    'error_line' => 'warning: @section should not appear on @ftable line
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @ftable',
+    'text' => '@section should not appear on @ftable line',
     'type' => 'warning'
   },
   {

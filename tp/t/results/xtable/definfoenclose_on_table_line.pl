@@ -250,12 +250,12 @@ $result_errors{'definfoenclose_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @phi should not appear anywhere inside @table
+    'error_line' => 'warning: @phi should not appear on @table line
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => '@phi should not appear anywhere inside @table',
+    'text' => '@phi should not appear on @table line',
     'type' => 'warning'
   }
 ];

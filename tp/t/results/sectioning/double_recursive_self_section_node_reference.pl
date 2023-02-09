@@ -407,12 +407,12 @@ $result_menus{'double_recursive_self_section_node_reference'} = {
 
 $result_errors{'double_recursive_self_section_node_reference'} = [
   {
-    'error_line' => 'warning: @ref should not appear anywhere inside @node
+    'error_line' => 'warning: @ref should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => '@ref should not appear anywhere inside @node',
+    'text' => '@ref should not appear on @node line',
     'type' => 'warning'
   },
   {

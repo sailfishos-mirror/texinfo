@@ -1177,17 +1177,20 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 void
 check_valid_nesting_context (enum command_id cmd)
 {
-  enum command_id invalid_context = 0;
-  if (nesting_context.footnote > 0
-      && cmd == CM_footnote)
-    {
-      invalid_context = CM_footnote;
-    }
-  else if (nesting_context.caption > 0
+  enum command_id invalid_context = 0, invalid_line = 0;
+
+  if (nesting_context.caption > 0
            && (cmd == CM_caption || cmd == CM_shortcaption))
     {
       line_warn ("@%s should not appear anywhere inside caption",
         command_name(cmd));
+      return;
+    }
+
+  if (nesting_context.footnote > 0
+      && cmd == CM_footnote)
+    {
+      invalid_context = CM_footnote;
     }
   else if (nesting_context.basic_inline_stack.top > 0
            || nesting_context.basic_inline_stack_on_line.top > 0
@@ -1222,19 +1225,12 @@ check_valid_nesting_context (enum command_id cmd)
             invalid_context = top_command
                                 (&nesting_context.basic_inline_stack);
           else if (nesting_context.basic_inline_stack_on_line.top > 0)
-            invalid_context = top_command
+            invalid_line = top_command
                                 (&nesting_context.basic_inline_stack_on_line);
           else if (nesting_context.basic_inline_stack_block.top > 0)
-            invalid_context = top_command
+            invalid_line = top_command
                                 (&nesting_context.basic_inline_stack_block);
         }
-    }
-
-  /* Inclusions for "basic inline with refs" commands. */
-  if (command_data(invalid_context).flags & (CF_sectioning_heading | CF_def))
-    {
-      if (command_data(cmd).flags & CF_ref)
-        invalid_context = 0;
     }
 
   if (invalid_context)
@@ -1242,7 +1238,23 @@ check_valid_nesting_context (enum command_id cmd)
       line_warn ("@%s should not appear anywhere inside @%s",
         command_name(cmd),
         command_name(invalid_context));
+      return;
     }
+
+  /* Inclusions for "basic inline with refs" commands. */
+  if (command_data(invalid_line).flags & (CF_sectioning_heading | CF_def))
+    {
+      if (command_data(cmd).flags & CF_ref)
+        invalid_line = 0;
+    }
+
+  if (invalid_line)
+    {
+      line_warn ("@%s should not appear on @%s line",
+        command_name(cmd),
+        command_name(invalid_line));
+    }
+
 }
 
 /* *LINEP is a pointer into the line being processed.  It is advanced past any

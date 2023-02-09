@@ -445,30 +445,30 @@ $result_texts{'on_def_line'} = ': in titlefont  exdent
 
 $result_errors{'on_def_line'} = [
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @deffn
+    'error_line' => 'warning: @anchor should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @deffn',
+    'text' => '@anchor should not appear on @deffn line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear anywhere inside @deffn
+    'error_line' => 'warning: @titlefont should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@titlefont should not appear anywhere inside @deffn',
+    'text' => '@titlefont should not appear on @deffn line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @deffn
+    'error_line' => 'warning: @footnote should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @deffn',
+    'text' => '@footnote should not appear on @deffn line',
     'type' => 'warning'
   },
   {
@@ -481,12 +481,12 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear anywhere inside @deffn
+    'error_line' => 'warning: @exdent should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@exdent should not appear anywhere inside @deffn',
+    'text' => '@exdent should not appear on @deffn line',
     'type' => 'warning'
   },
   {
@@ -499,30 +499,30 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @deffnx
+    'error_line' => 'warning: @anchor should not appear on @deffnx line
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @deffnx',
+    'text' => '@anchor should not appear on @deffnx line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear anywhere inside @deffnx
+    'error_line' => 'warning: @titlefont should not appear on @deffnx line
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@titlefont should not appear anywhere inside @deffnx',
+    'text' => '@titlefont should not appear on @deffnx line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @deffnx
+    'error_line' => 'warning: @footnote should not appear on @deffnx line
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @deffnx',
+    'text' => '@footnote should not appear on @deffnx line',
     'type' => 'warning'
   },
   {
@@ -535,12 +535,12 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear anywhere inside @deffnx
+    'error_line' => 'warning: @exdent should not appear on @deffnx line
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@exdent should not appear anywhere inside @deffnx',
+    'text' => '@exdent should not appear on @deffnx line',
     'type' => 'warning'
   },
   {

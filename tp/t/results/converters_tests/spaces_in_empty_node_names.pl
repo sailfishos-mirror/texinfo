@@ -692,12 +692,12 @@ $result_menus{'spaces_in_empty_node_names'} = {
 
 $result_errors{'spaces_in_empty_node_names'} = [
   {
-    'error_line' => 'warning: @verb should not appear anywhere inside @node
+    'error_line' => 'warning: @verb should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => '',
-    'text' => '@verb should not appear anywhere inside @node',
+    'text' => '@verb should not appear on @node line',
     'type' => 'warning'
   },
   {

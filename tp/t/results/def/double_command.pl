@@ -680,12 +680,12 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @deffnx should not appear anywhere inside @deffn
+    'error_line' => 'warning: @deffnx should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@deffnx should not appear anywhere inside @deffn',
+    'text' => '@deffnx should not appear on @deffn line',
     'type' => 'warning'
   },
   {
@@ -725,12 +725,12 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @defvr should not appear anywhere inside @deffn
+    'error_line' => 'warning: @defvr should not appear on @deffn line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@defvr should not appear anywhere inside @deffn',
+    'text' => '@defvr should not appear on @deffn line',
     'type' => 'warning'
   },
   {

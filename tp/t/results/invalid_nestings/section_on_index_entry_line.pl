@@ -147,12 +147,12 @@ $result_errors{'section_on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear anywhere inside @cindex
+    'error_line' => 'warning: @section should not appear on @cindex line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@section should not appear anywhere inside @cindex',
+    'text' => '@section should not appear on @cindex line',
     'type' => 'warning'
   },
   {

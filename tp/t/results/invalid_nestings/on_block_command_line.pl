@@ -379,21 +379,21 @@ in titlefont  exdent
 
 $result_errors{'on_block_command_line'} = [
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @multitable
+    'error_line' => 'warning: @anchor should not appear on @multitable line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @multitable',
+    'text' => '@anchor should not appear on @multitable line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear anywhere inside @multitable
+    'error_line' => 'warning: @titlefont should not appear on @multitable line
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@titlefont should not appear anywhere inside @multitable',
+    'text' => '@titlefont should not appear on @multitable line',
     'type' => 'warning'
   },
   {
@@ -406,39 +406,39 @@ $result_errors{'on_block_command_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @indent should not appear anywhere inside @quotation
+    'error_line' => 'warning: @indent should not appear on @quotation line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@indent should not appear anywhere inside @quotation',
+    'text' => '@indent should not appear on @quotation line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear anywhere inside @quotation
+    'error_line' => 'warning: @titlefont should not appear on @quotation line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@titlefont should not appear anywhere inside @quotation',
+    'text' => '@titlefont should not appear on @quotation line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @quotation
+    'error_line' => 'warning: @anchor should not appear on @quotation line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@anchor should not appear anywhere inside @quotation',
+    'text' => '@anchor should not appear on @quotation line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @quotation
+    'error_line' => 'warning: @footnote should not appear on @quotation line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@footnote should not appear anywhere inside @quotation',
+    'text' => '@footnote should not appear on @quotation line',
     'type' => 'warning'
   },
   {
@@ -451,12 +451,12 @@ $result_errors{'on_block_command_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear anywhere inside @quotation
+    'error_line' => 'warning: @exdent should not appear on @quotation line
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@exdent should not appear anywhere inside @quotation',
+    'text' => '@exdent should not appear on @quotation line',
     'type' => 'warning'
   }
 ];

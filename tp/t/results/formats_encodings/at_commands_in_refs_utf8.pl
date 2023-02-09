@@ -17816,21 +17816,21 @@ $result_menus{'at_commands_in_refs_utf8'}{'structure'}{'menu_child'}{'structure'
 
 $result_errors{'at_commands_in_refs_utf8'} = [
   {
-    'error_line' => 'warning: @verb should not appear anywhere inside @node
+    'error_line' => 'warning: @verb should not appear on @node line
 ',
     'file_name' => '',
     'line_nr' => 98,
     'macro' => '',
-    'text' => '@verb should not appear anywhere inside @node',
+    'text' => '@verb should not appear on @node line',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear anywhere inside @chapter
+    'error_line' => 'warning: @verb should not appear on @chapter line
 ',
     'file_name' => '',
     'line_nr' => 100,
     'macro' => '',
-    'text' => '@verb should not appear anywhere inside @chapter',
+    'text' => '@verb should not appear on @chapter line',
     'type' => 'warning'
   },
   {
