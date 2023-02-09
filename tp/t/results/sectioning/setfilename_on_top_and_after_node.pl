@@ -231,12 +231,12 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @setfilename should not appear in @top
+    'error_line' => 'warning: @setfilename should not appear anywhere inside @top
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@setfilename should not appear in @top',
+    'text' => '@setfilename should not appear anywhere inside @top',
     'type' => 'warning'
   },
   {

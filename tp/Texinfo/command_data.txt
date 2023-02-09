@@ -1,4 +1,4 @@
-# Copyright 2010-2022 Free Software Foundation, Inc.
+# Copyright 2010-2023 Free Software Foundation, Inc.
 #
 # This file is part of GNU Texinfo.
 #
@@ -111,30 +111,30 @@ refill                  nobrace,preamble,deprecated     NOBRACE_other
 # and for @node.  The number of arguments of LINE_specific commands
 # is not used anywhere in the code, it is here as documentation only.
 
-# Root commands
-node                    line,formatted_line,root,contain_basic_inline              LINE_line     4
-top                     line,formatted_line,root,sectioning_heading,global_unique   LINE_line
-chapter                 line,formatted_line,root,sectioning_heading               LINE_line
-unnumbered              line,formatted_line,root,sectioning_heading               LINE_line
-chapheading             line,formatted_line,sectioning_heading,close_paragraph    LINE_line
-appendix                line,formatted_line,root,sectioning_heading               LINE_line
-section                 line,formatted_line,root,sectioning_heading               LINE_line
-unnumberedsec           line,formatted_line,root,sectioning_heading               LINE_line
-heading                 line,formatted_line,sectioning_heading,close_paragraph    LINE_line
-appendixsec             line,formatted_line,root,sectioning_heading               LINE_line
-subsection              line,formatted_line,root,sectioning_heading               LINE_line
-unnumberedsubsec        line,formatted_line,root,sectioning_heading               LINE_line
-subheading              line,formatted_line,sectioning_heading,close_paragraph    LINE_line
-appendixsubsec          line,formatted_line,root,sectioning_heading               LINE_line
-subsubsection           line,formatted_line,root,sectioning_heading               LINE_line
-unnumberedsubsubsec     line,formatted_line,root,sectioning_heading               LINE_line
-subsubheading           line,formatted_line,sectioning_heading,close_paragraph    LINE_line
-appendixsubsubsec       line,formatted_line,root,sectioning_heading               LINE_line
+# Root and heading commands
+node                    line,formatted_line,root,contain_basic_inline                                LINE_line     4
+top                     line,formatted_line,root,contain_basic_inline,sectioning_heading,global_unique LINE_line
+chapter                 line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+unnumbered              line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+chapheading             line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+appendix                line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+section                 line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+unnumberedsec           line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+heading                 line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+appendixsec             line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+subsection              line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+unnumberedsubsec        line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+subheading              line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+appendixsubsec          line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+subsubsection           line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+unnumberedsubsubsec     line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+subsubheading           line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+appendixsubsubsec       line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
 
-part                    line,formatted_line,root,sectioning_heading,global        LINE_line
-appendixsection         line,formatted_line,root,sectioning_heading               LINE_line
-majorheading            line,formatted_line,sectioning_heading,close_paragraph    LINE_line
-centerchap              line,formatted_line,root,sectioning_heading,deprecated    LINE_line
+part                    line,formatted_line,root,contain_basic_inline,sectioning_heading,global        LINE_line
+appendixsection         line,formatted_line,root,contain_basic_inline,sectioning_heading               LINE_line
+majorheading            line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph    LINE_line
+centerchap              line,formatted_line,root,contain_basic_inline,sectioning_heading,deprecated    LINE_line
 
 # end of document, end of block
 bye                     line,preamble                       LINE_skipline
@@ -468,50 +468,50 @@ titlefont               brace,close_paragraph,global,contain_basic_inline    BRA
 ##########################################################
 
 # def* commands
-deffn                   block,def,close_paragraph       BLOCK_def
-defvr                   block,def,close_paragraph       BLOCK_def
-deftypefn               block,def,close_paragraph       BLOCK_def
-deftypeop               block,def,close_paragraph       BLOCK_def
-deftypevr               block,def,close_paragraph       BLOCK_def
-defcv                   block,def,close_paragraph       BLOCK_def
-deftypecv               block,def,close_paragraph       BLOCK_def
-defop                   block,def,close_paragraph       BLOCK_def
-deftp                   block,def,close_paragraph       BLOCK_def
+deffn                   block,def,contain_basic_inline,close_paragraph       BLOCK_def
+defvr                   block,def,contain_basic_inline,close_paragraph       BLOCK_def
+deftypefn               block,def,contain_basic_inline,close_paragraph       BLOCK_def
+deftypeop               block,def,contain_basic_inline,close_paragraph       BLOCK_def
+deftypevr               block,def,contain_basic_inline,close_paragraph       BLOCK_def
+defcv                   block,def,contain_basic_inline,close_paragraph       BLOCK_def
+deftypecv               block,def,contain_basic_inline,close_paragraph       BLOCK_def
+defop                   block,def,contain_basic_inline,close_paragraph       BLOCK_def
+deftp                   block,def,contain_basic_inline,close_paragraph       BLOCK_def
 #   shortcuts
-defun                   block,def,def_alias,close_paragraph    BLOCK_def
-defmac                  block,def,def_alias,close_paragraph    BLOCK_def
-defspec                 block,def,def_alias,close_paragraph    BLOCK_def
-defvar                  block,def,def_alias,close_paragraph    BLOCK_def
-defopt                  block,def,def_alias,close_paragraph    BLOCK_def
-deftypefun              block,def,def_alias,close_paragraph    BLOCK_def
-deftypevar              block,def,def_alias,close_paragraph    BLOCK_def
-defivar                 block,def,def_alias,close_paragraph    BLOCK_def
-deftypeivar             block,def,def_alias,close_paragraph    BLOCK_def
-defmethod               block,def,def_alias,close_paragraph    BLOCK_def
-deftypemethod           block,def,def_alias,close_paragraph    BLOCK_def
+defun                   block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defmac                  block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defspec                 block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defvar                  block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defopt                  block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+deftypefun              block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+deftypevar              block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defivar                 block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+deftypeivar             block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+defmethod               block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
+deftypemethod           block,def,contain_basic_inline,def_alias,close_paragraph    BLOCK_def
 
 # def*x
-deffnx                  line,def,close_paragraph        LINE_line
-defvrx                  line,def,close_paragraph        LINE_line
-deftypefnx              line,def,close_paragraph        LINE_line
-deftypeopx              line,def,close_paragraph        LINE_line
-deftypevrx              line,def,close_paragraph        LINE_line
-defcvx                  line,def,close_paragraph        LINE_line
-deftypecvx              line,def,close_paragraph        LINE_line
-defopx                  line,def,close_paragraph        LINE_line
-deftpx                  line,def,close_paragraph        LINE_line
+deffnx                  line,def,contain_basic_inline,close_paragraph        LINE_line
+defvrx                  line,def,contain_basic_inline,close_paragraph        LINE_line
+deftypefnx              line,def,contain_basic_inline,close_paragraph        LINE_line
+deftypeopx              line,def,contain_basic_inline,close_paragraph        LINE_line
+deftypevrx              line,def,contain_basic_inline,close_paragraph        LINE_line
+defcvx                  line,def,contain_basic_inline,close_paragraph        LINE_line
+deftypecvx              line,def,contain_basic_inline,close_paragraph        LINE_line
+defopx                  line,def,contain_basic_inline,close_paragraph        LINE_line
+deftpx                  line,def,contain_basic_inline,close_paragraph        LINE_line
 #   shortcuts
-defunx                  line,def,def_alias,close_paragraph     LINE_line
-defmacx                 line,def,def_alias,close_paragraph     LINE_line
-defspecx                line,def,def_alias,close_paragraph     LINE_line
-defvarx                 line,def,def_alias,close_paragraph     LINE_line
-defoptx                 line,def,def_alias,close_paragraph     LINE_line
-deftypefunx             line,def,def_alias,close_paragraph     LINE_line
-deftypevarx             line,def,def_alias,close_paragraph     LINE_line
-defivarx                line,def,def_alias,close_paragraph     LINE_line
-deftypeivarx            line,def,def_alias,close_paragraph     LINE_line
-defmethodx              line,def,def_alias,close_paragraph     LINE_line
-deftypemethodx          line,def,def_alias,close_paragraph     LINE_line
+defunx                  line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defmacx                 line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defspecx                line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defvarx                 line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defoptx                 line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+deftypefunx             line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+deftypevarx             line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defivarx                line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+deftypeivarx            line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+defmethodx              line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
+deftypemethodx          line,def,contain_basic_inline,def_alias,close_paragraph     LINE_line
 
 multitable              block,close_paragraph,blockitem,contain_basic_inline   BLOCK_multitable
 

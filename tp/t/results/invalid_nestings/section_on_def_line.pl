@@ -192,12 +192,12 @@ $result_errors{'section_on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @section should not appear in @deffn
+    'error_line' => 'warning: @section should not appear anywhere inside @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@section should not appear in @deffn',
+    'text' => '@section should not appear anywhere inside @deffn',
     'type' => 'warning'
   },
   {

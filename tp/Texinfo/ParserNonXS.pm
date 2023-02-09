@@ -454,23 +454,19 @@ delete $in_full_text_commands{'shortcaption'};
 # Note that checks for basic inline content are now done using the stacks of
 # commands in 'nesting_context'.
 
-# commands that may appear inside sectioning commands
-my %in_basic_inline_with_refs_commands = %in_full_text_commands;
-foreach my $not_in_basic_inline_with_refs_commands ('titlefont',
-                                   'anchor', 'footnote', 'verb') {
-  delete $in_basic_inline_with_refs_commands{
-                                 $not_in_basic_inline_with_refs_commands};
+my %in_basic_inline_commands = %in_full_text_commands;
+foreach my $not_in_basic_inline_commands
+                               ('xref', 'ref', 'pxref', 'inforef',
+                                'titlefont', 'anchor', 'footnote', 'verb') {
+  delete $in_basic_inline_commands{$not_in_basic_inline_commands};
 }
-
-# commands that are basic inline content
-my %in_basic_inline_commands = %in_basic_inline_with_refs_commands;
-foreach my $not_in_basic_inline_command('xref', 'ref', 'pxref', 'inforef') {
-  delete $in_basic_inline_commands{$not_in_basic_inline_command};
-}
-
 
 my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
                                       %def_commands);
+my %ok_in_basic_inline_with_refs_commands;
+foreach my $permitted_command ('xref', 'ref', 'pxref', 'inforef') {
+  $ok_in_basic_inline_with_refs_commands{$permitted_command} = 1;
+}
 
 # commands that accept full text, but no block or top-level commands
 my %contain_full_text_commands;
@@ -497,7 +493,6 @@ $contain_full_line_commands{'itemx'} = 1;
 # There are additional context tests, to make sure, for instance that we are
 # testing @-commands on the block, line or node @-command line and not
 # in the content.
-# Index entry commands are dynamically set as %in_basic_inline_commands
 my %default_valid_nestings;
 
 foreach my $command (keys(%contain_plain_text_commands)) {
@@ -507,9 +502,6 @@ foreach my $command (keys(%contain_plain_text_commands)) {
 foreach my $command (keys(%contain_full_text_commands),
                      keys(%contain_full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
-}
-foreach my $command (keys(%contain_basic_inline_with_refs_commands)) {
-  $default_valid_nestings{$command} = \%in_basic_inline_with_refs_commands;
 }
 
 # @this* commands should not appear in any line command except for
@@ -3333,6 +3325,12 @@ sub _end_line_misc_line($$$)
   my $current = shift;
   my $source_info = shift;
 
+  my $command = $current->{'parent'}->{'cmdname'};
+
+  if ($self->{'basic_inline_commands'}->{$command}) {
+    pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
+  }
+
   if ($current->{'parent'}->{'type'}
         and $current->{'parent'}->{'type'} eq 'def_line') {
     $current = _end_line_def_line($self, $current, $source_info);
@@ -3342,19 +3340,13 @@ sub _end_line_misc_line($$$)
   $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
   _isolate_last_space($self, $current);
 
-  # first parent is the @command, second is the parent
   $current = $current->{'parent'};
   my $misc_cmd = $current;
-  my $command = $current->{'cmdname'};
   my $end_command;
   my $included_file;
   my $include_source_mark;
   print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
      if ($self->{'DEBUG'});
-
-  if ($self->{'basic_inline_commands'}->{$command}) {
-    pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
-  }
 
   if ($self->{'line_commands'}->{$command} eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);
@@ -3758,6 +3750,19 @@ sub _end_line_starting_block($$$)
   my $current = shift;
   my $source_info = shift;
 
+  my $command;
+  if ($current->{'parent'}->{'type'}
+        and $current->{'parent'}->{'type'} eq 'def_line') {
+    $command = $current->{'parent'}->{'parent'}->{'cmdname'}
+  } else {
+    $command = $current->{'parent'}->{'cmdname'};
+  }
+  $command = '' if !defined($command);
+
+  if ($self->{'basic_inline_commands'}->{$command}) {
+    pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
+  }
+
   if ($current->{'parent'}->{'type'}
         and $current->{'parent'}->{'type'} eq 'def_line') {
     $current = _end_line_def_line($self, $current, $source_info);
@@ -3767,13 +3772,6 @@ sub _end_line_starting_block($$$)
   my $empty_text;
   $self->_pop_context(['ct_line'], $source_info, $current,
                       'in block_line_arg');
-
-  my $command = $current->{'parent'}->{'cmdname'};
-  $command = '' if !defined($command);
-
-  if ($self->{'basic_inline_commands'}->{$command}) {
-    pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
-  }
 
   print STDERR "END BLOCK LINE: "
      .Texinfo::Common::debug_print_element_short($current, 1)."\n"
@@ -4480,18 +4478,6 @@ sub _check_valid_nesting {
                         and $current->{'type'} eq 'line_arg'))) {
         $invalid_parent = $current->{'parent'}->{'cmdname'};
       }
-    } elsif ($self->_top_context() eq 'ct_def'
-      # FIXME instead of hardcoding in_basic_inline_with_refs_commands
-      # it would be better to use the parent command valid_nesting.
-             and !$in_basic_inline_with_refs_commands{$command}) {
-      my $def_block = $current;
-      while ($def_block->{'parent'}
-             and (!$def_block->{'parent'}->{'type'}
-                  or $def_block->{'parent'}->{'type'} ne 'def_line')) {
-        $def_block = $def_block->{'parent'};
-      }
-
-      $invalid_parent = $def_block->{'parent'}->{'parent'}->{'cmdname'};
     }
   }
 
@@ -4530,6 +4516,13 @@ sub _check_valid_nesting_context
        and !$in_basic_inline_commands{$command}) {
     $invalid_context
       = $self->{'nesting_context'}->{'basic_inline_stack_block'}->[-1];
+  }
+
+  if ($invalid_context
+        and $contain_basic_inline_with_refs_commands{$invalid_context}) {
+    if ($ok_in_basic_inline_with_refs_commands{$command}) {
+      undef $invalid_context;
+    }
   }
 
   $self->_line_warn(sprintf(

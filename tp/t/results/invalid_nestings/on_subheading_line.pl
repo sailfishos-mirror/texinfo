@@ -162,39 +162,39 @@ $result_texts{'on_subheading_line'} = 'Text in titlefont  exdent
 
 $result_errors{'on_subheading_line'} = [
   {
-    'error_line' => 'warning: @noindent should not appear in @subheading
+    'error_line' => 'warning: @noindent should not appear anywhere inside @subheading
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@noindent should not appear in @subheading',
+    'text' => '@noindent should not appear anywhere inside @subheading',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @titlefont should not appear in @subheading
+    'error_line' => 'warning: @titlefont should not appear anywhere inside @subheading
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@titlefont should not appear in @subheading',
+    'text' => '@titlefont should not appear anywhere inside @subheading',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @anchor should not appear in @subheading
+    'error_line' => 'warning: @anchor should not appear anywhere inside @subheading
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@anchor should not appear in @subheading',
+    'text' => '@anchor should not appear anywhere inside @subheading',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnote should not appear in @subheading
+    'error_line' => 'warning: @footnote should not appear anywhere inside @subheading
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@footnote should not appear in @subheading',
+    'text' => '@footnote should not appear anywhere inside @subheading',
     'type' => 'warning'
   },
   {
@@ -207,12 +207,12 @@ $result_errors{'on_subheading_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exdent should not appear in @subheading
+    'error_line' => 'warning: @exdent should not appear anywhere inside @subheading
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@exdent should not appear in @subheading',
+    'text' => '@exdent should not appear anywhere inside @subheading',
     'type' => 'warning'
   }
 ];

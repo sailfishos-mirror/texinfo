@@ -102,12 +102,12 @@ $result_sectioning{'unclosed_verb_on_section_line'}{'structure'}{'section_childs
 
 $result_errors{'unclosed_verb_on_section_line'} = [
   {
-    'error_line' => 'warning: @verb should not appear in @section
+    'error_line' => 'warning: @verb should not appear anywhere inside @section
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@verb should not appear in @section',
+    'text' => '@verb should not appear anywhere inside @section',
     'type' => 'warning'
   },
   {

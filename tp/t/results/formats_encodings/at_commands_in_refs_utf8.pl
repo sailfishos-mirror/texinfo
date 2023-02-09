@@ -17825,12 +17825,12 @@ $result_errors{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @verb should not appear in @chapter
+    'error_line' => 'warning: @verb should not appear anywhere inside @chapter
 ',
     'file_name' => '',
     'line_nr' => 100,
     'macro' => '',
-    'text' => '@verb should not appear in @chapter',
+    'text' => '@verb should not appear anywhere inside @chapter',
     'type' => 'warning'
   },
   {

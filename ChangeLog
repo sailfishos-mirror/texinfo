@@ -1,3 +1,33 @@
+2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use nesting stacks for sectioning and def commands
+
+	* tp/Texinfo/command_data.txt: Add contain_basic_inline flag
+	for all def and sectioning_heading commands.
+
+	* tp/Texinfo/ParserNonXS.pm
+	(%in_basic_inline_with_refs_commands): Remove.
+	(%default_valid_nestings):
+	Do not set using %in_basic_inline_with_refs_commands.
+	(%ok_in_basic_inline_with_refs_commands): New hash, with exceptions.
+	(_check_valid_nesting): Eliminate special handling of ct_def context.
+	(_check_valid_nesting_context):
+	Use %ok_in_basic_inline_with_refs_commands as list of inclusions
+	for sectioning and def commands.
+
+	* tp/Texinfo/ParserNonXS.pm
+	(_end_line_misc_line, _end_line_starting_block):
+	Pop nesting contexts before calling _end_line_def_line.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Do not handle "basic inline with refs" commands.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	Include CF_ref commands as allowed for sectioning and def commands.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_misc_line, end_line_starting_block):
+	Pop nesting contexts before calling end_line_def_line.
+
 2023-02-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/source_marks.c (relocate_source_marks):

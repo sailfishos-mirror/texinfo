@@ -1011,14 +1011,21 @@ end_line_starting_block (ELEMENT *current)
 {
   KEY_PAIR *k;
 
+  enum command_id command;
+
+  if (current->parent->type == ET_def_line)
+    command = current->parent->parent->cmd;
+  else
+    command = current->parent->cmd;
+
+  if (command_data(command).flags & CF_contain_basic_inline)
+      (void) pop_command (&nesting_context.basic_inline_stack_block);
+
   if (current->parent->type == ET_def_line)
     return end_line_def_line (current);
 
   if (pop_context () != ct_line)
     fatal ("line context expected");
-
-  if (command_flags(current->parent) & CF_contain_basic_inline)
-      (void) pop_command (&nesting_context.basic_inline_stack_block);
 
   if (current->parent->cmd == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
@@ -1377,6 +1384,14 @@ end_line_misc_line (ELEMENT *current)
   int included_file = 0;
   SOURCE_MARK *include_source_mark;
 
+  cmd = current->parent->cmd;
+  if (!cmd)
+    fatal ("command name unknown for @end");
+
+  if ((command_data(cmd).flags & CF_contain_basic_inline)
+      || cmd == CM_item) /* CM_item_LINE on stack */
+    (void) pop_command (&nesting_context.basic_inline_stack_on_line);
+
   if (current->parent->type == ET_def_line)
     return end_line_def_line (current);
 
@@ -1384,17 +1399,10 @@ end_line_misc_line (ELEMENT *current)
 
   current = current->parent;
   misc_cmd = current;
-  cmd = current->cmd;
-  if (!cmd)
-    fatal ("command name unknown for @end");
 
   arg_type = command_data(cmd).data;
    
   debug ("MISC END %s", command_name(cmd));
-
-  if ((command_data(cmd).flags & CF_contain_basic_inline)
-      || cmd == CM_item) /* CM_item_LINE on stack */
-    (void) pop_command (&nesting_context.basic_inline_stack_on_line);
 
   if (pop_context () != ct_line)
     fatal ("line context expected");

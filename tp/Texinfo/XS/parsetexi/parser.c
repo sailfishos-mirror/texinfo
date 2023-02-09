@@ -1103,13 +1103,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || outer == CM_center
            || outer == CM_exdent
            || outer == CM_item
-           || outer == CM_itemx
-
-           || (!current->parent->cmd && current_context () == ct_def)
-
-           /* "full line no refs commands" */
-           || (outer_flags & (CF_sectioning_heading | CF_def))
-           || (!current->parent->cmd && current_context () == ct_def))
+           || outer == CM_itemx)
     {
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */
@@ -1150,19 +1144,6 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
                       || command_data(outer).data == BRACE_style_code
                       || command_data(outer).data == BRACE_style_no_code)))
               ok = 1;
-        }
-
-      /* Now add more restrictions for
-         "basic inline with refs" commands. */
-      if (outer_flags & (CF_sectioning_heading | CF_def)
-          || (!current->parent->cmd && current_context () == ct_def))
-        {
-          if (cmd == CM_titlefont
-              || cmd == CM_anchor
-              || cmd == CM_footnote
-              || cmd == CM_verb
-              || cmd == CM_indent || cmd == CM_noindent)
-            ok = 0;
         }
     }
   else
@@ -1247,10 +1228,13 @@ check_valid_nesting_context (enum command_id cmd)
             invalid_context = top_command
                                 (&nesting_context.basic_inline_stack_block);
         }
+    }
 
-      /* FIXME: This may not match exactly the definition of
-         "basic inline with refs" in check_valid_nesting.  We should
-         only need to define what these commands are in one place. */
+  /* Inclusions for "basic inline with refs" commands. */
+  if (command_data(invalid_context).flags & (CF_sectioning_heading | CF_def))
+    {
+      if (command_data(cmd).flags & CF_ref)
+        invalid_context = 0;
     }
 
   if (invalid_context)
