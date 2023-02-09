@@ -4797,7 +4797,7 @@ sub _process_remaining_on_line($$$$)
       # Ignore until end of line
       # FIXME this is not the same as for other commands.  Change?
       if ($line !~ /\n/) {
-        ($line, $source_info) = _new_line($self);
+        ($line, $source_info) = _new_line($self, $current);
         print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
       }
     }

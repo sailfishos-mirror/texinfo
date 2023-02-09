@@ -99,6 +99,12 @@ $result_trees{'ifset_in_macro'} = {
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 1,
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ],
           'text' => '

@@ -318,6 +318,11 @@ $result_trees{'nested_ifset_ifclear'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 3,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         },
@@ -377,6 +382,11 @@ $result_trees{'nested_ifset_ifclear'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 4,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ]
         }

@@ -40,6 +40,13 @@
 
 2023-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	add $current to new_line call to register source mark after @end of
+	ignored cnditional.
+
+2023-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_relocate_source_marks),
 	tp/Texinfo/XS/parsetexi/source_marks.c (relocate_source_marks):
 	relocate source marks within a range, with the first source mark not

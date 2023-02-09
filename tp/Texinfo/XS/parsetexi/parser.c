@@ -1486,7 +1486,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           /* Ignore until end of line */
           if (!strchr (line, '\n'))
             {
-              line = new_line (0);
+              line = new_line (current);
               debug ("IGNORE CLOSE line: %s", line);
             }
           destroy_element_and_children (popped);
