@@ -180,7 +180,7 @@ void
 relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
                        size_t begin_position, size_t end_position)
 {
-  int i;
+  int i, j;
   int list_number = source_mark_list->number;
   int *indices_to_remove;
 
@@ -203,9 +203,9 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
       else if (source_mark->position > end_position)
         break;
     }
-  for (i = list_number - 1; i >= 0; i--)
+  for (j = i; j >= 0; j--)
     {
-      if (indices_to_remove[i] == 1)
-        remove_from_source_mark_list (source_mark_list, i);
+      if (indices_to_remove[j] == 1)
+        remove_from_source_mark_list (source_mark_list, j);
     }
 }
