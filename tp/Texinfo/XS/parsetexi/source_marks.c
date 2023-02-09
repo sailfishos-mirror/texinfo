@@ -185,7 +185,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
   int *indices_to_remove;
 
   indices_to_remove = malloc (sizeof(int) * list_number);
-  memset (indices_to_remove, 0, list_number);
+  memset (indices_to_remove, 0, sizeof(int) * list_number);
 
   for (i = 0; i < list_number; i++)
     {
