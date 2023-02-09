@@ -1,3 +1,13 @@
+2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Partially unify def line ending code
+
+	* tp/Texinfo/ParserNonXS.pm
+	(_end_line_starting_block, _end_line_misc_line):
+	Redirect to _end_line_def_line if called on a def line.
+	(_end_line, _close_current):
+	Remove separate cases for calling _end_line_def_line.
+
 2023-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Stop text disappearing in Info nodes with encoding conversion

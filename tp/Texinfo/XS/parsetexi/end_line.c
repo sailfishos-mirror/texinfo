@@ -1010,6 +1010,10 @@ ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
   KEY_PAIR *k;
+
+  if (current->parent->type == ET_def_line)
+    return end_line_def_line (current);
+
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
@@ -1372,6 +1376,9 @@ end_line_misc_line (ELEMENT *current)
   enum command_id end_id = CM_NONE;
   int included_file = 0;
   SOURCE_MARK *include_source_mark;
+
+  if (current->parent->type == ET_def_line)
+    return end_line_def_line (current);
 
   isolate_last_space (current);
 
@@ -2283,12 +2290,6 @@ end_line (ELEMENT *current)
           if (end_comment)
             add_to_element_contents (current, end_comment);
         }
-    }
-
-  /* End of a definition line, like @deffn */
-  else if (current->parent && current->parent->type == ET_def_line)
-    {
-      current = end_line_def_line (current);
     }
   /* End of a line starting a block. */
   else if (current->type == ET_block_line_arg)

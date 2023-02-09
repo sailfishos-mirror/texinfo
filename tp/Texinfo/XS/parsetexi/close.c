@@ -418,36 +418,16 @@ close_current (ELEMENT *current,
               /* remove spaces element from tree and update extra values */
               abort_empty_line (&current, 0);
             }
-
           break;
         case ET_line_arg:
-          /* @-commands like @deffnx */
-          if (current->parent && current->parent->type == ET_def_line)
-            {
-              end_line_def_line (current);
-            }
-          else
-            {
-              /* We ignore the current returned, to be sure that
-                 we close the command too. */
-              end_line_misc_line (current);
-            }
-
+          /* We ignore the current returned, to be sure that
+             we close the command too. */
+          end_line_misc_line (current);
           break;
         case ET_block_line_arg:
-          /* @-commands like @deffn */
-          if (current->parent && current->parent->type == ET_def_line)
-            {
-              end_line_def_line (current);
-            }
-          else
-            {
-              end_line_starting_block (current);
-            }
-
+          end_line_starting_block (current);
           break;
         default:
-
           break;
         }
       current = close_container(current);

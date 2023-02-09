@@ -2142,10 +2142,6 @@ sub _close_current($$$;$$)
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
-    } elsif ($current->{'parent'}
-             and $current->{'parent'}->{'type'}
-             and $current->{'parent'}->{'type'} eq 'def_line') {
-      _end_line_def_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'line_arg') {
       #$current = _end_line_misc_line($self, $current, $source_info);
       # We ignore the current returned $current, to be sure that
@@ -3337,6 +3333,12 @@ sub _end_line_misc_line($$$)
   my $current = shift;
   my $source_info = shift;
 
+  if ($current->{'parent'}->{'type'}
+        and $current->{'parent'}->{'type'} eq 'def_line') {
+    $current = _end_line_def_line($self, $current, $source_info);
+    return $current;
+  }
+
   $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
   _isolate_last_space($self, $current);
 
@@ -3755,6 +3757,12 @@ sub _end_line_starting_block($$$)
   my $self = shift;
   my $current = shift;
   my $source_info = shift;
+
+  if ($current->{'parent'}->{'type'}
+        and $current->{'parent'}->{'type'} eq 'def_line') {
+    $current = _end_line_def_line($self, $current, $source_info);
+    return $current;
+  }
 
   my $empty_text;
   $self->_pop_context(['ct_line'], $source_info, $current,
@@ -4189,12 +4197,7 @@ sub _end_line($$$)
         push @{$current->{'contents'}}, $end_comment;
       }
     }
-  # def line
-  } elsif ($current->{'parent'}
-            and $current->{'parent'}->{'type'}
-            and $current->{'parent'}->{'type'} eq 'def_line') {
-    $current = _end_line_def_line($self, $current, $source_info);
-  # other block command lines
+  # block command lines
   } elsif ($current->{'type'}
             and $current->{'type'} eq 'block_line_arg') {
     $current = _end_line_starting_block($self, $current, $source_info);
