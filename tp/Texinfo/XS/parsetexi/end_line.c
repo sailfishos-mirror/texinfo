@@ -1027,7 +1027,7 @@ end_line_starting_block (ELEMENT *current)
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
-  if (current->parent->cmd == CM_multitable
+  if (command == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
       ELEMENT *misc_cmd = k->value;
@@ -1045,11 +1045,8 @@ end_line_starting_block (ELEMENT *current)
           k->type = extra_deleted;
         }
     }
-  else if (current->parent->cmd == CM_multitable)
+  else if (command == CM_multitable)
     {
-      /* Parse prototype row for a @multitable.  Handling
-         of @columnfractions is done elsewhere. */
-
       int i;
       ELEMENT *prototypes = new_element (ET_NONE);
 
@@ -1119,7 +1116,7 @@ end_line_starting_block (ELEMENT *current)
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
-  if (current->cmd == CM_float)
+  if (command == CM_float)
     {
       char *type = "";
       KEY_PAIR *k;
@@ -1160,9 +1157,9 @@ end_line_starting_block (ELEMENT *current)
       if (current_section)
         add_extra_element (current, "float_section", current_section);
     }
-  else if (command_flags(current) & CF_blockitem)
+  else if (command_data(command).flags & CF_blockitem)
     {
-      if (current->cmd == CM_enumerate)
+      if (command == CM_enumerate)
         {
           char *spec = "1";
 
@@ -1186,11 +1183,11 @@ end_line_starting_block (ELEMENT *current)
                 }
               else
                 command_error (current, "bad argument to @%s",
-                               command_name(current->cmd));
+                               command_name(command));
             }
           add_extra_string_dup (current, "enumerate_specification", spec);
         }
-      else if (item_line_command (current->cmd))
+      else if (item_line_command (command))
         {
           KEY_PAIR *k;
           k = lookup_extra (current, "command_as_argument");
@@ -1207,12 +1204,12 @@ end_line_starting_block (ELEMENT *current)
                   tmp.contents = current->args.list[0]->contents;
                   texi_arg = convert_to_texinfo (&tmp);
                   command_error (current, "bad argument to @%s: %s",
-                                 command_name(current->cmd), texi_arg);
+                                 command_name(command), texi_arg);
                 }
               else
                 {
                   command_error (current, "missing @%s argument",
-                                 command_name(current->cmd));
+                                 command_name(command));
                 }
             }
           else
@@ -1225,7 +1222,7 @@ end_line_starting_block (ELEMENT *current)
                                  "command @%s not accepting argument in brace "
                                  "should not be on @%s line",
                                  command_name(e->cmd),
-                                 command_name(current->cmd));
+                                 command_name(command));
                   k->key = "";
                   k->type = extra_deleted;
                   /* FIXME: Error message for accent commands is done
@@ -1236,7 +1233,7 @@ end_line_starting_block (ELEMENT *current)
 
       /* check that command_as_argument of the @itemize is alone on the line,
          otherwise it is not a command_as_argument */
-      if (current->cmd == CM_itemize)
+      if (command == CM_itemize)
         {
           KEY_PAIR *k;
           k = lookup_extra (current, "command_as_argument");
@@ -1271,8 +1268,8 @@ end_line_starting_block (ELEMENT *current)
             }
         }
 
-      // Check if command_as_argument isn't an accent command
-      if (current->cmd == CM_itemize || item_line_command(current->cmd))
+      /* Check if command_as_argument isn't an accent command */
+      if (command == CM_itemize || item_line_command(command))
         {
           KEY_PAIR *k = lookup_extra (current, "command_as_argument");
           if (k && k->value)
@@ -1283,7 +1280,7 @@ end_line_starting_block (ELEMENT *current)
                   command_warn (current, "accent command `@%s' "
                                 "not allowed as @%s argument",
                                 command_name(cmd),
-                                command_name(current->cmd));
+                                command_name(command));
                   k->key = "";
                   k->value = 0;
                   k->type = extra_deleted;
@@ -1293,7 +1290,7 @@ end_line_starting_block (ELEMENT *current)
 
       /* if no command_as_argument given, default to @bullet for
          @itemize, and @asis for @table. */
-      if (current->cmd == CM_itemize
+      if (command == CM_itemize
           && (current->args.number == 0
               || current->args.list[0]->contents.number == 0))
         {
@@ -1315,7 +1312,7 @@ end_line_starting_block (ELEMENT *current)
           insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
         }
-      else if (item_line_command (current->cmd)
+      else if (item_line_command (command)
           && !lookup_extra (current, "command_as_argument"))
         {
           ELEMENT *e;
@@ -1332,8 +1329,8 @@ end_line_starting_block (ELEMENT *current)
         current = bi;
       }
     } /* CF_blockitem */
-  else if (command_data (current->cmd).args_number == 0
-           && (! (command_data (current->cmd).flags & CF_variadic))
+  else if (command_data (command).args_number == 0
+           && (! (command_data (command).flags & CF_variadic))
            && current->args.number > 0
            && current->args.list[0]->contents.number > 0)
     {
@@ -1345,10 +1342,10 @@ end_line_starting_block (ELEMENT *current)
       tmp.contents = current->args.list[0]->contents;
       texi_arg = convert_to_texinfo (&tmp);
       command_warn (current, "unexpected argument on @%s line: %s",
-                     command_name(current->cmd), texi_arg);
+                     command_name(command), texi_arg);
     }
 
-  if (command_data(current->cmd).data == BLOCK_menu)
+  if (command_data(command).data == BLOCK_menu)
     {
       /* Start reading a menu.  Processing will continue in
          handle_menu in menus.c. */
@@ -1358,14 +1355,14 @@ end_line_starting_block (ELEMENT *current)
       current = menu_comment;
       debug ("MENU_COMMENT OPEN");
     }
-  if (command_data(current->cmd).data == BLOCK_format_raw
-      && format_expanded_p (command_name(current->cmd)))
+  if (command_data(command).data == BLOCK_format_raw
+      && format_expanded_p (command_name(command)))
     {
       ELEMENT *rawpreformatted = new_element (ET_rawpreformatted);
       add_to_element_contents (current, rawpreformatted);
       current = rawpreformatted;
     }
-  if (command_data(current->cmd).data != BLOCK_raw)
+  if (command_data(command).data != BLOCK_raw)
     current = begin_preformatted (current);
 
   return current;
