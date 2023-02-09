@@ -67,13 +67,7 @@ command stacks could be used for that.
 
 Some erroneous constructs not already warned against:
 
- @chapter @code{@anchor{TTO}}
-
- @chapter @anchor{TTez}
-
  @table in @menu
-
- @ref{ccc@b{@ref{ddd}}}
 
  @example
  @heading A heading

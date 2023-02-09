@@ -1,5 +1,9 @@
 2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/TODO: remove erroneous constructs that now give warnings
+
+2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Better worded error messages for line context
 
 	* tp/Texinfo/ParserNonXS.pm (_check_valid_nesting_context),
