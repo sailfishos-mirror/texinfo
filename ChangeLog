@@ -1,12 +1,19 @@
 2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
-	Partially unify def line ending code
+	Call def line ending code at lower level
 
 	* tp/Texinfo/ParserNonXS.pm
 	(_end_line_starting_block, _end_line_misc_line):
 	Redirect to _end_line_def_line if called on a def line.
 	(_end_line, _close_current):
 	Remove separate cases for calling _end_line_def_line.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block, end_line_misc_line):
+	Redirect to end_line_def_line if called on a def line.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	* tp/Texinfo/XS/parsetexi/close.c (close_current):
+	Do not call end_line_def_line.
 
 2023-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
@@ -25,6 +32,11 @@
 	the @columnfractions command in the 'extra' hash.
 	(_end_line_starting_block): Check if columnfractions has been
 	set so to avoid reading line as prototype list.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_misc_line) <@columnfractions>: Do not close multitable
+	block line element: only set 'columnfractions'.
+	(end_line_starting_block): Check if 'columnfractions' has been set.
 
 2023-02-08  Patrice Dumas  <pertusus@free.fr>
 
