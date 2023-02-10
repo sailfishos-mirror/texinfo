@@ -2566,9 +2566,6 @@ sub _expand_macro_arguments($$$$$)
         }
       } elsif ($separator eq ',') {
         if ($braces_level == 1) {
-          if ($argument_content->{'text'} eq '') {
-            _remove_empty_arg($self, $argument);
-          }
           if (scalar(@{$current->{'args'}}) < $args_total) {
             $argument = {'type' => 'brace_command_arg',
                          'contents' => [],
@@ -2598,6 +2595,9 @@ sub _expand_macro_arguments($$$$$)
       } elsif ($separator eq '}') {
         $braces_level--;
         if ($braces_level == 0) {
+          # It is possible to remove the last argument if empty
+          # since not being expanded is the same as being expanded
+          # as an empty string.
           if ($argument_content->{'text'} eq '') {
             _remove_empty_arg($self, $argument);
           }

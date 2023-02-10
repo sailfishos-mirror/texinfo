@@ -1,5 +1,16 @@
 2023-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments),
+	tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): only remove
+	last empty argument in macro call arguments, an empty argument in the
+	middle is significant.
+
+	* tp/Makefile.tres, tp/t/60macro.t: new test
+	macro_call_empty_middle_arg with an empty middle argument in a macro
+	call.
+
+2023-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_remove_empty_arg)
 	(_expand_macro_arguments, _expand_macro_body, _handle_macro),
 	tp/Texinfo/XS/parsetexi/macro.c (remove_empty_arg)

@@ -340,9 +340,6 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
           // check for too many args
           if (*sep == '}' || current->args.number < args_total)
             {
-              if (arg->end == 0)
-                remove_empty_arg (argument);
-
               debug ("MACRO NEW ARG");
               pline = sep + 1;
 
@@ -364,6 +361,12 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
                                             spaces_element);
                     }
                 }
+              else if (arg->end == 0)
+               /* It is possible to remove the last argument if empty
+                  since not being expanded is the same as being expanded
+                  as an empty string. */
+                remove_empty_arg (argument);
+
             }
           else
             {

@@ -219,6 +219,19 @@ Call macro2 with 2 args
 Macro
 @zero{}
 '],
+['macro_call_empty_middle_arg',
+'@macro threea {aa, bb, cc}
+first \aa\,
+second \bb\,
+third \cc\,
+@end macro
+
+@threea{j, k, l}
+
+@threea{m, , n}
+
+@threea{o,,p}
+'],
 ['protect_in_body',
 '@macro macroone { arg1 , arg2 }
 result: @emph{\arg1\} protected \\\\ -> \\\\arg1\\\\ @emph{\arg2\}
