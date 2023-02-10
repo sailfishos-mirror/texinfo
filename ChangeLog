@@ -1,3 +1,8 @@
+2023-02-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/command_data.txt: Remove @useindex as this
+	will no longer be implemented.
+
 2023-02-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/TODO: remove erroneous constructs that now give warnings
