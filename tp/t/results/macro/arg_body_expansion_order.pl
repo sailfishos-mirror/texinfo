@@ -164,7 +164,12 @@ $result_trees{'arg_body_expansion_order'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@othermacro{}'
+                    'contents' => [
+                      {
+                        'text' => '@othermacro{}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -259,11 +264,6 @@ $result_trees{'arg_body_expansion_order'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'othermacro'
                 },

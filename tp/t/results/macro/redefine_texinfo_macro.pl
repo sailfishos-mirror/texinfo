@@ -77,7 +77,12 @@ $result_trees{'redefine_texinfo_macro'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'code'
+                    'contents' => [
+                      {
+                        'text' => 'code'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

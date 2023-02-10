@@ -1,3 +1,18 @@
+2023-02-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_remove_empty_arg)
+	(_expand_macro_arguments, _expand_macro_body, _handle_macro),
+	tp/Texinfo/XS/parsetexi/macro.c (remove_empty_arg)
+	(expand_macro_arguments, expand_macro_body, handle_macro):
+	parse macro arguments in structures similar to the main elements
+	tree, for consistency with the remaining of the code, and to hold
+	source marks in macro arguments.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text): transfer source marks
+	only if transfer_marks_element is defined.
+
+	* tp/Texinfo/ParserNonXS.pm: avoid autovivification.
+
 2023-02-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/command_data.txt: Remove @useindex as this

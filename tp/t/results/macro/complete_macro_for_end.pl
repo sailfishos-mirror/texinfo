@@ -90,11 +90,6 @@ $result_trees{'complete_macro_for_end'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'theend'
                     },

@@ -229,7 +229,9 @@ $result_trees{'complex_argument'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@verb{% @macrotwo %}
+                    'contents' => [
+                      {
+                        'text' => '@verb{% @macrotwo %}
 @c @macrofour
 @pagesizes 4 @macrofour{}
 @headings doubleafter @macrofour{}
@@ -251,6 +253,9 @@ macroseven defined
 @end iftex
 @macrofour{}
 '
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -320,11 +325,6 @@ macroseven defined
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'macrofour'
                             },
@@ -388,11 +388,6 @@ macroseven defined
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'macrofour'
                             },
@@ -634,11 +629,6 @@ macroseven defined
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'macrofour'
                     },
@@ -715,7 +705,12 @@ macroseven defined
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'aaa'
+                        'contents' => [
+                          {
+                            'text' => 'aaa'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {

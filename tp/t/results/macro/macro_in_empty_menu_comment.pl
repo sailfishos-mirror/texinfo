@@ -90,11 +90,6 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'emptystring'
                     },

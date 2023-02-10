@@ -77,11 +77,21 @@ $result_trees{'no_macrobody'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'line arg'
+                    'contents' => [
+                      {
+                        'text' => 'line arg'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'nomacrobody'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'macro_call'
               },
@@ -105,7 +115,12 @@ $result_trees{'no_macrobody'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'arg brace'
+                    'contents' => [
+                      {
+                        'text' => 'arg brace'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

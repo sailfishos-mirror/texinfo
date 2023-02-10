@@ -81,10 +81,20 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}'
+                    'contents' => [
+                      {
+                        'text' => '@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'tam'
+                    'contents' => [
+                      {
+                        'text' => 'tam'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -101,10 +111,25 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}'
+                    'contents' => [
+                      {
+                        'text' => '@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'oto'
+                    'contents' => [
+                      {
+                        'text' => 'oto'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -121,10 +146,25 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@cat{@cat{@cat{na, to}, po}, co}'
+                    'contents' => [
+                      {
+                        'text' => '@cat{@cat{@cat{na, to}, po}, co}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'tu'
+                    'contents' => [
+                      {
+                        'text' => 'tu'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -141,10 +181,25 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@cat{@cat{na, to}, po}'
+                    'contents' => [
+                      {
+                        'text' => '@cat{@cat{na, to}, po}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'co'
+                    'contents' => [
+                      {
+                        'text' => 'co'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -161,10 +216,25 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@cat{na, to}'
+                    'contents' => [
+                      {
+                        'text' => '@cat{na, to}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'po'
+                    'contents' => [
+                      {
+                        'text' => 'po'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -181,10 +251,25 @@ $result_trees{'implicit_quoting_recursion'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'na'
+                    'contents' => [
+                      {
+                        'text' => 'na'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'to'
+                    'contents' => [
+                      {
+                        'text' => 'to'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

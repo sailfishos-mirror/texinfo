@@ -102,11 +102,21 @@ $result_trees{'backslash_in_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '\\\\q'
+                    'contents' => [
+                      {
+                        'text' => '\\\\q'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'funindex'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'macro_call'
               },
@@ -175,7 +185,12 @@ $result_trees{'backslash_in_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '\\r'
+                    'contents' => [
+                      {
+                        'text' => '\\r'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -245,11 +260,21 @@ $result_trees{'backslash_in_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '\\q'
+                    'contents' => [
+                      {
+                        'text' => '\\q'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'funindex'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'macro_call'
               },
@@ -315,7 +340,12 @@ $result_trees{'backslash_in_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '\\r'
+                    'contents' => [
+                      {
+                        'text' => '\\r'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

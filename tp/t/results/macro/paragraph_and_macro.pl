@@ -195,11 +195,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -228,11 +223,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -263,11 +253,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -304,11 +289,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aspace'
                 },
@@ -338,11 +318,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aspace'
                 },
@@ -373,11 +348,6 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'aspace'
                 },

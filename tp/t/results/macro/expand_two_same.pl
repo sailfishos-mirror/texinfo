@@ -84,13 +84,23 @@ $result_trees{'expand_two_same'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'a simple @code{
+                        'contents' => [
+                          {
+                            'text' => 'a simple @code{
 arg}
 '
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'macrotwo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -190,11 +200,21 @@ arg}
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'arg with comma , here '
+                        'contents' => [
+                          {
+                            'text' => 'arg with comma , here '
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'macrotwo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },

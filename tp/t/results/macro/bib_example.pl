@@ -3408,7 +3408,12 @@ $result_trees{'bib_example'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'References'
+                        'contents' => [
+                          {
+                            'text' => 'References'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -3449,7 +3454,12 @@ $result_trees{'bib_example'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'References'
+                        'contents' => [
+                          {
+                            'text' => 'References'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -3669,11 +3679,6 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },
@@ -3900,7 +3905,12 @@ $result_trees{'bib_example'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'LaTeX2e'
+                        'contents' => [
+                          {
+                            'text' => 'LaTeX2e'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -3936,10 +3946,25 @@ $result_trees{'bib_example'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '@mybibnode{}'
+                        'contents' => [
+                          {
+                            'text' => '@mybibnode{}'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'LaTeX2e'
+                        'contents' => [
+                          {
+                            'text' => 'LaTeX2e'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -3964,11 +3989,6 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 6,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },
@@ -4082,11 +4102,6 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 7,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },
@@ -4246,7 +4261,12 @@ $result_trees{'bib_example'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'LaTeX2e'
+                            'contents' => [
+                              {
+                                'text' => 'LaTeX2e'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'extra' => {

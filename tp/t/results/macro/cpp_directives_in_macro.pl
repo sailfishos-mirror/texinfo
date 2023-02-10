@@ -89,14 +89,25 @@ $result_trees{'cpp_directives_in_macro'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '#line 100 "in_arg_file"
+                        'contents' => [
+                          {
+                            'text' => '#line 100 "in_arg_file"
 
 @unknownin
 '
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'simplemacro'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '
+'
+                      }
                     },
                     'type' => 'macro_call'
                   },

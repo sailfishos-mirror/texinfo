@@ -102,11 +102,6 @@ $result_trees{'test_image'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'files-char'
                         },
@@ -627,11 +622,6 @@ $result_trees{'test_image'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'files-char'
                 },
@@ -1134,11 +1124,6 @@ $result_trees{'test_image'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'files-char'
                         },
@@ -1660,11 +1645,6 @@ $result_trees{'test_image'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'files-char'
                     },
@@ -2123,11 +2103,6 @@ $result_trees{'test_image'} = {
                         {
                           'counter' => 5,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'files-char'
                             },

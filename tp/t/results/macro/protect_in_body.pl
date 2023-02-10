@@ -88,14 +88,34 @@ $result_trees{'protect_in_body'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '@samp{f\\irst arg}'
+                        'contents' => [
+                          {
+                            'text' => '@samp{f\\irst arg}'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'second arg '
+                        'contents' => [
+                          {
+                            'text' => 'second arg '
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'macroone'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },

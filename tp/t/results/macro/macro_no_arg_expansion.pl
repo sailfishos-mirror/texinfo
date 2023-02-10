@@ -71,11 +71,6 @@ $result_trees{'macro_no_arg_expansion'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'testone'
                 },

@@ -149,7 +149,12 @@ $result_trees{'macro_in_early_commands'} = {
                       'element' => {
                         'args' => [
                           {
-                            'text' => 'info'
+                            'contents' => [
+                              {
+                                'text' => 'info'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
                           }
                         ],
                         'extra' => {
@@ -190,11 +195,6 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'begin-file'
                     },
@@ -399,11 +399,6 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'latin1'
                     },
@@ -750,11 +745,6 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'themacro'
                 },
@@ -812,7 +802,12 @@ $result_trees{'macro_in_early_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'info'
+                        'contents' => [
+                          {
+                            'text' => 'info'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {

@@ -86,10 +86,25 @@ $result_trees{'too_much_args'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'one'
+                    'contents' => [
+                      {
+                        'text' => 'one'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'two, three'
+                    'contents' => [
+                      {
+                        'text' => 'two, three'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

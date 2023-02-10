@@ -80,11 +80,6 @@ $result_trees{'macro_expands_to_empty'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'foo'
                 },
@@ -103,7 +98,12 @@ $result_trees{'macro_expands_to_empty'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'aa'
+                    'contents' => [
+                      {
+                        'text' => 'aa'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

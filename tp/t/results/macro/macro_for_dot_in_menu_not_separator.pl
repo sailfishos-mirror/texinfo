@@ -110,11 +110,6 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'macrodot'
                             },
@@ -133,11 +128,6 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'macrodot'
                             },

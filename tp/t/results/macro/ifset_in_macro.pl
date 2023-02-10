@@ -87,12 +87,23 @@ $result_trees{'ifset_in_macro'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'arg
+                    'contents' => [
+                      {
+                        'text' => 'arg
 '
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'note'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => '
+'
+                  }
                 },
                 'type' => 'macro_call'
               },

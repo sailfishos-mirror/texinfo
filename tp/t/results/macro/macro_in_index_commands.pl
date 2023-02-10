@@ -200,11 +200,6 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'fn'
                         },
@@ -246,11 +241,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'cp'
                     },
@@ -273,11 +263,6 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'syncodeindexcommand'
                 },
@@ -440,11 +425,6 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 4,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'truc'
                         },
@@ -637,11 +617,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'codeidx'
                     },
@@ -755,11 +730,6 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'trucindexcommand'
                 },
@@ -950,11 +920,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'defcodeindexentry'
                     },
@@ -1026,11 +991,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 8,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'truc'
                     },
@@ -1060,11 +1020,6 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 9,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'codeidx'
                         },
@@ -1171,11 +1126,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 10,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'truc'
                     },
@@ -1246,11 +1196,6 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 11,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'cp'
                     },

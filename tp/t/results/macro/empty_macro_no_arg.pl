@@ -99,11 +99,6 @@ $result_trees{'empty_macro_no_arg'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'foo'
                 },

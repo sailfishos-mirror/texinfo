@@ -139,11 +139,21 @@ $result_trees{'macro_name_with_digit'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'some thing @macro1{}'
+                    'contents' => [
+                      {
+                        'text' => 'some thing @macro1{}'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'macro11'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'macro_call'
               },
@@ -163,11 +173,6 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'macro1'
                     },

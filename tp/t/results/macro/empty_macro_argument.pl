@@ -71,11 +71,6 @@ $result_trees{'empty_macro_argument'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },
@@ -103,13 +98,13 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'mymacro'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -126,13 +121,13 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'mymacro'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '  '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -151,11 +146,21 @@ $result_trees{'empty_macro_argument'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'x'
+                        'contents' => [
+                          {
+                            'text' => 'x'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'mymacro'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '  '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -247,11 +252,6 @@ $result_trees{'empty_macro_argument'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'mytwo'
                 },
@@ -279,13 +279,13 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'mytwo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -302,13 +302,13 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'mytwo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '  '
+                      }
                     },
                     'type' => 'macro_call'
                   },
@@ -327,11 +327,21 @@ $result_trees{'empty_macro_argument'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'x'
+                        'contents' => [
+                          {
+                            'text' => 'x'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'mytwo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '  '
+                      }
                     },
                     'type' => 'macro_call'
                   },

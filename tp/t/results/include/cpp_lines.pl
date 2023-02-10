@@ -310,11 +310,6 @@ $result_trees{'cpp_lines'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'macr'
                 },
@@ -482,11 +477,6 @@ $result_trees{'cpp_lines'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'macrtwo'
                 },

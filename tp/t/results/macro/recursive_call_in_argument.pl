@@ -77,7 +77,12 @@ $result_trees{'recursive_call_in_argument'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@anorecurse{}'
+                    'contents' => [
+                      {
+                        'text' => '@anorecurse{}'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

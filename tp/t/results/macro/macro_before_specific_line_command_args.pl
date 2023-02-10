@@ -109,11 +109,6 @@ $result_trees{'macro_before_specific_line_command_args'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'cpfn'
                     },

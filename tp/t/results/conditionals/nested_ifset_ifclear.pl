@@ -160,11 +160,6 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -233,11 +228,6 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -306,11 +296,6 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -370,11 +355,6 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },

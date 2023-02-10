@@ -81,10 +81,25 @@ $result_trees{'macro_name_with_hyphen'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'blah'
+                    'contents' => [
+                      {
+                        'text' => 'blah'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => '@code{bli-bli}'
+                    'contents' => [
+                      {
+                        'text' => '@code{bli-bli}'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

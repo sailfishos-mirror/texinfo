@@ -108,10 +108,25 @@ $result_trees{'macro_expansion'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'first arg'
+                        'contents' => [
+                          {
+                            'text' => 'first arg'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'second arg'
+                        'contents' => [
+                          {
+                            'text' => 'second arg'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -210,7 +225,12 @@ $result_trees{'macro_expansion'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'aaa @samp{a macro , } bbb'
+                        'contents' => [
+                          {
+                            'text' => 'aaa @samp{a macro , } bbb'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -424,10 +444,25 @@ $result_trees{'macro_expansion'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'first arg'
+                        'contents' => [
+                          {
+                            'text' => 'first arg'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => '@macroone{nested second arg}'
+                        'contents' => [
+                          {
+                            'text' => '@macroone{nested second arg}'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -526,10 +561,25 @@ $result_trees{'macro_expansion'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'first , arg'
+                        'contents' => [
+                          {
+                            'text' => 'first , arg'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => '{} \\ '
+                        'contents' => [
+                          {
+                            'text' => '{} \\ '
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -628,14 +678,29 @@ $result_trees{'macro_expansion'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'arg 1
+                        'contents' => [
+                          {
+                            'text' => 'arg 1
 
 now'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'arg3
+                        'contents' => [
+                          {
+                            'text' => 'arg3
 
 '
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {

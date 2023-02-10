@@ -78,11 +78,6 @@ $result_trees{'macro_zero'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'zero'
                     },

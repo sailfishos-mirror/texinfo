@@ -182,11 +182,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'Top'
                 },
@@ -215,11 +210,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'text'
                     },
@@ -259,11 +249,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'text'
                         },
@@ -513,11 +498,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 4,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'en'
                         },
@@ -552,11 +532,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'documentlanguagecommand'
                     },
@@ -777,11 +752,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'pagesizesarg'
                     },
@@ -804,11 +774,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 7,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'afourpapermacro'
                 },
@@ -848,11 +813,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 8,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'text'
                         },
@@ -902,11 +862,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 9,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'text'
                         },
@@ -956,11 +911,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 10,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'text'
                         },
@@ -1105,11 +1055,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 11,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'needarg'
                     },
@@ -1194,11 +1139,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 12,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'raisesectionsmacro'
                 },
@@ -1284,11 +1224,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 13,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'lowersectionsmacro'
                 },
@@ -1504,11 +1439,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 14,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'definfoenclosename'
                     },
@@ -1689,11 +1619,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 15,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'strongmacro'
                 },
@@ -1767,11 +1692,6 @@ $result_trees{'macro_in_misc_commands'} = {
                     {
                       'counter' => 17,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'strongname'
                         },
@@ -1814,11 +1734,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 16,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'strongname'
                     },
@@ -1843,11 +1758,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 18,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'strongmacro'
                 },
@@ -2037,11 +1947,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 19,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'kbdinputstylearg'
                     },
@@ -2516,11 +2421,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 20,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'asisarg'
                     },
@@ -2577,11 +2477,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 21,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'zero'
                     },
@@ -2638,11 +2533,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 22,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'nonearg'
                     },
@@ -2699,11 +2589,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 23,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'four'
                     },
@@ -2760,11 +2645,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 24,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'nonearg'
                     },
@@ -2821,11 +2701,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 25,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'six'
                     },
@@ -3001,11 +2876,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 26,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'endarg'
                     },
@@ -3062,11 +2932,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 27,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'separatearg'
                     },
@@ -3242,11 +3107,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 28,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'onarg'
                     },
@@ -3303,11 +3163,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 29,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'offarg'
                     },
@@ -3442,11 +3297,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 30,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'ten'
                     },
@@ -3633,11 +3483,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 31,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'falsearg'
                     },
@@ -3699,11 +3544,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 32,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'truearg'
                     },
@@ -3914,11 +3754,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 33,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'pagemacro'
                     },
@@ -3961,11 +3796,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 34,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'noindentmacro'
                     },
@@ -4005,11 +3835,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 35,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'refillmacro'
                     },
@@ -4044,11 +3869,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 36,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'noindentmacro'
                 },
@@ -4089,11 +3909,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 37,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'noindentmacro'
                     },
@@ -4136,11 +3951,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 38,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'noindentmacro'
                     },
@@ -4177,11 +3987,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 39,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'pagemacro'
                     },
@@ -4221,11 +4026,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 40,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'pagemacro'
                 },
@@ -4275,11 +4075,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 41,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'pagemacro'
                     },
@@ -4325,11 +4120,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 42,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'noindentmacro'
                     },
@@ -4369,11 +4159,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 43,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'refillmacro'
                     },
@@ -4468,11 +4253,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 44,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'contentsmacro'
                 },
@@ -4589,11 +4369,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 45,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'exdentmacro'
                 },
@@ -4739,11 +4514,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 46,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'two'
                     },
@@ -4885,11 +4655,6 @@ $result_trees{'macro_in_misc_commands'} = {
                         {
                           'counter' => 47,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'text'
                             },
@@ -5011,11 +4776,6 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'counter' => 48,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'text'
                     },
@@ -5094,11 +4854,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 49,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'contentsmacro'
                 },
@@ -5199,11 +4954,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 50,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'shortcontentsmacro'
                 },
@@ -5301,11 +5051,6 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'counter' => 51,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'byemacro'
                 },

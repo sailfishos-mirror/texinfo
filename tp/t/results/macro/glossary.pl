@@ -544,13 +544,38 @@ $result_trees{'glossary'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'id1'
+                        'contents' => [
+                          {
+                            'text' => 'id1'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'name1'
+                        'contents' => [
+                          {
+                            'text' => 'name1'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'text1, arg1 '
+                        'contents' => [
+                          {
+                            'text' => 'text1, arg1 '
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -712,7 +737,12 @@ $result_trees{'glossary'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '@glossarytext{}'
+                        'contents' => [
+                          {
+                            'text' => '@glossarytext{}'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -832,13 +862,38 @@ $result_trees{'glossary'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'id2'
+                        'contents' => [
+                          {
+                            'text' => 'id2'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'name2'
+                        'contents' => [
+                          {
+                            'text' => 'name2'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       },
                       {
-                        'text' => 'text2'
+                        'contents' => [
+                          {
+                            'text' => 'text2'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -1025,7 +1080,12 @@ $result_trees{'glossary'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => '@glossarytext{}'
+                        'contents' => [
+                          {
+                            'text' => '@glossarytext{}'
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
@@ -1230,11 +1290,6 @@ $result_trees{'glossary'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'glossary'
                 },

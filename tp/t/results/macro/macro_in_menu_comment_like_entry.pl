@@ -99,11 +99,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'emptystring'
                             },
@@ -122,11 +117,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'emptystring'
                             },
@@ -154,11 +144,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                                 {
                                   'counter' => 3,
                                   'element' => {
-                                    'args' => [
-                                      {
-                                        'text' => ''
-                                      }
-                                    ],
                                     'extra' => {
                                       'name' => 'emptystring'
                                     },
@@ -191,11 +176,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'emptystring'
                             },

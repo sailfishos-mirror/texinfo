@@ -77,7 +77,12 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'aaa'
+                    'contents' => [
+                      {
+                        'text' => 'aaa'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {

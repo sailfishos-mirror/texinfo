@@ -80,11 +80,6 @@ $result_trees{'recursive_call_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'anorecurse'
                 },

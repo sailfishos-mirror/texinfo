@@ -92,11 +92,21 @@ $result_trees{'protect_comma_macro_line'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'arg,  comma \\,'
+                    'contents' => [
+                      {
+                        'text' => 'arg,  comma \\,'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'macrotwo'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => '  '
+                  }
                 },
                 'type' => 'macro_call'
               },

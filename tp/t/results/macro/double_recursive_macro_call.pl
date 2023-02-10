@@ -151,11 +151,6 @@ $result_trees{'double_recursive_macro_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'mactwo'
                 },
@@ -167,11 +162,6 @@ $result_trees{'double_recursive_macro_call'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'macone'
                 },

@@ -184,11 +184,6 @@ $result_trees{'macro_in_ifset_set'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'truc'
                 },

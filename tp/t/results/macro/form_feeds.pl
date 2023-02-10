@@ -147,14 +147,34 @@ $result_trees{'form_feeds'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'arg1'
+                    'contents' => [
+                      {
+                        'text' => 'arg1'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   },
                   {
-                    'text' => 'arg2'
+                    'contents' => [
+                      {
+                        'text' => 'arg2'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'mymacro'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => '  '
+                  }
                 },
                 'type' => 'macro_call'
               },
@@ -207,11 +227,21 @@ $result_trees{'form_feeds'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => 'a@{rgline'
+                    'contents' => [
+                      {
+                        'text' => 'a@{rgline'
+                      }
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'extra' => {
                   'name' => 'oneargmacro'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => '   '
+                  }
                 },
                 'type' => 'macro_call'
               },

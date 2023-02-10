@@ -219,7 +219,12 @@ $result_trees{'macro_in_macro_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'text' => '@macroone{}text for macro2'
+                    'contents' => [
+                      {
+                        'text' => '@macroone{}text for macro2'
+                      }
+                    ],
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -234,11 +239,6 @@ $result_trees{'macro_in_macro_arg'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'macroone'
                 },
@@ -262,7 +262,19 @@ $result_trees{'macro_in_macro_arg'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'text for macro2'
+                        'contents' => [
+                          {
+                            'source_marks' => [
+                              {
+                                'counter' => 2,
+                                'sourcemark_type' => 'macro_expansion',
+                                'status' => 'end'
+                              }
+                            ],
+                            'text' => 'text for macro2'
+                          }
+                        ],
+                        'type' => 'line_arg'
                       }
                     ],
                     'extra' => {

@@ -1334,6 +1334,9 @@ sub _transfer_source_marks($$)
 {
   my $from_e = shift;
   my $element = shift;
+
+  if (!defined($from_e)) {confess()};
+
   if ($from_e->{'source_marks'}) {
     if (!$element->{'source_marks'}) {
       $element->{'source_marks'} = [];
@@ -1514,7 +1517,8 @@ sub _close_brace_command($$$;$$$)
   }
 
   pop @{$self->{'nesting_context'}->{'basic_inline_stack'}}
-    if ($self->{'basic_inline_commands'}->{$current->{'cmdname'}});
+    if ($self->{'basic_inline_commands'}
+        and $self->{'basic_inline_commands'}->{$current->{'cmdname'}});
 
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'info'}->{'delimiter'} eq '') {
@@ -2270,7 +2274,8 @@ sub _merge_text {
          if ($self->{'DEBUG'});
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
-    _transfer_source_marks($transfer_marks_element, $new_element);
+    _transfer_source_marks($transfer_marks_element, $new_element)
+      if ($transfer_marks_element);
     push @{$current->{'contents'}}, $new_element;
     print STDERR "NEW TEXT: $text|||\n" if ($self->{'DEBUG'});
   }
@@ -2506,13 +2511,36 @@ sub _new_line($;$)
   return ($new_line, $source_info);
 }
 
-# $MACRO is the element in the tree defining the macro.
-sub _expand_macro_arguments($$$$)
+# not done by _close_container as argument is in args and not in
+# contents.
+sub _remove_empty_arg($$)
 {
-  my ($self, $macro, $line, $source_info) = @_;
+  my $self = shift;
+  my $argument = shift;
+
+  my $current = _close_container($self, $argument);
+  if (_is_container_empty($argument)
+      and not $argument->{'source_marks'}) {
+    if ($current->{'args'}->[-1] eq $argument) {
+      pop @{$current->{'args'}};
+    }
+  }
+  return $current;
+}
+
+# $MACRO is the element in the tree defining the macro.
+sub _expand_macro_arguments($$$$$)
+{
+  my ($self, $macro, $line, $source_info, $current) = @_;
 
   my $braces_level = 1;
-  my $arguments = [ '' ];
+  my $argument = {'type' => 'brace_command_arg',
+                  'contents' => [],
+                  'parent' => $current};
+  push @{$current->{'args'}}, $argument;
+  my $argument_content = {'text' => '',
+                          'parent' => $argument};
+  push @{$argument->{'contents'}}, $argument_content;
   my $arg_nr = 0;
   my $args_total = scalar(@{$macro->{'args'}}) -1;
   my $name = $macro->{'args'}->[0]->{'text'};
@@ -2522,25 +2550,38 @@ sub _expand_macro_arguments($$$$)
   while (1) {
     if ($line =~ s/([^\\{},]*)([\\{},])//) {
       my $separator = $2;
-      $arguments->[-1] .= $1;
+      $argument_content->{'text'} .= $1;
       if ($separator eq '\\') {
         if ($line =~ s/^(.)//) {
           my $protected_char = $1;
           if ($protected_char !~ /[\\{},]/) {
-            $arguments->[-1] .= '\\';
+            $argument_content->{'text'} .= '\\';
           }
-          $arguments->[-1] .= $protected_char;
+          $argument_content->{'text'} .= $protected_char;
           print STDERR "MACRO ARG: $separator: $protected_char\n"
             if ($self->{'DEBUG'});
         } else {
-          $arguments->[-1] .= '\\';
+          $argument_content->{'text'} .= '\\';
           print STDERR "MACRO ARG: $separator\n" if ($self->{'DEBUG'});
         }
       } elsif ($separator eq ',') {
         if ($braces_level == 1) {
-          if (scalar(@$arguments) < $args_total) {
-            push @$arguments, '';
-            $line =~ s/^\s*//;
+          if ($argument_content->{'text'} eq '') {
+            _remove_empty_arg($self, $argument);
+          }
+          if (scalar(@{$current->{'args'}}) < $args_total) {
+            $argument = {'type' => 'brace_command_arg',
+                         'contents' => [],
+                         'parent' => $current};
+            push @{$current->{'args'}}, $argument;
+            $argument_content = {'text' => '',
+                                 'parent' => $argument};
+            push @{$argument->{'contents'}}, $argument_content;
+            $line =~ s/^(\s*)//;
+            if ($1 ne '') {
+              $argument->{'info'}
+                = {'spaces_before_argument' => {'text' => $1}};
+            }
             print STDERR "MACRO NEW ARG\n" if ($self->{'DEBUG'});
           } else {
             # implicit quoting when there is one argument.
@@ -2549,39 +2590,47 @@ sub _expand_macro_arguments($$$$)
                                      "macro `%s' called with too many args"),
                                         $name), $source_info);
             }
-            $arguments->[-1] .= ',';
+            $argument_content->{'text'} .= ',';
           }
         } else {
-          $arguments->[-1] .= ',';
+          $argument_content->{'text'} .= ',';
         }
       } elsif ($separator eq '}') {
         $braces_level--;
-        last if ($braces_level == 0);
-        $arguments->[-1] .= $separator;
+        if ($braces_level == 0) {
+          if ($argument_content->{'text'} eq '') {
+            _remove_empty_arg($self, $argument);
+          }
+          last;
+        }
+        $argument_content->{'text'} .= $separator;
       } elsif ($separator eq '{') {
         $braces_level++;
-        $arguments->[-1] .= $separator;
+        $argument_content->{'text'} .= $separator;
       }
     } else {
       print STDERR "MACRO ARG end of line\n" if ($self->{'DEBUG'});
-      $arguments->[-1] .= $line;
+      $argument_content->{'text'} .= $line;
 
-      ($line, $source_info) = _new_line($self);
+      ($line, $source_info) = _new_line($self, $argument);
       if (!defined($line)) {
         $self->_line_error(sprintf(__("\@%s missing closing brace"),
            $name), $source_info_orig);
-        return ($arguments, "\n", $source_info);
+        if ($argument_content->{'text'} eq '') {
+          _remove_empty_arg($self, $argument);
+        }
+        return ("\n", $source_info);
       }
     }
   }
-  if ($args_total == 0 and $arguments->[0] ne '') {
+  if ($args_total == 0 and scalar(@{$current->{'args'}} > 0)) {
     $self->_line_error(sprintf(__(
                "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
   }
-  print STDERR "END MACRO ARGS EXPANSION(".scalar(@$arguments)."): ".
-                  join("|\n", @$arguments) ."|\n" if ($self->{'DEBUG'});
-  return ($arguments, $line, $source_info);
+  print STDERR "END MACRO ARGS EXPANSION(".scalar(@{$current->{'args'}})."): "
+                 ."|\n" if ($self->{'DEBUG'});
+  return ($line, $source_info);
 }
 
 sub _lookup_macro_parameter($$) {
@@ -2618,8 +2667,10 @@ sub _expand_macro_body($$$$) {
         my $arg = $1;
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
-          if ($formal_arg_index < scalar(@$args)) {
-            $result .= $args->[$formal_arg_index];
+          if ($formal_arg_index < scalar(@$args)
+              and scalar(@$args) and $args->[$formal_arg_index]
+              and $args->[$formal_arg_index]->{'contents'}) {
+            $result .= $args->[$formal_arg_index]->{'contents'}->[0]->{'text'};
           }
         } else {
           $self->_line_error(sprintf(__(
@@ -3619,6 +3670,8 @@ sub _end_line_misc_line($$$)
              __("\@%s only meaningful on a \@multitable line"),
              $command);
     } else {
+      $current->{'parent'}->{'extra'} = {}
+        if (!defined($current->{'parent'}->{'extra'}));
       $current->{'parent'}->{'extra'}->{'columnfractions'} = $misc_cmd;
     }
   } elsif ($root_commands{$command}) {
@@ -3779,7 +3832,8 @@ sub _end_line_starting_block($$$)
 
   # @multitable args
   if ($command eq 'multitable'
-        and defined($current->{'parent'}->{'extra'}->{'columnfractions'})) {
+      and $current->{'parent'}->{'extra'}
+      and defined($current->{'parent'}->{'extra'}->{'columnfractions'})) {
     my $multitable = $current->{'parent'};
     my $misc_cmd = $current->{'parent'}->{'extra'}->{'columnfractions'};
 
@@ -4581,11 +4635,18 @@ sub _handle_macro($$$$$)
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
   my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-  my $arguments = [];
-  if ($line =~ s/^\s*{\s*//) { # macro with args
-    # FIXME keep separators information for source mark
-    ($arguments, $line, $source_info)
-     = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
+  my $arguments_container = {'type' => $expanded_macro->{'cmdname'}.'_call',
+                             'extra' => {'name' => $command},
+                             'args' => []};
+
+  if ($line =~ s/^\s*{(\s*)//) { # macro with args
+    if ($1 ne '') {
+      $arguments_container->{'info'}
+          = {'spaces_before_argument' => {'text' => $1}};
+    }
+    ($line, $source_info)
+     = _expand_macro_arguments($self, $expanded_macro, $line, $source_info,
+                               $arguments_container);
   } elsif (($args_number >= 2) or ($args_number <1)) {
   # as agreed on the bug-texinfo mailing list, no warn when zero
   # arg and not called with {}.
@@ -4594,19 +4655,42 @@ sub _handle_macro($$$$$)
                               $command), $source_info)
        if ($args_number >= 2);
   } else {
-    if ($line !~ /\n/) {
-      ($line, $source_info) = _new_line($self);
-      $line = '' if (!defined($line));
+    my $current = {'type' => 'line_arg',
+                   'parent' => $arguments_container};
+    push @{$arguments_container->{'args'}}, $current;
+    while (1) {
+      if ($line eq '') {
+        ($line, $source_info) = _new_line($self, $current);
+        if (!defined($line)) {
+          $line = '';
+          last;
+        }
+      } else {
+        if (not $current->{'contents'} and $line =~ s/^([^\S\r\n]+)//) {
+          my $internal_space = {'type' => 'internal_spaces_before_argument',
+                                'text' => $1,
+                                'parent' => $current,
+                                'extra' => {'spaces_associated_command'
+                                              => $arguments_container}};
+          push @{$current->{'contents'}}, $internal_space;
+        } else {
+          if ($line !~ /\n/) {
+            $current = _merge_text($self, $current, $line);
+            $line = '';
+          } else {
+            my $has_end_of_line = chomp $line;
+            $current = _merge_text($self, $current, $line);
+            $line = "\n" if ($has_end_of_line);
+            last;
+          }
+        }
+      }
     }
-    # FIXME keep separators information for source mark
-    $line =~ s/^\s*// if ($line =~ /\S/);
-    my $has_end_of_line = chomp $line;
-    $arguments = [$line];
-    $line = "\n" if ($has_end_of_line);
+    _remove_empty_arg($self, $arguments_container->{'args'}->[-1]);
   }
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
-                            $arguments, $source_info);
+                            $arguments_container->{'args'}, $source_info);
   print STDERR "MACROBODY: $expanded".'||||||'."\n"
     if ($self->{'DEBUG'});
   chomp($expanded);
@@ -4645,15 +4729,9 @@ sub _handle_macro($$$$$)
                    $expanded_macro->{'args'}->[0]->{'text'});
   my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
                            'status' => 'start'};
-  my $sm_macro_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
-   'extra' => {'name' => $command}};
-  if (scalar(@$arguments)) {
-    $sm_macro_element->{'args'} = [];
-    foreach my $arg (@$arguments) {
-      push @{$sm_macro_element->{'args'}}, {'text' => $arg};
-    }
-  }
-  $macro_source_mark->{'element'} = $sm_macro_element;
+  delete $arguments_container->{'args'}
+     if (scalar(@{$arguments_container->{'args'}}) == 0);
+  $macro_source_mark->{'element'} = $arguments_container;
   _register_source_mark($self, $current, $macro_source_mark);
   $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
   $line = '';
@@ -5669,7 +5747,8 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'contents'}->[-1];
         $current->{'args'} = [{ 'type' => 'line_arg',
                                 'parent' => $current }];
-        if ($self->{'basic_inline_commands'}->{$command}) {
+        if ($self->{'basic_inline_commands'}
+            and $self->{'basic_inline_commands'}->{$command}) {
           push @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}},
                $command;
         }
@@ -5987,7 +6066,8 @@ sub _process_remaining_on_line($$$$)
 
         $current = $current->{'args'}->[-1];
         push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
-          if ($self->{'basic_inline_commands'}->{$command});
+          if ($self->{'basic_inline_commands'}
+              and $self->{'basic_inline_commands'}->{$command});
         if ($self->{'brace_commands'}->{$command} eq 'context') {
           if ($command eq 'caption' or $command eq 'shortcaption') {
             my $float;

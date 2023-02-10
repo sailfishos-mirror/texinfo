@@ -838,11 +838,6 @@ $result_trees{'at_commands_in_raw'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'othermacro'
                     },

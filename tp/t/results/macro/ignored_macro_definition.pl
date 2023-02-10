@@ -114,11 +114,6 @@ $result_trees{'ignored_macro_definition'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },

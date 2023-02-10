@@ -104,11 +104,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'spaces'
                             },

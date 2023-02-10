@@ -86,11 +86,6 @@ $result_trees{'simple_imbricated_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'truc'
                 },
@@ -184,11 +179,6 @@ $result_trees{'simple_imbricated_macro'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'text' => ''
-                  }
-                ],
                 'extra' => {
                   'name' => 'bidule'
                 },

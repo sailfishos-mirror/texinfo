@@ -84,12 +84,22 @@ $result_trees{'arg_not_closed'} = {
                   'element' => {
                     'args' => [
                       {
-                        'text' => 'something
+                        'contents' => [
+                          {
+                            'text' => 'something
 '
+                          }
+                        ],
+                        'type' => 'brace_command_arg'
                       }
                     ],
                     'extra' => {
                       'name' => 'foo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'macro_call'
                   },

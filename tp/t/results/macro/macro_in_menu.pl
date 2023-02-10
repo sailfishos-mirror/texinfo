@@ -405,11 +405,6 @@ $result_trees{'macro_in_menu'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'extra' => {
                       'name' => 'starspaces'
                     },
@@ -438,11 +433,6 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'twocolon'
                             },
@@ -509,11 +499,6 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'spaces'
                             },
@@ -538,11 +523,6 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'astar'
                             },
@@ -597,11 +577,6 @@ $result_trees{'macro_in_menu'} = {
                             {
                               'counter' => 5,
                               'element' => {
-                                'args' => [
-                                  {
-                                    'text' => ''
-                                  }
-                                ],
                                 'extra' => {
                                   'name' => 'astar'
                                 },
@@ -650,11 +625,6 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 6,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },
@@ -730,11 +700,6 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 7,
                           'element' => {
-                            'args' => [
-                              {
-                                'text' => ''
-                              }
-                            ],
                             'extra' => {
                               'name' => 'acolon'
                             },
@@ -761,11 +726,6 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 8,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'acolon'
                         },
@@ -784,11 +744,6 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 9,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },
@@ -869,11 +824,6 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 10,
                       'element' => {
-                        'args' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },

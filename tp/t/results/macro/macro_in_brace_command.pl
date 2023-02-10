@@ -176,11 +176,6 @@ $result_trees{'macro_in_brace_command'} = {
                                 {
                                   'counter' => 1,
                                   'element' => {
-                                    'args' => [
-                                      {
-                                        'text' => ''
-                                      }
-                                    ],
                                     'extra' => {
                                       'name' => 'foo'
                                     },
@@ -209,11 +204,6 @@ $result_trees{'macro_in_brace_command'} = {
                                 {
                                   'counter' => 2,
                                   'element' => {
-                                    'args' => [
-                                      {
-                                        'text' => ''
-                                      }
-                                    ],
                                     'extra' => {
                                       'name' => 'abar'
                                     },
