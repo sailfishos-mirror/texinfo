@@ -1,5 +1,10 @@
 2023-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/60macro.t: add macro_end_call_in_ignored_raw
+	test with a macro call end within an ignored raw format block.
+
+2023-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments),
 	tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): only remove
 	last empty argument in macro call arguments, an empty argument in the

@@ -508,6 +508,15 @@ after end of line
 In text.
 @mymacro{}
 '],
+['macro_end_call_in_ignored_raw',
+'@macro startraw
+@tex
+inT
+@end macro
+
+@startraw{}
+@end tex
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)
