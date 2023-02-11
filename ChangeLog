@@ -1,5 +1,12 @@
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (%contain_full_line_commands):
+	Remove, merged into %contain_full_text_commands.
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Update comments.
+
+2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line),
 	* tp/Texinfo/XS/parsetexi/end_line.c (_end_line_def_line):
 	Assign $current to parent element earlier in function.

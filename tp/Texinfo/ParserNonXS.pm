@@ -478,14 +478,9 @@ foreach my $brace_command (keys (%brace_commands)) {
     $contain_full_text_commands{$brace_command} = 1;
   }
 }
-
-# commands that accept almost the same as in full text, except
-# what does not make sense on a line.
-my %contain_full_line_commands;
-$contain_full_line_commands{'center'} = 1;
-$contain_full_line_commands{'exdent'} = 1;
-$contain_full_line_commands{'item'} = 1;
-$contain_full_line_commands{'itemx'} = 1;
+foreach my $line_command ('center', 'exdent', 'item', 'itemx') {
+  $contain_full_text_commands{$line_command} = 1;
+}
 
 # Fill the valid nestings hash.  The keys are the containing commands and
 # the values arrays of commands that are allowed to occur inside those
@@ -499,8 +494,7 @@ foreach my $command (keys(%contain_plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
 
-foreach my $command (keys(%contain_full_text_commands),
-                     keys(%contain_full_line_commands)) {
+foreach my $command (keys(%contain_full_text_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
 }
 

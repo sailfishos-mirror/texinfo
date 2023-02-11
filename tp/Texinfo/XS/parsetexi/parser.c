@@ -1059,8 +1059,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
      classified according to what commands they can contain:
 
      plain text
-     full text/full line
-     basic inline with refs
+     full text
 
    */
 
@@ -1069,8 +1068,6 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   enum command_id outer = current->parent->cmd;
   unsigned long outer_flags = command_data(outer).flags;
   unsigned long cmd_flags = command_data(cmd).flags;
-
-  // much TODO here.
 
   /* first three conditions check if in the main contents of the commands
      or in the arguments where there is checking of nesting */
@@ -1099,7 +1096,6 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
                && (command_data(outer).data == BRACE_style_other
                 || command_data(outer).data == BRACE_style_code
                 || command_data(outer).data == BRACE_style_no_code)
-           /* "full line commands" */
            || outer == CM_center
            || outer == CM_exdent
            || outer == CM_item
