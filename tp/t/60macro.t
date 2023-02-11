@@ -517,6 +517,50 @@ inT
 @startraw{}
 @end tex
 '],
+['macro_end_call_in_ignored_inlinefmt',
+'@macro startfmt
+Para @inlinefmt{tex, inT
+@end macro
+
+@startfmt{}
+still ignored}. After.
+'],
+['macro_end_call_in_ignored_inlineraw',
+'@macro startraw
+Para @inlineraw{tex, in\@something
+@end macro
+
+@startraw{}
+still ignored}. After.
+'],
+['macro_call_in_ignored_inlinefmtifelse',
+'@macro commafmt
+before comma, after
+@end macro
+
+Toto @inlinefmtifelse{tex, here @commafmt{} finish} done.
+'],
+['macro_end_call_in_ignored_inlinefmtifelse',
+'@macro inlinefirstfmt
+Toto @inlinefmtifelse{tex, before
+@end macro
+
+@inlinefirstfmt{} comma, finish} done.
+'],
+['macro_end_call_in_ignored_inlinefmtifelse_else',
+'@macro endcallinignoredinlineelse
+own, ignored
+@end macro
+
+Toto @inlinefmtifelse{html, before sh@endcallinignoredinlineelse{} after} done.
+'],
+['macro_call_in_inlinefmtifelse_format',
+'@macro inlinefirstarg
+ex, before, after
+@end macro
+
+Toto @inlinefmtifelse{t@inlinefirstarg{}} done.
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)

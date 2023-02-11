@@ -1202,6 +1202,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_after_paragraph.pl \
   t/results/macro/macro_before_specific_line_command_args.pl \
   t/results/macro/macro_call_empty_middle_arg.pl \
+  t/results/macro/macro_call_in_ignored_inlinefmtifelse.pl \
+  t/results/macro/macro_call_in_inlinefmtifelse_format.pl \
+  t/results/macro/macro_end_call_in_ignored_inlinefmt.pl \
+  t/results/macro/macro_end_call_in_ignored_inlinefmtifelse.pl \
+  t/results/macro/macro_end_call_in_ignored_inlinefmtifelse_else.pl \
+  t/results/macro/macro_end_call_in_ignored_inlineraw.pl \
   t/results/macro/macro_end_call_in_ignored_raw.pl \
   t/results/macro/macro_expands_to_empty.pl \
   t/results/macro/macro_expansion.pl \

@@ -4922,6 +4922,8 @@ sub _process_remaining_on_line($$$$)
     push @{$current->{'contents'}}, { 'type' => 'elided_block',
                                       'parent' => $current };
     while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+      # FIXME a source mark here is ignored.  Tested in
+      # t/*macro.t macro_end_call_in_ignored_raw
       ($line, $source_info) = _new_line($self);
       if (!$line) {
         # unclosed block
@@ -6485,8 +6487,9 @@ sub _process_remaining_on_line($$$$)
               } else {
                 my $new_text;
                 ($new_text, $source_info)
-                # TODO a test a situation with @include closing in ignored
-                # @inlinefmtifelse first arg (which maybe is not possible).
+                # there is a test a situation with macro call closing in ignored
+                # @inlinefmtifelse first arg:
+                # t/*macro.t macro_end_call_in_ignored_inlinefmtifelse.
                    = _next_text($self, $current->{'args'}->[-1]);
                 if (not defined($new_text)) {
                   $retval = $GET_A_NEW_LINE; # error - unbalanced brace
@@ -6523,8 +6526,11 @@ sub _process_remaining_on_line($$$$)
               }
             } else {
               my $new_text;
-              # TODO a test a situation with @include closing in ignored
-              # @inline* second arg (which maybe is not possible).
+              # test for a situation with macro call end in ignored
+              # @inline* last arg are in
+              # t/*macro.t macro_end_call_in_ignored_inlinefmt
+              # t/*macro.t macro_end_call_in_ignored_inlineraw
+              # t/*macro.t macro_end_call_in_ignored_inlinefmtifelse_else
               ($new_text, $source_info)
                  = _next_text($self, $current->{'args'}->[-1]);
               if (not defined($new_text)) {
