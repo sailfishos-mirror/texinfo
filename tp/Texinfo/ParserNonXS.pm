@@ -3779,15 +3779,15 @@ sub _end_line_def_line($$$)
       _enter_index_entry($self,
         $current->{'extra'}->{'def_command'},
         $current->{'extra'}->{'original_def_cmdname'},
-        $current->$index_contents,
+        $current, $index_contents,
         $index_contents_normalized, $source_info);
     } else {
-      $self->_command_warn($current->$source_info,
+      $self->_command_warn($current, $source_info,
                            __('missing name for @%s'),
          $current->{'extra'}->{'original_def_cmdname'});
     }
   } else {
-    $self->_command_warn($current->$source_info,
+    $self->_command_warn($current, $source_info,
                          __('missing category for @%s'),
        $current->{'extra'}->{'original_def_cmdname'});
   }
