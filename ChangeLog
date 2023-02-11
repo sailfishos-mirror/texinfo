@@ -1,5 +1,11 @@
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Typed Functions):
+	Place R language example in @ignore block as @var uppercases
+	named arguments in Info output.
+
+2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (@defblock, @deflinex, @deftypelinex):
 	Add commands for definitions that do not create index entries.
 

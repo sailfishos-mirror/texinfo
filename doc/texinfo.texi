@@ -11651,8 +11651,12 @@ is @code{push}, and its arguments are @var{s} and @var{n}.)  Output:
 interpret the arguments list as literal computer code, marking
 argument names with @code{@@var}.
 It is not necessary for any type names to appear,
-and you can give an empty return type as @samp{@{@}}.  For
-example, for documenting the R language, you could use input like
+and you can give an empty return type as @samp{@{@}}.
+
+@ignore
+@c This example is flawed because @var uppercases in Info output,
+@c which is inappropriate for named arguments
+For example, for documenting the R language, you could use input like
 
 @example
 @@deftypefn stats @{@} t.test (@@var@{x@}, @@var@{y@} = NULL,@@
@@ -11675,6 +11679,8 @@ example, for documenting the R language, you could use input like
 @end deftypefn
 
 @noindent Here the @code{@@w} command is used to prevent some line breaks.
+
+@end ignore
 
 The information on return values may be used to name the return
 variables. For example, in Perl, returned scalars may be given the
