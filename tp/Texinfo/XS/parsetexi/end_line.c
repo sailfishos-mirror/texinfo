@@ -2027,18 +2027,20 @@ end_line_def_line (ELEMENT *current)
 
   def_info = parse_def (def_command, current);
 
+  current = current->parent;
+
   /* Record the index entry if def_info is not empty. */
   if (!memcmp(def_info, &zero_def_info, sizeof (DEF_INFO)))
     {
       free (def_info);
-      command_warn (current->parent, "missing category for @%s",
+      command_warn (current, "missing category for @%s",
                     command_name (original_def_command));
     }
   else
     {
       ELEMENT *index_entry = 0; /* Index entry text. */
 
-      add_extra_def_info (current->parent, "def_parsed_hash", def_info);
+      add_extra_def_info (current, "def_parsed_hash", def_info);
 
       if (def_info->name)
         {
@@ -2069,7 +2071,7 @@ end_line_def_line (ELEMENT *current)
                   || def_command == CM_deftypecv))
             {
               if (global_documentlanguage)
-                add_extra_string_dup (current->parent, "documentlanguage",
+                add_extra_string_dup (current, "documentlanguage",
                                       global_documentlanguage);
             }
           else
@@ -2079,19 +2081,17 @@ end_line_def_line (ELEMENT *current)
                 add_to_contents_as_array (index_contents, index_entry);
             }
 
-          enter_index_entry (def_command,
-                             original_def_command,
-                             current->parent,
-                             index_contents);
+          enter_index_entry (def_command, original_def_command,
+                             current, index_contents);
         }
       else
         {
-          command_warn (current->parent, "missing name for @%s",
+          command_warn (current, "missing name for @%s",
                         command_name (original_def_command));
         }
     }
 
-  current = current->parent->parent;
+  current = current->parent;
   current = begin_preformatted (current);
 
   return current;

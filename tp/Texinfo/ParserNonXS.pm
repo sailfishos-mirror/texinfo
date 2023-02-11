@@ -1,6 +1,6 @@
 # ParserNonXS.pm: parse texinfo code into a tree.
 #
-# Copyright 2010-2022 Free Software Foundation, Inc.
+# Copyright 2010-2023 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -3727,8 +3727,10 @@ sub _end_line_def_line($$$)
       if ($self->{'DEBUG'});
 
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
+
+  $current = $current->{'parent'};
   if (scalar(@$arguments)) {
-    #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
+    #$current->{'extra'}->{'def_args'} = $arguments;
     my $def_parsed_hash = {};
     foreach my $arg (@$arguments) {
       die if (!defined($arg->[0]));
@@ -3737,7 +3739,7 @@ sub _end_line_def_line($$$)
       next if ($arg->[0] eq 'spaces');
       $def_parsed_hash->{$arg->[0]} = $arg->[1];
     }
-    $current->{'parent'}->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
+    $current->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
     # do a standard index entry tree
     my $index_entry;
     if (defined($def_parsed_hash->{'name'})) {
@@ -3763,7 +3765,7 @@ sub _end_line_def_line($$$)
                 and $def_command ne 'defcv') {
           undef $index_entry;
           if (defined($self->{'documentlanguage'})) {
-            $current->{'parent'}->{'extra'}->{'documentlanguage'}
+            $current->{'extra'}->{'documentlanguage'}
                    = $self->{'documentlanguage'};
           }
         }
@@ -3775,21 +3777,21 @@ sub _end_line_def_line($$$)
       }
 
       _enter_index_entry($self,
-        $current->{'parent'}->{'extra'}->{'def_command'},
-        $current->{'parent'}->{'extra'}->{'original_def_cmdname'},
-        $current->{'parent'}, $index_contents,
+        $current->{'extra'}->{'def_command'},
+        $current->{'extra'}->{'original_def_cmdname'},
+        $current->$index_contents,
         $index_contents_normalized, $source_info);
     } else {
-      $self->_command_warn($current->{'parent'}, $source_info,
+      $self->_command_warn($current->$source_info,
                            __('missing name for @%s'),
-         $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
+         $current->{'extra'}->{'original_def_cmdname'});
     }
   } else {
-    $self->_command_warn($current->{'parent'}, $source_info,
+    $self->_command_warn($current->$source_info,
                          __('missing category for @%s'),
-       $current->{'parent'}->{'extra'}->{'original_def_cmdname'});
+       $current->{'extra'}->{'original_def_cmdname'});
   }
-  $current = $current->{'parent'}->{'parent'};
+  $current = $current->{'parent'};
   $current = _begin_preformatted($self, $current);
 
   return $current;
