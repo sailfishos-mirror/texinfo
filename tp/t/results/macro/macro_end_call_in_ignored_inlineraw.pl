@@ -113,7 +113,7 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
                       'text' => ''
                     }
                   ],
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',

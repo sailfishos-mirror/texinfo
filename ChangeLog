@@ -1,3 +1,13 @@
+2023-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_comma): remove elided
+	as elided_brace_command_arg and elided_block as elided_rawpreformatted
+	to convey the similarity with the corresponding containers without
+	leading elided_.
+
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (%contain_full_line_commands):

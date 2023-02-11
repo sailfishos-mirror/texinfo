@@ -1555,7 +1555,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       char *line_dummy;
       int n;
 
-      e = new_element (ET_elided_block);
+      e = new_element (ET_elided_rawpreformatted);
       add_to_element_contents (current, e);
       line_dummy = line;
       while (!is_end_current_command (current, &line_dummy,

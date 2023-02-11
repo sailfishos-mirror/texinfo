@@ -24,7 +24,7 @@ $result_trees{'false_format_not_closed'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'text' => '',

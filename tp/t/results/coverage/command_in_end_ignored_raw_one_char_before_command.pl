@@ -24,7 +24,7 @@ $result_trees{'command_in_end_ignored_raw_one_char_before_command'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'text' => '',

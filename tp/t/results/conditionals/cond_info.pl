@@ -62,7 +62,7 @@ $result_trees{'cond_info'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
-                  'type' => 'elided_block'
+                  'type' => 'elided_rawpreformatted'
                 },
                 {
                   'args' => [
@@ -244,7 +244,7 @@ $result_trees{'cond_info'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

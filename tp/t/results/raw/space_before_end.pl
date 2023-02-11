@@ -161,7 +161,7 @@ $result_trees{'space_before_end'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'text' => '   '

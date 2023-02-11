@@ -27,7 +27,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -55,7 +55,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -83,7 +83,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -111,7 +111,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -196,7 +196,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -239,7 +239,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -267,7 +267,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -295,7 +295,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -323,7 +323,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -437,7 +437,7 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',

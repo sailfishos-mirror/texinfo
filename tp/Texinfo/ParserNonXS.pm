@@ -4913,7 +4913,7 @@ sub _process_remaining_on_line($$$$)
            and $block_commands{$current->{'cmdname'}}
            and $block_commands{$current->{'cmdname'}} eq 'format_raw'
            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
-    push @{$current->{'contents'}}, { 'type' => 'elided_block',
+    push @{$current->{'contents'}}, { 'type' => 'elided_rawpreformatted',
                                       'parent' => $current };
     while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
       # FIXME a source mark here is ignored.  Tested in
@@ -6464,7 +6464,7 @@ sub _process_remaining_on_line($$$$)
             $current->{'extra'}->{'expand_index'} = 2;
 
             # Add a dummy argument for the first argument.
-            push @{$current->{'args'}}, {'type' => 'elided',
+            push @{$current->{'args'}}, {'type' => 'elided_brace_command_arg',
                                          'parent' => $current,};
             # Scan forward to get the next argument.
             my $brace_count = 1;
@@ -6508,7 +6508,7 @@ sub _process_remaining_on_line($$$$)
         # If this command is not being expanded, add a dummy argument,
         # and scan forward to the closing brace.
         if (!$expandp) {
-          push @{$current->{'args'}}, {'type' => 'elided',
+          push @{$current->{'args'}}, {'type' => 'elided_brace_command_arg',
                                        'parent' => $current,};
           my $brace_count = 1;
           while ($brace_count > 0) {

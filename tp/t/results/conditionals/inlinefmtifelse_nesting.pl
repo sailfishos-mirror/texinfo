@@ -22,7 +22,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 },
                 {
                   'contents' => [

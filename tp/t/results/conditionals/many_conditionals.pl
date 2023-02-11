@@ -139,7 +139,7 @@ $result_trees{'many_conditionals'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

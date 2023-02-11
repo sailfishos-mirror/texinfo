@@ -22,7 +22,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 },
                 {
                   'contents' => [

@@ -62,7 +62,7 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
-                  'type' => 'elided_block'
+                  'type' => 'elided_rawpreformatted'
                 },
                 {
                   'args' => [
@@ -244,7 +244,7 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

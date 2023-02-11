@@ -87,7 +87,7 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 },
                 {
                   'type' => 'brace_command_arg'

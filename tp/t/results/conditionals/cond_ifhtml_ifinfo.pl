@@ -250,7 +250,7 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

@@ -126,7 +126,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                       'text' => ''
                     }
                   ],
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',

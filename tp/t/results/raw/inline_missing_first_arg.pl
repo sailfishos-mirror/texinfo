@@ -22,7 +22,7 @@ $result_trees{'inline_missing_first_arg'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -44,7 +44,7 @@ $result_trees{'inline_missing_first_arg'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineraw',

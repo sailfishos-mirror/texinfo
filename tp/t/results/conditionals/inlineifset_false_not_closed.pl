@@ -22,7 +22,7 @@ $result_trees{'inlineifset_false_not_closed'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineifset',

@@ -91,7 +91,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineifset',
@@ -169,7 +169,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineifclear',

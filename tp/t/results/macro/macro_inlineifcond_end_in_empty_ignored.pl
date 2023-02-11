@@ -108,7 +108,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                       'text' => ''
                     }
                   ],
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineifset',
@@ -175,7 +175,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                       'text' => ''
                     }
                   ],
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlineifset',

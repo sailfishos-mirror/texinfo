@@ -87,8 +87,8 @@ bracketed_multitable_prototype
 row_prototype
 
 # for unexpanded parts of conditionals
-elided
-elided_block
+elided_rawpreformatted
+elided_brace_command_arg
 
 # for def commands
 delimiter

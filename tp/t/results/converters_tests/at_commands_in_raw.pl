@@ -407,7 +407,7 @@ $result_trees{'at_commands_in_raw'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

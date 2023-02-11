@@ -30,9 +30,8 @@ Missing documentation
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 
-replaced, elided, elided_block types.
+replaced, elided_rawpreformatted, elided_brace_command_arg types.
 
-'extra'->'file' in replaced @include.
 extra->'comment_at_end'
 likely in many line commands
 

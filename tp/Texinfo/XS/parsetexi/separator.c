@@ -603,7 +603,7 @@ handle_comma (ELEMENT *current, char **line_inout)
               add_extra_integer (current, "expand_index", 2);
 
               /* Add a dummy argument for the first argument. */
-              e = new_element (ET_elided);
+              e = new_element (ET_elided_brace_command_arg);
               add_to_element_args (current, e);
 
               /* Scan forward to get the next argument. */
@@ -658,7 +658,7 @@ handle_comma (ELEMENT *current, char **line_inout)
           static char *alloc_line;
           ELEMENT *e;
           int brace_count = 1;
-          e = new_element (ET_elided);
+          e = new_element (ET_elided_brace_command_arg);
           add_to_element_args (current, e);
           while (brace_count > 0)
             {

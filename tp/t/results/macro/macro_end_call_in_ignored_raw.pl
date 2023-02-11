@@ -105,7 +105,7 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'type' => 'elided_block'
+              'type' => 'elided_rawpreformatted'
             },
             {
               'args' => [

@@ -89,7 +89,7 @@ $result_trees{'ignored_macro_definition'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'type' => 'elided'
+                  'type' => 'elided_brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
