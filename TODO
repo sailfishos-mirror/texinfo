@@ -17,7 +17,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - tagging system for definitions - (Robert Dodier for Maxima,
     https://lists.gnu.org/archive/html/help-texinfo/2021-12/msg00012.html)
   - generalize @vtable/@ftable to any defined index.
-    - maybe "@ftable @asis @index{IX}"
   - user-defined macros cannot be used as argument to @table or @itemize.
     Add specific macro commands, @highlightingmacro and @glyphmacro? Or
     accept one arg macro on @table line and no arg macro on @itemize line?

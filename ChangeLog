@@ -1,5 +1,10 @@
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (@defblock, @deflinex, @deftypelinex):
+	Add commands for definitions that do not create index entries.
+
+2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revert @useindex implementation
 
 	* doc/texinfo.tex (\useindex, \defind): Remove.  This reverts
