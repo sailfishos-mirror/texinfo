@@ -1,3 +1,9 @@
+2023-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/60macro.t: add
+	macro_inlineifcond_end_in_empty_ignored and
+	macro_inlineifcond_end_in_empty_set tests.
+
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Typed Functions):
@@ -16,7 +22,7 @@
 	* doc/texinfo.tex (\useindex, \defind): Remove.  This reverts
 	change on 2022-12-15.
 
-2023-02-10  Patrice Dumas  <pertusus@free.fr>
+2023-02-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/60macro.t: add
 	macro_end_call_in_ignored_inlinefmt,
@@ -26,7 +32,7 @@
 	macro_call_in_inlinefmtifelse_format with end/start of macro call in
 	@inline*fmt and @inlineraw.
 
-2023-02-10  Patrice Dumas  <pertusus@free.fr>
+2023-02-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/60macro.t: add macro_end_call_in_ignored_raw
 	test with a macro call end within an ignored raw format block.

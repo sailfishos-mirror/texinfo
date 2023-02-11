@@ -1236,6 +1236,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_in_misc_commands.pl \
   t/results/macro/macro_in_multitable_empty_before_item.pl \
   t/results/macro/macro_in_table_empty_before_item.pl \
+  t/results/macro/macro_inlineifcond_end_in_empty_ignored.pl \
+  t/results/macro/macro_inlineifcond_end_in_empty_set.pl \
   t/results/macro/macro_name_with_digit.pl \
   t/results/macro/macro_name_with_hyphen.pl \
   t/results/macro/macro_no_arg_bad_expansion.pl \

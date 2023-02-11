@@ -561,6 +561,22 @@ ex, before, after
 
 Toto @inlinefmtifelse{t@inlinefirstarg{}} done.
 '],
+['macro_inlineifcond_end_in_empty_ignored',
+'@macro setargendignored
+ag,
+@end macro
+Toto @inlineifset{fl@setargendignored{}}. After.
+
+Again with space @inlineifset{fl@setargendignored{} }. After.
+'],
+['macro_inlineifcond_end_in_empty_set',
+'@macro clearargendignored
+ag,
+@end macro
+Toto @inlineifclear{fl@clearargendignored{}}. After.
+
+Again with space @inlineifclear{fl@clearargendignored{} }. After.
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)
