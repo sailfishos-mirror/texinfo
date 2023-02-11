@@ -3381,6 +3381,7 @@ sub _end_line_misc_line($$$)
   if ($self->{'basic_inline_commands'}->{$command}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
+  _isolate_last_space($self, $current);
 
   if ($current->{'parent'}->{'type'}
         and $current->{'parent'}->{'type'} eq 'def_line') {
@@ -3389,7 +3390,6 @@ sub _end_line_misc_line($$$)
   }
 
   $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
-  _isolate_last_space($self, $current);
 
   $current = $current->{'parent'};
   my $misc_cmd = $current;
@@ -3726,8 +3726,6 @@ sub _end_line_def_line($$$)
     .Texinfo::Common::debug_print_element_short($current)."\n"
       if ($self->{'DEBUG'});
 
-  _isolate_last_space($self, $current);
-
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
   if (scalar(@$arguments)) {
     #$current->{'parent'}->{'extra'}->{'def_args'} = $arguments;
@@ -3815,6 +3813,7 @@ sub _end_line_starting_block($$$)
   if ($self->{'basic_inline_commands'}->{$command}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
   }
+  _isolate_last_space($self, $current);
 
   if ($current->{'parent'}->{'type'}
         and $current->{'parent'}->{'type'} eq 'def_line') {
@@ -3891,7 +3890,6 @@ sub _end_line_starting_block($$$)
     }
     $multitable->{'extra'}->{'prototypes'} = \@prototype_row;
   }
-  _isolate_last_space($self, $current);
   $current = $current->{'parent'};
   delete $current->{'remaining_args'};
 

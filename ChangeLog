@@ -1,5 +1,16 @@
 2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line): Do not call
+	_isolate_last_space.
+	(_end_line_misc_line, _end_line_starting_block): Move call to
+	_isolate_last_space before call to _end_line_def_line.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(_end_line_def_line, _end_line_misc_line, _end_line_starting_block):
+	Make the same change.
+
+2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Initial @newdef implementation
 
 	* doc/texinfo.tex (@newdef): Implement @newdef.  Syntax is subject

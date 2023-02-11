@@ -1020,6 +1020,7 @@ end_line_starting_block (ELEMENT *current)
 
   if (command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
+  isolate_last_space (current);
 
   if (current->parent->type == ET_def_line)
     return end_line_def_line (current);
@@ -1110,7 +1111,6 @@ end_line_starting_block (ELEMENT *current)
       add_extra_contents_oot (current->parent, "prototypes", prototypes);
       /* See code in destroy_element for how prototypes is deallocated. */
     }
-  isolate_last_space (current);
 
   current = current->parent;
   if (counter_value (&count_remaining_args, current) != -1)
@@ -1388,11 +1388,10 @@ end_line_misc_line (ELEMENT *current)
   if ((command_data(cmd).flags & CF_contain_basic_inline)
       || cmd == CM_item) /* CM_item_LINE on stack */
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
+  isolate_last_space (current);
 
   if (current->parent->type == ET_def_line)
     return end_line_def_line (current);
-
-  isolate_last_space (current);
 
   current = current->parent;
   misc_cmd = current;
@@ -2025,8 +2024,6 @@ end_line_def_line (ELEMENT *current)
       def_command = lookup_command (stripped);
       free (stripped);
     }
-
-  isolate_last_space (current);
 
   def_info = parse_def (def_command, current);
 
