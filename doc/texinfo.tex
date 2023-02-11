@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-02-11.02}
+\def\texinfoversion{2023-02-11.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7594,6 +7594,21 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\deftypelinex{%
   \doingtypefntrue
   \parseargusing\activeparens{\printdefunline\deflineheader}%
+}
+
+% user-defined def commands
+% @newdef @COMMAND = CATEGORY INDEX
+% use {} for INDEX if no index entry should be made
+\parseargdef\newdef{%
+  \donewdef#1\donewdef
+}
+\def\donewdef#1= #2 #3\donewdef{%
+  \def\idx{#3}%
+  \ifx\empty\idx
+    \def#1{\deflinex #2 }%
+  \else
+    \def#1##1 {\doind{#3}{\code{##1}}\deflinex #2 {##1} }%
+  \fi
 }
 
 % \makedefun{deffoo} (\deffooheader parameters) { (\deffooheader expansion) }

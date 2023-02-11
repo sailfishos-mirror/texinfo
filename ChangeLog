@@ -1,3 +1,10 @@
+2023-02-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Initial @newdef implementation
+
+	* doc/texinfo.tex (@newdef): Implement @newdef.  Syntax is subject
+	to change.
+
 2023-02-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/60macro.t: add
