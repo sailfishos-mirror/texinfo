@@ -27,6 +27,43 @@ $result_trees{'ignored_text'} = {
         }
       ],
       'cmdname' => 'node',
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'text' => 'in ifinfo
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'ifinfo on the node line'
+                    }
+                  ],
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'ifinfo on the node line'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
+            }
+          ],
+          'type' => 'paragraph'
+        }
+      ],
       'extra' => {
         'node_content' => [
           {}
@@ -58,10 +95,12 @@ $result_trees{'ignored_text'} = {
 $result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'ignored_text'} = '@node before ignore ';
+$result_texis{'ignored_text'} = '@node before ignore in ifinfo
+@end ifinfo on the node line';
 
 
-$result_texts{'ignored_text'} = '';
+$result_texts{'ignored_text'} = 'in ifinfo
+';
 
 $result_nodes{'ignored_text'} = {
   'cmdname' => 'node',
@@ -90,13 +129,22 @@ $result_errors{'ignored_text'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: superfluous argument to @end ifinfo:  on the node line
+    'error_line' => 'no matching `@end ifinfo\'
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'no matching `@end ifinfo\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'unmatched `@end\'
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'superfluous argument to @end ifinfo:  on the node line',
-    'type' => 'warning'
+    'text' => 'unmatched `@end\'',
+    'type' => 'error'
   }
 ];
 
@@ -105,9 +153,11 @@ $result_floats{'ignored_text'} = {};
 
 
 
-$result_converted{'plaintext'}->{'ignored_text'} = '';
+$result_converted{'plaintext'}->{'ignored_text'} = 'in ifinfo
+';
 
 
-$result_converted{'xml'}->{'ignored_text'} = '<node name="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node>';
+$result_converted{'xml'}->{'ignored_text'} = '<node name="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node><para>in ifinfo
+</para>';
 
 1;

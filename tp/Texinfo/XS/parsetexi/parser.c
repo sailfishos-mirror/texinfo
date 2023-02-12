@@ -1451,6 +1451,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           popped = pop_element_from_contents (current);
           if (popped->cmd != end_cmd)
             fatal ("command mismatch for ignored block");
+          popped->parent = 0;
+          /* TODO add source mark */
 
           /* 'line' is now advanced past the "@end ...".  Check if
              there's anything after it. */
@@ -1484,7 +1486,12 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           destroy_element_and_children (popped);
 
         }
-      /* anything remaining on the line and any other line is ignored here */
+      else
+        {
+          ELEMENT *e = new_element (ET_raw);
+          text_append (&(e->text), line);
+          add_to_element_contents (current, e);
+        }
       retval = GET_A_NEW_LINE;
       goto funexit;
     } /********* (ignored) BLOCK_conditional *************/

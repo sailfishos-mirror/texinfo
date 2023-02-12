@@ -19,7 +19,17 @@ $result_texis{'text_on_conditional_line'} = '';
 
 $result_texts{'text_on_conditional_line'} = '';
 
-$result_errors{'text_on_conditional_line'} = [];
+$result_errors{'text_on_conditional_line'} = [
+  {
+    'error_line' => 'warning: unexpected argument on @ifnothtml line: text following ifnothtml,
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'unexpected argument on @ifnothtml line: text following ifnothtml,',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'text_on_conditional_line'} = {};

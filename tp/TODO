@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+invalid_nestings ignored_text test does not have the @ifinfo ignored_block
+source mark.
+
 Bugs
 ====
 

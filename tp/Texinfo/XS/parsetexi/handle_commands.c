@@ -709,12 +709,7 @@ funexit:
   return current;
 }
 
-
-struct expanded_format {
-    char *format;
-    int expandedp;
-};
-static struct expanded_format expanded_formats[] = {
+struct expanded_format expanded_formats[] = {
     "html", 0,
     "docbook", 0,
     "plaintext", 1,
@@ -784,106 +779,6 @@ handle_block_command (ELEMENT *current, char **line_inout,
       current = macro;
 
       /* A new line should be read immediately after this.  */
-      line = strchr (line, '\0');
-      *get_new_line = 1;
-      goto funexit;
-    }
-  else if (command_data(cmd).data == BLOCK_conditional)
-    {
-      int iftrue = 0; /* Whether the conditional is true. */
-      if (cmd == CM_ifclear || cmd == CM_ifset
-          || cmd == CM_ifcommanddefined || cmd == CM_ifcommandnotdefined)
-        {
-          char *p = line;
-          p = line + strspn (line, whitespace_chars);
-          if (!*p)
-            line_error ("@%s requires a name", command_name(cmd));
-          else
-            {
-              char *flag = read_flag_name (&p);
-              if (!flag)
-                goto bad_value;
-              else
-                {
-                  p += strspn (p, whitespace_chars);
-                  /* Check for a comment at the end of the line. */
-                  if (*p)
-                    {
-                      int has_comment;
-
-                      read_comment (p, &has_comment);
-                      if (!has_comment)
-                        goto bad_value;
-                    }
-                }
-              if (1)
-                {
-                  if (cmd == CM_ifclear || cmd == CM_ifset)
-                    {
-                      char *val = fetch_value (flag);
-                      if (val)
-                        iftrue = 1;
-                      if (cmd == CM_ifclear)
-                        iftrue = !iftrue;
-                    }
-                  else /* cmd == CM_ifcommanddefined
-                          || cmd == CM_ifcommandnotdefined */
-                    {
-                      enum command_id c = lookup_command (flag);
-                      if (c)
-                        iftrue = 1;
-                      if (cmd == CM_ifcommandnotdefined)
-                        iftrue = !iftrue;
-                    }
-                }
-              else if (0)
-                {
-              bad_value:
-                  line_error ("bad name for @%s", command_name(cmd));
-                }
-              free (flag);
-            }
-        }
-      else if (!memcmp (command_name(cmd), "if", 2)) /* e.g. @ifhtml */
-        {
-          int i; char *p;
-          /* Handle @if* and @ifnot* */
-
-          p = command_name(cmd) + 2; /* After "if". */
-          if (!memcmp (p, "not", 3))
-            p += 3; /* After "not". */
-          for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
-               i++)
-            {
-              if (!strcmp (p, expanded_formats[i].format))
-                {
-                  iftrue = expanded_formats[i].expandedp;
-                  break;
-                }
-            }
-          if (!memcmp (command_name(cmd), "ifnot", 5))
-            iftrue = !iftrue;
-        }
-      else
-        bug_message ("unknown conditional command @%s", command_name(cmd));
-
-
-      /* If conditional true, push onto conditional stack.  Otherwise
-         open a new element (which we shall later remove, in
-         process_remaining_on_line ("CLOSED conditional")). */
-
-      debug ("CONDITIONAL %s %d", command_name(cmd), iftrue);
-      if (iftrue)
-        push_conditional_stack (cmd);
-      else
-        {
-          /* Ignored. */
-          ELEMENT *e;
-          e = new_element (ET_NONE);
-          e->cmd = cmd;
-          add_to_element_contents (current, e);
-          current = e;
-        }
       line = strchr (line, '\0');
       *get_new_line = 1;
       goto funexit;

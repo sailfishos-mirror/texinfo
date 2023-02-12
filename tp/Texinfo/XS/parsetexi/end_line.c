@@ -26,6 +26,7 @@
 #include "labels.h"
 #include "indices.h"
 #include "source_marks.h"
+#include "handle_commands.h"
 
 void
 check_internal_node (NODE_SPEC_EXTRA *nse)
@@ -1345,6 +1346,97 @@ end_line_starting_block (ELEMENT *current)
                      command_name(command), texi_arg);
     }
 
+  if (command_data(command).data == BLOCK_conditional)
+    {
+      int iftrue = 0; /* Whether the conditional is true. */
+      int bad_line = 1;
+      if (command == CM_ifclear || command == CM_ifset
+          || command == CM_ifcommanddefined
+          || command == CM_ifcommandnotdefined)
+        {
+          if (current->args.number == 1
+              && current->args.list[0]->contents.number == 1)
+            {
+              ELEMENT *arg_elt = current->args.list[0]->contents.list[0];
+              if (arg_elt->text.end > 0)
+                {
+                  char *name = arg_elt->text.text;
+                  char *p = name + strspn (name, whitespace_chars);
+                  if (!*p)
+                    {
+                      line_error ("@%s requires a name", command_name(command));
+                      bad_line = 0;
+                    }
+                  else
+                    {
+                      char *p = name;
+                      char *flag = read_flag_name (&p);
+                      if (flag && !*p)
+                        {
+                          bad_line = 0;
+                          if (command == CM_ifclear || command == CM_ifset)
+                            {
+                              char *val = fetch_value (flag);
+                              if (val)
+                                iftrue = 1;
+                              if (command == CM_ifclear)
+                                iftrue = !iftrue;
+                            }
+                          else /* command == CM_ifcommanddefined
+                                  || command == CM_ifcommandnotdefined */
+                            {
+                              enum command_id c = lookup_command (flag);
+                              if (c)
+                                iftrue = 1;
+                              if (command == CM_ifcommandnotdefined)
+                                iftrue = !iftrue;
+                            }
+                        }
+                      free (flag);
+                    }
+                }
+            }
+          else
+            {
+              line_error ("@%s requires a name", command_name(command));
+              bad_line = 0;
+            }
+          if (bad_line)
+            line_error ("bad name for @%s", command_name(command));
+        }
+      else if (!memcmp (command_name(command), "if", 2)) /* e.g. @ifhtml */
+        {
+          int i; char *p;
+          /* Handle @if* and @ifnot* */
+
+          p = command_name(command) + 2; /* After "if". */
+          if (!memcmp (p, "not", 3))
+            p += 3; /* After "not". */
+          for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+               i++)
+            {
+              if (!strcmp (p, expanded_formats[i].format))
+                {
+                  iftrue = expanded_formats[i].expandedp;
+                  break;
+                }
+            }
+          if (!memcmp (command_name(command), "ifnot", 5))
+            iftrue = !iftrue;
+        }
+      else
+        bug_message ("unknown conditional command @%s", command_name(command));
+
+      debug ("CONDITIONAL %s %d", command_name(command), iftrue);
+      if (iftrue)
+        {
+          push_conditional_stack (command);
+          current = current->parent;
+          /* TODO not destroy but source mark */
+          destroy_element_and_children (pop_element_from_contents (current));
+        }
+    }
+
   if (command_data(command).data == BLOCK_menu)
     {
       /* Start reading a menu.  Processing will continue in
@@ -1362,7 +1454,8 @@ end_line_starting_block (ELEMENT *current)
       add_to_element_contents (current, rawpreformatted);
       current = rawpreformatted;
     }
-  if (command_data(command).data != BLOCK_raw)
+  if (command_data(command).data != BLOCK_raw
+      && command_data(command).data != BLOCK_conditional)
     current = begin_preformatted (current);
 
   return current;

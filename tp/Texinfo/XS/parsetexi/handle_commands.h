@@ -16,4 +16,12 @@ int check_no_text (ELEMENT *current);
 
 void clear_expanded_formats (void);
 void add_expanded_format (char *format);
+
+struct expanded_format {
+    char *format;
+    int expandedp;
+};
+
+extern struct expanded_format expanded_formats[7];
+
 #endif

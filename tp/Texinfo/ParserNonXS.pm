@@ -4054,6 +4054,88 @@ sub _end_line_starting_block($$$)
                          __("unexpected argument on \@%s line: %s"),
                          $command, $texi_arg);
   }
+  if ($block_commands{$command} eq 'conditional') {
+    my $ifvalue_true = 0;
+    my $bad_line = 1;
+    if ($command eq 'ifclear' or $command eq 'ifset'
+        or $command eq 'ifcommanddefined'
+        or $command eq 'ifcommandnotdefined') {
+      if ($current->{'args'} and scalar(@{$current->{'args'}} == 1)
+          and $current->{'args'}->[0]->{'contents'}
+          and scalar(@{$current->{'args'}->[0]->{'contents'}} == 1)) {
+        if (defined($current->{'args'}->[0]->{'contents'}->[0]->{'text'})) {
+          my $name = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
+          if ($name !~ /\S/) {
+            $self->_line_error(sprintf(
+                __("%c%s requires a name"), ord('@'), $command), $source_info);
+            $bad_line = 0;
+          } else {
+            if ($command eq 'ifclear' or $command eq 'ifset') {
+              # REVALUE
+              if ($name =~ /^[\w\-][^\s{\\}~`\^+"<>|@]*$/) {
+                if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
+                     or (!exists($self->{'values'}->{$name})
+                         and $command eq 'ifclear')) {
+                  $ifvalue_true = 1;
+                }
+                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                                        if ($self->{'DEBUG'});
+                $bad_line = 0;
+              }
+            } else { # $command eq 'ifcommanddefined' or 'ifcommandnotdefined'
+              # REMACRO
+              if ($name =~ /^[[:alnum:]][[:alnum:]\-]*$/) {
+                my $command_is_defined = (
+                  exists($all_commands{$name})
+                  or $self->{'macros'}->{$name}
+                  or $self->{'definfoenclose'}->{$name}
+                  or $self->{'aliases'}->{$name}
+                  or $self->{'command_index'}->{$name}
+                );
+                if (($command_is_defined
+                     and $command eq 'ifcommanddefined')
+                    or (! $command_is_defined
+                         and $command eq 'ifcommandnotdefined')) {
+                  $ifvalue_true = 1;
+                }
+                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                                        if ($self->{'DEBUG'});
+                $bad_line = 0;
+              }
+            }
+          }
+        }
+      } else {
+        $self->_line_error(sprintf(
+            __("%c%s requires a name"), ord('@'), $command), $source_info);
+        $bad_line = 0;
+      }
+      $self->_line_error(sprintf(
+        __("bad name for \@%s"), $command), $source_info)
+         if ($bad_line);
+    } elsif ($command =~ /^ifnot(.*)/) {
+      $ifvalue_true = 1 if !($self->{'expanded_formats_hash'}->{$1}
+                     # exception as explained in the texinfo manual
+                     or ($1 eq 'info'
+                         and $self->{'expanded_formats_hash'}->{'plaintext'}));
+      print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
+                                                         if ($self->{'DEBUG'});
+    } else {
+      die unless ($command =~ /^if(.*)/);
+      $ifvalue_true = 1 if ($self->{'expanded_formats_hash'}->{$1}
+              or ($1 eq 'info'
+                  and $self->{'expanded_formats_hash'}->{'plaintext'}));
+      print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
+                                                     if ($self->{'DEBUG'});
+    }
+    if ($ifvalue_true) {
+      my $conditional_element = $current;
+      $current = $current->{'parent'};
+      my $conditional_command = _pop_element_from_contents($self, $current);
+      die "BUG popping\n" if ($conditional_element ne $conditional_command);
+      push @{$self->{'conditional_stack'}}, $command;
+    }
+  }
   if ($block_commands{$command} eq 'menu') {
     push @{$current->{'contents'}}, {'type' => 'menu_comment',
                                      'parent' => $current,
@@ -4069,7 +4151,8 @@ sub _end_line_starting_block($$$)
     $current = $current->{'contents'}->[-1];
   }
   $current = _begin_preformatted($self, $current)
-    unless ($block_commands{$command} eq 'raw');
+    unless ($block_commands{$command} eq 'raw'
+            or $block_commands{$command} eq 'conditional');
 
   return $current;
 }
@@ -4842,10 +4925,10 @@ sub _process_remaining_on_line($$$$)
     # check for nested @ifset (so that @end ifset doesn't end the
     # outermost @ifset).  It is discarded when the outermost is.
     if (($current->{'cmdname'} eq 'ifclear'
-              or $current->{'cmdname'} eq 'ifset'
-              or $current->{'cmdname'} eq 'ifcommanddefined'
-              or $current->{'cmdname'} eq 'ifcommandnotdefined')
-            and $line =~ /^\s*\@$current->{'cmdname'}/) {
+         or $current->{'cmdname'} eq 'ifset'
+         or $current->{'cmdname'} eq 'ifcommanddefined'
+         or $current->{'cmdname'} eq 'ifcommandnotdefined')
+        and $line =~ /^\s*\@$current->{'cmdname'}/) {
       push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
                                         'parent' => $current,
                                         'contents' => [],
@@ -4867,6 +4950,10 @@ sub _process_remaining_on_line($$$$)
       $current = $current->{'parent'};
       # Remove an ignored block @if*
       my $conditional = _pop_element_from_contents($self, $current);
+      delete $conditional->{'parent'};
+      #my $source_mark = {'sourcemark_type' => 'ignored_block',
+      #                   'element' => $conditional};
+      #_register_source_mark($self, $current, $source_mark);
       if (!defined($conditional->{'cmdname'}
           or $conditional->{'cmdname'} ne $end_command)) {
         $self->_bug_message(
@@ -4877,12 +4964,16 @@ sub _process_remaining_on_line($$$$)
       print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
       # Ignore until end of line
       # FIXME this is not the same as for other commands.  Change?
+      # FIXME only done once, could be needed more time.  Add test for this
+      # situation too.
       if ($line !~ /\n/) {
         ($line, $source_info) = _new_line($self, $current);
         print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
       }
+    } else {
+      push @{$current->{'contents'}}, { 'type' => 'raw', 'text' => $line,
+                                        'parent' => $current, };
     }
-    # anything remaining on the line and any other line is ignored here
     return ($current, $line, $source_info, $GET_A_NEW_LINE);
     # goto funexit;  # used in XS code
   # in @verb. type should be 'brace_command_arg'
@@ -5822,80 +5913,6 @@ sub _process_remaining_on_line($$$$)
                                               $current, $source_info);
         push @{$current->{'contents'}}, $macro;
         $current = $current->{'contents'}->[-1];
-        return ($current, $line, $source_info, $GET_A_NEW_LINE);
-        # goto funexit;  # used in XS code
-      } elsif ($block_commands{$command} eq 'conditional') {
-        my $ifvalue_true = 0;
-        if ($command eq 'ifclear' or $command eq 'ifset') {
-          # REVALUE
-          if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
-            my $name = $1;
-            if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
-                or (!exists($self->{'values'}->{$name})
-                     and $command eq 'ifclear')) {
-              $ifvalue_true = 1;
-            }
-            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                                        if ($self->{'DEBUG'});
-          } elsif ($line !~ /\S/) {
-              $self->_line_error(sprintf(
-                __("%c%s requires a name"), ord('@'), $command), $source_info);
-          } else {
-            $self->_line_error(sprintf(
-                __("bad name for \@%s"), $command), $source_info);
-          }
-        } elsif ($command eq 'ifcommanddefined'
-                 or $command eq 'ifcommandnotdefined') {
-          # REMACRO
-          if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
-            my $name = $1;
-            my $command_is_defined = (
-              exists($all_commands{$name})
-              or $self->{'macros'}->{$name}
-              or $self->{'definfoenclose'}->{$name}
-              or $self->{'aliases'}->{$name}
-              or $self->{'command_index'}->{$name}
-            );
-            if (($command_is_defined
-                 and $command eq 'ifcommanddefined')
-                or (! $command_is_defined
-                     and $command eq 'ifcommandnotdefined')) {
-              $ifvalue_true = 1;
-            }
-            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                                        if ($self->{'DEBUG'});
-          } elsif ($line !~ /\S/) {
-              $self->_line_error(sprintf(
-                __("%c%s requires a name"), ord('@'), $command), $source_info);
-          } else {
-            $self->_line_error(sprintf(
-                __("bad name for \@%s"), $command), $source_info);
-          }
-        } elsif ($command =~ /^ifnot(.*)/) {
-          $ifvalue_true = 1 if !($self->{'expanded_formats_hash'}->{$1}
-                # exception as explained in the texinfo manual
-                or ($1 eq 'info'
-                    and $self->{'expanded_formats_hash'}->{'plaintext'}));
-          print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
-                                                         if ($self->{'DEBUG'});
-        } else {
-          die unless ($command =~ /^if(.*)/);
-          $ifvalue_true = 1 if ($self->{'expanded_formats_hash'}->{$1}
-                  or ($1 eq 'info'
-                      and $self->{'expanded_formats_hash'}->{'plaintext'}));
-          print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
-                                                         if ($self->{'DEBUG'});
-        }
-        if ($ifvalue_true) {
-          push @{$self->{'conditional_stack'}}, $command;
-        } else {
-          push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                            'parent' => $current,
-                                            'contents' => [] };
-          $current = $current->{'contents'}->[-1];
-        }
-        # FIXME(Karl) ignore what is remaining on the line, to eat
-        # the end of line?
         return ($current, $line, $source_info, $GET_A_NEW_LINE);
         # goto funexit;  # used in XS code
       } else {

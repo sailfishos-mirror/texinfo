@@ -5,6 +5,21 @@
 
 2023-02-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command), tp/Texinfo/command_data.txt: do not handle
+	especially conditional block commands opening in
+	_process_remaining_on_line or handle_block_command, let non-specific
+	code handle block command line parsing, and take care of their
+	arguments in end_line_starting_block.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): put
+	ignored conditional block content in the block element.
+
+2023-02-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): use the same expanded formats in the
 	conversion to text as for the parser.
 

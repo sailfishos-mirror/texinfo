@@ -582,8 +582,8 @@ ifplaintext             block                           BLOCK_conditional
 ifnotplaintext          block                           BLOCK_conditional
 iflatex                 block                           BLOCK_conditional
 ifnotlatex              block                           BLOCK_conditional
-ifset                   block                           BLOCK_conditional
-ifclear                 block                           BLOCK_conditional
-ifcommanddefined        block                           BLOCK_conditional
-ifcommandnotdefined     block                           BLOCK_conditional
+ifset                   block                           BLOCK_conditional             1
+ifclear                 block                           BLOCK_conditional             1
+ifcommanddefined        block                           BLOCK_conditional             1
+ifcommandnotdefined     block                           BLOCK_conditional             1
 
