@@ -3376,7 +3376,8 @@ sub _end_line_misc_line($$$)
 
   my $command = $current->{'parent'}->{'cmdname'};
 
-  if ($self->{'basic_inline_commands'}->{$command}) {
+  if ($self->{'basic_inline_commands'}
+      and $self->{'basic_inline_commands'}->{$command}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
   _isolate_last_space($self, $current);
