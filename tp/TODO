@@ -13,6 +13,18 @@ Before next release
 invalid_nestings ignored_text test does not have the @ifinfo ignored_block
 source mark.
 
+Add tests of source marks on ignored @if* blocks lines and in contents.
+
+Add @end in ignored @if* blocks lines source marks.
+
+Check nested @if* commands and source marks.
+
+Add source marks for non ignored @if blocks and the corresponding @end
++ tests of source marks on the @-command lines.
+
+Add elided raw output format content to the tree (there should already be a test for 
+source mark there).
+
 Bugs
 ====
 

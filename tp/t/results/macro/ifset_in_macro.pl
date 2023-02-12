@@ -113,6 +113,52 @@ $result_trees{'ifset_in_macro'} = {
             },
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'notes'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => ' 
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifset',
+                'contents' => [
+                  {
+                    'text' => 'arg
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 9,
+                  'macro' => 'note'
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            },
+            {
+              'counter' => 1,
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'

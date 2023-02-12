@@ -1437,6 +1437,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         {
           char *tmp = 0;
           ELEMENT *popped;
+          SOURCE_MARK *source_mark;
 
           /* check whitespaces at the beginning of the line */
           if (strchr (whitespace_chars, *p))
@@ -1452,7 +1453,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (popped->cmd != end_cmd)
             fatal ("command mismatch for ignored block");
           popped->parent = 0;
-          /* TODO add source mark */
+          source_mark = new_source_mark (SM_type_ignored_conditional_block);
+          source_mark->element = popped;
+          register_source_mark (current, source_mark);
 
           /* 'line' is now advanced past the "@end ...".  Check if
              there's anything after it. */
@@ -1483,8 +1486,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               line = new_line (current);
               debug ("IGNORE CLOSE line: %s", line);
             }
-          destroy_element_and_children (popped);
-
         }
       else
         {

@@ -26,6 +26,7 @@ int delcomment_counter = 0;
 int defline_continuation_counter = 0;
 int macro_expansion_counter = 0;
 int value_expansion_counter = 0;
+int ignored_conditional_block_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -139,6 +140,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           value_expansion_counter++;
           source_mark->counter = value_expansion_counter;
         }
+      else if (source_mark->type == SM_type_ignored_conditional_block)
+        {
+          ignored_conditional_block_counter++;
+          source_mark->counter = ignored_conditional_block_counter;
+        }
     }
 
   place_source_mark (e, source_mark);
@@ -153,6 +159,7 @@ source_marks_reset_counters (void)
   defline_continuation_counter = 0;
   macro_expansion_counter = 0;
   value_expansion_counter = 0;
+  ignored_conditional_block_counter = 0;
 }
 
 SOURCE_MARK *

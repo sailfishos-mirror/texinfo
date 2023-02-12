@@ -173,6 +173,49 @@ $result_trees{'nested_ifset_ifclear'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'anothervar'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifclear',
+                    'contents' => [
+                      {
+                        'text' => 'Somevar is set, anothervar is not.
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 15,
+                      'macro' => 'conditionals'
+                    }
+                  },
+                  'position' => 37,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => 'Both somevar and anothervar are set.
 '
             }
@@ -235,6 +278,46 @@ $result_trees{'nested_ifset_ifclear'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'anothervar'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifset',
+                'contents' => [
+                  {
+                    'text' => 'Both somevar and anothervar are set.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 19,
+                  'macro' => 'conditionals'
+                }
+              },
+              'sourcemark_type' => 'ignored_conditional_block'
             }
           ]
         },
@@ -305,6 +388,75 @@ $result_trees{'nested_ifset_ifclear'} = {
               'status' => 'start'
             },
             {
+              'counter' => 4,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'somevar'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifset',
+                'contents' => [
+                  {
+                    'source_marks' => [
+                      {
+                        'counter' => 3,
+                        'element' => {
+                          'cmdname' => 'ifset',
+                          'contents' => [
+                            {
+                              'text' => 'Both somevar and anothervar are set.
+',
+                              'type' => 'raw'
+                            }
+                          ]
+                        },
+                        'sourcemark_type' => 'ignored_conditional_block'
+                      }
+                    ],
+                    'text' => ''
+                  },
+                  {
+                    'text' => '@ifclear anothervar
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => 'Somevar is set, anothervar is not.
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@end ifclear
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 23,
+                  'macro' => 'conditionals'
+                }
+              },
+              'sourcemark_type' => 'ignored_conditional_block'
+            },
+            {
               'counter' => 3,
               'sourcemark_type' => 'macro_expansion',
               'status' => 'end'
@@ -362,6 +514,75 @@ $result_trees{'nested_ifset_ifclear'} = {
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
+            },
+            {
+              'counter' => 6,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'somevar'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifset',
+                'contents' => [
+                  {
+                    'source_marks' => [
+                      {
+                        'counter' => 5,
+                        'element' => {
+                          'cmdname' => 'ifset',
+                          'contents' => [
+                            {
+                              'text' => 'Both somevar and anothervar are set.
+',
+                              'type' => 'raw'
+                            }
+                          ]
+                        },
+                        'sourcemark_type' => 'ignored_conditional_block'
+                      }
+                    ],
+                    'text' => ''
+                  },
+                  {
+                    'text' => '@ifclear anothervar
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => 'Somevar is set, anothervar is not.
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@end ifclear
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 27,
+                  'macro' => 'conditionals'
+                }
+              },
+              'sourcemark_type' => 'ignored_conditional_block'
             },
             {
               'counter' => 4,

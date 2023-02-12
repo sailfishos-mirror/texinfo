@@ -625,6 +625,39 @@ $result_trees{'glossary'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifnothtml',
+                    'contents' => [
+                      {
+                        'text' => 'name1 (@pxref{id1})
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 42,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => '
 '
             },
@@ -968,6 +1001,39 @@ $result_trees{'glossary'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifnothtml',
+                    'contents' => [
+                      {
+                        'text' => 'name2 (@pxref{id2})
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 43,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => '
 '
             },

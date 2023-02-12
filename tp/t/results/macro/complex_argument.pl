@@ -627,6 +627,68 @@ macroseven defined
             {
               'source_marks' => [
                 {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifinfo',
+                    'contents' => [
+                      {
+                        'text' => '@macrofour
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 38,
+                      'macro' => 'macrothree'
+                    }
+                  },
+                  'position' => 19,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                },
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'iftex',
+                    'contents' => [
+                      {
+                        'text' => '@macrotwo{aa,bb}
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 38,
+                      'macro' => 'macrothree'
+                    }
+                  },
+                  'position' => 19,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                },
+                {
                   'counter' => 4,
                   'element' => {
                     'extra' => {

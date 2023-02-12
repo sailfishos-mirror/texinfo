@@ -197,6 +197,49 @@ $result_trees{'command_conditionals_user_defined'} = {
               'cmdname' => '@'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'truc'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
+                      {
+                        'text' => '@@macro truc is wrongly not defined
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 14,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 23,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => 'macro truc is defined.
 '
             }
@@ -217,6 +260,49 @@ $result_trees{'command_conditionals_user_defined'} = {
               'cmdname' => '@'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'authindex'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
+                      {
+                        'text' => 'index command @@authindex is wrongly not defined
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 21,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 22,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => 'authindex is defined.
 '
             }
@@ -237,6 +323,49 @@ $result_trees{'command_conditionals_user_defined'} = {
               'cmdname' => '@'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'infoencl'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
+                      {
+                        'text' => 'definfoenclose @@infoencl is wrongly not defined
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 28,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 21,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => 'infoencl is defined.
 '
             }
@@ -257,6 +386,49 @@ $result_trees{'command_conditionals_user_defined'} = {
               'cmdname' => '@'
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 4,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'strongalias'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
+                      {
+                        'text' => 'strongalias @@alias is wrongly not defined
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 35,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 18,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => 'alias is defined.
 '
             }

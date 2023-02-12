@@ -517,11 +517,11 @@ next_text (ELEMENT *current)
           else
             {
               end_include_source_mark
-                = new_source_mark(input_source_mark->type);
+                = new_source_mark (input_source_mark->type);
               end_include_source_mark->counter = input_source_mark->counter;
               end_include_source_mark->status = SM_status_end;
             }
-          register_source_mark(current, end_include_source_mark);
+          register_source_mark (current, end_include_source_mark);
         }
 
       input_number--;

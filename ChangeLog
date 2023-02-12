@@ -1,3 +1,19 @@
+2023-02-12  Patrice Dumas  <pertusus@free.fr>
+
+	Add source marks for ignored @if* conditional block commands
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark),
+	(source_marks_reset_counters): add ignored_conditional_block source
+	mark for ignored @if* conditional block commands.  Avoid setting empty
+	contents for block commands.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/input.c,
+	tp/Texinfo/XS/parsetexi/macro.c: change in spacing for mark source
+	related function calls.
+
 2023-02-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line):

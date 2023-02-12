@@ -3450,6 +3450,46 @@ $result_trees{'bib_example'} = {
               },
               'source_marks' => [
                 {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'mybibtable'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifset',
+                    'contents' => [
+                      {
+                        'text' => '@clear mybibtable
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'bib-example.texi',
+                      'line_nr' => 26,
+                      'macro' => 'mybibuselist'
+                    }
+                  },
+                  'sourcemark_type' => 'ignored_conditional_block'
+                },
+                {
                   'counter' => 2,
                   'element' => {
                     'args' => [
@@ -3921,6 +3961,47 @@ $result_trees{'bib_example'} = {
                   'position' => 33,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'mybibrefnode'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifclear',
+                    'contents' => [
+                      {
+                        'text' => '@mybibmakeref{mybibsetrefnode was not used, LaTeX2e}
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'bib-example.texi',
+                      'line_nr' => 43,
+                      'macro' => 'mybibcite'
+                    }
+                  },
+                  'position' => 33,
+                  'sourcemark_type' => 'ignored_conditional_block'
                 }
               ],
               'text' => 'bibliography, a feature of LaTeX '
@@ -4277,6 +4358,61 @@ $result_trees{'bib_example'} = {
                       'position' => 1,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
+                    },
+                    {
+                      'counter' => 4,
+                      'element' => {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'mybiblist'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
+                          }
+                        ],
+                        'cmdname' => 'ifclear',
+                        'contents' => [
+                          {
+                            'source_marks' => [
+                              {
+                                'counter' => 3,
+                                'element' => {
+                                  'cmdname' => 'ifclear',
+                                  'contents' => [
+                                    {
+                                      'text' => '@set mybiblist true
+',
+                                      'type' => 'raw'
+                                    }
+                                  ]
+                                },
+                                'sourcemark_type' => 'ignored_conditional_block'
+                              }
+                            ],
+                            'text' => ''
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'bib-example.texi',
+                          'line_nr' => 51,
+                          'macro' => 'mybibitem'
+                        }
+                      },
+                      'position' => 1,
+                      'sourcemark_type' => 'ignored_conditional_block'
                     }
                   ],
                   'text' => '
@@ -4340,6 +4476,46 @@ $result_trees{'bib_example'} = {
                         ]
                       },
                       'source_marks' => [
+                        {
+                          'counter' => 5,
+                          'element' => {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'mybibtable'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'block_line_arg'
+                              }
+                            ],
+                            'cmdname' => 'ifset',
+                            'contents' => [
+                              {
+                                'text' => '@item @anchor{LaTeX2e}[LaTeX2e]
+',
+                                'type' => 'raw'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'source_info' => {
+                              'file_name' => 'bib-example.texi',
+                              'line_nr' => 51,
+                              'macro' => 'mybibitem'
+                            }
+                          },
+                          'sourcemark_type' => 'ignored_conditional_block'
+                        },
                         {
                           'counter' => 8,
                           'sourcemark_type' => 'macro_expansion',

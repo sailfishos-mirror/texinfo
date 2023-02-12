@@ -541,6 +541,74 @@ $result_trees{'raiselowersections'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'do-top'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifclear',
+                'contents' => [
+                  {
+                    'text' => '@node Top
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@top
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@menu
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '* Chapter in included file::
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@end menu
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => 'section_file.texi',
+                  'line_nr' => 3,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1002,12 +1070,126 @@ $result_trees{'raiselowersections'} = {
       'cmdname' => 'subsection',
       'contents' => [
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'subsub'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifset',
+                'contents' => [
+                  {
+                    'text' => '@menu
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '* Subsubsection::
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@end menu
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@node Subsubsection
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@subsubsection Subsubsection
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => 'section_file.texi',
+                  'line_nr' => 29,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'source_marks' => [
+            {
+              'counter' => 3,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'do-top'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifclear',
+                'contents' => [
+                  {
+                    'text' => '@contents
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@bye
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => 'section_file.texi',
+                  'line_nr' => 38,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            },
             {
               'counter' => 1,
               'position' => 1,

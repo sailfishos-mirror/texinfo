@@ -323,7 +323,94 @@ $result_trees{'complex_float'} = {
                   ' makeinfo --docbook segfaults
 '
                 ]
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'texi2html'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifset',
+                    'contents' => [
+                      {
+                        'text' => 'An example.
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@example 
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => 'example
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@end example
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => 'A multitable.
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@multitable {truc} {bidule}
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@item truc @tab bidule
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@item truc @tab bidule
+',
+                        'type' => 'raw'
+                      },
+                      {
+                        'text' => '@end multitable
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 16,
+                      'macro' => ''
+                    }
+                  },
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ]
             },
             {
               'text' => '

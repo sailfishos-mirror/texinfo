@@ -4931,7 +4931,6 @@ sub _process_remaining_on_line($$$$)
         and $line =~ /^\s*\@$current->{'cmdname'}/) {
       push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
                                         'parent' => $current,
-                                        'contents' => [],
                                       };
       $current = $current->{'contents'}->[-1];
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
@@ -4951,13 +4950,13 @@ sub _process_remaining_on_line($$$$)
       # Remove an ignored block @if*
       my $conditional = _pop_element_from_contents($self, $current);
       delete $conditional->{'parent'};
-      #my $source_mark = {'sourcemark_type' => 'ignored_block',
-      #                   'element' => $conditional};
-      #_register_source_mark($self, $current, $source_mark);
+      my $source_mark = {'sourcemark_type' => 'ignored_conditional_block',
+                         'element' => $conditional};
+      _register_source_mark($self, $current, $source_mark);
       if (!defined($conditional->{'cmdname'}
           or $conditional->{'cmdname'} ne $end_command)) {
         $self->_bug_message(
-                "Ignored command is not the conditional $end_command",
+                "command mismatch for ignored block $end_command",
                              $source_info, $conditional);
         die;
       }
@@ -5963,7 +5962,7 @@ sub _process_remaining_on_line($$$$)
         } else {
           $block = { 'cmdname' => $command,
                      'parent' => $current,
-                     'contents' => [] };
+                   };
           push @{$current->{'contents'}}, $block;
         }
         $current = $current->{'contents'}->[-1];

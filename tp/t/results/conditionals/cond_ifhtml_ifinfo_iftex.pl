@@ -127,6 +127,39 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifnothtml',
+                'contents' => [
+                  {
+                    'text' => 'This is ifnothtml text.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'source_info' => {
+                  'file_name' => 'cond.texi',
+                  'line_nr' => 13,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -221,6 +254,39 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifnotinfo',
+                'contents' => [
+                  {
+                    'text' => 'This is ifnotinfo text.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'source_info' => {
+                  'file_name' => 'cond.texi',
+                  'line_nr' => 25,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -312,6 +378,39 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
           'type' => 'paragraph'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'element' => {
+                'args' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifnottex',
+                'contents' => [
+                  {
+                    'text' => 'This is ifnottex text.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'source_info' => {
+                  'file_name' => 'cond.texi',
+                  'line_nr' => 38,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

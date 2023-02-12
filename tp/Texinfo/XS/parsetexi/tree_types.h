@@ -48,7 +48,8 @@ enum source_mark_type { SM_type_none,
                         SM_type_delcomment,
                         SM_type_defline_continuation,
                         SM_type_macro_expansion,
-                        SM_type_value_expansion
+                        SM_type_value_expansion,
+                        SM_type_ignored_conditional_block
 };
 
 enum source_mark_status {

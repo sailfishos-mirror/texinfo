@@ -668,7 +668,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   macro_source_mark = new_source_mark (SM_type_macro_expansion);
   macro_source_mark->status = SM_status_start;
   macro_source_mark->element = arguments_container;
-  register_source_mark(current, macro_source_mark);
+  register_source_mark (current, macro_source_mark);
 
   macro_expansion_nr++;
 

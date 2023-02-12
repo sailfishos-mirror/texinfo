@@ -104,6 +104,39 @@ $result_trees{'cond'} = {
               }
             },
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifhtml',
+                    'contents' => [
+                      {
+                        'text' => 'This is ifhtml text.
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 9,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => '
 ',
               'type' => 'empty_line'
@@ -201,6 +234,39 @@ $result_trees{'cond'} = {
           'type' => 'empty_line'
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 2,
+              'element' => {
+                'args' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifinfo',
+                'contents' => [
+                  {
+                    'text' => 'This is ifinfo text.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'source_info' => {
+                  'file_name' => 'cond.texi',
+                  'line_nr' => 21,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -286,6 +352,39 @@ $result_trees{'cond'} = {
           }
         },
         {
+          'source_marks' => [
+            {
+              'counter' => 3,
+              'element' => {
+                'args' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'iftex',
+                'contents' => [
+                  {
+                    'text' => 'This is iftex text.
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'source_info' => {
+                  'file_name' => 'cond.texi',
+                  'line_nr' => 34,
+                  'macro' => ''
+                }
+              },
+              'position' => 1,
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
           'text' => '
 ',
           'type' => 'empty_line'

@@ -74,7 +74,69 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                   ' @node Top is ignored in TeX and LaTeX, so switch here
 '
                 ]
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'iftex',
+                    'contents' => [
+                      {
+                        'text' => '@documentlanguage ja
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 5,
+                      'macro' => ''
+                    }
+                  },
+                  'sourcemark_type' => 'ignored_conditional_block'
+                },
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'iflatex',
+                    'contents' => [
+                      {
+                        'text' => '@documentlanguage ja
+',
+                        'type' => 'raw'
+                      }
+                    ],
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 8,
+                      'macro' => ''
+                    }
+                  },
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ]
             },
             {
               'text' => '

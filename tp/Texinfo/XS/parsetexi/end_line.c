@@ -1611,7 +1611,7 @@ end_line_misc_line (ELEMENT *current)
                   else
                     {
                       included_file = 1;
-                      include_source_mark = new_source_mark(SM_type_include);
+                      include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
                     }
@@ -2013,14 +2013,14 @@ end_line_misc_line (ELEMENT *current)
           if (included_file)
             source_mark = include_source_mark;
           else
-            source_mark = new_source_mark(SM_type_setfilename);
+            source_mark = new_source_mark (SM_type_setfilename);
 
           /* this is in order to keep source marks that are within a
             removed element.  For the XS parser it is also easier to
             manage the source mark memory which can stay associated
             to the element. */
           source_mark->element = pop_element_from_contents (current);
-          register_source_mark(current, source_mark);
+          register_source_mark (current, source_mark);
         }
       if (close_preformatted_command (cmd))
         current = begin_preformatted (current);

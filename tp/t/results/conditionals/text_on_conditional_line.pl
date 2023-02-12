@@ -8,6 +8,53 @@ use utf8;
 $result_trees{'text_on_conditional_line'} = {
   'contents' => [
     {
+      'contents' => [
+        {
+          'source_marks' => [
+            {
+              'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'text following ifnothtml,'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'cmdname' => 'ifnothtml',
+                'contents' => [
+                  {
+                    'text' => 'a
+',
+                    'type' => 'raw'
+                  }
+                ],
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'source_info' => {
+                  'file_name' => '',
+                  'line_nr' => 1,
+                  'macro' => ''
+                }
+              },
+              'sourcemark_type' => 'ignored_conditional_block'
+            }
+          ],
+          'text' => ''
+        }
+      ],
       'type' => 'before_node_section'
     }
   ],
