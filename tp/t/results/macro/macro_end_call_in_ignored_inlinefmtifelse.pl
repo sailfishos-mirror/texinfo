@@ -106,11 +106,13 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
+                          'position' => 7,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => ' before comma',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -158,7 +160,7 @@ $result_texis{'macro_end_call_in_ignored_inlinefmtifelse'} = '@macro inlinefirst
 Toto @inlinefmtifelse{tex, before
 @end macro
 
-Toto @inlinefmtifelse{tex,, finish} done.
+Toto @inlinefmtifelse{tex, before comma, finish} done.
 ';
 
 

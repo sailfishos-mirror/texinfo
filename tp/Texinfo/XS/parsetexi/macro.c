@@ -425,7 +425,7 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
       bs = strchrnul (ptext, '\\');
       text_append_n (expanded, ptext, bs - ptext);
       if (!*bs)
-        break; /* End of line. */
+        break; /* End of body. */
 
       ptext = bs + 1;
       if (*ptext == '\\')
@@ -438,7 +438,8 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
           bs = strchr (ptext, '\\');
           if (!bs)
             {
-              /* malformed input - unpaired backslash */
+              /* unpaired backslash */
+              text_append (expanded, ptext);
               return;
             }
 

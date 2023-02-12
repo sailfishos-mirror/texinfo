@@ -91,6 +91,12 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' ifset first ',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -169,6 +175,12 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' ifclear second ',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -263,11 +275,11 @@ $result_texis{'inlineifsetifclearspaces'} = '@inlineifclear
 { aaa , iclear first }.
 
 @inlineifset
-{ aaa ,}.
+{ aaa , ifset first }.
 
 @set aaa
 
-@inlineifclear { aaa ,}.
+@inlineifclear { aaa , ifclear second }.
 
 @inlineifset { aaa , ifset second }.
 ';
@@ -332,11 +344,11 @@ $result_converted{'html_text'}->{'inlineifsetifclearspaces'} = '<p>iclear first 
 
 $result_converted{'xml'}->{'inlineifsetifclearspaces'} = '<para><inlineifclear spacesaftercmd="\\n"><inlineifclearformat spaces=" ">aaa </inlineifclearformat><inlineifclearcontent spaces=" ">iclear first </inlineifclearcontent></inlineifclear>.
 </para>
-<para><inlineifset spacesaftercmd="\\n"><inlineifsetformat spaces=" ">aaa </inlineifsetformat></inlineifset>.
+<para><inlineifset spacesaftercmd="\\n"><inlineifsetformat spaces=" ">aaa </inlineifsetformat><inlineifsetcontent> ifset first </inlineifsetcontent></inlineifset>.
 </para>
 <set name="aaa" line=" aaa"></set>
 
-<para><inlineifclear spacesaftercmd=" "><inlineifclearformat spaces=" ">aaa </inlineifclearformat></inlineifclear>.
+<para><inlineifclear spacesaftercmd=" "><inlineifclearformat spaces=" ">aaa </inlineifclearformat><inlineifclearcontent> ifclear second </inlineifclearcontent></inlineifclear>.
 </para>
 <para><inlineifset spacesaftercmd=" "><inlineifsetformat spaces=" ">aaa </inlineifsetformat><inlineifsetcontent spaces=" ">ifset second </inlineifsetcontent></inlineifset>.
 </para>';

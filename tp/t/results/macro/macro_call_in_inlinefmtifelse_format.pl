@@ -101,6 +101,12 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' before',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 },
                 {
@@ -154,7 +160,7 @@ $result_texis{'macro_call_in_inlinefmtifelse_format'} = '@macro inlinefirstarg
 ex, before, after
 @end macro
 
-Toto @inlinefmtifelse{tex,, after} done.
+Toto @inlinefmtifelse{tex, before, after} done.
 ';
 
 

@@ -2653,7 +2653,7 @@ sub _expand_macro_body($$$$) {
 
   my $result = '';
   while ($macrobody ne '') {
-    if ($macrobody =~ s/^([^\\]*)\\//o) {
+    if ($macrobody =~ s/^([^\\]*)\\//) {
       $result .= $1;
       if ($macrobody =~ s/^\\//) {
         $result .= '\\';
@@ -2672,12 +2672,16 @@ sub _expand_macro_body($$$$) {
              $macro->{'element'}->{'args'}->[0]->{'text'}, $arg), $source_info);
           $result .= '\\' . $arg;
         }
+      } else {
+        # unpaired backslash
+        last;
       }
-      next;
+    } else {
+      # End of body.
+      last;
     }
-    $result .= $macrobody;
-    last;
   }
+  $result .= $macrobody;
   return $result;
 }
 
@@ -6463,33 +6467,43 @@ sub _process_remaining_on_line($$$$)
           if (!$expandp and $current->{'cmdname'} eq 'inlinefmtifelse') {
             $current->{'extra'}->{'expand_index'} = 2;
 
-            # Add a dummy argument for the first argument.
-            push @{$current->{'args'}}, {'type' => 'elided_brace_command_arg',
-                                         'parent' => $current,};
+            my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
+                                  'contents' => [],
+                                  'parent' => $current,};
+            push @{$current->{'args'}}, $elided_arg_elt;
+            my $raw = {'type' => 'raw', 'text' => ''};
+            push @{$elided_arg_elt->{'contents'}}, $raw;
+
             # Scan forward to get the next argument.
             my $brace_count = 1;
             while ($brace_count > 0) {
               # Forward to next comma or brace
-              if ($line =~ s/[^{,}]*([,{}])//) {
-                if ($1 eq ',' and $brace_count == 1) {
-                  last;
-                } elsif ($1 eq '{') {
+              if ($line =~ s/([^{,}]*)([,{}])//) {
+                $raw->{'text'} .= $1;
+                my $delimiter = $2;
+                if ($delimiter eq ',') {
+                  if ($brace_count == 1) {
+                    last;
+                  }
+                  $raw->{'text'} .= $delimiter;
+                } elsif ($delimiter eq '{') {
                   $brace_count++;
-                } elsif ($1 eq '}') {
+                  $raw->{'text'} .= $delimiter;
+                } elsif ($delimiter eq '}') {
                   $brace_count--;
+                  $raw->{'text'} .= $delimiter if ($brace_count);
                 }
               } else {
-                my $new_text;
-                ($new_text, $source_info)
+                $raw->{'text'} .= $line;
+                ($line, $source_info)
                 # there is a test a situation with macro call closing in ignored
                 # @inlinefmtifelse first arg:
                 # t/*macro.t macro_end_call_in_ignored_inlinefmtifelse.
-                   = _next_text($self, $current->{'args'}->[-1]);
-                if (not defined($new_text)) {
+                   = _next_text($self, $elided_arg_elt);
+                if (not defined($line)) {
                   $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                   goto funexit;
                 }
-                $line .= $new_text;
               }
             }
             if ($brace_count == 0) {
@@ -6508,30 +6522,38 @@ sub _process_remaining_on_line($$$$)
         # If this command is not being expanded, add a dummy argument,
         # and scan forward to the closing brace.
         if (!$expandp) {
-          push @{$current->{'args'}}, {'type' => 'elided_brace_command_arg',
-                                       'parent' => $current,};
+          my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
+                                'contents' => [],
+                                'parent' => $current,};
+          push @{$current->{'args'}}, $elided_arg_elt;
+          my $raw = {'type' => 'raw', 'text' => ''};
+          push @{$elided_arg_elt->{'contents'}}, $raw;
+
           my $brace_count = 1;
           while ($brace_count > 0) {
-            if ($line =~ s/[^{}]*([{}])//) {
-              if ($1 eq '{') {
+            if ($line =~ s/([^{}]*)([{}])//) {
+              $raw->{'text'} .= $1;
+              my $delimiter = $2;
+              if ($delimiter eq '{') {
                 $brace_count++;
+                $raw->{'text'} .= $delimiter;
               } else {
                 $brace_count--;
+                $raw->{'text'} .= $delimiter if ($brace_count);
               }
             } else {
-              my $new_text;
+              $raw->{'text'} .= $line;
               # test for a situation with macro call end in ignored
               # @inline* last arg are in
               # t/*macro.t macro_end_call_in_ignored_inlinefmt
               # t/*macro.t macro_end_call_in_ignored_inlineraw
               # t/*macro.t macro_end_call_in_ignored_inlinefmtifelse_else
-              ($new_text, $source_info)
-                 = _next_text($self, $current->{'args'}->[-1]);
-              if (not defined($new_text)) {
+              ($line, $source_info)
+                 = _next_text($self, $elided_arg_elt);
+              if (not defined($line)) {
                 $retval = $GET_A_NEW_LINE; # error - unbalanced brace
                 goto funexit;
               }
-              $line .= $new_text;
             }
           }
           $current->{'remaining_args'}--;

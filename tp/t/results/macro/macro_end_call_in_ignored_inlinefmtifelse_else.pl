@@ -119,11 +119,13 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
+                          'position' => 8,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => ' ignored after',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -158,12 +160,12 @@ $result_texis{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '@macro endcal
 own, ignored
 @end macro
 
-Toto @inlinefmtifelse{html, before shown,} done.
+Toto @inlinefmtifelse{html, before shown, ignored after} done.
 ';
 
 
 $result_texts{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '
-Toto  done.
+Toto  ignored after done.
 ';
 
 $result_errors{'macro_end_call_in_ignored_inlinefmtifelse_else'} = [];

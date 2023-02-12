@@ -106,11 +106,14 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
+                          'position' => 13,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => ' in@something
+still ignored',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -144,7 +147,8 @@ $result_texis{'macro_end_call_in_ignored_inlineraw'} = '@macro startraw
 Para @inlineraw{tex, in\\@something
 @end macro
 
-Para @inlineraw{tex,}. After.
+Para @inlineraw{tex, in@something
+still ignored}. After.
 ';
 
 

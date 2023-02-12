@@ -22,6 +22,12 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' @footnote{See.}',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 },
                 {
@@ -78,7 +84,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'inlinefmtifelse_nesting'} = '@inlinefmtifelse{info,, @emph{text}}
+$result_texis{'inlinefmtifelse_nesting'} = '@inlinefmtifelse{info, @footnote{See.}, @emph{text}}
 ';
 
 

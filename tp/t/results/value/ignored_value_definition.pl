@@ -50,6 +50,14 @@ $result_trees{'ignored_value_definition'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => '
+@set aa in inlinefmt tex
+',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -118,7 +126,9 @@ $result_trees{'ignored_value_definition'} = {
 
 $result_texis{'ignored_value_definition'} = '@set aa outside
 
-@inlinefmt{tex,}
+@inlinefmt{tex,
+@set aa in inlinefmt tex
+}
 
 outside.
 ';

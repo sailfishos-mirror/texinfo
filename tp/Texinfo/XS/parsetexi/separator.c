@@ -598,18 +598,24 @@ handle_comma (ELEMENT *current, char **line_inout)
           if (!expandp && current->cmd == CM_inlinefmtifelse)
             {
               ELEMENT *e;
+              ELEMENT *arg;
               int brace_count = 1;
 
               add_extra_integer (current, "expand_index", 2);
 
-              /* Add a dummy argument for the first argument. */
               e = new_element (ET_elided_brace_command_arg);
               add_to_element_args (current, e);
+              arg = new_element (ET_raw);
+              text_append (&arg->text, "");
+              add_to_element_contents (e, arg);
 
               /* Scan forward to get the next argument. */
               while (brace_count > 0)
                 {
-                  line += strcspn (line, "{},");
+                  size_t non_separator_len = strcspn (line, "{},");
+                  if (non_separator_len > 0)
+                    text_append_n (&arg->text, line, non_separator_len);
+                  line += non_separator_len;
                   switch (*line)
                     {
                     case ',':
@@ -618,14 +624,19 @@ handle_comma (ELEMENT *current, char **line_inout)
                           line++;
                           goto inlinefmtifelse_done;
                         }
+                      text_append_n (&arg->text, line, 1);
                       break;
                     case '{':
                       brace_count++;
+                      text_append_n (&arg->text, line, 1);
                       break;
                     case '}':
                       brace_count--;
+                      if (brace_count > 0)
+                        text_append_n (&arg->text, line, 1);
                       break;
                     default:
+                      text_append (&arg->text, line);
                       line = next_text (e);
                       if (!line)
                         goto funexit;
@@ -657,21 +668,34 @@ handle_comma (ELEMENT *current, char **line_inout)
         {
           static char *alloc_line;
           ELEMENT *e;
+          ELEMENT *arg;
           int brace_count = 1;
+
           e = new_element (ET_elided_brace_command_arg);
           add_to_element_args (current, e);
+          arg = new_element (ET_raw);
+          text_append (&arg->text, "");
+          add_to_element_contents (e, arg);
+
           while (brace_count > 0)
             {
-              line += strcspn (line, "{}");
+              size_t non_separator_len = strcspn (line, "{}");
+              if (non_separator_len > 0)
+                text_append_n (&arg->text, line, non_separator_len);
+              line += non_separator_len;
               switch (*line)
                 {
                 case '{':
                   brace_count++;
+                  text_append_n (&arg->text, line, 1);
                   break;
                 case '}':
                   brace_count--;
+                  if (brace_count > 0)
+                    text_append_n (&arg->text, line, 1);
                   break;
                 default:
+                  text_append (&arg->text, line);
                   free (alloc_line);
                   alloc_line = next_text (e);
                   if (!alloc_line)

@@ -89,6 +89,17 @@ $result_trees{'ignored_macro_definition'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => '
+@unmacro mymacro
+@macro mymacro{}
+in inlinefmt tex
+@end macro
+',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -157,7 +168,12 @@ outside
 @end macro
 
 
-@inlinefmt{tex,}
+@inlinefmt{tex,
+@unmacro mymacro
+@macro mymacro{}
+in inlinefmt tex
+@end macro
+}
 
 outside.
 ';

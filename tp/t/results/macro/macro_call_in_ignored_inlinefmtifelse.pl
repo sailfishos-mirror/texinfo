@@ -87,6 +87,12 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' here @commafmt{} finish',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 },
                 {
@@ -122,7 +128,7 @@ $result_texis{'macro_call_in_ignored_inlinefmtifelse'} = '@macro commafmt
 before comma, after
 @end macro
 
-Toto @inlinefmtifelse{tex,,} done.
+Toto @inlinefmtifelse{tex, here @commafmt{} finish,} done.
 ';
 
 

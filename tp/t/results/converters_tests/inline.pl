@@ -183,6 +183,12 @@ $result_trees{'inline'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' $\\underline{a < b @code{tex \\hbox{ code }}}$ ``',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -496,6 +502,12 @@ $result_trees{'inline'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
+                  'contents' => [
+                    {
+                      'text' => ' raw $\\underline{a < b @code{tex \\hbox{ code }}}$ ``',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_brace_command_arg'
                 }
               ],
@@ -627,7 +639,7 @@ $result_texis{'inline'} = '
 @inlinefmt{plaintext, plaintext ``}, 
 @inlinefmt{xml, <para>xml</para> ``},
 @inlinefmt{docbook, <emphasis>docbook</emphasis> ``}, 
-@inlinefmt{tex,}
+@inlinefmt{tex, $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
 @inlinefmt{latex, @math{\\frac{a < b @code{tex \\hbox{ code }}}{b}} ``}
 
 
@@ -635,7 +647,7 @@ $result_texis{'inline'} = '
 @inlineraw{plaintext, raw plaintext ``}, 
 @inlineraw{xml, raw <para>xml</para> ``},
 @inlineraw{docbook, raw <emphasis>docbook</emphasis> ``}, 
-@inlineraw{tex,}
+@inlineraw{tex, raw $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
 @inlineraw{latex, raw $\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``}
 ';
 
@@ -693,7 +705,7 @@ $result_converted{'xml'}->{'inline'} = '
 <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo;</inlinefmtcontent></inlinefmt>, 
 &lt;para&gt;xml&lt;/para&gt; &textldquo;,
 <inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent spaces=" ">&lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
-<inlinefmt><inlinefmtformat>tex</inlinefmtformat></inlinefmt>
+<inlinefmt><inlinefmtformat>tex</inlinefmtformat><inlinefmtcontent> $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinefmtcontent></inlinefmt>
 <inlinefmt><inlinefmtformat>latex</inlinefmtformat><inlinefmtcontent spaces=" "><math>\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}</math> &textldquo;</inlinefmtcontent></inlinefmt>
 </para>
 
@@ -701,7 +713,7 @@ $result_converted{'xml'}->{'inline'} = '
 <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent spaces=" ">raw plaintext &textldquo;</inlinerawcontent></inlineraw>, 
 raw <para>xml</para> ``,
 <inlineraw><inlinerawformat>docbook</inlinerawformat><inlinerawcontent spaces=" ">raw &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinerawcontent></inlineraw>, 
-<inlineraw><inlinerawformat>tex</inlinerawformat></inlineraw>
+<inlineraw><inlinerawformat>tex</inlinerawformat><inlinerawcontent> raw $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinerawcontent></inlineraw>
 <inlineraw><inlinerawformat>latex</inlinerawformat><inlinerawcontent spaces=" ">raw $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;</inlinerawcontent></inlineraw>
 </para>';
 

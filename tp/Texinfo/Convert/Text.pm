@@ -371,7 +371,7 @@ sub convert_to_text($;$)
   if (defined($options)) {
     bless $options;
     if ($options->{'code'}) {
-      $options->{'_code_options'} = 1;
+      $options->{'_code_state'} = 1;
     }
   }
   return _convert($root, $options);
@@ -385,6 +385,12 @@ sub _convert($;$)
   my $options = shift;
 
   $options = {} if (!defined($options));
+
+  #print STDERR "E: c: ".(defined($options->{'_code_state'})
+  #                         ? $options->{'_code_state'} : 'UNDEF')
+  #   ." r: ".(defined($options->{'_raw_state'})
+  #                         ? $options->{'_raw_state'} : 'UNDEF')
+  #   .", ".Texinfo::Common::debug_print_element_short($element, 1)."\n";
 
   if (!defined($element)) {
     confess("Texinfo::Convert::Text::_convert: element undef");
@@ -429,11 +435,11 @@ sub _convert($;$)
       $result = $element->{'text'};
       if ((! defined($element->{'type'})
            or $element->{'type'} ne 'raw')
-           and !$options->{'raw'}) {
+           and !$options->{'_raw_state'}) {
         if ($options->{'sc'}) {
           $result = uc($result);
         }
-        if (!$options->{'_code_options'}) {
+        if (!$options->{'_code_state'}) {
           $result =~ s/``/"/g;
           $result =~ s/\'\'/"/g;
           $result =~ s/---/\x{1F}/g;
@@ -470,14 +476,14 @@ sub _convert($;$)
                                         $options->{'sc'});
       return $result;
     } elsif ($element->{'cmdname'} eq 'image') {
-      $options->{_code_options}++;
+      $options->{'_code_state'}++;
       my $text = _convert($element->{'args'}->[0], $options);
-      $options->{_code_options}--;
+      $options->{'_code_state'}--;
       return $text;
     } elsif ($element->{'cmdname'} eq 'email') {
-      $options->{_code_options}++;
+      $options->{'_code_state'}++;
       my $mail = _convert($element->{'args'}->[0], $options);
-      $options->{_code_options}--;
+      $options->{'_code_state'}--;
       my $text;
       $text = _convert($element->{'args'}->[1], $options)
          if (defined($element->{'args'}->[1]));
@@ -491,9 +497,9 @@ sub _convert($;$)
       my $text;
       $text = _convert($element->{'args'}->[1], $options)
         if (defined($element->{'args'}->[1]));
-      $options->{_code_options}++;
+      $options->{'_code_state'}++;
       my $url = _convert($element->{'args'}->[0], $options);
-      $options->{_code_options}--;
+      $options->{'_code_state'}--;
       if (defined($text) and $text ne '') {
         return "$url ($text)";
       } else {
@@ -509,7 +515,9 @@ sub _convert($;$)
       }
     } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
              and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
-      $options->{'raw'} = 1 if ($element->{'cmdname'} eq 'inlineraw');
+      if ($element->{'cmdname'} eq 'inlineraw') {
+        $options->{'_raw_state'}++;
+      }
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
@@ -517,11 +525,14 @@ sub _convert($;$)
                or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
+      my $result = '';
       if (scalar(@{$element->{'args'}}) > $arg_index) {
-        return _convert($element->{'args'}->[$arg_index], $options);
-      } else {
-        return '';
+        $result = _convert($element->{'args'}->[$arg_index], $options);
       }
+      if ($element->{'cmdname'} eq 'inlineraw') {
+        $options->{'_raw_state'}--;
+      }
+      return $result;
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
                 and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
@@ -534,9 +545,9 @@ sub _convert($;$)
                or $Texinfo::Commands::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
       }
-      $options->{_code_options}++ if ($in_code);
+      $options->{'_code_state'}++ if ($in_code);
       $result = _convert($element->{'args'}->[0], $options);
-      $options->{_code_options}-- if ($in_code);
+      $options->{'_code_state'}-- if ($in_code);
       $options->{'sc'}-- if ($element->{'cmdname'} eq 'sc');
       return $result;
     # block commands
@@ -555,9 +566,6 @@ sub _convert($;$)
         chomp ($result);
         $result .= "\n" if ($result =~ /\S/);
       }
-    } elsif ($options->{'expanded_formats_hash'}
-             and $options->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
-      $options->{'raw'} = 1;
     } elsif ($formatted_line_commands{$element->{'cmdname'}}
              and $element->{'args'}) {
       if ($element->{'cmdname'} ne 'node') {
@@ -622,13 +630,14 @@ sub _convert($;$)
         push @contents, @$arguments;
       }
       push @contents, {'text' => "\n"};
-      $options->{_code_options}++;
+      $options->{'_code_state'}++;
       $result = _convert({'contents' => \@contents}, $options);
-      $options->{_code_options}--;
+      $options->{'_code_state'}--;
     }
   }
   if ($element->{'contents'}) {
     my $in_code;
+    my $in_raw;
     if (($element->{'cmdname'}
          and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
               or $Texinfo::Commands::math_commands{$element->{'cmdname'}}
@@ -636,15 +645,22 @@ sub _convert($;$)
                   and $Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'raw')))
          or ($element->{'type'} and $element->{'type'} eq 'menu_entry_node')) {
       $in_code = 1;
+    } elsif ($element->{'cmdname'}
+             and $Texinfo::Commands::block_commands{$element->{'cmdname'}}
+             and $Texinfo::Commands::block_commands{
+                                       $element->{'cmdname'}} eq 'format_raw') {
+      $in_raw = 1;
     }
     if (ref($element->{'contents'}) ne 'ARRAY') {
       cluck "contents not an array($element->{'contents'}).";
     }
-    $options->{_code_options}++ if ($in_code);
+    $options->{'_code_state'}++ if ($in_code);
+    $options->{'_raw_state'}++ if ($in_raw);
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _convert($content, $options);
     }
-    $options->{_code_options}-- if ($in_code);
+    $options->{'_raw_state'}-- if ($in_raw);
+    $options->{'_code_state'}-- if ($in_code);
   }
   if ($element->{'type'} and $element->{'type'} eq 'bracketed'
       and (!$element->{'parent'}->{'type'} or
@@ -974,7 +990,7 @@ L<Texinfo::Report> objet.  See also L<Texinfo::Convert::Converter>.
 =item expanded_formats_hash
 
 A reference on a hash.  The keys should be format names (like C<html>,
-C<tex>), and if the corresponding  value is set, the format is expanded.
+C<tex>), and if the corresponding value is set, the format is expanded.
 
 =back
 

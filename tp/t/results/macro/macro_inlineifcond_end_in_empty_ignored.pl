@@ -105,7 +105,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => '',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -172,7 +173,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => ' ',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -207,7 +209,7 @@ ag,
 @end macro
 Toto @inlineifset{flag,}. After.
 
-Again with space @inlineifset{flag,}. After.
+Again with space @inlineifset{flag, }. After.
 ';
 
 

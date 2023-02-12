@@ -106,11 +106,14 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
                       'source_marks' => [
                         {
                           'counter' => 1,
+                          'position' => 4,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => ''
+                      'text' => ' inT
+still ignored',
+                      'type' => 'raw'
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
@@ -144,7 +147,8 @@ $result_texis{'macro_end_call_in_ignored_inlinefmt'} = '@macro startfmt
 Para @inlinefmt{tex, inT
 @end macro
 
-Para @inlinefmt{tex,}. After.
+Para @inlinefmt{tex, inT
+still ignored}. After.
 ';
 
 
