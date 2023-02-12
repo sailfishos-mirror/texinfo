@@ -96,6 +96,14 @@ expand \arg\
 
 @macro11 some thing @macro1{}
 '],
+['unpaired_backslash_in_macro_body',
+'@macro mymacro {arg}
+In macro \not arg
+not paired
+@end macro
+
+@mymacro{}
+'],
 ['bad_formal_arg',
 '
 @macro bad  { , not_empty}
@@ -527,7 +535,7 @@ still ignored}. After.
 '],
 ['macro_end_call_in_ignored_inlineraw',
 '@macro startraw
-Para @inlineraw{tex, in\@something
+Para @inlineraw{tex, in@something
 @end macro
 
 @startraw{}

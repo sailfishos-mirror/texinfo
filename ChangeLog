@@ -1,5 +1,10 @@
 2023-02-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/60macro.t: add unpaired_backslash_in_macro_body
+	test. Remove backslash in macro_end_call_in_ignored_inlineraw.
+
+2023-02-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm: rename _code_options as _code_state and
 	raw as _raw_state.
 

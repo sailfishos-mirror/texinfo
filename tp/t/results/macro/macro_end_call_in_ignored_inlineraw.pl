@@ -19,7 +19,7 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'text' => 'Para @inlineraw{tex, in\\@something
+              'text' => 'Para @inlineraw{tex, in@something
 ',
               'type' => 'raw'
             },
@@ -144,7 +144,7 @@ still ignored',
 };
 
 $result_texis{'macro_end_call_in_ignored_inlineraw'} = '@macro startraw
-Para @inlineraw{tex, in\\@something
+Para @inlineraw{tex, in@something
 @end macro
 
 Para @inlineraw{tex, in@something
