@@ -1570,6 +1570,14 @@ sub string_width($)
 {
   my $string = shift;
 
+  # Optimise for the common case where we can just return the length
+  # of the string.  These regexes are faster than making the substitutions
+  # below.
+  if ($string =~ /^[\p{IsPrint}\p{IsSpace}]*$/
+      and $string !~ /[\p{InFullwidth}\pM]/) {
+    return length($string);
+  }
+
   $string =~ s/\p{InFullwidth}/\x{02}/g;
   $string =~ s/\pM/\x{00}/g;
   $string =~ s/\p{IsPrint}/\x{01}/g;
