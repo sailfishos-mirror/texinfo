@@ -163,8 +163,8 @@ $result_texis{'inlinefmtspaces'} = 'A @inlinefmt { plaintext , plaintext `` @lbr
 ';
 
 
-$result_texts{'inlinefmtspaces'} = 'A  a.  Now html
-.
+$result_texts{'inlinefmtspaces'} = 'A plaintext " {  a.  Now html
+in <i>HTML</i>.
 ';
 
 $result_errors{'inlinefmtspaces'} = [];

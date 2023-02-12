@@ -1879,6 +1879,7 @@ g.
 
 in verbatim @g 
 
+in tex
 
 in example
 

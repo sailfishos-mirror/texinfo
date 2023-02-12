@@ -1572,12 +1572,14 @@ $result_texts{'simple_menu'} = '
 
 * (ggg):: description
 idescr
+in html
 AAA
 
 CCC
 
 iaa
 
+in html title
 
 BBB
 
@@ -1592,12 +1594,14 @@ in description
 
 * (detailggg):: detaildescription
 idetaildescr
+detailin detailhtml
 detailAAA
 
 detailCCC
 
 detailiaa
 
+detailin html detailtitle
 
 detailBBB
 

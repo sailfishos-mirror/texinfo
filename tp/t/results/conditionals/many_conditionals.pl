@@ -226,7 +226,8 @@ This is ifnottex text.
 ';
 
 
-$result_texts{'many_conditionals'} = '
+$result_texts{'many_conditionals'} = 'This is html text.
+
 This is ifhtml text.
 
 

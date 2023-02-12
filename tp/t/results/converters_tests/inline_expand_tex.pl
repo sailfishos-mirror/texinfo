@@ -547,7 +547,7 @@ $result_texts{'inline_expand_tex'} = '
 , 
 ,
 , 
-$ "
+$\\underlinea < b tex \\hbox code $ "
 
 
 
@@ -555,7 +555,7 @@ $ "
 , 
 ,
 , 
-
+raw $\\underline{a < b tex \\hbox{ code }}$ ``
 
 ';
 

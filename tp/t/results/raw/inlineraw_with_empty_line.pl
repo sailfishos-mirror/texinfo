@@ -163,8 +163,12 @@ $result_texis{'inlineraw_with_empty_line'} = 'A @inlineraw{plaintext, plaintext 
 ';
 
 
-$result_texts{'inlineraw_with_empty_line'} = 'A  a.  Now html
-.
+$result_texts{'inlineraw_with_empty_line'} = 'A plaintext ``
+
+{  a.  Now html
+in 
+
+<i>HTML</i>.
 ';
 
 $result_errors{'inlineraw_with_empty_line'} = [];

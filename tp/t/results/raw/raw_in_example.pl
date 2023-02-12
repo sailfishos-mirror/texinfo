@@ -414,8 +414,19 @@ $$
 ';
 
 
-$result_texts{'raw_in_example'} = '
+$result_texts{'raw_in_example'} = 'in html
 
+
+
+Some html <code>some code</code>.
+
+
+
+$$ 
+\\chi^2 = \\sum_{i=1}^N
+\\left(y_i - (a + b x_i)
+\\over \\sigma_i\\right)^2 
+$$
 
 
 

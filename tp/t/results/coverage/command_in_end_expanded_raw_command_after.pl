@@ -102,7 +102,8 @@ In TeX
 ';
 
 
-$result_texts{'command_in_end_expanded_raw_command_after'} = '';
+$result_texts{'command_in_end_expanded_raw_command_after'} = 'In TeX
+';
 
 $result_errors{'command_in_end_expanded_raw_command_after'} = [
   {

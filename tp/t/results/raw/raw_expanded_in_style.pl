@@ -110,6 +110,7 @@ in html
 
 
 $result_texts{'raw_expanded_in_style'} = '
+in html
 ';
 
 $result_errors{'raw_expanded_in_style'} = [];

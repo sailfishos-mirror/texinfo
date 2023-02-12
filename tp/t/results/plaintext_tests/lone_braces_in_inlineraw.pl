@@ -74,7 +74,7 @@ $result_texis{'lone_braces_in_inlineraw'} = '@inlineraw{plaintext, {truc}}.
 ';
 
 
-$result_texts{'lone_braces_in_inlineraw'} = '.
+$result_texts{'lone_braces_in_inlineraw'} = '{truc}.
 ';
 
 $result_errors{'lone_braces_in_inlineraw'} = [];

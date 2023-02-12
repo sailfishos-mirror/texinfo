@@ -252,6 +252,7 @@ in verbatim
 
 
 $result_texts{'spurious_arg_on_line'} = '
+in tex
 
 in verbatim
 

@@ -966,6 +966,7 @@ $result_texts{'at_commands_in_raw'} = 'top
 1 Chapter
 *********
 
+<b>in b.</b>
 in kbd before tex.
 
 

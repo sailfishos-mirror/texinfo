@@ -464,10 +464,15 @@ $\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
 
 
 $result_texts{'raw_block_commands_expand_tex'} = '
+<blink>html</blink> ``}
 
+<para>xml</para> ``}
 
+<emphasis>docbook</emphasis> ``}
 
+$\\underline{a < b tex \\hbox{ code }}$ ``
 
+$\\frac{a < b tex \\hbox{ code }}{b}$ ``
 ';
 
 $result_errors{'raw_block_commands_expand_tex'} = [];

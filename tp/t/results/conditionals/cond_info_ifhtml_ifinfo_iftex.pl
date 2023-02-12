@@ -381,6 +381,7 @@ This is iftex text.
 
 
 $result_texts{'cond_info_ifhtml_ifinfo_iftex'} = '
+This is html text.
 
 This is ifhtml text.
 
@@ -393,6 +394,7 @@ This is ifinfo text.
 
 
 
+This is tex text.
 
 This is iftex text.
 

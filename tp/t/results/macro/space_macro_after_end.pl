@@ -169,6 +169,7 @@ in html
 
 
 $result_texts{'space_macro_after_end'} = '
+in html
 ';
 
 $result_errors{'space_macro_after_end'} = [];

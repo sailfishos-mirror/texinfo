@@ -269,11 +269,14 @@ in <i>@acronym{HTML}</i>}.
 ';
 
 
-$result_texts{'inline_in_example'} = 'A  a.
-.
+$result_texts{'inline_in_example'} = 'A plaintext 
+
+`` {  a.
+`` .
 
   Now html
-.
+
+in <i>HTML</i>.
 ';
 
 $result_errors{'inline_in_example'} = [];

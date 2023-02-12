@@ -767,6 +767,8 @@ item
 some @ verb{x atim
 * texinfo:: in @ verbatim
 * (manual2):: %
+
+<i></i>
 Log$
 * (truc):: description
 * acronym::

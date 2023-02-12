@@ -374,6 +374,7 @@ This is ifnottex text.
 
 
 $result_texts{'cond_ifhtml_ifinfo'} = '
+This is html text.
 
 This is ifhtml text.
 

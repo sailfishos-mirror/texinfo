@@ -283,7 +283,9 @@ $result_texts{'inlineraw_in_menu_description'} = 'top
 ***
 
 * (manual)::
+in inline raw
 
+end inlineraw
 
 ';
 

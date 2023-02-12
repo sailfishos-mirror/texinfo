@@ -144,8 +144,8 @@ $result_texis{'inlineraw'} = 'A @inlineraw{plaintext, plaintext `` @lbracechar{}
 ';
 
 
-$result_texts{'inlineraw'} = 'A  a.  Now html
-.
+$result_texts{'inlineraw'} = 'A plaintext `` {  a.  Now html
+in <i>HTML</i>.
 ';
 
 $result_errors{'inlineraw'} = [];

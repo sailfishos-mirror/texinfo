@@ -165,8 +165,10 @@ Para
 ';
 
 
-$result_texts{'raw'} = '
+$result_texts{'raw'} = 'in <tex>
+
 Para
+<in />
 ';
 
 $result_errors{'raw'} = [];

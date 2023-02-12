@@ -653,20 +653,20 @@ $result_texis{'inline'} = '
 
 
 $result_texts{'inline'} = '
-, 
-, 
-,
-, 
+<blink>html</blink> ", 
+plaintext ", 
+<para>xml</para> ",
+<emphasis>docbook</emphasis> ", 
+
+\\frac{a < b tex \\hbox{ code }}{b} "
 
 
+raw <blink>html</blink> ``, 
+raw plaintext ``, 
+raw <para>xml</para> ``,
+raw <emphasis>docbook</emphasis> ``, 
 
-
-, 
-, 
-,
-, 
-
-
+raw $\\frac{a < b tex \\hbox{ code }}{b}$ ``
 ';
 
 $result_errors{'inline'} = [];

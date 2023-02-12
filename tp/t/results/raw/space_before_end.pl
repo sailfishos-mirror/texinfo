@@ -225,7 +225,8 @@ in verbatim
 ';
 
 
-$result_texts{'space_before_end'} = '
+$result_texts{'space_before_end'} = 'in tex
+    
 in verbatim
     
 ';

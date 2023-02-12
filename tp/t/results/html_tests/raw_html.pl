@@ -84,7 +84,8 @@ $result_texis{'raw_html'} = '@html
 ';
 
 
-$result_texts{'raw_html'} = '';
+$result_texts{'raw_html'} = '<i>
+';
 
 $result_errors{'raw_html'} = [];
 

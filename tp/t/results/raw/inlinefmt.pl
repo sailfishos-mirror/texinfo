@@ -144,8 +144,8 @@ $result_texis{'inlinefmt'} = 'A @inlinefmt{plaintext, plaintext `` @lbracechar{}
 ';
 
 
-$result_texts{'inlinefmt'} = 'A  a.  Now html
-.
+$result_texts{'inlinefmt'} = 'A plaintext " {  a.  Now html
+in <i>HTML</i>.
 ';
 
 $result_errors{'inlinefmt'} = [];

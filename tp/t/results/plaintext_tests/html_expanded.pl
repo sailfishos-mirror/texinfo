@@ -100,6 +100,7 @@ after.
 
 
 $result_texts{'html_expanded'} = 'Before
+html
 after.
 ';
 

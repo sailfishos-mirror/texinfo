@@ -163,8 +163,8 @@ $result_texis{'inlinerawspaces'} = 'A @inlineraw{ plaintext , plaintext `` @lbra
 ';
 
 
-$result_texts{'inlinerawspaces'} = 'A  a.  Now html
-.
+$result_texts{'inlinerawspaces'} = 'A plaintext `` {  a.  Now html
+in <i>HTML</i>.
 ';
 
 $result_errors{'inlinerawspaces'} = [];

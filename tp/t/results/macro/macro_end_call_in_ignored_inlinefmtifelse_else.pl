@@ -165,7 +165,7 @@ Toto @inlinefmtifelse{html, before shown, ignored after} done.
 
 
 $result_texts{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '
-Toto  ignored after done.
+Toto before shown done.
 ';
 
 $result_errors{'macro_end_call_in_ignored_inlinefmtifelse_else'} = [];

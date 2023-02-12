@@ -640,6 +640,9 @@ table item
 Text.
 
 
+<b> in html </b>
+
+
 ';
 
 $result_sectioning{'block_commands_in_menu_description'} = {

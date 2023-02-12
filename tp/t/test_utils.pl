@@ -1176,8 +1176,19 @@ sub test($$)
     }
   }
 
+  # use the parser expanded formats to be similar to the main program,
+  # and also to avoid having @inline* and raw output format @-commands
+  # with elided contents especially parsed because they are ignored
+  # and appearing as raw content in the tree in the output.
+  my %expanded_formats_hash;
+  if ($parser_options->{'EXPANDED_FORMATS'}) {
+    foreach my $expanded_format (@{$parser_options->{'EXPANDED_FORMATS'}}) {
+      $expanded_formats_hash{$expanded_format} = 1;
+    }
+  }
   my $converted_text
-      = Texinfo::Convert::Text::convert_to_text($tree, {'TEST' => 1});
+      = Texinfo::Convert::Text::convert_to_text($tree, {'TEST' => 1,
+                          'expanded_formats_hash' => \%expanded_formats_hash});
 
   my %converted;
   my %converted_errors;

@@ -229,8 +229,10 @@ Para
 ';
 
 
-$result_texts{'raw_and_comments'} = '
+$result_texts{'raw_and_comments'} = 'in <tex>
+
 Para
+<in />
 ';
 
 $result_errors{'raw_and_comments'} = [];

@@ -1645,7 +1645,9 @@ Copying
 ';
 
 
-$result_texts{'symbol_after_block'} = '
+$result_texts{'symbol_after_block'} = 'In html
+
+In html
 
 Verbatim:
 

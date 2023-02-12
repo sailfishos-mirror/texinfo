@@ -155,7 +155,9 @@ $result_texis{'lone_braces_in_html'} = '@html
 ';
 
 
-$result_texts{'lone_braces_in_html'} = '
+$result_texts{'lone_braces_in_html'} = '}
+
+{
 ';
 
 $result_errors{'lone_braces_in_html'} = [];

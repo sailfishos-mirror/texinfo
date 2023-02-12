@@ -288,9 +288,13 @@ $result_texts{'raw_in_para'} = 'para
 in verbatim
 
 para b html
+in html
 in para
 
 para b tex
+in tex1
+
+in tex2
 
 End.
 ';

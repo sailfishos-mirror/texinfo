@@ -1465,26 +1465,39 @@ in block
 
 
 $result_texts{'raw_commands_and_end_of_lines'} = '
+Surrounded by empty lines.
 
 Block commands on a line
+in block
+in block l2
 end commands on a line.
 
-Before the opening command end commands on a line.
+Before the opening command in block
+end commands on a line.
 
-Before the opening command 
-Before the opening command . A symbol on a line.
+Before the opening command in block
 
-Before the opening command 
+Before the opening command in block
+. A symbol on a line.
+
+Before the opening command in block
+
+Surrounded by empty lines.
 
 Block commands on a line
+in block
 end commands on a line.
 
-Before the opening command end commands on a line.
+Before the opening command in block
+end commands on a line.
 
-Before the opening command 
-Before the opening command . A symbol on a line.
+Before the opening command in block
 
-Before the opening command 
+Before the opening command in block
+. A symbol on a line.
+
+Before the opening command in block
+
 Surrounded by empty lines.
 
 Block commands on a line

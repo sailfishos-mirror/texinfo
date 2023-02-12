@@ -63,7 +63,9 @@ This is some \\LaTeX{}
 ';
 
 
-$result_texts{'tex_not_closed'} = '';
+$result_texts{'tex_not_closed'} = '
+This is some \\LaTeX{}
+';
 
 $result_errors{'tex_not_closed'} = [
   {

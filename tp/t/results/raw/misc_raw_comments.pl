@@ -277,7 +277,7 @@ in verbatim2
 
 
 $result_texts{'misc_raw_comments'} = '
-
+in html 
 
 in verbatim @c in verbatim
 in verbatim2

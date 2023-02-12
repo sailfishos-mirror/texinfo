@@ -62,7 +62,10 @@ This is some html
 ';
 
 
-$result_texts{'raw_not_closed'} = '';
+$result_texts{'raw_not_closed'} = '
+This is some html
+<address> my address </address>
+';
 
 $result_errors{'raw_not_closed'} = [
   {
