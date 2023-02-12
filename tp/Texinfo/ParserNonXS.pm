@@ -2075,6 +2075,18 @@ sub _pop_block_command_contexts($$$;$)
   }
 }
 
+sub _close_ignored_block_conditional($$)
+{
+  my $self = shift;
+  my $parent = shift;
+
+  my $conditional = _pop_element_from_contents($self, $parent);
+  delete $conditional->{'parent'};
+  my $source_mark = {'sourcemark_type' => 'ignored_conditional_block',
+                     'element' => $conditional};
+  _register_source_mark($self, $parent, $source_mark);
+}
+
 # close the current command, with error messages and give the parent.
 # If the last argument is given it is the command being closed if
 # hadn't there be an error, currently only block command, used for a
@@ -2085,35 +2097,36 @@ sub _close_current($$$;$$)
       $interrupting_command) = @_;
   # Element is a command
   if ($current->{'cmdname'}) {
-    print STDERR "CLOSING(close_current) \@$current->{'cmdname'}\n"
+    my $command = $current->{'cmdname'};
+    print STDERR "CLOSING(close_current) \@$command\n"
          if ($self->{'DEBUG'});
-    if (exists($self->{'brace_commands'}->{$current->{'cmdname'}})) {
+    if (exists($self->{'brace_commands'}->{$command})) {
       $current = _close_brace_command($self, $current, $source_info,
                                       $closed_block_command,
                                       $interrupting_command, 1);
-    } elsif (exists($block_commands{$current->{'cmdname'}})) {
+    } elsif (exists($block_commands{$command})) {
       if (defined($closed_block_command)) {
         $self->_line_error(sprintf(__("`\@end' expected `%s', but saw `%s'"),
-                                   $current->{'cmdname'}, $closed_block_command),
+                                   $command, $closed_block_command),
                            $source_info);
       } elsif ($interrupting_command) {
         $self->_line_error(sprintf(__("\@%s seen before \@end %s"),
-                                  $interrupting_command, $current->{'cmdname'}),
+                                  $interrupting_command, $command),
                            $source_info);
       } else {
         $self->_line_error(sprintf(__("no matching `%cend %s'"),
-                                   ord('@'), $current->{'cmdname'}),
+                                   ord('@'), $command),
                            $source_info);
-        if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
-          # In ignored conditional.
-          _pop_element_from_contents($self, $current->{'parent'});
-        }
       }
       _pop_block_command_contexts($self, $current, $source_info);
       # empty non-closed block commands at the end of the document
       delete $current->{'contents'}
         if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 0);
       $current = $current->{'parent'};
+      if ($block_commands{$command} eq 'conditional') {
+        # In ignored conditional.
+        _close_ignored_block_conditional($self, $current);
+      }
     } else {
       # There @item and @tab commands are closed, and also line commands
       # with invalid content.
@@ -2190,10 +2203,19 @@ sub _close_commands($$$;$$)
   my $closed_element;
   if ($closed_block_command and $current->{'cmdname'}
       and $current->{'cmdname'} eq $closed_block_command) {
+
     _pop_block_command_contexts($self, $current, $source_info,
                                 "for $closed_block_command");
     $closed_element = $current;
     $current = $current->{'parent'};
+
+    # TODO close here instead of in _process_remaining_on_line
+    # when the end conditional is treated like any other command
+    #if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
+    #  # In ignored conditional.
+    #  _close_ignored_block_conditional($self, $current);
+    #}
+
   } elsif ($closed_block_command) {
     $self->_line_error(sprintf(__("unmatched `%c%s'"),
                        ord('@'), "end $closed_block_command"), $source_info);
@@ -3633,6 +3655,9 @@ sub _end_line_misc_line($$$)
 
       $current = _begin_preformatted($self, $current)
         if ($close_preformatted_commands{$end_command});
+    } else {
+      # TODO add a source mark for the end of conditional
+      # case of a conditional not ignored
     }
   } else {
     # Ignore @setfilename in included file, as said in the manual.
@@ -4346,7 +4371,7 @@ sub _end_line($$$)
   # they are reprocessed here.
   my $top_context = $self->_top_context();
   if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
-    print STDERR "Still opened line command $top_context:"
+    print STDERR "Still opened line/block command $top_context:"
       ._print_current($current)
         if ($self->{'DEBUG'});
     if ($top_context eq 'ct_def') {
@@ -4934,9 +4959,19 @@ sub _process_remaining_on_line($$$$)
                                         'parent' => $current,
                                       };
       $current = $current->{'contents'}->[-1];
+      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
              and ($2 eq $current->{'cmdname'})) {
       my $end_command = $current->{'cmdname'};
+      #if ($line =~ s/^(\s+)//) {
+      #  push @{$current->{'contents'}},
+      #    { 'text' => $1,
+      #      'type' => 'raw', 'parent' => $current };
+      #  $self->_line_warn(sprintf(
+      #        __("\@end %s should only appear at the beginning of a line"),
+      #                           $current->{'cmdname'}), $source_info);
+      #}
+
       $line =~ s/^(\s*?)\@end\s+$end_command//;
       if ($1 ne '') {
         $self->_line_warn(sprintf(
@@ -4949,19 +4984,13 @@ sub _process_remaining_on_line($$$$)
         if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
       $current = $current->{'parent'};
       # Remove an ignored block @if*
-      my $conditional = _pop_element_from_contents($self, $current);
-      delete $conditional->{'parent'};
-      my $source_mark = {'sourcemark_type' => 'ignored_conditional_block',
-                         'element' => $conditional};
-      _register_source_mark($self, $current, $source_mark);
-      if (!defined($conditional->{'cmdname'}
-          or $conditional->{'cmdname'} ne $end_command)) {
-        $self->_bug_message(
-                "command mismatch for ignored block $end_command",
-                             $source_info, $conditional);
-        die;
-      }
+      _close_ignored_block_conditional($self, $current);
+
       print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
+      # see comment above for raw output formats
+      #push @{$current->{'contents'}}, { 'type' => 'empty_line',
+      #                                  'text' => '',
+      #                                  'parent' => $current };
       # Ignore until end of line
       # FIXME this is not the same as for other commands.  Change?
       # FIXME only done once, could be needed more time.  Add test for this
@@ -4970,9 +4999,11 @@ sub _process_remaining_on_line($$$$)
         ($line, $source_info) = _new_line($self, $current);
         print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
       }
+      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
     } else {
       push @{$current->{'contents'}}, { 'type' => 'raw', 'text' => $line,
                                         'parent' => $current, };
+      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
     }
     return ($current, $line, $source_info, $GET_A_NEW_LINE);
     # goto funexit;  # used in XS code

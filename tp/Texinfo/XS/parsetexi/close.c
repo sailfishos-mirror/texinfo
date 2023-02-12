@@ -349,6 +349,18 @@ pop_block_command_contexts (enum command_id cmd)
     }
 }
 
+void
+close_ignored_block_conditional (ELEMENT *current)
+{
+  SOURCE_MARK *source_mark
+    = new_source_mark (SM_type_ignored_conditional_block);
+  ELEMENT *conditional = pop_element_from_contents (current);
+
+  conditional->parent = 0;
+  source_mark->element = conditional;
+  register_source_mark (current, source_mark);
+}
+
 ELEMENT *
 close_current (ELEMENT *current,
                enum command_id closed_block_command,
@@ -357,7 +369,8 @@ close_current (ELEMENT *current,
   /* Element is a command */
   if (current->cmd)
     {
-      debug ("CLOSING (close_current) %s", command_name(current->cmd));
+      enum command_id cmd = current->cmd;
+      debug ("CLOSING (close_current) %s", command_name(cmd));
       if (command_flags(current) & CF_brace)
         {
           current = close_brace_command (current, closed_block_command,
@@ -365,37 +378,29 @@ close_current (ELEMENT *current,
         }
       else if (command_flags(current) & CF_block)
         {
-          enum command_id cmd = current->cmd;
-          ELEMENT *parent = 0;
           if (closed_block_command)
             {
               line_error ("`@end' expected `%s', but saw `%s'",
-                          command_name(current->cmd),
+                          command_name(cmd),
                           command_name(closed_block_command));
             }
           else if (interrupting_command)
             {
               line_error ("@%s seen before @end %s",
                           command_name(interrupting_command),
-                          command_name(current->cmd));
+                          command_name(cmd));
             }
           else
             {
               line_error ("no matching `@end %s'",
-                          command_name(current->cmd));
+                          command_name(cmd));
 
-              /* In ignored conditional. */
-              if (command_data(current->cmd).data == BLOCK_conditional)
-                {
-                  parent = current->parent;
-                  destroy_element_and_children (pop_element_from_contents
-                                                          (parent));
-                }
             }
           pop_block_command_contexts (cmd);
-          if (!parent)
-            parent = current->parent;
-          current = parent;
+          current = current->parent;
+          /* In ignored conditional. */
+          if (command_data(cmd).data == BLOCK_conditional)
+            close_ignored_block_conditional (current);
         }
       else
         {

@@ -20,6 +20,32 @@ $result_trees{'ignored_text'} = {
           ],
           'info' => {
             'spaces_after_argument' => {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifinfo',
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 1,
+                      'macro' => ''
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'ignored_conditional_block'
+                }
+              ],
               'text' => ' '
             }
           },

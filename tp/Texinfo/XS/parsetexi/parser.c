@@ -1449,13 +1449,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           current = current->parent;
 
           /* Remove an ignored block. */
-          popped = pop_element_from_contents (current);
-          if (popped->cmd != end_cmd)
-            fatal ("command mismatch for ignored block");
-          popped->parent = 0;
-          source_mark = new_source_mark (SM_type_ignored_conditional_block);
-          source_mark->element = popped;
-          register_source_mark (current, source_mark);
+          close_ignored_block_conditional (current);
 
           /* 'line' is now advanced past the "@end ...".  Check if
              there's anything after it. */

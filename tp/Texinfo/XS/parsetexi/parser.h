@@ -122,6 +122,7 @@ ELEMENT *close_brace_command (ELEMENT *current,
                               enum command_id closed_block_command,
                               enum command_id interrupting_command,
                               int missing_brace);
+void close_ignored_block_conditional (ELEMENT *current);
 
 /* In end_line.c */
 NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node);
