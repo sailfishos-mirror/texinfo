@@ -1,3 +1,8 @@
+2023-02-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line):
+	Avoid use of goto statements to reduce program run time.
+
 2022-12-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/session.c (info_beginning_of_line): Avoid freezing
