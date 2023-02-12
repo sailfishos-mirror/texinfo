@@ -5132,8 +5132,8 @@ sub _process_remaining_on_line($$$$)
           $current = _merge_text($self, $current, $added_space);
           _isolate_last_space($self, $current);
           $current = _end_line($self, $current, $source_info);
-          $retval = $GET_A_NEW_LINE;
-          goto funexit;
+          return ($current, $line, $source_info, $GET_A_NEW_LINE);
+          # goto funexit;  # used in XS code
         }
         $additional_newline = 1;
       }
@@ -6557,8 +6557,9 @@ sub _process_remaining_on_line($$$$)
               ($line, $source_info)
                  = _next_text($self, $elided_arg_elt);
               if (not defined($line)) {
-                $retval = $GET_A_NEW_LINE; # error - unbalanced brace
-                goto funexit;
+                # error - unbalanced brace
+                return ($current, $line, $source_info, $GET_A_NEW_LINE);
+                # goto funexit;  # used in XS code
               }
             }
           }
