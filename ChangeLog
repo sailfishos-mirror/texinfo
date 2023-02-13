@@ -1,4 +1,14 @@
-2023-02-12  Patrice Dumas  <pertusus@free.fr>
+2023-02-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_body): content in
+	argument may be missing for the last argument which removal is
+	attempted in expand_macro_arguments.  Gavin report.
+
+	* tp/Makefile.tres, tp/t/60macro.t: add macro_call_empty_two_arg
+	with diverse possibilities of spaces and empty args for a two
+	arguments macro call.
+
+2023-02-13  Patrice Dumas  <pertusus@free.fr>
 
 	Use pre-set keys for index sorting
 

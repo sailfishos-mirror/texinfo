@@ -364,9 +364,10 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
               else if (arg->end == 0)
                /* It is possible to remove the last argument if empty
                   since not being expanded is the same as being expanded
-                  as an empty string. */
+                  as an empty string.
+                  Note that if there are source marks or info, the argument
+                  may not have content anymore but still be there. */
                 remove_empty_arg (argument);
-
             }
           else
             {
@@ -458,9 +459,11 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
             {
               if (arguments && pos < arguments->args.number)
                 {
-                  text_append (expanded,
-                    last_contents_child (
-                       args_child_by_index (arguments, pos))->text.text);
+                  ELEMENT *argument = args_child_by_index (arguments, pos);
+                  if (argument->contents.number > 0)
+                    text_append (expanded,
+                      last_contents_child (
+                        args_child_by_index (arguments, pos))->text.text);
                 }
             }
           *bs = '\\';

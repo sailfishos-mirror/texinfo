@@ -240,6 +240,35 @@ third \cc\,
 
 @threea{o,,p}
 '],
+['macro_call_empty_two_arg',
+'@macro twoa {aa, bb}
+first \aa\,
+second \bb\,
+@end macro
+
+@twoa{}
+
+@twoa{ }
+
+@twoa{, }
+
+@twoa{ ,}
+
+@twoa{ , }
+
+@twoa{g, }
+
+@twoa{h,}
+
+@twoa{, i}
+
+@twoa{ , j}
+
+@twoa{,k}
+
+@twoa{ ,l}
+
+'],
 ['protect_in_body',
 '@macro macroone { arg1 , arg2 }
 result: @emph{\arg1\} protected \\\\ -> \\\\arg1\\\\ @emph{\arg2\}
