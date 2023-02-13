@@ -187,7 +187,8 @@ void
 relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
                        size_t begin_position, size_t end_position)
 {
-  int i, j;
+  int i = 0;
+  int j;
   int list_number = source_mark_list->number;
   int *indices_to_remove;
 
@@ -196,7 +197,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
   indices_to_remove = malloc (sizeof(int) * list_number);
   memset (indices_to_remove, 0, sizeof(int) * list_number);
 
-  for (i = 0; i < list_number; i++)
+  while (i < list_number)
     {
       SOURCE_MARK *source_mark
          = source_mark_list->list[i];
@@ -209,10 +210,13 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
             = source_mark->position - begin_position;
           add_source_mark (source_mark, new_e);
         }
-      else if (source_mark->position > end_position)
+      i++;
+      if (source_mark->position > end_position)
         break;
     }
-  for (j = i; j >= 0; j--)
+  /* i is past the last index with a potential source mark to remove
+     (to be ready for the next pass in the loop above).  So remove one */
+  for (j = i - 1; j >= 0; j--)
     {
       if (indices_to_remove[j] == 1)
         remove_from_source_mark_list (source_mark_list, j);
