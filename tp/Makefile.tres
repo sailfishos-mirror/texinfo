@@ -408,6 +408,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/empty_def_command.pl \
   t/results/def/empty_deftype.pl \
   t/results/def/empty_deftypeop_name.pl \
+  t/results/def/empty_main_def_arguments.pl \
   t/results/def/end_of_line_end_file.pl \
   t/results/def/end_of_line_protect_at_end.pl \
   t/results/def/end_of_lines_protected.pl \

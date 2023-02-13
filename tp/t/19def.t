@@ -531,6 +531,10 @@ deffn with @}
 @deffnx{} {}
 @end deffn
 '],
+['empty_main_def_arguments',
+'@deffn NNN
+@end deffn
+'],
 ['empty_deftypeop_name',
 '@deftypeop Command@code{com} {Window@code{int}} expose@var{exp}
 @end deftypeop
