@@ -1736,6 +1736,48 @@ sub new_complete_node_menu
   return $new_menu;
 }
 
+sub _sort_string($$)
+{
+  my $a = shift;
+  my $b = shift;
+  return (($a =~ /^[[:alpha:]]/ and $b =~ /^[[:alpha:]]/)
+              or ($a !~ /^[[:alpha:]]/ and $b !~ /^[[:alpha:]]/))
+                 ? ($a cmp $b)
+                 : (($a =~ /^[[:alpha:]]/ && 1) || -1);
+}
+
+sub _sort_index_entries($$)
+{
+  my $key1 = shift;
+  my $key2 = shift;
+
+  my $key_index = 0;
+  # the keys array corresponds to th emain entry and subentries
+  foreach my $key1_str (@{$key1->{'keys'}}) {
+    my $res = _sort_string($key1_str,
+                           $key2->{'keys'}->[$key_index]);
+    if ($res != 0) {
+      return $res;
+    }
+    $key_index ++;
+    if (scalar(@{$key2->{'keys'}}) <= $key_index) {
+      last;
+    }
+  }
+  my $res = (scalar(@{$key1->{'keys'}}) <=> scalar(@{$key2->{'keys'}}));
+  if ($res == 0) {
+    $res = ($key1->{'number'} <=> $key2->{'number'});
+  }
+  # This may happen if 2 indices are merged as the number is per
+  # index name.  The @-command should be different though, for
+  # index names to be different.
+  if ($res == 0) {
+    $res = ($key1->{'index_at_command'} cmp $key2->{'index_at_command'});
+  }
+  return $res;
+}
+
+# This is a duplicate of the functions above, for efficiency
 sub _collator_sort_string($$$)
 {
   my $a = shift;
@@ -1747,7 +1789,7 @@ sub _collator_sort_string($$$)
                  : (($a =~ /^[[:alpha:]]/ && 1) || -1);
 }
 
-sub _sort_index_entries($$$)
+sub _collator_sort_index_entries($$$)
 {
   my $key1 = shift;
   my $key2 = shift;
@@ -1756,8 +1798,8 @@ sub _sort_index_entries($$$)
   my $key_index = 0;
   # the keys array corresponds to th emain entry and subentries
   foreach my $key1_str (@{$key1->{'keys'}}) {
-    my $res = _collator_sort_string(uc($key1_str),
-                                    uc($key2->{'keys'}->[$key_index]),
+    my $res = _collator_sort_string($key1_str,
+                                    $key2->{'keys'}->[$key_index],
                                     $collator);
     if ($res != 0) {
       return $res;
@@ -1796,12 +1838,13 @@ sub setup_index_entry_keys_formatting($)
 }
 
 # can be used for subentries
-sub index_entry_sort_string($$$$)
+sub index_entry_sort_string($$$$;$)
 {
   my $main_entry = shift;
   my $entry_tree_element = shift;
   my $sortas = shift;
   my $options = shift;
+  my $collator = shift;
 
   my $convert_to_text_options = {%$options};
   $convert_to_text_options->{'code'} = $main_entry->{'in_code'};
@@ -1825,18 +1868,30 @@ sub index_entry_sort_string($$$$)
   # represented internally in UTF-8.  See "the Unicode bug" in the
   # "perlunicode" man page.
   utf8::upgrade($entry_key);
+  my $sort_entry_key;
+  if ($collator) {
+    $sort_entry_key = $collator->getSortKey(uc($entry_key));
+  } else {
+    $sort_entry_key = uc($entry_key);
+  }
 
-  return $entry_key;
+  return ($entry_key, $sort_entry_key);
 }
+
+# if true pre-set collating keys
+#my $default_preset_keys = 0;
+my $default_preset_keys = 1;
 
 # the structure returned depends on $SORT_BY_LETTER being set
 # or not.  It is described in the pod documentation.
-sub sort_indices($$$;$)
+sub sort_indices($$$;$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
   my $sort_by_letter = shift;
+  my $preset_keys = shift;
+  $preset_keys = $default_preset_keys if (!defined($preset_keys));
 
   my $options = setup_index_entry_keys_formatting($customization_information);
   # TODO Unicode::Collate has been in perl core long enough, but
@@ -1871,6 +1926,8 @@ sub sort_indices($$$;$)
   #my $collator = Unicode::Collate->new('variable' => 'Non-Ignorable',
   #                                     'UCA_Version' => 9,
   #                                     'table' => 'allkeys-3.1.1.txt');
+  my $entries_collator;
+  $entries_collator = $collator if $preset_keys;
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   return $sorted_index_entries, $index_entries_sort_strings
@@ -1882,10 +1939,12 @@ sub sort_indices($$$;$)
     # used if $sort_by_letter
     my $index_letter_hash = {};
     foreach my $entry (@{$index_entries->{$index_name}}) {
-      my $entry_key = index_entry_sort_string($entry,
+      my ($entry_key, $sort_entry_key)
+              = index_entry_sort_string($entry,
                               {'contents' => $entry->{'entry_content'}},
-                                           $entry->{'sortas'}, $options);
+                          $entry->{'sortas'}, $options, $entries_collator);
       my @entry_keys;
+      my @sort_entry_keys;
       my $letter = '';
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($customization_information,
@@ -1893,8 +1952,10 @@ sub sort_indices($$$;$)
                                  $entry->{'index_at_command'}),
                         $entry->{'entry_element'}->{'source_info'});
         push @entry_keys, '';
+        push @sort_entry_keys, '';
       } else {
         push @entry_keys, $entry_key;
+        push @sort_entry_keys, $sort_entry_key;
         if ($sort_by_letter) {
           # the following line leads to each accented letter being separate
           # $letter = uc(substr($entry_key, 0, 1));
@@ -1915,9 +1976,10 @@ sub sort_indices($$$;$)
       while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}) {
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
-        my $subentry_key = index_entry_sort_string($entry,
+        my ($subentry_key, $sort_subentry_key)
+              = index_entry_sort_string($entry,
                  {'contents' => $subentry->{'args'}->[0]->{'contents'}},
-                              $subentry->{'extra'}->{'sortas'}, $options);
+              $subentry->{'extra'}->{'sortas'}, $options, $entries_collator);
         if ($subentry_key !~ /\S/) {
           $registrar->line_warn($customization_information,
                      sprintf(__("empty index sub entry %d key in \@%s"),
@@ -1925,13 +1987,15 @@ sub sort_indices($$$;$)
                                  $entry->{'index_at_command'}),
                         $entry->{'entry_element'}->{'source_info'});
           push @entry_keys, '';
+          push @sort_entry_keys, '';
         } else {
           push @entry_keys, $subentry_key;
+          push @sort_entry_keys, $sort_subentry_key;
         }
       }
-      foreach my $sub_entry_key (@entry_keys) {
+      foreach my $sub_entry_key (@sort_entry_keys) {
         if ($sub_entry_key ne '') {
-          my $sortable_entry = {'entry' => $entry, 'keys' => \@entry_keys,
+          my $sortable_entry = {'entry' => $entry, 'keys' => \@sort_entry_keys,
              'number' => $entry->{'entry_number'},
              'index_at_command' => $entry->{'index_at_command'}};
           if ($sort_by_letter) {
@@ -1945,19 +2009,36 @@ sub sort_indices($$$;$)
       $index_entries_sort_strings->{$entry} = join(', ', @entry_keys);
     }
     if ($sort_by_letter) {
-      foreach my $letter (sort {_collator_sort_string($a, $b, $collator)}
-                                                 (keys %$index_letter_hash)) {
-        my @sorted_letter_entries
-           = map {$_->{'entry'}} sort {_sort_index_entries($a, $b, $collator)}
+      # need to use directly the collator here as there is no
+      # separate sort keys.
+      my @sorted_letters = sort {_collator_sort_string($a, $b, $collator)}
+                                               (keys %$index_letter_hash);
+      foreach my $letter (@sorted_letters) {
+        my @sorted_letter_entries;
+        if ($preset_keys) {
+          @sorted_letter_entries
+           = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
                                               @{$index_letter_hash->{$letter}};
+        } else {
+          @sorted_letter_entries
+           = map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
+                                              @{$index_letter_hash->{$letter}};
+        }
         push @{$sorted_index_entries->{$index_name}},
           { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
       }
     } else {
-      $sorted_index_entries->{$index_name} = [
-        map {$_->{'entry'}} sort {_sort_index_entries($a, $b, $collator)}
+      if ($preset_keys) {
+        $sorted_index_entries->{$index_name} = [
+          map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
                                                   @{$sortable_index_entries}
-      ];
+         ];
+      } else {
+        $sorted_index_entries->{$index_name} = [
+      map {$_->{'entry'}} sort {_collator_sort_index_entries($a, $b, $collator)}
+                                                  @{$sortable_index_entries}
+        ];
+      }
     }
   }
   return $sorted_index_entries, $index_entries_sort_strings;

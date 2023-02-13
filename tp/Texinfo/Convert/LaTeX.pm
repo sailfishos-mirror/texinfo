@@ -2437,7 +2437,6 @@ sub _index_entry($$)
     $self->{'formatting_context'}->[-1]->{'index'} = 1;
     my @result;
     foreach my $subentry_entry_and_sortas (@$subentries) {
-      my $sortas;
       my ($subentry, $subentry_sortas) = @$subentry_entry_and_sortas;
       if ($in_code) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
@@ -2447,7 +2446,8 @@ sub _index_entry($$)
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       # always setup a string to sort with as we may use commands
-      $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
+      my ($sortas, $sort_string)
+           = Texinfo::Structuring::index_entry_sort_string($entry,
                                $subentry, $subentry_sortas, $options);
       my $result = '';
       if (defined($sortas)) {
