@@ -240,8 +240,7 @@ After clickstyle &#8658;
 
 <!-- TeX does not like @displamath in @example, the error is -->
 <!--  Missing $ inserted. -->
-<!-- Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- This type of nesting may not be valid. -->
+<!-- Therefore, condition on validinexample. -->
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -1170,8 +1169,7 @@ After clickstyle &#8658;
 
 <!-- TeX does not like @displamath in @example, the error is -->
 <!--  Missing $ inserted. -->
-<!-- Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- This type of nesting may not be valid. -->
+<!-- Therefore, condition on validinexample. -->
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -2087,8 +2085,7 @@ After clickstyle &#8658;
 
 <!-- TeX does not like @displamath in @example, the error is -->
 <!--  Missing $ inserted. -->
-<!-- Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- This type of nesting may not be valid. -->
+<!-- Therefore, condition on validinexample. -->
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -3000,8 +2997,7 @@ After clickstyle &#8658;
 
 <!-- TeX does not like @displamath in @example, the error is -->
 <!--  Missing $ inserted. -->
-<!-- Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- This type of nesting may not be valid. -->
+<!-- Therefore, condition on validinexample. -->
 </screen><informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation><screen>
@@ -3037,25 +3033,25 @@ error&#8594; &#8614; &#8722; &#8867; &#8658;
 <userinput>default kbdinputstyle</userinput>
 <!-- when called in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen></screen><screen><userinput>in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
 <!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>code kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen></screen><screen><userinput>in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
 <!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>example kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen></screen><screen><userinput>in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
 <!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>distinct kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen></screen><screen><userinput>in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
 <!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
@@ -3688,6 +3684,7 @@ Various deff lines
 
 
 </screen>
+
 <indexterm role="cp"><primary>t&#8211;ruc</primary></indexterm>
 <indexterm role="cp"><primary>T&#8211;ruc</primary></indexterm>
 <indexterm role="cp"><primary>.</primary></indexterm>

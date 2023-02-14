@@ -6,7 +6,7 @@
 </preamblebeforebeginning><setfilename file="formatting.info" spaces=" ">formatting.info</setfilename>
 
 <!-- c valid Texinfo variable can be set to test only valid constructs. -->
-<!-- c in practice ie can be used to output with TeX -->
+<!-- c in practice it can be used to output with TeX -->
 <!-- c  texi2pdf -I layout/ -t '@set valid' layout/formatting.texi -->
 
 <dircategory spaces=" ">Formatting <accent type="acute" bracketed="off">e</accent> <code>&arobase; &tex;</code> test</dircategory>
@@ -239,11 +239,8 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
-@ifset inexample
-@ifclear valid
-@end ifset
+@c Therefore, condition on validinexample.
+@ifclear validinexample
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -287,24 +284,18 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 @displaymath
 @b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
-@ifset inexample
 @end ifclear
-@end ifset
 
 @c as documented, TeX does not like @vtable in @example
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
 @c when called in @example
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example default kbdinputstyle}
 @c no @vtable in @example
@@ -317,15 +308,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem code kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example code kbdinputstyle}
 @c no @vtable in @example
@@ -338,15 +325,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem example kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example example kbdinputstyle}
 @c no @vtable in @example
@@ -359,15 +342,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem distinct kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example distinct kbdinputstyle}
 @c no @vtable in @example
@@ -904,9 +883,7 @@ ref, a comma@comma{} in file}
 @c as documented The @table command is not supported inside @display
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @table @strong
 @c comment in table
 @item a--strong
@@ -939,9 +916,7 @@ Title
 @itemx a2--samp
 Value--table samp
 @end table
-@ifset inexample
 @end ifclear
-@end ifset
 
 @cartouche
 c--artouche
@@ -1451,8 +1426,7 @@ After clickstyle &result;
 
 <!-- c TeX does not like @displamath in @example, the error is -->
 <!-- c  Missing $ inserted. -->
-<!-- c Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- c This type of nesting may not be valid. -->
+<!-- c Therefore, condition on validinexample. -->
 <ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -2607,8 +2581,7 @@ After clickstyle &result;
 
 <!-- c TeX does not like @displamath in @example, the error is -->
 <!-- c  Missing $ inserted. -->
-<!-- c Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- c This type of nesting may not be valid. -->
+<!-- c Therefore, condition on validinexample. -->
 <ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -3793,8 +3766,7 @@ After clickstyle &result;
 
 <!-- c TeX does not like @displamath in @example, the error is -->
 <!-- c  Missing $ inserted. -->
-<!-- c Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- c This type of nesting may not be valid. -->
+<!-- c Therefore, condition on validinexample. -->
 <ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -4725,8 +4697,7 @@ in verbatim ''
 
 <para>In example.
 </para><example endspaces=" ">
-<pre xml:space="preserve"><set name="inexample" line=" inexample 1">1</set>
-
+<pre xml:space="preserve">
 &lt;
 &gt;
 &quot;
@@ -4944,8 +4915,7 @@ After clickstyle &result;
 
 <!-- c TeX does not like @displamath in @example, the error is -->
 <!-- c  Missing $ inserted. -->
-<!-- c Therefore, if inexample is set, condition on valid.  Not that -->
-<!-- c This type of nesting may not be valid. -->
+<!-- c Therefore, condition on validinexample. -->
 <ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -4997,7 +4967,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="73" mergedindex="cp">vtable i--tem default kbdinputstyle</indexterm>vtable i--tem default kbdinputstyle</itemformat></item>
 </tableterm></tableentry></vtable>
-<pre xml:space="preserve"></pre><example endspaces=" ">
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
 <!-- c no @vtable in @example -->
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
@@ -5010,7 +4980,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="75" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
 </tableterm></tableentry></vtable>
-<pre xml:space="preserve"></pre><example endspaces=" ">
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
 <!-- c no @vtable in @example -->
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
@@ -5023,7 +4993,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="77" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
 </tableterm></tableentry></vtable>
-<pre xml:space="preserve"></pre><example endspaces=" ">
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
 <!-- c no @vtable in @example -->
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
@@ -5036,7 +5006,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="79" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
 </tableterm></tableentry></vtable>
-<pre xml:space="preserve"></pre><example endspaces=" ">
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
 <!-- c no @vtable in @example -->
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
@@ -5873,8 +5843,9 @@ Various deff lines
 <code>&arobase;inforef&lbrace;&rbrace;</code> <inforef><inforefnodename></inforefnodename></inforef>
 
 
-<clear name="inexample" line=" inexample"></clear>
 </pre></example>
+
+<clear name="validinexample" line=" validinexample"></clear>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="29">t&textndash;ruc</indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="30">T&textndash;ruc</indexterm></cindex>

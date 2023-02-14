@@ -2,7 +2,7 @@
 @setfilename formatting.info
 
 @c valid Texinfo variable can be set to test only valid constructs.
-@c in practice ie can be used to output with TeX
+@c in practice it can be used to output with TeX
 @c  texi2pdf -I layout/ -t '@set valid' layout/formatting.texi
 
 @dircategory Formatting @'e @code{@@ @TeX{}} test
@@ -235,11 +235,8 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
-@ifset inexample
-@ifclear valid
-@end ifset
+@c Therefore, condition on validinexample.
+@ifclear validinexample
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -283,24 +280,18 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 @displaymath
 @b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
-@ifset inexample
 @end ifclear
-@end ifset
 
 @c as documented, TeX does not like @vtable in @example
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
 @c when called in @example
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example default kbdinputstyle}
 @c no @vtable in @example
@@ -313,15 +304,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem code kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example code kbdinputstyle}
 @c no @vtable in @example
@@ -334,15 +321,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem example kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example example kbdinputstyle}
 @c no @vtable in @example
@@ -355,15 +338,11 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @vtable @kbd
 @item vtable i--tem distinct kbdinputstyle
 @end vtable
-@ifset inexample
 @end ifclear
-@end ifset
 @example
 @kbd{in example distinct kbdinputstyle}
 @c no @vtable in @example
@@ -900,9 +879,7 @@ ref, a comma@comma{} in file}
 @c as documented The @table command is not supported inside @display
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
-@ifset inexample
-@ifclear valid
-@end ifset
+@ifclear validinexample
 @table @strong
 @c comment in table
 @item a--strong
@@ -935,9 +912,7 @@ Title
 @itemx a2--samp
 Value--table samp
 @end table
-@ifset inexample
 @end ifclear
-@end ifset
 
 @cartouche
 c--artouche
@@ -1448,8 +1423,7 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
+@c Therefore, condition on validinexample.
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -2612,8 +2586,7 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
+@c Therefore, condition on validinexample.
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -3805,8 +3778,7 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
+@c Therefore, condition on validinexample.
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -4744,7 +4716,6 @@ g--roupe
 
 In example.
 @example
-@set inexample 1
 
 <
 >
@@ -4964,9 +4935,7 @@ After clickstyle @result{}
 
 @c TeX does not like @displamath in @example, the error is
 @c  Missing $ inserted.
-@c Therefore, if inexample is set, condition on valid.  Not that
-@c This type of nesting may not be valid.
-@end ifset
+@c Therefore, condition on validinexample.
 @ignore
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
@@ -5010,18 +4979,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @displaymath
 @b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
-@end ifclear
 
 @c as documented, TeX does not like @vtable in @example
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
 @c when called in @example
-@end ifset
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
-@end ifclear
 @example
 @kbd{in example default kbdinputstyle}
 @c no @vtable in @example
@@ -5032,11 +4998,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
-@end ifset
 @vtable @kbd
 @item vtable i--tem code kbdinputstyle
 @end vtable
-@end ifclear
 @example
 @kbd{in example code kbdinputstyle}
 @c no @vtable in @example
@@ -5047,11 +5011,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
-@end ifset
 @vtable @kbd
 @item vtable i--tem example kbdinputstyle
 @end vtable
-@end ifclear
 @example
 @kbd{in example example kbdinputstyle}
 @c no @vtable in @example
@@ -5062,11 +5024,9 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
-@end ifset
 @vtable @kbd
 @item vtable i--tem distinct kbdinputstyle
 @end vtable
-@end ifclear
 @example
 @kbd{in example distinct kbdinputstyle}
 @c no @vtable in @example
@@ -5600,7 +5560,6 @@ ref, a comma@comma{} in file}
 @c as documented The @table command is not supported inside @display
 @c  This command won't work in this context; perhaps the 
 @c  problem is that we are in environment @example.
-@end ifset
 @table @strong
 @c comment in table
 @item a--strong
@@ -5633,7 +5592,6 @@ Title
 @itemx a2--samp
 Value--table samp
 @end table
-@end ifclear
 
 @cartouche
 c--artouche
@@ -5912,8 +5870,9 @@ g--roupe
 @code{@@inforef@{@}} @inforef{}
 
 
-@clear inexample
 @end example
+
+@clear validinexample
 
 @cindex t--ruc
 @cindex T--ruc

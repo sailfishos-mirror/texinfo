@@ -2,7 +2,7 @@
 @setfilename formatting.info
 
 @c valid Texinfo variable can be set to test only valid constructs.
-@c in practice ie can be used to output with TeX
+@c in practice it can be used to output with TeX
 @c  texi2pdf -I layout/ -t '@set valid' layout/formatting.texi
 
 @dircategory Formatting @'e @code{@@ @TeX{}} test
@@ -82,10 +82,13 @@ Normal text
 
 In example.
 @example
-@set inexample 1
+@ifset valid
+@set validinexample 1
+@end ifset
 @mymacro{}
-@clear inexample
 @end example
+
+@clear validinexample
 
 @cindex t--ruc
 @cindex T--ruc

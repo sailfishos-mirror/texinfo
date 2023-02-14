@@ -1,3 +1,11 @@
+2023-02-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/tests/coverage/formatting.texi,
+	tp/tests/coverage/res_parser/formatting_macro_expand/formatting.texi:
+	fix conditional processing meant to avoid Texinfo invalid for TeX,
+	with special cases in @example.  Use a conditional definition instead
+	of ifset and ifclear nesting, as now ifclear nests in ifset.
+
 2023-02-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/source_marks.c (relocate_source_marks):
