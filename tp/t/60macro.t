@@ -854,7 +854,39 @@ arg
 in ifset
 @endifset
 '],
-# unmacro is required for C makeinfo to avoid a warning.
+['macro_expansion_end_in_ignored_ifset_content',
+'@macro beginifsetcontent
+@ifset a
+going 
+@end macro
+
+@beginifsetcontent{} into the code
+@end ifset
+'],
+['macro_expansion_end_in_ignored_nested_conditional',
+'@macro beginnestedcond
+@ifset a
+@ifset b
+GG
+@end macro
+
+@beginnestedcond{}
+@end ifset
+@end ifset
+'],
+['macro_expansion_end_in_ignored_nested_different_conditional',
+'@macro beginnestedcond
+@ifset a
+@ifclear b
+GG
+@end macro
+
+@beginnestedcond{}
+@end ifset
+@end ifclear
+'],
+# the use of @unmacro dates from the time when macros needed
+# to be undefined before being redefined.  Left as test.
 # texi2dvi breaks.
 ['arg_body_expansion_order',
 '

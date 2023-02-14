@@ -506,6 +506,25 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 ',
 {'EXPANDED_FORMATS' => []}
 ],
+# same as above, show visually that the format being converted
+# text is the first argument and is raw text without @-command
+# expanded, while for the other formats the second argument is
+# used and the @-commands are expanded.
+['inlinefmtifelse_with_commands',
+'@inlinefmtifelse{html,if @code{html},else @code{html}}.
+
+@inlinefmtifelse{plaintext,if @emph{plaintext},else @emph{plaintext}}.
+
+@inlinefmtifelse{xml,if xml @env{empty} second arg, xml @env{else}}.
+
+@inlinefmtifelse{ docbook , if docbook @string{spaces} , else @strong{docbook spaces} }.
+
+@inlinefmtifelse{tex,if @var{tex},@var{else} tex}.
+
+@inlinefmtifelse{latex,if @sc{latex},@sc{else} latex}.
+',
+{'EXPANDED_FORMATS' => []}
+],
 # similar tests without leading/trailing spaces in t/*raw.t
 ['inlinefmtspaces',
 'A @inlinefmt { plaintext , plaintext `` @lbracechar{} } a.  Now html

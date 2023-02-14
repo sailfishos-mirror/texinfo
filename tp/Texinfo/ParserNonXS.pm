@@ -2211,6 +2211,11 @@ sub _close_commands($$$;$$)
 
     if ($block_commands{$closed_element->{'cmdname'}} eq 'conditional') {
       # In ignored conditional.
+      # NOTE since the source mark is registerd at command closing, in
+      # case of nested ignored conditionals, the inside conditional will
+      # be registered first.  It could probably possible to register
+      # the source mark at the opening instead, but it is unclear which is
+      # best.
       _close_ignored_block_conditional($self, $current);
     }
 
