@@ -1,5 +1,19 @@
 2023-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_end_line_starting_block, _parse_texi), tp/Texinfo/XS/parsetexi/api.c
+	(store_source_mark_list), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block, end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/parser.c (push_conditional_stack)
+	(pop_conditional_stack, top_conditional_stack),
+	tp/Texinfo/XS/parsetexi/parser.h (CONDITIONAL_STACK_ITEM),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
+	(source_marks_reset_counters): add source marks for expanded @if*
+	block conditionals, associated to the @if opening line and the @end
+	line.  Add the start source mark to the conditional stack.
+
+2023-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/60macro.t, tp/t/converters_tests.t: add
 	macro_expansion_end_in_ignored_ifset_content,
 	macro_expansion_end_in_ignored_nested_conditional,

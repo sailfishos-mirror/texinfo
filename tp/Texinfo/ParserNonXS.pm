@@ -3625,7 +3625,7 @@ sub _end_line_misc_line($$$)
     if ($block_commands{$end_command} ne 'conditional'
         or ($current->{'cmdname'} and $current->{'cmdname'} eq $end_command)
         or (not @{$self->{'conditional_stack'}}
-            or $self->{'conditional_stack'}->[-1] ne $end_command)) {
+            or $self->{'conditional_stack'}->[-1]->[0] ne $end_command)) {
       my $closed_command;
       ($closed_command, $current)
          = _close_commands($self, $current, $source_info, $end_command);
@@ -3653,10 +3653,20 @@ sub _end_line_misc_line($$$)
         if ($close_preformatted_commands{$end_command});
     } else {
       # case of a conditional not ignored
-      pop @{$self->{'conditional_stack'}};
-      print STDERR "POP COND $end_command\n"
+      my $cond_info = pop @{$self->{'conditional_stack'}};
+      my ($cond_command, $cond_source_mark) = @$cond_info;
+      print STDERR "POP END COND $end_command $cond_command "
+           ._debug_show_source_mark($cond_source_mark)." $cond_source_mark\n"
         if ($self->{'DEBUG'});
-      # TODO add a source mark for the end of conditional
+      my $end_source_mark = {'sourcemark_type' =>
+                                 $cond_source_mark->{'sourcemark_type'},
+                             'counter' =>
+                                 $cond_source_mark->{'counter'},
+      };
+      $end_source_mark->{'status'} = 'end';
+      delete $end->{'parent'};
+      $end_source_mark->{'element'} = $end;
+      _register_source_mark($self, $current, $end_source_mark);
     }
   } else {
     # Ignore @setfilename in included file, as said in the manual.
@@ -4158,7 +4168,15 @@ sub _end_line_starting_block($$$)
       $current = $current->{'parent'};
       my $conditional_command = _pop_element_from_contents($self, $current);
       die "BUG popping\n" if ($conditional_element ne $conditional_command);
-      push @{$self->{'conditional_stack'}}, $command;
+      delete $conditional_command->{'parent'};
+      my $source_mark = {'sourcemark_type' => 'expanded_conditional_command',
+                         'status' => 'start',
+                         'element' => $conditional_command};
+      _register_source_mark($self, $current, $source_mark);
+      print STDERR "PUSH BEGIN COND $command, "
+        ._debug_show_source_mark($source_mark)." $source_mark\n"
+          if ($self->{'DEBUG'});
+      push @{$self->{'conditional_stack'}}, [$command, $source_mark];
     }
   }
   if ($block_commands{$command} eq 'menu') {
@@ -6682,9 +6700,10 @@ sub _parse_texi($$$)
       my $source_info_text = '';
       $source_info_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
          if ($source_info);
+      my @cond_commands = map {$_->[0]} @{$self->{'conditional_stack'}};
       print STDERR "NEW LINE("
          .join('|', $self->_get_context_stack())
-         .":@{$self->{'conditional_stack'}}:$source_info_text): $line";
+         .":@cond_commands:$source_info_text): $line";
       #print STDERR "  $current: "
       #             .Texinfo::Common::debug_print_element_short($current)."\n";
     }
@@ -6749,8 +6768,9 @@ sub _parse_texi($$$)
   }
  finished_totally:
   while (@{$self->{'conditional_stack'}}) {
-    my $end_conditional = pop @{$self->{'conditional_stack'}};
-    $self->_line_error(sprintf(__("expected \@end %s"), $end_conditional),
+    my $cond_info = pop @{$self->{'conditional_stack'}};
+    my ($cond_command, $cond_source_mark) = @$cond_info;
+    $self->_line_error(sprintf(__("expected \@end %s"), $cond_command),
                       $source_info);
   }
   while (@{$self->{'raw_block_stack'}}) {

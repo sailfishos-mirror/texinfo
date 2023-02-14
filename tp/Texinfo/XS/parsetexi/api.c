@@ -580,6 +580,7 @@ store_source_mark_list (ELEMENT *e)
               SAVE_S_M_TYPE (macro_expansion)
               SAVE_S_M_TYPE (value_expansion)
               SAVE_S_M_TYPE (ignored_conditional_block)
+              SAVE_S_M_TYPE (expanded_conditional_command)
             }
 
           av_push (av, newRV_inc ((SV *)source_mark));

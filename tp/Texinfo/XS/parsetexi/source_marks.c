@@ -27,6 +27,7 @@ int defline_continuation_counter = 0;
 int macro_expansion_counter = 0;
 int value_expansion_counter = 0;
 int ignored_conditional_block_counter = 0;
+int expanded_conditional_command_counter = 0;
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -145,6 +146,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           ignored_conditional_block_counter++;
           source_mark->counter = ignored_conditional_block_counter;
         }
+      else if (source_mark->type == SM_type_expanded_conditional_command)
+        {
+          expanded_conditional_command_counter++;
+          source_mark->counter = expanded_conditional_command_counter;
+        }
     }
 
   place_source_mark (e, source_mark);
@@ -160,6 +166,7 @@ source_marks_reset_counters (void)
   macro_expansion_counter = 0;
   value_expansion_counter = 0;
   ignored_conditional_block_counter = 0;
+  expanded_conditional_command_counter = 0;
 }
 
 SOURCE_MARK *

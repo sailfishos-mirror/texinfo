@@ -155,11 +155,16 @@ ELEMENT *handle_separator (ELEMENT *current, char separator,
                            char **line_inout);
 
 /* In parser.c */
+typedef struct {
+    enum command_id command;
+    SOURCE_MARK *source_mark;
+} CONDITIONAL_STACK_ITEM;
+
 size_t count_convert_u8 (char *text);
 ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
-void push_conditional_stack (enum command_id cond);
-enum command_id pop_conditional_stack (void);
-enum command_id top_conditional_stack (void);
+void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
+CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
+CONDITIONAL_STACK_ITEM *top_conditional_stack (void);
 extern size_t conditional_number;
 ELEMENT *parse_texi_document (void);
 int abort_empty_line (ELEMENT **current_inout, char *additional);
@@ -195,7 +200,6 @@ int check_space_element (ELEMENT *e);
 #define GET_A_NEW_LINE 0
 #define STILL_MORE_TO_PROCESS 1
 #define FINISHED_TOTALLY 2
-
 
 extern const char *whitespace_chars, *whitespace_chars_except_newline;
 extern const char *digit_chars;

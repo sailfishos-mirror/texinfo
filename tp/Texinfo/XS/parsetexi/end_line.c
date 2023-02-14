@@ -1430,10 +1430,16 @@ end_line_starting_block (ELEMENT *current)
       debug ("CONDITIONAL %s %d", command_name(command), iftrue);
       if (iftrue)
         {
-          push_conditional_stack (command);
+          ELEMENT *e;
+          SOURCE_MARK *source_mark;
           current = current->parent;
-          /* TODO not destroy but source mark */
-          destroy_element_and_children (pop_element_from_contents (current));
+          e = pop_element_from_contents (current);
+          e->parent = 0;
+          source_mark = new_source_mark (SM_type_expanded_conditional_command);
+          source_mark->status = SM_status_start;
+          source_mark->element = e;
+          push_conditional_stack (command, source_mark);
+          register_source_mark (current, source_mark);
         }
     }
 
@@ -1949,7 +1955,7 @@ end_line_misc_line (ELEMENT *current)
           || current->cmd == end_id
           /* not a non-ignored conditional */
           || (conditional_number == 0
-              || top_conditional_stack () != end_id))
+              || top_conditional_stack ()->command != end_id))
         {
           ELEMENT *closed_command;
           /* This closes tree elements (e.g. paragraphs) until we reach
@@ -1984,8 +1990,15 @@ end_line_misc_line (ELEMENT *current)
              in the conditional stack.  Pop it, such that
              the "@end" line does not appear in the final tree for a
              conditional block. */
-          enum command_id popped = pop_conditional_stack ();
-          destroy_element_and_children (end_elt);
+          CONDITIONAL_STACK_ITEM *cond_info = pop_conditional_stack ();
+          SOURCE_MARK *end_source_mark;
+          SOURCE_MARK *cond_source_mark = cond_info->source_mark;
+          end_source_mark = new_source_mark (cond_source_mark->type);
+          end_source_mark->counter = cond_source_mark->counter;
+          end_source_mark->status = SM_status_end;
+          end_elt->parent = 0;
+          end_source_mark->element = end_elt;
+          register_source_mark (current, end_source_mark);
         }
     }
   else

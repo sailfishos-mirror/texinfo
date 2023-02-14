@@ -164,38 +164,40 @@ ELEMENT *current_part = 0;
 
 /* Conditional stack. */
 
-enum command_id *conditional_stack;
+CONDITIONAL_STACK_ITEM *conditional_stack;
 size_t conditional_number;
 size_t conditional_space;
 
 void
-push_conditional_stack (enum command_id cond)
+push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark)
 {
   if (conditional_number == conditional_space)
     {
       conditional_stack = realloc (conditional_stack,
                                    (conditional_space += 5)
-                                   * sizeof (enum command_id));
+                                   * sizeof (CONDITIONAL_STACK_ITEM));
       if (!conditional_stack)
         fatal ("realloc failed");
     }
-  conditional_stack[conditional_number++] = cond;
+  conditional_stack[conditional_number].command = cond;
+  conditional_stack[conditional_number].source_mark = source_mark;
+  conditional_number++;
 }
 
-enum command_id
+CONDITIONAL_STACK_ITEM *
 pop_conditional_stack (void)
 {
   if (conditional_number == 0)
-    return CM_NONE;
-  return conditional_stack[--conditional_number];
+    return 0;
+  return &(conditional_stack[--conditional_number]);
 }
 
-enum command_id
+CONDITIONAL_STACK_ITEM *
 top_conditional_stack (void)
 {
   if (conditional_number == 0)
-    return CM_NONE;
-  return conditional_stack[conditional_number - 1];
+    return 0;
+  return &(conditional_stack[conditional_number - 1]);
 }
 
 
@@ -2340,7 +2342,7 @@ finished_totally:
   while (conditional_number > 0)
     {
       line_error ("expected @end %s",
-                  command_name(conditional_stack[conditional_number - 1]));
+        command_name(conditional_stack[conditional_number - 1].command));
       conditional_number--;
     }
 

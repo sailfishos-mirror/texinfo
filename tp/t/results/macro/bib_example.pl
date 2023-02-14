@@ -4087,6 +4087,40 @@ $result_trees{'bib_example'} = {
               },
               'source_marks' => [
                 {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'mybibrefnode'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifset',
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'bib-example.texi',
+                      'line_nr' => 43,
+                      'macro' => 'mybibcite'
+                    }
+                  },
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'start'
+                },
+                {
                   'counter' => 5,
                   'element' => {
                     'args' => [
@@ -4301,6 +4335,44 @@ $result_trees{'bib_example'} = {
                   'counter' => 5,
                   'position' => 2,
                   'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'bib-example.texi',
+                      'line_nr' => 43,
+                      'macro' => 'mybibcite'
+                    }
+                  },
+                  'position' => 3,
+                  'sourcemark_type' => 'expanded_conditional_command',
                   'status' => 'end'
                 },
                 {
@@ -4541,6 +4613,41 @@ $result_trees{'bib_example'} = {
                       },
                       'position' => 1,
                       'sourcemark_type' => 'ignored_conditional_block'
+                    },
+                    {
+                      'counter' => 2,
+                      'element' => {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'mybiblist'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
+                          }
+                        ],
+                        'cmdname' => 'ifset',
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'bib-example.texi',
+                          'line_nr' => 51,
+                          'macro' => 'mybibitem'
+                        }
+                      },
+                      'position' => 1,
+                      'sourcemark_type' => 'expanded_conditional_command',
+                      'status' => 'start'
                     }
                   ],
                   'text' => '
@@ -4585,6 +4692,46 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'element' => {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'ifset'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              }
+                            ],
+                            'cmdname' => 'end',
+                            'extra' => {
+                              'text_arg' => 'ifset'
+                            },
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'source_info' => {
+                              'file_name' => 'bib-example.texi',
+                              'line_nr' => 51,
+                              'macro' => 'mybibitem'
+                            }
+                          },
+                          'position' => 10,
+                          'sourcemark_type' => 'expanded_conditional_command',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => '[LaTeX2e]
 '
                     },

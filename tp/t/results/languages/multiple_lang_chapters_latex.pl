@@ -137,6 +137,30 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                     }
                   },
                   'sourcemark_type' => 'ignored_conditional_block'
+                },
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'iflatex',
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 8,
+                      'macro' => ''
+                    }
+                  },
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'start'
                 }
               ]
             },
@@ -170,7 +194,46 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              }
+              },
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'iflatex'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'iflatex'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 10,
+                      'macro' => ''
+                    }
+                  },
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'end'
+                }
+              ]
             },
             {
               'text' => '

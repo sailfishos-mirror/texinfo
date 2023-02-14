@@ -586,6 +586,31 @@ $result_trees{'glossary'} = {
                   'position' => 4,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
+                },
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifhtml',
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 42,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 4,
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'start'
                 }
               ],
               'text' => 'The '
@@ -626,6 +651,44 @@ $result_trees{'glossary'} = {
             },
             {
               'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifhtml'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifhtml'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 42,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'end'
+                },
                 {
                   'counter' => 1,
                   'element' => {
@@ -969,6 +1032,31 @@ $result_trees{'glossary'} = {
                   'position' => 29,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
+                },
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'cmdname' => 'ifhtml',
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 43,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 29,
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'start'
                 }
               ],
               'text' => ' is used in many cases while
@@ -1034,6 +1122,44 @@ $result_trees{'glossary'} = {
             },
             {
               'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifhtml'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifhtml'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'glossary.texi',
+                      'line_nr' => 43,
+                      'macro' => 'gentry'
+                    }
+                  },
+                  'position' => 1,
+                  'sourcemark_type' => 'expanded_conditional_command',
+                  'status' => 'end'
+                },
                 {
                   'counter' => 2,
                   'element' => {
