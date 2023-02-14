@@ -24,6 +24,13 @@ $result_trees{'command_in_end_ignored_raw_in_command'} = {
           'cmdname' => 'html',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => '@end @code{html}
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -45,6 +52,7 @@ $result_trees{'command_in_end_ignored_raw_in_command'} = {
 };
 
 $result_texis{'command_in_end_ignored_raw_in_command'} = '@html
+@end @code{html}
 ';
 
 

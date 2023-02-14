@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Add elided raw output format content to the tree (there should already be a test for 
-source mark there).
-
 in 55conditionals nested_ifset_ifclear the source marks appears in
 the line corresponding to @set anothervar, at:
 @clear somevar

@@ -24,6 +24,13 @@ $result_trees{'command_in_end_ignored_raw_one_char_not_in_command'} = {
           'cmdname' => 'html',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => '@end h@asis{tml}
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -45,6 +52,7 @@ $result_trees{'command_in_end_ignored_raw_one_char_not_in_command'} = {
 };
 
 $result_texis{'command_in_end_ignored_raw_one_char_not_in_command'} = '@html
+@end h@asis{tml}
 ';
 
 

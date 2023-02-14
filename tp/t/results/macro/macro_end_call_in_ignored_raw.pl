@@ -105,6 +105,23 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => ''
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -159,6 +176,7 @@ inT
 @end macro
 
 @tex
+
 @end tex
 ';
 

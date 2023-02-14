@@ -1545,16 +1545,27 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       e = new_element (ET_elided_rawpreformatted);
       add_to_element_contents (current, e);
       line_dummy = line;
-      while (!is_end_current_command (current, &line_dummy,
-                                      &dummy))
+      while (1)
         {
-          line = new_line (0);
+          line = new_line (e);
           if (!line)
             {
               line = "";
               break;
             }
-          line_dummy = line;
+          else
+            {
+              line_dummy = line;
+              if (is_end_current_command (current, &line_dummy,
+                                          &dummy))
+                break;
+              else
+                {
+                  ELEMENT *raw_text = new_element (ET_raw);
+                  text_append (&(raw_text->text), line);
+                  add_to_element_contents (e, raw_text);
+                }
+            }
         }
 
       /* start a new line for the @end line, this is normally done

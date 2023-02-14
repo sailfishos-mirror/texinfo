@@ -44,7 +44,7 @@ foreach my $ignored_brace_command ('hyphenation', 'errormsg') {
 }
 my %ignored_block_commands;
 foreach my $ignored_command (
-  'html', 'tex', 'xml', 'docbook', 'ignore', 'macro', 'rmacro') {
+  'html', 'tex', 'xml', 'docbook', 'latex', 'ignore', 'macro', 'rmacro') {
   $ignored_block_commands{$ignored_command} = 1;
 }
 

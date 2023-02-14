@@ -5035,16 +5035,22 @@ sub _process_remaining_on_line($$$$)
            and $block_commands{$current->{'cmdname'}}
            and $block_commands{$current->{'cmdname'}} eq 'format_raw'
            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
-    push @{$current->{'contents'}}, { 'type' => 'elided_rawpreformatted',
-                                      'parent' => $current };
-    while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
-      # FIXME a source mark here is ignored.  Tested in
-      # t/*macro.t macro_end_call_in_ignored_raw
-      ($line, $source_info) = _new_line($self);
+    my $elided_rawpreformatted = { 'type' => 'elided_rawpreformatted',
+                                   'parent' => $current };
+    push @{$current->{'contents'}}, $elided_rawpreformatted;
+    while (1) {
+    # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
+      ($line, $source_info) = _new_line($self, $elided_rawpreformatted);
       if (!$line) {
         # unclosed block
         $line = '';
         last;
+      } elsif ($line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+        last;
+      } else {
+        my $raw_text = {'type' => 'raw', 'text' => $line,
+                        'parent' => $elided_rawpreformatted};
+        push @{$elided_rawpreformatted->{'contents'}}, $raw_text;
       }
     }
     # start a new line for the @end line, this is normally done

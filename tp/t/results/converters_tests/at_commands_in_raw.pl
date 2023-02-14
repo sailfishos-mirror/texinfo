@@ -407,6 +407,218 @@ $result_trees{'at_commands_in_raw'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'in tex@footnote{footnote in tex}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@anchor{anchor in tex}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@cindex entry
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@findex fentry1
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@float Figs, f1
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => 'Float
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@caption{Fcaption}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end float
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@menu
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '* n::
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end menu
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@acronym{FF, Fi Foo}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@synindex cp fn
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@defindex new
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@definfoenclose a,:,:
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@alias moviecite = cite
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@documentlanguage fr
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@errormsg{mymsg}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@ref{Somewhere}.
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@set flag soemthing
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@macro mymacro{}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => 'truc
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@macro macroarg{arg}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => 'Some \\arg\\.
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@end macro
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '@unmacro othermacro
+',
+                  'type' => 'raw'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -926,6 +1138,48 @@ Other macro
 @kbd{in kbd before tex}@footnote{second footnote}.
 
 @tex
+in tex@footnote{footnote in tex}
+@anchor{anchor in tex}
+@cindex entry
+@findex fentry1
+
+@float Figs, f1
+Float
+@caption{Fcaption}
+@end float
+
+@menu
+* n::
+@end menu
+
+@acronym{FF, Fi Foo}
+
+@synindex cp fn
+
+@defindex new
+
+@definfoenclose a,:,:
+
+@alias moviecite = cite
+
+@documentlanguage fr
+
+@errormsg{mymsg}
+
+@ref{Somewhere}.
+
+@set flag soemthing
+
+@macro mymacro{}
+truc
+@end macro
+
+@macro macroarg{arg}
+Some \\arg\\.
+@end macro
+
+@unmacro othermacro
+
 @end tex
 
 
@@ -1377,6 +1631,48 @@ Other macro
 <para><kbd>in kbd before tex</kbd><footnote><para>second footnote</para></footnote>.
 </para>
 <tex endspaces=" ">
+in tex@footnote{footnote in tex}
+@anchor{anchor in tex}
+@cindex entry
+@findex fentry1
+
+@float Figs, f1
+Float
+@caption{Fcaption}
+@end float
+
+@menu
+* n::
+@end menu
+
+@acronym{FF, Fi Foo}
+
+@synindex cp fn
+
+@defindex new
+
+@definfoenclose a,:,:
+
+@alias moviecite = cite
+
+@documentlanguage fr
+
+@errormsg{mymsg}
+
+@ref{Somewhere}.
+
+@set flag soemthing
+
+@macro mymacro{}
+truc
+@end macro
+
+@macro macroarg{arg}
+Some \\arg\\.
+@end macro
+
+@unmacro othermacro
+
 </tex>
 
 
