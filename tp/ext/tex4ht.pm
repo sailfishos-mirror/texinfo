@@ -210,18 +210,21 @@ sub tex4ht_prepare($$)
         my $tree;
         if ($cmdname eq 'math') {
           $tree = $element->{'args'}->[0];
-        } else {
+        } elsif ($element->{'contents'}) {
           $tree = {'contents' => [@{$element->{'contents'}}]};
-          if ($tree->{'contents'}->[0]
+          if (scalar(@{$tree->{'contents'}})
               and $tree->{'contents'}->[0]->{'type'}
               and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
-                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_block')) {
+                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_brace_command_arg'
+                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted')) {
             shift @{$tree->{'contents'}};
           }
           if ($tree->{'contents'}->[-1]->{'cmdname'}
               and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
             pop @{$tree->{'contents'}};
           }
+        } else {
+          next;
         }
         if (scalar(@{$tree->{'contents'}}) == 0) {
           # should correspond to an ignored block
