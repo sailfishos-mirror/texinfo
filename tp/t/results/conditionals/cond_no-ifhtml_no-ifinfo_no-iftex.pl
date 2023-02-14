@@ -125,6 +125,38 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
                         'text' => 'This is ifhtml text.
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifhtml'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifhtml'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'cond.texi',
+                          'line_nr' => 11,
+                          'macro' => ''
+                        }
                       }
                     ],
                     'source_info' => {
@@ -255,6 +287,38 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
                     'text' => 'This is ifinfo text.
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifinfo'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifinfo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 23,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'source_info' => {
@@ -373,6 +437,38 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
                     'text' => 'This is iftex text.
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'iftex'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'iftex'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 36,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'source_info' => {

@@ -592,6 +592,38 @@ $result_trees{'raiselowersections'} = {
                     'text' => '@end menu
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifclear'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifclear'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'section_file.texi',
+                      'line_nr' => 10,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {
@@ -1121,6 +1153,38 @@ $result_trees{'raiselowersections'} = {
                     'text' => '@subsubsection Subsubsection
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'section_file.texi',
+                      'line_nr' => 36,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {
@@ -1174,6 +1238,38 @@ $result_trees{'raiselowersections'} = {
                     'text' => '@bye
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifclear'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifclear'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'section_file.texi',
+                      'line_nr' => 41,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {

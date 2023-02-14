@@ -77,38 +77,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
         {
           'args' => [
             {
-              'contents' => [
-                {
-                  'text' => 'ifset'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'text_arg' => 'ifset'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
-          }
-        },
-        {
-          'args' => [
-            {
               'text' => ' WRONG - missing @end ifset.
 ',
               'type' => 'misc_arg'
@@ -133,7 +101,6 @@ $result_texis{'ifclear_in_ifset_set'} = '
 @set a
 
 @end junky   - ok, ignored
-@end ifset
 @c WRONG - missing @end ifset.
 ';
 
@@ -153,12 +120,12 @@ $result_errors{'ifclear_in_ifset_set'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'unmatched `@end\'
+    'error_line' => 'unmatched `@end ifset\'
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'unmatched `@end\'',
+    'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   },
   {

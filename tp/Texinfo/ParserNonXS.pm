@@ -2209,12 +2209,10 @@ sub _close_commands($$$;$$)
     $closed_element = $current;
     $current = $current->{'parent'};
 
-    # TODO close here instead of in _process_remaining_on_line
-    # when the end conditional is treated like any other command
-    #if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
-    #  # In ignored conditional.
-    #  _close_ignored_block_conditional($self, $current);
-    #}
+    if ($block_commands{$closed_element->{'cmdname'}} eq 'conditional') {
+      # In ignored conditional.
+      _close_ignored_block_conditional($self, $current);
+    }
 
   } elsif ($closed_block_command) {
     $self->_line_error(sprintf(__("unmatched `%c%s'"),
@@ -3451,17 +3449,7 @@ sub _end_line_misc_line($$$)
                                  __("unknown \@end %s"), $end_command);
             $end_command = undef;
           } else {
-            print STDERR "END BLOCK $end_command\n" if ($self->{'DEBUG'});
-            if ($block_commands{$end_command} eq 'conditional') {
-              if (@{$self->{'conditional_stack'}}
-                and $self->{'conditional_stack'}->[-1] eq $end_command) {
-                pop @{$self->{'conditional_stack'}};
-              } else {
-                $self->_command_error($current, $source_info,
-                                  __("unmatched `%c%s'"), ord('@'), 'end');
-                $end_command = undef;
-              }
-            }
+            print STDERR "END BLOCK \@end $end_command\n" if ($self->{'DEBUG'});
           }
           # non-ASCII spaces are also superfluous arguments.
           # If there is superfluous text after @end argument, set
@@ -3629,7 +3617,10 @@ sub _end_line_misc_line($$$)
     print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
     # Reparent the "@end" element to be a child of the block element.
     my $end = _pop_element_from_contents($self, $current);
-    if ($block_commands{$end_command} ne 'conditional') {
+    if ($block_commands{$end_command} ne 'conditional'
+        or ($current->{'cmdname'} and $current->{'cmdname'} eq $end_command)
+        or (not @{$self->{'conditional_stack'}}
+            or $self->{'conditional_stack'}->[-1] ne $end_command)) {
       my $closed_command;
       ($closed_command, $current)
          = _close_commands($self, $current, $source_info, $end_command);
@@ -3656,8 +3647,11 @@ sub _end_line_misc_line($$$)
       $current = _begin_preformatted($self, $current)
         if ($close_preformatted_commands{$end_command});
     } else {
-      # TODO add a source mark for the end of conditional
       # case of a conditional not ignored
+      pop @{$self->{'conditional_stack'}};
+      print STDERR "POP COND $end_command\n"
+        if ($self->{'DEBUG'});
+      # TODO add a source mark for the end of conditional
     }
   } else {
     # Ignore @setfilename in included file, as said in the manual.
@@ -4959,54 +4953,33 @@ sub _process_remaining_on_line($$$$)
                                         'parent' => $current,
                                       };
       $current = $current->{'contents'}->[-1];
-      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      # goto funexit;  # used in XS code
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
              and ($2 eq $current->{'cmdname'})) {
       my $end_command = $current->{'cmdname'};
-      #if ($line =~ s/^(\s+)//) {
-      #  push @{$current->{'contents'}},
-      #    { 'text' => $1,
-      #      'type' => 'raw', 'parent' => $current };
-      #  $self->_line_warn(sprintf(
-      #        __("\@end %s should only appear at the beginning of a line"),
-      #                           $current->{'cmdname'}), $source_info);
-      #}
-
-      $line =~ s/^(\s*?)\@end\s+$end_command//;
-      if ($1 ne '') {
+      if ($line =~ s/^(\s+)//) {
+        push @{$current->{'contents'}},
+          { 'text' => $1,
+            'type' => 'raw', 'parent' => $current };
         $self->_line_warn(sprintf(
               __("\@end %s should only appear at the beginning of a line"),
-                                 $end_command), $source_info);
+                                 $current->{'cmdname'}), $source_info);
       }
-      $self->_line_warn(sprintf(
-           __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
-                              $line), $source_info)
-        if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
-      $current = $current->{'parent'};
-      # Remove an ignored block @if*
-      _close_ignored_block_conditional($self, $current);
 
       print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
       # see comment above for raw output formats
-      #push @{$current->{'contents'}}, { 'type' => 'empty_line',
-      #                                  'text' => '',
-      #                                  'parent' => $current };
-      # Ignore until end of line
-      # FIXME this is not the same as for other commands.  Change?
-      # FIXME only done once, could be needed more time.  Add test for this
-      # situation too.
-      if ($line !~ /\n/) {
-        ($line, $source_info) = _new_line($self, $current);
-        print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
-      }
-      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                        'text' => '',
+                                        'parent' => $current };
+      # the line beginning by @end is processed like any line beginning
+      # with @end below
     } else {
       push @{$current->{'contents'}}, { 'type' => 'raw', 'text' => $line,
                                         'parent' => $current, };
-      #return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      # goto funexit;  # used in XS code
     }
-    return ($current, $line, $source_info, $GET_A_NEW_LINE);
-    # goto funexit;  # used in XS code
   # in @verb. type should be 'brace_command_arg'
   } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
          and $current->{'parent'}->{'cmdname'} eq 'verb') {

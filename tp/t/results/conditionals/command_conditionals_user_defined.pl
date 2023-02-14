@@ -223,6 +223,38 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'text' => '@@macro truc is wrongly not defined
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifcommandnotdefined'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifcommandnotdefined'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => '',
+                          'line_nr' => 16,
+                          'macro' => ''
+                        }
                       }
                     ],
                     'info' => {
@@ -286,6 +318,38 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'text' => 'index command @@authindex is wrongly not defined
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifcommandnotdefined'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifcommandnotdefined'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => '',
+                          'line_nr' => 23,
+                          'macro' => ''
+                        }
                       }
                     ],
                     'info' => {
@@ -349,6 +413,38 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'text' => 'definfoenclose @@infoencl is wrongly not defined
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifcommandnotdefined'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifcommandnotdefined'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => '',
+                          'line_nr' => 30,
+                          'macro' => ''
+                        }
                       }
                     ],
                     'info' => {
@@ -412,6 +508,38 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'text' => 'strongalias @@alias is wrongly not defined
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifcommandnotdefined'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifcommandnotdefined'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => '',
+                          'line_nr' => 37,
+                          'macro' => ''
+                        }
                       }
                     ],
                     'info' => {

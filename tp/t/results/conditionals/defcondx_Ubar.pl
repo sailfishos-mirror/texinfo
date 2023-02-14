@@ -180,6 +180,38 @@ $result_trees{'defcondx_Ubar'} = {
                             'text' => '@deffnx bar
 ',
                             'type' => 'raw'
+                          },
+                          {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'ifset'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              }
+                            ],
+                            'cmdname' => 'end',
+                            'extra' => {
+                              'text_arg' => 'ifset'
+                            },
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'source_info' => {
+                              'file_name' => 'defxcond.texi',
+                              'line_nr' => 14,
+                              'macro' => ''
+                            }
                           }
                         ],
                         'info' => {

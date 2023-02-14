@@ -12,8 +12,6 @@ Before next release
 
 Add tests of source marks on ignored @if* blocks lines and in contents.
 
-Add @end in ignored @if* blocks lines source marks.
-
 Check nested @if* commands and source marks.
 
 Add source marks for non ignored @if blocks and the corresponding @end
@@ -21,6 +19,20 @@ Add source marks for non ignored @if blocks and the corresponding @end
 
 Add elided raw output format content to the tree (there should already be a test for 
 source mark there).
+
+in 55conditionals nested_ifset_ifclear the source marks appears in
+the line corresponding to @set anothervar, at:
+@clear somevar
+@set anothervar
+@conditionals{}
+and not in the following empty line.
+
+/usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
+Wide character in print at ../../tp/Texinfo/ParserNonXS.pm line 4799.
+Wide character in print at ../../tp/Texinfo/ParserNonXS.pm line 2296.
+
+Add a test similar to converters_tests.t inlinefmtifelse showing
+the the second arg in the parser is raw text as no format is expanded.
 
 Bugs
 ====

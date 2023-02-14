@@ -190,6 +190,14 @@ pop_conditional_stack (void)
   return conditional_stack[--conditional_number];
 }
 
+enum command_id
+top_conditional_stack (void)
+{
+  if (conditional_number == 0)
+    return CM_NONE;
+  return conditional_stack[conditional_number - 1];
+}
+
 
 /* Raw block commands stack. */
 
@@ -1432,63 +1440,38 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             }
         }
 
+      p = line;
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current, &line, &end_cmd))
+      if (is_end_current_command (current, &p, &end_cmd))
         {
-          char *tmp = 0;
-          ELEMENT *popped;
-          SOURCE_MARK *source_mark;
+          ELEMENT *e;
 
-          /* check whitespaces at the beginning of the line */
-          if (strchr (whitespace_chars, *p))
+          if (strchr (whitespace_chars, *line))
             {
+              ELEMENT *e;
+              int n = strspn (line, whitespace_chars);
+              e = new_element (ET_raw);
+              text_append_n (&e->text, line, n);
+              add_to_element_contents (current, e);
+              line += n;
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }
 
-          current = current->parent;
-
-          /* Remove an ignored block. */
-          close_ignored_block_conditional (current);
-
-          /* 'line' is now advanced past the "@end ...".  Check if
-             there's anything after it. */
-          p = line + strspn (line, whitespace_chars);
-          if (*p && *p != '@')
-            goto superfluous_arg;
-          if (*p)
-            {
-              p++;
-              tmp = read_command_name (&p);
-              if (tmp && (!strcmp (tmp, "c") || !strcmp (tmp, "comment")))
-                {
-                }
-              else if (*p && p[strspn (p, whitespace_chars)])
-                {
-          superfluous_arg:
-                  line_warn ("superfluous argument to @end %s: %s",
-                             command_name(end_cmd), line);
-                }
-              free (tmp);
-            }
-
           debug ("CLOSED conditional %s", command_name(end_cmd));
 
-          /* Ignore until end of line */
-          if (!strchr (line, '\n'))
-            {
-              line = new_line (current);
-              debug ("IGNORE CLOSE line: %s", line);
-            }
+          e = new_element (ET_empty_line);
+          add_to_element_contents (current, e);
+
         }
       else
         {
           ELEMENT *e = new_element (ET_raw);
           text_append (&(e->text), line);
           add_to_element_contents (current, e);
+          retval = GET_A_NEW_LINE;
+          goto funexit;
         }
-      retval = GET_A_NEW_LINE;
-      goto funexit;
     } /********* (ignored) BLOCK_conditional *************/
 
   /* Check if parent element is 'verb' */

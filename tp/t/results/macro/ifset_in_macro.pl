@@ -141,6 +141,46 @@ $result_trees{'ifset_in_macro'} = {
                     'text' => '
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'source_marks' => [
+                              {
+                                'counter' => 1,
+                                'position' => 5,
+                                'sourcemark_type' => 'macro_expansion',
+                                'status' => 'end'
+                              }
+                            ],
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 9,
+                      'macro' => 'note'
+                    }
                   }
                 ],
                 'info' => {
@@ -156,12 +196,6 @@ $result_trees{'ifset_in_macro'} = {
               },
               'position' => 1,
               'sourcemark_type' => 'ignored_conditional_block'
-            },
-            {
-              'counter' => 1,
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
             }
           ],
           'text' => '

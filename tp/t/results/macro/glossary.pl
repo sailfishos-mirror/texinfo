@@ -646,6 +646,38 @@ $result_trees{'glossary'} = {
                         'text' => 'name1 (@pxref{id1})
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifnothtml'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifnothtml'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'glossary.texi',
+                          'line_nr' => 42,
+                          'macro' => 'gentry'
+                        }
                       }
                     ],
                     'source_info' => {
@@ -1022,6 +1054,38 @@ $result_trees{'glossary'} = {
                         'text' => 'name2 (@pxref{id2})
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifnothtml'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifnothtml'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'glossary.texi',
+                          'line_nr' => 43,
+                          'macro' => 'gentry'
+                        }
                       }
                     ],
                     'source_info' => {

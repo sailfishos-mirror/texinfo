@@ -479,6 +479,10 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
       pop_block_command_contexts (current->cmd);
       *closed_element = current;
       current = current->parent;
+
+      if (command_data((*closed_element)->cmd).data == BLOCK_conditional)
+        /* In ignored conditional. */
+        close_ignored_block_conditional (current);
     }
   else if (closed_block_command)
     {

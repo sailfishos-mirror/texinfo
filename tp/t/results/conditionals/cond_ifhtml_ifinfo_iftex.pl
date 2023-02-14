@@ -148,6 +148,38 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     'text' => 'This is ifnothtml text.
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifnothtml'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifnothtml'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 15,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'source_info' => {
@@ -275,6 +307,38 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     'text' => 'This is ifnotinfo text.
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifnotinfo'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifnotinfo'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 27,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'source_info' => {
@@ -399,6 +463,38 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                     'text' => 'This is ifnottex text.
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifnottex'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifnottex'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => 'cond.texi',
+                      'line_nr' => 40,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'source_info' => {

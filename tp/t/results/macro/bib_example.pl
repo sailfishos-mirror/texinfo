@@ -3474,6 +3474,38 @@ $result_trees{'bib_example'} = {
                         'text' => '@clear mybibtable
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifset'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifset'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'bib-example.texi',
+                          'line_nr' => 26,
+                          'macro' => 'mybibuselist'
+                        }
                       }
                     ],
                     'info' => {
@@ -3987,6 +4019,38 @@ $result_trees{'bib_example'} = {
                         'text' => '@mybibmakeref{mybibsetrefnode was not used, LaTeX2e}
 ',
                         'type' => 'raw'
+                      },
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'ifclear'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'text_arg' => 'ifclear'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'source_info' => {
+                          'file_name' => 'bib-example.texi',
+                          'line_nr' => 43,
+                          'macro' => 'mybibcite'
+                        }
                       }
                     ],
                     'info' => {
@@ -4391,6 +4455,38 @@ $result_trees{'bib_example'} = {
                                       'text' => '@set mybiblist true
 ',
                                       'type' => 'raw'
+                                    },
+                                    {
+                                      'args' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'text' => 'ifclear'
+                                            }
+                                          ],
+                                          'info' => {
+                                            'spaces_after_argument' => {
+                                              'text' => '
+'
+                                            }
+                                          },
+                                          'type' => 'line_arg'
+                                        }
+                                      ],
+                                      'cmdname' => 'end',
+                                      'extra' => {
+                                        'text_arg' => 'ifclear'
+                                      },
+                                      'info' => {
+                                        'spaces_before_argument' => {
+                                          'text' => ' '
+                                        }
+                                      },
+                                      'source_info' => {
+                                        'file_name' => 'bib-example.texi',
+                                        'line_nr' => 51,
+                                        'macro' => 'mybibitem'
+                                      }
                                     }
                                   ]
                                 },
@@ -4398,6 +4494,38 @@ $result_trees{'bib_example'} = {
                               }
                             ],
                             'text' => ''
+                          },
+                          {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'ifclear'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              }
+                            ],
+                            'cmdname' => 'end',
+                            'extra' => {
+                              'text_arg' => 'ifclear'
+                            },
+                            'info' => {
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'source_info' => {
+                              'file_name' => 'bib-example.texi',
+                              'line_nr' => 51,
+                              'macro' => 'mybibitem'
+                            }
                           }
                         ],
                         'info' => {
@@ -4501,6 +4629,38 @@ $result_trees{'bib_example'} = {
                                 'text' => '@item @anchor{LaTeX2e}[LaTeX2e]
 ',
                                 'type' => 'raw'
+                              },
+                              {
+                                'args' => [
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'ifset'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_after_argument' => {
+                                        'text' => '
+'
+                                      }
+                                    },
+                                    'type' => 'line_arg'
+                                  }
+                                ],
+                                'cmdname' => 'end',
+                                'extra' => {
+                                  'text_arg' => 'ifset'
+                                },
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                },
+                                'source_info' => {
+                                  'file_name' => 'bib-example.texi',
+                                  'line_nr' => 51,
+                                  'macro' => 'mybibitem'
+                                }
                               }
                             ],
                             'info' => {

@@ -59,32 +59,6 @@ $result_trees{'ignored_text'} = {
             {
               'text' => 'in ifinfo
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ifinfo on the node line'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ifinfo on the node line'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
             }
           ],
           'type' => 'paragraph'
@@ -122,7 +96,7 @@ $result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'node_content'}[0] = $resu
 $result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ignored_text'} = '@node before ignore in ifinfo
-@end ifinfo on the node line';
+';
 
 
 $result_texts{'ignored_text'} = 'in ifinfo
@@ -164,12 +138,21 @@ $result_errors{'ignored_text'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'unmatched `@end\'
+    'error_line' => 'bad argument to @end: ifinfo on the node line
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'unmatched `@end\'',
+    'text' => 'bad argument to @end: ifinfo on the node line',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'unmatched `@end ifinfo\'
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => 'unmatched `@end ifinfo\'',
     'type' => 'error'
   }
 ];

@@ -481,12 +481,10 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 {'EXPANDED_FORMATS' => ['tex']},
 ],
 # beware that with EXPANDED_FORMATS set to an empty array no
-# format is considered to be expanded in the parser.  Therefore the second
-# argument of @inlinefmtifelse{} contents array is empty (type is 'elided').
-# In the converters, the converter format would be expanded.
-# However, since the second argument of @inlinefmtifelse{} contents array is empty,
-# there is no expansion of the second argument of @inlinefmtifelse string
-# in the end (or expansion as an empty string which gives the same result).
+# format is considered to be expanded in the parser.
+# In the converters, the converter format is expanded.
+# The first argument of @inlinefmtifelse{} contents array
+# is raw text in the tree, if it was not expanded in the parser.
 ['inlinefmtifelse',
 '@inlinefmtifelse{html,,else html no if}.
 @inlinefmtifelse{html,if html,else html}.

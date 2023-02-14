@@ -43,6 +43,38 @@ $result_trees{'empty_ifset_in_ifset_no_set'} = {
                               'text' => '@end verbatim
 ',
                               'type' => 'raw'
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'ifset'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'end',
+                              'extra' => {
+                                'text_arg' => 'ifset'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 6,
+                                'macro' => ''
+                              }
                             }
                           ]
                         },

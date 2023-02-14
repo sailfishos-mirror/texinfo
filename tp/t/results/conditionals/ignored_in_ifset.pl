@@ -36,6 +36,38 @@ $result_trees{'ignored_in_ifset'} = {
                     'text' => '@ignore
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 4,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {
@@ -62,38 +94,6 @@ $result_trees{'ignored_in_ifset'} = {
             {
               'text' => 'text
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ifset'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ifset'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
-              }
             }
           ],
           'type' => 'paragraph'
@@ -125,6 +125,38 @@ $result_trees{'ignored_in_ifset'} = {
                     'text' => '@verbatim
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 11,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {
@@ -145,38 +177,6 @@ $result_trees{'ignored_in_ifset'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ifset'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'text_arg' => 'ifset'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
-          }
         },
         {
           'source_marks' => [
@@ -205,6 +205,38 @@ $result_trees{'ignored_in_ifset'} = {
                     'text' => '@verb{%
 ',
                     'type' => 'raw'
+                  },
+                  {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'ifset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'text_arg' => 'ifset'
+                    },
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'source_info' => {
+                      'file_name' => '',
+                      'line_nr' => 17,
+                      'macro' => ''
+                    }
                   }
                 ],
                 'info' => {
@@ -231,38 +263,6 @@ $result_trees{'ignored_in_ifset'} = {
             {
               'text' => '%
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ifset'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'ifset'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
-              }
             }
           ],
           'type' => 'paragraph'
@@ -276,12 +276,9 @@ $result_trees{'ignored_in_ifset'} = {
 
 $result_texis{'ignored_in_ifset'} = '
 text
-@end ifset
 
-@end ifset
 
 %
-@end ifset
 ';
 
 
@@ -303,12 +300,12 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'unmatched `@end\'
+    'error_line' => 'unmatched `@end ifset\'
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'unmatched `@end\'',
+    'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   },
   {
@@ -321,12 +318,12 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'unmatched `@end\'
+    'error_line' => 'unmatched `@end ifset\'
 ',
     'file_name' => '',
     'line_nr' => 13,
     'macro' => '',
-    'text' => 'unmatched `@end\'',
+    'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   },
   {
@@ -339,12 +336,12 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'unmatched `@end\'
+    'error_line' => 'unmatched `@end ifset\'
 ',
     'file_name' => '',
     'line_nr' => 19,
     'macro' => '',
-    'text' => 'unmatched `@end\'',
+    'text' => 'unmatched `@end ifset\'',
     'type' => 'error'
   }
 ];

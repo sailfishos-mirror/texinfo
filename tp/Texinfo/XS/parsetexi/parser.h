@@ -159,6 +159,7 @@ size_t count_convert_u8 (char *text);
 ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond);
 enum command_id pop_conditional_stack (void);
+enum command_id top_conditional_stack (void);
 extern size_t conditional_number;
 ELEMENT *parse_texi_document (void);
 int abort_empty_line (ELEMENT **current_inout, char *additional);

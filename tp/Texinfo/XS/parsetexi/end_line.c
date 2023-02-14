@@ -1537,32 +1537,8 @@ end_line_misc_line (ELEMENT *current)
                     }
                   else
                     {
-                      debug ("END BLOCK %s", end_command);
-                      /* Handle conditional block commands (e.g. @ifinfo) */
+                      debug ("END BLOCK @end %s", end_command);
 
-                      /* If we are in a non-ignored conditional, there is not
-                         an element for the block in the tree; it is recorded 
-                         in the conditional stack.  Pop it and check it is the 
-                         same as the one given in the @end line. */
-
-                      if (command_data(end_id).data == BLOCK_conditional)
-                        {
-                          enum command_id popped;
-                          if (conditional_number == 0)
-                            goto conditional_stack_fail;
-                          popped = pop_conditional_stack ();
-                          if (popped != end_id)
-                            {
-                              push_conditional_stack (popped);
-                              goto conditional_stack_fail;
-                            }
-                          if (0)
-                            {
-                          conditional_stack_fail:
-                              command_error (current, "unmatched `@end'");
-                              free (end_command); end_command = 0;
-                            }
-                        }
                       /* If there is superfluous text after @end argument, set
                          superfluous_arg such that the error message triggered by an
                          unexpected @-command on the @end line is issued below.  Note
@@ -1968,7 +1944,12 @@ end_line_misc_line (ELEMENT *current)
       end_elt = pop_element_from_contents (current);
 
       /* If not a conditional */
-      if (command_data(end_id).data != BLOCK_conditional)
+      if (command_data(end_id).data != BLOCK_conditional
+          /* ignored conditional */
+          || current->cmd == end_id
+          /* not a non-ignored conditional */
+          || (conditional_number == 0
+              || top_conditional_stack () != end_id))
         {
           ELEMENT *closed_command;
           /* This closes tree elements (e.g. paragraphs) until we reach
@@ -1998,8 +1979,12 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          /* The "@end" line does not appear in the final tree for a
+          /* If we are in a non-ignored conditional, there is not
+             an element for the block in the tree; it is recorded
+             in the conditional stack.  Pop it, such that
+             the "@end" line does not appear in the final tree for a
              conditional block. */
+          enum command_id popped = pop_conditional_stack ();
           destroy_element_and_children (end_elt);
         }
     }
