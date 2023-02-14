@@ -1422,23 +1422,31 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       char *p = line;
 
       /* check for nested @ifset (so that @end ifset doesn't end the
-         the outermost @ifset).  It is discarded when the outermost is.*/
+         the outermost @ifset). */
       if (current->cmd == CM_ifclear || current->cmd == CM_ifset
           || current->cmd == CM_ifcommanddefined
           || current->cmd == CM_ifcommandnotdefined)
         {
           ELEMENT *e;
           p += strspn (p, whitespace_chars);
-          if (*p == '@'
-              && !strncmp (p + 1, command_name(current->cmd),
-                           strlen (command_name(current->cmd))))
+          if (*p == '@')
             {
-              e = new_element (ET_NONE);
-              e->cmd = current->cmd;
-              add_to_element_contents (current, e);
-              current = e;
-              retval = GET_A_NEW_LINE;
-              goto funexit;
+              p++;
+              char *command = read_command_name (&p);
+              if (command)
+                {
+                  cmd = lookup_command (command);
+                  free (command);
+                  if (cmd == current->cmd)
+                    {
+                      e = new_element (ET_NONE);
+                      e->cmd = current->cmd;
+                      add_to_element_contents (current, e);
+                      current = e;
+                      retval = GET_A_NEW_LINE;
+                      goto funexit;
+                    }
+                }
             }
         }
 

@@ -373,6 +373,13 @@ text
 @end verbatim
 @end ifset
 '],
+['nested_ifset_prepended_to_command_name',
+'@ifset a
+@ifsettoto b
+GG
+@end ifset
+@end ifset
+'],
 ['macro_in_ifset',
 '
 @macro truc {}

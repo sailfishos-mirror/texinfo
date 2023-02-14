@@ -4966,12 +4966,13 @@ sub _process_remaining_on_line($$$$)
       and $block_commands{$current->{'cmdname'}}
       and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
     # check for nested @ifset (so that @end ifset doesn't end the
-    # outermost @ifset).  It is discarded when the outermost is.
+    # outermost @ifset).
     if (($current->{'cmdname'} eq 'ifclear'
          or $current->{'cmdname'} eq 'ifset'
          or $current->{'cmdname'} eq 'ifcommanddefined'
          or $current->{'cmdname'} eq 'ifcommandnotdefined')
-        and $line =~ /^\s*\@$current->{'cmdname'}/) {
+        and ($line =~ /^\s*\@([a-zA-Z][\w-]*)/
+             and ($1 eq $current->{'cmdname'}))) {
       push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
                                         'parent' => $current,
                                       };

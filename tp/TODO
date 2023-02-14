@@ -17,8 +17,6 @@ the line corresponding to @set anothervar, at:
 @conditionals{}
 and not in the following empty line.
 
-check @ifsettoto in nested ignored conditionals, the XS parser is probably fooled.
-
 Bugs
 ====
 

@@ -127,6 +127,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/macro_in_ifset_set.pl \
   t/results/conditionals/many_conditionals.pl \
   t/results/conditionals/nested_ifset_ifclear.pl \
+  t/results/conditionals/nested_ifset_prepended_to_command_name.pl \
   t/results/conditionals/nested_ignore.pl \
   t/results/conditionals/nested_ignore_comment_no_eol.pl \
   t/results/conditionals/nested_ignore_with_comments.pl \
