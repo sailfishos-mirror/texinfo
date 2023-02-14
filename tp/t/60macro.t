@@ -885,6 +885,29 @@ GG
 @end ifset
 @end ifclear
 '],
+['macro_expansion_end_in_conditional_line',
+'@macro begincond
+@ifset fl
+@end macro
+
+@set flag 1
+
+@begincond{}ag
+Defined
+@end ifset
+'],
+['macro_expansion_end_in_conditional_end',
+'@macro beginendcond
+@ifset flag
+Defined
+@end if
+@end macro
+
+@set flag 1
+
+@beginendcond{}set
+'],
+
 # the use of @unmacro dates from the time when macros needed
 # to be undefined before being redefined.  Left as test.
 # texi2dvi breaks.

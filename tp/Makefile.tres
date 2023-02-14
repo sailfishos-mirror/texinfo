@@ -1214,6 +1214,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_end_call_in_ignored_raw.pl \
   t/results/macro/macro_expands_to_empty.pl \
   t/results/macro/macro_expansion.pl \
+  t/results/macro/macro_expansion_end_in_conditional_end.pl \
+  t/results/macro/macro_expansion_end_in_conditional_line.pl \
   t/results/macro/macro_expansion_end_in_ignored_ifset_content.pl \
   t/results/macro/macro_expansion_end_in_ignored_nested_conditional.pl \
   t/results/macro/macro_expansion_end_in_ignored_nested_different_conditional.pl \
