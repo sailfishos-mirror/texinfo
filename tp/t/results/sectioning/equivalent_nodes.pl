@@ -15,7 +15,7 @@ $result_trees{'equivalent_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'type' => 'line_arg'
@@ -191,7 +191,7 @@ $result_trees{'equivalent_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           },
           {
             'node_content' => [
@@ -200,7 +200,7 @@ $result_trees{'equivalent_nodes'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -326,7 +326,7 @@ $result_trees{'equivalent_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'
 $result_trees{'equivalent_nodes'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'equivalent_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
-$result_texis{'equivalent_nodes'} = '@node Top, @emph{node}
+$result_texis{'equivalent_nodes'} = '@node first, @emph{node}
 
 @menu
 * @strong{node}::
@@ -353,7 +353,7 @@ $result_nodes{'equivalent_nodes'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -376,7 +376,7 @@ $result_nodes{'equivalent_nodes'}{'structure'}{'node_next'} = $result_nodes{'equ
 $result_menus{'equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -389,7 +389,7 @@ $result_menus{'equivalent_nodes'} = {
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
-          'Top' => 1
+          'first' => 1
         }
       }
     }
@@ -417,12 +417,12 @@ $result_errors{'equivalent_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: Next pointer `@emph{node}\' (for node `Top\') different from node name `@samp{node}\'
+    'error_line' => 'warning: Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'Next pointer `@emph{node}\' (for node `Top\') different from node name `@samp{node}\'',
+    'text' => 'Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'',
     'type' => 'warning'
   }
 ];
@@ -435,21 +435,21 @@ $result_floats{'equivalent_nodes'} = {};
 $result_converted{'info'}->{'equivalent_nodes'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: first,  Next: node
 
 * Menu:
 
 * *node*::
 
 
-File: ,  Node: node,  Up: Top
+File: ,  Node: node,  Up: first
 
 *Note node::.
 
 
 Tag Table:
-Node: Top27
-Node: node95
+Node: first27
+Node: node85
 
 End Tag Table
 
@@ -458,6 +458,16 @@ Local Variables:
 coding: utf-8
 End:
 ';
+
+$result_converted_errors{'info'}->{'equivalent_nodes'} = [
+  {
+    'error_line' => 'warning: document without Top node
+',
+    'text' => 'document without Top node',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'html'}->{'equivalent_nodes'} = '<!DOCTYPE html>
@@ -473,7 +483,7 @@ $result_converted{'html'}->{'equivalent_nodes'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -485,17 +495,17 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-<a class="node-id" id="Top"></a><div class="nav-panel">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a> &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
-Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>&lsquo;<samp class="samp">node</samp>&rsquo;<a class="copiable-link" href="#node"> &para;</a></span></h4>
 

@@ -22,7 +22,7 @@ $result_trees{'protected_node_parentheses'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -44,10 +44,10 @@ $result_trees{'protected_node_parentheses'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -418,7 +418,7 @@ $result_trees{'protected_node_parentheses'}{'contents'}[3]{'extra'}{'nodes_manua
 $result_trees{'protected_node_parentheses'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'args'}[0]{'contents'}[1];
 
 $result_texis{'protected_node_parentheses'} = '
-@node Top
+@node first
 @top top
 
 @menu
@@ -453,7 +453,7 @@ $result_sectioning{'protected_node_parentheses'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top'
+              'normalized' => 'first'
             },
             'info' => {},
             'structure' => {}
@@ -485,7 +485,7 @@ $result_nodes{'protected_node_parentheses'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -496,21 +496,17 @@ $result_nodes{'protected_node_parentheses'} = {
       },
       'info' => {},
       'structure' => {
-        'node_prev' => {},
         'node_up' => {}
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'protected_node_parentheses'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'protected_node_parentheses'};
 $result_nodes{'protected_node_parentheses'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'protected_node_parentheses'};
-$result_nodes{'protected_node_parentheses'}{'structure'}{'node_next'} = $result_nodes{'protected_node_parentheses'}{'structure'}{'menu_child'};
 
 $result_menus{'protected_node_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -523,7 +519,7 @@ $result_menus{'protected_node_parentheses'} = {
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
-          'Top' => 1
+          'first' => 1
         }
       }
     }
@@ -541,7 +537,7 @@ $result_floats{'protected_node_parentheses'} = {};
 $result_converted{'info'}->{'protected_node_parentheses'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: (manual) name,  Up: (dir)
+File: ,  Node: first
 
 top
 ***
@@ -551,15 +547,15 @@ top
 * (manual) name::
 
 
-File: ,  Node: (manual) name,  Prev: Top,  Up: Top
+File: ,  Node: (manual) name,  Up: first
 
 *note (manual2) name2::.
 
 
 Tag Table:
-Node: Top27
-Node: (manual) name120
-Ref: (manual2) name2174
+Node: first27
+Node: (manual) name88
+Ref: (manual2) name2132
 
 End Tag Table
 
@@ -568,6 +564,16 @@ Local Variables:
 coding: utf-8
 End:
 ';
+
+$result_converted_errors{'info'}->{'protected_node_parentheses'} = [
+  {
+    'error_line' => 'warning: document without Top node
+',
+    'text' => 'document without Top node',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'html'}->{'protected_node_parentheses'} = '<!DOCTYPE html>
@@ -583,7 +589,7 @@ $result_converted{'html'}->{'protected_node_parentheses'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -596,10 +602,10 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 
-<div class="top-level-extent" id="Top">
+<div class="top-level-extent" id="first">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name</a> &nbsp; </p>
+ &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -607,7 +613,7 @@ Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name
 <hr>
 <a class="node-id" id="g_t_0028manual_0029-name"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Up: <a href="#first" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>(manual) name<a class="copiable-link" href="#g_t_0028manual_0029-name"> &para;</a></span></h4>
 

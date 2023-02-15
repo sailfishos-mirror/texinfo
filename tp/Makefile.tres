@@ -1677,7 +1677,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/next_no_prev_to_node.pl \
   t/results/sectioning/no_argument_and_contents.pl \
   t/results/sectioning/no_menu.pl \
-  t/results/sectioning/node.pl \
   t/results/sectioning/node_empty_direction.pl \
   t/results/sectioning/node_line_arguments.pl \
   t/results/sectioning/node_nested_parentheses.pl \
@@ -1688,6 +1687,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/node_sectop_before_chapter_no_node/res_latex \
   t/results/sectioning/node_sectop_before_lone_node_Top.pl \
   t/results/sectioning/node_sectop_before_lone_node_Top/res_latex \
+  t/results/sectioning/node_simple.pl \
   t/results/sectioning/node_too_much_args.pl \
   t/results/sectioning/node_up_direction_for_top_with_manual.pl \
   t/results/sectioning/node_up_external_node.pl \

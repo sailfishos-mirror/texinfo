@@ -61,7 +61,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'second node'
+                      'text' => 'chap node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -90,7 +90,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'second-node'
+                  'normalized' => 'chap-node'
                 }
               },
               'source_info' => {
@@ -223,7 +223,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'second node'
+              'text' => 'chap node'
             }
           ],
           'type' => 'line_arg'
@@ -295,7 +295,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'second-node'
+            'normalized' => 'chap-node'
           },
           {
             'node_content' => [
@@ -316,7 +316,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -345,7 +345,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'second node'
+              'text' => 'chap node'
             }
           ],
           'type' => 'line_arg'
@@ -382,7 +382,7 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'second-node'
+            'normalized' => 'chap-node'
           },
           {
             'node_content' => [
@@ -454,21 +454,21 @@ $result_trees{'nodes_after_top_before_section_texi2html_use_nodes'}{'contents'}[
 $result_texis{'nodes_after_top_before_section_texi2html_use_nodes'} = '@node Top
 Top node
 @menu
-* second node::
+* chap node::
 * third node::
 @end menu
 
-@node second node, third node,Top,Top
+@node chap node, third node,Top,Top
 
 second node
 
-@node third node,,second node,Top
+@node third node,,chap node,Top
 @subsection subsection
 ';
 
 
 $result_texts{'nodes_after_top_before_section_texi2html_use_nodes'} = 'Top node
-* second node::
+* chap node::
 * third node::
 
 
@@ -521,7 +521,7 @@ $result_nodes{'nodes_after_top_before_section_texi2html_use_nodes'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -567,7 +567,7 @@ $result_menus{'nodes_after_top_before_section_texi2html_use_nodes'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {

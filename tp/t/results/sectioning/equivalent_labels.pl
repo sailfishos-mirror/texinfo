@@ -15,7 +15,7 @@ $result_trees{'equivalent_labels'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -361,10 +361,10 @@ $result_trees{'equivalent_labels'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -388,7 +388,7 @@ $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{
 $result_trees{'equivalent_labels'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'equivalent_labels'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'equivalent_labels'} = '@node Top
+$result_texis{'equivalent_labels'} = '@node first
 
 @anchor{@samp{anch}}.
 
@@ -421,7 +421,7 @@ $result_nodes{'equivalent_labels'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -430,20 +430,15 @@ $result_nodes{'equivalent_labels'} = {
       'extra' => {
         'normalized' => 'anch'
       },
-      'structure' => {
-        'node_prev' => {}
-      }
-    },
-    'node_next' => {}
+      'structure' => {}
+    }
   }
 };
-$result_nodes{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'equivalent_labels'};
-$result_nodes{'equivalent_labels'}{'structure'}{'node_next'} = $result_nodes{'equivalent_labels'}{'structure'}{'menu_child'};
 
 $result_menus{'equivalent_labels'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -472,13 +467,13 @@ $result_menus{'equivalent_labels'} = {
             'menu_prev' => {},
             'menu_up' => {},
             'menu_up_hash' => {
-              'Top' => 1
+              'first' => 1
             }
           }
         },
         'menu_up' => {},
         'menu_up_hash' => {
-          'Top' => 1
+          'first' => 1
         }
       }
     }
@@ -538,7 +533,7 @@ $result_floats{'equivalent_labels'} = {
 $result_converted{'info'}->{'equivalent_labels'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: anch,  Up: (dir)
+File: ,  Node: first
 
 .
 
@@ -552,9 +547,9 @@ truc 1
 
 
 Tag Table:
-Node: Top27
-Ref: anch74
-Ref: floa77
+Node: first27
+Ref: anch51
+Ref: floa54
 
 End Tag Table
 
@@ -563,6 +558,16 @@ Local Variables:
 coding: utf-8
 End:
 ';
+
+$result_converted_errors{'info'}->{'equivalent_labels'} = [
+  {
+    'error_line' => 'warning: document without Top node
+',
+    'text' => 'document without Top node',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'html'}->{'equivalent_labels'} = '<!DOCTYPE html>
@@ -578,7 +583,7 @@ $result_converted{'html'}->{'equivalent_labels'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -590,7 +595,7 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <a class="anchor" id="anch"></a><p>.
 </p>

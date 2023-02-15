@@ -65,7 +65,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         {
           'contents' => [
             {
-              'text' => 'other nodes'
+              'text' => 'chap nodes'
             }
           ],
           'type' => 'line_arg'
@@ -124,7 +124,7 @@ $result_trees{'character_and_spaces_in_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'other-nodes'
+            'normalized' => 'chap-nodes'
           },
           {
             'node_content' => [
@@ -145,7 +145,7 @@ $result_trees{'character_and_spaces_in_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'other-nodes'
+        'normalized' => 'chap-nodes'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -184,7 +184,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         {
           'contents' => [
             {
-              'text' => 'other nodes'
+              'text' => 'chap nodes'
             }
           ],
           'info' => {
@@ -197,7 +197,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         {
           'contents' => [
             {
-              'text' => 'other nodes'
+              'text' => 'chap nodes'
             }
           ],
           'info' => {
@@ -234,13 +234,13 @@ $result_trees{'character_and_spaces_in_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'other-nodes'
+            'normalized' => 'chap-nodes'
           },
           {
             'node_content' => [
               {}
             ],
-            'normalized' => 'other-nodes'
+            'normalized' => 'chap-nodes'
           }
         ],
         'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
@@ -285,7 +285,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         {
           'contents' => [
             {
-              'text' => 'other nodes'
+              'text' => 'chap nodes'
             }
           ],
           'info' => {
@@ -328,7 +328,7 @@ $result_trees{'character_and_spaces_in_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'other-nodes'
+            'normalized' => 'chap-nodes'
           }
         ],
         'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
@@ -368,7 +368,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         {
           'contents' => [
             {
-              'text' => 'other nodes'
+              'text' => 'chap nodes'
             }
           ],
           'info' => {
@@ -403,7 +403,7 @@ $result_trees{'character_and_spaces_in_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'other-nodes'
+            'normalized' => 'chap-nodes'
           }
         ],
         'normalized' => 'local-node'
@@ -446,10 +446,10 @@ $result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'extra'}{'nodes_man
 
 $result_texis{'character_and_spaces_in_node'} = '
 @node Top
-@node other nodes, !_"#$%&\'()*+-., Top, Top
-@node !_"#$%&\'()*+-., /;<=>?[\\]^_`|~, other nodes, other nodes
-@node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., other nodes
-@node  local   node,,/;<=>?[\\]^_`|~,other nodes
+@node chap nodes, !_"#$%&\'()*+-., Top, Top
+@node !_"#$%&\'()*+-., /;<=>?[\\]^_`|~, chap nodes, chap nodes
+@node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., chap nodes
+@node  local   node,,/;<=>?[\\]^_`|~,chap nodes
 ';
 
 
@@ -466,7 +466,7 @@ $result_nodes{'character_and_spaces_in_node'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'other-nodes'
+        'normalized' => 'chap-nodes'
       },
       'info' => {},
       'structure' => {
@@ -537,28 +537,28 @@ $result_floats{'character_and_spaces_in_node'} = {};
 $result_converted{'info'}->{'character_and_spaces_in_node'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: other nodes,  Up: (dir)
+File: ,  Node: Top,  Next: chap nodes,  Up: (dir)
 
 
-File: ,  Node: other nodes,  Next: !_"#$%&\'()*+-.,  Prev: Top,  Up: Top
+File: ,  Node: chap nodes,  Next: !_"#$%&\'()*+-.,  Prev: Top,  Up: Top
 
 
-File: ,  Node: !_"#$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: other nodes,  Up: other nodes
+File: ,  Node: !_"#$%&\'()*+-.,  Next: /;<=>?[\\]^_`|~,  Prev: chap nodes,  Up: chap nodes
 
 
-File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_"#$%&\'()*+-.,  Up: other nodes
+File: ,  Node: /;<=>?[\\]^_`|~,  Next: local node,  Prev: !_"#$%&\'()*+-.,  Up: chap nodes
 
 
-File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: other nodes
+File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: chap nodes
 
 
 
 Tag Table:
 Node: Top27
-Node: other nodes81
-Node: !_"#$%&\'()*+-.156
-Node: /;<=>?[\\]^_`|~250
-Node: local node343
+Node: chap nodes80
+Node: !_"#$%&\'()*+-.154
+Node: /;<=>?[\\]^_`|~246
+Node: local node338
 
 End Tag Table
 
@@ -597,31 +597,31 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#other-nodes" accesskey="n" rel="next">other nodes</a> &nbsp; </p>
+Next: <a href="#chap-nodes" accesskey="n" rel="next">chap nodes</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
-<a class="node-id" id="other-nodes"></a><div class="nav-panel">
+<a class="node-id" id="chap-nodes"></a><div class="nav-panel">
 <p>
 Next: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="n" rel="next">!_&quot;#$%&amp;\'()*+-.</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>other nodes<a class="copiable-link" href="#other-nodes"> &para;</a></span></h4>
+<h4 class="node"><span>chap nodes<a class="copiable-link" href="#chap-nodes"> &para;</a></span></h4>
 <hr>
 <a class="node-id" id="g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e"></a><div class="nav-panel">
 <p>
-Next: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="n" rel="next">/;&lt;=&gt;?[\\]^_`|~</a>, Previous: <a href="#other-nodes" accesskey="p" rel="prev">other nodes</a>, Up: <a href="#other-nodes" accesskey="u" rel="up">other nodes</a> &nbsp; </p>
+Next: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="n" rel="next">/;&lt;=&gt;?[\\]^_`|~</a>, Previous: <a href="#chap-nodes" accesskey="p" rel="prev">chap nodes</a>, Up: <a href="#chap-nodes" accesskey="u" rel="up">chap nodes</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>!_&quot;#$%&amp;\'()*+-.<a class="copiable-link" href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e"> &para;</a></span></h4>
 <hr>
 <a class="node-id" id="g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e"></a><div class="nav-panel">
 <p>
-Next: <a href="#local-node" accesskey="n" rel="next">local   node</a>, Previous: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="p" rel="prev">!_&quot;#$%&amp;\'()*+-.</a>, Up: <a href="#other-nodes" accesskey="u" rel="up">other nodes</a> &nbsp; </p>
+Next: <a href="#local-node" accesskey="n" rel="next">local   node</a>, Previous: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="p" rel="prev">!_&quot;#$%&amp;\'()*+-.</a>, Up: <a href="#chap-nodes" accesskey="u" rel="up">chap nodes</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>/;&lt;=&gt;?[\\]^_`|~<a class="copiable-link" href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e"> &para;</a></span></h4>
 <hr>
 <a class="node-id" id="local-node"></a><div class="nav-panel">
 <p>
-Previous: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="p" rel="prev">/;&lt;=&gt;?[\\]^_`|~</a>, Up: <a href="#other-nodes" accesskey="u" rel="up">other nodes</a> &nbsp; </p>
+Previous: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="p" rel="prev">/;&lt;=&gt;?[\\]^_`|~</a>, Up: <a href="#chap-nodes" accesskey="u" rel="up">chap nodes</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>local   node<a class="copiable-link" href="#local-node"> &para;</a></span></h4>
 

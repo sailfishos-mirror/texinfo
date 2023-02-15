@@ -57,7 +57,7 @@ $result_trees{'node_referenced_in_ref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first level node'
+                      'text' => 'chap first level node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -86,7 +86,7 @@ $result_trees{'node_referenced_in_ref'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first-level-node'
+                  'normalized' => 'chap-first-level-node'
                 }
               },
               'source_info' => {
@@ -254,7 +254,7 @@ $result_trees{'node_referenced_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'first level node'
+              'text' => 'chap first level node'
             }
           ],
           'info' => {
@@ -283,10 +283,10 @@ $result_trees{'node_referenced_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first-level-node'
+            'normalized' => 'chap-first-level-node'
           }
         ],
-        'normalized' => 'first-level-node'
+        'normalized' => 'chap-first-level-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -316,19 +316,19 @@ $result_trees{'node_referenced_in_ref'}{'contents'}[3] = $result_trees{'node_ref
 $result_texis{'node_referenced_in_ref'} = '@node Top
 
 @menu
-* first level node::
+* chap first level node::
 @end menu
 
 @ref{second level node}.
 
-@node first level node
+@node chap first level node
 
 @node second level node
 ';
 
 
 $result_texts{'node_referenced_in_ref'} = '
-* first level node::
+* chap first level node::
 
 second level node.
 
@@ -350,7 +350,7 @@ $result_nodes{'node_referenced_in_ref'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-level-node'
+        'normalized' => 'chap-first-level-node'
       },
       'info' => {},
       'structure' => {
@@ -375,7 +375,7 @@ $result_menus{'node_referenced_in_ref'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-level-node'
+        'normalized' => 'chap-first-level-node'
       },
       'info' => {},
       'structure' => {

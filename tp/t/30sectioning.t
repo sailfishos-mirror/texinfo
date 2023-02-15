@@ -50,15 +50,15 @@ my $nodes_after_top_before_section_text =
 '@node Top
 Top node
 @menu
-* second node::
+* chap node::
 * third node::
 @end menu
 
-@node second node, third node,Top,Top
+@node chap node, third node,Top,Top
 
 second node
 
-@node third node,,second node,Top
+@node third node,,chap node,Top
 @subsection subsection
 ';
 
@@ -179,10 +179,10 @@ Text part second.
 '@node Top
 
 @menu
-* first::
+* chap first::
 @end menu
 
-@node first, (manual1), (manual2) , (manual3)
+@node chap first, (manual1), (manual2) , (manual3)
 ', {'test_split' => 'node'}],
 ['two_nodes_between_chapters',
 '@node Top
@@ -351,10 +351,10 @@ my @tests_info = (
 ['character_and_spaces_in_node',
 '
 @node Top
-@node other nodes, !_"#$%&\'()*+-., Top, Top
-@node !_"#$%&\'()*+-., /;<=>?[\\]^_`|~, other nodes, other nodes
-@node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., other nodes
-@node  local   node,,/;<=>?[\\]^_`|~,other nodes
+@node chap nodes, !_"#$%&\'()*+-., Top, Top
+@node !_"#$%&\'()*+-., /;<=>?[\\]^_`|~, chap nodes, chap nodes
+@node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., chap nodes
+@node  local   node,,/;<=>?[\\]^_`|~,chap nodes
 '],
 # a subset of the next test, with ascii spaces only
 ['in_menu_only_special_ascii_spaces_node',
@@ -409,7 +409,7 @@ undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
 @xref{TOP}.
 '],
 ['equivalent_labels',
-'@node Top
+'@node first
 
 @anchor{@samp{anch}}.
 
@@ -423,7 +423,7 @@ In float
 @end menu
 '],
 ['equivalent_nodes',
-'@node Top, @emph{node}
+'@node first, @emph{node}
 
 @menu
 * @strong{node}::
@@ -437,15 +437,15 @@ In float
 '@node Top
 Top node
 @menu
-* second node::
+* chap node::
 * third node::
 @end menu
 
-@node second node, third node,Top,Top
+@node chap node, third node,Top,Top
 
 second node
 
-@node third node,,second node,Top
+@node third node,,chap node,Top
 ', {'test_split' => 'node'}],
 ['nodes_after_top_before_chapter_nodes',
 $nodes_after_top_before_chapter_text,
@@ -463,11 +463,11 @@ $nodes_after_top_before_section_text,
 '@node Top
 
 @menu
-* second node::
+* chap node::
 * TOP:: myself
 @end menu
 
-@node second node,,top,TOP
+@node chap node,,top,TOP
 '],
 ['nodes_no_node_top_explicit_directions',
 '@node first,,,(dir)
@@ -561,10 +561,10 @@ in chapter
 @top top
 
 @menu
-* part node after top::
+* chap part node after top::
 @end menu
 
-@node part node after top
+@node chap part node after top
 @part part
 ', {'test_split' => 'section'}],
 ['part_chapter_after_top',
@@ -874,7 +874,7 @@ $unnumbered_top_without_node_text,
 '],
 ['protected_node_parentheses',
 '
-@node Top
+@node first
 @top top
 
 @menu
@@ -901,11 +901,11 @@ $unnumbered_top_without_node_text,
 
 
 my @test_cases = (
-['node',
-'@node Top'
+['node_simple',
+'@node first'
 ],
 ['node_too_much_args',
-'@node Top, , , , (dir)'
+'@node first, , , , (dir)'
 ],
 [ 'node_line_arguments',
 '
@@ -931,12 +931,12 @@ my @test_cases = (
 '@node Top
 
 @menu
-* first level node::
+* chap first level node::
 @end menu
 
 @ref{second level node}.
 
-@node first level node
+@node chap first level node
 
 @node second level node
 '],
@@ -992,7 +992,7 @@ Dummy section with (manual)node node syntax.
 
 ', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['node_nested_parentheses',
-'@node Top
+'@node first
 
 @menu
 * ((some) file)::
@@ -1005,7 +1005,7 @@ Dummy section with (manual)node node syntax.
 '@node name, '
 ],
 ['unknown_node_in_menu',
-'@node Top
+'@node first
 
 @menu
 * unknown::
@@ -1060,11 +1060,11 @@ second node.
 '@node Top
 
 @menu
-* first node::
+* chap first node::
 * no return::
 @end menu
 
-@node first node, no return,, Top
+@node chap first node, no return,, Top
 
 @node no return,,, Top 
 '],
@@ -1087,16 +1087,16 @@ second node.
 @top top
 
 @menu
-* node up::
+* chap node up::
 @end menu
 
-@node node up,,,node down
+@node chap node up,,,node down
 
 @menu
 * node middle::
 @end menu
 
-@node node middle,,,node up
+@node node middle,,,chap node up
 
 @menu
 * node down::
@@ -1274,12 +1274,12 @@ in chap
 ', {'test_formats' => ['html_text']}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}
 ],
 ['empty_ref_arg',
-'@node Top
+'@node first
 
-@ref{Top, @ }
-@ref{Top, , @ }
-@ref{Top, @ , @:}
-@ref{Top, @c aaa
+@ref{first, @ }
+@ref{first, , @ }
+@ref{first, @ , @:}
+@ref{first, @c aaa
  @ 
 @c ggg
 , @c fff
@@ -1305,7 +1305,7 @@ in chap
 
 my @test_out_files = (
 ['transliterated_split_equivalent_nodes',
-'@node Top
+'@node top
 
 @menu
 * @~a::
@@ -1314,6 +1314,7 @@ my @test_out_files = (
 @end menu
 
 @node @~a
+@unnumbered @~a
 
 @node n
 

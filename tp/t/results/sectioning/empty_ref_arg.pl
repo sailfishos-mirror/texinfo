@@ -15,7 +15,7 @@ $result_trees{'empty_ref_arg'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -41,7 +41,7 @@ $result_trees{'empty_ref_arg'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -67,7 +67,7 @@ $result_trees{'empty_ref_arg'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -85,7 +85,7 @@ $result_trees{'empty_ref_arg'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -119,7 +119,7 @@ $result_trees{'empty_ref_arg'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -137,7 +137,7 @@ $result_trees{'empty_ref_arg'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -176,7 +176,7 @@ $result_trees{'empty_ref_arg'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -194,7 +194,7 @@ $result_trees{'empty_ref_arg'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -301,7 +301,7 @@ $result_trees{'empty_ref_arg'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -327,10 +327,10 @@ $result_trees{'empty_ref_arg'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -357,12 +357,12 @@ $result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'ext
 $result_trees{'empty_ref_arg'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_ref_arg'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'empty_ref_arg'} = '@node Top
+$result_texis{'empty_ref_arg'} = '@node first
 
-@ref{Top, @ }
-@ref{Top, , @ }
-@ref{Top, @ , @:}
-@ref{Top, @c aaa
+@ref{first, @ }
+@ref{first, , @ }
+@ref{first, @ , @:}
+@ref{first, @c aaa
  @ 
 @c ggg
 , @c fff
@@ -372,16 +372,16 @@ $result_texis{'empty_ref_arg'} = '@node Top
 
 
 $result_texts{'empty_ref_arg'} = '
-Top
-Top
-Top
-Top
+first
+first
+first
+first
 ';
 
 $result_nodes{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -389,7 +389,7 @@ $result_nodes{'empty_ref_arg'} = {
 $result_menus{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -466,12 +466,12 @@ $result_floats{'empty_ref_arg'} = {};
 
 
 
-$result_converted{'xml'}->{'empty_ref_arg'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'empty_ref_arg'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 
-<para><ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname></ref>
-<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "></xrefinfoname><xrefprinteddesc spaces=" "><spacecmd type="spc"/></xrefprinteddesc></ref>
-<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname><xrefprinteddesc spaces=" ">&noeos;</xrefprinteddesc></ref>
-<ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname spaces=" "><!-- c aaa -->
+<para><ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "></xrefinfoname><xrefprinteddesc spaces=" "><spacecmd type="spc"/></xrefprinteddesc></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname><xrefprinteddesc spaces=" ">&noeos;</xrefprinteddesc></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><!-- c aaa -->
  <spacecmd type="spc"/>
 <!-- c ggg -->
 </xrefinfoname><xrefprinteddesc spaces=" "><!-- c fff -->

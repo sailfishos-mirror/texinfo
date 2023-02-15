@@ -144,7 +144,7 @@ $result_trees{'loop_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'node up'
+                      'text' => 'chap node up'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -173,7 +173,7 @@ $result_trees{'loop_nodes'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'node-up'
+                  'normalized' => 'chap-node-up'
                 }
               },
               'source_info' => {
@@ -245,7 +245,7 @@ $result_trees{'loop_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'node up'
+              'text' => 'chap node up'
             }
           ],
           'type' => 'line_arg'
@@ -394,7 +394,7 @@ $result_trees{'loop_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node-up'
+            'normalized' => 'chap-node-up'
           },
           undef,
           undef,
@@ -405,7 +405,7 @@ $result_trees{'loop_nodes'} = {
             'normalized' => 'node-down'
           }
         ],
-        'normalized' => 'node-up'
+        'normalized' => 'chap-node-up'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -437,7 +437,7 @@ $result_trees{'loop_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'node up'
+              'text' => 'chap node up'
             }
           ],
           'info' => {
@@ -580,7 +580,7 @@ $result_trees{'loop_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node-up'
+            'normalized' => 'chap-node-up'
           }
         ],
         'normalized' => 'node-middle'
@@ -662,16 +662,16 @@ $result_texis{'loop_nodes'} = '@setfilename loop_nodes.info
 @top top
 
 @menu
-* node up::
+* chap node up::
 @end menu
 
-@node node up,,,node down
+@node chap node up,,,node down
 
 @menu
 * node middle::
 @end menu
 
-@node node middle,,,node up
+@node node middle,,,chap node up
 
 @menu
 * node down::
@@ -685,7 +685,7 @@ $result_texts{'loop_nodes'} = '
 top
 ***
 
-* node up::
+* chap node up::
 
 
 * node middle::
@@ -748,7 +748,7 @@ $result_nodes{'loop_nodes'} = {
             'cmdname' => 'menu'
           }
         ],
-        'normalized' => 'node-up'
+        'normalized' => 'chap-node-up'
       },
       'info' => {},
       'structure' => {
@@ -800,7 +800,7 @@ $result_menus{'loop_nodes'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node-up'
+        'normalized' => 'chap-node-up'
       },
       'info' => {},
       'structure' => {
@@ -826,7 +826,7 @@ $result_menus{'loop_nodes'} = {
             },
             'menu_up' => {},
             'menu_up_hash' => {
-              'node-up' => 1
+              'chap-node-up' => 1
             }
           }
         },
@@ -844,12 +844,12 @@ $result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} =
 
 $result_errors{'loop_nodes'} = [
   {
-    'error_line' => 'warning: node up pointer for `node up\' is `node down\' but up is `Top\' in menu
+    'error_line' => 'warning: node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
 ',
     'file_name' => '',
     'line_nr' => 10,
     'macro' => '',
-    'text' => 'node up pointer for `node up\' is `node down\' but up is `Top\' in menu',
+    'text' => 'node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu',
     'type' => 'warning'
   }
 ];
@@ -862,7 +862,7 @@ $result_floats{'loop_nodes'} = {};
 $result_converted{'latex_text'}->{'loop_nodes'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node-up}%
+\\label{anchor:chap-node-up}%
 
 
 \\label{anchor:node-middle}%

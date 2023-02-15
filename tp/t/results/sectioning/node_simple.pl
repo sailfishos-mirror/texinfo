@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'node'} = {
+$result_trees{'node_simple'} = {
   'contents' => [
     {
       'type' => 'before_node_section'
@@ -15,7 +15,7 @@ $result_trees{'node'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'type' => 'line_arg'
@@ -31,10 +31,10 @@ $result_trees{'node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -50,34 +50,34 @@ $result_trees{'node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'node_simple'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_simple'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'node_simple'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_simple'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'node'} = '@node Top';
+$result_texis{'node_simple'} = '@node first';
 
 
-$result_texts{'node'} = '';
+$result_texts{'node_simple'} = '';
 
-$result_nodes{'node'} = {
+$result_nodes{'node_simple'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
 
-$result_menus{'node'} = {
+$result_menus{'node_simple'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
 
-$result_errors{'node'} = [];
+$result_errors{'node_simple'} = [];
 
 
-$result_floats{'node'} = {};
+$result_floats{'node_simple'} = {};
 
 
 1;

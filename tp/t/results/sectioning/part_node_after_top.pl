@@ -101,7 +101,7 @@ $result_trees{'part_node_after_top'} = [
                   {
                     'contents' => [
                       {
-                        'text' => 'part node after top'
+                        'text' => 'chap part node after top'
                       }
                     ],
                     'type' => 'menu_entry_node'
@@ -130,7 +130,7 @@ $result_trees{'part_node_after_top'} = [
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'part-node-after-top'
+                    'normalized' => 'chap-part-node-after-top'
                   }
                 },
                 'source_info' => {
@@ -202,7 +202,7 @@ $result_trees{'part_node_after_top'} = [
           {
             'contents' => [
               {
-                'text' => 'part node after top'
+                'text' => 'chap part node after top'
               }
             ],
             'info' => {
@@ -224,10 +224,10 @@ $result_trees{'part_node_after_top'} = [
               'node_content' => [
                 {}
               ],
-              'normalized' => 'part-node-after-top'
+              'normalized' => 'chap-part-node-after-top'
             }
           ],
-          'normalized' => 'part-node-after-top'
+          'normalized' => 'chap-part-node-after-top'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -296,10 +296,10 @@ $result_texis{'part_node_after_top'} = '@node Top
 @top top
 
 @menu
-* part node after top::
+* chap part node after top::
 @end menu
 
-@node part node after top
+@node chap part node after top
 @part part
 ';
 
@@ -307,7 +307,7 @@ $result_texis{'part_node_after_top'} = '@node Top
 $result_texts{'part_node_after_top'} = 'top
 ***
 
-* part node after top::
+* chap part node after top::
 
 part
 ****
@@ -463,7 +463,7 @@ $result_nodes{'part_node_after_top'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'part-node-after-top'
+        'normalized' => 'chap-part-node-after-top'
       },
       'info' => {},
       'structure' => {
@@ -550,7 +550,7 @@ $result_menus{'part_node_after_top'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'part-node-after-top'
+        'normalized' => 'chap-part-node-after-top'
       },
       'info' => {},
       'structure' => {
@@ -686,23 +686,23 @@ element: @part part
 $result_converted{'info'}->{'part_node_after_top'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: part node after top,  Up: (dir)
+File: ,  Node: Top,  Next: chap part node after top,  Up: (dir)
 
 top
 ***
 
 * Menu:
 
-* part node after top::
+* chap part node after top::
 
 
-File: ,  Node: part node after top,  Prev: Top,  Up: Top
+File: ,  Node: chap part node after top,  Prev: Top,  Up: Top
 
 
 
 Tag Table:
 Node: Top27
-Node: part node after top132
+Node: chap part node after top142
 
 End Tag Table
 
@@ -741,17 +741,17 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#part-node-after-top" accesskey="n" rel="next">part node after top</a> &nbsp; </p>
+Next: <a href="#chap-part-node-after-top" accesskey="n" rel="next">chap part node after top</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <hr>
-<a class="node-id" id="part-node-after-top"></a><div class="nav-panel">
+<a class="node-id" id="chap-part-node-after-top"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>part node after top<a class="copiable-link" href="#part-node-after-top"> &para;</a></span></h4>
+<h4 class="node"><span>chap part node after top<a class="copiable-link" href="#chap-part-node-after-top"> &para;</a></span></h4>
 </div>
 <div class="part-level-extent" id="part">
 <h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
@@ -765,15 +765,15 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 ';
 
 
-$result_converted{'xml'}->{'part_node_after_top'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">part node after top</nodenext></node>
+$result_converted{'xml'}->{'part_node_after_top'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap part node after top</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>part node after top</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chap part node after top</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="part-node-after-top" spaces=" "><nodename>part node after top</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="chap-part-node-after-top" spaces=" "><nodename>chap part node after top</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <part spaces=" "><sectiontitle>part</sectiontitle>
 </part>
 ';

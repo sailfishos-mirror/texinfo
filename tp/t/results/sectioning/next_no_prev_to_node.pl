@@ -57,7 +57,7 @@ $result_trees{'next_no_prev_to_node'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first node'
+                      'text' => 'chap first node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -86,7 +86,7 @@ $result_trees{'next_no_prev_to_node'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first-node'
+                  'normalized' => 'chap-first-node'
                 }
               },
               'source_info' => {
@@ -219,7 +219,7 @@ $result_trees{'next_no_prev_to_node'} = {
         {
           'contents' => [
             {
-              'text' => 'first node'
+              'text' => 'chap first node'
             }
           ],
           'type' => 'line_arg'
@@ -275,7 +275,7 @@ $result_trees{'next_no_prev_to_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first-node'
+            'normalized' => 'chap-first-node'
           },
           {
             'node_content' => [
@@ -291,7 +291,7 @@ $result_trees{'next_no_prev_to_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'first-node'
+        'normalized' => 'chap-first-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -390,18 +390,18 @@ $result_trees{'next_no_prev_to_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[3
 $result_texis{'next_no_prev_to_node'} = '@node Top
 
 @menu
-* first node::
+* chap first node::
 * no return::
 @end menu
 
-@node first node, no return,, Top
+@node chap first node, no return,, Top
 
 @node no return,,, Top 
 ';
 
 
 $result_texts{'next_no_prev_to_node'} = '
-* first node::
+* chap first node::
 * no return::
 
 
@@ -422,7 +422,7 @@ $result_nodes{'next_no_prev_to_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-node'
+        'normalized' => 'chap-first-node'
       },
       'info' => {},
       'structure' => {
@@ -458,7 +458,7 @@ $result_menus{'next_no_prev_to_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-node'
+        'normalized' => 'chap-first-node'
       },
       'info' => {},
       'structure' => {
@@ -495,14 +495,14 @@ $result_floats{'next_no_prev_to_node'} = {};
 
 
 
-$result_converted{'xml'}->{'next_no_prev_to_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first node</nodenext></node>
+$result_converted{'xml'}->{'next_no_prev_to_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first node</nodenext></node>
 
 <menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>first node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>no return</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="first-node" spaces=" "><nodename>first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node name="chap-first-node" spaces=" "><nodename>chap first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
 
 <node name="no-return" spaces=" "><nodename>no return</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup spaces=" " trailingspaces=" ">Top</nodeup></node>
 ';

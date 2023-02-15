@@ -62,7 +62,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
                   {
                     'contents' => [
                       {
-                        'text' => 'second node'
+                        'text' => 'chap node'
                       }
                     ],
                     'type' => 'menu_entry_node'
@@ -91,7 +91,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'second-node'
+                    'normalized' => 'chap-node'
                   }
                 },
                 'source_info' => {
@@ -224,7 +224,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
           {
             'contents' => [
               {
-                'text' => 'second node'
+                'text' => 'chap node'
               }
             ],
             'type' => 'line_arg'
@@ -296,7 +296,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
               'node_content' => [
                 {}
               ],
-              'normalized' => 'second-node'
+              'normalized' => 'chap-node'
             },
             {
               'node_content' => [
@@ -317,7 +317,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'second-node'
+          'normalized' => 'chap-node'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -346,7 +346,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
           {
             'contents' => [
               {
-                'text' => 'second node'
+                'text' => 'chap node'
               }
             ],
             'type' => 'line_arg'
@@ -383,7 +383,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
               'node_content' => [
                 {}
               ],
-              'normalized' => 'second-node'
+              'normalized' => 'chap-node'
             },
             {
               'node_content' => [
@@ -460,21 +460,21 @@ $result_trees{'nodes_after_top_before_section_sections'}[0]{'extra'}{'unit_comma
 $result_texis{'nodes_after_top_before_section_sections'} = '@node Top
 Top node
 @menu
-* second node::
+* chap node::
 * third node::
 @end menu
 
-@node second node, third node,Top,Top
+@node chap node, third node,Top,Top
 
 second node
 
-@node third node,,second node,Top
+@node third node,,chap node,Top
 @subsection subsection
 ';
 
 
 $result_texts{'nodes_after_top_before_section_sections'} = 'Top node
-* second node::
+* chap node::
 * third node::
 
 
@@ -570,7 +570,7 @@ $result_nodes{'nodes_after_top_before_section_sections'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -640,7 +640,7 @@ $result_menus{'nodes_after_top_before_section_sections'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -726,21 +726,21 @@ $result_directions_text{'nodes_after_top_before_section_sections'} = 'element: @
 $result_converted{'info'}->{'nodes_after_top_before_section_sections'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: second node,  Up: (dir)
+File: ,  Node: Top,  Next: chap node,  Up: (dir)
 
 Top node
 * Menu:
 
-* second node::
+* chap node::
 * third node::
 
 
-File: ,  Node: second node,  Next: third node,  Prev: Top,  Up: Top
+File: ,  Node: chap node,  Next: third node,  Prev: Top,  Up: Top
 
 second node
 
 
-File: ,  Node: third node,  Prev: second node,  Up: Top
+File: ,  Node: third node,  Prev: chap node,  Up: Top
 
 1 subsection
 ------------
@@ -749,8 +749,8 @@ File: ,  Node: third node,  Prev: second node,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: second node131
-Node: third node215
+Node: chap node127
+Node: third node209
 
 End Tag Table
 
@@ -788,17 +788,17 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p>
+Next: <a href="#chap-node" accesskey="n" rel="next">chap node</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <p>Top node
 </p>
 <hr>
-<a class="node-id" id="second-node"></a><div class="nav-panel">
+<a class="node-id" id="chap-node"></a><div class="nav-panel">
 <p>
 Next: <a href="#third-node" accesskey="n" rel="next">subsection</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
+<h4 class="node"><span>chap node<a class="copiable-link" href="#chap-node"> &para;</a></span></h4>
 
 <p>second node
 </p>
@@ -806,7 +806,7 @@ Next: <a href="#third-node" accesskey="n" rel="next">subsection</a>, Previous: <
 <div class="subsection-level-extent" id="third-node">
 <div class="nav-panel">
 <p>
-Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Previous: <a href="#chap-node" accesskey="p" rel="prev">chap node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="subsection" id="subsection"><span>1 subsection<a class="copiable-link" href="#subsection"> &para;</a></span></h4>
 </div>

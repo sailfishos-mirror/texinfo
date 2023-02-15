@@ -15,7 +15,7 @@ $result_trees{'unknown_node_in_menu'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -145,10 +145,10 @@ $result_trees{'unknown_node_in_menu'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -168,7 +168,7 @@ $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[
 $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'unknown_node_in_menu'} = '@node Top
+$result_texis{'unknown_node_in_menu'} = '@node first
 
 @menu
 * unknown::
@@ -188,7 +188,7 @@ $result_nodes{'unknown_node_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -196,7 +196,7 @@ $result_nodes{'unknown_node_in_menu'} = {
 $result_menus{'unknown_node_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

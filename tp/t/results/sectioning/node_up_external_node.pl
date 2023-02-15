@@ -64,7 +64,7 @@ $result_trees{'node_up_external_node'} = [
                   {
                     'contents' => [
                       {
-                        'text' => 'first'
+                        'text' => 'chap first'
                       }
                     ],
                     'type' => 'menu_entry_node'
@@ -93,7 +93,7 @@ $result_trees{'node_up_external_node'} = [
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'first'
+                    'normalized' => 'chap-first'
                   }
                 },
                 'source_info' => {
@@ -186,7 +186,7 @@ $result_trees{'node_up_external_node'} = [
           {
             'contents' => [
               {
-                'text' => 'first'
+                'text' => 'chap first'
               }
             ],
             'type' => 'line_arg'
@@ -266,7 +266,7 @@ $result_trees{'node_up_external_node'} = [
               'node_content' => [
                 {}
               ],
-              'normalized' => 'first'
+              'normalized' => 'chap-first'
             },
             {
               'manual_content' => [
@@ -284,7 +284,7 @@ $result_trees{'node_up_external_node'} = [
               ]
             }
           ],
-          'normalized' => 'first'
+          'normalized' => 'chap-first'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -318,15 +318,15 @@ $result_trees{'node_up_external_node'}[1]{'extra'}{'unit_command'} = $result_tre
 $result_texis{'node_up_external_node'} = '@node Top
 
 @menu
-* first::
+* chap first::
 @end menu
 
-@node first, (manual1), (manual2) , (manual3)
+@node chap first, (manual1), (manual2) , (manual3)
 ';
 
 
 $result_texts{'node_up_external_node'} = '
-* first::
+* chap first::
 
 ';
 
@@ -353,7 +353,7 @@ $result_nodes{'node_up_external_node'} = {
               'unit_command' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'first'
+                  'normalized' => 'chap-first'
                 },
                 'info' => {},
                 'structure' => {
@@ -469,7 +469,7 @@ $result_menus{'node_up_external_node'} = {
               'unit_command' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'first'
+                  'normalized' => 'chap-first'
                 },
                 'info' => {},
                 'structure' => {
@@ -572,7 +572,7 @@ $result_elements{'node_up_external_node'} = [
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'first'
+              'normalized' => 'chap-first'
             },
             'info' => {},
             'structure' => {
@@ -662,18 +662,18 @@ $result_elements{'node_up_external_node'}[1] = $result_elements{'node_up_externa
 
 
 $result_directions_text{'node_up_external_node'} = 'element: @node Top
-  Forward: @node first
-  NodeForward: @node first
-  NodeNext: @node first
+  Forward: @node chap first
+  NodeForward: @node chap first
+  NodeNext: @node chap first
   This: @node Top
-element: @node first
+element: @node chap first
   Back: @node Top
   NodeBack: @node Top
   NodeForward: (manual1)
   NodeNext: (manual1)
   NodePrev: (manual2)
   NodeUp: (manual3)
-  This: @node first
+  This: @node chap first
 ';
 
 
@@ -707,17 +707,17 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
+Next: <a href="#chap-first" accesskey="n" rel="next">chap first</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-panel">
+<a class="node-id" id="chap-first"></a><div class="nav-panel">
 <p>
 Next: <a href="manual1.html#Top" accesskey="n" rel="next">(manual1)</a>, Previous: <a href="manual2.html#Top" accesskey="p" rel="prev">(manual2)</a>, Up: <a href="manual3.html#Top" accesskey="u" rel="up">(manual3)</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node"><span>chap first<a class="copiable-link" href="#chap-first"> &para;</a></span></h4>
 
 
 
@@ -736,13 +736,13 @@ $result_converted_errors{'html'}->{'node_up_external_node'} = [
 
 
 
-$result_converted{'xml'}->{'node_up_external_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
+$result_converted{'xml'}->{'node_up_external_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
 
 <menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="first" spaces=" "><nodename>first</nodename><nodenext spaces=" ">(manual1)</nodenext><nodeprev spaces=" " trailingspaces=" ">(manual2)</nodeprev><nodeup spaces=" ">(manual3)</nodeup></node>
+<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext spaces=" ">(manual1)</nodenext><nodeprev spaces=" " trailingspaces=" ">(manual2)</nodeprev><nodeup spaces=" ">(manual3)</nodeup></node>
 ';
 
 1;

@@ -57,7 +57,7 @@ $result_trees{'top_node_no_menu_direction'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'second node'
+                      'text' => 'chap node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -86,7 +86,7 @@ $result_trees{'top_node_no_menu_direction'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'second-node'
+                  'normalized' => 'chap-node'
                 }
               },
               'source_info' => {
@@ -219,7 +219,7 @@ $result_trees{'top_node_no_menu_direction'} = {
         {
           'contents' => [
             {
-              'text' => 'second node'
+              'text' => 'chap node'
             }
           ],
           'type' => 'line_arg'
@@ -260,7 +260,7 @@ $result_trees{'top_node_no_menu_direction'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'second-node'
+            'normalized' => 'chap-node'
           },
           undef,
           {
@@ -276,7 +276,7 @@ $result_trees{'top_node_no_menu_direction'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -304,16 +304,16 @@ $result_trees{'top_node_no_menu_direction'}{'contents'}[2]{'extra'}{'nodes_manua
 $result_texis{'top_node_no_menu_direction'} = '@node Top
 
 @menu
-* second node::
+* chap node::
 * TOP:: myself
 @end menu
 
-@node second node,,top,TOP
+@node chap node,,top,TOP
 ';
 
 
 $result_texts{'top_node_no_menu_direction'} = '
-* second node::
+* chap node::
 * TOP:: myself
 
 ';
@@ -333,7 +333,7 @@ $result_nodes{'top_node_no_menu_direction'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -358,7 +358,7 @@ $result_menus{'top_node_no_menu_direction'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -392,21 +392,21 @@ $result_errors{'top_node_no_menu_direction'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: Prev pointer `top\' (for node `second node\') different from node name `Top\'
+    'error_line' => 'warning: Prev pointer `top\' (for node `chap node\') different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 8,
     'macro' => '',
-    'text' => 'Prev pointer `top\' (for node `second node\') different from node name `Top\'',
+    'text' => 'Prev pointer `top\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: Up pointer `TOP\' (for node `second node\') different from node name `Top\'
+    'error_line' => 'warning: Up pointer `TOP\' (for node `chap node\') different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 8,
     'macro' => '',
-    'text' => 'Up pointer `TOP\' (for node `second node\') different from node name `Top\'',
+    'text' => 'Up pointer `TOP\' (for node `chap node\') different from node name `Top\'',
     'type' => 'warning'
   }
 ];
@@ -419,21 +419,21 @@ $result_floats{'top_node_no_menu_direction'} = {};
 $result_converted{'info'}->{'top_node_no_menu_direction'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: second node,  Up: (dir)
+File: ,  Node: Top,  Next: chap node,  Up: (dir)
 
 * Menu:
 
-* second node::
+* chap node::
 * TOP:: myself
 
 
-File: ,  Node: second node,  Prev: Top,  Up: Top
+File: ,  Node: chap node,  Prev: Top,  Up: Top
 
 
 
 Tag Table:
 Node: Top27
-Node: second node122
+Node: chap node118
 
 End Tag Table
 
@@ -471,17 +471,17 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p>
+Next: <a href="#chap-node" accesskey="n" rel="next">chap node</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 
 <hr>
-<a class="node-id" id="second-node"></a><div class="nav-panel">
+<a class="node-id" id="chap-node"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
+<h4 class="node"><span>chap node<a class="copiable-link" href="#chap-node"> &para;</a></span></h4>
 
 
 
