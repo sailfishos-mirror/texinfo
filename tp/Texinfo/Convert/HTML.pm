@@ -9231,7 +9231,7 @@ sub _prepare_index_entries($)
                  and ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}
                       or $index_entry->{'entry_element'}->{'extra'}->{'seealso'}));
         my $region = '';
-        $region = "$index_entry->{'entry_region'}->{'cmdname'}-"
+        $region = "$index_entry->{'entry_region'}-"
           if (defined($index_entry->{'entry_region'}));
         my @contents = @{$index_entry->{'content_normalized'}};
         my $subentries_tree

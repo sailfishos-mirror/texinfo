@@ -155,8 +155,6 @@ my %parser_state_initialization = (
   'value_stack' => [],        # stack of values being expanded (more recent
                               # first)
   'merged_indices' => {},     # the key is merged in the value
-  'regions_stack' => [],      # a stack of regions commands elements (block
-                              # region commands)
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
   # initialization of information returned by global_information()
@@ -451,23 +449,6 @@ foreach my $block_command (keys(%block_commands)) {
 delete $in_full_text_commands{'caption'};
 delete $in_full_text_commands{'shortcaption'};
 
-# Note that checks for basic inline content are now done using the stacks of
-# commands in 'nesting_context'.
-
-my %in_basic_inline_commands = %in_full_text_commands;
-foreach my $not_in_basic_inline_commands
-                               ('xref', 'ref', 'pxref', 'inforef',
-                                'titlefont', 'anchor', 'footnote', 'verb') {
-  delete $in_basic_inline_commands{$not_in_basic_inline_commands};
-}
-
-my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
-                                      %def_commands);
-my %ok_in_basic_inline_with_refs_commands;
-foreach my $permitted_command ('xref', 'ref', 'pxref', 'inforef') {
-  $ok_in_basic_inline_with_refs_commands{$permitted_command} = 1;
-}
-
 # commands that accept full text, but no block or top-level commands
 my %contain_full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
@@ -516,6 +497,29 @@ foreach my $brace_command (keys (%brace_commands)) {
     }
   }
 }
+
+# For _check_valid_nesting_context
+
+my %in_basic_inline_commands = %in_full_text_commands;
+foreach my $not_in_basic_inline_commands
+                               ('xref', 'ref', 'pxref', 'inforef',
+                                'titlefont', 'anchor', 'footnote', 'verb') {
+  delete $in_basic_inline_commands{$not_in_basic_inline_commands};
+}
+
+my %contain_basic_inline_with_refs_commands = (%sectioning_heading_commands,
+                                      %def_commands);
+my %ok_in_basic_inline_with_refs_commands;
+foreach my $permitted_command ('xref', 'ref', 'pxref', 'inforef') {
+  $ok_in_basic_inline_with_refs_commands{$permitted_command} = 1;
+}
+
+my %not_in_region_commands;
+foreach my $block_command (keys(%block_commands)) {
+  $not_in_region_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'region');
+}
+
 
 # default indices
 my %index_names = %Texinfo::Commands::index_names;
@@ -644,6 +648,7 @@ sub parser(;$$)
   $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
+  $parser->{'nesting_context'}->{'regions_stack'} = [];
   $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
 
   # handle user provided state.
@@ -2071,7 +2076,7 @@ sub _pop_block_command_contexts($$$;$)
     $self->_pop_context(['ct_math'], $source_info, $current,
                         $context_string);
   } elsif ($block_commands{$current->{'cmdname'}} eq 'region') {
-    pop @{$self->{'regions_stack'}};
+    pop @{$self->{'nesting_context'}->{'regions_stack'}};
   }
 }
 
@@ -3331,8 +3336,8 @@ sub _enter_index_entry($$$$$$$)
   if (defined($current->{'extra'}) and defined($current->{'extra'}->{'sortas'})) {
     $index_entry->{'sortas'} = $current->{'extra'}->{'sortas'};
   }
-  if (@{$self->{'regions_stack'}}) {
-    $index_entry->{'entry_region'} = $self->{'regions_stack'}->[-1];
+  if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
+    $index_entry->{'entry_region'} = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
     $index_entry->{'entry_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
@@ -4719,6 +4724,20 @@ sub _check_valid_nesting_context
               $command, $invalid_context), $source_info);
     return;
   }
+
+  if (defined($self->{'nesting_context'}->{'regions_stack'})
+       and @{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
+    if ($not_in_region_commands{$command}) {
+      $invalid_context = $self->{'nesting_context'}->{'regions_stack'}->[-1];
+    }
+  }
+
+  if ($invalid_context) {
+    $self->_line_warn(sprintf(
+          __("\@%s should not appear in \@%s block"),
+              $command, $invalid_context), $source_info);
+  }
+  return;
 }
 
 sub _setup_document_root_and_before_node_section()
@@ -6010,13 +6029,7 @@ sub _process_remaining_on_line($$$$)
           $self->_push_context('ct_rawpreformatted', $command);
         }
         if ($block_commands{$command} eq 'region') {
-          if (@{$self->{'regions_stack'}}) {
-            $self->_line_error(
-        sprintf(__("region %s inside region %s is not allowed"),
-                $command, $self->{'regions_stack'}->[-1]->{'cmdname'}),
-                              $source_info);
-          }
-          push @{$self->{'regions_stack'}}, $block;
+          push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
         }
         if ($block_commands{$command} eq 'menu') {
           $self->_push_context('ct_preformatted', $command);
@@ -6287,10 +6300,10 @@ sub _process_remaining_on_line($$$$)
                             $current->{'parent'}->{'cmdname'}, $source_info)) {
             _register_label($self->{'targets'}, $current->{'parent'},
                             $parsed_anchor);
-            if (@{$self->{'regions_stack'}}) {
-              $current->{'extra'} = {} if (!$current->{'extra'});
-              $current->{'extra'}->{'region'} = $self->{'regions_stack'}->[-1];
-            }
+             if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
+                $current->{'extra'}->{'region'}
+                  = $self->{'nesting_context'}->{'regions_stack'}->[-1];
+             }
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
           my $ref = $current->{'parent'};
@@ -7098,7 +7111,7 @@ sub _parse_line_command_args($$$)
         }
         if (!defined($self->{'current_node'})
             and !defined($self->{'current_section'})
-            and !scalar(@{$self->{'regions_stack'}})) {
+            and !scalar(@{$self->{'nesting_context'}->{'regions_stack'}})) {
           $self->_line_warn(sprintf(__(
                      "printindex before document beginning: \@printindex %s"),
                                     $name), $source_info);

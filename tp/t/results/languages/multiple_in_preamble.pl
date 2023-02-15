@@ -158,7 +158,7 @@ $result_trees{'multiple_in_preamble'} = {
                           ],
                           'entry_element' => {},
                           'entry_number' => 1,
-                          'entry_region' => {},
+                          'entry_region' => 'copying',
                           'in_code' => 1,
                           'index_at_command' => 'defivar',
                           'index_ignore_chars' => {},
@@ -884,7 +884,6 @@ $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[
 $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'multiple_in_preamble'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'multiple_in_preamble'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple_in_preamble'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_in_preamble'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'multiple_in_preamble'}{'contents'}[3]{'args'}[0]{'contents'}[0];

@@ -92,7 +92,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                             }
                           ],
                           'extra' => {
-                            'region' => {}
+                            'region' => 'copying'
                           },
                           'type' => 'brace_command_arg'
                         }
@@ -1204,7 +1204,6 @@ $result_trees{'references_to_top_no_top_output'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'references_to_top_no_top_output'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'region'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'references_to_top_no_top_output'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'references_to_top_no_top_output'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'references_to_top_no_top_output'}{'contents'}[1]{'args'}[0]{'contents'}[0];

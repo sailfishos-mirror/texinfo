@@ -39,7 +39,7 @@ $result_trees{'anchor_in_titlepage'} = {
                         }
                       ],
                       'extra' => {
-                        'region' => {}
+                        'region' => 'titlepage'
                       },
                       'type' => 'brace_command_arg'
                     }
@@ -310,7 +310,6 @@ $result_trees{'anchor_in_titlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'region'} = $result_trees{'anchor_in_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_in_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_titlepage'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_titlepage'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'anchor_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];

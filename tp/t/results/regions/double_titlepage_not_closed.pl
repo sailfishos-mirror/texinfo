@@ -111,13 +111,13 @@ $result_texts{'double_titlepage_not_closed'} = '';
 
 $result_errors{'double_titlepage_not_closed'} = [
   {
-    'error_line' => 'region titlepage inside region titlepage is not allowed
+    'error_line' => 'warning: @titlepage should not appear in @titlepage block
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
-    'text' => 'region titlepage inside region titlepage is not allowed',
-    'type' => 'error'
+    'text' => '@titlepage should not appear in @titlepage block',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: multiple @titlepage
