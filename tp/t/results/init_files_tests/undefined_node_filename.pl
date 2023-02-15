@@ -65,7 +65,7 @@ $result_trees{'undefined_node_filename'} = {
         {
           'contents' => [
             {
-              'text' => 'Other'
+              'text' => 'chap Other'
             }
           ],
           'info' => {
@@ -87,10 +87,10 @@ $result_trees{'undefined_node_filename'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Other'
+            'normalized' => 'chap-Other'
           }
         ],
-        'normalized' => 'Other'
+        'normalized' => 'chap-Other'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -113,7 +113,7 @@ $result_trees{'undefined_node_filename'}{'contents'}[2]{'extra'}{'nodes_manuals'
 
 $result_texis{'undefined_node_filename'} = '@node Top
 
-@node Other
+@node chap Other
 ';
 
 
@@ -130,7 +130,7 @@ $result_nodes{'undefined_node_filename'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Other'
+        'normalized' => 'chap-Other'
       },
       'info' => {},
       'structure' => {
@@ -158,9 +158,9 @@ $result_floats{'undefined_node_filename'} = {};
 
 $result_converted_errors{'file_html'}->{'undefined_node_filename'} = [
   {
-    'error_line' => 'warning: user-defined node file name not set for `Other.html\'
+    'error_line' => 'warning: user-defined node file name not set for `chap-Other.html\'
 ',
-    'text' => 'user-defined node file name not set for `Other.html\'',
+    'text' => 'user-defined node file name not set for `chap-Other.html\'',
     'type' => 'warning'
   },
   {

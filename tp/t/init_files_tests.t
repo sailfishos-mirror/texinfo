@@ -66,7 +66,7 @@ my @file_tests = (
 ['undefined_node_filename',
 '@node Top
 
-@node Other
+@node chap Other
 ',{'init_files' => ['undef_node_file_name.init'],
 }, {'VERBOSE' => 1}],
 ['customize_special_element',
@@ -93,6 +93,10 @@ Text@footnote{In footnote}.
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
 
 @node Top
+@top top
+
+@node chapter
+@chapter Chapter
 
 @sansserif{in--text} @- p--n. @error{} @equiv{}
 @xref{my node}@footnote{in footnote}.

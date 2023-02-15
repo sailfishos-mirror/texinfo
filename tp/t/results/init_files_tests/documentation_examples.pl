@@ -156,6 +156,129 @@ $result_trees{'documentation_examples'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 4,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'top'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 5,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chapter'
+          }
+        ],
+        'normalized' => 'chapter'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 7,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
       'contents' => [
         {
           'text' => '
@@ -178,7 +301,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'sansserif',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -200,7 +323,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -216,7 +339,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -289,7 +412,7 @@ $result_trees{'documentation_examples'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 25,
+                        'line_nr' => 29,
                         'macro' => ''
                       }
                     },
@@ -309,7 +432,7 @@ $result_trees{'documentation_examples'} = {
                           'cmdname' => 'error',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 27,
+                            'line_nr' => 31,
                             'macro' => ''
                           }
                         },
@@ -336,7 +459,7 @@ $result_trees{'documentation_examples'} = {
                           'cmdname' => 'equiv',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 29,
+                            'line_nr' => 33,
                             'macro' => ''
                           }
                         },
@@ -379,7 +502,7 @@ $result_trees{'documentation_examples'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 23,
+                    'line_nr' => 27,
                     'macro' => ''
                   }
                 },
@@ -392,7 +515,7 @@ $result_trees{'documentation_examples'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 11,
                 'macro' => ''
               }
             },
@@ -415,7 +538,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 11,
                 'macro' => ''
               }
             },
@@ -440,7 +563,7 @@ $result_trees{'documentation_examples'} = {
           'cmdname' => 'titlefont',
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 12,
             'macro' => ''
           }
         },
@@ -483,7 +606,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'email',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -519,7 +642,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'sansserif',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     },
@@ -541,7 +664,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'error',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     },
@@ -557,7 +680,7 @@ $result_trees{'documentation_examples'} = {
                       'cmdname' => 'equiv',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     }
@@ -568,7 +691,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'math',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -614,7 +737,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'sansserif',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -636,7 +759,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'error',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -652,7 +775,7 @@ $result_trees{'documentation_examples'} = {
                   'cmdname' => 'equiv',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -691,14 +814,14 @@ $result_trees{'documentation_examples'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 19,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 17,
             'macro' => ''
           }
         },
@@ -735,7 +858,7 @@ $result_trees{'documentation_examples'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 21,
             'macro' => ''
           }
         },
@@ -755,7 +878,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -782,7 +905,7 @@ $result_trees{'documentation_examples'} = {
               'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -799,20 +922,7 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
-        'normalized' => 'Top'
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -820,7 +930,7 @@ $result_trees{'documentation_examples'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 8,
         'macro' => ''
       }
     },
@@ -828,17 +938,23 @@ $result_trees{'documentation_examples'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[2] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'};
+$result_trees{'documentation_examples'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[5] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'};
 
 $result_texis{'documentation_examples'} = '
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
 
 @node Top
+@top top
+
+@node chapter
+@chapter Chapter
 
 @sansserif{in--text} @- p--n. @error{} @equiv{}
 @xref{my node}@footnote{in footnote}.
@@ -871,6 +987,11 @@ $result_texis{'documentation_examples'} = '
 
 $result_texts{'documentation_examples'} = '
 
+top
+***
+
+1 Chapter
+*********
 
 in-text  p-n. error--> ==
 my node.
@@ -895,9 +1016,68 @@ error-->.
 
 ';
 
+$result_sectioning{'documentation_examples'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top'
+            },
+            'info' => {},
+            'structure' => {}
+          }
+        },
+        'info' => {},
+        'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'chapter'
+                  },
+                  'info' => {},
+                  'structure' => {}
+                }
+              },
+              'info' => {},
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'documentation_examples'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentation_examples'};
+
 $result_nodes{'documentation_examples'} = {
   'cmdname' => 'node',
   'extra' => {
+    'associated_section' => {
+      'cmdname' => 'top',
+      'extra' => {},
+      'info' => {},
+      'structure' => {}
+    },
     'normalized' => 'Top'
   },
   'info' => {},
@@ -905,16 +1085,26 @@ $result_nodes{'documentation_examples'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'my-node'
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'info' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        },
+        'normalized' => 'chapter'
       },
       'info' => {},
       'structure' => {
-        'node_prev' => {}
+        'node_prev' => {},
+        'node_up' => {}
       }
     }
   }
 };
 $result_nodes{'documentation_examples'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'documentation_examples'};
+$result_nodes{'documentation_examples'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'documentation_examples'};
 
 $result_menus{'documentation_examples'} = {
   'cmdname' => 'node',
