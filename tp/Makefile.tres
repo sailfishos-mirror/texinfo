@@ -1824,11 +1824,11 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/xml_tests/image_inline_or_not.pl \
   t/results/xml_tests/lone_bye.pl \
   t/results/xml_tests/macro_and_args.pl \
-  t/results/xml_tests/node_and_bye.pl \
-  t/results/xml_tests/node_no_section.pl \
   t/results/xml_tests/raw.pl \
   t/results/xml_tests/raw_and_comments.pl \
   t/results/xml_tests/spaces_info_lost.pl \
+  t/results/xml_tests/top_node_and_bye.pl \
+  t/results/xml_tests/top_node_no_section.pl \
   t/results/xtable/accent_on_table_line.pl \
   t/results/xtable/block_commands_in_table.pl \
   t/results/xtable/comment_and_itemx_before_item.pl \

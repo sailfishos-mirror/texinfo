@@ -5,6 +5,16 @@
 
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/xml_tests.t: rename node_no_section as
+	top_node_no_section and node_and_bye as top_node_and_bye.
+
+	* tp/tests/formatting/index_entries_relate_to_item.texi,
+	tp/t/input_files/all_spaces.texi,
+	tp/t/input_files/chinese_mixed_with_en.texi: add chapter/node after
+	Top node.
+
+2023-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/languages.t: rename simple as
 	simple_documentlanguage and multiple as multiple_documentlanguage.
 	Add some chapter and node after Top to be more useful for output

@@ -71,6 +71,48 @@ $result_trees{'all_spaces'} = {
         }
       ],
       "cmdname" => "node",
+      "extra" => {
+        "node_content" => [
+          {}
+        ],
+        "nodes_manuals" => [
+          {
+            "node_content" => [
+              {}
+            ],
+            "normalized" => "Top"
+          }
+        ],
+        "normalized" => "Top"
+      },
+      "info" => {
+        "spaces_before_argument" => {
+          "text" => " "
+        }
+      },
+      "source_info" => {
+        "file_name" => "all_spaces.texi",
+        "line_nr" => 3,
+        "macro" => ""
+      }
+    },
+    {
+      "args" => [
+        {
+          "contents" => [
+            {
+              "text" => "chap"
+            }
+          ],
+          "info" => {
+            "spaces_after_argument" => {
+              "text" => "\n"
+            }
+          },
+          "type" => "line_arg"
+        }
+      ],
+      "cmdname" => "node",
       "contents" => [
         {
           "text" => "\n",
@@ -413,10 +455,10 @@ $result_trees{'all_spaces'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "Top"
+            "normalized" => "chap"
           }
         ],
-        "normalized" => "Top"
+        "normalized" => "chap"
       },
       "info" => {
         "spaces_before_argument" => {
@@ -425,7 +467,7 @@ $result_trees{'all_spaces'} = {
       },
       "source_info" => {
         "file_name" => "all_spaces.texi",
-        "line_nr" => 3,
+        "line_nr" => 4,
         "macro" => ""
       }
     }
@@ -434,10 +476,13 @@ $result_trees{'all_spaces'} = {
 };
 $result_trees{'all_spaces'}{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 $result_trees{'all_spaces'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[1]{"args"}[0]{"contents"}[0];
+$result_trees{'all_spaces'}{"contents"}[2]{"extra"}{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[2]{"args"}[0]{"contents"}[0];
+$result_trees{'all_spaces'}{"contents"}[2]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[2]{"args"}[0]{"contents"}[0];
 
 $result_texis{'all_spaces'} = '@documentencoding utf-8
 
 @node Top
+@node chap
 
 CHARACTER TABULATION: |	|
 
@@ -557,15 +602,29 @@ $result_nodes{'all_spaces'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'all_spaces'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'all_spaces'};
 
 $result_menus{'all_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'all_spaces'} = [];

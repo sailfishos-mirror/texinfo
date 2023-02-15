@@ -113,6 +113,143 @@ $result_trees{'chinese_mixed_with_en'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'chinese_mixed_with_en.texi',
+        'line_nr' => 5,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Mixed in UTF-8'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'Example of english and chinese, chinese aligned or not.
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'chinese_mixed_with_en.texi',
+        'line_nr' => 6,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Mixed english and chinese'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Mixed-english-and-chinese'
+          }
+        ],
+        'normalized' => 'Mixed-english-and-chinese'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'chinese_mixed_with_en.texi',
+        'line_nr' => 10,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Mixed english and chinese'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
       'contents' => [
         {
           'text' => '
@@ -273,20 +410,7 @@ $result_trees{'chinese_mixed_with_en'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
-        'normalized' => 'Top'
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -294,7 +418,7 @@ $result_trees{'chinese_mixed_with_en'} = {
       },
       'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 5,
+        'line_nr' => 11,
         'macro' => ''
       }
     },
@@ -313,12 +437,20 @@ $result_trees{'chinese_mixed_with_en'} = {
 };
 $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'chinese_mixed_with_en'} = '\\input texinfo
 @documentencoding utf-8
 @settitle chinese mixed with english
 
 @node Top
+@top Mixed in UTF-8
+
+Example of english and chinese, chinese aligned or not.
+
+@node Mixed english and chinese
+@chapter Mixed english and chinese
 
 1. english only
 
@@ -351,6 +483,13 @@ overlap。
 
 
 $result_texts{'chinese_mixed_with_en'} = '
+Mixed in UTF-8
+**************
+
+Example of english and chinese, chinese aligned or not.
+
+1 Mixed english and chinese
+***************************
 
 1. english only
 
@@ -380,20 +519,103 @@ overlap。
 
 ';
 
+$result_sectioning{'chinese_mixed_with_en'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top'
+            },
+            'info' => {},
+            'structure' => {}
+          }
+        },
+        'info' => {},
+        'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'Mixed-english-and-chinese'
+                  },
+                  'info' => {},
+                  'structure' => {}
+                }
+              },
+              'info' => {},
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chinese_mixed_with_en'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chinese_mixed_with_en'};
+
 $result_nodes{'chinese_mixed_with_en'} = {
   'cmdname' => 'node',
   'extra' => {
+    'associated_section' => {
+      'cmdname' => 'top',
+      'extra' => {},
+      'info' => {},
+      'structure' => {}
+    },
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'info' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        },
+        'normalized' => 'Mixed-english-and-chinese'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
+  }
 };
+$result_nodes{'chinese_mixed_with_en'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'chinese_mixed_with_en'};
+$result_nodes{'chinese_mixed_with_en'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'chinese_mixed_with_en'};
 
 $result_menus{'chinese_mixed_with_en'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'chinese_mixed_with_en'} = [];

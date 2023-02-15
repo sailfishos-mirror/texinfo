@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'node_no_section'} = {
+$result_trees{'top_node_no_section'} = {
   'contents' => [
     {
       'type' => 'before_node_section'
@@ -56,16 +56,16 @@ $result_trees{'node_no_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_no_section'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_no_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'node_no_section'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_no_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_no_section'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_no_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'top_node_no_section'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_no_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'node_no_section'} = '@node Top
+$result_texis{'top_node_no_section'} = '@node Top
 ';
 
 
-$result_texts{'node_no_section'} = '';
+$result_texts{'top_node_no_section'} = '';
 
-$result_nodes{'node_no_section'} = {
+$result_nodes{'top_node_no_section'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -73,7 +73,7 @@ $result_nodes{'node_no_section'} = {
   'info' => {}
 };
 
-$result_menus{'node_no_section'} = {
+$result_menus{'top_node_no_section'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -81,14 +81,14 @@ $result_menus{'node_no_section'} = {
   'info' => {}
 };
 
-$result_errors{'node_no_section'} = [];
+$result_errors{'top_node_no_section'} = [];
 
 
-$result_floats{'node_no_section'} = {};
+$result_floats{'top_node_no_section'} = {};
 
 
 
-$result_converted{'xml'}->{'node_no_section'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'top_node_no_section'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
 ';
 
 1;

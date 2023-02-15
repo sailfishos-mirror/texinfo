@@ -3,6 +3,9 @@
 @node Top
 @top top
 
+@node chap
+@chapter Chapter
+
 @table @code
 
 @cindex A
