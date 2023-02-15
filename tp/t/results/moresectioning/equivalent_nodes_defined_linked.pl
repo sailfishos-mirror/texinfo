@@ -27,7 +27,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'text' => 'chap'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -87,7 +87,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'node'
+                              'text' => 'chap'
                             }
                           ],
                           'type' => 'brace_command_arg'
@@ -127,7 +127,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'node'
+                  'normalized' => 'chap'
                 }
               },
               'source_info' => {
@@ -197,7 +197,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
         'normalized' => 'Top'
@@ -218,7 +218,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -254,7 +254,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'node'
+                          'text' => 'chap'
                         }
                       ],
                       'type' => 'brace_command_arg'
@@ -400,7 +400,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'text' => 'chap'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -413,7 +413,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'node'
+                  'normalized' => 'chap'
                 }
               },
               'source_info' => {
@@ -449,7 +449,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'cmdname' => '{'
             },
             {
-              'text' => 'node'
+              'text' => 'chap'
             },
             {
               'cmdname' => '}'
@@ -466,7 +466,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'node'
+                              'text' => 'chap'
                             }
                           ],
                           'type' => 'brace_command_arg'
@@ -490,7 +490,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'node'
+                  'normalized' => 'chap'
                 }
               },
               'source_info' => {
@@ -516,10 +516,10 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -548,37 +548,37 @@ $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'contents'}[7]{'
 $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'equivalent_nodes_defined_linked'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
-$result_texis{'equivalent_nodes_defined_linked'} = '@node Top, @asis{node}
+$result_texis{'equivalent_nodes_defined_linked'} = '@node Top, @asis{chap}
 
 @menu
-* @strong{node}::
+* @strong{chap}::
 @end menu
 
-@node node
+@node chap
 
-@float Figure, @samp{node}
+@float Figure, @samp{chap}
 A figure
 @end float
 
 @listoffloats Figure
 
-Ref to node @ref{node}.
+Ref to node @ref{chap}.
 
-Ref to @@samp@{node@} @ref{@samp{node}}.
+Ref to @@samp@{chap@} @ref{@samp{chap}}.
 ';
 
 
 $result_texts{'equivalent_nodes_defined_linked'} = '
-* node::
+* chap::
 
 
-Figure, node
+Figure, chap
 A figure
 
 
-Ref to node node.
+Ref to node chap.
 
-Ref to @samp{node} node.
+Ref to @samp{chap} chap.
 ';
 
 $result_nodes{'equivalent_nodes_defined_linked'} = {
@@ -596,7 +596,7 @@ $result_nodes{'equivalent_nodes_defined_linked'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -619,7 +619,7 @@ $result_menus{'equivalent_nodes_defined_linked'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -635,12 +635,12 @@ $result_menus{'equivalent_nodes_defined_linked'}{'structure'}{'menu_child'}{'str
 
 $result_errors{'equivalent_nodes_defined_linked'} = [
   {
-    'error_line' => '@float `@samp{node}\' previously defined
+    'error_line' => '@float `@samp{chap}\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 9,
     'macro' => '',
-    'text' => '@float `@samp{node}\' previously defined',
+    'text' => '@float `@samp{chap}\' previously defined',
     'type' => 'error'
   },
   {
@@ -654,30 +654,30 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: @ref to `@samp{node}\', different from node name `node\'
+    'error_line' => 'warning: @ref to `@samp{chap}\', different from node name `chap\'
 ',
     'file_name' => '',
     'line_nr' => 17,
     'macro' => '',
-    'text' => '@ref to `@samp{node}\', different from node name `node\'',
+    'text' => '@ref to `@samp{chap}\', different from node name `chap\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `node\'
+    'error_line' => 'warning: @menu entry node name `@strong{chap}\' different from node name `chap\'
 ',
     'file_name' => '',
     'line_nr' => 4,
     'macro' => '',
-    'text' => '@menu entry node name `@strong{node}\' different from node name `node\'',
+    'text' => '@menu entry node name `@strong{chap}\' different from node name `chap\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: Next pointer `@asis{node}\' (for node `Top\') different from node name `node\'
+    'error_line' => 'warning: Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'Next pointer `@asis{node}\' (for node `Top\') different from node name `node\'',
+    'text' => 'Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'',
     'type' => 'warning'
   }
 ];
@@ -707,30 +707,30 @@ $result_floats{'equivalent_nodes_defined_linked'} = {
 $result_converted{'info'}->{'equivalent_nodes_defined_linked'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 * Menu:
 
-* *node*::
+* *chap*::
 
 
-File: ,  Node: node,  Up: Top
+File: ,  Node: chap,  Up: Top
 
 A figure
 
 Figure
 * Menu:
 
-* Figure: ‘node’.                        
+* Figure: ‘chap’.                        
 
-   Ref to node *note node::.
+   Ref to node *note chap::.
 
-   Ref to @samp{node} *note node::.
+   Ref to @samp{chap} *note chap::.
 
 
 Tag Table:
 Node: Top27
-Node: node95
+Node: chap95
 
 End Tag Table
 
@@ -770,21 +770,21 @@ td.menu-entry-destination {vertical-align: top}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><strong class="strong">node</strong></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap" accesskey="1"><strong class="strong">chap</strong></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <div class="float">
 <p>A figure
@@ -792,9 +792,9 @@ Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 <dl class="listoffloats">
 </dl>
 
-<p>Ref to node <a class="ref" href="#node">node</a>.
+<p>Ref to node <a class="ref" href="#chap">chap</a>.
 </p>
-<p>Ref to @samp{node} <a class="ref" href="#node">node</a>.
+<p>Ref to @samp{chap} <a class="ref" href="#chap">chap</a>.
 </p>
 
 

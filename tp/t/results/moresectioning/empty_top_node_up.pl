@@ -100,7 +100,7 @@ $result_trees{'empty_top_node_up'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first'
+                      'text' => 'chap'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -129,7 +129,7 @@ $result_trees{'empty_top_node_up'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first'
+                  'normalized' => 'chap'
                 }
               },
               'source_info' => {
@@ -201,7 +201,7 @@ $result_trees{'empty_top_node_up'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -223,10 +223,10 @@ $result_trees{'empty_top_node_up'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -252,17 +252,17 @@ $result_texis{'empty_top_node_up'} = '@node Top
 @top empty top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first
+@node chap
 ';
 
 
 $result_texts{'empty_top_node_up'} = 'empty top node up
 *****************
 
-* first::
+* chap::
 
 ';
 
@@ -314,7 +314,7 @@ $result_nodes{'empty_top_node_up'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -339,7 +339,7 @@ $result_menus{'empty_top_node_up'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -363,23 +363,23 @@ $result_floats{'empty_top_node_up'} = {};
 $result_converted{'info'}->{'empty_top_node_up'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: first,  Up: 
+File: ,  Node: Top,  Next: chap,  Up: 
 
 empty top node up
 *****************
 
 * Menu:
 
-* first::
+* chap::
 
 
-File: ,  Node: first,  Prev: Top,  Up: Top
+File: ,  Node: chap,  Prev: Top,  Up: Top
 
 
 
 Tag Table:
 Node: Top27
-Node: first127
+Node: chap125
 
 End Tag Table
 
@@ -418,17 +418,17 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="empty-top-node-up"><span>empty top node up<a class="copiable-link" href="#empty-top-node-up"> &para;</a></span></h1>
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">empty top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">empty top node up</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 </div>
 
 

@@ -93,23 +93,23 @@ undef, {'test_file' => 'special_spaces_in_nodes.texi',
 undef, {'test_file' => 'only_special_spaces_node.texi',
         'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],
 ['equivalent_nodes_defined_linked',
-'@node Top, @asis{node}
+'@node Top, @asis{chap}
 
 @menu
-* @strong{node}::
+* @strong{chap}::
 @end menu
 
-@node node
+@node chap
 
-@float Figure, @samp{node}
+@float Figure, @samp{chap}
 A figure
 @end float
 
 @listoffloats Figure
 
-Ref to node @ref{node}.
+Ref to node @ref{chap}.
 
-Ref to @@samp@{node@} @ref{@samp{node}}.
+Ref to @@samp@{chap@} @ref{@samp{chap}}.
 ', {}, {'FORMAT_MENU' => 'menu'}],
 ['anchor_in_footnote',
 $anchor_in_footnote_text
@@ -271,6 +271,9 @@ Ref to float
 @node Top
 @top top section
 
+@node chapter
+@chapter Chapter
+
 Ref to anchor
 @ref{An anchor}
 
@@ -282,10 +285,10 @@ Ref to footnote anchor
 @top empty top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first
+@node chap
 ',{},{'TOP_NODE_UP' => ''}
 ],
 ['internal_top_node_up',
@@ -293,10 +296,10 @@ Ref to footnote anchor
 @top internal top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first
+@node chap
 ',{'test_split' => 'node'}, {'TOP_NODE_UP' => 'node@@ node'}
 ],
 ['top_node_up_url',
@@ -304,46 +307,46 @@ Ref to footnote anchor
 @top internal top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first
+@node chap
 ',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
    'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
 ],
 ['non_automatic_top_node_up_url',
-'@node Top, first, (dir), (dir)
+'@node Top, chap, (dir), (dir)
 @top internal top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first, , Top, (dir)
+@node chap, , Top, (dir)
 ',{'test_split' => 'node'},{'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
 ],
 ['non_automatic_internal_top_node_up',
-'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+'@node Top, chap, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 @top internal top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+@node chap, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 ',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals'}
 ],
 ['non_automatic_top_node_up_and_url',
-'@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+'@node Top, chap, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 @top internal top node up
 
 @menu
-* first::
+* chap::
 @end menu
 
-@node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
+@node chap, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 ',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
    'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
@@ -380,18 +383,18 @@ my @test_cases = (
 Top node
 
 @menu
-* second node::
+* chap node::
 * node following second::
 @end menu
 
-@node second node,,Top,Top
+@node chap node,,Top,Top
 
 @menu
 * other node::
-* second node::
+* chap node::
 @end menu
 
-@node other node,,,second node
+@node other node,,,chap node
 
 @menu 
 * other node::
@@ -665,6 +668,7 @@ my %docbook_tests_info_tests = (
 
 my %latex_tests_info_tests = (
   'character_and_spaces_in_refs' => 1,
+  'placed_things_before_node' => 1,
 );
 
 foreach my $test (@tests_info) {

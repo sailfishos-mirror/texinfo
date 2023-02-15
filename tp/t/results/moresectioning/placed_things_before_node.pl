@@ -10,6 +10,10 @@ $result_trees{'placed_things_before_node'} = {
     {
       'contents' => [
         {
+          'contents' => [],
+          'type' => 'preamble_before_content'
+        },
+        {
           'args' => [
             {
               'contents' => [
@@ -610,6 +614,86 @@ $result_trees{'placed_things_before_node'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 31,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chapter'
+          }
+        ],
+        'normalized' => 'chapter'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 33,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -640,7 +724,7 @@ $result_trees{'placed_things_before_node'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 34,
+                'line_nr' => 37,
                 'macro' => ''
               }
             },
@@ -685,7 +769,7 @@ $result_trees{'placed_things_before_node'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
+                'line_nr' => 40,
                 'macro' => ''
               }
             },
@@ -705,34 +789,36 @@ $result_trees{'placed_things_before_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 31,
+        'line_nr' => 34,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[9]{'args'}[1]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[9];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[15];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[1];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[2] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[1];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[10]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[10]{'args'}[1]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[10];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16]{'args'}[0]{'contents'};
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16]{'args'}[0]{'contents'};
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[16];
 $result_trees{'placed_things_before_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'placed_things_before_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[1];
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'placed_things_before_node'} = '@anchor{An anchor}
 
@@ -766,6 +852,9 @@ Ref to float
 @node Top
 @top top section
 
+@node chapter
+@chapter Chapter
+
 Ref to anchor
 @ref{An anchor}
 
@@ -795,6 +884,9 @@ float anchor.
 top section
 ***********
 
+1 Chapter
+*********
+
 Ref to anchor
 An anchor
 
@@ -813,11 +905,35 @@ $result_sectioning{'placed_things_before_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {}
+            'info' => {},
+            'structure' => {}
           }
         },
         'info' => {},
         'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'chapter'
+                  },
+                  'info' => {},
+                  'structure' => {}
+                }
+              },
+              'info' => {},
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
           'section_level' => 0,
           'section_up' => {}
         }
@@ -826,6 +942,9 @@ $result_sectioning{'placed_things_before_node'} = {
     'section_level' => -1
   }
 };
+$result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'placed_things_before_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_node'};
 
 $result_nodes{'placed_things_before_node'} = {
@@ -839,15 +958,39 @@ $result_nodes{'placed_things_before_node'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'info' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        },
+        'normalized' => 'chapter'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
+  }
 };
+$result_nodes{'placed_things_before_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'placed_things_before_node'};
+$result_nodes{'placed_things_before_node'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'placed_things_before_node'};
 
 $result_menus{'placed_things_before_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'placed_things_before_node'} = [
@@ -908,14 +1051,14 @@ In float
 * An anchor::                menu entry pointing to the anchor.
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: chapter,  Up: (dir)
 
 top section
 ***********
 
-Ref to anchor *note An anchor::
+* Menu:
 
-   Ref to footnote anchor *note Anchor in footnote::
+* chapter::
 
    ---------- Footnotes ----------
 
@@ -923,14 +1066,24 @@ Ref to anchor *note An anchor::
 
    Ref to main text anchor *note An anchor::
 
+
+File: ,  Node: chapter,  Prev: Top,  Up: Top
+
+1 Chapter
+*********
+
+Ref to anchor *note An anchor::
+
+   Ref to footnote anchor *note Anchor in footnote::
 
 
 Tag Table:
 Ref: An anchor27
 Ref: float anchor136
 Node: Top262
-Ref: Top-Footnote-1444
-Ref: Anchor in footnote465
+Ref: Top-Footnote-1395
+Ref: Anchor in footnote416
+Node: chapter462
 
 End Tag Table
 
@@ -1016,14 +1169,31 @@ span:hover a.copiable-link {visibility: visible}
 <a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#chapter" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
+</div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
+
+<ul class="mini-toc">
+<li><a href="#chapter" accesskey="1">Chapter</a></li>
+</ul>
+<hr>
+<div class="chapter-level-extent" id="chapter">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to footnote anchor
 <a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>
-</p><div class="footnotes-segment">
+</p></div>
+</div>
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -1035,12 +1205,51 @@ span:hover a.copiable-link {visibility: visible}
 <a class="ref" href="#An-anchor">An anchor</a>
 </p>
 </div>
-</div>
 
 
 
 </body>
 </html>
+';
+
+
+$result_converted{'latex_text'}->{'placed_things_before_node'} = '\\begin{document}
+\\label{anchor:An-anchor}%
+
+Ref to the anchor:
+\\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}
+
+Ref to the anchor in footnote:
+\\hyperref[anchor:Anchor-in-footnote]{[Anchor in footnote], page~\\pageref*{anchor:Anchor-in-footnote}}.
+
+\\footnote{In footnote.
+
+\\label{anchor:Anchor-in-footnote}%
+
+Ref to main text anchor
+\\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}
+}
+
+\\begin{TexinfoFloat}
+In float
+\\label{anchor:float-anchor}%
+\\end{TexinfoFloat}
+
+Ref to float
+\\hyperref[anchor:float-anchor]{\\ref*{anchor:float-anchor}}.
+
+
+\\index[cp]{index entry@index entry}%
+
+\\label{anchor:Top}%
+\\chapter{{Chapter}}
+\\label{anchor:chapter}%
+
+Ref to anchor
+\\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}
+
+Ref to footnote anchor
+\\hyperref[anchor:Anchor-in-footnote]{[Anchor in footnote], page~\\pageref*{anchor:Anchor-in-footnote}}
 ';
 
 1;

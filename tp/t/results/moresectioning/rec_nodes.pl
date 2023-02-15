@@ -66,7 +66,7 @@ $result_trees{'rec_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'second node'
+                      'text' => 'chap node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -95,7 +95,7 @@ $result_trees{'rec_nodes'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'second-node'
+                  'normalized' => 'chap-node'
                 }
               },
               'source_info' => {
@@ -228,7 +228,7 @@ $result_trees{'rec_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'second node'
+              'text' => 'chap node'
             }
           ],
           'type' => 'line_arg'
@@ -337,7 +337,7 @@ $result_trees{'rec_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'second node'
+                      'text' => 'chap node'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -366,7 +366,7 @@ $result_trees{'rec_nodes'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'second-node'
+                  'normalized' => 'chap-node'
                 }
               },
               'source_info' => {
@@ -430,7 +430,7 @@ $result_trees{'rec_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'second-node'
+            'normalized' => 'chap-node'
           },
           undef,
           {
@@ -446,7 +446,7 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -478,7 +478,7 @@ $result_trees{'rec_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'second node'
+              'text' => 'chap node'
             }
           ],
           'info' => {
@@ -621,7 +621,7 @@ $result_trees{'rec_nodes'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'second-node'
+            'normalized' => 'chap-node'
           }
         ],
         'normalized' => 'other-node'
@@ -1036,18 +1036,18 @@ $result_texis{'rec_nodes'} = '@node Top
 Top node
 
 @menu
-* second node::
+* chap node::
 * node following second::
 @end menu
 
-@node second node,,Top,Top
+@node chap node,,Top,Top
 
 @menu
 * other node::
-* second node::
+* chap node::
 @end menu
 
-@node other node,,,second node
+@node other node,,,chap node
 
 @menu 
 * other node::
@@ -1071,12 +1071,12 @@ in node following second
 
 $result_texts{'rec_nodes'} = 'Top node
 
-* second node::
+* chap node::
 * node following second::
 
 
 * other node::
-* second node::
+* chap node::
 
 
 * other node::
@@ -1110,7 +1110,7 @@ $result_nodes{'rec_nodes'} = {
             'cmdname' => 'menu'
           }
         ],
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -1153,7 +1153,7 @@ $result_menus{'rec_nodes'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -1168,8 +1168,8 @@ $result_menus{'rec_nodes'} = {
             'menu_next' => {},
             'menu_up' => {},
             'menu_up_hash' => {
-              'other-node' => 1,
-              'second-node' => 1
+              'chap-node' => 1,
+              'other-node' => 1
             }
           }
         },
@@ -1206,7 +1206,7 @@ $result_menus{'rec_nodes'} = {
         'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1,
-          'second-node' => 1
+          'chap-node' => 1
         }
       }
     }
