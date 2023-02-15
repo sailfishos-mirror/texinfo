@@ -140,6 +140,7 @@ after
 @set defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}
 
 @node Top
+@node chap
 
 @value{trucindex_command} index truc
 
@@ -159,6 +160,9 @@ value cp
 
 @node Top
 @top top @value{text}
+
+@node chap
+
 @subheading Comment like: @value{text}
 
 Text line followed by a comment on the same line and another below @c comment @value{text}
