@@ -56,7 +56,7 @@ $result_trees{'accentenc_enable_encoding'} = {
         {
           'contents' => [
             {
-              'text' => 'Top node'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -78,10 +78,10 @@ $result_trees{'accentenc_enable_encoding'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top-node'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top-node'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -2147,7 +2147,7 @@ $result_trees{'accentenc_enable_encoding'}{'contents'}[1]{'extra'}{'nodes_manual
 
 $result_texis{'accentenc_enable_encoding'} = '@documentencoding ISO-8859-1
 
-@node Top node
+@node first
 @top top
 
 should be e`: @`{e} @`e
@@ -2316,7 +2316,7 @@ $result_sectioning{'accentenc_enable_encoding'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node'
+              'normalized' => 'first'
             },
             'info' => {}
           }
@@ -2342,7 +2342,7 @@ $result_nodes{'accentenc_enable_encoding'} = {
       'info' => {},
       'structure' => {}
     },
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2350,7 +2350,7 @@ $result_nodes{'accentenc_enable_encoding'} = {
 $result_menus{'accentenc_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2363,7 +2363,7 @@ $result_floats{'accentenc_enable_encoding'} = {};
 
 
 $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
-<div class="top-level-extent" id="Top-node">
+<div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> ¶</a></span></h1>
 
 <p>should be e&lsquo;: è è

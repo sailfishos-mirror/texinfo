@@ -372,6 +372,86 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 14,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 16,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Chapter'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'cmdname' => 'deftypefun',
@@ -467,7 +547,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
+                'line_nr' => 19,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -514,7 +594,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 21,
                 'macro' => ''
               }
             }
@@ -526,7 +606,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -544,7 +624,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
+        'line_nr' => 17,
         'macro' => ''
       }
     }
@@ -559,13 +639,15 @@ $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[0]{'contents'}[0
 $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[1];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3];
 
 $result_texis{'deftypefnnewline_for_copying_after'} = '@copying
 @deftypefun TYPE NAME ARGUMENTS...
@@ -582,6 +664,9 @@ BODY-OF-DESCRIPTION
 @node Top
 @top top
 
+@node chap
+@chapter Chapter
+
 @deftypefun void something input
 do something with input
 @end deftypefun
@@ -595,6 +680,9 @@ $result_texts{'deftypefnnewline_for_copying_after'} = '
 
 top
 ***
+
+1 Chapter
+*********
 
 Function: void something input
 do something with input
@@ -612,11 +700,35 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {}
+            'info' => {},
+            'structure' => {}
           }
         },
         'info' => {},
         'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'chap'
+                  },
+                  'info' => {},
+                  'structure' => {}
+                }
+              },
+              'info' => {},
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
           'section_level' => 0,
           'section_up' => {}
         }
@@ -625,6 +737,9 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
     'section_level' => -1
   }
 };
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'};
 
 $result_nodes{'deftypefnnewline_for_copying_after'} = {
@@ -638,15 +753,39 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'info' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        },
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
+  }
 };
+$result_nodes{'deftypefnnewline_for_copying_after'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'deftypefnnewline_for_copying_after'};
+$result_nodes{'deftypefnnewline_for_copying_after'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'deftypefnnewline_for_copying_after'};
 
 $result_menus{'deftypefnnewline_for_copying_after'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'deftypefnnewline_for_copying_after'} = [];
@@ -705,13 +844,29 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 </p></dd></dl>
 
 <div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#chap" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
+</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+
+<ul class="mini-toc">
+<li><a href="#chap" accesskey="1">Chapter</a></li>
+</ul>
+<hr>
+<div class="chapter-level-extent" id="chap">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category-def">Function:<br> </span><span><code class="def-type">void</code><br> <strong class="def-name">something</strong> <code class="def-code-arguments">input</code><a class="copiable-link" href="#index-something"> &para;</a></span></dt>
 <dd><p>do something with input
 </p></dd></dl>
 
+</div>
 </div>
 
 

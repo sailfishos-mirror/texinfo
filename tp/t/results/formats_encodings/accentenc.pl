@@ -61,7 +61,7 @@ $result_trees{'accentenc'} = {
         {
           'contents' => [
             {
-              'text' => 'Top node'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -83,10 +83,10 @@ $result_trees{'accentenc'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top-node'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top-node'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -2152,7 +2152,7 @@ $result_trees{'accentenc'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_con
 
 $result_texis{'accentenc'} = '@documentencoding ISO-8859-1
 
-@node Top node
+@node first
 @top top
 
 should be e`: @`{e} @`e
@@ -2321,7 +2321,7 @@ $result_sectioning{'accentenc'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node'
+              'normalized' => 'first'
             },
             'info' => {}
           }
@@ -2347,7 +2347,7 @@ $result_nodes{'accentenc'} = {
       'info' => {},
       'structure' => {}
     },
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2355,7 +2355,7 @@ $result_nodes{'accentenc'} = {
 $result_menus{'accentenc'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2447,7 +2447,7 @@ should be e\': è è
 
 
 $result_converted{'html_text'}->{'accentenc'} = '
-<div class="top-level-extent" id="Top-node">
+<div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>should be e&lsquo;: &egrave; &egrave;
@@ -2529,7 +2529,7 @@ $result_converted{'html_text'}->{'accentenc'} = '
 
 $result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-1" spaces=" ">ISO-8859-1</documentencoding>
 
-<node name="Top-node" spaces=" "><nodename>Top node</nodename></node>
+<node name="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: <accent type="grave">e</accent> <accent type="grave" bracketed="off">e</accent>
@@ -2611,7 +2611,7 @@ $result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-
 ';
 
 
-$result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
+$result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="first">
 <title>top</title>
 
 <para>should be e&#8216;: &#232; &#232;
@@ -2696,7 +2696,7 @@ $result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
 $result_converted{'latex_text'}->{'accentenc'} = '
 \\begin{document}
 \\part*{{top}}
-\\label{anchor:Top-node}%
+\\label{anchor:first}%
 
 should be e`: \\`{e} \\`{e}
 

@@ -21,7 +21,7 @@ $result_trees{'accent_enable_encoding'} = {
         {
           'contents' => [
             {
-              'text' => 'Top node'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -43,10 +43,10 @@ $result_trees{'accent_enable_encoding'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top-node'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top-node'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -2110,7 +2110,7 @@ $result_trees{'accent_enable_encoding'} = {
 $result_trees{'accent_enable_encoding'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'accent_enable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'accent_enable_encoding'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'accent_enable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'accent_enable_encoding'} = '@node Top node
+$result_texis{'accent_enable_encoding'} = '@node first
 @top top
 
 should be e`: @`{e} @`e
@@ -2278,7 +2278,7 @@ $result_sectioning{'accent_enable_encoding'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node'
+              'normalized' => 'first'
             },
             'info' => {}
           }
@@ -2304,7 +2304,7 @@ $result_nodes{'accent_enable_encoding'} = {
       'info' => {},
       'structure' => {}
     },
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2312,7 +2312,7 @@ $result_nodes{'accent_enable_encoding'} = {
 $result_menus{'accent_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2403,7 +2403,7 @@ should be e‘: è è
 ';
 
 
-$result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-level-extent" id="Top-node">
+$result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> ¶</a></span></h1>
 
 <p>should be e‘: è è
@@ -2483,7 +2483,7 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-le
 ';
 
 
-$result_converted{'xml'}->{'accent_enable_encoding'} = '<node name="Top-node" spaces=" "><nodename>Top node</nodename></node>
+$result_converted{'xml'}->{'accent_enable_encoding'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: è è
@@ -2565,7 +2565,7 @@ $result_converted{'xml'}->{'accent_enable_encoding'} = '<node name="Top-node" sp
 ';
 
 
-$result_converted{'docbook'}->{'accent_enable_encoding'} = '<chapter label="" id="Top-node">
+$result_converted{'docbook'}->{'accent_enable_encoding'} = '<chapter label="" id="first">
 <title>top</title>
 
 <para>should be e&#8216;: è è
@@ -2649,7 +2649,7 @@ $result_converted{'docbook'}->{'accent_enable_encoding'} = '<chapter label="" id
 
 $result_converted{'latex_text'}->{'accent_enable_encoding'} = '\\begin{document}
 \\part*{{top}}
-\\label{anchor:Top-node}%
+\\label{anchor:first}%
 
 should be e`: è è
 

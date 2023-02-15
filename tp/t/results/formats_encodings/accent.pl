@@ -21,7 +21,7 @@ $result_trees{'accent'} = {
         {
           'contents' => [
             {
-              'text' => 'Top node'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -43,10 +43,10 @@ $result_trees{'accent'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top-node'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top-node'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -2110,7 +2110,7 @@ $result_trees{'accent'} = {
 $result_trees{'accent'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'accent'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'accent'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'accent'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'accent'} = '@node Top node
+$result_texis{'accent'} = '@node first
 @top top
 
 should be e`: @`{e} @`e
@@ -2278,7 +2278,7 @@ $result_sectioning{'accent'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node'
+              'normalized' => 'first'
             },
             'info' => {}
           }
@@ -2304,7 +2304,7 @@ $result_nodes{'accent'} = {
       'info' => {},
       'structure' => {}
     },
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2312,7 +2312,7 @@ $result_nodes{'accent'} = {
 $result_menus{'accent'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -2403,7 +2403,7 @@ should be e‘: è è
 ';
 
 
-$result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="Top-node">
+$result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>should be e&lsquo;: &egrave; &egrave;
@@ -2483,7 +2483,7 @@ $result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="
 ';
 
 
-$result_converted{'xml'}->{'accent'} = '<node name="Top-node" spaces=" "><nodename>Top node</nodename></node>
+$result_converted{'xml'}->{'accent'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: <accent type="grave">e</accent> <accent type="grave" bracketed="off">e</accent>
@@ -2565,7 +2565,7 @@ $result_converted{'xml'}->{'accent'} = '<node name="Top-node" spaces=" "><nodena
 ';
 
 
-$result_converted{'docbook'}->{'accent'} = '<chapter label="" id="Top-node">
+$result_converted{'docbook'}->{'accent'} = '<chapter label="" id="first">
 <title>top</title>
 
 <para>should be e&#8216;: &#232; &#232;
@@ -2649,7 +2649,7 @@ $result_converted{'docbook'}->{'accent'} = '<chapter label="" id="Top-node">
 
 $result_converted{'latex_text'}->{'accent'} = '\\begin{document}
 \\part*{{top}}
-\\label{anchor:Top-node}%
+\\label{anchor:first}%
 
 should be e`: \\`{e} \\`{e}
 

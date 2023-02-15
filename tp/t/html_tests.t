@@ -471,6 +471,9 @@ BODY-OF-DESCRIPTION
 @node Top
 @top top
 
+@node chap
+@chapter Chapter
+
 @deftypefun void something input
 do something with input
 @end deftypefun
@@ -488,6 +491,9 @@ BODY-OF-DESCRIPTION
 
 @node Top
 @top top
+
+@node chap
+@chapter Chapter
 
 @deftypefun void something input
 do something with input
@@ -659,15 +665,15 @@ AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'OUTPUT_CHARACTERS' => 1,
 '@node Top
 
 @menu
-* nnn the node name::
+* chap nnn the node name::
 @end menu
 
 @example
-Now @ref{nnn the
+Now @ref{chap nnn the
 node name}
 @end example
 
-@node nnn the node name
+@node chap nnn the node name
 '],
 ['mathjax_with_texinfo_html_text',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],

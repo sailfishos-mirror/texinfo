@@ -57,7 +57,7 @@ $result_trees{'ref_in_preformatted'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'nnn the node name'
+                      'text' => 'chap nnn the node name'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -86,7 +86,7 @@ $result_trees{'ref_in_preformatted'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'nnn-the-node-name'
+                  'normalized' => 'chap-nnn-the-node-name'
                 }
               },
               'source_info' => {
@@ -164,7 +164,7 @@ $result_trees{'ref_in_preformatted'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'nnn the
+                          'text' => 'chap nnn the
 '
                         },
                         {
@@ -181,7 +181,7 @@ $result_trees{'ref_in_preformatted'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'nnn the node name'
+                              'text' => 'chap nnn the node name'
                             }
                           ],
                           'info' => {
@@ -203,10 +203,10 @@ $result_trees{'ref_in_preformatted'} = {
                             'node_content' => [
                               {}
                             ],
-                            'normalized' => 'nnn-the-node-name'
+                            'normalized' => 'chap-nnn-the-node-name'
                           }
                         ],
-                        'normalized' => 'nnn-the-node-name'
+                        'normalized' => 'chap-nnn-the-node-name'
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -224,7 +224,7 @@ $result_trees{'ref_in_preformatted'} = {
                         {},
                         {}
                       ],
-                      'normalized' => 'nnn-the-node-name'
+                      'normalized' => 'chap-nnn-the-node-name'
                     }
                   },
                   'source_info' => {
@@ -326,22 +326,22 @@ $result_trees{'ref_in_preformatted'}{'contents'}[2] = $result_trees{'ref_in_pref
 $result_texis{'ref_in_preformatted'} = '@node Top
 
 @menu
-* nnn the node name::
+* chap nnn the node name::
 @end menu
 
 @example
-Now @ref{nnn the
+Now @ref{chap nnn the
 node name}
 @end example
 
-@node nnn the node name
+@node chap nnn the node name
 ';
 
 
 $result_texts{'ref_in_preformatted'} = '
-* nnn the node name::
+* chap nnn the node name::
 
-Now nnn the
+Now chap nnn the
 node name
 
 ';
@@ -361,7 +361,7 @@ $result_nodes{'ref_in_preformatted'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nnn-the-node-name'
+        'normalized' => 'chap-nnn-the-node-name'
       },
       'info' => {},
       'structure' => {
@@ -386,7 +386,7 @@ $result_menus{'ref_in_preformatted'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nnn-the-node-name'
+        'normalized' => 'chap-nnn-the-node-name'
       },
       'info' => {},
       'structure' => {
@@ -415,16 +415,16 @@ $result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node-id" id
 
 
 <div class="example">
-<pre class="example-preformatted">Now <a class="ref" href="#nnn-the-node-name">nnn the
+<pre class="example-preformatted">Now <a class="ref" href="#chap-nnn-the-node-name">chap nnn the
 node name</a>
 </pre></div>
 
 <hr>
-<a class="node-id" id="nnn-the-node-name"></a><div class="nav-panel">
+<a class="node-id" id="chap-nnn-the-node-name"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>nnn the node name<a class="copiable-link" href="#nnn-the-node-name"> &para;</a></span></h4>
+<h4 class="node"><span>chap nnn the node name<a class="copiable-link" href="#chap-nnn-the-node-name"> &para;</a></span></h4>
 ';
 
 1;
