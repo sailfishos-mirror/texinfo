@@ -1,5 +1,13 @@
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/languages.t: rename simple as
+	simple_documentlanguage and multiple as multiple_documentlanguage.
+	Add some chapter and node after Top to be more useful for output
+	formats that do not output the Top node, and also to test for
+	translation in @node.
+
+2023-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* t/init_files_tests.t, tp/t/init/undef_node_file_name.init: change
 	tests to be more useful for LaTeX, and more like actual manuals by
 	renaming a node and adding a chapter.

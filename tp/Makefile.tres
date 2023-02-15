@@ -969,8 +969,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/invalid_nestings/quotation_in_style_command.pl \
   t/results/invalid_nestings/raw_block_on_line.pl \
   t/results/invalid_nestings/recursive_copying.pl \
-  t/results/invalid_nestings/ref_in_anchor.pl \
   t/results/invalid_nestings/ref_in_ref.pl \
+  t/results/invalid_nestings/ref_to_top_in_anchor.pl \
   t/results/invalid_nestings/section_in_copying.pl \
   t/results/invalid_nestings/section_in_flushright.pl \
   t/results/invalid_nestings/section_in_footnote.pl \
@@ -1037,7 +1037,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/documentlanguage_unknown.pl \
   t/results/languages/documentlanguage_unknown/res_html \
   t/results/languages/documentlanguage_unknown/res_info \
-  t/results/languages/multiple.pl \
+  t/results/languages/multiple_documentlanguage.pl \
   t/results/languages/multiple_in_preamble.pl \
   t/results/languages/multiple_in_preamble_before_node.pl \
   t/results/languages/multiple_lang_chapters.pl \
@@ -1048,7 +1048,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/multiple_lang_chapters_texi2html.pl \
   t/results/languages/multiple_lang_chapters_texi2html/res_html \
   t/results/languages/multiple_lang_chapters_texi2html/res_info \
-  t/results/languages/simple.pl \
+  t/results/languages/simple_documentlanguage.pl \
   t/results/languages/unknown_language.pl \
   t/results/languages/unknown_region.pl \
   t/results/latex_tests/anchor_before_top.pl \

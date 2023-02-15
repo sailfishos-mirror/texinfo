@@ -6,10 +6,11 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 require 't/test_utils.pl';
 
 my @test_cases = (
-['simple',
+['simple_documentlanguage',
 '@documentlanguage fr
 
 @node Top
+@node chap
 
 @defivar AAA BBB CCC
 @end defivar
@@ -21,7 +22,7 @@ my @test_cases = (
 # the index entry is set in the @copying block which is in
 # @documentlanguage fr.
 # Also the copying comment at the beginning of each file is in fr
-['multiple',
+['multiple_documentlanguage',
 '@documentlanguage fr
 
 @copying
@@ -122,12 +123,18 @@ Text ending the preamble
 @top top @error{}
 
 @error{}
+
+@node chapter @error{}
+@chapter Chapter
 '],
 ['unknown_language',
 '@documentlanguage unknown
 
 @node Top
 @top unknkown language
+
+@node chapter
+@chapter Chapter
 
 Unknown language. @xref{Top}.
 
@@ -139,6 +146,7 @@ Another unknown language. @xref{Top}.
 '@documentlanguage fr_NOWHERE
 
 @node Top
+@node chap
 
 @defivar AAA BBB CCC
 @end defivar
@@ -239,7 +247,7 @@ $multiple_lang_chapters_text,
 );
 
 my %info_tests = (
-  'multiple' => 1,
+  'multiple_documentlanguage' => 1,
   'multiple_in_preamble' => 1,
   'multiple_in_preamble_before_node' => 1,
   'appendix_translated' => 1,
@@ -249,13 +257,13 @@ my %info_tests = (
 );
 
 my %xml_tests = (
-  'multiple' => 1,
+  'multiple_documentlanguage' => 1,
   'multiple_in_preamble' => 1,
   'multiple_in_preamble_before_node' => 1,
 );
 
 my %docbook_doc_tests = (
-  'multiple' => 1,
+  'multiple_documentlanguage' => 1,
   'multiple_in_preamble' => 1,
   'multiple_in_preamble_before_node' => 1,
 );
