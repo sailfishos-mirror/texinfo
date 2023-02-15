@@ -12,20 +12,20 @@ $result_trees{'documentlanguage_unknown'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
+              'type' => 'text_before_beginning'
             },
+            {
+              'text' => '
+',
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -313,43 +313,6 @@ $result_trees{'documentlanguage_unknown'} = {
 '
                 ]
               }
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'documentlanguage.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'documentlanguage.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'documentlanguage.texi',
-                'line_nr' => 21,
-                'macro' => ''
-              }
             },
             {
               'text' => '
@@ -384,7 +347,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 23,
+                'line_nr' => 22,
                 'macro' => ''
               }
             },
@@ -438,7 +401,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 25,
+        'line_nr' => 24,
         'macro' => ''
       }
     },
@@ -475,7 +438,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 26,
+        'line_nr' => 25,
         'macro' => ''
       }
     },
@@ -519,7 +482,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 28,
+        'line_nr' => 27,
         'macro' => ''
       }
     },
@@ -572,7 +535,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 31,
+                'line_nr' => 30,
                 'macro' => ''
               }
             },
@@ -709,7 +672,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 33,
+                'line_nr' => 32,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -756,7 +719,7 @@ $result_trees{'documentlanguage_unknown'} = {
               },
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
-                'line_nr' => 35,
+                'line_nr' => 34,
                 'macro' => ''
               }
             }
@@ -768,7 +731,7 @@ $result_trees{'documentlanguage_unknown'} = {
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
-            'line_nr' => 33,
+            'line_nr' => 32,
             'macro' => ''
           }
         },
@@ -807,7 +770,7 @@ $result_trees{'documentlanguage_unknown'} = {
           },
           'source_info' => {
             'file_name' => 'documentlanguage.texi',
-            'line_nr' => 37,
+            'line_nr' => 36,
             'macro' => ''
           }
         },
@@ -825,7 +788,7 @@ $result_trees{'documentlanguage_unknown'} = {
       },
       'source_info' => {
         'file_name' => 'documentlanguage.texi',
-        'line_nr' => 29,
+        'line_nr' => 28,
         'macro' => ''
       }
     },
@@ -879,7 +842,6 @@ $result_texis{'documentlanguage_unknown'} = '\\input texinfo @c -*-texinfo-*-
 @c before the converter, and the extra documentlanguage key is used to
 @c get the language, so if the wrong language is set, it will show up
 @c in the index generated by @printindex.
-@setfilename documentlanguage.info
 
 @documentlanguage pt
 

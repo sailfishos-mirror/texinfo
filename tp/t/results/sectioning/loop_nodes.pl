@@ -10,45 +10,7 @@ $result_trees{'loop_nodes'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'loop_nodes.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'loop_nodes.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -93,7 +55,7 @@ $result_trees{'loop_nodes'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -178,7 +140,7 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 5,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -211,14 +173,14 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
+                'line_nr' => 6,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 4,
             'macro' => ''
           }
         },
@@ -236,7 +198,7 @@ $result_trees{'loop_nodes'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -335,7 +297,7 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -368,14 +330,14 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
+                'line_nr' => 12,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 10,
             'macro' => ''
           }
         },
@@ -414,7 +376,7 @@ $result_trees{'loop_nodes'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 8,
         'macro' => ''
       }
     },
@@ -513,7 +475,7 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -546,14 +508,14 @@ $result_trees{'loop_nodes'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 18,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 16,
             'macro' => ''
           }
         },
@@ -592,7 +554,7 @@ $result_trees{'loop_nodes'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
+        'line_nr' => 14,
         'macro' => ''
       }
     },
@@ -635,7 +597,7 @@ $result_trees{'loop_nodes'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
+        'line_nr' => 20,
         'macro' => ''
       }
     }
@@ -656,9 +618,7 @@ $result_trees{'loop_nodes'}{'contents'}[4]{'extra'}{'nodes_manuals'}[3]{'node_co
 $result_trees{'loop_nodes'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'loop_nodes'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'loop_nodes'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'loop_nodes'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
-$result_texis{'loop_nodes'} = '@setfilename loop_nodes.info
-
-@node Top
+$result_texis{'loop_nodes'} = '@node Top
 @top top
 
 @menu
@@ -681,8 +641,7 @@ $result_texis{'loop_nodes'} = '@setfilename loop_nodes.info
 ';
 
 
-$result_texts{'loop_nodes'} = '
-top
+$result_texts{'loop_nodes'} = 'top
 ***
 
 * chap node up::
@@ -847,7 +806,7 @@ $result_errors{'loop_nodes'} = [
     'error_line' => 'warning: node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
 ',
     'file_name' => '',
-    'line_nr' => 10,
+    'line_nr' => 8,
     'macro' => '',
     'text' => 'node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu',
     'type' => 'warning'
@@ -859,8 +818,7 @@ $result_floats{'loop_nodes'} = {};
 
 
 
-$result_converted{'latex_text'}->{'loop_nodes'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'loop_nodes'} = '\\begin{document}
 \\label{anchor:Top}%
 \\label{anchor:chap-node-up}%
 

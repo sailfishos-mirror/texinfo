@@ -1,7 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename index_special_region.info
-
 @copying 
 
 @cindex Copying this document

@@ -3,9 +3,8 @@
 <texinfo>
 <filename file="indices_in_begin_tables_lists.xml"></filename>
 <preamblebeforebeginning>\input texinfo.tex
-</preamblebeforebeginning><setfilename file="indices_in_begin_tables_lists.info" spaces=" ">indices_in_begin_tables_lists.info</setfilename>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>

@@ -12,57 +12,20 @@ $result_trees{'delcomment'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'delcomment.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'delcomment.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'delcomment.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -148,7 +111,6 @@ $result_trees{'delcomment'} = {
 };
 
 $result_texis{'delcomment'} = '\\input texinfo
-@setfilename delcomment.info
 
 @c this tests both the del comment and a file without
 @c element.
@@ -161,7 +123,6 @@ This line is the only output.
 
 
 $result_texts{'delcomment'} = '
-
 
 This line is the only output.
 

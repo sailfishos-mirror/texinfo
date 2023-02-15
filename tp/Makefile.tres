@@ -226,6 +226,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/references_to_top_no_top_output/res_html \
   t/results/converters_tests/references_to_top_no_top_output/res_latex \
   t/results/converters_tests/refs_formatting.pl \
+  t/results/converters_tests/setfilename_no_extension.pl \
+  t/results/converters_tests/setfilename_no_extension/res_docbook \
+  t/results/converters_tests/setfilename_no_extension/res_html \
+  t/results/converters_tests/setfilename_no_extension/res_info \
+  t/results/converters_tests/setfilename_no_extension/res_latex \
+  t/results/converters_tests/setfilename_no_extension/res_xml \
   t/results/converters_tests/simplest_no_node_section.pl \
   t/results/converters_tests/simplest_no_node_section/res_docbook \
   t/results/converters_tests/simplest_no_node_section/res_html \

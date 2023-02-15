@@ -1,8 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename nodes_before_top_and_sections.info
-
-
 @node first before top, Top, ,(dir)
 @cindex first before top
 

@@ -1159,6 +1159,16 @@ In Main
 );
 
 my @file_tests = (
+['setfilename_no_extension',
+'@setfilename setfilename_no_extension
+
+@node Top
+@top top
+
+@node chap
+
+Text.
+'],
 ['simplest_no_node_section',
 undef, {'test_file' => 'simplest_no_node_section.texi'}],
 ['minimal_empty_with_bye',

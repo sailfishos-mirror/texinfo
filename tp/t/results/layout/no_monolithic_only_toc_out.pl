@@ -12,63 +12,20 @@ $result_trees{'no_monolithic_only_toc_out'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
+              'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'no_monolithic.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'no_monolithic.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'no_monolithic.texi',
-                'line_nr' => 3,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'text_before_beginning'
             }
           ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -113,7 +70,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
       },
       'source_info' => {
         'file_name' => 'no_monolithic.texi',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -165,7 +122,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               'cmdname' => 'footnote',
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
-                'line_nr' => 8,
+                'line_nr' => 6,
                 'macro' => ''
               }
             },
@@ -220,7 +177,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           },
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
-            'line_nr' => 10,
+            'line_nr' => 8,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -287,7 +244,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               },
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -320,14 +277,14 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               },
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
-                'line_nr' => 14,
+                'line_nr' => 12,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
-            'line_nr' => 12,
+            'line_nr' => 10,
             'macro' => ''
           }
         },
@@ -345,7 +302,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
       },
       'source_info' => {
         'file_name' => 'no_monolithic.texi',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -389,7 +346,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
       },
       'source_info' => {
         'file_name' => 'no_monolithic.texi',
-        'line_nr' => 16,
+        'line_nr' => 14,
         'macro' => ''
       }
     },
@@ -442,7 +399,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'cmdname' => 'contents',
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -457,7 +414,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'cmdname' => 'shortcontents',
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
-            'line_nr' => 22,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -496,7 +453,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           },
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
-            'line_nr' => 24,
+            'line_nr' => 22,
             'macro' => ''
           }
         }
@@ -509,7 +466,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
       },
       'source_info' => {
         'file_name' => 'no_monolithic.texi',
-        'line_nr' => 17,
+        'line_nr' => 15,
         'macro' => ''
       }
     },
@@ -538,8 +495,6 @@ $result_trees{'no_monolithic_only_toc_out'}{'contents'}[3]{'extra'}{'nodes_manua
 
 $result_texis{'no_monolithic_only_toc_out'} = '\\input texinfo @c -*-texinfo-*-
 
-@setfilename no_monolithic.info
-
 @node Top
 @top Not monolithic
 
@@ -564,8 +519,7 @@ Chapter.
 ';
 
 
-$result_texts{'no_monolithic_only_toc_out'} = '
-Not monolithic
+$result_texts{'no_monolithic_only_toc_out'} = 'Not monolithic
 **************
 
 Not monolitic manual.

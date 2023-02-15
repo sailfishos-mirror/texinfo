@@ -276,9 +276,7 @@ $nodes_after_top_before_chapter_text
 ,{}, {'USE_NODE_DIRECTIONS' => 0}
 ],
 ['node_sectop_before_chapter_no_node',
-'@setfilename node_sectop_before_chapter_no_node.info
-
-@node Top
+'@node Top
 @top top section
 
 @chapter chap
@@ -289,9 +287,7 @@ $nodes_after_top_before_chapter_text
 # node before node is obtained with toplevel next which is
 # the node associated with the chapter, after the Top node!
 ['node_sectop_before_lone_node_Top',
-'@setfilename node_sectop_before_lone_node_Top.info
-
-@node node before
+'@node node before
 @top top sectionning
 
 in node before
@@ -1081,9 +1077,7 @@ second node.
 @xref{unknown ref}.
 '],
 ['loop_nodes',
-'@setfilename loop_nodes.info
-
-@node Top
+'@node Top
 @top top
 
 @menu
@@ -1130,9 +1124,7 @@ Second top.
 @subsection the subsection
 '],
 ['lone_Top_node',
-'@setfilename lone_Top_node.info
-
-@node Top
+'@node Top
 
 @menu
 * First::
@@ -1181,9 +1173,7 @@ Second top.
 @section Sub3
 ', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['nodes_before_top',
-'@setfilename nodes_before_top.info
-
-@node first, Top, ,(dir)
+'@node first, Top, ,(dir)
 
 @menu
 * node in menu before top::
@@ -1202,9 +1192,7 @@ Second top.
 @chapter a chapter
 '],
 ['nodes_before_after_top',
-'@setfilename nodes_before_after_top.info
-
-@node node before
+'@node node before
 
 In node before
 
@@ -1389,8 +1377,10 @@ foreach my $test (@tests_converted) {
     if (grep {$_ eq $test->[0]} @docbook_tests_converted_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex_text'
     if (grep {$_ eq $test->[0]} @latex_tests_converted_tests);
-  push @{$test->[2]->{'test_formats'}}, 'file_latex'
-    if (grep {$_ eq $test->[0]} @file_latex_tests_converted_tests);
+  if (grep {$_ eq $test->[0]} @file_latex_tests_converted_tests) {
+    push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+  }
 
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }

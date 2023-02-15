@@ -85,8 +85,8 @@ for dir in `find t_texis/ -type d` ; do
     echo "    -> $file: plaintexinfo"
     # Either the output file or the output directory can be specified.
     # The conversion to Texinfo XML below uses the directory.
-    # Specifying the file allows, as a side effect, to check the consistency
-    # of test name and output file name.
+    # Note that the file name obtained with plaintexinfo should match with the
+    # test name otherwise the diff is not possible.
     # Even with specifying the directory in both cases, the file names may
     # not be exactly the same when there are specific values for @setfilename.
     # This concerns a few files only, and those files are more or less

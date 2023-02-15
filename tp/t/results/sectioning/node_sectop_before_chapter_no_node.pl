@@ -10,45 +10,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node_sectop_before_chapter_no_node.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'node_sectop_before_chapter_no_node.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -93,7 +55,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -130,7 +92,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -159,7 +121,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     }
@@ -169,17 +131,14 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'node_sectop_before_chapter_no_node'} = '@setfilename node_sectop_before_chapter_no_node.info
-
-@node Top
+$result_texis{'node_sectop_before_chapter_no_node'} = '@node Top
 @top top section
 
 @chapter chap
 ';
 
 
-$result_texts{'node_sectop_before_chapter_no_node'} = '
-top section
+$result_texts{'node_sectop_before_chapter_no_node'} = 'top section
 ***********
 
 1 chap
@@ -291,7 +250,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
@@ -313,8 +271,7 @@ span:hover a.copiable-link {visibility: visible}
 $result_converted{'docbook'}->{'node_sectop_before_chapter_no_node'} = '';
 
 
-$result_converted{'latex_text'}->{'node_sectop_before_chapter_no_node'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'node_sectop_before_chapter_no_node'} = '\\begin{document}
 \\label{anchor:Top}%
 ';
 

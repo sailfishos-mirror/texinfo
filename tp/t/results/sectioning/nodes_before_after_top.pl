@@ -10,45 +10,7 @@ $result_trees{'nodes_before_after_top'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodes_before_after_top.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'nodes_before_after_top.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'type' => 'preamble_before_content'
         }
       ],
@@ -114,7 +76,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -157,7 +119,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -208,7 +170,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -272,7 +234,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -315,7 +277,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 16,
+        'line_nr' => 14,
         'macro' => ''
       }
     },
@@ -361,7 +323,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
+        'line_nr' => 15,
         'macro' => ''
       }
     }
@@ -377,9 +339,7 @@ $result_trees{'nodes_before_after_top'}{'contents'}[4]{'extra'}{'nodes_manuals'}
 $result_trees{'nodes_before_after_top'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'nodes_before_after_top'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
-$result_texis{'nodes_before_after_top'} = '@setfilename nodes_before_after_top.info
-
-@node node before
+$result_texis{'nodes_before_after_top'} = '@node node before
 
 In node before
 
@@ -400,7 +360,6 @@ in chap
 
 
 $result_texts{'nodes_before_after_top'} = '
-
 In node before
 
 top sectionning
@@ -521,7 +480,7 @@ $result_errors{'nodes_before_after_top'} = [
     'error_line' => 'warning: node `node before\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'macro' => '',
     'text' => 'node `node before\' unreferenced',
     'type' => 'warning'
@@ -530,7 +489,7 @@ $result_errors{'nodes_before_after_top'} = [
     'error_line' => 'warning: node `after\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 12,
+    'line_nr' => 10,
     'macro' => '',
     'text' => 'node `after\' unreferenced',
     'type' => 'warning'
@@ -542,8 +501,7 @@ $result_floats{'nodes_before_after_top'} = {};
 
 
 
-$result_converted{'latex_text'}->{'nodes_before_after_top'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'nodes_before_after_top'} = '\\begin{document}
 \\label{anchor:node-before}%
 
 In node before

@@ -1,7 +1,5 @@
 \input texinfo @c -*-texinfo-*-
 
-@setfilename index_nodes
-
 @node Top
 @cindex entry a
 

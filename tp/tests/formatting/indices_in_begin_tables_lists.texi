@@ -1,5 +1,4 @@
 \input texinfo.tex
-@setfilename indices_in_begin_tables_lists.info
 
 @node Top
 @top top
