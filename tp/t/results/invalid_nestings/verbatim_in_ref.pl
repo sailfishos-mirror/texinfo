@@ -15,7 +15,7 @@ $result_trees{'verbatim_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -41,7 +41,7 @@ $result_trees{'verbatim_in_ref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -147,10 +147,10 @@ $result_trees{'verbatim_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -169,9 +169,9 @@ $result_trees{'verbatim_in_ref'} = {
 $result_trees{'verbatim_in_ref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'verbatim_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'verbatim_in_ref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'verbatim_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'verbatim_in_ref'} = '@node Top
+$result_texis{'verbatim_in_ref'} = '@node first
 
-@xref{Top, 
+@xref{first, 
 }@verbatim
 verbat text
 @end verbatim
@@ -180,13 +180,13 @@ verbat text
 
 
 $result_texts{'verbatim_in_ref'} = '
-Topverbat text
+firstverbat text
 .';
 
 $result_nodes{'verbatim_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -194,7 +194,7 @@ $result_nodes{'verbatim_in_ref'} = {
 $result_menus{'verbatim_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

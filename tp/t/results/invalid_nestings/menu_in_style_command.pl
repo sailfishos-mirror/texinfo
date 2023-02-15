@@ -15,7 +15,7 @@ $result_trees{'menu_in_style_command'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -174,10 +174,10 @@ $result_trees{'menu_in_style_command'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -197,7 +197,7 @@ $result_trees{'menu_in_style_command'}{'contents'}[1]{'contents'}[2]{'contents'}
 $result_trees{'menu_in_style_command'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_style_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'menu_in_style_command'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'menu_in_style_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'menu_in_style_command'} = '@node Top
+$result_texis{'menu_in_style_command'} = '@node first
 
 @code{
 }@menu
@@ -219,7 +219,7 @@ $result_nodes{'menu_in_style_command'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -231,16 +231,14 @@ $result_nodes{'menu_in_style_command'} = {
           }
         ]
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'menu_in_style_command'}{'structure'}{'node_next'} = $result_nodes{'menu_in_style_command'}{'structure'}{'menu_child'};
 
 $result_menus{'menu_in_style_command'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {

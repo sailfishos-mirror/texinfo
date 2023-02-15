@@ -15,7 +15,7 @@ $result_trees{'footnote_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -41,7 +41,7 @@ $result_trees{'footnote_in_ref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -120,10 +120,10 @@ $result_trees{'footnote_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -142,20 +142,20 @@ $result_trees{'footnote_in_ref'} = {
 $result_trees{'footnote_in_ref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_ref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'footnote_in_ref'} = '@node Top
+$result_texis{'footnote_in_ref'} = '@node first
 
-@xref{Top, Text@footnote{First para
+@xref{first, Text@footnote{First para
 
 seond para}.}';
 
 
 $result_texts{'footnote_in_ref'} = '
-Top';
+first';
 
 $result_nodes{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -163,7 +163,7 @@ $result_nodes{'footnote_in_ref'} = {
 $result_menus{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

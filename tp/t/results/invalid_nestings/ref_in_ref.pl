@@ -15,7 +15,7 @@ $result_trees{'ref_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -40,7 +40,7 @@ $result_trees{'ref_in_ref'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Top'
+                              'text' => 'first'
                             }
                           ],
                           'type' => 'brace_command_arg'
@@ -53,7 +53,7 @@ $result_trees{'ref_in_ref'} = {
                           'node_content' => [
                             {}
                           ],
-                          'normalized' => 'Top'
+                          'normalized' => 'first'
                         }
                       },
                       'source_info' => {
@@ -73,7 +73,7 @@ $result_trees{'ref_in_ref'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -95,10 +95,10 @@ $result_trees{'ref_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -121,16 +121,16 @@ $result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'
 $result_trees{'ref_in_ref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_ref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'ref_in_ref'} = '@node Top
-@ref{@ref{Top}}';
+$result_texis{'ref_in_ref'} = '@node first
+@ref{@ref{first}}';
 
 
-$result_texts{'ref_in_ref'} = 'Top';
+$result_texts{'ref_in_ref'} = 'first';
 
 $result_nodes{'ref_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -138,7 +138,7 @@ $result_nodes{'ref_in_ref'} = {
 $result_menus{'ref_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -154,12 +154,12 @@ $result_errors{'ref_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @ref to `@ref{Top}\', different from node name `Top\'
+    'error_line' => 'warning: @ref to `@ref{first}\', different from node name `first\'
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@ref to `@ref{Top}\', different from node name `Top\'',
+    'text' => '@ref to `@ref{first}\', different from node name `first\'',
     'type' => 'warning'
   }
 ];

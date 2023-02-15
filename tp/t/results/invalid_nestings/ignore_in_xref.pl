@@ -15,7 +15,7 @@ $result_trees{'ignore_in_xref'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -41,7 +41,7 @@ $result_trees{'ignore_in_xref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -123,7 +123,7 @@ $result_trees{'ignore_in_xref'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'first'
                 }
               },
               'source_info' => {
@@ -149,10 +149,10 @@ $result_trees{'ignore_in_xref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -173,9 +173,9 @@ $result_trees{'ignore_in_xref'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'ex
 $result_trees{'ignore_in_xref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ignore_in_xref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ignore_in_xref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignore_in_xref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'ignore_in_xref'} = '@node Top
+$result_texis{'ignore_in_xref'} = '@node first
 
-@xref{Top,
+@xref{first,
 @ignore
 ignore me
 @end ignore
@@ -184,13 +184,13 @@ ignore me
 
 
 $result_texts{'ignore_in_xref'} = '
-Top.
+first.
 ';
 
 $result_nodes{'ignore_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -198,7 +198,7 @@ $result_nodes{'ignore_in_xref'} = {
 $result_menus{'ignore_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

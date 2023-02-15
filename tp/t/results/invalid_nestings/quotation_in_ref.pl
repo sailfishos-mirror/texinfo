@@ -15,7 +15,7 @@ $result_trees{'quotation_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -41,7 +41,7 @@ $result_trees{'quotation_in_ref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'first'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -147,10 +147,10 @@ $result_trees{'quotation_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -169,9 +169,9 @@ $result_trees{'quotation_in_ref'} = {
 $result_trees{'quotation_in_ref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'quotation_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'quotation_in_ref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'quotation_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'quotation_in_ref'} = '@node Top
+$result_texis{'quotation_in_ref'} = '@node first
 
-@xref{Top,
+@xref{first,
 }@quotation
 quotation in ref
 @end quotation
@@ -180,14 +180,14 @@ quotation in ref
 
 
 $result_texts{'quotation_in_ref'} = '
-Topquotation in ref
+firstquotation in ref
 .
 ';
 
 $result_nodes{'quotation_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -195,7 +195,7 @@ $result_nodes{'quotation_in_ref'} = {
 $result_menus{'quotation_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

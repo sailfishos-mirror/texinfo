@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'ref_in_anchor'} = {
+$result_trees{'ref_to_top_in_anchor'} = {
   'contents' => [
     {
       'type' => 'before_node_section'
@@ -114,20 +114,20 @@ $result_trees{'ref_in_anchor'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'ref_in_anchor'}{'contents'}[1];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'ref_in_anchor'} = '@node Top
+$result_texis{'ref_to_top_in_anchor'} = '@node Top
 @anchor{TOP @ref{Top}}';
 
 
-$result_texts{'ref_in_anchor'} = '';
+$result_texts{'ref_to_top_in_anchor'} = '';
 
-$result_nodes{'ref_in_anchor'} = {
+$result_nodes{'ref_to_top_in_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -135,7 +135,7 @@ $result_nodes{'ref_in_anchor'} = {
   'info' => {}
 };
 
-$result_menus{'ref_in_anchor'} = {
+$result_menus{'ref_to_top_in_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -143,7 +143,7 @@ $result_menus{'ref_in_anchor'} = {
   'info' => {}
 };
 
-$result_errors{'ref_in_anchor'} = [
+$result_errors{'ref_to_top_in_anchor'} = [
   {
     'error_line' => 'warning: @ref should not appear anywhere inside @anchor
 ',
@@ -156,7 +156,7 @@ $result_errors{'ref_in_anchor'} = [
 ];
 
 
-$result_floats{'ref_in_anchor'} = {};
+$result_floats{'ref_to_top_in_anchor'} = {};
 
 
 1;

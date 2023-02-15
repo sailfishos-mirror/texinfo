@@ -33,6 +33,7 @@ my @test_cases = (
 ['in_table',
 '
 @node Top
+@node chap
 
 @table @xref
 @end table
@@ -433,7 +434,7 @@ in float
 @end float
 }'],
 ['menu_in_style_command',
-'@node Top
+'@node first
 
 @code{
 @menu
@@ -449,40 +450,40 @@ First item text
 @item second item}
 @end table
 '],
-['ref_in_anchor',
+['ref_to_top_in_anchor',
 '@node Top
 @anchor{TOP @ref{Top}}'],
 ['ref_in_ref',
-'@node Top
-@ref{@ref{Top}}'],
+'@node first
+@ref{@ref{first}}'],
 ['footnote_in_ref',
-'@node Top
+'@node first
 
-@xref{Top, Text@footnote{First para
+@xref{first, Text@footnote{First para
 
 seond para}.'],
 ['verbatim_in_ref',
-'@node Top
+'@node first
 
-@xref{Top, 
+@xref{first, 
 @verbatim
 verbat text
 @end verbatim
 
 }.'],
 ['quotation_in_ref',
-'@node Top
+'@node first
 
-@xref{Top,
+@xref{first,
 @quotation
 quotation in ref
 @end quotation
 }.
 '],
 ['ignore_in_xref',
-'@node Top
+'@node first
 
-@xref{Top,
+@xref{first,
 @ignore
 ignore me
 @end ignore
