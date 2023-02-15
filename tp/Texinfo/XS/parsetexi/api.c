@@ -128,10 +128,10 @@ reset_parser_except_conf (void)
   init_index_commands ();
   wipe_errors ();
   reset_context_stack ();
-  reset_region_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
   reset_command_stack (&nesting_context.basic_inline_stack_block);
+  reset_command_stack (&nesting_context.regions_stack);
   memset (&nesting_context, 0, sizeof (nesting_context));
   reset_floats ();
   wipe_global_info ();
@@ -897,7 +897,8 @@ build_single_index_data (INDEX *i)
       STORE2("entry_number", newSViv (entry_number));
       if (e->region)
         {
-          STORE2("entry_region", newRV_inc ((SV *)e->region->hv));
+          STORE2("entry_region",
+                 newSVpv (command_name(e->region), 0));
         }
       if (e->content)
         {

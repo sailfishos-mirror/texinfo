@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -273,8 +273,11 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           if (check_node_label (parsed_anchor, CM_anchor))
             {
               register_label (current->parent, parsed_anchor->node_content);
-              if (current_region ())
-                add_extra_element (current, "region", current_region ());
+              if (nesting_context.regions_stack.top > 0)
+                {
+                  add_extra_string (current, "region",
+                    command_name(top_command(&nesting_context.regions_stack)));
+                }
               if (parsed_anchor->manual_content)
                 destroy_element (parsed_anchor->manual_content);
             }

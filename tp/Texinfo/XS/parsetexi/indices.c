@@ -1,4 +1,4 @@
-/* Copyright 2010-2022 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -302,8 +302,8 @@ enter_index_entry (enum command_id index_type_command,
   if (k)
     entry->sortas = (char *) k->value;
 
-  if (current_region ())
-    entry->region = current_region ();
+  if (nesting_context.regions_stack.top > 0)
+    entry->region = top_command (&nesting_context.regions_stack);
   else
     entry->node = current_node;
 
@@ -321,7 +321,8 @@ enter_index_entry (enum command_id index_type_command,
   }
 #endif
 
-  if (!current_region () && !current_node && !current_section)
+  if (nesting_context.regions_stack.top == 0
+      && !current_node && !current_section)
     line_warn ("entry for index `%s' outside of any node", idx->name);
 }
 

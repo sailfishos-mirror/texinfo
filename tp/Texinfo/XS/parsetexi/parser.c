@@ -1261,6 +1261,20 @@ check_valid_nesting_context (enum command_id cmd)
         command_name(invalid_line));
     }
 
+  if (nesting_context.regions_stack.top > 0)
+    {
+      if ((command_data(cmd).flags & CF_block)
+           && (command_data(cmd).data == BLOCK_region))
+        invalid_context = top_command (&nesting_context.regions_stack);
+    }
+
+  if (invalid_context)
+    {
+      line_warn ("@%s should not appear in @%s block",
+        command_name(cmd),
+        command_name(invalid_context));
+    }
+
 }
 
 /* *LINEP is a pointer into the line being processed.  It is advanced past any

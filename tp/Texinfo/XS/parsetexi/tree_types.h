@@ -1,7 +1,7 @@
 /* tree_types.h - types for the parse tree that are used in many places */
 #ifndef TREE_TYPES_H
 #define TREE_TYPES_H
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -139,7 +139,7 @@ typedef struct {
     ELEMENT *command;
     ELEMENT *node;
     int number; /* Index of entry in containing index, 1-based. */
-    ELEMENT *region;
+    enum command_id region;
     char *sortas; /* the sort key for the index */
     IGNORED_CHARS ignored_chars;
 } INDEX_ENTRY;

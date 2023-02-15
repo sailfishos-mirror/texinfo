@@ -1,5 +1,5 @@
 /* handle_commands.c -- what to do when a command name is first read */
-/* Copyright 2010-2020 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -850,13 +850,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
         }
       else if (command_data(cmd).data == BLOCK_region)
         {
-          if (current_region_cmd ())
-            {
-              line_error ("region %s inside region %s is not allowed",
-                          command_name(cmd),
-                          command_name(current_region_cmd ()));
-            }
-          push_region (block);
+          push_command (&nesting_context.regions_stack, cmd);
         }
 
       if (command_data(cmd).data == BLOCK_menu)

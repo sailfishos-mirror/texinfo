@@ -43,13 +43,6 @@ enum context current_context (void);
 enum command_id current_context_command (void);
 void reset_context_stack (void);
 
-
-void push_region (ELEMENT *r);
-ELEMENT *pop_region (void);
-ELEMENT *current_region (void);
-enum command_id current_region_cmd (void);
-
-void reset_region_stack (void);
 
 
 
@@ -72,6 +65,7 @@ typedef struct {
     COMMAND_STACK basic_inline_stack;
     COMMAND_STACK basic_inline_stack_on_line;
     COMMAND_STACK basic_inline_stack_block;
+    COMMAND_STACK regions_stack;
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;

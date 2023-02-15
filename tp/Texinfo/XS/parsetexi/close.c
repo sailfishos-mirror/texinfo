@@ -345,7 +345,7 @@ pop_block_command_contexts (enum command_id cmd)
     }
   else if (command_data(cmd).data == BLOCK_region)
     {
-      pop_region ();
+      (void) pop_command (&nesting_context.regions_stack);
     }
 }
 

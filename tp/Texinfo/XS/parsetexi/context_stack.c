@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -132,63 +132,6 @@ current_context_command (void)
     }
   return CM_NONE;
 }
-
-
-/* The valid regions are 'titlepage', 'copying', and 'documentdescription'.
-   This stack isn't used that much. */
-
-static ELEMENT **region_stack;
-static size_t region_top; /* One above last pushed region. */
-static size_t region_space;
-
-void
-reset_region_stack (void)
-{
-  region_top = 0;
-}
-
-void
-push_region (ELEMENT *e)
-{
-  if (region_top >= region_space)
-    {
-      region_stack = realloc (region_stack,
-                              (region_space += 5) * sizeof (*region_stack));
-    }
-
-  debug (">>>>>>>>>>>>>>>>>PUSHING REGION STACK AT %d", region_top);
-
-  region_stack[region_top++] = e;
-}
-
-ELEMENT *
-pop_region ()
-{
-  if (region_top == 0)
-    fatal ("region stack empty");
-
-  debug (">>>>>>>>>>>>>POPPING REGION STACK AT %d", region_top - 1);
-  return region_stack[--region_top];
-}
-
-enum command_id
-current_region_cmd (void)
-{
-  if (region_top == 0)
-    return CM_NONE;
-
-  return region_stack[region_top - 1]->cmd;
-}
-
-ELEMENT *
-current_region (void)
-{
-  if (region_top == 0)
-    return 0;
-
-  return region_stack[region_top - 1];
-}
-
 
 
 

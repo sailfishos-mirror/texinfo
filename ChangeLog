@@ -2,11 +2,40 @@
 
 	Put regions stack in nesting context
 
+	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
+	Add regions_stack field.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf): Reset it.
+	* tp/Texinfo/XS/parsetexi/context_stack.c
+	(push_region, pop_region, current_region, current_region_cmd)
+	(reset_region_stack): Remove.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	* tp/Texinfo/XS/parsetexi/close.c (pop_block_command_contexts):
+	Push and pop from new regions stack.
+
+	* tp/Texinfo/XS/parsetexi/tree_types.h (INDEX_ENTRY):
+	Type of 'region' field is now enum command_id, not ELEMENT *.
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry):
+	Assign 'region' from region_stack.
+	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data):
+	Create Perl string for 'entry_region'.
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace) <@anchor>:
+	Save 'region' as string rather than element reference.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting_context):
+	Check that region command does not occur inside region command.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	Do not check for nested region here.
+
+2023-02-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Put regions stack in nesting context
+
 	* tp/Texinfo/ParserNonXS.pm (parser):
 	Initialise 'regions_stack' on 'nesting_context'.
 	(%parser_state_initialization): Remove 'regions_stack'.
 
-	(_pop_block_command_contexts, enter_index_entry)
+	(_pop_block_command_contexts, _enter_index_entry)
 	(_process_remaining_on_line, _parse_line_command_args):
 	Refer to new array throughout.
 	(_enter_index_entry),
