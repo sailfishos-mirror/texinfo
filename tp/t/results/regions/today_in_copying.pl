@@ -182,7 +182,7 @@ $result_trees{'today_in_copying'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -226,10 +226,10 @@ $result_trees{'today_in_copying'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -257,7 +257,7 @@ $result_texis{'today_in_copying'} = '@copying
 @node Top
 @top top
 
-@node node
+@node chap
 
 @insertcopying
 ';
@@ -313,7 +313,7 @@ $result_nodes{'today_in_copying'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -345,20 +345,20 @@ $result_converted{'info'}->{'today_in_copying'} = 'This is , produced from .
 a sunny day.
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 top
 ***
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
 a sunny day.
 
 
 Tag Table:
 Node: Top41
-Node: node97
+Node: chap97
 
 End Tag Table
 
@@ -399,16 +399,16 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <p>a sunny day.
 </p></div>
@@ -423,7 +423,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 $result_converted{'latex_text'}->{'today_in_copying'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 \\today{}.
 ';

@@ -198,6 +198,9 @@ aaaaa
 '@node Top
 @top Element
 
+@node chap
+@chapter Chapter
+
 @table @emph
 @item first item
 @itemx second itemx

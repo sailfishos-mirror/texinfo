@@ -165,13 +165,6 @@ $result_trees{'format_in_titlepage'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
       'extra' => {
         'node_content' => [
           {}
@@ -196,12 +189,64 @@ $result_trees{'format_in_titlepage'} = {
         'line_nr' => 9,
         'macro' => ''
       }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 10,
+        'macro' => ''
+      }
     }
   ],
   'type' => 'document_root'
 };
 $result_trees{'format_in_titlepage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'format_in_titlepage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'format_in_titlepage'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'format_in_titlepage'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'format_in_titlepage'} = '@titlepage
 
@@ -212,6 +257,7 @@ Published
 @end titlepage
 
 @node Top
+@node chap
 
 ';
 
@@ -225,15 +271,29 @@ $result_nodes{'format_in_titlepage'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'format_in_titlepage'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'format_in_titlepage'};
 
 $result_menus{'format_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'format_in_titlepage'} = [];
@@ -246,12 +306,16 @@ $result_floats{'format_in_titlepage'} = {};
 $result_converted{'info'}->{'format_in_titlepage'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
+
+
+File: ,  Node: chap,  Prev: Top
 
 
 
 Tag Table:
 Node: Top27
+Node: chap74
 
 End Tag Table
 
@@ -288,7 +352,17 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<a class="node-id" id="Top"></a><div class="nav-panel">
+<p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
+</div>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<hr>
+<a class="node-id" id="chap"></a><div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
+</div>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 
@@ -330,6 +404,8 @@ Published
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
+\\label{anchor:chap}%
+
 ';
 
 1;

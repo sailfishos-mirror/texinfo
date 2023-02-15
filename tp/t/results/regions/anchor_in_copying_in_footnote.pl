@@ -214,7 +214,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -324,10 +324,10 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -363,7 +363,7 @@ In footnote.
 
 @node Top
 
-@node node
+@node chap
 
 @insertcopying
 
@@ -393,7 +393,7 @@ $result_nodes{'anchor_in_copying_in_footnote'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -429,10 +429,10 @@ Copying(1).
    (1) In footnote.
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
 Copying(1).
 
@@ -450,10 +450,10 @@ Copying(1).
 
 Tag Table:
 Node: Top97
-Node: node144
-Ref: node-Footnote-1274
+Node: chap144
+Ref: chap-Footnote-1274
 Ref: Copying footnote293
-Ref: node-Footnote-2295
+Ref: chap-Footnote-2295
 
 End Tag Table
 
@@ -508,16 +508,16 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 <p>Copying<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
@@ -561,7 +561,7 @@ $result_converted_errors{'html'}->{'anchor_in_copying_in_footnote'} = [
 $result_converted{'latex_text'}->{'anchor_in_copying_in_footnote'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 
 Copying\\footnote{In footnote.
