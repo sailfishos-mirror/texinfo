@@ -368,7 +368,7 @@ deffn
 '],
 ['ref_in_def',
 '
-@node Top
+@node first
 
 @deffn @ref{myanchor} @ref{myanchor} {@pxref{myanchor}} @pxref{myanchor} @pxref{myanchor}
 @deffnx @ref{myanchor} @ref{myanchor} {@pxref{myanchor}} @pxref{myanchor} @pxref{myanchor}
@@ -382,6 +382,7 @@ T
 my @test_info = (
 ['space_in_def_for_index',
 '@node Top
+@node chap
 
 @deffn { Category } { name } { argument } argument2...
 @deffnx {AAA1} {AAA2} arg3
@@ -568,7 +569,7 @@ Documentation of @code{foo}.
 ['omit_def_space',
 '@node Top
 
-@node first
+@node chap
 
 @set txidefnamenospace
 
@@ -594,6 +595,8 @@ foreach my $test (@test_cases) {
   if ($test->[0] eq 'all_commands' or $test->[0] eq 'all_commands_delimiters') {
     push @test_printindex, [$test->[0] . '_printindex',
                             '@node Top
+@node chap
+
 '. $test->[1] . '
 @heading Functions
 @printindex fn

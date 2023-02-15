@@ -65,7 +65,7 @@ $result_trees{'omit_def_space'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -403,10 +403,10 @@ $result_trees{'omit_def_space'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -441,7 +441,7 @@ $result_trees{'omit_def_space'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'nod
 
 $result_texis{'omit_def_space'} = '@node Top
 
-@node first
+@node chap
 
 @set txidefnamenospace
 
@@ -470,7 +470,7 @@ $result_nodes{'omit_def_space'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -539,16 +539,16 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 <dl class="first-deffn first-defun-alias-first-deffn">
@@ -575,7 +575,7 @@ $result_converted_errors{'html'}->{'omit_def_space'} = [
 
 
 $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
-\\label{anchor:first}%
+\\label{anchor:chap}%
 
 
 

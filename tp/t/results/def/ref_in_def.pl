@@ -22,7 +22,7 @@ $result_trees{'ref_in_def'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -602,10 +602,10 @@ $result_trees{'ref_in_def'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -658,7 +658,7 @@ $result_trees{'ref_in_def'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result
 $result_trees{'ref_in_def'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ref_in_def'} = '
-@node Top
+@node first
 
 @deffn @ref{myanchor} @ref{myanchor} {@pxref{myanchor}} @pxref{myanchor} @pxref{myanchor}
 @deffnx @ref{myanchor} @ref{myanchor} {@pxref{myanchor}} @pxref{myanchor} @pxref{myanchor}
@@ -680,7 +680,7 @@ T
 $result_nodes{'ref_in_def'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -688,7 +688,7 @@ $result_nodes{'ref_in_def'} = {
 $result_menus{'ref_in_def'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
