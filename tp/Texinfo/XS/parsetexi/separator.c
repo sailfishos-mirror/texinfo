@@ -275,7 +275,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
               register_label (current->parent, parsed_anchor->node_content);
               if (nesting_context.regions_stack.top > 0)
                 {
-                  add_extra_string (current, "region",
+                  add_extra_string_dup (current, "region",
                     command_name(top_command(&nesting_context.regions_stack)));
                 }
               if (parsed_anchor->manual_content)

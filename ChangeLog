@@ -1,5 +1,10 @@
 2023-02-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace):
+	Call add_extra_string_dup instead of add_extra_string.
+
+2023-02-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Put regions stack in nesting context
 
 	* tp/Texinfo/XS/parsetexi/context_stack.h (NESTING_CONTEXT):
