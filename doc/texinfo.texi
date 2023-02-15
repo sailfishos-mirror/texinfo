@@ -23380,7 +23380,7 @@ For @code{@@include} files only: expands to the name of the current
 @code{@@include} file, this command has no effect.  This command does
 @emph{not} provide the name of the current Texinfo source file unless
 it is an @code{@@include} file.  (@xref{Include Files}, for more
-information about @code{@@include} files.)  Not expanded in @LaTeX{}.
+information about @code{@@include} files.)
 @end table
 
 @noindent

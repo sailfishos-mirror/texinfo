@@ -1061,6 +1061,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/backslash_math.pl \
   t/results/latex_tests/brace_in_index.pl \
   t/results/latex_tests/brace_in_index/res_latex \
+  t/results/latex_tests/custom_heading_with_include.pl \
+  t/results/latex_tests/custom_heading_with_include/res_latex \
+  t/results/latex_tests/custom_heading_with_include_in_command.pl \
+  t/results/latex_tests/custom_heading_with_include_in_command/res_latex \
   t/results/latex_tests/custom_headings.pl \
   t/results/latex_tests/custom_headings/res_latex \
   t/results/latex_tests/customize_informative_commands.pl \

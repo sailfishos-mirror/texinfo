@@ -14,6 +14,7 @@
 
 \makeatletter
 \newcommand{\Texinfosettitle}{No Title}%
+\newcommand{\Texinfotheinclude}{}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -49,7 +50,7 @@
 \renewpagestyle{custom}{%
 \sethead[\thepage{} \sectiontitle{}][\thesection{} Section \thesection{} \sectiontitle{}][\chaptertitle{} \thechapter{}]%
 {}{}{}%
-\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][][\texttt{\chaptertitle{}}]%
+\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][\Texinfotheinclude{}][\texttt{\chaptertitle{}}]%
 {}{}{}%
 }%
 \pagestyle{custom}%
@@ -76,7 +77,7 @@ after ch--ap second page
 \renewpagestyle{custom}{%
 \sethead[toto][titi][]%
 {toto}{titi}{}%
-\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][][\texttt{\chaptertitle{}}]%
+\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][\Texinfotheinclude{}][\texttt{\chaptertitle{}}]%
 {}{}{}%
 }%
 \pagestyle{custom}%

@@ -162,6 +162,8 @@ test_files = \
  t/include/incl-incl.txi \
  t/include/macro_included.texi \
  t/include/section_file.texi \
+ t/include/section_file_no_node.texi \
+ t/include/section_file_no_node_include.texi \
  t/init/command_translation_modified.init \
  t/init/cvs.init \
  t/init/icons.init \

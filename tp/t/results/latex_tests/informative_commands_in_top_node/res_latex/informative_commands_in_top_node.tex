@@ -14,6 +14,7 @@
 
 \makeatletter
 \newcommand{\Texinfosettitle}{No Title}%
+\newcommand{\Texinfotheinclude}{}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -45,7 +46,7 @@
 \label{anchor:Top}%
 \setlength{\parindent}{5em}
 \newpagestyle{custom}{%
-\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][][\texttt{\chaptertitle{}}]%
+\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \Texinfosettitle{}][\Texinfotheinclude{}][\texttt{\chaptertitle{}}]%
 {}{}{}%
 }%
 \pagestyle{custom}%

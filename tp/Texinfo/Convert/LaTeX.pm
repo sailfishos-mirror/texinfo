@@ -265,7 +265,7 @@ my %LaTeX_in_heading_commands_formatting = (
   'thissection' => 'Section \thesection{} \sectiontitle{}',
   'thissectionname' => '\sectiontitle{}',
   'thissectionnum' => '\thesection{}',
-  'thisfile' => '',
+  'thisfile' => '\Texinfotheinclude{}',
   'thispage' => '\thepage{}',
   'thistitle' => '\Texinfosettitle{}',
 );
@@ -804,6 +804,9 @@ sub converter_defaults($$)
 
 # Converter state keys:
 #
+# collected_includes    Set if there is @thisfile in custom headings and
+#                       @include's should be collected from source marks,
+#                       holds the include file names and counter stack
 # custom_heading
 # description_format_commands
 # extra_definitions: Texinfo specific LaTeX command definitions that
@@ -1313,6 +1316,9 @@ sub _latex_header() {
 
   # for @thistitle and headers
   $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";
+  if ($self->{'collected_includes'}) {
+    $header_code .= "\\newcommand{\\Texinfotheinclude}{}%\n";
+  }
   $header_code .= "\n";
 
   if ($self->{'floats'}) {
@@ -1859,6 +1865,7 @@ sub _push_new_context($$;$$)
        'in_quotation' => 0,
        'in_sectioning_command_heading' => 0,
        'in_skipped_node_top' => 0,
+       'in_custom_heading' => 0,
        'math_style' => [],
        'no_eol' => [],
        'nr_table_items_context' => [],
@@ -2035,6 +2042,7 @@ sub _set_custom_headings($$$)
   my $location_index = -1;
   my @headings = ('', '', '');
   _push_new_context($self, 'custom_heading');
+  $self->{'formatting_context'}->[-1]->{'in_custom_heading'} = 1;
   foreach my $location_heading_spec (@$headings_spec) {
     $location_index++;
     my $heading = $self->_convert({'contents' => $location_heading_spec});
@@ -2516,6 +2524,21 @@ sub _restart_embrac_if_needed
   return $result;
 }
 
+sub _include_file_name($$)
+{
+  my $self = shift;
+  my $source_mark = shift;
+  my $file_name;
+  if ($source_mark->{'element'} and $source_mark->{'element'}->{'args'}
+      and scalar (@{$source_mark->{'element'}->{'args'}})) {
+    _push_new_context($self, 'include');
+    $file_name = $self->_convert($source_mark->{'element'}->{'args'}->[0]);
+    _pop_context($self);
+    $file_name = undef if ($file_name !~ /\S/);
+  }
+  return $file_name;
+}
+
 sub _convert($$);
 
 # Convert the Texinfo tree under $ELEMENT
@@ -2528,6 +2551,47 @@ sub _convert($$)
          .Texinfo::Common::debug_print_element_short($element)."\n";
     if ($self->{'debug'} > 4) {
       print STDERR "    CTX "._show_top_context_stack($self)."\n";
+    }
+  }
+
+  my $result = '';
+
+  if ($self->{'collected_includes'}) {
+    if ($element->{'source_marks'}) {
+      foreach my $source_mark (@{$element->{'source_marks'}}) {
+        if ($source_mark->{'sourcemark_type'} eq 'include') {
+          my $file_name;
+          if ($source_mark->{'status'} eq 'start') {
+            my $start_counter = $source_mark->{'counter'};
+            $file_name = _include_file_name($self, $source_mark);
+            push @{$self->{'collected_includes'}},
+                    [$start_counter, $file_name];
+          } else {
+            my $end_counter = $source_mark->{'counter'};
+            if (! scalar(@{$self->{'collected_includes'}})
+                or $self->{'collected_includes'}->[-1]->[0] != $end_counter) {
+              print STDERR "BUG: unsync include files: $end_counter\n";
+              while (scalar(@{$self->{'collected_includes'}})
+               and $self->{'collected_includes'}->[-1]->[0] != $end_counter) {
+                my $include_file_info = pop @{$self->{'collected_includes'}};
+                print STDERR "   $include_file_info->[0]: $include_file_info->[1]\n";
+              }
+            }
+            if (scalar(@{$self->{'collected_includes'}})) {
+              my $revious_include_info = pop @{$self->{'collected_includes'}};
+            }
+            if (scalar(@{$self->{'collected_includes'}})) {
+              $file_name = $self->{'collected_includes'}->[-1]->[1];
+            } else {
+              # top-level
+              $file_name = '';
+            }
+          }
+          if (defined($file_name)) {
+            $result .= "\\renewcommand{\\Texinfotheinclude}{$file_name}%\n";
+          }
+        }
+      }
     }
   }
 
@@ -2546,9 +2610,8 @@ sub _convert($$)
                                       ->{$element->{'extra'}->{'format'}}))
                          or (!$inline_format_commands{$cmdname}
                              and !defined($element->{'extra'}->{'expand_index'}))))))) {
-    return '';
+    return $result;
   }
-  my $result = '';
 
   if ($self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
     my $node_element;
@@ -2587,7 +2650,7 @@ sub _convert($$)
 
   if ($type and ($type eq 'empty_line')) {
     if ($element->{'text'} =~ /\f/) {
-      $result = '\par{}';
+      $result .= '\par{}';
     }
     return $result."\n";
   }
@@ -2595,7 +2658,7 @@ sub _convert($$)
   # process text
   if (defined($element->{'text'})) {
     if (!$type or $type ne 'untranslated') {
-      my $result = _protect_text($self, $element->{'text'});
+      $result .= _protect_text($self, $element->{'text'});
       return $result;
     } else {
       my $tree = $self->gdt($element->{'text'});
@@ -2607,7 +2670,7 @@ sub _convert($$)
   if ($element->{'extra'}) {
     if ($element->{'extra'}->{'missing_argument'}
              and (!$element->{'contents'} or !@{$element->{'contents'}})) {
-      return '';
+      return $result;
     }
   }
 
@@ -2630,12 +2693,12 @@ sub _convert($$)
           if ($self->{'formatting_context'}->[-1]->{'no_eol'}
               and $self->{'formatting_context'}->[-1]->{'no_eol'}->[-1]) {
             # in tabularx in @def* we ignore @*
-            $result = ' ';
+            $result .= ' ';
           } else {
             # FIXME \leavevmode{} is added to avoid
             # ! LaTeX Error: There's no line here to end.
             # but it is not clearly correct
-            $result = "\\leavevmode{}\\\\";
+            $result .= "\\leavevmode{}\\\\";
             #$result = "\\linebreak[4]\n";
           }
         } else {
@@ -3844,6 +3907,10 @@ sub _convert($$)
       return $result;
     } elsif (defined($LaTeX_in_heading_commands_formatting{$cmdname})) {
       $result .= $LaTeX_in_heading_commands_formatting{$cmdname};
+      if ($cmdname eq 'thisfile'
+          and $self->{'formatting_context'}->[-1]->{'in_custom_heading'}) {
+        $self->{'collected_includes'} = [] unless ($self->{'collected_includes'});
+      }
       return $result;
     } elsif ($cmdname eq 'title') {
       my $title_text = _title_font($self, $element);

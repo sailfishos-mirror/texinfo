@@ -149,6 +149,29 @@ my $indices_text = '
 @printindex fn
 ';
 
+my $include_chapters_test = '@node Top
+@top top sectionning
+
+@contents
+
+@node in main
+@chapter chap in main
+
+@set do-top
+@include section_file.texi
+
+@include section_file_no_node.texi
+
+@include section_file_no_node_include.texi
+
+@include section_file_no_node.texi
+
+@node last chap
+@chapter A last
+
+'
+;
+
 my @file_tests = (
 ['settitle_and_headings',
 '@settitle Title @* for a manual
@@ -280,6 +303,18 @@ after everyheading before chap 3 second page
 @everyfooting aa @| bb @| cc @| dd
 
 '
+],
+['custom_heading_with_include',
+'@setchapternewpage odd
+@everyheading @thispage @| @thisfile @| @thischapter
+
+'.$include_chapters_test
+],
+['custom_heading_with_include_in_command',
+'@setchapternewpage odd
+@everyheading @thischapter @emph{@thisfile} @| @| @thispage
+
+'.$include_chapters_test
 ],
 ['titlepage_in_top_node',
 '@node Top

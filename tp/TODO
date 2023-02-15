@@ -10,13 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-in 55conditionals nested_ifset_ifclear the source marks appears in
-the line corresponding to @set anothervar, at:
-@clear somevar
-@set anothervar
-@conditionals{}
-and not in the following empty line.
-
 Bugs
 ====
 
