@@ -30,10 +30,10 @@ my @test_cases = (
 
 @menu
 Horizontal space
-* subnode::
+* chap subnode::
 @end menu
 
-@node subnode
+@node chap subnode
 '],
 ['simple', $simple_menu_text],
 # there could be a nomenu in the converter/structuring options hash,
@@ -89,7 +89,7 @@ Horizontal space
 @node first
 '],
 ['invalid_info_menu_entry',
-'@node Top
+'@node first
 
 @menu
 * (f)@asis{a:}::
@@ -100,14 +100,14 @@ Horizontal space
 @end menu
 '],
 ['no_colon_in_menu',
-'@node Top
+'@node first
 
 @menu
 * a
 @end menu
 '],
 ['empty_menu_description',
-'@node Top
+'@node first
 
 @menu
 * a:(f)b
@@ -143,7 +143,7 @@ Horizontal space
 
 Menu comment
 
-* first::
+* chap first::
 
 @detailmenu
 * second::
@@ -151,7 +151,7 @@ Menu comment
 * second::
 @end menu
 
-@node first
+@node chap first
 @node second
 '],
 ['detailmenu_on_subnodes',
@@ -251,7 +251,7 @@ Chap 2
 '],
 ['reference_to_external_manual',
 '
-@node Top
+@node first
 
 @menu
 * (info)::
@@ -301,7 +301,7 @@ comment --- in.
 @end menu
 '],
 ['example_in_menu_description',
-'@node Top
+'@node first
 @top top
 
 @menu
@@ -315,7 +315,7 @@ example
 @end menu
 '],
 ['block_commands_in_menu_description',
-'@node Top
+'@node first
 @top top
 
 @menu
@@ -343,7 +343,7 @@ Text.
 @end menu
 '],
 ['verb_in_menu_description',
-'@node Top
+'@node first
 @top top
 
 @menu
@@ -355,7 +355,7 @@ Text.
 @end menu
 '],
 ['inlineraw_in_menu_description',
-'@node Top
+'@node first
 @top top
 
 @menu
@@ -368,7 +368,7 @@ end inlineraw}
 '],
 ['sc_in_menu',
 '
-@node Top
+@node first
 
 @menu
 * @sc{value}:@sc{node}.   @sc{descrip tion}
@@ -394,7 +394,7 @@ end inlineraw}
 
 '],
 ['formats_in_menu',
-'@node Top
+'@node first
 
 @menu
 * (gcc):: text
@@ -425,7 +425,7 @@ Menu comment
 @end menu
 '],
 ['menu_in_example',
-'@node Top
+'@node first
 
 @example
 @menu
@@ -444,7 +444,7 @@ in cartouche in menu comment in menu in example
 @end example
 '],
 ['submenu_in_example',
-'@node Top
+'@node first
 
 @example
 
@@ -549,7 +549,7 @@ my @test_invalid = (
 @end direntry
 '],
 ['menu_in_deffn',
-'@node Top
+'@node first
 
 @deffn a b c 
 @menu
@@ -569,7 +569,7 @@ my @test_invalid = (
 @end menu
 '],
 ['empty_menu_entry_name',
-'@node Top
+'@node first
 
 @menu
 * : (vvv). fff
@@ -579,7 +579,7 @@ my @test_invalid = (
 @node aaa
 '],
 ['menu_node_unterminated',
-'@node Top
+'@node first
 
 @menu
 * Example: Examples of Login Verification Functions

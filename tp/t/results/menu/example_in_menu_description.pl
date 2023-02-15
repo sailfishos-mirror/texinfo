@@ -15,7 +15,7 @@ $result_trees{'example_in_menu_description'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -37,10 +37,10 @@ $result_trees{'example_in_menu_description'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -289,7 +289,7 @@ $result_trees{'example_in_menu_description'}{'contents'}[1]{'extra'}{'node_conte
 $result_trees{'example_in_menu_description'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'example_in_menu_description'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'example_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'example_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 
-$result_texis{'example_in_menu_description'} = '@node Top
+$result_texis{'example_in_menu_description'} = '@node first
 @top top
 
 @menu
@@ -323,7 +323,7 @@ $result_sectioning{'example_in_menu_description'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top'
+              'normalized' => 'first'
             },
             'info' => {},
             'structure' => {}
@@ -355,7 +355,7 @@ $result_nodes{'example_in_menu_description'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -367,16 +367,14 @@ $result_nodes{'example_in_menu_description'} = {
           }
         ]
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'example_in_menu_description'}{'structure'}{'node_next'} = $result_nodes{'example_in_menu_description'}{'structure'}{'menu_child'};
 
 $result_menus{'example_in_menu_description'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -425,7 +423,7 @@ $result_converted{'html'}->{'example_in_menu_description'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -442,7 +440,7 @@ th.menu-comment {text-align:left}
 </head>
 
 <body lang="en">
-<div class="top-level-extent" id="Top">
+<div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
@@ -465,7 +463,7 @@ example
 ';
 
 
-$result_converted{'xml'}->{'example_in_menu_description'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(manual)</nodenext></node>
+$result_converted{'xml'}->{'example_in_menu_description'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">

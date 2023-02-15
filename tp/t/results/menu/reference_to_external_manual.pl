@@ -22,7 +22,7 @@ $result_trees{'reference_to_external_manual'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -157,10 +157,10 @@ $result_trees{'reference_to_external_manual'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -181,7 +181,7 @@ $result_trees{'reference_to_external_manual'}{'contents'}[1]{'extra'}{'node_cont
 $result_trees{'reference_to_external_manual'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'reference_to_external_manual'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'reference_to_external_manual'} = '
-@node Top
+@node first
 
 @menu
 * (info)::
@@ -202,7 +202,7 @@ $result_nodes{'reference_to_external_manual'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -214,16 +214,14 @@ $result_nodes{'reference_to_external_manual'} = {
           }
         ]
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'reference_to_external_manual'}{'structure'}{'node_next'} = $result_nodes{'reference_to_external_manual'}{'structure'}{'menu_child'};
 
 $result_menus{'reference_to_external_manual'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -265,7 +263,7 @@ $result_converted{'html'}->{'reference_to_external_manual'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -280,7 +278,7 @@ td.menu-entry-destination {vertical-align: top}
 
 <body lang="en">
 
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="info.html#Top" accesskey="1">(info)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -305,7 +303,7 @@ $result_converted_errors{'html'}->{'reference_to_external_manual'} = [
 
 
 $result_converted{'xml'}->{'reference_to_external_manual'} = '
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(info)</nodenext></node>
+<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(info)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

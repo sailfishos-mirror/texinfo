@@ -15,7 +15,7 @@ $result_trees{'empty_menu_entry_name'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -217,10 +217,10 @@ $result_trees{'empty_menu_entry_name'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -286,7 +286,7 @@ $result_trees{'empty_menu_entry_name'}{'contents'}[1]{'extra'}{'nodes_manuals'}[
 $result_trees{'empty_menu_entry_name'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'empty_menu_entry_name'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_menu_entry_name'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_menu_entry_name'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
-$result_texis{'empty_menu_entry_name'} = '@node Top
+$result_texis{'empty_menu_entry_name'} = '@node first
 
 @menu
 * : (vvv). fff
@@ -311,7 +311,7 @@ $result_nodes{'empty_menu_entry_name'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -323,16 +323,14 @@ $result_nodes{'empty_menu_entry_name'} = {
           }
         ]
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'empty_menu_entry_name'}{'structure'}{'node_next'} = $result_nodes{'empty_menu_entry_name'}{'structure'}{'menu_child'};
 
 $result_menus{'empty_menu_entry_name'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {

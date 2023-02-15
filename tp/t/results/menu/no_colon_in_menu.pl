@@ -15,7 +15,7 @@ $result_trees{'no_colon_in_menu'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -111,10 +111,10 @@ $result_trees{'no_colon_in_menu'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -133,7 +133,7 @@ $result_trees{'no_colon_in_menu'} = {
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'no_colon_in_menu'} = '@node Top
+$result_texis{'no_colon_in_menu'} = '@node first
 
 @menu
 * a
@@ -153,7 +153,7 @@ $result_nodes{'no_colon_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -161,7 +161,7 @@ $result_nodes{'no_colon_in_menu'} = {
 $result_menus{'no_colon_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -192,7 +192,7 @@ $result_converted{'html'}->{'no_colon_in_menu'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -206,7 +206,7 @@ th.menu-comment {text-align:left}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">* a
@@ -229,7 +229,7 @@ $result_converted_errors{'html'}->{'no_colon_in_menu'} = [
 
 
 
-$result_converted{'xml'}->{'no_colon_in_menu'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'no_colon_in_menu'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">* a

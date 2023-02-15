@@ -15,7 +15,7 @@ $result_trees{'menu_node_unterminated'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -145,10 +145,10 @@ $result_trees{'menu_node_unterminated'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -169,7 +169,7 @@ $result_trees{'menu_node_unterminated'}{'contents'}[1]{'contents'}[1]{'contents'
 $result_trees{'menu_node_unterminated'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_node_unterminated'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'menu_node_unterminated'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'menu_node_unterminated'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'menu_node_unterminated'} = '@node Top
+$result_texis{'menu_node_unterminated'} = '@node first
 
 @menu
 * Example: Examples of Login Verification Functions
@@ -189,7 +189,7 @@ $result_nodes{'menu_node_unterminated'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -197,7 +197,7 @@ $result_nodes{'menu_node_unterminated'} = {
 $result_menus{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

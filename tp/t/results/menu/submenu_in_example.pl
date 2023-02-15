@@ -15,7 +15,7 @@ $result_trees{'submenu_in_example'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -604,10 +604,10 @@ $result_trees{'submenu_in_example'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -626,7 +626,7 @@ $result_trees{'submenu_in_example'} = {
 $result_trees{'submenu_in_example'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'submenu_in_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'submenu_in_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'submenu_in_example'} = '@node Top
+$result_texis{'submenu_in_example'} = '@node first
 
 @example
 
@@ -680,7 +680,7 @@ subheading in menu
 $result_nodes{'submenu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -688,7 +688,7 @@ $result_nodes{'submenu_in_example'} = {
 $result_menus{'submenu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -777,7 +777,7 @@ $result_converted{'html'}->{'submenu_in_example'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -791,7 +791,7 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <div class="example">
 <pre class="example-preformatted">
@@ -843,7 +843,7 @@ $result_converted_errors{'html'}->{'submenu_in_example'} = [
 
 
 
-$result_converted{'xml'}->{'submenu_in_example'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'submenu_in_example'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <example endspaces=" ">
 <pre xml:space="preserve">

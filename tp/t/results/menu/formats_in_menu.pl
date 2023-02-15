@@ -15,7 +15,7 @@ $result_trees{'formats_in_menu'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -699,10 +699,10 @@ $result_trees{'formats_in_menu'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -726,7 +726,7 @@ $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[4]{'e
 $result_trees{'formats_in_menu'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'formats_in_menu'} = '@node Top
+$result_texis{'formats_in_menu'} = '@node first
 
 @menu
 * (gcc):: text
@@ -786,7 +786,7 @@ $result_nodes{'formats_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -798,16 +798,14 @@ $result_nodes{'formats_in_menu'} = {
           }
         ]
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'formats_in_menu'}{'structure'}{'node_next'} = $result_nodes{'formats_in_menu'}{'structure'}{'menu_child'};
 
 $result_menus{'formats_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -863,7 +861,7 @@ $result_converted{'html'}->{'formats_in_menu'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -881,7 +879,7 @@ th.menu-comment {text-align:left}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">text
@@ -932,7 +930,7 @@ $result_converted_errors{'html'}->{'formats_in_menu'} = [
 
 
 
-$result_converted{'xml'}->{'formats_in_menu'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(gcc)</nodenext></node>
+$result_converted{'xml'}->{'formats_in_menu'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(gcc)</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">text

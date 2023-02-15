@@ -15,7 +15,7 @@ $result_trees{'invalid_info_menu_entry'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -520,10 +520,10 @@ $result_trees{'invalid_info_menu_entry'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -552,7 +552,7 @@ $result_trees{'invalid_info_menu_entry'}{'contents'}[1]{'contents'}[1]{'contents
 $result_trees{'invalid_info_menu_entry'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'invalid_info_menu_entry'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'invalid_info_menu_entry'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'invalid_info_menu_entry'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'invalid_info_menu_entry'} = '@node Top
+$result_texis{'invalid_info_menu_entry'} = '@node first
 
 @menu
 * (f)@asis{a:}::
@@ -580,7 +580,7 @@ $result_nodes{'invalid_info_menu_entry'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -593,16 +593,14 @@ $result_nodes{'invalid_info_menu_entry'} = {
         ],
         'normalized' => 'a_003a'
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'invalid_info_menu_entry'}{'structure'}{'node_next'} = $result_nodes{'invalid_info_menu_entry'}{'structure'}{'menu_child'};
 
 $result_menus{'invalid_info_menu_entry'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -698,7 +696,7 @@ $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -712,7 +710,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body lang="en">
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
@@ -744,7 +742,7 @@ $result_converted_errors{'html'}->{'invalid_info_menu_entry'} = [
 
 
 
-$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">(f)<asis>a:</asis></nodenext></node>
+$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)<asis>a:</asis></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

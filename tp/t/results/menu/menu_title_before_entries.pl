@@ -71,7 +71,7 @@ $result_trees{'menu_title_before_entries'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'subnode'
+                      'text' => 'chap subnode'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -100,7 +100,7 @@ $result_trees{'menu_title_before_entries'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'subnode'
+                  'normalized' => 'chap-subnode'
                 }
               },
               'source_info' => {
@@ -185,7 +185,7 @@ $result_trees{'menu_title_before_entries'} = {
         {
           'contents' => [
             {
-              'text' => 'subnode'
+              'text' => 'chap subnode'
             }
           ],
           'info' => {
@@ -207,10 +207,10 @@ $result_trees{'menu_title_before_entries'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'subnode'
+            'normalized' => 'chap-subnode'
           }
         ],
-        'normalized' => 'subnode'
+        'normalized' => 'chap-subnode'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -236,16 +236,16 @@ $result_texis{'menu_title_before_entries'} = '@node Top
 
 @menu
 Horizontal space
-* subnode::
+* chap subnode::
 @end menu
 
-@node subnode
+@node chap subnode
 ';
 
 
 $result_texts{'menu_title_before_entries'} = '
 Horizontal space
-* subnode::
+* chap subnode::
 
 ';
 
@@ -264,7 +264,7 @@ $result_nodes{'menu_title_before_entries'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'subnode'
+        'normalized' => 'chap-subnode'
       },
       'info' => {},
       'structure' => {
@@ -289,7 +289,7 @@ $result_menus{'menu_title_before_entries'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'subnode'
+        'normalized' => 'chap-subnode'
       },
       'info' => {},
       'structure' => {
@@ -313,7 +313,7 @@ $result_floats{'menu_title_before_entries'} = {};
 $result_converted{'plaintext'}->{'menu_title_before_entries'} = '* Menu:
 
 Horizontal space
-* subnode::
+* chap subnode::
 
 ';
 
@@ -349,22 +349,22 @@ th.menu-comment {text-align:left}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
+Next: <a href="#chap-subnode" accesskey="n" rel="next">chap subnode</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Horizontal space
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#subnode" accesskey="1">subnode</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-subnode" accesskey="1">chap subnode</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
 <hr>
-<a class="node-id" id="subnode"></a><div class="nav-panel">
+<a class="node-id" id="chap-subnode"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>subnode<a class="copiable-link" href="#subnode"> &para;</a></span></h4>
+<h4 class="node"><span>chap subnode<a class="copiable-link" href="#chap-subnode"> &para;</a></span></h4>
 
 
 
@@ -383,14 +383,14 @@ $result_converted_errors{'html'}->{'menu_title_before_entries'} = [
 
 
 
-$result_converted{'xml'}->{'menu_title_before_entries'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">subnode</nodenext></node>
+$result_converted{'xml'}->{'menu_title_before_entries'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap subnode</nodenext></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">Horizontal space
-</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menunode>subnode</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menunode>chap subnode</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="subnode" spaces=" "><nodename>subnode</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="chap-subnode" spaces=" "><nodename>chap subnode</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 ';
 
 1;

@@ -1,5 +1,11 @@
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* t/10menu.t: rename Top node as first when it is not important for
+	the first node to be the Top node, for the formats in which Top node
+	is not output.
+
+2023-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (output_texi_file): better formatting of output
 	file.  Warn if it is not possible to get an output relevant output
 	formats that do not output @node Top.  Node name beginning by 'chap'

@@ -15,7 +15,7 @@ $result_trees{'menu_in_deffn'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -279,10 +279,10 @@ $result_trees{'menu_in_deffn'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -308,7 +308,7 @@ $result_trees{'menu_in_deffn'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'con
 $result_trees{'menu_in_deffn'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_in_deffn'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'menu_in_deffn'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'menu_in_deffn'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
-$result_texis{'menu_in_deffn'} = '@node Top
+$result_texis{'menu_in_deffn'} = '@node first
 
 @deffn a b c 
 @menu
@@ -326,7 +326,7 @@ a: b c
 $result_nodes{'menu_in_deffn'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };
@@ -334,7 +334,7 @@ $result_nodes{'menu_in_deffn'} = {
 $result_menus{'menu_in_deffn'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {}
 };

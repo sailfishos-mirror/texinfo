@@ -22,7 +22,7 @@ $result_trees{'sc_in_menu'} = {
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'text' => 'first'
             }
           ],
           'info' => {
@@ -411,10 +411,10 @@ $result_trees{'sc_in_menu'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'first'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -772,7 +772,7 @@ $result_trees{'sc_in_menu'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result
 $result_trees{'sc_in_menu'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'sc_in_menu'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'sc_in_menu'} = '
-@node Top
+@node first
 
 @menu
 * @sc{value}:@sc{node}.   @sc{descrip tion}
@@ -824,7 +824,7 @@ $result_nodes{'sc_in_menu'} = {
         'cmdname' => 'menu'
       }
     ],
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -835,21 +835,17 @@ $result_nodes{'sc_in_menu'} = {
       },
       'info' => {},
       'structure' => {
-        'node_prev' => {},
         'node_up' => {}
       }
-    },
-    'node_next' => {}
+    }
   }
 };
-$result_nodes{'sc_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'sc_in_menu'};
 $result_nodes{'sc_in_menu'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'sc_in_menu'};
-$result_nodes{'sc_in_menu'}{'structure'}{'node_next'} = $result_nodes{'sc_in_menu'}{'structure'}{'menu_child'};
 
 $result_menus{'sc_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top'
+    'normalized' => 'first'
   },
   'info' => {},
   'structure' => {
@@ -862,7 +858,7 @@ $result_menus{'sc_in_menu'} = {
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
-          'Top' => 1
+          'first' => 1
         }
       }
     }
@@ -919,7 +915,7 @@ $result_converted{'html'}->{'sc_in_menu'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top" rel="start" title="Top">
+<link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -939,11 +935,11 @@ th.menu-comment {text-align:left}
 
 <body lang="en">
 
-<a class="node-id" id="Top"></a><div class="nav-panel">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a> &nbsp; </p>
+ &nbsp; </p>
 </div>
-<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>
@@ -962,7 +958,7 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 <hr>
 <a class="node-id" id="NODE"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
 <h4 class="node"><span><small class="sc">NODE</small><a class="copiable-link" href="#NODE"> &para;</a></span></h4>
 
@@ -994,7 +990,7 @@ $result_converted_errors{'html'}->{'sc_in_menu'} = [
 
 
 $result_converted{'xml'}->{'sc_in_menu'} = '
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on"><sc>node</sc></nodenext></node>
+<node name="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>value</sc></menutitle><menuseparator>:</menuseparator><menunode><sc>node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>
@@ -1008,7 +1004,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 </pre></example>
 </menucomment></menu>
 
-<node name="NODE" spaces=" "><nodename><sc>node</sc></nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="NODE" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
 
 <example endspaces=" ">
 <menu endspaces=" ">

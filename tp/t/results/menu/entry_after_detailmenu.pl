@@ -182,7 +182,7 @@ $result_trees{'entry_after_detailmenu'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first'
+                      'text' => 'chap first'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -211,7 +211,7 @@ $result_trees{'entry_after_detailmenu'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first'
+                  'normalized' => 'chap-first'
                 }
               },
               'source_info' => {
@@ -460,7 +460,7 @@ $result_trees{'entry_after_detailmenu'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap first'
             }
           ],
           'info' => {
@@ -482,10 +482,10 @@ $result_trees{'entry_after_detailmenu'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap-first'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -564,7 +564,7 @@ $result_texis{'entry_after_detailmenu'} = '@node Top
 
 Menu comment
 
-* first::
+* chap first::
 
 @detailmenu
 * second::
@@ -572,7 +572,7 @@ Menu comment
 * second::
 @end menu
 
-@node first
+@node chap first
 @node second
 ';
 
@@ -582,7 +582,7 @@ $result_texts{'entry_after_detailmenu'} = '
 
 Menu comment
 
-* first::
+* chap first::
 
 * second::
 * second::
@@ -604,7 +604,7 @@ $result_nodes{'entry_after_detailmenu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -642,7 +642,7 @@ $result_menus{'entry_after_detailmenu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -685,7 +685,7 @@ $result_converted{'plaintext'}->{'entry_after_detailmenu'} = '* Menu:
 
 Menu comment
 
-* first::
+* chap first::
 
 * second::
 * second::
@@ -724,7 +724,7 @@ th.menu-comment {text-align:left}
 <body lang="en">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
+Next: <a href="#chap-first" accesskey="n" rel="next">chap first</a> &nbsp; </p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -735,7 +735,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 Menu comment
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#first" accesskey="2">first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-first" accesskey="2">chap first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
@@ -746,15 +746,15 @@ Menu comment
 </table>
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-panel">
+<a class="node-id" id="chap-first"></a><div class="nav-panel">
 <p>
 Next: <a href="#second" accesskey="n" rel="next">second</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node"><span>chap first<a class="copiable-link" href="#chap-first"> &para;</a></span></h4>
 <hr>
 <a class="node-id" id="second"></a><div class="nav-panel">
 <p>
-Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Previous: <a href="#chap-first" accesskey="p" rel="prev">chap first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h4>
 
@@ -775,7 +775,7 @@ $result_converted_errors{'html'}->{'entry_after_detailmenu'} = [
 
 
 
-$result_converted{'xml'}->{'entry_after_detailmenu'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
+$result_converted{'xml'}->{'entry_after_detailmenu'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
 
 <menu endspaces=" ">
 <detailmenu endspaces=" ">
@@ -784,7 +784,7 @@ $result_converted{'xml'}->{'entry_after_detailmenu'} = '<node name="Top" spaces=
 <menucomment><pre xml:space="preserve">
 Menu comment
 
-</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment><detailmenu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -792,8 +792,8 @@ Menu comment
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="first" spaces=" "><nodename>first</nodename><nodenext automatic="on">second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<node name="second" spaces=" "><nodename>second</nodename><nodeprev automatic="on">first</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext automatic="on">second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="second" spaces=" "><nodename>second</nodename><nodeprev automatic="on">chap first</nodeprev><nodeup automatic="on">Top</nodeup></node>
 ';
 
 1;
