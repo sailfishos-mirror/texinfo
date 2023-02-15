@@ -7483,4 +7483,200 @@ And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename>
 
 </postambleafterend>';
 
+
+$result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+
+\\makeatletter
+\\newcommand{\\Texinfosettitle}{No Title}%
+
+% new float for type `\'
+\\newfloat{TexinfoFloat}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloat}{}
+% new float for type `Text\'
+\\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloatText}{}
+% new float for type `Warning\'
+\\newfloat{TexinfoFloatWarning}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloatWarning}{}
+% new float for type `théorème\'
+\\newfloat{TexinfoFloattheoreme}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloattheoreme}{}
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+\\newenvironment{Texinfopreformatted}{%
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+% used for substitutions in commands
+\\newcommand{\\Texinfoplaceholder}[1]{}
+
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% allow line breaking at underscore
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\pagestyle{single}%
+
+\\begin{document}
+\\label{anchor:Top}%
+\\label{anchor:text-with-a-lot-of-features}%
+\\label{anchor:label-but-no-type}%
+\\label{anchor:label-but-no-type-and-no-caption}%
+\\label{anchor:label-but-no-type-2}%
+\\label{anchor:warning-in-top}%
+\\chapter{{A chapter}}
+\\label{anchor:chapter}%
+
+\\begin{TexinfoFloatText}
+Text in chapter
+
+\\caption{C Text in chapter}
+\\label{anchor:text-in-chapter}%
+\\end{TexinfoFloatText}
+
+\\begin{TexinfoFloatText}
+\\caption{An example of float caption, no shortcaption\\dots{}}
+\\label{anchor:float-with-a-lot-of-features-and-no-shortcaption}%
+\\end{TexinfoFloatText}
+
+\\begin{TexinfoFloattheoreme}
+A th\\\'{e}or\\`{e}me
+
+\\caption{C A th\\\'{e}or\\`{e}me}
+\\label{anchor:theoreme}%
+\\end{TexinfoFloattheoreme}
+
+\\begin{TexinfoFloat}
+float with no type.
+
+\\caption[SC No type in chapter]{C No type in chapter}
+\\label{anchor:label-but-no-type-in-chapter}%
+\\end{TexinfoFloat}
+
+\\begin{TexinfoFloatWarning}
+A warning
+
+\\caption[SC A warning in chapter]{C A warning in chapter}
+\\label{anchor:warning-in-chapter}%
+\\end{TexinfoFloatWarning}
+
+
+\\section{{A section}}
+\\label{anchor:section}%
+
+\\begin{TexinfoFloatText}
+
+A text in float no caption a label a type.
+
+\\label{anchor:text-in-section}%
+\\end{TexinfoFloatText}
+
+\\chapter*{{Unnumbered}}
+\\label{anchor:Unnumbered}%
+
+\\begin{TexinfoFloatText}
+unnum
+\\caption[SC unnumbered float]{C unnumbered float}
+\\label{anchor:unnumbered-float}%
+\\end{TexinfoFloatText}
+\\begin{TexinfoFloat}
+float with no type.
+
+\\caption[SC No type in unnumbered]{C No type in unnumbered}
+\\label{anchor:label-but-no-type-in-unnumbered}%
+\\end{TexinfoFloat}
+
+
+\\section{{Section within unnumbered}}
+\\label{anchor:Section-within-unnumbered}%
+
+
+\\begin{TexinfoFloatText}
+Section within unnumbered
+\\caption[SC Section within unnumbered]{C Section within unnumbered}
+\\label{anchor:Section-within-unnumbered-float}%
+\\end{TexinfoFloatText}
+
+\\chapter{{Chapter with unnumbsubsec}}
+\\label{anchor:Chapter-with-unnumbsubsec}%
+
+\\begin{TexinfoFloatText}
+Chap
+\\caption[SC Chapter with subsec]{C Chapter with subsec}
+\\label{anchor:Chapter-with-subsec-float}%
+\\end{TexinfoFloatText}
+
+\\section*{{unnumbered sec}}
+\\label{anchor:unnumbered-sec}%
+
+\\begin{TexinfoFloatText}
+Chap
+\\caption[SC unnumbered sec float]{C unnumbered sec float}
+\\label{anchor:unnumbered-sec-float}%
+\\end{TexinfoFloatText}
+
+\\begin{TexinfoFloat}
+float with no type.
+
+\\caption[SC No type in unnumbered subsec in chapter]{C No type in unnumbered subsec in chapter}
+\\label{anchor:label-but-no-type-in-unnumbered-subsec-in-chapter}%
+\\end{TexinfoFloat}
+
+\\appendix
+\\chapter{{Appendix for float}}
+\\label{anchor:Appendix-for-float}%
+
+\\begin{TexinfoFloatText}
+
+Appendix
+\\caption[SC appendix sec float]{C appendix sec float}
+\\label{anchor:appendix-sec-float}%
+\\end{TexinfoFloatText}
+
+\\chapter*{{list of floats}}
+\\label{anchor:list-of-floats}%
+
+See \\hyperref[anchor:text-in-section]{Text~\\ref*{anchor:text-in-section}}.
+And (see \\hyperref[anchor:text-in-chapter]{Text~\\ref*{anchor:text-in-chapter}}).
+See \\hyperref[anchor:text-with-a-lot-of-features]{Text~\\ref*{anchor:text-with-a-lot-of-features}}.
+
+And now a ref (without manual or printed manual)
+\\hyperref[anchor:text-with-a-lot-of-features]{title}.
+
+And now a ref (with manual without printed manual)
+Section ``title\'\' in \\texttt{manual}.
+
+And now a ref (without manual with a printed manual)
+Section ``title\'\' in \\textsl{printed manual title}.
+
+A ref to float without type \\hyperref[anchor:label-but-no-type]{\\ref*{anchor:label-but-no-type}}.
+
+\\listof{TexinfoFloatText}{}
+\\listof{TexinfoFloattheoreme}{}
+
+\\end{document}
+';
+
 1;

@@ -248,28 +248,6 @@ $result_trees{'heading_in_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'text' => '
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'insertcopying',
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
-          }
-        }
-      ],
       'extra' => {
         'node_content' => [
           {}
@@ -294,6 +272,71 @@ $result_trees{'heading_in_copying'} = {
         'line_nr' => 9,
         'macro' => ''
       }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'text' => '
+',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'insertcopying',
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 12,
+            'macro' => ''
+          }
+        }
+      ],
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 10,
+        'macro' => ''
+      }
     }
   ],
   'type' => 'document_root'
@@ -304,6 +347,8 @@ $result_trees{'heading_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]
 $result_trees{'heading_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'heading_in_copying'}{'contents'}[0]{'contents'}[0];
 $result_trees{'heading_in_copying'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'heading_in_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'heading_in_copying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'heading_in_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'heading_in_copying'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'heading_in_copying'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'heading_in_copying'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'heading_in_copying'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'heading_in_copying'} = '@copying
 
@@ -314,6 +359,7 @@ $result_texis{'heading_in_copying'} = '@copying
 @end copying
 
 @node Top
+@node chap
 
 @insertcopying
 ';
@@ -328,15 +374,29 @@ $result_nodes{'heading_in_copying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'heading_in_copying'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'heading_in_copying'};
 
 $result_menus{'heading_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'heading_in_copying'} = [];
@@ -394,7 +454,17 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 
-<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<a class="node-id" id="Top"></a><div class="nav-panel">
+<p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
+</div>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<hr>
+<a class="node-id" id="chap"></a><div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
+</div>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 <h3 class="heading" id="in-copying-_0040-heading"><span>in copying @ <em class="emph">heading</em><a class="copiable-link" href="#in-copying-_0040-heading"> &para;</a></span></h3>

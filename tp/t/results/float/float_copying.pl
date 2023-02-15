@@ -1684,4 +1684,116 @@ the author abandon his copyright.
 </appendix>
 ';
 
+
+$result_converted{'latex'}->{'float_copying'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{imakeidx}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+
+\\makeatletter
+\\newcommand{\\Texinfosettitle}{No Title}%
+
+% new float for type `Copyright notice\'
+\\newfloat{TexinfoFloatCopyrightnotice}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloatCopyrightnotice}{}
+% no index headers
+\\indexsetup{level=\\relax,toclevel=section}%
+\\makeindex[name=cp,title=]%
+\\makeindex[name=fn,title=]%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+\\newenvironment{Texinfopreformatted}{%
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+% used for substitutions in commands
+\\newcommand{\\Texinfoplaceholder}[1]{}
+
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% allow line breaking at underscore
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\pagestyle{single}%
+
+
+\\begin{document}
+\\label{anchor:Top}%
+\\appendix
+\\chapter{{Copying and floats}}
+\\label{anchor:Copying-and-floats}%
+
+
+\\begin{TexinfoFloatCopyrightnotice}
+
+Public domain is not really a licence, as it means than
+the author abandon his copyright.
+
+\\caption{The Public Domain notice\\footnote{The caption copying footnote
+\\label{anchor:caption-copying-footnote-anchor}%
+
+\\index[cp]{indexed caption copying footnote@indexed caption copying footnote}%
+\\index[fn]{public domain function@\\texttt{public domain function}}%
+
+see \\hyperref[anchor:Copying-and-floats]{\\chaptername~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
+
+}
+
+\\label{anchor:public-domain-anchor}%
+\\index[cp]{indexed caption@indexed caption}%
+\\index[fn]{indexed caption function@\\texttt{indexed caption function}}%
+}
+\\label{anchor:public-domain}%
+\\end{TexinfoFloatCopyrightnotice}
+
+\\begin{TexinfoFloatCopyrightnotice}
+
+Public domain is not really a licence, as it means than
+the author abandon his copyright.
+
+\\caption{The Public Domain notice\\footnote{The caption copying footnote
+\\label{anchor:caption-copying-footnote-anchor}%
+
+\\index[cp]{indexed caption copying footnote@indexed caption copying footnote}%
+\\index[fn]{public domain function@\\texttt{public domain function}}%
+
+see \\hyperref[anchor:Copying-and-floats]{\\chaptername~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
+
+}
+
+\\label{anchor:public-domain-anchor}%
+\\index[cp]{indexed caption@indexed caption}%
+\\index[fn]{indexed caption function@\\texttt{indexed caption function}}%
+}
+\\label{anchor:public-domain}%
+\\end{TexinfoFloatCopyrightnotice}
+
+\\listof{TexinfoFloatCopyrightnotice}{}
+
+\\printindex[cp]
+\\printindex[fn]
+\\end{document}
+';
+
 1;

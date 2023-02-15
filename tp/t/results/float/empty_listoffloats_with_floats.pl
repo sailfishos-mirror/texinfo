@@ -648,4 +648,76 @@ $result_converted{'xml'}->{'empty_listoffloats_with_floats'} = '<preamblebeforeb
 <listoffloats type=""></listoffloats>
 ';
 
+
+$result_converted{'latex'}->{'empty_listoffloats_with_floats'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+
+\\makeatletter
+\\newcommand{\\Texinfosettitle}{No Title}%
+
+% new float for type `\'
+\\newfloat{TexinfoFloat}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloat}{}
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+\\newenvironment{Texinfopreformatted}{%
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+% used for substitutions in commands
+\\newcommand{\\Texinfoplaceholder}[1]{}
+
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% allow line breaking at underscore
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\pagestyle{single}%
+
+\\begin{document}
+\\begin{TexinfoFloat}
+Label no caption.
+\\label{anchor:label1}%
+\\end{TexinfoFloat}
+
+\\begin{TexinfoFloat}
+Label and caption.
+\\caption{caption with label}
+\\label{anchor:label2}%
+\\end{TexinfoFloat}
+
+\\begin{TexinfoFloat}
+no label no caption
+\\end{TexinfoFloat}
+
+\\begin{TexinfoFloat}
+no label caption
+\\caption{caption no label}
+\\end{TexinfoFloat}
+
+\\listof{TexinfoFloat}{}
+\\end{document}
+';
+
 1;

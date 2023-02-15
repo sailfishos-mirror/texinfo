@@ -4490,4 +4490,120 @@ A footnote 2.
 </chapter>
 ';
 
+
+$result_converted{'latex'}->{'complex_float'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{imakeidx}
+\\usepackage{array}
+\\usepackage{enumitem}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+
+\\makeatletter
+\\newcommand{\\Texinfosettitle}{No Title}%
+
+% new float for type `Text\'
+\\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
+\\floatname{TexinfoFloatText}{}
+% no index headers
+\\indexsetup{level=\\relax,toclevel=section}%
+\\makeindex[name=cp,title=]%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+\\newenvironment{Texinfopreformatted}{%
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+
+% set defaults for lists that match Texinfo TeX formatting
+\\setlist[description]{style=nextline, font=\\normalfont}
+\\setlist[itemize]{label=\\textbullet}
+
+% used for substitutions in commands
+\\newcommand{\\Texinfoplaceholder}[1]{}
+
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% allow line breaking at underscore
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\pagestyle{single}%
+
+\\begin{document}
+\\label{anchor:Top}%
+\\label{anchor:text-with-a-lot-of-features}%
+\\chapter{{A chapter}}
+\\label{anchor:chapter}%
+
+\\begin{TexinfoFloatText}
+
+Float text of a float with a lot of features.
+
+\\caption{An example of float caption\\dots{} 2
+An example 2.
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily example 2
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
+
+A table 2.
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+\\emph{truc 2}}}]
+line 2
+\\end{description}
+
+A multitable 2.
+\\begin{tabular}{m{0.4\\textwidth} m{0.6\\textwidth}}%
+truc 2 &bidule\\\\
+truc 2 &bidule\\\\
+\\end{tabular}%
+An index entry 2
+\\index[cp]{float example in caption 2@float example in caption 2}%
+
+An itemize 2.
+\\begin{itemize}[label=-]
+\\item truc 2
+line
+\\end{itemize}
+
+\\label{anchor:Anchor-in-caption-2}%
+
+A ref 2.
+See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
+A footnote 2.
+\\footnote{footnote Text with features caption 2}.
+
+\\TeX{} and \\emph{\\textbf{t\\\'{e}\\^{\\i{}}}\\url{an_url}} \\textsc{and} \\verb!it is @verb! \\ {}a wo\\-{}rd \\@!@ \\AE{}.
+}
+
+\\label{anchor:float-with-a-lot-of-features-and-no-shortcaption}%
+\\end{TexinfoFloatText}
+
+See \\hyperref[anchor:text-with-a-lot-of-features]{Text~\\ref*{anchor:text-with-a-lot-of-features}}.
+
+\\end{document}
+';
+
 1;

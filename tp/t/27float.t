@@ -62,6 +62,7 @@ Ceci est notre premi@`ere entr@\'ee.
 '],
 ['footnote_in_caption',
 '@node Top
+@node chap
 
 @listoffloats fl
 
@@ -72,6 +73,7 @@ In float.
 '],
 ['footnote_in_caption_and_error',
 '@node Top
+@node chap
 
 @listoffloats fl
 
@@ -82,6 +84,7 @@ In float.
 '],
 ['anchor_in_caption',
 '@node Top
+@node chap
 
 @listoffloats fl
 
@@ -92,6 +95,7 @@ In float.
 '],
 ['cindex_in_caption',
 '@node Top
+@node chap
 
 @listoffloats fl
 
@@ -553,6 +557,7 @@ see @ref{Copying and floats}.
 '],
 ['comment_space_comand_in_float',
 '@node Top
+@node chap
 
 @float Text @ , label @ @c float
 Float
@@ -585,12 +590,6 @@ my %info_tests = (
   'special_characters_in_float_type' => 1,
 );
 
-my %latex_tests = (
-  'float_in_block_commands' => 1,
-  'special_characters_in_float_type' => 1,
-  'float_with_at_commands' => 1,
-);
-
 foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['plaintext'];
   if ($info_tests{$test->[0]}) {
@@ -598,9 +597,7 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'xml';
-  if ($latex_tests{$test->[0]}) {
-    push @{$test->[2]->{'test_formats'}}, 'latex';
-  }
+  push @{$test->[2]->{'test_formats'}}, 'latex';
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
