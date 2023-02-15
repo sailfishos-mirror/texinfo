@@ -617,7 +617,8 @@ parse_line_command_args (ELEMENT *line_command)
                       ("printing an index `%s' merged in another one, `%s'",
                        arg, i2->name);
                   }
-                if (!current_node && !current_section && !current_region ())
+                if (!current_node && !current_section
+                      && nesting_context.regions_stack.top == 0)
                   {
                     line_warn ("printindex before document beginning: "
                                 "@printindex %s", arg);

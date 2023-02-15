@@ -1,3 +1,8 @@
+2023-02-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (parse_line_command_args):
+	Reference regions stack correctly.  Report from Patrice.
+
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/languages.t: rename simple as
