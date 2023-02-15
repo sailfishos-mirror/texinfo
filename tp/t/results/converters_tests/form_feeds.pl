@@ -65,7 +65,7 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'text' => 'firstnode'
+              'text' => 'chapnode'
             }
           ],
           'info' => {
@@ -253,7 +253,7 @@ $result_trees{'form_feeds'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'firstnode'
+                      'text' => 'chapnode'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -266,7 +266,7 @@ $result_trees{'form_feeds'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first-node'
+                  'normalized' => 'chap-node'
                 }
               },
               'source_info' => {
@@ -1266,10 +1266,10 @@ $result_trees{'form_feeds'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first-node'
+            'normalized' => 'chap-node'
           }
         ],
-        'normalized' => 'first-node'
+        'normalized' => 'chap-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1313,7 +1313,7 @@ $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_co
 
 $result_texis{'form_feeds'} = '@node Top
 
-@node firstnode
+@node chapnode
 
  
 
@@ -1327,7 +1327,7 @@ cc  dd
 
 @code{middle in code}
 
-@xref{firstnode}
+@xref{chapnode}
 
 @example 
 in example
@@ -1372,7 +1372,7 @@ end in code
 
 middle in code
 
-firstnode
+chapnode
 
 in example
 
@@ -1405,7 +1405,7 @@ $result_nodes{'form_feeds'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-node'
+        'normalized' => 'chap-node'
       },
       'info' => {},
       'structure' => {
@@ -1501,7 +1501,7 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
 
    ‘middlein code’
 
-   *Note firstnode::
+   *Note chapnode::
 
      in example
 
@@ -1539,11 +1539,11 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="first-node"></a><div class="nav-panel">
+<a class="node-id" id="chap-node"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>first&#12;node<a class="copiable-link" href="#first-node"> &para;</a></span></h4>
+<h4 class="node"><span>chap&#12;node<a class="copiable-link" href="#chap-node"> &para;</a></span></h4>
 
 &#12; &#12;
 
@@ -1557,7 +1557,7 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 </p>
 <p><code class="code">middle&#12; in code</code>
 </p>
-<p>See <a class="xref" href="#first-node">first&#12;node</a>
+<p>See <a class="xref" href="#chap-node">chap&#12;node</a>
 </p>
 <div class="example">
 <pre class="example-preformatted">in example
@@ -1589,9 +1589,9 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 ';
 
 
-$result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first&formfeed;node</nodenext></node>
+$result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap&formfeed;node</nodenext></node>
 
-<node name="first-node" spaces=" "><nodename>first&formfeed;node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap-node" spaces=" "><nodename>chap&formfeed;node</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 &formfeed; &formfeed;
 
@@ -1605,7 +1605,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 </para>
 <para><code>middle&formfeed; in code</code>
 </para>
-<para><xref label="first-node"><xrefnodename>first&formfeed;node</xrefnodename></xref>
+<para><xref label="chap-node"><xrefnodename>chap&formfeed;node</xrefnodename></xref>
 </para>
 <example endspaces=" "> &formfeed;
 <pre xml:space="preserve">in example
@@ -1636,7 +1636,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 ';
 
 
-$result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
+$result_converted{'docbook'}->{'form_feeds'} = '<anchor id="chap-node"/>
 
    
 
@@ -1650,7 +1650,7 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 </para>
 <para><literal>middle  in code</literal>
 </para>
-<para>See <link linkend="first-node">first node</link>
+<para>See <link linkend="chap-node">chap node</link>
 </para>
 <screen>in example
 </screen>
@@ -1675,7 +1675,7 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 
 
 $result_converted{'latex_text'}->{'form_feeds'} = '\\label{anchor:Top}%
-\\label{anchor:first-node}%
+\\label{anchor:chap-node}%
 
 \\par{}
 
@@ -1691,7 +1691,7 @@ cc \\par{}
 
 \\texttt{middle in code}
 
-See \\hyperref[anchor:first-node]{[firstnode], page~\\pageref*{anchor:first-node}}
+See \\hyperref[anchor:chap-node]{[chapnode], page~\\pageref*{anchor:chap-node}}
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%

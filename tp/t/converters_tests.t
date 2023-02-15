@@ -48,7 +48,7 @@ $\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 my $top_in_ref_text = 
 '@node Top
 
-@node refs node
+@node chap refs node
 
 @code{@@ref@{Top,cross ref name@}} @ref{Top,cross ref name}
 @code{@@ref@{Top,,title@}} @ref{Top,,title}
@@ -147,7 +147,7 @@ my @test_cases = (
 ['form_feeds',
 '@node Top
 
-@node first'."\f".'node
+@node chap'."\f".'node
 
 '."\f \f
 
@@ -161,7 +161,7 @@ cc \f dd".'
 
 @code{middle'."\f".' in code}
 
-@xref{first'."\f".'node}
+@xref{chap'."\f".'node}
 
 @example '."\f".'
 in example
@@ -695,18 +695,18 @@ undef, {'test_file' => 'things_before_setfilename_no_element.texi'}
 '@node Top
 
 @menu
-* a@ @ ::
+* chap@ @ ::
 * b@verb{:  :}::
 * c@ ::
 @end menu
 
-@node a@ @ 
+@node chap@ @ 
 
 @node b@verb{:  :}
 
 @node c@w{  }
 
-@ref{a@ @ }
+@ref{chap@ @ }
 
 @ref{b@verb{:  :}}
 

@@ -57,7 +57,7 @@ $result_trees{'spaces_in_node_names'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'text' => 'chap'
                     },
                     {
                       'cmdname' => ' '
@@ -94,7 +94,7 @@ $result_trees{'spaces_in_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'a-'
+                  'normalized' => 'chap-'
                 }
               },
               'source_info' => {
@@ -302,7 +302,7 @@ $result_trees{'spaces_in_node_names'} = {
         {
           'contents' => [
             {
-              'text' => 'a'
+              'text' => 'chap'
             },
             {
               'cmdname' => ' '
@@ -341,10 +341,10 @@ $result_trees{'spaces_in_node_names'} = {
               {},
               {}
             ],
-            'normalized' => 'a-'
+            'normalized' => 'chap-'
           }
         ],
-        'normalized' => 'a-'
+        'normalized' => 'chap-'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -480,7 +480,7 @@ $result_trees{'spaces_in_node_names'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'text' => 'chap'
                     },
                     {
                       'cmdname' => ' '
@@ -501,7 +501,7 @@ $result_trees{'spaces_in_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'a-'
+                  'normalized' => 'chap-'
                 }
               },
               'source_info' => {
@@ -709,18 +709,18 @@ $result_trees{'spaces_in_node_names'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0
 $result_texis{'spaces_in_node_names'} = '@node Top
 
 @menu
-* a@ @ ::
+* chap@ @ ::
 * b@verb{:  :}::
 * c@ ::
 @end menu
 
-@node a@ @ 
+@node chap@ @ 
 
 @node b@verb{:  :}
 
 @node c@w{  }
 
-@ref{a@ @ }
+@ref{chap@ @ }
 
 @ref{b@verb{:  :}}
 
@@ -729,14 +729,14 @@ $result_texis{'spaces_in_node_names'} = '@node Top
 
 
 $result_texts{'spaces_in_node_names'} = '
-* a  ::
+* chap  ::
 * b  ::
 * c ::
 
 
 
 
-a  
+chap  
 
 b  
 
@@ -758,7 +758,7 @@ $result_nodes{'spaces_in_node_names'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a-'
+        'normalized' => 'chap-'
       },
       'info' => {},
       'structure' => {
@@ -809,7 +809,7 @@ $result_menus{'spaces_in_node_names'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a-'
+        'normalized' => 'chap-'
       },
       'info' => {},
       'structure' => {
@@ -890,7 +890,7 @@ $result_floats{'spaces_in_node_names'} = {};
 
 
 
-$result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note a  ::
+$result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note chap  ::
 
    *note b  ::
 
@@ -906,11 +906,11 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 
 
 <hr>
-<a class="node-id" id="a-"></a><div class="nav-panel">
+<a class="node-id" id="chap-"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>a&nbsp;&nbsp;<a class="copiable-link" href="#a-"> &para;</a></span></h4>
+<h4 class="node"><span>chap&nbsp;&nbsp;<a class="copiable-link" href="#chap-"> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="b-"></a><div class="nav-panel">
@@ -926,7 +926,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 </div>
 <h4 class="node"><span>c&nbsp;<!-- /@w --><a class="copiable-link" href="#c-"> &para;</a></span></h4>
 
-<p><a class="ref" href="#a-">a&nbsp;&nbsp;</a>
+<p><a class="ref" href="#chap-">chap&nbsp;&nbsp;</a>
 </p>
 <p><a class="ref" href="#b-">b<code class="verb">&nbsp;&nbsp;</code></a>
 </p>
@@ -934,21 +934,21 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 </p>';
 
 
-$result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">a<spacecmd type="spc"/><spacecmd type="spc"/></nodenext></node>
+$result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap<spacecmd type="spc"/><spacecmd type="spc"/></nodenext></node>
 
 <menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>a<spacecmd type="spc"/><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chap<spacecmd type="spc"/><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>b<verb delimiter=":">  </verb></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>c<spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="a-" spaces=" "><nodename>a<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on">b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="chap-" spaces=" "><nodename>chap<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on">b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
-<node name="b-" spaces=" "><nodename>b<verb delimiter=":">  </verb></nodename><nodenext automatic="on">c<w>  </w></nodenext><nodeprev automatic="on">a<spacecmd type="spc"/><spacecmd type="spc"/></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="b-" spaces=" "><nodename>b<verb delimiter=":">  </verb></nodename><nodenext automatic="on">c<w>  </w></nodenext><nodeprev automatic="on">chap<spacecmd type="spc"/><spacecmd type="spc"/></nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <node name="c-" spaces=" "><nodename>c<w>  </w></nodename><nodeprev automatic="on">b<verb delimiter=":">  </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
 
-<para><ref label="a-"><xrefnodename>a<spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
+<para><ref label="chap-"><xrefnodename>chap<spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>
 <para><ref label="b-"><xrefnodename>b<verb delimiter=":">  </verb></xrefnodename></ref>
 </para>
@@ -956,13 +956,13 @@ $result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" 
 </para>';
 
 
-$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a-"/>
+$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="chap-"/>
 
 <anchor id="b-"/>
 
 <anchor id="c-"/>
 
-<para><link linkend="a-">a&#160;&#160;</link>
+<para><link linkend="chap-">chap&#160;&#160;</link>
 </para>
 <para><link linkend="b-">b<literal>  </literal></link>
 </para>
@@ -971,13 +971,13 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a-"/>
 
 
 $result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
-\\label{anchor:a-}%
+\\label{anchor:chap-}%
 
 \\label{anchor:b-}%
 
 \\label{anchor:c-}%
 
-\\hyperref[anchor:a-]{[a\\ {}\\ {}], page~\\pageref*{anchor:a-}}
+\\hyperref[anchor:chap-]{[chap\\ {}\\ {}], page~\\pageref*{anchor:chap-}}
 
 \\hyperref[anchor:b-]{[b\\verb:  :], page~\\pageref*{anchor:b-}}
 
@@ -988,24 +988,24 @@ $result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\label{anchor:Top}
 $result_converted{'info'}->{'spaces_in_node_names'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: a  ,  Up: (dir)
+File: ,  Node: Top,  Next: chap  ,  Up: (dir)
 
 * Menu:
 
-* a  ::
+* chap  ::
 * b  ::
 * c ::
 
 
-File: ,  Node: a  ,  Next: b  ,  Prev: Top,  Up: Top
+File: ,  Node: chap  ,  Next: b  ,  Prev: Top,  Up: Top
 
 
-File: ,  Node: b  ,  Next: c ,  Prev: a  ,  Up: Top
+File: ,  Node: b  ,  Next: c ,  Prev: chap  ,  Up: Top
 
 
 File: ,  Node: c ,  Prev: b  ,  Up: Top
 
-*note a  ::
+*note chap  ::
 
    *note b  ::
 
@@ -1014,9 +1014,9 @@ File: ,  Node: c ,  Prev: b  ,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: a  106
-Node: b  162
-Node: c 217
+Node: chap  112
+Node: b  171
+Node: c 229
 
 End Tag Table
 

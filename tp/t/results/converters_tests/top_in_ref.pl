@@ -65,7 +65,7 @@ $result_trees{'top_in_ref'} = {
         {
           'contents' => [
             {
-              'text' => 'refs node'
+              'text' => 'chap refs node'
             }
           ],
           'info' => {
@@ -2933,10 +2933,10 @@ $result_trees{'top_in_ref'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'refs-node'
+            'normalized' => 'chap-refs-node'
           }
         ],
-        'normalized' => 'refs-node'
+        'normalized' => 'chap-refs-node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -3008,7 +3008,7 @@ $result_trees{'top_in_ref'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_co
 
 $result_texis{'top_in_ref'} = '@node Top
 
-@node refs node
+@node chap refs node
 
 @code{@@ref@{Top,cross ref name@}} @ref{Top,cross ref name}
 @code{@@ref@{Top,,title@}} @ref{Top,,title}
@@ -3095,7 +3095,7 @@ $result_nodes{'top_in_ref'} = {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'refs-node'
+        'normalized' => 'chap-refs-node'
       },
       'info' => {},
       'structure' => {
@@ -3204,11 +3204,11 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-id" id="Top"></
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="refs-node"></a><div class="nav-panel">
+<a class="node-id" id="chap-refs-node"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node"><span>refs node<a class="copiable-link" href="#refs-node"> &para;</a></span></h4>
+<h4 class="node"><span>chap refs node<a class="copiable-link" href="#chap-refs-node"> &para;</a></span></h4>
 
 <p><code class="code">@ref{Top,cross ref name}</code> <a class="ref" href="#Top">cross ref name</a>
 <code class="code">@ref{Top,,title}</code> <a class="ref" href="#Top">title</a>
@@ -3247,9 +3247,9 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-id" id="Top"></
 </p>';
 
 
-$result_converted{'xml'}->{'top_in_ref'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">refs node</nodenext></node>
+$result_converted{'xml'}->{'top_in_ref'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap refs node</nodenext></node>
 
-<node name="refs-node" spaces=" "><nodename>refs node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap-refs-node" spaces=" "><nodename>chap refs node</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <para><code>&arobase;ref&lbrace;Top,cross ref name&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;Top,,title&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
@@ -3288,7 +3288,7 @@ $result_converted{'xml'}->{'top_in_ref'} = '<node name="Top" spaces=" "><nodenam
 </para>';
 
 
-$result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
+$result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="chap-refs-node"/>
 
 <para><literal>@ref{Top,cross ref name}</literal> <link linkend="Top">cross ref name</link>
 <literal>@ref{Top,,title}</literal> <link linkend="Top">title</link>
@@ -3328,7 +3328,7 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 
 
 $result_converted{'latex_text'}->{'top_in_ref'} = '\\label{anchor:Top}%
-\\label{anchor:refs-node}%
+\\label{anchor:chap-refs-node}%
 
 \\texttt{@ref\\{Top,cross ref name\\}} \\hyperref[anchor:Top]{[Top], page~\\pageref*{anchor:Top}}
 \\texttt{@ref\\{Top{,}{,}title\\}} \\hyperref[anchor:Top]{[title], page~\\pageref*{anchor:Top}}
