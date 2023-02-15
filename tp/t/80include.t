@@ -43,6 +43,7 @@ After inclusion.
 
 
 @node Top
+@node chap
 
 testvar include: @include @value{testvar}
 
@@ -86,6 +87,8 @@ macro_included.texi
 @node Top
 @top top
 
+@node chap
+
 @include @multiinclude
 
 @themacro{}
@@ -114,6 +117,8 @@ macro_included.texi
 
 @node Top
 @top top
+
+@node chap
 
 @include @multiinclude
 

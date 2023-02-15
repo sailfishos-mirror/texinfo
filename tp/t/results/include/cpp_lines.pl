@@ -124,6 +124,49 @@ $result_trees{'cpp_lines'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'g_f',
+        'line_nr' => 70,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
       'contents' => [
         {
           'text' => '
@@ -1145,10 +1188,10 @@ $result_trees{'cpp_lines'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1157,7 +1200,7 @@ $result_trees{'cpp_lines'} = {
       },
       'source_info' => {
         'file_name' => 'g_f',
-        'line_nr' => 70,
+        'line_nr' => 71,
         'macro' => ''
       }
     },
@@ -1176,6 +1219,8 @@ $result_trees{'cpp_lines'} = {
 };
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cpp_lines'} = '\\input texinfo
 @setfilename cpp_lines.info
@@ -1184,6 +1229,7 @@ $result_texis{'cpp_lines'} = '\\input texinfo
 @email{before top}.
 
 @node Top
+@node chap
 
 # 10 25 209
 # 1 2
@@ -1334,15 +1380,29 @@ $result_nodes{'cpp_lines'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'cpp_lines'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'cpp_lines'};
 
 $result_menus{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'cpp_lines'} = [

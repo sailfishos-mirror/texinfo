@@ -556,6 +556,43 @@ $result_trees{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'contents' => [
         {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 26,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
           'source_marks' => [
             {
               'counter' => 1,
@@ -601,7 +638,7 @@ $result_trees{'macro_in_early_commands'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 28,
+                  'line_nr' => 30,
                   'macro' => ''
                 }
               },
@@ -714,7 +751,7 @@ $result_trees{'macro_in_early_commands'} = {
                 },
                 'source_info' => {
                   'file_name' => '',
-                  'line_nr' => 28,
+                  'line_nr' => 30,
                   'macro' => 'multiinclude'
                 }
               },
@@ -839,7 +876,20 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -847,7 +897,7 @@ $result_trees{'macro_in_early_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 26,
+        'line_nr' => 28,
         'macro' => ''
       }
     }
@@ -856,6 +906,8 @@ $result_trees{'macro_in_early_commands'} = {
 };
 $result_trees{'macro_in_early_commands'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_early_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'macro_in_early_commands'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_early_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_early_commands'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_early_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_early_commands'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_early_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'macro_in_early_commands'} = '@macro begin-file
 macro_in_pass
@@ -884,6 +936,8 @@ macro_included.texi
 @node Top
 @top top
 
+@node chap
+
 @macro themacro
 in themacro
 @end macro
@@ -905,6 +959,7 @@ $result_texts{'macro_in_early_commands'} = '
 top
 ***
 
+
 In included file.
 
 in themacro
@@ -924,7 +979,8 @@ $result_sectioning{'macro_in_early_commands'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {}
+            'info' => {},
+            'structure' => {}
           }
         },
         'info' => {},
@@ -950,15 +1006,29 @@ $result_nodes{'macro_in_early_commands'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'macro_in_early_commands'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'macro_in_early_commands'};
 
 $result_menus{'macro_in_early_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'macro_in_early_commands'} = [];

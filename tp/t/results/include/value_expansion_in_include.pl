@@ -151,6 +151,49 @@ $result_trees{'value_expansion_in_include'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 10,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
       'contents' => [
         {
           'text' => '
@@ -216,7 +259,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 12,
+                      'line_nr' => 13,
                       'macro' => ''
                     }
                   },
@@ -327,7 +370,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
+            'line_nr' => 15,
             'macro' => ''
           }
         },
@@ -400,7 +443,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 17,
+                      'line_nr' => 18,
                       'macro' => ''
                     }
                   },
@@ -511,7 +554,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -582,7 +625,7 @@ $result_trees{'value_expansion_in_include'} = {
                     },
                     'source_info' => {
                       'file_name' => '',
-                      'line_nr' => 22,
+                      'line_nr' => 23,
                       'macro' => ''
                     }
                   },
@@ -691,7 +734,7 @@ $result_trees{'value_expansion_in_include'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 24,
+            'line_nr' => 25,
             'macro' => ''
           }
         }
@@ -705,10 +748,10 @@ $result_trees{'value_expansion_in_include'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -717,7 +760,7 @@ $result_trees{'value_expansion_in_include'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 11,
         'macro' => ''
       }
     }
@@ -726,6 +769,8 @@ $result_trees{'value_expansion_in_include'} = {
 };
 $result_trees{'value_expansion_in_include'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'value_expansion_in_include'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'value_expansion_in_include'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'value_expansion_in_include'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'value_expansion_in_include'} = '@set testvar incl-incl.txi
 
@@ -737,6 +782,7 @@ $result_texis{'value_expansion_in_include'} = '@set testvar incl-incl.txi
 
 
 @node Top
+@node chap
 
 testvar include: This is the @emph{included} file (include-value2.txi) <> ---. 
 
@@ -776,15 +822,29 @@ $result_nodes{'value_expansion_in_include'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'value_expansion_in_include'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'value_expansion_in_include'};
 
 $result_menus{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'value_expansion_in_include'} = [
@@ -792,7 +852,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 12,
+    'line_nr' => 13,
     'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -801,7 +861,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 14,
+    'line_nr' => 15,
     'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
@@ -810,7 +870,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 17,
+    'line_nr' => 18,
     'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -819,7 +879,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 19,
+    'line_nr' => 20,
     'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
@@ -828,7 +888,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 22,
+    'line_nr' => 23,
     'macro' => '',
     'text' => '@include should only appear at the beginning of a line',
     'type' => 'warning'
@@ -837,7 +897,7 @@ $result_errors{'value_expansion_in_include'} = [
     'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 24,
+    'line_nr' => 25,
     'macro' => '',
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'

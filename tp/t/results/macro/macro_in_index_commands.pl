@@ -724,6 +724,49 @@ $result_trees{'macro_in_index_commands'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 36,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
       'contents' => [
         {
           'source_marks' => [
@@ -790,7 +833,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 38,
+            'line_nr' => 39,
             'macro' => 'trucindexcommand'
           },
           'type' => 'index_entry_command'
@@ -821,7 +864,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 40,
+                    'line_nr' => 41,
                     'macro' => 'defcodeindexentry'
                   }
                 },
@@ -842,7 +885,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'cmdname' => '\'',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 40,
+                    'line_nr' => 41,
                     'macro' => 'defcodeindexentry'
                   }
                 },
@@ -867,7 +910,7 @@ $result_trees{'macro_in_index_commands'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 40,
+                            'line_nr' => 41,
                             'macro' => 'defcodeindexentry'
                           }
                         }
@@ -878,7 +921,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 40,
+                    'line_nr' => 41,
                     'macro' => 'defcodeindexentry'
                   },
                   'source_marks' => [
@@ -935,7 +978,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 40,
+            'line_nr' => 41,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1006,7 +1049,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 42,
+            'line_nr' => 43,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1070,7 +1113,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 43,
+            'line_nr' => 44,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1141,7 +1184,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 46,
+            'line_nr' => 47,
             'macro' => ''
           }
         },
@@ -1211,7 +1254,7 @@ $result_trees{'macro_in_index_commands'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 49,
+            'line_nr' => 50,
             'macro' => ''
           }
         },
@@ -1231,10 +1274,10 @@ $result_trees{'macro_in_index_commands'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1243,31 +1286,33 @@ $result_trees{'macro_in_index_commands'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 36,
+        'line_nr' => 37,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[1];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[1];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[1];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6];
-$result_trees{'macro_in_index_commands'}{'contents'}[1]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[1];
 $result_trees{'macro_in_index_commands'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'macro_in_index_commands'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'macro_in_index_commands'} = '@macro cp
 cp
@@ -1305,6 +1350,7 @@ a @var{index entry} t@\'e @^{@dotless{i}}
 @end macro
 
 @node Top
+@node chap
 
 @trucindex index truc
 
@@ -1345,19 +1391,32 @@ macro cp
 $result_nodes{'macro_in_index_commands'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'macro_in_index_commands'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'macro_in_index_commands'};
 
 $result_menus{'macro_in_index_commands'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'macro_in_index_commands'} = [
@@ -1365,7 +1424,7 @@ $result_errors{'macro_in_index_commands'} = [
     'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
-    'line_nr' => 49,
+    'line_nr' => 50,
     'macro' => '',
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'

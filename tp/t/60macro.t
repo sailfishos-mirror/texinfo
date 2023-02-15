@@ -292,6 +292,7 @@ result: @emph{\arg1\} protected \\\\ -> \\\\arg1\\\\ @emph{\arg2\}
 '],
 ['backslash_in_arg',
 '@node Top
+@node chap
 
 @macro funindex {TEXT}
 @findex \TEXT\
@@ -971,6 +972,7 @@ a @var{index entry} t@\'e @^{@dotless{i}}
 @end macro
 
 @node Top
+@node chap
 
 @trucindexcommand{} index truc
 
