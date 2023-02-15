@@ -77,11 +77,6 @@ Some erroneous constructs not already warned against:
                               this one if @group can only appear directly
                               in @example).
 
-maybe checking for incorrectly nested @titlepage, @copying and
-@documentdescription (which is already done in the "regions stack")
-could be done the same way.
-
-
 There is no warning with a block command between @def* and @def*x,
 only for paragraph.  Not sure that this can be detected with
 the context command stack.
