@@ -85,7 +85,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'isindex' => 1,
         'node_content' => [
           {}
         ],
@@ -133,6 +132,43 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {},
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'encoding_index_utf8.texi',
+        'line_nr' => 5,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -173,7 +209,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 7,
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -196,7 +232,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 8,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 },
@@ -217,7 +253,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 8,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 },
@@ -235,7 +271,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 8,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 },
@@ -253,7 +289,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 8,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 }
@@ -289,7 +325,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 8,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -312,7 +348,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 },
@@ -333,7 +369,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 },
@@ -351,7 +387,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 },
@@ -369,7 +405,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 },
@@ -387,7 +423,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 }
@@ -423,7 +459,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 9,
+            'line_nr' => 11,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -467,7 +503,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 10,
+            'line_nr' => 12,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -511,7 +547,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 11,
+            'line_nr' => 13,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -555,7 +591,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 12,
+            'line_nr' => 14,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -599,7 +635,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 13,
+            'line_nr' => 15,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -643,7 +679,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 14,
+            'line_nr' => 16,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -687,7 +723,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 15,
+            'line_nr' => 17,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -731,7 +767,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 16,
+            'line_nr' => 18,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -775,7 +811,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 17,
+            'line_nr' => 19,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -819,7 +855,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 18,
+            'line_nr' => 20,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -863,7 +899,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 19,
+            'line_nr' => 21,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -907,7 +943,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 20,
+            'line_nr' => 22,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -951,7 +987,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 21,
+            'line_nr' => 23,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -995,7 +1031,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 22,
+            'line_nr' => 24,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1039,7 +1075,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 23,
+            'line_nr' => 25,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1083,7 +1119,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 24,
+            'line_nr' => 26,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1127,7 +1163,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 25,
+            'line_nr' => 27,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1171,7 +1207,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 26,
+            'line_nr' => 28,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1215,7 +1251,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 27,
+            'line_nr' => 29,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1259,7 +1295,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 28,
+            'line_nr' => 30,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1303,7 +1339,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 29,
+            'line_nr' => 31,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1347,7 +1383,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 30,
+            'line_nr' => 32,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1391,7 +1427,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 31,
+            'line_nr' => 33,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1435,7 +1471,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 32,
+            'line_nr' => 34,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1479,7 +1515,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 33,
+            'line_nr' => 35,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1523,7 +1559,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 34,
+            'line_nr' => 36,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1567,7 +1603,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 35,
+            'line_nr' => 37,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1611,7 +1647,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 36,
+            'line_nr' => 38,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1655,7 +1691,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 37,
+            'line_nr' => 39,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1673,7 +1709,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'l',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 38,
+                    'line_nr' => 40,
                     'macro' => ''
                   }
                 }
@@ -1709,7 +1745,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 38,
+            'line_nr' => 40,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1727,7 +1763,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'L',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 39,
+                    'line_nr' => 41,
                     'macro' => ''
                   }
                 }
@@ -1763,7 +1799,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 39,
+            'line_nr' => 41,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1786,7 +1822,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 40,
+                    'line_nr' => 42,
                     'macro' => ''
                   }
                 },
@@ -1807,7 +1843,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 40,
+                    'line_nr' => 42,
                     'macro' => ''
                   }
                 },
@@ -1846,7 +1882,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 40,
+            'line_nr' => 42,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1873,7 +1909,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 41,
+                            'line_nr' => 43,
                             'macro' => ''
                           }
                         }
@@ -1884,7 +1920,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 41,
+                    'line_nr' => 43,
                     'macro' => ''
                   }
                 },
@@ -1909,7 +1945,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                           'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 41,
+                            'line_nr' => 43,
                             'macro' => ''
                           }
                         }
@@ -1920,7 +1956,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 41,
+                    'line_nr' => 43,
                     'macro' => ''
                   }
                 },
@@ -1959,7 +1995,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 41,
+            'line_nr' => 43,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -1977,7 +2013,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'ss',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 42,
+                    'line_nr' => 44,
                     'macro' => ''
                   }
                 }
@@ -2013,7 +2049,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 42,
+            'line_nr' => 44,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2031,7 +2067,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'euro',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 43,
+                    'line_nr' => 45,
                     'macro' => ''
                   }
                 }
@@ -2067,7 +2103,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 43,
+            'line_nr' => 45,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2085,7 +2121,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'AE',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 44,
+                    'line_nr' => 46,
                     'macro' => ''
                   }
                 }
@@ -2121,7 +2157,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 44,
+            'line_nr' => 46,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2139,7 +2175,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'exclamdown',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 45,
+                    'line_nr' => 47,
                     'macro' => ''
                   }
                 }
@@ -2175,7 +2211,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 45,
+            'line_nr' => 47,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2193,7 +2229,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'TH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 46,
+                    'line_nr' => 48,
                     'macro' => ''
                   }
                 }
@@ -2229,7 +2265,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 46,
+            'line_nr' => 48,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2247,7 +2283,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'DH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 47,
+                    'line_nr' => 49,
                     'macro' => ''
                   }
                 }
@@ -2283,7 +2319,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 47,
+            'line_nr' => 49,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2301,7 +2337,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'textdegree',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 48,
+                    'line_nr' => 50,
                     'macro' => ''
                   }
                 }
@@ -2337,7 +2373,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 48,
+            'line_nr' => 50,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2381,7 +2417,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 49,
+            'line_nr' => 51,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2425,7 +2461,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 50,
+            'line_nr' => 52,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2443,7 +2479,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 51,
+                    'line_nr' => 53,
                     'macro' => ''
                   }
                 }
@@ -2479,7 +2515,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 51,
+            'line_nr' => 53,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2497,7 +2533,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'geq',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 52,
+                    'line_nr' => 54,
                     'macro' => ''
                   }
                 }
@@ -2533,7 +2569,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 52,
+            'line_nr' => 54,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2551,7 +2587,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'cmdname' => 'comma',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 53,
+                    'line_nr' => 55,
                     'macro' => ''
                   }
                 }
@@ -2587,7 +2623,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 53,
+            'line_nr' => 55,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2631,7 +2667,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 54,
+            'line_nr' => 56,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2675,7 +2711,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 55,
+            'line_nr' => 57,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2719,7 +2755,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 56,
+            'line_nr' => 58,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2763,7 +2799,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 57,
+            'line_nr' => 59,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2807,7 +2843,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 58,
+            'line_nr' => 60,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2851,7 +2887,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 59,
+            'line_nr' => 61,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2895,7 +2931,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 60,
+            'line_nr' => 62,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2939,7 +2975,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 61,
+            'line_nr' => 63,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -2979,12 +3015,26 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
           },
           'source_info' => {
             'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 63,
+            'line_nr' => 65,
             'macro' => ''
           }
         }
       ],
-      'extra' => {},
+      'extra' => {
+        'isindex' => 1,
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap'
+      },
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -2992,7 +3042,7 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
       },
       'source_info' => {
         'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 5,
+        'line_nr' => 7,
         'macro' => ''
       }
     },
@@ -3011,232 +3061,236 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
 };
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'contents'};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'args'}[0]{'contents'};
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'encoding_index_utf8_enable_encoding'} = '
 @documentencoding utf-8
 
 @node Top
 @top encoding index utf8
+
+@node chap
 
 @cindex é é
 @cindex @"{i} @"{i}@"{i}@"{i}
@@ -3304,6 +3358,7 @@ encoding index utf8
 *******************
 
 
+
 ';
 
 $result_sectioning{'encoding_index_utf8_enable_encoding'} = {
@@ -3315,10 +3370,10 @@ $result_sectioning{'encoding_index_utf8_enable_encoding'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'isindex' => 1,
               'normalized' => 'Top'
             },
-            'info' => {}
+            'info' => {},
+            'structure' => {}
           }
         },
         'info' => {},
@@ -3342,19 +3397,32 @@ $result_nodes{'encoding_index_utf8_enable_encoding'} = {
       'info' => {},
       'structure' => {}
     },
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'encoding_index_utf8_enable_encoding'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'encoding_index_utf8_enable_encoding'};
 
 $result_menus{'encoding_index_utf8_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'encoding_index_utf8_enable_encoding'} = [];

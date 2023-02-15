@@ -91,7 +91,7 @@ $result_trees{'explicit_sort_key'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -644,10 +644,10 @@ $result_trees{'explicit_sort_key'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -687,7 +687,7 @@ $result_trees{'explicit_sort_key'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'
 $result_texis{'explicit_sort_key'} = '@node Top
 @top
 
-@node node
+@node chap
 
 @defindex SK
 
@@ -758,7 +758,7 @@ $result_nodes{'explicit_sort_key'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -908,10 +908,10 @@ $result_indices_sort_strings{'explicit_sort_key'} = {
 $result_converted{'info'}->{'explicit_sort_key'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
 in a reuglar para .  ‘inside another ’.
 
@@ -920,16 +920,16 @@ in a reuglar para .  ‘inside another ’.
  [index ]
 * Menu:
 
-* zero sort key:                         node.                  (line 3)
-* bbbbbbb (first):                       node.                  (line 3)
-* aaa :                                  node.                  (line 3)
-* aaaaaaa (second):                      node.                  (line 3)
+* zero sort key:                         chap.                  (line 3)
+* bbbbbbb (first):                       chap.                  (line 3)
+* aaa :                                  chap.                  (line 3)
+* aaaaaaa (second):                      chap.                  (line 3)
 
 
 
 Tag Table:
 Node: Top27
-Node: node74
+Node: chap74
 
 End Tag Table
 
@@ -946,10 +946,10 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para .  �
 
 * Menu:
 
-* zero sort key:                         node.                  (line 0)
-* bbbbbbb (first):                       node.                  (line 0)
-* aaa :                                  node.                  (line 0)
-* aaaaaaa (second):                      node.                  (line 0)
+* zero sort key:                         chap.                  (line 0)
+* bbbbbbb (first):                       chap.                  (line 0)
+* aaa :                                  chap.                  (line 0)
+* aaaaaaa (second):                      chap.                  (line 0)
 
 ';
 
@@ -957,15 +957,15 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para .  �
 $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="SEC_Top"></a>
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 <a class="index-entry-id" id="index-bbbbbbb-_0028first_0029"></a>
@@ -979,34 +979,34 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <a class="url" href="and%20cmd%20">and cmd </a>.
 </p>
 <div class="printindex SK-printindex">
-<table class="SK-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_SK_symbol-1"><b>0</b></a>
+<table class="SK-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#node_SK_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chap_SK_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#node_SK_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#chap_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="SK-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_SK_symbol-1">0</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-zero-sort-key">zero sort key</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_SK_symbol-1">0</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-zero-sort-key">zero sort key</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_SK_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-"><b class="b">aaa </b></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_SK_letter-A">A</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-"><b class="b">aaa </b></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_SK_letter-B">B</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_SK_letter-B">B</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="SK-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_SK_symbol-1"><b>0</b></a>
+<table class="SK-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#node_SK_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chap_SK_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#node_SK_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#chap_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
@@ -1014,11 +1014,11 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 ';
 
 
-$result_converted{'xml'}->{'explicit_sort_key'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+$result_converted{'xml'}->{'explicit_sort_key'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <defindex spaces=" " value="SK" line="SK"></defindex>
 
@@ -1086,7 +1086,7 @@ $result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 
 \\index[SK]{A@bbbbbbb (first)}%

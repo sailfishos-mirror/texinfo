@@ -801,7 +801,7 @@ $result_trees{'nodes_before_top'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first'
+                      'text' => 'chap first'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -830,7 +830,7 @@ $result_trees{'nodes_before_top'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first'
+                  'normalized' => 'chap-first'
                 }
               },
               'source_info' => {
@@ -923,7 +923,7 @@ $result_trees{'nodes_before_top'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap first'
             }
           ],
           'type' => 'line_arg'
@@ -1261,7 +1261,7 @@ $result_trees{'nodes_before_top'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap-first'
           },
           undef,
           {
@@ -1277,7 +1277,7 @@ $result_trees{'nodes_before_top'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -1309,7 +1309,7 @@ $result_trees{'nodes_before_top'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap first'
             }
           ],
           'info' => {
@@ -1535,7 +1535,7 @@ $result_trees{'nodes_before_top'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap-first'
           }
         ],
         'normalized' => 'second'
@@ -2221,10 +2221,10 @@ And one one more index
 @printindex cp
 
 @menu
-* first::
+* chap first::
 @end menu
 
-@node first,,Top, Top
+@node chap first,,Top, Top
 Text and then index entries
 @cindex ! entry in node
 @findex fun in node
@@ -2236,7 +2236,7 @@ Text and then index entries
 * second::
 @end menu
 
-@node second,,,first
+@node second,,,chap first
 @menu
 * a node::
 * another::
@@ -2280,7 +2280,7 @@ node in menu before top text
 And one one more index
 
 
-* first::
+* chap first::
 
 Text and then index entries
 
@@ -2321,7 +2321,7 @@ $result_nodes{'nodes_before_top'} = {
             'cmdname' => 'menu'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -2426,7 +2426,7 @@ $result_menus{'nodes_before_top'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -2468,7 +2468,7 @@ $result_menus{'nodes_before_top'} = {
             },
             'menu_up' => {},
             'menu_up_hash' => {
-              'first' => 1
+              'chap-first' => 1
             }
           }
         },

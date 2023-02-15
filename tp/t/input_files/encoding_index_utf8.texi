@@ -4,6 +4,8 @@
 @node Top
 @top encoding index utf8
 
+@node chap
+
 @cindex é é
 @cindex @"{i} @"{i}@"{i}@"{i}
 @cindex @^i @^i@^i@^i@^i

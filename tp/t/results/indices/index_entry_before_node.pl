@@ -63,7 +63,7 @@ $result_trees{'index_entry_before_node'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'first'
+                      'text' => 'chap first'
                     }
                   ],
                   'type' => 'menu_entry_node'
@@ -92,7 +92,7 @@ $result_trees{'index_entry_before_node'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'first'
+                  'normalized' => 'chap-first'
                 }
               },
               'source_info' => {
@@ -225,7 +225,7 @@ $result_trees{'index_entry_before_node'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap first'
             }
           ],
           'type' => 'line_arg'
@@ -336,7 +336,7 @@ $result_trees{'index_entry_before_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap-first'
           },
           {
             'node_content' => [
@@ -352,7 +352,7 @@ $result_trees{'index_entry_before_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -381,7 +381,7 @@ $result_trees{'index_entry_before_node'} = {
         {
           'contents' => [
             {
-              'text' => 'first'
+              'text' => 'chap first'
             }
           ],
           'type' => 'line_arg'
@@ -460,7 +460,7 @@ $result_trees{'index_entry_before_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'first'
+            'normalized' => 'chap-first'
           },
           {
             'node_content' => [
@@ -505,24 +505,24 @@ $result_trees{'index_entry_before_node'}{'contents'}[3]{'extra'}{'nodes_manuals'
 $result_texis{'index_entry_before_node'} = '@node Top
 
 @menu
-* first::
+* chap first::
 * second::
 @end menu
 
-@node first,second,,Top
+@node chap first,second,,Top
 
 Para.
 
 @cindex lone entry
 
-@node second,,first,Top
+@node second,,chap first,Top
 
 @printindex cp
 ';
 
 
 $result_texts{'index_entry_before_node'} = '
-* first::
+* chap first::
 * second::
 
 
@@ -547,7 +547,7 @@ $result_nodes{'index_entry_before_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -586,7 +586,7 @@ $result_menus{'index_entry_before_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first'
+        'normalized' => 'chap-first'
       },
       'info' => {},
       'structure' => {
@@ -634,32 +634,32 @@ $result_indices_sort_strings{'index_entry_before_node'} = {
 $result_converted{'info'}->{'index_entry_before_node'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: first,  Up: (dir)
+File: ,  Node: Top,  Next: chap first,  Up: (dir)
 
 * Menu:
 
-* first::
+* chap first::
 * second::
 
 
-File: ,  Node: first,  Next: second,  Prev: Top,  Up: Top
+File: ,  Node: chap first,  Next: second,  Prev: Top,  Up: Top
 
 Para.
 
 
-File: ,  Node: second,  Prev: first,  Up: Top
+File: ,  Node: second,  Prev: chap first,  Up: Top
 
  [index ]
 * Menu:
 
-* lone entry:                            first.                 (line 4)
+* lone entry:                            chap first.            (line 4)
 
 
 
 Tag Table:
 Node: Top27
-Node: first106
-Node: second174
+Node: chap first116
+Node: second189
 
 End Tag Table
 
@@ -674,7 +674,7 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 
 * Menu:
 
-* lone entry:                            first.                 (line 1)
+* lone entry:                            chap first.            (line 1)
 
 ';
 
@@ -687,11 +687,11 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-panel">
+<a class="node-id" id="chap-first"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
+<h4 class="node"><span>chap first<a class="copiable-link" href="#chap-first"> &para;</a></span></h4>
 
 <p>Para.
 </p>
@@ -709,27 +709,27 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="second_cp_letter-L">L</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lone-entry">lone entry</a></td><td class="printindex-index-section"><a href="#first">first</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lone-entry">lone entry</a></td><td class="printindex-index-section"><a href="#chap-first">chap first</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 ';
 
 
-$result_converted{'xml'}->{'index_entry_before_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
+$result_converted{'xml'}->{'index_entry_before_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
 
 <menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="first" spaces=" "><nodename>first</nodename><nodenext>second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext>second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
 
 <para>Para.
 </para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">lone entry</indexterm></cindex>
 
-<node name="second" spaces=" "><nodename>second</nodename><nodenext></nodenext><nodeprev>first</nodeprev><nodeup>Top</nodeup></node>
+<node name="second" spaces=" "><nodename>second</nodename><nodenext></nodenext><nodeprev>chap first</nodeprev><nodeup>Top</nodeup></node>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 ';

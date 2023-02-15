@@ -8,27 +8,36 @@ use utf8;
 $result_trees{'verb_in_xref'} = {
   'contents' => [
     {
-      'type' => 'before_node_section'
-    },
-    {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'point'
+                }
+              ],
+              'type' => 'brace_command_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
+          'cmdname' => 'anchor',
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'point'
           },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'spaces_after_close_brace'
+        },
         {
           'text' => '
 ',
@@ -41,7 +50,7 @@ $result_trees{'verb_in_xref'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'Top'
+                      'text' => 'point'
                     }
                   ],
                   'type' => 'brace_command_arg'
@@ -101,7 +110,7 @@ $result_trees{'verb_in_xref'} = {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => 'Top'
+                  'normalized' => 'point'
                 }
               },
               'source_info' => {
@@ -118,42 +127,18 @@ $result_trees{'verb_in_xref'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
-        'node_content' => [
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      }
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verb_in_xref'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'verb_in_xref'}{'contents'}[1];
-$result_trees{'verb_in_xref'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'verb_in_xref'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'verb_in_xref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'label'} = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
-$result_texis{'verb_in_xref'} = '@node Top
+$result_texis{'verb_in_xref'} = '@anchor{point}
 
-@xref{Top, @verb{*with
+@xref{point, @verb{*with
 verb
 
 ggg *}}.
@@ -161,24 +146,8 @@ ggg *}}.
 
 
 $result_texts{'verb_in_xref'} = '
-Top.
+point.
 ';
-
-$result_nodes{'verb_in_xref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'info' => {}
-};
-
-$result_menus{'verb_in_xref'} = {
-  'cmdname' => 'node',
-  'extra' => {
-    'normalized' => 'Top'
-  },
-  'info' => {}
-};
 
 $result_errors{'verb_in_xref'} = [
   {
@@ -200,17 +169,18 @@ $result_floats{'verb_in_xref'} = {};
 $result_converted{'plaintext'}->{'verb_in_xref'} = '*Note with
 verb
 
-ggg : Top.
+ggg : point.
 ';
 
 
-$result_converted{'html_text'}->{'verb_in_xref'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
-
-<p>See <a class="xref" href="#Top"><code class="verb">with<br>verb<br><br>ggg&nbsp;</code></a>.
+$result_converted{'html_text'}->{'verb_in_xref'} = '<a class="anchor" id="point"></a>
+<p>See <a class="xref" href="#point"><code class="verb">with<br>verb<br><br>ggg&nbsp;</code></a>.
 </p>';
 
 
-$result_converted{'latex_text'}->{'verb_in_xref'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'verb_in_xref'} = '\\label{anchor:point}%
+
+See \\hyperref[anchor:point]{[point], page~\\pageref*{anchor:point}}.
 ';
 
 1;

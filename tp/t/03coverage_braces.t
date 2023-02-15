@@ -84,9 +84,9 @@ my @test_cases = (
 @indicateurl{ http://example.com } @U{ 1234 } @w{ w } @verb{: verb :}.
 '],
 ['verb_in_xref',
-'@node Top
+'@anchor{point}
 
-@xref{Top, @verb{*with
+@xref{point, @verb{*with
 verb
 
 ggg *}}.
@@ -187,6 +187,7 @@ Text in copying.
 @end copying
 
 @node Top
+@node chapter
 
 @files-char{}
 

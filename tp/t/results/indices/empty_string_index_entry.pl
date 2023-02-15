@@ -64,7 +64,7 @@ $result_trees{'empty_string_index_entry'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -635,10 +635,10 @@ $result_trees{'empty_string_index_entry'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -681,7 +681,7 @@ $result_trees{'empty_string_index_entry'}{'contents'}[2]{'extra'}{'node_content'
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_string_index_entry'} = '@node Top
-@node node
+@node chap
 
 @findex @w{}
 
@@ -717,7 +717,7 @@ $result_nodes{'empty_string_index_entry'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -787,10 +787,10 @@ $result_indices_sort_strings{'empty_string_index_entry'} = {};
 $result_converted{'info'}->{'empty_string_index_entry'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
 ‘’
 
@@ -801,7 +801,7 @@ File: ,  Node: node,  Prev: Top
 
 Tag Table:
 Node: Top27
-Node: node74
+Node: chap74
 
 End Tag Table
 
@@ -902,15 +902,15 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 
 $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-"></a>
 
@@ -966,8 +966,8 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 
 
 
-$result_converted{'xml'}->{'empty_string_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'empty_string_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1"><w></w></indexterm></findex>
 
@@ -1044,7 +1044,7 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 \\index[fn]{@\\texttt{\\hbox{}}}%
 

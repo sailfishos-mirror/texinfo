@@ -120,7 +120,7 @@ $result_trees{'transparent_sort_chars'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -363,10 +363,10 @@ $result_trees{'transparent_sort_chars'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -404,7 +404,7 @@ $result_texis{'transparent_sort_chars'} = '@set txiindexhyphenignore
 @node Top
 @top
 
-@node node
+@node chap
 
 @cindex @code{--version}, for @command{install-info}
 @cindex Source file format
@@ -462,7 +462,7 @@ $result_nodes{'transparent_sort_chars'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -501,23 +501,23 @@ $result_indices_sort_strings{'transparent_sort_chars'} = {
 $result_converted{'info'}->{'transparent_sort_chars'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
  [index ]
 * Menu:
 
-* Semantic markup:                       node.                  (line 3)
-* Source file format:                    node.                  (line 3)
-* --version, for install-info:           node.                  (line 3)
+* Semantic markup:                       chap.                  (line 3)
+* Source file format:                    chap.                  (line 3)
+* --version, for install-info:           chap.                  (line 3)
 
 
 
 Tag Table:
 Node: Top27
-Node: node74
+Node: chap74
 
 End Tag Table
 
@@ -530,9 +530,9 @@ End:
 
 $result_converted{'plaintext'}->{'transparent_sort_chars'} = '* Menu:
 
-* Semantic markup:                       node.                  (line 0)
-* Source file format:                    node.                  (line 0)
-* --version, for install-info:           node.                  (line 0)
+* Semantic markup:                       chap.                  (line 0)
+* Source file format:                    chap.                  (line 0)
+* --version, for install-info:           chap.                  (line 0)
 
 ';
 
@@ -541,40 +541,40 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="SEC_Top"></a>
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_002d_002dversion_002c-for-install_002dinfo"></a>
 <a class="index-entry-id" id="index-Source-file-format"></a>
 <a class="index-entry-id" id="index-Semantic-markup"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-S"><b>S</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#node_cp_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_cp_letter-S">S</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Semantic-markup">Semantic markup</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Source-file-format">Source file format</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_cp_letter-S">S</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Semantic-markup">Semantic markup</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Source-file-format">Source file format</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_cp_letter-V">V</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_cp_letter-V">V</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-S"><b>S</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#node_cp_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
@@ -584,11 +584,11 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 
 $result_converted{'xml'}->{'transparent_sort_chars'} = '<set name="txiindexhyphenignore" line=" txiindexhyphenignore"></set>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1"><code>--version</code>, for <command>install-info</command></indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">Source file format</indexterm></cindex>
@@ -649,7 +649,7 @@ $result_converted{'latex'}->{'transparent_sort_chars'} = '\\documentclass{book}
 
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 \\index[cp]{version, for installinfo@\\texttt{{-}{-}version}, for \\texttt{install-info}}%
 \\index[cp]{Source file format@Source file format}%

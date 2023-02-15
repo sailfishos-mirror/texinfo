@@ -16,6 +16,7 @@ my @test_cases = (
 @synindex bbb aaa'],
 ['complex_recursive_synindex',
 '@node Top
+@node chap
 
 @defindex aaa
 @defindex bbb
@@ -69,6 +70,7 @@ eee
 ['print_merged_index',
 '@syncodeindex fn cp
 @node Top
+@node chap
 @printindex fn'],
 ['printindex_before_document',
 '
@@ -79,10 +81,13 @@ eee
 my $index_in_footnote_text = '@node Top
 
 @menu
+* chap::
 * First::
 @end menu
 
-Top node@footnote{in footnote
+@node chap
+
+chap node@footnote{in footnote
 @cindex index entry in footnote
 
 Blah
@@ -126,10 +131,10 @@ Text
 @cindex aaa
 
 @menu
-* other node::
+* chap other node::
 @end menu
 
-@node other node,,,Top
+@node chap other node,,,Top
 
 @cindex aaa
 
@@ -138,6 +143,7 @@ Text
 ['ftable_vtable',
 '
 @node Top
+@node chap
 
 @ftable @emph
 @item function1
@@ -178,6 +184,7 @@ in index node node, with the same name than index entry.
 ['index_entries_locations',
 '
 @node Top
+@node chap
 
 Initial paragraph.
 
@@ -232,22 +239,23 @@ Print cp
 '@node Top
 
 @menu
-* first::
+* chap first::
 * second::
 @end menu
 
-@node first,second,,Top
+@node chap first,second,,Top
 
 Para.
 
 @cindex lone entry
 
-@node second,,first,Top
+@node second,,chap first,Top
 
 @printindex cp
 '],
 ['printindex_with_space_before',
 '@node Top
+@node chap
 
 @cindex index
 
@@ -317,7 +325,7 @@ Text.
 ['empty_index_entry',
 '@node Top
 
-@node node
+@node chap
 
 @deffn {} { }
 @end deffn
@@ -326,12 +334,12 @@ Text.
 '],
 ['empty_cindex_entry',
 '@node Top
-@node node
+@node chap
 @cindex
 '],
 ['empty_string_index_entry',
 '@node Top
-@node node
+@node chap
 
 @findex @w{}
 
@@ -475,6 +483,7 @@ Top.
 @syncodeindex cp fn
 
 @node Top
+@node chap
 
 @cindex cindex entry
 @findex findex entry
@@ -486,6 +495,7 @@ Top.
 '@syncodeindex ky cp
 
 @node Top
+@node chap
 
 @kindex --k1
 @vindex --v
@@ -567,6 +577,7 @@ fn
 ', {'full_document' => 0}],
 ['default_cp_index_and_one_letter_syncodeindex',
 '@node Top
+@node chap
 
 @syncodeindex cp fn
 
@@ -580,6 +591,9 @@ fn
 
 @node Top
 @top
+
+@node chap
+@chapter Chapter
 
 Text.
 
@@ -597,7 +611,7 @@ This variable represents MMM Mode.
 '@node Top
 @top
 
-@node node
+@node chap
 
 @defindex SK
 
@@ -619,7 +633,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @node Top
 @top
 
-@node node
+@node chap
 
 @cindex @code{--version}, for @command{install-info}
 @cindex Source file format
@@ -633,7 +647,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @node Top
 @top
 
-@node node
+@node chap
 
 @findex -
 @findex --
@@ -730,6 +744,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 ],
 ['seealso_duplicate',
 '@node Top
+@node chap
 
 @cindex @command{awk} @subentry POSIX and
 @cindex @command{awk} @subentry POSIX and @seealso{POSIX @command{awk}}
@@ -929,6 +944,7 @@ undef,
 my $encoding_index_text = '
 @node Top
 @top top
+@node chap
 
 @cindex @\'e @\'e
 @cindex @"{i} @"{i}@"{i}@"{i}

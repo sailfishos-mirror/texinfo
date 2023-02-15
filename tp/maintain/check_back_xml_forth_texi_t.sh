@@ -89,8 +89,8 @@ for dir in `find t_texis/ -type d` ; do
     # of test name and output file name.
     # Even with specifying the directory in both cases, the file names may
     # not be exactly the same when there are specific values for @setfilename.
-    # This concerns a few files only, and the files concered are more or less
-    # the same when the file or the directory is specified.
+    # This concerns a few files only, and those files are more or less
+    # the same whether the file or the directory is specified.
     #./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/$bfile.texi $file
     ./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
     echo "              Texinfo XML"

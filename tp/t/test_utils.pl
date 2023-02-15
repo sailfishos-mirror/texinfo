@@ -1679,7 +1679,9 @@ sub output_texi_file($)
 
   my $encode = 1;
   my $first_line = "\\input texinfo \@c -*-texinfo-*-";
+  my $from_file;
   if (!defined($test_text)) {
+    $from_file = 1;
     # We do not decode to character strings in internal perl encoding,
     # we get bytes and output bytes already encoded, mixing with
     # character strings containing ascii characters only.
@@ -1695,10 +1697,6 @@ sub output_texi_file($)
       } else {
         die "Open $test_file: $!\n";
       }
-      if ($test_text =~ /^\\input texinfo *\@/m
-          or $test_text =~ /^\\input texinfo *$/m) {
-        $first_line = "";
-      }
     }
   }
   my $node_top;
@@ -1711,11 +1709,29 @@ sub output_texi_file($)
       $node_top .= "\@top $test_name\n";
     }
   }
-  # add a chapter too for LaTeX as Top node is ignored.
   my $added_chapter = '';
   unless ($test_text =~ /^\@(chapter|unnumbered|appendix)\s/m
-     or $test_text =~ /^\@(chapter|unnumbered|appendix) *$/m) {
-    $added_chapter = "\@node chapter\n\@chapter chapter\n";
+          or $test_text =~ /^\@(chapter|unnumbered|appendix) *$/m) {
+    # need a chapter for LaTeX as Top node is ignored.
+    if ($node_top ne '') {
+      $added_chapter = "\@node chapter\n\@chapter chapter\n";
+    } else {
+      if ($test_text !~ /^\@node +chap/mi) {
+        print STDERR "WARNING: $test_name: there is top, no chapter added\n";
+      }
+    }
+  }
+  if ($from_file) {
+    if ($node_top ne '' or $added_chapter ne '') {
+         # \A matches beginning of string, even with /m
+      if ($test_text =~ s/\A(\s*\\input texinfo(\.tex)? *\@.*)(\n|$)//m
+          or $test_text =~ s/\A(\s*\\input texinfo(\.tex)? *)(\n|$)//m) {
+        $first_line = $1;
+      }
+    } elsif ($test_text =~ /^\s*\\input texinfo(\.tex)? *\@/
+             or $test_text =~ /\A\s*\\input texinfo(\.tex)? *$/m) {
+      $first_line = "";
+    }
   }
   my $bye = '';
   if ($test_text !~ /\@bye *$/m

@@ -34,6 +34,49 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
       'contents' => [
         {
           'text' => '
@@ -71,7 +114,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 4,
             'macro' => ''
           }
         },
@@ -119,7 +162,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 5,
+            'line_nr' => 6,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -163,7 +206,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 7,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -203,7 +246,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 9,
             'macro' => ''
           }
         }
@@ -218,10 +261,10 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -230,25 +273,28 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 2,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3];
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1];
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4];
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'default_cp_index_and_one_letter_syncodeindex'} = '@node Top
+@node chap
 
 @syncodeindex cp fn
 
@@ -267,19 +313,32 @@ $result_texts{'default_cp_index_and_one_letter_syncodeindex'} = '
 $result_nodes{'default_cp_index_and_one_letter_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'default_cp_index_and_one_letter_syncodeindex'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'default_cp_index_and_one_letter_syncodeindex'};
 
 $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'default_cp_index_and_one_letter_syncodeindex'} = [];
@@ -347,18 +406,22 @@ $result_indices_sort_strings{'default_cp_index_and_one_letter_syncodeindex'} = {
 $result_converted{'info'}->{'default_cp_index_and_one_letter_syncodeindex'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
+
+
+File: ,  Node: chap,  Prev: Top
 
  [index ]
 * Menu:
 
-* --cindex:                              Top.                   (line 3)
-* --cpindex:                             Top.                   (line 3)
+* --cindex:                              chap.                  (line 3)
+* --cpindex:                             chap.                  (line 3)
 
 
 
 Tag Table:
 Node: Top27
+Node: chap74
 
 End Tag Table
 
@@ -371,13 +434,23 @@ End:
 
 $result_converted{'plaintext'}->{'default_cp_index_and_one_letter_syncodeindex'} = '* Menu:
 
-* --cindex:                              Top.                   (line 0)
-* --cpindex:                             Top.                   (line 0)
+* --cindex:                              chap.                  (line 0)
+* --cpindex:                             chap.                  (line 0)
 
 ';
 
 
-$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
+<p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+</div>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<hr>
+<a class="node-id" id="chap"></a><div class="nav-panel">
+<p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+</div>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 
 <a class="index-entry-id" id="index-_002d_002dcindex"></a>
@@ -387,16 +460,17 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_fn_symbol-1">-</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcindex"><code>--cindex</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcpindex"><code>--cpindex</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><th id="chap_fn_symbol-1">-</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcindex"><code>--cindex</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcpindex"><code>--cpindex</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 ';
 
 
-$result_converted{'xml'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
 

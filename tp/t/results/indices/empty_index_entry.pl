@@ -71,7 +71,7 @@ $result_trees{'empty_index_entry'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -250,10 +250,10 @@ $result_trees{'empty_index_entry'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -278,7 +278,7 @@ $result_trees{'empty_index_entry'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'
 
 $result_texis{'empty_index_entry'} = '@node Top
 
-@node node
+@node chap
 
 @deffn {} { }
 @end deffn
@@ -304,7 +304,7 @@ $result_nodes{'empty_index_entry'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -344,10 +344,10 @@ $result_floats{'empty_index_entry'} = {};
 $result_converted{'info'}->{'empty_index_entry'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
  -- :
 
@@ -355,7 +355,7 @@ File: ,  Node: node,  Prev: Top
 
 Tag Table:
 Node: Top27
-Node: node74
+Node: chap74
 
 End Tag Table
 
@@ -373,16 +373,16 @@ $result_converted{'plaintext'}->{'empty_index_entry'} = ' -- :
 
 $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <dl class="first-deffn">
 <dt class="deffn"><span class="category-def">: </span><strong class="def-name"></strong></dt>
@@ -391,9 +391,9 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 ';
 
 
-$result_converted{'xml'}->{'empty_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+$result_converted{'xml'}->{'empty_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <deffn spaces=" " endspaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm>
 </deffn>
@@ -448,7 +448,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 
 \\begin{document}
 \\label{anchor:Top}%
-\\label{anchor:node}%
+\\label{anchor:chap}%
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}

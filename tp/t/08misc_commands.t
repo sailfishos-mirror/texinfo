@@ -335,6 +335,7 @@ line
 '],
 ['test_allowcodebreaks',
 '@node Top
+@node chap
 
 @macro testallowcodebreakspara {nr}
 Out of code --- out-of-code.

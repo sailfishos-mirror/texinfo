@@ -120,7 +120,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
         {
           'contents' => [
             {
-              'text' => 'node'
+              'text' => 'chap'
             }
           ],
           'info' => {
@@ -397,10 +397,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'node'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -442,7 +442,7 @@ $result_texis{'ignored_sort_char_empty_entries'} = '@set txiindexhyphenignore
 @node Top
 @top
 
-@node node
+@node chap
 
 @findex -
 @findex --
@@ -501,7 +501,7 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'node'
+        'normalized' => 'chap'
       },
       'info' => {},
       'structure' => {
@@ -558,22 +558,22 @@ $result_indices_sort_strings{'ignored_sort_char_empty_entries'} = {
 $result_converted{'info'}->{'ignored_sort_char_empty_entries'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: node,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 
-File: ,  Node: node,  Prev: Top
+File: ,  Node: chap,  Prev: Top
 
  [index ]
 * Menu:
 
-* --:                                    node.                  (line 3)
-* A:                                     node.                  (line 3)
+* --:                                    chap.                  (line 3)
+* A:                                     chap.                  (line 3)
 
 
 
 Tag Table:
 Node: Top27
-Node: node74
+Node: chap74
 
 End Tag Table
 
@@ -608,8 +608,8 @@ $result_converted_errors{'info'}->{'ignored_sort_char_empty_entries'} = [
 
 $result_converted{'plaintext'}->{'ignored_sort_char_empty_entries'} = '* Menu:
 
-* --:                                    node.                  (line 0)
-* A:                                     node.                  (line 0)
+* --:                                    chap.                  (line 0)
+* A:                                     chap.                  (line 0)
 
 ';
 
@@ -640,15 +640,15 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top" id="SEC_Top"></a>
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
+<a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
- &nbsp; [<a href="#node" title="Index" rel="index">Index</a>]</p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node"><span>node<a class="copiable-link" href="#node"> &para;</a></span></h4>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_002d"></a>
 <a class="index-entry-id" id="index-_002d_002d"></a>
@@ -656,26 +656,26 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <a class="index-entry-id" id="index-_002d_002d-1"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_fn_symbol-1"><b>-</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#node_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chap_fn_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_fn_symbol-1">-</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_fn_symbol-1">-</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_fn_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><th id="chap_fn_letter-A">A</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_fn_symbol-1"><b>-</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#node_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chap_fn_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
@@ -707,11 +707,11 @@ $result_converted_errors{'html_text'}->{'ignored_sort_char_empty_entries'} = [
 
 $result_converted{'xml'}->{'ignored_sort_char_empty_entries'} = '<set name="txiindexhyphenignore" line=" txiindexhyphenignore"></set>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">-</indexterm></findex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="2">--</indexterm></findex>

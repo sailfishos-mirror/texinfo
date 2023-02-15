@@ -34,6 +34,49 @@ $result_trees{'seealso_duplicate'} = {
         }
       ],
       'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'chap'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
       'contents' => [
         {
           'text' => '
@@ -58,7 +101,7 @@ $result_trees{'seealso_duplicate'} = {
                   'cmdname' => 'command',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 3,
+                    'line_nr' => 4,
                     'macro' => ''
                   }
                 }
@@ -113,7 +156,7 @@ $result_trees{'seealso_duplicate'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 4,
                 'macro' => ''
               }
             }
@@ -125,7 +168,7 @@ $result_trees{'seealso_duplicate'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 4,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -149,7 +192,7 @@ $result_trees{'seealso_duplicate'} = {
                   'cmdname' => 'command',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 4,
+                    'line_nr' => 5,
                     'macro' => ''
                   }
                 }
@@ -208,7 +251,7 @@ $result_trees{'seealso_duplicate'} = {
                               'cmdname' => 'command',
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 4,
+                                'line_nr' => 5,
                                 'macro' => ''
                               }
                             }
@@ -219,7 +262,7 @@ $result_trees{'seealso_duplicate'} = {
                       'cmdname' => 'seealso',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
+                        'line_nr' => 5,
                         'macro' => ''
                       }
                     }
@@ -245,7 +288,7 @@ $result_trees{'seealso_duplicate'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 5,
                 'macro' => ''
               }
             }
@@ -257,7 +300,7 @@ $result_trees{'seealso_duplicate'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 4,
+            'line_nr' => 5,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -298,7 +341,7 @@ $result_trees{'seealso_duplicate'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 7,
             'macro' => ''
           }
         }
@@ -313,10 +356,10 @@ $result_trees{'seealso_duplicate'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'Top'
+            'normalized' => 'chap'
           }
         ],
-        'normalized' => 'Top'
+        'normalized' => 'chap'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -325,28 +368,31 @@ $result_trees{'seealso_duplicate'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 2,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'seealso_duplicate'} = '@node Top
+@node chap
 
 @cindex @command{awk} @subentry POSIX and
 @cindex @command{awk} @subentry POSIX and @seealso{POSIX @command{awk}}
@@ -362,19 +408,32 @@ $result_texts{'seealso_duplicate'} = '
 $result_nodes{'seealso_duplicate'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'chap'
+      },
+      'info' => {},
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
 };
+$result_nodes{'seealso_duplicate'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'seealso_duplicate'};
 
 $result_menus{'seealso_duplicate'} = {
   'cmdname' => 'node',
   'extra' => {
-    'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {}
+  'info' => {},
+  'structure' => {}
 };
 
 $result_errors{'seealso_duplicate'} = [];
@@ -395,18 +454,22 @@ $result_indices_sort_strings{'seealso_duplicate'} = {
 $result_converted{'info'}->{'seealso_duplicate'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: chap,  Up: (dir)
+
+
+File: ,  Node: chap,  Prev: Top
 
  [index ]
 * Menu:
 
-* awk, POSIX and:                        Top.                   (line 3)
-* awk, POSIX and <1>:                    Top.                   (line 3)
+* awk, POSIX and:                        chap.                  (line 3)
+* awk, POSIX and <1>:                    chap.                  (line 3)
 
 
 
 Tag Table:
 Node: Top27
+Node: chap74
 
 End Tag Table
 
@@ -419,13 +482,23 @@ End:
 
 $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 
-* awk, POSIX and:                        Top.                   (line 0)
-* awk, POSIX and <1>:                    Top.                   (line 0)
+* awk, POSIX and:                        chap.                  (line 0)
+* awk, POSIX and <1>:                    chap.                  (line 0)
 
 ';
 
 
-$result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'seealso_duplicate'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
+<p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+</div>
+<h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
+<hr>
+<a class="node-id" id="chap"></a><div class="nav-panel">
+<p>
+ &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+</div>
+<h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-awk-POSIX-and"></a>
 <a class="index-entry-id" id="index-awk-POSIX-and-1"></a>
@@ -434,17 +507,18 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_cp_letter-A">A</th></tr>
+<tr><th id="chap_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 ';
 
 
-$result_converted{'xml'}->{'seealso_duplicate'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'seealso_duplicate'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and</subentry>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and <seealso>POSIX <command>awk</command></seealso></subentry>
@@ -503,8 +577,12 @@ $result_converted{'latex'}->{'seealso_duplicate'} = '\\documentclass{book}
 
 \\begin{document}
 \\label{anchor:Top}%
+\\label{anchor:chap}%
 
-(`Top\' node ignored)
+\\index[cp]{awk@\\texttt{awk}!POSIX and@POSIX and}%
+\\index[cp]{awk@\\texttt{awk}!POSIX and@POSIX and|seealso{POSIX \\texttt{awk}}}%
+
+\\printindex[cp]
 \\end{document}
 ';
 
