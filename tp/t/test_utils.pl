@@ -1711,14 +1711,13 @@ sub output_texi_file($)
   }
   my $added_chapter = '';
   unless ($test_text =~ /^\@(chapter|unnumbered|appendix)\s/m
-          or $test_text =~ /^\@(chapter|unnumbered|appendix) *$/m) {
-    # need a chapter for LaTeX as Top node is ignored.
+          or $test_text =~ /^\@(chapter|unnumbered|appendix) *$/m
+          or $test_text =~ /^\@node +chap/mi) {
+    # need a chapter or node after Top for LaTeX as Top node is ignored.
     if ($node_top ne '') {
       $added_chapter = "\@node chapter\n\@chapter chapter\n";
     } else {
-      if ($test_text !~ /^\@node +chap/mi) {
-        print STDERR "WARNING: $test_name: there is top, no chapter added\n";
-      }
+      print STDERR "WARNING: $test_name: top in test, no chapter added\n";
     }
   }
   if ($from_file) {

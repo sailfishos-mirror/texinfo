@@ -12,57 +12,20 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
         {
           'contents' => [
             {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
+              'text' => '\\input texinfo
 ',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'delcomment.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'delcomment.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'delcomment_followed_by_cpp_line.texi',
-                'line_nr' => 2,
-                'macro' => ''
-              }
+              'type' => 'text_before_beginning'
             },
             {
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -240,7 +203,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
 };
 
 $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
-@setfilename delcomment.info
 
 @c this tests both the del comment and a file without
 @c element.
@@ -262,7 +224,6 @@ $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
 
 
 $result_texts{'delcomment_followed_by_cpp_line'} = '
-
 #line 46 "a_file_after_del_comment"
 
 
@@ -282,7 +243,7 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
     'error_line' => 'unknown command `unknown\'
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 10,
+    'line_nr' => 9,
     'macro' => '',
     'text' => 'unknown command `unknown\'',
     'type' => 'error'
@@ -291,7 +252,7 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
     'error_line' => 'unknown command `unknown1\'
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 15,
+    'line_nr' => 14,
     'macro' => '',
     'text' => 'unknown command `unknown1\'',
     'type' => 'error'
@@ -300,7 +261,7 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
     'error_line' => 'unknown command `unknown2\'
 ',
     'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 20,
+    'line_nr' => 19,
     'macro' => '',
     'text' => 'unknown command `unknown2\'',
     'type' => 'error'
