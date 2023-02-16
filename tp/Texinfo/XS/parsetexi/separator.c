@@ -648,10 +648,12 @@ handle_comma (ELEMENT *current, char **line_inout)
                   line++;
                 }
             inlinefmtifelse_done:
-              /* Check if the second argument is missing. */
+              /* Second argument is missing. */
               if (brace_count == 0)
                 {
+                  current = last_args_child (current);
                   line--; /* on '}' */
+                  goto funexit;
                 }
               else
                 counter_dec (&count_remaining_args);

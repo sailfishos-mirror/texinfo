@@ -1515,6 +1515,9 @@ sub _close_brace_command($$$;$$$)
         or $current->{'cmdname'} eq 'shortcaption');
   }
 
+  # args are always set
+  #die ("$current->{'cmdname'} no args\n") if (!$current->{'args'});
+
   pop @{$self->{'nesting_context'}->{'basic_inline_stack'}}
     if ($self->{'basic_inline_commands'}
         and $self->{'basic_inline_commands'}->{$current->{'cmdname'}});
@@ -6121,11 +6124,11 @@ sub _process_remaining_on_line($$$$)
       # not followed by anything.
       $self->_line_error(__("unexpected \@"), $source_info);
     } elsif ($separator eq '{') {
+      # handle_open_brace in XS parser
       _abort_empty_line($self, $current);
       if ($current->{'cmdname'}
            and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
         my $command = $current->{'cmdname'};
-        $current->{'args'} = [ { 'parent' => $current } ];
 
         if (defined($commands_args_number{$command})
             and $commands_args_number{$command} > 1) {
@@ -6133,7 +6136,9 @@ sub _process_remaining_on_line($$$$)
               = $commands_args_number{$command} - 1;
         }
 
-        $current = $current->{'args'}->[-1];
+        my $arg = {'parent' => $current};
+        $current->{'args'} = [$arg];
+        $current = $arg;
         push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
           if ($self->{'basic_inline_commands'}
               and $self->{'basic_inline_commands'}->{$command});
@@ -6494,9 +6499,15 @@ sub _process_remaining_on_line($$$$)
     } elsif ($separator eq ','
              and $current->{'parent'}
              and $current->{'parent'}->{'remaining_args'}) {
-      _abort_empty_line ($self, $current);
+      # handle_comma in XS parser
+      _abort_empty_line($self, $current);
       _isolate_last_space($self, $current);
+      # type corresponds to three possible containers: in brace commands,
+      # line of block command (float or example) or line (node).
       my $type = $current->{'type'};
+      #die ("type: $type\n") if ($type ne 'brace_command_arg'
+      #                          and $type ne 'block_line_arg'
+      #                          and $type ne 'line_arg');
       $current = $current->{'parent'};
       if ($brace_commands{$current->{'cmdname'}}
           and $brace_commands{$current->{'cmdname'}} eq 'inline') {
@@ -6506,11 +6517,11 @@ sub _process_remaining_on_line($$$$)
           my $inline_type;
           if (defined $current->{'args'}->[0]
               and $current->{'args'}->[0]->{'contents'}
-              and @{$current->{'args'}->[0]->{'contents'}}) {
+              and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
             $inline_type = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
           }
 
-          if (!$inline_type) {
+          if (!defined($inline_type) or $inline_type eq '') {
             # condition is missing for some reason
             print STDERR "INLINE COND MISSING\n"
               if ($self->{'DEBUG'});
@@ -6577,8 +6588,11 @@ sub _process_remaining_on_line($$$$)
               }
             }
             if ($brace_count == 0) {
-              # second arg missing
+              # Second argument is missing.
+              $current = $current->{'args'}->[-1];
               $line = '}' . $line;
+              return ($current, $line, $source_info, $retval);
+              # goto funexit;  # used in XS code
             } else {
               $current->{'remaining_args'}--;
             }
@@ -6589,7 +6603,7 @@ sub _process_remaining_on_line($$$$)
           # Discard second argument.
           $expandp = 0;
         }
-        # If this command is not being expanded, add a dummy argument,
+        # If this command is not being expanded, add an elided argument,
         # and scan forward to the closing brace.
         if (!$expandp) {
           my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
@@ -6635,9 +6649,9 @@ sub _process_remaining_on_line($$$$)
         }
       }
       $current->{'remaining_args'}--;
-      push @{$current->{'args'}},
-           { 'type' => $type, 'parent' => $current, 'contents' => [] };
-      $current = $current->{'args'}->[-1];
+      my $new_arg = { 'type' => $type, 'parent' => $current, 'contents' => [] };
+      push @{$current->{'args'}}, $new_arg;
+      $current = $new_arg;
       # internal_spaces_before_argument is a transient internal type,
       # which should end up in info spaces_before_argument.
       push @{$current->{'contents'}},

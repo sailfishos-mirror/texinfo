@@ -125,9 +125,6 @@ $result_trees{'inlinefmtifelse'} = {
                     }
                   ],
                   'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
@@ -540,7 +537,7 @@ $result_trees{'inlinefmtifelse'} = {
 $result_texis{'inlinefmtifelse'} = '@inlinefmtifelse{html,,else html no if}.
 @inlinefmtifelse{html,if html,else html}.
 
-@inlinefmtifelse{plaintext,if plaintext no second arg,}.
+@inlinefmtifelse{plaintext,if plaintext no second arg}.
 @inlinefmtifelse{plaintext,if plaintext,else plaintext}.
 
 @inlinefmtifelse{xml,if xml empty second arg,}.
