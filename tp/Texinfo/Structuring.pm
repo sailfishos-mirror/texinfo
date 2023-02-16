@@ -1945,9 +1945,13 @@ sub sort_indices($$$;$$)
       my @sort_entry_keys;
       my $letter = '';
       if ($entry_key !~ /\S/) {
+        my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+        $entry_cmdname
+          = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+           if (!defined($entry_cmdname));
         $registrar->line_warn($customization_information,
                      sprintf(__("empty index key in \@%s"),
-                                 $entry->{'index_at_command'}),
+                                 $entry_cmdname),
                         $entry->{'entry_element'}->{'source_info'});
         push @entry_keys, '';
         push @sort_entry_keys, '';
@@ -1979,10 +1983,14 @@ sub sort_indices($$$;$$)
                  {'contents' => $subentry->{'args'}->[0]->{'contents'}},
               $subentry->{'extra'}->{'sortas'}, $options, $entries_collator);
         if ($subentry_key !~ /\S/) {
+          my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+          $entry_cmdname
+            = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+              if (!defined($entry_cmdname));
           $registrar->line_warn($customization_information,
                      sprintf(__("empty index sub entry %d key in \@%s"),
                                  $subentry_nr,
-                                 $entry->{'index_at_command'}),
+                                 $entry_cmdname),
                         $entry->{'entry_element'}->{'source_info'});
           push @entry_keys, '';
           push @sort_entry_keys, '';
