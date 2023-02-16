@@ -71,6 +71,11 @@ $result_trees{'empty_macro_argument'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },
@@ -98,6 +103,11 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 2,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'mymacro'
                     },
@@ -121,6 +131,11 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 3,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'mymacro'
                     },
@@ -252,6 +267,11 @@ $result_trees{'empty_macro_argument'} = {
             {
               'counter' => 5,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mytwo'
                 },
@@ -279,6 +299,11 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 6,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'mytwo'
                     },
@@ -302,6 +327,11 @@ $result_trees{'empty_macro_argument'} = {
                 {
                   'counter' => 7,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'mytwo'
                     },

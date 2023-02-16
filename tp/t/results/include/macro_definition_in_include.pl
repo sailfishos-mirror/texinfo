@@ -127,6 +127,11 @@ $result_trees{'macro_definition_in_include'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'themacro'
                     },

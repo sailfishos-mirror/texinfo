@@ -99,6 +99,11 @@ $result_trees{'empty_macro_no_arg'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'foo'
                 },

@@ -120,6 +120,11 @@ $result_trees{'macro_in_end_argument'} = {
                     {
                       'counter' => 1,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'acartouche'
                         },

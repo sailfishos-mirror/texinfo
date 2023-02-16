@@ -147,6 +147,11 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 1,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aletter'
                         },
@@ -192,6 +197,11 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 2,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aletter'
                         },
@@ -234,6 +244,11 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 3,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aletter'
                         },
@@ -273,6 +288,11 @@ $result_trees{'macro_in_accent'} = {
                         {
                           'counter' => 4,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'aletter'
                             },
@@ -327,6 +347,11 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 5,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },
@@ -343,6 +368,11 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 6,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aletter'
                         },

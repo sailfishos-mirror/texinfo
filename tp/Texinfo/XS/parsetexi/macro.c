@@ -239,6 +239,7 @@ lookup_macro_parameter (char *name, ELEMENT *macro)
 
 /* not done by _close_container as argument is in args and not in
    contents. */
+/* Currently unused */
 ELEMENT *
 remove_empty_arg (ELEMENT *argument)
 {
@@ -289,9 +290,8 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
           line = new_line (argument);
           if (!line)
             {
-              line_error ("@%s missing closing brace", command_name(cmd));
-              if (arg->end == 0)
-                remove_empty_arg (argument);
+              line_error ("@%s missing closing brace", command_name (cmd));
+              remove_empty_content (argument);
               line = "\n";
               goto funexit;
             }
@@ -343,6 +343,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
               debug ("MACRO NEW ARG");
               pline = sep + 1;
 
+              remove_empty_content (argument);
               if (*sep == ',')
                 {
                   char *p = pline;
@@ -361,13 +362,6 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
                                             spaces_element);
                     }
                 }
-              else if (arg->end == 0)
-               /* It is possible to remove the last argument if empty
-                  since not being expanded is the same as being expanded
-                  as an empty string.
-                  Note that if there are source marks or info, the argument
-                  may not have content anymore but still be there. */
-                remove_empty_arg (argument);
             }
           else
             {
@@ -384,7 +378,9 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
   debug ("END MACRO ARGS EXPANSION");
   line = pline;
 
-  if (args_total == 0 && current->args.number > 0)
+  if (args_total == 0
+      && (current->args.number > 1
+          || current->args.list[0]->contents.number > 0))
     {
       line_error
         ("macro `%s' declared without argument called with an argument",
@@ -576,7 +572,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     }
   else
     {
-      ELEMENT *last_child;
       ELEMENT *current = new_element (ET_line_arg);
       add_to_element_args (arguments_container, current);
 
@@ -634,8 +629,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                 }
             }
         }
-      last_child = last_args_child (arguments_container);
-      remove_empty_arg (last_child);
     }
 
   expand_macro_body (macro_record, arguments_container, &expanded);

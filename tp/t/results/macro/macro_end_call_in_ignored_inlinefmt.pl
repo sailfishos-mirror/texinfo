@@ -71,6 +71,11 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'startfmt'
                 },

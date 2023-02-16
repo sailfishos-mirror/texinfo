@@ -164,6 +164,11 @@ $result_trees{'expansion_order'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'machin'
                 },

@@ -76,6 +76,11 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'startraw'
                 },

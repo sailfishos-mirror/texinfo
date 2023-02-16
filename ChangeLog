@@ -21,6 +21,17 @@
 
 2023-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_close_container, _remove_empty_content)
+	(_expand_macro_arguments), tp/Texinfo/XS/parsetexi/close.c
+	(remove_empty_content, close_container),
+	tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): separate the
+	code to remove empty content, put in remove_empty_content from the
+	remaining of close_container.  Do not remove completly macro arguments
+	that are empty, only remove the contents, keep a brace_command_arg to
+	mark that there was an empty string argument in the Texinfo code.
+
+2023-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): keep information 
 	on empty ignored inline conditional arguments.
 

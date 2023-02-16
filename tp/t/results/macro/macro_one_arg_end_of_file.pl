@@ -75,6 +75,11 @@ $result_trees{'macro_one_arg_end_of_file'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'line_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'onearg'
                 },

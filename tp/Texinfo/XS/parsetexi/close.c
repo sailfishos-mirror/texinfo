@@ -111,14 +111,10 @@ is_container_empty (ELEMENT *current)
   return 0;
 }
 
-/* this should only be called for non @-command elements otherwise
-   empty command elements will be removed */
-ELEMENT *
-close_container (ELEMENT *current)
+/* remove an empty content that only holds source marks */
+void
+remove_empty_content (ELEMENT *current)
 {
-  ELEMENT *element_to_remove = 0;
-
-  /* remove an empty content that only holds source marks */
   if (current->contents.number == 1)
     {
       ELEMENT *child_element = last_contents_child (current);
@@ -131,6 +127,17 @@ close_container (ELEMENT *current)
           destroy_element (pop_element_from_contents (current));
         }
     }
+}
+
+/* this should only be called for non @-command elements otherwise
+   empty command elements will be removed */
+ELEMENT *
+close_container (ELEMENT *current)
+{
+  ELEMENT *element_to_remove = 0;
+
+  remove_empty_content (current);
+
   /* remove element without contents nor associated information */
   if (is_container_empty (current))
     {

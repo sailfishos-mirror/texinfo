@@ -1546,6 +1546,11 @@ $result_trees{'glossary'} = {
             {
               'counter' => 5,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'glossary'
                 },

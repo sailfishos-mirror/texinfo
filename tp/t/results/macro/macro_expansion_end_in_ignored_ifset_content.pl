@@ -76,6 +76,11 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'beginifsetcontent'
                 },

@@ -200,6 +200,11 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 2,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'fn'
                         },
@@ -241,6 +246,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'cp'
                     },
@@ -263,6 +273,11 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 3,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'syncodeindexcommand'
                 },
@@ -425,6 +440,11 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 4,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'truc'
                         },
@@ -617,6 +637,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 5,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'codeidx'
                     },
@@ -773,6 +798,11 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 6,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'trucindexcommand'
                 },
@@ -963,6 +993,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 7,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'defcodeindexentry'
                     },
@@ -1034,6 +1069,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 8,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'truc'
                     },
@@ -1063,6 +1103,11 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 9,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'codeidx'
                         },
@@ -1169,6 +1214,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 10,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'truc'
                     },
@@ -1239,6 +1289,11 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 11,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'cp'
                     },

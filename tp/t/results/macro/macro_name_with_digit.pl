@@ -173,6 +173,11 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'counter' => 2,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'macro1'
                     },

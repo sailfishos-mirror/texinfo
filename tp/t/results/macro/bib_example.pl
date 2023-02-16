@@ -3751,6 +3751,11 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 3,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },
@@ -4168,6 +4173,11 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 6,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },
@@ -4281,6 +4291,11 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 7,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'mybibnode'
                             },

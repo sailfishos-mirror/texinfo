@@ -600,6 +600,11 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'testallowcodebreaksexample'
                 },
@@ -1089,6 +1094,11 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 4,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'testallowcodebreaksexample'
                 },
@@ -2045,6 +2055,11 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 7,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'testallowcodebreaksexample'
                 },

@@ -81,6 +81,11 @@ $result_trees{'leading_spaces_no_ignore'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },

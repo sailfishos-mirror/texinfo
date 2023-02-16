@@ -195,6 +195,11 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'begin-file'
                     },
@@ -399,6 +404,11 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 4,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'latin1'
                     },
@@ -782,6 +792,11 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'counter' => 6,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'themacro'
                 },

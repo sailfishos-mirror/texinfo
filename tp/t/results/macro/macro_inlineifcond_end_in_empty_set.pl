@@ -80,6 +80,11 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                         {
                           'counter' => 1,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'clearargendignored'
                             },
@@ -148,6 +153,11 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                         {
                           'counter' => 2,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'clearargendignored'
                             },

@@ -80,6 +80,11 @@ $result_trees{'unpaired_backslash_in_macro_body'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },

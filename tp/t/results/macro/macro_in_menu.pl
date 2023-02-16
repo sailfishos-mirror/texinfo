@@ -405,6 +405,11 @@ $result_trees{'macro_in_menu'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'starspaces'
                     },
@@ -433,6 +438,11 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 2,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'twocolon'
                             },
@@ -499,6 +509,11 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 3,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'spaces'
                             },
@@ -523,6 +538,11 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 4,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'astar'
                             },
@@ -577,6 +597,11 @@ $result_trees{'macro_in_menu'} = {
                             {
                               'counter' => 5,
                               'element' => {
+                                'args' => [
+                                  {
+                                    'type' => 'brace_command_arg'
+                                  }
+                                ],
                                 'extra' => {
                                   'name' => 'astar'
                                 },
@@ -625,6 +650,11 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 6,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },
@@ -700,6 +730,11 @@ $result_trees{'macro_in_menu'} = {
                         {
                           'counter' => 7,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'acolon'
                             },
@@ -726,6 +761,11 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 8,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'acolon'
                         },
@@ -744,6 +784,11 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 9,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },
@@ -824,6 +869,11 @@ $result_trees{'macro_in_menu'} = {
                     {
                       'counter' => 10,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'aspace'
                         },

@@ -84,6 +84,11 @@ $result_trees{'macro_call_empty_two_arg'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'twoa'
                 },
@@ -124,6 +129,11 @@ $result_trees{'macro_call_empty_two_arg'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'twoa'
                 },
@@ -171,11 +181,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {
@@ -229,11 +234,9 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
+                    'type' => 'brace_command_arg'
+                  },
+                  {
                     'type' => 'brace_command_arg'
                   }
                 ],
@@ -284,11 +287,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {
@@ -411,6 +409,9 @@ $result_trees{'macro_call_empty_two_arg'} = {
                       }
                     ],
                     'type' => 'brace_command_arg'
+                  },
+                  {
+                    'type' => 'brace_command_arg'
                   }
                 ],
                 'extra' => {
@@ -455,11 +456,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {
@@ -518,11 +514,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {
@@ -586,11 +577,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {
@@ -644,11 +630,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {

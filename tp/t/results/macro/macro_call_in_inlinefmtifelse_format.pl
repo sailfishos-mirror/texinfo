@@ -85,6 +85,11 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
                         {
                           'counter' => 1,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'inlinefirstarg'
                             },

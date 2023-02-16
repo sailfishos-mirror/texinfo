@@ -160,6 +160,11 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -455,6 +460,11 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -749,6 +759,11 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 3,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },
@@ -944,6 +959,11 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 4,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'conditionals'
                 },

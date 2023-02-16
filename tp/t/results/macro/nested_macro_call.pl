@@ -145,6 +145,11 @@ $result_trees{'nested_macro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'truc'
                     },
@@ -157,6 +162,11 @@ $result_trees{'nested_macro_call'} = {
                 {
                   'counter' => 2,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'machin'
                     },

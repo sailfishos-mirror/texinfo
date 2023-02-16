@@ -93,6 +93,11 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                         {
                           'counter' => 1,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'endcallinignoredinlineelse'
                             },

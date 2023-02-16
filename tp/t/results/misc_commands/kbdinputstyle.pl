@@ -182,6 +182,11 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'codekbdmacro'
                 },
@@ -683,6 +688,11 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'codekbdmacro'
                 },
@@ -1175,6 +1185,11 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 3,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'codekbdmacro'
                 },

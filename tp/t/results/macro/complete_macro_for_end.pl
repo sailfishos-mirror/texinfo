@@ -90,6 +90,11 @@ $result_trees{'complete_macro_for_end'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'theend'
                     },

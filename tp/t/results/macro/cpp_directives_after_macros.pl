@@ -155,6 +155,11 @@ $result_trees{'cpp_directives_after_macros'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'noargsspaces'
                     },
@@ -204,6 +209,11 @@ $result_trees{'cpp_directives_after_macros'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'emptyexpansion'
                 },

@@ -168,6 +168,11 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'macrooneone'
                 },

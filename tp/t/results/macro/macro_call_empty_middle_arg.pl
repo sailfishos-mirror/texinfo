@@ -183,11 +183,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                     'type' => 'brace_command_arg'
                   },
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -263,11 +258,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                     'type' => 'brace_command_arg'
                   },
                   {
-                    'contents' => [
-                      {
-                        'text' => ''
-                      }
-                    ],
                     'type' => 'brace_command_arg'
                   },
                   {

@@ -71,6 +71,11 @@ $result_trees{'macro_no_arg_expansion'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'testone'
                 },

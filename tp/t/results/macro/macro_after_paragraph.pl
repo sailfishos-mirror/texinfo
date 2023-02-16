@@ -90,6 +90,11 @@ $result_trees{'macro_after_paragraph'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },

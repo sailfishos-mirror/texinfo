@@ -75,6 +75,16 @@ $result_trees{'include_after_empty_line_arg'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => ''
+                      }
+                    ],
+                    'type' => 'line_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'mymacro'
                 },

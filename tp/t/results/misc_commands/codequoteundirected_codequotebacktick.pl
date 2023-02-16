@@ -259,6 +259,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 1,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'allquotes'
                         },
@@ -270,6 +275,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 2,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },
@@ -663,6 +673,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 3,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },
@@ -1079,6 +1094,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 4,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },
@@ -1631,6 +1651,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'counter' => 5,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'allquotes'
                 },
@@ -1643,6 +1668,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'counter' => 6,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'quotes'
                 },
@@ -2039,6 +2069,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'counter' => 7,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'quotes'
                 },
@@ -2455,6 +2490,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'counter' => 8,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'quotes'
                 },
@@ -2754,6 +2794,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 9,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'allquotes'
                         },
@@ -2765,6 +2810,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 10,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },
@@ -3155,6 +3205,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 11,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },
@@ -3571,6 +3626,11 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'counter' => 12,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'quotes'
                         },

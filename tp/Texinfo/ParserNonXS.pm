@@ -1650,7 +1650,7 @@ sub _is_container_empty($)
   return 0;
 }
 
-sub _close_container($$)
+sub _remove_empty_content($$)
 {
   my $self = shift;
   my $current = shift;
@@ -1668,6 +1668,14 @@ sub _close_container($$)
       _pop_element_from_contents($self, $current);
     }
   }
+}
+
+sub _close_container($$)
+{
+  my $self = shift;
+  my $current = shift;
+
+  _remove_empty_content($self, $current);
 
   # remove element without contents nor associated information
   my $element_to_remove;
@@ -2541,6 +2549,7 @@ sub _new_line($;$)
 
 # not done by _close_container as argument is in args and not in
 # contents.
+# Currently unused
 sub _remove_empty_arg($$)
 {
   my $self = shift;
@@ -2595,6 +2604,8 @@ sub _expand_macro_arguments($$$$$)
       } elsif ($separator eq ',') {
         if ($braces_level == 1) {
           if (scalar(@{$current->{'args'}}) < $args_total) {
+            _remove_empty_content($self, $argument);
+
             $argument = {'type' => 'brace_command_arg',
                          'contents' => [],
                          'parent' => $current};
@@ -2623,12 +2634,7 @@ sub _expand_macro_arguments($$$$$)
       } elsif ($separator eq '}') {
         $braces_level--;
         if ($braces_level == 0) {
-          # It is possible to remove the last argument if empty
-          # since not being expanded is the same as being expanded
-          # as an empty string.
-          if ($argument_content->{'text'} eq '') {
-            _remove_empty_arg($self, $argument);
-          }
+          _remove_empty_content($self, $argument);
           last;
         }
         $argument_content->{'text'} .= $separator;
@@ -2644,14 +2650,14 @@ sub _expand_macro_arguments($$$$$)
       if (!defined($line)) {
         $self->_line_error(sprintf(__("\@%s missing closing brace"),
            $name), $source_info_orig);
-        if ($argument_content->{'text'} eq '') {
-          _remove_empty_arg($self, $argument);
-        }
+        _remove_empty_content($self, $argument);
         return ("\n", $source_info);
       }
     }
   }
-  if ($args_total == 0 and scalar(@{$current->{'args'}} > 0)) {
+  if ($args_total == 0
+      and (scalar(@{$current->{'args'}} > 1)
+           or $current->{'args'}->[0]->{'contents'})) {
     $self->_line_error(sprintf(__(
                "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
@@ -4834,7 +4840,6 @@ sub _handle_macro($$$$$)
         }
       }
     }
-    _remove_empty_arg($self, $arguments_container->{'args'}->[-1]);
   }
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},

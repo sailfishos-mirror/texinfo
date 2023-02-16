@@ -199,6 +199,11 @@ $result_trees{'table_nested'} = {
                 {
                   'counter' => 1,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'myvtable'
                     },
@@ -809,6 +814,11 @@ $result_trees{'table_nested'} = {
                 {
                   'counter' => 2,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'myvtable'
                     },
@@ -1432,6 +1442,11 @@ $result_trees{'table_nested'} = {
                     {
                       'counter' => 3,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'myvtable'
                         },

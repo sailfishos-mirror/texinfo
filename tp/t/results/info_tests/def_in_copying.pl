@@ -178,6 +178,11 @@ $result_trees{'def_in_copying'} = {
                     {
                       'counter' => 1,
                       'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
                         'extra' => {
                           'name' => 'mymacro'
                         },
@@ -474,6 +479,11 @@ $result_trees{'def_in_copying'} = {
                 {
                   'counter' => 2,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'mymacro'
                     },

@@ -109,6 +109,11 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'beginendcond'
                 },

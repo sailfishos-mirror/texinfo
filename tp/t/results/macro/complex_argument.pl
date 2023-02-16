@@ -325,6 +325,11 @@ macroseven defined
                         {
                           'counter' => 2,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'macrofour'
                             },
@@ -388,6 +393,11 @@ macroseven defined
                         {
                           'counter' => 3,
                           'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
                             'extra' => {
                               'name' => 'macrofour'
                             },
@@ -755,6 +765,11 @@ macroseven defined
                 {
                   'counter' => 4,
                   'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_command_arg'
+                      }
+                    ],
                     'extra' => {
                       'name' => 'macrofour'
                     },

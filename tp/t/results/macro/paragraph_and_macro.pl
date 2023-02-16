@@ -195,6 +195,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 1,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -223,6 +228,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 2,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -253,6 +263,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 3,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aempty'
                 },
@@ -289,6 +304,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 4,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aspace'
                 },
@@ -318,6 +338,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 5,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aspace'
                 },
@@ -348,6 +373,11 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 6,
               'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
                 'extra' => {
                   'name' => 'aspace'
                 },
