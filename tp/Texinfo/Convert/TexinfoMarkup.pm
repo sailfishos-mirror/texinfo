@@ -1147,10 +1147,7 @@ sub _convert($$;$)
           # code.
           # For example, for @bracecmd{a,b,,c,,} we keep the last (6th argument)
           # empty element.
-          # Not if in inline conditionals as we are not interested in empty
-          # ignored inline conditional arguments.
-          } elsif (defined($main_cmdname)
-                   and not $brace_commands{$element->{'cmdname'}} eq 'inline') {
+          } elsif (defined($main_cmdname)) {
             $last_empty_element
                = $self->txi_markup_open_element($format_element)
                            .$self->txi_markup_close_element($format_element);

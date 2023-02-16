@@ -343,6 +343,11 @@ b}
 ['lone_bye',
 '@bye
 '],
+['inlineifset_empty_second_arg',
+'Toto @inlineifset{flag,}. After.
+
+Again with space @inlineifset{flag, }. After.
+'],
 );
 
 foreach my $test (@test_cases) {
