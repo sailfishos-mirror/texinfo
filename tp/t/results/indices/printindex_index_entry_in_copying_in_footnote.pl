@@ -71,10 +71,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                       'entry_number' => 1,
                                       'entry_region' => 'copying',
                                       'in_code' => 0,
-                                      'index_at_command' => 'cindex',
                                       'index_ignore_chars' => {},
-                                      'index_name' => 'cp',
-                                      'index_type_command' => 'cindex'
+                                      'index_name' => 'cp'
                                     }
                                   },
                                   'info' => {

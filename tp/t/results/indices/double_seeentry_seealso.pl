@@ -234,10 +234,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             },
             'seeentry' => {}
           },
@@ -323,10 +321,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             },
             'seealso' => {}
           },
@@ -412,10 +408,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             },
             'seealso' => {},
             'seeentry' => {}
@@ -472,10 +466,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             },
             'seealso' => {},
             'subentry' => {

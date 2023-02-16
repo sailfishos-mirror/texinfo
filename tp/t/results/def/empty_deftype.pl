@@ -138,10 +138,8 @@ $result_trees{'empty_deftype'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefun',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefun'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefun'
               },
@@ -325,10 +323,8 @@ $result_trees{'empty_deftype'} = {
                   'entry_element' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'defun',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defun'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defun'
               },
@@ -553,10 +549,8 @@ $result_trees{'empty_deftype'} = {
                   'entry_element' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypemethod',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypemethod'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypemethod'
               },
@@ -762,10 +756,8 @@ $result_trees{'empty_deftype'} = {
                   'entry_element' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_at_command' => 'defmethod',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defmethod'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defmethod'
               },

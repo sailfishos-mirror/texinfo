@@ -131,8 +131,6 @@ typedef struct IGNORED_CHARS {
 typedef struct {
     char *index_name;
     char *index_prefix;
-    enum command_id index_at_command;
-    enum command_id index_type_command;
 
     /* content->contents is the index entry text */
     ELEMENT *content;

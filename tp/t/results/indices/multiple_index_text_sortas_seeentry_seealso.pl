@@ -258,10 +258,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
-              'index_type_command' => 'cindex',
               'sortas' => 'A---S'
             },
             'seealso' => {},
@@ -334,10 +332,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
-              'index_type_command' => 'cindex',
               'sortas' => 'BB'
             },
             'sortas' => 'BB'
@@ -408,10 +404,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             },
             'seeentry' => {}
           },

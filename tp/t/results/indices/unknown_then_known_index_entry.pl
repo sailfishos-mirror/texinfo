@@ -74,10 +74,8 @@ $result_trees{'unknown_then_known_index_entry'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 0,
-                  'index_at_command' => 'someindex',
                   'index_ignore_chars' => {},
-                  'index_name' => 'some',
-                  'index_type_command' => 'someindex'
+                  'index_name' => 'some'
                 }
               },
               'info' => {

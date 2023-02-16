@@ -100,10 +100,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -267,10 +265,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -439,10 +435,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -619,10 +613,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -773,10 +765,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 5,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -876,10 +866,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 6,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },
@@ -997,10 +985,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 7,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },
@@ -1123,10 +1109,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 8,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },
@@ -1257,10 +1241,8 @@ $result_trees{'wrong_braces_simple'} = {
                   'entry_element' => {},
                   'entry_number' => 9,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },

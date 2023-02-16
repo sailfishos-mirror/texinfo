@@ -258,10 +258,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 1,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -410,10 +408,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 2,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -486,10 +482,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 3,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -659,10 +653,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 4,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -903,10 +895,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 5,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1060,10 +1050,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 6,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1186,10 +1174,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 7,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1347,10 +1333,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 8,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1483,10 +1467,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 9,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1543,10 +1525,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 10,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1587,10 +1567,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 11,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1742,10 +1720,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -1886,10 +1862,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 2,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -1950,10 +1924,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 3,
                           'in_code' => 1,
-                          'index_at_command' => 'itemx',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -2094,10 +2066,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -2139,10 +2109,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                               'entry_node' => {},
                               'entry_number' => 12,
                               'in_code' => 0,
-                              'index_at_command' => 'cindex',
                               'index_ignore_chars' => {},
-                              'index_name' => 'cp',
-                              'index_type_command' => 'cindex'
+                              'index_name' => 'cp'
                             }
                           },
                           'info' => {
@@ -2218,10 +2186,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 2,
                           'in_code' => 1,
-                          'index_at_command' => 'itemx',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -2285,10 +2251,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 3,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -2359,10 +2323,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 4,
                           'in_code' => 1,
-                          'index_at_command' => 'itemx',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -2515,10 +2477,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 13,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {
@@ -2703,10 +2663,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 14,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -2879,10 +2837,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 15,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {
@@ -3067,10 +3023,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 16,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -3246,10 +3200,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 17,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -3416,10 +3368,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'entry_node' => {},
                       'entry_number' => 18,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -3598,10 +3548,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 19,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {
@@ -3758,10 +3706,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 20,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {
@@ -3818,10 +3764,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 21,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {
@@ -3862,10 +3806,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'entry_node' => {},
                           'entry_number' => 22,
                           'in_code' => 0,
-                          'index_at_command' => 'cindex',
                           'index_ignore_chars' => {},
-                          'index_name' => 'cp',
-                          'index_type_command' => 'cindex'
+                          'index_name' => 'cp'
                         }
                       },
                       'info' => {

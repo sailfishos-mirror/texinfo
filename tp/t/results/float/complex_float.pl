@@ -481,10 +481,8 @@ $result_trees{'complex_float'} = {
                       'entry_node' => {},
                       'entry_number' => 1,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -1594,10 +1592,8 @@ $result_trees{'complex_float'} = {
                               'entry_node' => {},
                               'entry_number' => 2,
                               'in_code' => 0,
-                              'index_at_command' => 'cindex',
                               'index_ignore_chars' => {},
-                              'index_name' => 'cp',
-                              'index_type_command' => 'cindex'
+                              'index_name' => 'cp'
                             }
                           },
                           'info' => {
@@ -2988,10 +2984,8 @@ $result_trees{'complex_float'} = {
                               'entry_node' => {},
                               'entry_number' => 3,
                               'in_code' => 0,
-                              'index_at_command' => 'cindex',
                               'index_ignore_chars' => {},
-                              'index_name' => 'cp',
-                              'index_type_command' => 'cindex'
+                              'index_name' => 'cp'
                             }
                           },
                           'info' => {

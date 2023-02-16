@@ -102,10 +102,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -225,10 +223,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },
@@ -271,10 +267,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'entry_element' => {},
                       'entry_number' => 1,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -391,10 +385,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
               },
@@ -437,10 +429,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'entry_element' => {},
                       'entry_number' => 2,
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {

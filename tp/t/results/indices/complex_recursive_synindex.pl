@@ -417,10 +417,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'eeeindex',
               'index_ignore_chars' => {},
-              'index_name' => 'eee',
-              'index_type_command' => 'eeeindex'
+              'index_name' => 'eee'
             }
           },
           'info' => {
@@ -535,10 +533,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cccindex',
               'index_ignore_chars' => {},
-              'index_name' => 'ccc',
-              'index_type_command' => 'cccindex'
+              'index_name' => 'ccc'
             }
           },
           'info' => {
@@ -579,10 +575,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'bbbindex',
               'index_ignore_chars' => {},
-              'index_name' => 'bbb',
-              'index_type_command' => 'bbbindex'
+              'index_name' => 'bbb'
             }
           },
           'info' => {
@@ -623,10 +617,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'aaaindex',
               'index_ignore_chars' => {},
-              'index_name' => 'aaa',
-              'index_type_command' => 'aaaindex'
+              'index_name' => 'aaa'
             }
           },
           'info' => {
@@ -667,10 +659,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'dddindex',
               'index_ignore_chars' => {},
-              'index_name' => 'ddd',
-              'index_type_command' => 'dddindex'
+              'index_name' => 'ddd'
             }
           },
           'info' => {
@@ -711,10 +701,8 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_at_command' => 'eeeindex',
               'index_ignore_chars' => {},
-              'index_name' => 'eee',
-              'index_type_command' => 'eeeindex'
+              'index_name' => 'eee'
             }
           },
           'info' => {

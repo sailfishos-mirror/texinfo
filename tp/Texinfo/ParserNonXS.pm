@@ -3308,9 +3308,9 @@ sub _register_label($$$)
 # $CONTENT holds the actual content.  For index entries and v|ftable
 #  items, it is the index entry content, for def, it is the parsed
 #  arguments, based on the definition line arguments.
-sub _enter_index_entry($$$$$$$)
+sub _enter_index_entry($$$$$$)
 {
-  my ($self, $command_container, $command, $current, $content,
+  my ($self, $command_container, $current, $content,
       $content_normalized, $source_info) = @_;
 
   $content_normalized = $content if (!defined($content_normalized));
@@ -3324,12 +3324,7 @@ sub _enter_index_entry($$$$$$$)
 
   my $number = scalar(@{$index->{'index_entries'}}) + 1;
 
-  # FIXME index_type_command does not seems to be used anywhere.
-  # It appears in test results tree, so maybe it is worth keeping
-  # it to be able to understand changes.
   my $index_entry = { 'index_name'           => $index_name,
-                      'index_at_command'     => $command,
-                      'index_type_command'   => $command_container,
                       'entry_content'        => $content,
                       'content_normalized'   => $content_normalized,
                       'entry_element'        => $current,
@@ -3607,12 +3602,12 @@ sub _end_line_misc_line($$$)
           and $current->{'parent'}->{'cmdname'}
           and $self->{'command_index'}->{$current->{'parent'}->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
-                           $command, $current,
+                           $current,
                            $current->{'args'}->[0]->{'contents'},
                            undef, $source_info);
       } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'cmdname'},
-                           $current->{'cmdname'}, $current,
+                           $current,
                            $current->{'args'}->[0]->{'contents'},
                            undef, $source_info);
         $current->{'type'} = 'index_entry_command';
@@ -3826,7 +3821,6 @@ sub _end_line_def_line($$$)
 
       _enter_index_entry($self,
         $current->{'extra'}->{'def_command'},
-        $current->{'extra'}->{'original_def_cmdname'},
         $current, $index_contents,
         $index_contents_normalized, $source_info)
            if $current->{'extra'}->{'def_command'} ne 'defline';
@@ -7625,27 +7619,11 @@ The keys of the index entry structures are
 
 The index name.
 
-=item index_at_command
-
-The name of the @-command associated with the index entry.
-
 =item index_ignore_chars
 
 A hash reference with characters as keys and 1 as value.  Corresponds to
 the characters flagged as ignored in key sorting in the document by
 setting flags such as I<txiindexbackslashignore>.
-
-=begin comment
-
-This is not used anywhere, do not document to be able to remove it
-anytime.
-
-=item index_type_command
-
-The name of the @-command associated with the index entry.  This
-should allow to find the index associated to the index entry.
-
-=end comment
 
 =item entry_content
 

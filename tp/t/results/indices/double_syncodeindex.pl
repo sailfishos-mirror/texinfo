@@ -185,10 +185,8 @@ $result_trees{'double_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -229,10 +227,8 @@ $result_trees{'double_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {

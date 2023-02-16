@@ -663,10 +663,8 @@ $result_trees{'documentlanguage'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypemethod',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypemethod'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypemethod'
               },

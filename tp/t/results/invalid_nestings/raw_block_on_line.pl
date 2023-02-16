@@ -44,10 +44,8 @@ $result_trees{'raw_block_on_line'} = {
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {

@@ -843,10 +843,8 @@ $result_trees{'macro_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'trucindex',
               'index_ignore_chars' => {},
-              'index_name' => 'truc',
-              'index_type_command' => 'trucindex'
+              'index_name' => 'truc'
             }
           },
           'info' => {
@@ -981,10 +979,8 @@ $result_trees{'macro_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'codeidxindex',
               'index_ignore_chars' => {},
-              'index_name' => 'codeidx',
-              'index_type_command' => 'codeidxindex'
+              'index_name' => 'codeidx'
             }
           },
           'info' => {
@@ -1057,10 +1053,8 @@ $result_trees{'macro_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'kindex',
               'index_ignore_chars' => {},
-              'index_name' => 'ky',
-              'index_type_command' => 'kindex'
+              'index_name' => 'ky'
             }
           },
           'info' => {
@@ -1145,10 +1139,8 @@ $result_trees{'macro_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'pindex',
               'index_ignore_chars' => {},
-              'index_name' => 'pg',
-              'index_type_command' => 'pindex'
+              'index_name' => 'pg'
             }
           },
           'info' => {

@@ -888,10 +888,6 @@ build_single_index_data (INDEX *i)
       entry = newHV ();
 
       STORE2("index_name", newSVpv_utf8 (i->name, 0));
-      STORE2("index_at_command",
-             newSVpv (command_name(e->index_at_command), 0));
-      STORE2("index_type_command",
-             newSVpv (command_name(e->index_type_command), 0));
       STORE2("entry_element",
              newRV_inc ((SV *)e->command->hv));
       STORE2("entry_number", newSViv (entry_number));

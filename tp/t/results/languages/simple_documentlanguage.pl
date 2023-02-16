@@ -219,10 +219,8 @@ $result_trees{'simple_documentlanguage'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'defivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defivar'
               },

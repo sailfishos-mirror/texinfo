@@ -290,10 +290,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -425,10 +423,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'defvar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defvar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defvar'
               },

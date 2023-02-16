@@ -168,10 +168,8 @@ $result_trees{'float_copying'} = {
                                               'entry_number' => 1,
                                               'entry_region' => 'copying',
                                               'in_code' => 0,
-                                              'index_at_command' => 'cindex',
                                               'index_ignore_chars' => {},
-                                              'index_name' => 'cp',
-                                              'index_type_command' => 'cindex'
+                                              'index_name' => 'cp'
                                             }
                                           },
                                           'info' => {
@@ -212,10 +210,8 @@ $result_trees{'float_copying'} = {
                                               'entry_number' => 1,
                                               'entry_region' => 'copying',
                                               'in_code' => 1,
-                                              'index_at_command' => 'findex',
                                               'index_ignore_chars' => {},
-                                              'index_name' => 'fn',
-                                              'index_type_command' => 'findex'
+                                              'index_name' => 'fn'
                                             }
                                           },
                                           'info' => {
@@ -409,10 +405,8 @@ $result_trees{'float_copying'} = {
                                   'entry_number' => 2,
                                   'entry_region' => 'copying',
                                   'in_code' => 0,
-                                  'index_at_command' => 'cindex',
                                   'index_ignore_chars' => {},
-                                  'index_name' => 'cp',
-                                  'index_type_command' => 'cindex'
+                                  'index_name' => 'cp'
                                 }
                               },
                               'info' => {
@@ -453,10 +447,8 @@ $result_trees{'float_copying'} = {
                                   'entry_number' => 2,
                                   'entry_region' => 'copying',
                                   'in_code' => 1,
-                                  'index_at_command' => 'findex',
                                   'index_ignore_chars' => {},
-                                  'index_name' => 'fn',
-                                  'index_type_command' => 'findex'
+                                  'index_name' => 'fn'
                                 }
                               },
                               'info' => {

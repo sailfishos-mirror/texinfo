@@ -860,10 +860,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'defivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defivar'
               },
@@ -1172,10 +1170,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'defivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defivar'
               },
@@ -1445,10 +1441,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'defivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defivar'
               },

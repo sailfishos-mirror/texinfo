@@ -828,10 +828,8 @@ $result_trees{'at_commands_in_raw'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'findex',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'findex'
+                  'index_name' => 'fn'
                 }
               },
               'info' => {

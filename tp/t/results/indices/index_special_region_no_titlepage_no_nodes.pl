@@ -71,10 +71,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
                       'entry_number' => 1,
                       'entry_region' => 'copying',
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -214,10 +212,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
                                   'entry_number' => 2,
                                   'entry_region' => 'copying',
                                   'in_code' => 0,
-                                  'index_at_command' => 'cindex',
                                   'index_ignore_chars' => {},
-                                  'index_name' => 'cp',
-                                  'index_type_command' => 'cindex'
+                                  'index_name' => 'cp'
                                 }
                               },
                               'info' => {
@@ -383,10 +379,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
                       'entry_number' => 3,
                       'entry_region' => 'titlepage',
                       'in_code' => 0,
-                      'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
+                      'index_name' => 'cp'
                     }
                   },
                   'info' => {
@@ -519,10 +513,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
                                   'entry_number' => 4,
                                   'entry_region' => 'titlepage',
                                   'in_code' => 0,
-                                  'index_at_command' => 'cindex',
                                   'index_ignore_chars' => {},
-                                  'index_name' => 'cp',
-                                  'index_type_command' => 'cindex'
+                                  'index_name' => 'cp'
                                 }
                               },
                               'info' => {
@@ -798,10 +790,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -1142,10 +1132,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
                           'entry_node' => {},
                           'entry_number' => 2,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -1438,10 +1426,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -1487,10 +1473,8 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
               'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {

@@ -1437,9 +1437,13 @@ sub process_printindex($$;$)
     # protected, however, as done below, such that : in the node are not
     # mistaken as being part of the index entry.
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
+      my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+      $entry_cmdname
+        = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+           if (!defined($entry_cmdname));
       $self->converter_line_warn ($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
-                $entry->{'index_at_command'},
+                $entry_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
                         $entry->{'entry_element'}->{'source_info'});
     }

@@ -148,10 +148,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -191,10 +189,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 2,
                           'in_code' => 1,
-                          'index_at_command' => 'itemx',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -258,10 +254,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 3,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'fn',
-                          'index_type_command' => 'ftable'
+                          'index_name' => 'fn'
                         }
                       },
                       'info' => {
@@ -401,10 +395,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -444,10 +436,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 2,
                           'in_code' => 1,
-                          'index_at_command' => 'itemx',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -511,10 +501,8 @@ $result_trees{'ftable_vtable'} = {
                           'entry_node' => {},
                           'entry_number' => 3,
                           'in_code' => 1,
-                          'index_at_command' => 'item',
                           'index_ignore_chars' => {},
-                          'index_name' => 'vr',
-                          'index_type_command' => 'vtable'
+                          'index_name' => 'vr'
                         }
                       },
                       'info' => {
@@ -612,10 +600,8 @@ $result_trees{'ftable_vtable'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {

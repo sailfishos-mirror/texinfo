@@ -270,10 +270,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -319,10 +317,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'vindex',
               'index_ignore_chars' => {},
-              'index_name' => 'vr',
-              'index_type_command' => 'vindex'
+              'index_name' => 'vr'
             }
           },
           'info' => {
@@ -368,10 +364,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -496,10 +490,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cdiindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cdi',
-              'index_type_command' => 'cdiindex'
+              'index_name' => 'cdi'
             }
           },
           'info' => {
@@ -624,10 +616,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'ddiindex',
               'index_ignore_chars' => {},
-              'index_name' => 'ddi',
-              'index_type_command' => 'ddiindex'
+              'index_name' => 'ddi'
             }
           },
           'info' => {

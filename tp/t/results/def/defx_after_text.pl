@@ -102,10 +102,8 @@ $result_trees{'defx_after_text'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -203,10 +201,8 @@ $result_trees{'defx_after_text'} = {
                   'entry_element' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'deffnx',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'not_after_command' => 1,
                 'original_def_cmdname' => 'deffnx'

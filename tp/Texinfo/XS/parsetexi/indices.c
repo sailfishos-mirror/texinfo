@@ -261,8 +261,7 @@ typedef struct {
 } INDEX_ENTRY_REF;
 
 
-/* INDEX_TYPE_COMMAND is used to determine which index to enter the entry in.
-   INDEX_AT_COMMAND is the Texinfo @-command defining the index entry.
+/* INDEX_TYPE_CMD is used to determine which index to enter the entry in.
    CONTENT is an element whose contents represent the text of the
    index entry.  CURRENT is the element in the main body of the manual that
    the index entry refers to.
@@ -270,15 +269,14 @@ typedef struct {
    CONTENT_NORMALIZED would be "the index entry content, independent
    of the current language." */
 void
-enter_index_entry (enum command_id index_type_command,
-                   enum command_id index_at_command,
+enter_index_entry (enum command_id index_type_cmd,
                    ELEMENT *current, ELEMENT *content)
 {
   INDEX *idx;
   INDEX_ENTRY *entry;
   KEY_PAIR *k;
 
-  idx = index_of_command (index_type_command);
+  idx = index_of_command (index_type_cmd);
   if (idx->index_number == idx->index_space)
     {
       idx->index_entries = realloc (idx->index_entries,
@@ -290,8 +288,6 @@ enter_index_entry (enum command_id index_type_command,
   memset (entry, 0, sizeof (INDEX_ENTRY));
 
   entry->index_name = idx->name;
-  entry->index_at_command = index_at_command;
-  entry->index_type_command = index_type_command;
   entry->index_prefix = idx->prefix;
   entry->content = content;
   entry->command = current;

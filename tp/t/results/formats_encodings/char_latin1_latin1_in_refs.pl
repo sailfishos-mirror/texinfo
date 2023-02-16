@@ -1067,10 +1067,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -1111,10 +1109,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -1155,10 +1151,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -1199,10 +1193,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -1243,10 +1235,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -1287,10 +1277,8 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'entry_node' => {},
               'entry_number' => 6,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {

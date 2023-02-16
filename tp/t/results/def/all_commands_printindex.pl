@@ -130,10 +130,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'defvr',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defvr'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defvr'
               },
@@ -273,10 +271,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -403,10 +399,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'deffn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
               },
@@ -560,10 +554,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefn'
               },
@@ -704,10 +696,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefn',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefn'
               },
@@ -883,10 +873,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 5,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypeop',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypeop'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
               },
@@ -1049,10 +1037,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 6,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypeop',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypeop'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
               },
@@ -1193,10 +1179,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypevr',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'deftypevr'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypevr'
               },
@@ -1337,10 +1321,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_at_command' => 'defcv',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defcv'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defcv'
               },
@@ -1494,10 +1476,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_at_command' => 'defcv',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defcv'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defcv'
               },
@@ -1660,10 +1640,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 5,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypecv',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'deftypecv'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
               },
@@ -1839,10 +1817,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 6,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypecv',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'deftypecv'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
               },
@@ -2004,10 +1980,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 7,
                   'in_code' => 1,
-                  'index_at_command' => 'defop',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defop'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defop'
               },
@@ -2156,10 +2130,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 8,
                   'in_code' => 1,
-                  'index_at_command' => 'defop',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defop'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defop'
               },
@@ -2299,10 +2271,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_at_command' => 'deftp',
                   'index_ignore_chars' => {},
-                  'index_name' => 'tp',
-                  'index_type_command' => 'deftp'
+                  'index_name' => 'tp'
                 },
                 'original_def_cmdname' => 'deftp'
               },
@@ -2447,10 +2417,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 9,
                   'in_code' => 1,
-                  'index_at_command' => 'defun',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defun'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defun'
               },
@@ -2595,10 +2563,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 10,
                   'in_code' => 1,
-                  'index_at_command' => 'defmac',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defmac'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defmac'
               },
@@ -2743,10 +2709,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 11,
                   'in_code' => 1,
-                  'index_at_command' => 'defspec',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defspec'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defspec'
               },
@@ -2878,10 +2842,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 7,
                   'in_code' => 1,
-                  'index_at_command' => 'defvar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defvar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defvar'
               },
@@ -3039,10 +3001,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 8,
                   'in_code' => 1,
-                  'index_at_command' => 'defvar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defvar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defvar'
               },
@@ -3174,10 +3134,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 9,
                   'in_code' => 1,
-                  'index_at_command' => 'defopt',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defopt'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defopt'
               },
@@ -3336,10 +3294,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 12,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefun',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefun'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefun'
               },
@@ -3485,10 +3441,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 10,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypevar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'deftypevar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypevar'
               },
@@ -3642,10 +3596,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 11,
                   'in_code' => 1,
-                  'index_at_command' => 'defivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'defivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defivar'
               },
@@ -3813,10 +3765,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 12,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypeivar',
                   'index_ignore_chars' => {},
-                  'index_name' => 'vr',
-                  'index_type_command' => 'deftypeivar'
+                  'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypeivar'
               },
@@ -3983,10 +3933,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 13,
                   'in_code' => 1,
-                  'index_at_command' => 'defmethod',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defmethod'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defmethod'
               },
@@ -4167,10 +4115,8 @@ $result_trees{'all_commands_printindex'} = {
                   'entry_node' => {},
                   'entry_number' => 14,
                   'in_code' => 1,
-                  'index_at_command' => 'deftypemethod',
                   'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypemethod'
+                  'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypemethod'
               },

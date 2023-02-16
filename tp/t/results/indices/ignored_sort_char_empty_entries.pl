@@ -165,12 +165,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {
                 '-' => 1
               },
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -211,12 +209,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {
                 '-' => 1
               },
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -257,12 +253,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {
                 '-' => 1
               },
-              'index_name' => 'fn',
-              'index_type_command' => 'findex'
+              'index_name' => 'fn'
             }
           },
           'info' => {
@@ -325,12 +319,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 1,
-              'index_at_command' => 'findex',
               'index_ignore_chars' => {
                 '-' => 1
               },
               'index_name' => 'fn',
-              'index_type_command' => 'findex',
               'sortas' => '--'
             },
             'sortas' => '--'

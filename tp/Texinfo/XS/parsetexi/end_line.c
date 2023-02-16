@@ -1907,7 +1907,6 @@ end_line_misc_line (ELEMENT *current)
               && (current->cmd == CM_item || current->cmd == CM_itemx))
             {
               enter_index_entry (current->parent->cmd,
-                                 current->cmd,
                                  current,
                                  current->args.list[0]);
             }
@@ -1920,7 +1919,7 @@ end_line_misc_line (ELEMENT *current)
           /* Index commands */
           if (command_flags(current) & CF_index_entry_command)
             {
-              enter_index_entry (current->cmd, current->cmd, current,
+              enter_index_entry (current->cmd, current,
                                  current->args.list[0]);
               current->type = ET_index_entry_command;
             }
@@ -2173,7 +2172,7 @@ end_line_def_line (ELEMENT *current)
                 add_to_contents_as_array (index_contents, index_entry);
             }
 
-          enter_index_entry (def_command, original_def_command,
+          enter_index_entry (def_command,
                              current, index_contents);
         }
       else

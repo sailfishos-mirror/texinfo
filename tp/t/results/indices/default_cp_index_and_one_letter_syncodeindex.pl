@@ -149,10 +149,8 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
@@ -193,10 +191,8 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 1,
-              'index_at_command' => 'cpindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cpindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {

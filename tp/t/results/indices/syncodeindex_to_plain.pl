@@ -150,10 +150,8 @@ $result_trees{'syncodeindex_to_plain'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'kindex',
               'index_ignore_chars' => {},
-              'index_name' => 'ky',
-              'index_type_command' => 'kindex'
+              'index_name' => 'ky'
             }
           },
           'info' => {
@@ -194,10 +192,8 @@ $result_trees{'syncodeindex_to_plain'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_at_command' => 'vindex',
               'index_ignore_chars' => {},
-              'index_name' => 'vr',
-              'index_type_command' => 'vindex'
+              'index_name' => 'vr'
             }
           },
           'info' => {
@@ -238,10 +234,8 @@ $result_trees{'syncodeindex_to_plain'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'index_type_command' => 'cindex'
+              'index_name' => 'cp'
             }
           },
           'info' => {
