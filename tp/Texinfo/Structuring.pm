@@ -1769,10 +1769,9 @@ sub _sort_index_entries($$)
     $res = ($key1->{'number'} <=> $key2->{'number'});
   }
   # This may happen if 2 indices are merged as the number is per
-  # index name.  The @-command should be different though, for
-  # index names to be different.
+  # index name.
   if ($res == 0) {
-    $res = ($key1->{'index_at_command'} cmp $key2->{'index_at_command'});
+    $res = ($key1->{'index_name'} cmp $key2->{'index_name'});
   }
   return $res;
 }
