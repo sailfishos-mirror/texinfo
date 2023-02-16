@@ -6892,7 +6892,7 @@ sub _convert_def_command($$$$$) {
   }
 }
 
-foreach my $command (keys(%def_commands)) {
+foreach my $command (keys(%def_commands), 'defblock') {
   $default_commands_conversion{$command} = \&_convert_def_command;
 }
 

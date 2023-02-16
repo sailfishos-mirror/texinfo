@@ -1968,7 +1968,8 @@ sub _close_command_cleanup($$) {
   }
 
   # put everything after the last @def*x command in a def_item type container.
-  if ($def_commands{$current->{'cmdname'}}) {
+  if ($def_commands{$current->{'cmdname'}}
+      or $current->{'cmdname'} eq 'defblock') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
     _gather_def_item($self, $current);
@@ -3821,7 +3822,8 @@ sub _end_line_def_line($$$)
         $current->{'extra'}->{'def_command'},
         $current->{'extra'}->{'original_def_cmdname'},
         $current, $index_contents,
-        $index_contents_normalized, $source_info);
+        $index_contents_normalized, $source_info)
+           if $current->{'extra'}->{'def_command'} ne 'defline';
     } else {
       $self->_command_warn($current, $source_info,
                            __('missing name for @%s'),
@@ -5887,7 +5889,8 @@ sub _process_remaining_on_line($$$$)
               push @{$current->{'contents'}}, $misc;
             }
             if (!$current->{'cmdname'}
-                 or $current->{'cmdname'} ne $base_command
+                 or ($current->{'cmdname'} ne $base_command
+                       and $current->{'cmdname'} ne 'defblock')
                  or $after_paragraph) {
               $self->_line_error(sprintf(__(
                                    "must be after `\@%s' to use `\@%s'"),

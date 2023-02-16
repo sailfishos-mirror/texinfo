@@ -219,7 +219,7 @@ my %indented_commands;
 foreach my $indented_command (keys(%item_indent_format_length),
            keys(%preformatted_commands), 'quotation', 'smallquotation',
            'indentedblock', 'smallindentedblock',
-           keys(%def_commands)) {
+           'defblock', keys(%def_commands)) {
   $indented_commands{$indented_command} = 1
     if exists($block_commands{$indented_command});
 }
@@ -2952,7 +2952,8 @@ sub _convert($$)
         # are not considered as index entries either so they have a specific
         # condition
         and !($def_commands{$command}
-              and $command =~ /x$/)) {
+              and ($command eq 'defline'
+                    or $command =~ /x$/))) {
       warn "Unhandled $command\n";
       $result .= "!!!!!!!!! Unhandled $command !!!!!!!!!\n";
     }
@@ -3020,7 +3021,8 @@ sub _convert($$)
 
         my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
 
-        if ($command eq 'deffn'
+        if ($command eq 'defline'
+            or $command eq 'deffn'
             or $command eq 'defvr'
             or $command eq 'deftp'
             or (($command eq 'deftypefn'

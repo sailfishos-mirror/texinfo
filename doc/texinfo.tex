@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-02-11.13}
+\def\texinfoversion{2023-02-16.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7595,6 +7595,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \doingtypefntrue
   \parseargusing\activeparens{\printdefunline\deflineheader}%
 }
+\let\defline\deflinex
+\let\deftypeline\deftypelinex
 
 % user-defined def commands
 % @newdef @COMMAND = CATEGORY INDEX
