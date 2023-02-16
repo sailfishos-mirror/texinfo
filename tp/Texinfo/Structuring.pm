@@ -1813,10 +1813,9 @@ sub _collator_sort_index_entries($$$)
     $res = ($key1->{'number'} <=> $key2->{'number'});
   }
   # This may happen if 2 indices are merged as the number is per
-  # index name.  The @-command should be different though, for
-  # index names to be different.
+  # index name.
   if ($res == 0) {
-    $res = ($key1->{'index_at_command'} cmp $key2->{'index_at_command'});
+    $res = ($key1->{'index_name'} cmp $key2->{'index_name'});
   }
   return $res;
 }
@@ -1996,7 +1995,7 @@ sub sort_indices($$$;$$)
         if ($sub_entry_key ne '') {
           my $sortable_entry = {'entry' => $entry, 'keys' => \@sort_entry_keys,
              'number' => $entry->{'entry_number'},
-             'index_at_command' => $entry->{'index_at_command'}};
+             'index_name' => $entry->{'index_name'}};
           if ($sort_by_letter) {
             push @{$index_letter_hash->{$letter}}, $sortable_entry;
           } else {
