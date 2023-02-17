@@ -956,8 +956,7 @@ $result_trees{'indices'} = {
               'index_ignore_chars' => {
                 '\\' => 1
               },
-              'index_name' => 'cp',
-              'sortas' => '\\cmd'
+              'index_name' => 'cp'
             },
             'sortas' => '\\cmd'
           },

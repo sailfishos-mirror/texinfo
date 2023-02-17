@@ -439,11 +439,12 @@ sub check_nodes_are_referenced
   # consider nodes in @*ref commands to be referenced
   if (defined($refs)) {
     foreach my $ref (@$refs) {
-      my $node_arg = $ref->{'extra'}->{'node_argument'};
-      if ($node_arg and $node_arg->{'node_content'}) {
+      if ($ref->{'extra'} and $ref->{'extra'}->{'node_argument'}
+          and $ref->{'extra'}->{'node_argument'}->{'node_content'}) {
         my $normalized =
            Texinfo::Convert::NodeNameNormalization::normalize_node(
-              {'contents' => $node_arg->{'node_content'} });
+              {'contents' =>
+                   $ref->{'extra'}->{'node_argument'}->{'node_content'} });
         my $node_target = $labels->{$normalized};
         if ($node_target) {
           $referenced_nodes{$node_target} = 1;
@@ -1937,22 +1938,27 @@ sub sort_indices($$$;$$)
     # used if $sort_by_letter
     my $index_letter_hash = {};
     foreach my $entry (@{$index_entries->{$index_name}}) {
+      my $main_entry_element = $entry->{'entry_element'};
+      my $main_entry_sortas;
+      $main_entry_sortas = $main_entry_element->{'extra'}->{'sortas'}
+         if ($main_entry_element->{'extra'});
       my ($entry_key, $sort_entry_key)
-              = index_entry_sort_string($entry,
+        = index_entry_sort_string($entry,
                               {'contents' => $entry->{'entry_content'}},
-                          $entry->{'sortas'}, $options, $entries_collator);
+                                  $main_entry_sortas,
+                                  $options, $entries_collator);
       my @entry_keys;
       my @sort_entry_keys;
       my $letter = '';
       if ($entry_key !~ /\S/) {
-        my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+        my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
-          = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+          = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
         $registrar->line_warn($customization_information,
                      sprintf(__("empty index key in \@%s"),
                                  $entry_cmdname),
-                        $entry->{'entry_element'}->{'source_info'});
+                        $main_entry_element->{'source_info'});
         push @entry_keys, '';
         push @sort_entry_keys, '';
       } else {
@@ -1974,7 +1980,7 @@ sub sort_indices($$$;$$)
         }
       }
       my $subentry_nr = 0;
-      my $subentry = $entry->{'entry_element'};
+      my $subentry = $main_entry_element;
       while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}) {
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
@@ -1983,15 +1989,15 @@ sub sort_indices($$$;$$)
                  {'contents' => $subentry->{'args'}->[0]->{'contents'}},
               $subentry->{'extra'}->{'sortas'}, $options, $entries_collator);
         if ($subentry_key !~ /\S/) {
-          my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+          my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
-            = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+            = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
           $registrar->line_warn($customization_information,
                      sprintf(__("empty index sub entry %d key in \@%s"),
                                  $subentry_nr,
                                  $entry_cmdname),
-                        $entry->{'entry_element'}->{'source_info'});
+                        $main_entry_element->{'source_info'});
           push @entry_keys, '';
           push @sort_entry_keys, '';
         } else {

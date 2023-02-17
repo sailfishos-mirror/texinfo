@@ -259,8 +259,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_number' => 1,
               'in_code' => 0,
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'sortas' => 'A---S'
+              'index_name' => 'cp'
             },
             'seealso' => {},
             'seeentry' => {},
@@ -333,8 +332,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_number' => 2,
               'in_code' => 0,
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'sortas' => 'BB'
+              'index_name' => 'cp'
             },
             'sortas' => 'BB'
           },

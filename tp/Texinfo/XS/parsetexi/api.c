@@ -934,8 +934,6 @@ build_single_index_data (INDEX *i)
 
       if (e->node)
         STORE2("entry_node", newRV_inc ((SV *)e->node->hv));
-      if (e->sortas)
-        STORE2("sortas", newSVpv_utf8 (e->sortas, 0));
 
       /* Create ignored_chars hash. */
       {

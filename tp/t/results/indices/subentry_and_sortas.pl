@@ -202,8 +202,7 @@ $result_trees{'subentry_and_sortas'} = {
               'entry_number' => 1,
               'in_code' => 0,
               'index_ignore_chars' => {},
-              'index_name' => 'cp',
-              'sortas' => 'A---S'
+              'index_name' => 'cp'
             },
             'sortas' => 'A---S',
             'subentry' => {
@@ -328,8 +327,7 @@ $result_trees{'subentry_and_sortas'} = {
               'entry_number' => 1,
               'in_code' => 1,
               'index_ignore_chars' => {},
-              'index_name' => 'fn',
-              'sortas' => 'X---S'
+              'index_name' => 'fn'
             },
             'sortas' => 'X---S',
             'subentry' => {

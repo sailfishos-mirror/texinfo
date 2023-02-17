@@ -322,8 +322,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'index_ignore_chars' => {
                 '-' => 1
               },
-              'index_name' => 'fn',
-              'sortas' => '--'
+              'index_name' => 'fn'
             },
             'sortas' => '--'
           },

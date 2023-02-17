@@ -120,7 +120,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 5,
@@ -155,7 +154,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 6,

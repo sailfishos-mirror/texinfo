@@ -351,8 +351,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'entry_number' => 1,
                   'in_code' => 0,
                   'index_ignore_chars' => {},
-                  'index_name' => 'cp',
-                  'sortas' => ' text'
+                  'index_name' => 'cp'
                 },
                 'sortas' => ' text'
               },
@@ -673,8 +672,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'entry_number' => 2,
                   'in_code' => 0,
                   'index_ignore_chars' => {},
-                  'index_name' => 'cp',
-                  'sortas' => ' text'
+                  'index_name' => 'cp'
                 },
                 'sortas' => ' text'
               },

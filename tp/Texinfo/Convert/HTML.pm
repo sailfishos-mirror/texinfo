@@ -5558,6 +5558,7 @@ sub _convert_printindex_command($$$$)
     my $normalized_entry_levels = [];
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
       $entry_nr++;
+      my $main_entry_element = $index_entry_ref->{'entry_element'};
       next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
                and defined($index_entry_ref->{'entry_node'})
                and $index_entry_ref->{'entry_node'}->{'extra'}
@@ -5577,17 +5578,15 @@ sub _convert_printindex_command($$$$)
       $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
 
       # index entry with @seeentry or @seealso
-      if ($index_entry_ref->{'entry_element'}->{'extra'}
-            and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
-              or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'})) {
+      if ($main_entry_element->{'extra'}
+            and ($main_entry_element->{'extra'}->{'seeentry'}
+              or $main_entry_element->{'extra'}->{'seealso'})) {
         my $referred_entry;
         my $seenentry = 1;
-        if ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}) {
-          $referred_entry
-             = $index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'};
+        if ($main_entry_element->{'extra'}->{'seeentry'}) {
+          $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
         } else {
-          $referred_entry
-             = $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'};
+          $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
           $seenentry = 0;
         }
         my @referred_contents;

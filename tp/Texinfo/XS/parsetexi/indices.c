@@ -263,14 +263,14 @@ typedef struct {
 
 /* INDEX_TYPE_CMD is used to determine which index to enter the entry in.
    CONTENT is an element whose contents represent the text of the
-   index entry.  CURRENT is the element in the main body of the manual that
-   the index entry refers to.
+   index entry.  ELEMENT is the element in the main body of the manual that
+   the index entry refers/belongs to.
 
    CONTENT_NORMALIZED would be "the index entry content, independent
    of the current language." */
 void
 enter_index_entry (enum command_id index_type_cmd,
-                   ELEMENT *current, ELEMENT *content)
+                   ELEMENT *element, ELEMENT *content)
 {
   INDEX *idx;
   INDEX_ENTRY *entry;
@@ -290,13 +290,9 @@ enter_index_entry (enum command_id index_type_cmd,
   entry->index_name = idx->name;
   entry->index_prefix = idx->prefix;
   entry->content = content;
-  entry->command = current;
+  entry->command = element;
   entry->number = idx->index_number;
   entry->ignored_chars = global_info.ignored_chars;
-
-  k = lookup_extra (current, "sortas");
-  if (k)
-    entry->sortas = (char *) k->value;
 
   if (nesting_context.regions_stack.top > 0)
     entry->region = top_command (&nesting_context.regions_stack);

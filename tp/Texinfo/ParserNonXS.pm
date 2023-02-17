@@ -3310,7 +3310,7 @@ sub _register_label($$$)
 #  arguments, based on the definition line arguments.
 sub _enter_index_entry($$$$$$)
 {
-  my ($self, $command_container, $current, $content,
+  my ($self, $command_container, $element, $content,
       $content_normalized, $source_info) = @_;
 
   $content_normalized = $content if (!defined($content_normalized));
@@ -3327,7 +3327,7 @@ sub _enter_index_entry($$$$$$)
   my $index_entry = { 'index_name'           => $index_name,
                       'entry_content'        => $content,
                       'content_normalized'   => $content_normalized,
-                      'entry_element'        => $current,
+                      'entry_element'        => $element,
                       'entry_number'         => $number,
                       'index_ignore_chars'   => {},
                     };
@@ -3338,11 +3338,9 @@ sub _enter_index_entry($$$$$$)
       $index_entry->{'index_ignore_chars'}->{$ignored_char} = 1;
     }
   }
-  if (defined($current->{'extra'}) and defined($current->{'extra'}->{'sortas'})) {
-    $index_entry->{'sortas'} = $current->{'extra'}->{'sortas'};
-  }
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
-    $index_entry->{'entry_region'} = $self->{'nesting_context'}->{'regions_stack'}->[-1];
+    $index_entry->{'entry_region'}
+      = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
     $index_entry->{'entry_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
@@ -3352,8 +3350,8 @@ sub _enter_index_entry($$$$$$)
 
   push @{$index->{'index_entries'}}, $index_entry;
 
-  $current->{'extra'} = {} if (!defined($current->{'extra'}));
-  $current->{'extra'}->{'index_entry'} = $index_entry;
+  $element->{'extra'} = {} if (!defined($element->{'extra'}));
+  $element->{'extra'}->{'index_entry'} = $index_entry;
 }
 
 sub _in_include($)
