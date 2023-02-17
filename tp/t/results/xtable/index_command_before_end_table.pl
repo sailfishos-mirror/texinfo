@@ -140,8 +140,6 @@ $result_trees{'index_command_before_end_table'} = {
                       'cmdname' => 'vindex',
                       'extra' => {
                         'index_entry' => {
-                          'content_normalized' => [],
-                          'entry_content' => [],
                           'entry_element' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
@@ -220,8 +218,6 @@ $result_trees{'index_command_before_end_table'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 

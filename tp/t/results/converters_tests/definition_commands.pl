@@ -227,17 +227,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 1,
@@ -453,17 +448,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 2,
@@ -709,17 +699,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 3,
@@ -991,17 +976,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 4,
@@ -1201,17 +1181,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 5,
@@ -1416,17 +1391,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 6,
@@ -1631,17 +1601,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 7,
@@ -1846,17 +1811,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 8,
@@ -2061,17 +2021,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 9,
@@ -2321,17 +2276,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 10,
@@ -2581,17 +2531,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 11,
@@ -2841,17 +2786,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 12,
@@ -3101,17 +3041,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 13,
@@ -3361,17 +3296,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 14,
@@ -3621,17 +3551,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 15,
@@ -3881,17 +3806,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 16,
@@ -4141,17 +4061,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 17,
@@ -4401,17 +4316,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 18,
@@ -4565,17 +4475,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 19,
@@ -4674,17 +4579,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 20,
@@ -4788,17 +4688,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 21,
@@ -4902,17 +4797,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 22,
@@ -5016,17 +4906,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 23,
@@ -5130,17 +5015,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 24,
@@ -5259,17 +5139,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 25,
@@ -5388,17 +5263,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 26,
@@ -5517,17 +5387,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 27,
@@ -5646,17 +5511,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 28,
@@ -5775,17 +5635,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 29,
@@ -5904,17 +5759,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 30,
@@ -6033,17 +5883,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 31,
@@ -6162,17 +6007,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 32,
@@ -6291,17 +6131,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 33,
@@ -6496,17 +6331,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 34,
@@ -6646,17 +6476,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 35,
@@ -6801,17 +6626,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 36,
@@ -7046,17 +6866,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 37,
@@ -7129,17 +6944,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 38,
@@ -8329,17 +8139,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 39,
@@ -8674,17 +8479,12 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 40,
@@ -8933,18 +8733,13 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 41,
@@ -9273,18 +9068,13 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 42,
@@ -9504,18 +9294,13 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'class' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 1,
@@ -9697,6 +9482,25 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypecv',
+                'def_index_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' of '
+                    },
+                    {}
+                  ],
+                  'type' => 'root_line'
+                },
+                'def_index_ref_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' of '
+                    },
+                    {}
+                  ]
+                },
                 'def_parsed_hash' => {
                   'category' => {},
                   'class' => {},
@@ -9704,20 +9508,6 @@ $result_trees{'definition_commands'} = {
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {},
-                    {
-                      'text' => ' of '
-                    },
-                    {}
-                  ],
-                  'entry_content' => [
-                    {},
-                    {
-                      'text' => ' of '
-                    },
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 2,
@@ -9988,18 +9778,13 @@ $result_trees{'definition_commands'} = {
                   ],
                   'extra' => {
                     'def_command' => 'deftypefn',
+                    'def_index_element' => {},
                     'def_parsed_hash' => {
                       'category' => {},
                       'name' => {},
                       'type' => {}
                     },
                     'index_entry' => {
-                      'content_normalized' => [
-                        {}
-                      ],
-                      'entry_content' => [
-                        {}
-                      ],
                       'entry_element' => {},
                       'entry_node' => {},
                       'entry_number' => 43,
@@ -10255,17 +10040,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 44,
@@ -10517,17 +10297,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 45,
@@ -11000,17 +10775,12 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 46,
@@ -11281,18 +11051,13 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 47,
@@ -11526,18 +11291,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 48,
@@ -11776,18 +11536,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 49,
@@ -12026,18 +11781,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 50,
@@ -12276,18 +12026,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 51,
@@ -12526,18 +12271,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 52,
@@ -12806,18 +12546,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 53,
@@ -13086,18 +12821,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 54,
@@ -13366,18 +13096,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 55,
@@ -13646,18 +13371,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 56,
@@ -13926,18 +13646,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 57,
@@ -14206,18 +13921,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 58,
@@ -14486,18 +14196,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 59,
@@ -14766,18 +14471,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 60,
@@ -15046,18 +14746,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 61,
@@ -15333,18 +15028,13 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 62,
@@ -15565,18 +15255,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 63,
@@ -15802,18 +15487,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 64,
@@ -16039,18 +15719,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 65,
@@ -16276,18 +15951,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 66,
@@ -16513,18 +16183,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 67,
@@ -16765,18 +16430,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 68,
@@ -17017,18 +16677,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 69,
@@ -17269,18 +16924,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 70,
@@ -17521,18 +17171,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 71,
@@ -17773,18 +17418,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 72,
@@ -18025,18 +17665,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 73,
@@ -18277,18 +17912,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 74,
@@ -18529,18 +18159,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 75,
@@ -18781,18 +18406,13 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
+                'def_index_element' => {},
                 'def_parsed_hash' => {
                   'category' => {},
                   'name' => {},
                   'type' => {}
                 },
                 'index_entry' => {
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'entry_content' => [
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 76,
@@ -18897,510 +18517,433 @@ $result_trees{'definition_commands'}{'contents'}[1]{'extra'}{'node_content'}[0] 
 $result_trees{'definition_commands'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'definition_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'definition_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'definition_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[6];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[6];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[6];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[2];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'definition_commands'}{'contents'}[3];
 

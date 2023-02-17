@@ -326,7 +326,7 @@ sub _reassociate_to_node($$$$)
              or $current->{'extra'}->{'index_entry'}->{'entry_node'} ne $previous_node)) {
       print STDERR "Bug: index entry $current (".
         Texinfo::Convert::Texinfo::convert_to_texinfo(
-            {'contents' => $current->{'extra'}->{'index_entry'}->{'entry_content'}})
+           Texinfo::Common::index_content_element($current))
          .") not in previous node $previous_node\n";
       print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";

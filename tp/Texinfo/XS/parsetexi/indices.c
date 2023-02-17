@@ -129,15 +129,6 @@ add_index (char *name, int in_code)
 static void
 wipe_index (INDEX *idx)
 {
-  int i;
-  INDEX_ENTRY *ie;
-  for (i = 0; i < idx->index_number; i++)
-    {
-      ie = &idx->index_entries[i];
-      /* Destroy element if it is not in the main tree */
-      if (ie->content && !ie->content->parent)
-        destroy_element (ie->content);
-    }
   free (idx->name);
   free (idx->index_entries);
 }
@@ -270,7 +261,7 @@ typedef struct {
    of the current language." */
 void
 enter_index_entry (enum command_id index_type_cmd,
-                   ELEMENT *element, ELEMENT *content)
+                   ELEMENT *element)
 {
   INDEX *idx;
   INDEX_ENTRY *entry;
@@ -289,7 +280,6 @@ enter_index_entry (enum command_id index_type_cmd,
 
   entry->index_name = idx->name;
   entry->index_prefix = idx->prefix;
-  entry->content = content;
   entry->command = element;
   entry->number = idx->index_number;
   entry->ignored_chars = global_info.ignored_chars;
@@ -300,18 +290,6 @@ enter_index_entry (enum command_id index_type_cmd,
     entry->node = current_node;
 
   entry->number = idx->index_number;
-
-#if 0
-  /* This reference is not used in api.c when the Perl tree is output. */
-  {
-  INDEX_ENTRY_REF *ier;
-  ier = malloc (sizeof (INDEX_ENTRY_REF));
-  ier->index = idx;
-  ier->entry = idx->index_number - 1;
-
-  add_extra_index_entry (current, "index_entry", ier);
-  }
-#endif
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)

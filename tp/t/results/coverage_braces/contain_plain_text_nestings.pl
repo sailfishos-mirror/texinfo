@@ -344,8 +344,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => {
-                  'content_normalized' => [],
-                  'entry_content' => [],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 1,
@@ -665,8 +663,6 @@ $result_trees{'contain_plain_text_nestings'} = {
               'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => {
-                  'content_normalized' => [],
-                  'entry_content' => [],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 2,
@@ -750,8 +746,6 @@ $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'extra'}{'node_conte
 $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'args'}[0]{'contents'};
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'extra'}{'label'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[1];
@@ -762,8 +756,6 @@ $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'cont
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'label'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[1];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'};
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 

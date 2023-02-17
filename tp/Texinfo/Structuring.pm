@@ -1944,7 +1944,7 @@ sub sort_indices($$$;$$)
          if ($main_entry_element->{'extra'});
       my ($entry_key, $sort_entry_key)
         = index_entry_sort_string($entry,
-                              {'contents' => $entry->{'entry_content'}},
+                   Texinfo::Common::index_content_element($main_entry_element),
                                   $main_entry_sortas,
                                   $options, $entries_collator);
       my @entry_keys;

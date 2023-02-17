@@ -250,14 +250,16 @@ sub chm_init($)
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
+        my $main_entry_element = $index_entry_ref->{'entry_element'};
         # do not register index entries that do not point to the document
-        next if ($index_entry_ref->{'entry_element'}->{'extra'}
-                 and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
-                      or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
-        my $origin_href
-            = $self->command_href($index_entry_ref->{'entry_element'}, '');
+        next if ($main_entry_element->{'extra'}
+                 and ($main_entry_element->{'extra'}->{'seeentry'}
+                      or $main_entry_element->{'extra'}->{'seealso'}));
+        my $origin_href = $self->command_href($main_entry_element, '');
+        my $entry_content_element
+              = Texinfo::Common::index_content_element($main_entry_element);
         my $entry = _chm_convert_tree_to_text($self,
-                         {'contents' => $index_entry_ref->{'entry_content'}},
+                         {'contents' => [$entry_content_element]},
                          {'code' => $index_entry_ref->{'in_code'}});
         print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n"
                       ."<param name=\"Name\" value=\"$entry\">\n"

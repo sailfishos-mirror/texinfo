@@ -1410,9 +1410,13 @@ sub process_printindex($$;$)
 
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     next if ($ignored_entries{$entry});
-    my $entry_tree = {'contents' => $entry->{'entry_content'}};
+
+    my $main_entry_element = $entry->{'entry_element'};
+    my $entry_content_element
+        = Texinfo::Common::index_content_element($main_entry_element);
+    my $entry_tree = {'contents' => [$entry_content_element]};
     my $subentries_tree
-       = $self->comma_index_subentries_tree($entry->{'entry_element'});
+       = $self->comma_index_subentries_tree($main_entry_element);
     if ($entry->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
       $subentries_tree->{'type'} = '_code'
@@ -1437,15 +1441,15 @@ sub process_printindex($$;$)
     # protected, however, as done below, such that : in the node are not
     # mistaken as being part of the index entry.
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
-      my $entry_cmdname = $entry->{'entry_element'}->{'cmdname'};
+      my $entry_cmdname = $main_entry_element->{'cmdname'};
       $entry_cmdname
-        = $entry->{'entry_element'}->{'extra'}->{'original_def_cmdname'}
+        = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
       $self->converter_line_warn ($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
-                        $entry->{'entry_element'}->{'source_info'});
+                        $main_entry_element->{'source_info'});
     }
 
     my $entry_nr = '';

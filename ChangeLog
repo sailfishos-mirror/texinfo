@@ -1,5 +1,42 @@
 2023-02-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (index_content_element),
+	tp/Texinfo/Convert/DocBook.pm (_index_entry),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries, output_internal_links),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin), tp/Texinfo/Convert/LaTeX.pm
+	(_index_entry), tp/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_index_entry),
+	tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tp/Texinfo/Structuring.pm (sort_indices),
+	tp/Texinfo/Transformations.pm (_reassociate_to_node),
+	tp/Texinfo/Translations.pm (complete_indices),
+	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line),
+	tp/Texinfo/XS/parsetexi/indices.c (wipe_index, enter_index_entry),
+	tp/init/chm.pm (chm_init): remove 'content_normalized' and
+	'entry_content' from index entry.  Instead, add 'def_index_element'
+	and 'def_index_ref_element' to extra of definition lines, and use
+	Texinfo::Common::index_content_element to find, in the tree, the
+	element corresponding to the content of the index entry associated
+	to the 'entry_element' entry element.
+
+	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries): use 'entry_associated_element' to
+	re-associate index entry command to table entry, and not
+	'entry_element' as it holds informations important for the index
+	entry. It is not ideal, as it adds an undocumented key to the index
+	entry.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): restrict elements
+	trigerring pending_prepend text addition more than with
+	Texinfo::Common::element_is_inline, allow only paragraph and
+	preformatted, as containers like line_args are inline, but we do not
+	want to have text prepended there.
+
+2023-02-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
 	tp/Texinfo/Structuring.pm (sort_indices),
 	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),

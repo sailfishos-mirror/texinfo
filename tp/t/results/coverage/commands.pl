@@ -316,8 +316,6 @@ $result_trees{'commands'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
@@ -395,8 +393,6 @@ $result_trees{'commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'commands'}{'contents'}[0]{'contents'}[4];
 
 $result_texis{'commands'} = '@@ @TeX{} @

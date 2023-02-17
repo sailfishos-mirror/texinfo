@@ -700,7 +700,9 @@ sub output_ixin($$)
         } else {
           $associated_node_id = -1;
         }
-        my $entry = $self->convert_tree({'contents' => $dts_entry->{'entry_content'}});
+        my $entry_content_element
+          = Texinfo::Common::index_content_element($dts_entry->{'entry_element'});
+        my $entry = $self->convert_tree($entry_content_element);
         $dts_text_result .= $self->ixin_open_element('dtsentry',
                                                 [['nodeid', $associated_node_id]]);
         $dts_text_result .= $self->ixin_open_element('dtsterm');

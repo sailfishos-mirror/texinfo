@@ -150,8 +150,6 @@ $result_trees{'w_lines_count'} = {
           'cmdname' => 'findex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
@@ -269,8 +267,6 @@ $result_trees{'w_lines_count'} = {
 };
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3];
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'w_lines_count'}{'contents'}[1];
 

@@ -69,8 +69,6 @@ $result_trees{'unknown_then_known_index_entry'} = {
               'cmdname' => 'someindex',
               'extra' => {
                 'index_entry' => {
-                  'content_normalized' => [],
-                  'entry_content' => [],
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 0,
@@ -99,8 +97,6 @@ $result_trees{'unknown_then_known_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.

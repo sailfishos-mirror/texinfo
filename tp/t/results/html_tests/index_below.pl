@@ -143,8 +143,6 @@ $result_trees{'index_below'} = [
             'cmdname' => 'cindex',
             'extra' => {
               'index_entry' => {
-                'content_normalized' => [],
-                'entry_content' => [],
                 'entry_element' => {},
                 'entry_number' => 1,
                 'in_code' => 0,
@@ -219,8 +217,6 @@ $result_trees{'index_below'} = [
 ];
 $result_trees{'index_below'}[0]{'extra'}{'unit_command'} = $result_trees{'index_below'}[0]{'contents'}[1];
 $result_trees{'index_below'}[1]{'extra'}{'unit_command'} = $result_trees{'index_below'}[1]{'contents'}[0];
-$result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[1];
 $result_trees{'index_below'}[2]{'extra'}{'unit_command'} = $result_trees{'index_below'}[2]{'contents'}[0];
 

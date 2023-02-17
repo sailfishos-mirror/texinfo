@@ -896,41 +896,6 @@ build_single_index_data (INDEX *i)
           STORE2("entry_region",
                  newSVpv (command_name(e->region), 0));
         }
-      if (e->content)
-        {
-          SV **contents_array;
-          if (!e->content->hv)
-            {
-              if (e->content->parent)
-                fatal ("index element should not be in-tree");
-              element_to_perl_hash (e->content);
-            }
-          contents_array = hv_fetch (e->content->hv,
-                                    "contents", strlen ("contents"), 0);
-
-          if (!contents_array)
-            {
-              element_to_perl_hash (e->content);
-              contents_array = hv_fetch (e->content->hv,
-                                         "contents", strlen ("contents"), 0);
-            }
-
-          if (contents_array)
-            {
-              /* Copy the reference to the array. */
-              STORE2("entry_content", newRV_inc ((SV *)(AV *)SvRV(*contents_array)));
-
-              STORE2("content_normalized",
-                     newRV_inc ((SV *)(AV *)SvRV(*contents_array)));
-            }
-          else
-            {
-              STORE2("entry_content", newRV_inc ((SV *)newAV ()));
-              STORE2("content_normalized", newRV_inc ((SV *)newAV ()));
-            }
-        }
-      else
-        ; /* will be set in Texinfo::Common::complete_indices */
 
       if (e->node)
         STORE2("entry_node", newRV_inc ((SV *)e->node->hv));

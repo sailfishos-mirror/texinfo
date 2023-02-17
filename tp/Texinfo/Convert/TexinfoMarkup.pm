@@ -389,7 +389,7 @@ sub _index_entry($$)
     push @{$self->{'document_context'}}, {'monospace' => [0]};
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_entry->{'in_code'});
-    $result .= $self->_convert({'contents' => $index_entry->{'entry_content'}});
+    $result .= $self->_convert(Texinfo::Common::index_content_element($element));
     pop @{$self->{'document_context'}};
     $result .= $self->txi_markup_close_element('indexterm');
     return $result;

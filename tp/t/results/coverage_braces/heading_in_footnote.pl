@@ -76,8 +76,6 @@ $result_trees{'heading_in_footnote'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'index_entry' => {
-                          'content_normalized' => [],
-                          'entry_content' => [],
                           'entry_element' => {},
                           'entry_number' => 1,
                           'in_code' => 0,
@@ -136,8 +134,6 @@ $result_trees{'heading_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'heading_in_footnote'} = 'T@footnote{

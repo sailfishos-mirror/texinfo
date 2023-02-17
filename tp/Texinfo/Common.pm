@@ -1564,6 +1564,23 @@ sub count_bytes($$;$)
   }
 }
 
+# if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
+sub index_content_element($;$)
+{
+  my $element = shift;
+  my $prefer_reference_element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'def_command'}) {
+    if ($prefer_reference_element
+        and $element->{'extra'}->{'def_index_ref_element'}) {
+      return $element->{'extra'}->{'def_index_ref_element'};
+    } else {
+      return $element->{'extra'}->{'def_index_element'};
+    }
+  } else {
+    return $element->{'args'}->[0];
+  }
+}
+
 # custom heading command line is split at @|
 sub split_custom_heading_command_contents($)
 {
@@ -2227,7 +2244,10 @@ sub _relate_index_entries_to_table_items_in($)
     }
 
     next unless $item and $index;
-    $index->{'entry_element'} = $item;
+    # FIXME it is not ideal, as it adds an undocumented key to the index entry.
+    # It is better than to reset 'entry_element', as the 'entry_element' holds
+    # informations important for the index entry.
+    $index->{'entry_associated_element'} = $item;
   }
 }
 
@@ -2621,6 +2641,15 @@ X<C<find_parent_root_command>>
 Find the parent root command (sectioning command or node) of a tree element.
 The I<$object> argument is optional, its C<global_commands> field is used
 to continue through C<@insertcopying> if in a C<@copying>.
+
+=item $entry_content_element = index_content_element($element, $prefer_reference_element)
+
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to I<$element>.  If I<$prefer_reference_element> is set,
+prefer an untranslated element.  If the element is an index command like
+C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
+of the command.  If the element is a definition line, the index entry
+element is based on the name and class.
 
 =item $result = is_content_empty($tree, $do_not_ignore_index_entries)
 X<C<is_content_empty>>

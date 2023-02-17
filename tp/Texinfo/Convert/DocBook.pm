@@ -581,9 +581,8 @@ sub _index_entry($$)
     $self->_new_document_context();
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_entry->{'in_code'});
-
     $result .= "<primary>";
-    $result .= $self->_convert({'contents' => $index_entry->{'entry_content'}});
+    $result .= $self->_convert(Texinfo::Common::index_content_element($element));
     $result .= "</primary>";
 
     # Add any index subentries.
@@ -1668,7 +1667,11 @@ sub _convert($$;$)
       cluck "contents not an array($element->{'contents'}).";
     }
     if (defined($self->{'pending_prepend'})
-        and Texinfo::Common::element_is_inline($element, 1)) {
+        # not restricted enough, includes line_args, for instance
+        #and Texinfo::Common::element_is_inline($element, 1)) {
+        and $element->{'type'}
+        and ($element->{'type'} eq 'paragraph'
+             or $element->{'type'} eq 'preformatted')) {
       $result .= $self->{'pending_prepend'};
       delete $self->{'pending_prepend'};
     }

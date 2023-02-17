@@ -29,8 +29,6 @@ $result_trees{'index_entries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
@@ -114,8 +112,6 @@ $result_trees{'index_entries'} = {
           'cmdname' => 'trucindex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
@@ -141,11 +137,7 @@ $result_trees{'index_entries'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entries'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'index_entries'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'index_entries'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[0];
-$result_trees{'index_entries'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'};
-$result_trees{'index_entries'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'index_entries'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries'}{'contents'}[0]{'contents'}[4];
 
 $result_texis{'index_entries'} = '@cindex cindex entry

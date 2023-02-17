@@ -39,8 +39,6 @@ $result_trees{'raw_block_on_line'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
@@ -66,8 +64,6 @@ $result_trees{'raw_block_on_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0];
 
 $result_texis{'raw_block_on_line'} = '@cindex @tex

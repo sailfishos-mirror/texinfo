@@ -2429,7 +2429,7 @@ sub _index_entry($$)
     if (exists($element->{'extra'}->{'sortas'})) {
       $current_sortas = $element->{'extra'}->{'sortas'};
     }
-    my $subentries = [[{'contents' => $entry->{'content_normalized'}},
+    my $subentries = [[Texinfo::Common::index_content_element($element, 1),
                          $current_sortas]];
     while ($current_entry->{'extra'}
       and $current_entry->{'extra'}->{'subentry'}) {

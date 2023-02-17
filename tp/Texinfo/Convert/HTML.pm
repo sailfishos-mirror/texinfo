@@ -5574,7 +5574,10 @@ sub _convert_printindex_command($$$$)
         $formatted_index_entries->{$index_entry_ref}++;
       }
 
-      my $entry_ref_tree = {'contents' => $index_entry_ref->{'entry_content'}};
+      my $entry_content_element
+          = Texinfo::Common::index_content_element($main_entry_element);
+
+      my $entry_ref_tree = {'contents' => [$entry_content_element]};
       $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
 
       # index entry with @seeentry or @seealso
@@ -5771,7 +5774,10 @@ sub _convert_printindex_command($$$$)
 
       $normalized_entry_levels = [@new_normalized_entry_levels];
       $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
-      my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
+      my $target_element = $index_entry_ref->{'entry_element'};
+      $target_element = $index_entry_ref->{'entry_associated_element'}
+         if ($index_entry_ref->{'entry_associated_element'});
+      my $entry_href = $self->command_href($target_element);
       my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
       my @td_entry_classes = ("$cmdname-index-entry");
       # subentry
@@ -5784,13 +5790,12 @@ sub _convert_printindex_command($$$$)
         $associated_command = $index_entry_ref->{'entry_node'};
         if (!defined($associated_command)) {
           $associated_command
-            = $self->command_node($index_entry_ref->{'entry_element'});
+            = $self->command_node($target_element);
         }
       }
       if (!$associated_command) {
         $associated_command
-          = $self->command_root_element_command(
-                                 $index_entry_ref->{'entry_element'});
+          = $self->command_root_element_command($target_element);
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
@@ -9225,16 +9230,19 @@ sub _prepare_index_entries($)
 
     foreach my $index_name (sort(keys(%$index_names))) {
       foreach my $index_entry (@{$index_names->{$index_name}->{'index_entries'}}) {
+        my $main_entry_element = $index_entry->{'entry_element'};
         # does not refer to the document
-        next if ($index_entry->{'entry_element'}->{'extra'}
-                 and ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}
-                      or $index_entry->{'entry_element'}->{'extra'}->{'seealso'}));
+        next if ($main_entry_element->{'extra'}
+                 and ($main_entry_element->{'extra'}->{'seeentry'}
+                      or $main_entry_element->{'extra'}->{'seealso'}));
         my $region = '';
         $region = "$index_entry->{'entry_region'}-"
           if (defined($index_entry->{'entry_region'}));
-        my @contents = @{$index_entry->{'content_normalized'}};
+        my $entry_reference_content_element
+          = Texinfo::Common::index_content_element($main_entry_element, 1);
+        my @contents = ($entry_reference_content_element);
         my $subentries_tree
-         = $self->comma_index_subentries_tree($index_entry->{'entry_element'},
+         = $self->comma_index_subentries_tree($main_entry_element,
                                               ' ');
         if (defined($subentries_tree)) {
           push @contents, @{$subentries_tree->{'contents'}};
@@ -9254,8 +9262,10 @@ sub _prepare_index_entries($)
           die if ($nr == 0);
         }
         $self->{'seen_ids'}->{$target} = 1;
-        $self->{'targets'}->{$index_entry->{'entry_element'}}
-                                              = {'target' => $target, };
+        my $target_element = $main_entry_element;
+        $target_element = $index_entry->{'entry_associated_element'}
+          if ($index_entry->{'entry_associated_element'});
+        $self->{'targets'}->{$target_element} = {'target' => $target, };
       }
     }
   }
@@ -10516,18 +10526,21 @@ sub output_internal_links($)
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
+          my $main_entry_element = $index_entry->{'entry_element'};
           # does not refer to the document
-          next if ($index_entry->{'entry_element'}->{'extra'}
-                   and ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}
-                        or $index_entry->{'entry_element'}->{'extra'}->{'seealso'}));
+          next if ($main_entry_element->{'extra'}
+                   and ($main_entry_element->{'extra'}->{'seeentry'}
+                        or $main_entry_element->{'extra'}->{'seealso'}));
           my $href;
-          $href = $self->command_href($index_entry->{'entry_element'}, '');
+          $href = $self->command_href($main_entry_element, '');
           # Obtain term by converting to text
           my $converter_options = {%options};
           $converter_options->{'code'} = $index_entry->{'in_code'};
-          my @contents = @{$index_entry->{'entry_content'}};
+          my $entry_reference_content_element
+            = Texinfo::Common::index_content_element($main_entry_element);
+          my @contents = ($entry_reference_content_element);
           my $subentries_tree
-            = $self->comma_index_subentries_tree($index_entry->{'entry_element'});
+            = $self->comma_index_subentries_tree($main_entry_element);
           if (defined($subentries_tree)) {
             push @contents, @{$subentries_tree->{'contents'}};
           }

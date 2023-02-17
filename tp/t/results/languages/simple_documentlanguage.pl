@@ -194,6 +194,25 @@ $result_trees{'simple_documentlanguage'} = {
               ],
               'extra' => {
                 'def_command' => 'defivar',
+                'def_index_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' de '
+                    },
+                    {}
+                  ],
+                  'type' => 'root_line'
+                },
+                'def_index_ref_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' of '
+                    },
+                    {}
+                  ]
+                },
                 'def_parsed_hash' => {
                   'category' => {},
                   'class' => {},
@@ -201,20 +220,6 @@ $result_trees{'simple_documentlanguage'} = {
                 },
                 'documentlanguage' => 'fr',
                 'index_entry' => {
-                  'content_normalized' => [
-                    {},
-                    {
-                      'text' => ' of '
-                    },
-                    {}
-                  ],
-                  'entry_content' => [
-                    {},
-                    {
-                      'text' => ' de '
-                    },
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 1,
@@ -306,13 +311,13 @@ $result_trees{'simple_documentlanguage'} = {
 };
 $result_trees{'simple_documentlanguage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_documentlanguage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'simple_documentlanguage'}{'contents'}[2];
 $result_trees{'simple_documentlanguage'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'simple_documentlanguage'}{'contents'}[2]{'args'}[0]{'contents'}[0];

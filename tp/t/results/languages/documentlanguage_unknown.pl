@@ -637,6 +637,25 @@ $result_trees{'documentlanguage_unknown'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypemethod',
+                'def_index_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' on '
+                    },
+                    {}
+                  ],
+                  'type' => 'root_line'
+                },
+                'def_index_ref_element' => {
+                  'contents' => [
+                    {},
+                    {
+                      'text' => ' on '
+                    },
+                    {}
+                  ]
+                },
                 'def_parsed_hash' => {
                   'category' => {},
                   'class' => {},
@@ -645,20 +664,6 @@ $result_trees{'documentlanguage_unknown'} = {
                 },
                 'documentlanguage' => 'unknown',
                 'index_entry' => {
-                  'content_normalized' => [
-                    {},
-                    {
-                      'text' => ' on '
-                    },
-                    {}
-                  ],
-                  'entry_content' => [
-                    {},
-                    {
-                      'text' => ' on '
-                    },
-                    {}
-                  ],
                   'entry_element' => {},
                   'entry_node' => {},
                   'entry_number' => 1,
@@ -809,14 +814,14 @@ $result_trees{'documentlanguage_unknown'}{'contents'}[3]{'extra'}{'node_content'
 $result_trees{'documentlanguage_unknown'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_ref_element'}{'contents'}[2] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 

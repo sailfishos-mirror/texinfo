@@ -3305,15 +3305,9 @@ sub _register_label($$$)
 # $COMMAND_CONTAINER is the name of the @-command the index entry
 #  is associated with, for instance 'cindex', 'defivar' or 'vtable'.
 # $CURRENT is the command element.
-# $CONTENT holds the actual content.  For index entries and v|ftable
-#  items, it is the index entry content, for def, it is the parsed
-#  arguments, based on the definition line arguments.
-sub _enter_index_entry($$$$$$)
+sub _enter_index_entry($$$$)
 {
-  my ($self, $command_container, $element, $content,
-      $content_normalized, $source_info) = @_;
-
-  $content_normalized = $content if (!defined($content_normalized));
+  my ($self, $command_container, $element, $source_info) = @_;
 
   my $index_name = $self->{'command_index'}->{$command_container};
   my $index = $self->{'index_names'}->{$index_name};
@@ -3325,8 +3319,6 @@ sub _enter_index_entry($$$$$$)
   my $number = scalar(@{$index->{'index_entries'}}) + 1;
 
   my $index_entry = { 'index_name'           => $index_name,
-                      'entry_content'        => $content,
-                      'content_normalized'   => $content_normalized,
                       'entry_element'        => $element,
                       'entry_number'         => $number,
                       'index_ignore_chars'   => {},
@@ -3600,14 +3592,10 @@ sub _end_line_misc_line($$$)
           and $current->{'parent'}->{'cmdname'}
           and $self->{'command_index'}->{$current->{'parent'}->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
-                           $current,
-                           $current->{'args'}->[0]->{'contents'},
-                           undef, $source_info);
+                           $current, $source_info);
       } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'cmdname'},
-                           $current,
-                           $current->{'args'}->[0]->{'contents'},
-                           undef, $source_info);
+                           $current, $source_info);
         $current->{'type'} = 'index_entry_command';
       }
       # if there is a brace command interrupting an index or subentry
@@ -3795,7 +3783,6 @@ sub _end_line_def_line($$$)
                         and $def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
     if (defined($index_entry)) {
-      my $index_contents_normalized;
       if ($def_parsed_hash->{'class'}) {
         # Delay getting the text until Texinfo::Structuring::sort_index_keys
         # in order to avoid using gdt.
@@ -3811,16 +3798,13 @@ sub _end_line_def_line($$$)
           }
         }
       }
-      my $index_contents;
       if ($index_entry) {
-        $index_contents_normalized = [$index_entry];
-        $index_contents = [$index_entry];
+        $current->{'extra'}->{'def_index_element'} = $index_entry;
       }
 
       _enter_index_entry($self,
         $current->{'extra'}->{'def_command'},
-        $current, $index_contents,
-        $index_contents_normalized, $source_info)
+        $current, $source_info)
            if $current->{'extra'}->{'def_command'} ne 'defline';
     } else {
       $self->_command_warn($current, $source_info,
@@ -7623,15 +7607,6 @@ A hash reference with characters as keys and 1 as value.  Corresponds to
 the characters flagged as ignored in key sorting in the document by
 setting flags such as I<txiindexbackslashignore>.
 
-=item entry_content
-
-An array reference corresponding to the index entry content.
-
-=item content_normalized
-
-An array reference corresponding to the index entry content, independent
-of the current language.
-
 =item entry_element
 
 The element in the parsed tree associated with the @-command holding the
@@ -8360,6 +8335,12 @@ I<spaces> or I<delimiter>, depending on the definition.
 
 The I<def_parsed_hash> hash reference has these strings as keys,
 and the values are the corresponding elements.
+
+The I<def_index_element> is a Texinfo tree element corresponding to
+the index entry associated to the definition line, based on the
+name and class.  If needed this element is based on translated strings.
+I<def_index_ref_element> is similar, but not translated, and only set if
+there could have been a translation.
 
 The I<omit_def_name_space> key value is set and true if the Texinfo variable
 C<txidefnamenospace> was set for the C<def_line>, signaling that the

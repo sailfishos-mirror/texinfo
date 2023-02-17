@@ -132,8 +132,6 @@ typedef struct {
     char *index_name;
     char *index_prefix;
 
-    /* content->contents is the index entry text */
-    ELEMENT *content;
     ELEMENT *command;
     ELEMENT *node;
     int number; /* Index of entry in containing index, 1-based. */

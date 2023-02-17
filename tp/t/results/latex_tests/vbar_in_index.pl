@@ -33,8 +33,6 @@ $result_trees{'vbar_in_index'} = {
           'cmdname' => 'findex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 1,
@@ -74,8 +72,6 @@ $result_trees{'vbar_in_index'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => {
-              'content_normalized' => [],
-              'entry_content' => [],
               'entry_element' => {},
               'entry_number' => 1,
               'in_code' => 0,
@@ -101,11 +97,7 @@ $result_trees{'vbar_in_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2];
 
 $result_texis{'vbar_in_index'} = '@findex A|B

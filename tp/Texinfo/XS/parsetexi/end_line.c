@@ -1907,8 +1907,7 @@ end_line_misc_line (ELEMENT *current)
               && (current->cmd == CM_item || current->cmd == CM_itemx))
             {
               enter_index_entry (current->parent->cmd,
-                                 current,
-                                 current->args.list[0]);
+                                 current);
             }
           else
             {
@@ -1919,8 +1918,7 @@ end_line_misc_line (ELEMENT *current)
           /* Index commands */
           if (command_flags(current) & CF_index_entry_command)
             {
-              enter_index_entry (current->cmd, current,
-                                 current->args.list[0]);
+              enter_index_entry (current->cmd, current);
               current->type = ET_index_entry_command;
             }
           /* if there is a brace command interrupting an index or subentry
@@ -2150,7 +2148,6 @@ end_line_def_line (ELEMENT *current)
 
       if (index_entry)
         {
-          ELEMENT *index_contents = 0;
 
           if (def_info->class &&
               (def_command == CM_defop
@@ -2161,19 +2158,19 @@ end_line_def_line (ELEMENT *current)
                   || def_command == CM_deftypeivar
                   || def_command == CM_deftypecv))
             {
+              /* def_index_element will be set in
+                 Texinfo::Translations::complete_indices */
               if (global_documentlanguage)
                 add_extra_string_dup (current, "documentlanguage",
                                       global_documentlanguage);
             }
           else
             {
-              index_contents = new_element (ET_NONE);
-              if (index_contents->contents.number == 0)
-                add_to_contents_as_array (index_contents, index_entry);
+              add_extra_element (current, "def_index_element",
+                                 index_entry);
             }
 
-          enter_index_entry (def_command,
-                             current, index_contents);
+          enter_index_entry (def_command, current);
         }
       else
         {
