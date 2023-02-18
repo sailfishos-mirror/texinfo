@@ -4008,7 +4008,8 @@ sub _convert($$)
         # are not considered as index entries either so they have a specific
         # condition
         and !($def_commands{$cmdname}
-              and $cmdname =~ /x$/)) {
+              and ($cmdname eq 'defline'
+                   or $cmdname =~ /x$/))) {
       warn "Unhandled $cmdname\n";
       #$result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";
     }

@@ -1,3 +1,8 @@
+2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): Do not treat @defline
+	as "unhandled".
+
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
