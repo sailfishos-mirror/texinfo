@@ -193,6 +193,7 @@ my %default_args_code_style
   = %Texinfo::Convert::Converter::default_args_code_style;
 
 my %defcommand_name_type = (
+ 'defline'   => 'varname',
  'defcv'     => 'property',
  'deffn'     => 'function',
  'defop'     => 'methodname',
