@@ -2090,7 +2090,7 @@ end_line_misc_line (ELEMENT *current)
 ELEMENT *
 end_line_def_line (ELEMENT *current)
 {
-  enum command_id def_command, original_def_command;
+  enum command_id def_command;
   DEF_INFO *def_info = 0;
   static DEF_INFO zero_def_info; /* always stays zeroed */
   KEY_PAIR *k;
@@ -2098,22 +2098,8 @@ end_line_def_line (ELEMENT *current)
   if (pop_context () != ct_def)
     fatal ("def context expected");
 
-  k = lookup_extra (current->parent, "original_def_cmdname");
-  if (k)
-    original_def_command = lookup_command ((char *) k->value);
-  else
-    original_def_command = current->parent->parent->cmd;
-
-  def_command = original_def_command;
-  /* Strip an trailing x from the command, e.g. @deffnx -> @deffn */
-  if (command_data(def_command).flags & CF_line
-      && def_command != CM_defline)
-    {
-      char *stripped = strdup (command_name(def_command));
-      stripped[strlen (stripped) - 1] = '\0';
-      def_command = lookup_command (stripped);
-      free (stripped);
-    }
+  k = lookup_extra (current->parent, "def_command");
+  def_command = lookup_command ((char *) k->value);
 
   def_info = parse_def (def_command, current);
 
@@ -2123,8 +2109,8 @@ end_line_def_line (ELEMENT *current)
   if (!memcmp(def_info, &zero_def_info, sizeof (DEF_INFO)))
     {
       free (def_info);
-      command_warn (current, "missing category for @%s",
-                    command_name (original_def_command));
+      k = lookup_extra (current, "original_def_cmdname");
+      command_warn (current, "missing category for @%s", (char *) k->value);
     }
   else
     {
@@ -2171,15 +2157,13 @@ end_line_def_line (ELEMENT *current)
                                  index_entry);
             }
 
-          if (def_command != CM_defline && def_command != CM_defblock)
+          if (def_command != CM_defline)
             enter_index_entry (def_command, current);
-          /* TODO: match Perl parser closer where def_command is set
-             differently.  */
         }
       else
         {
-          command_warn (current, "missing name for @%s",
-                        command_name (original_def_command));
+          k = lookup_extra (current, "original_def_cmdname");
+          command_warn (current, "missing name for @%s", (char *) k->value);
         }
     }
 
