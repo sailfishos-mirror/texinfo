@@ -102,8 +102,9 @@
                   | insertcopying | page | need | vskip">
 
 <!-- API definition line -->
-<!ENTITY % definition.args "defcategory | deffunction | defvariable | defparam
-                          | defdelimiter | deftype | defparamtype | defdatatype
+<!ENTITY % definition.args "defcategory | deffunction | defsymbol
+                          | defvariable | defparam | defdelimiter
+                          | deftype | defparamtype | defdatatype
                           | defclass | defclassvar | defoperation">
 
 <!-- Language codes -->
@@ -1036,6 +1037,9 @@
           automatic (%onoff;) 'off'>
 <!ELEMENT deffunction  (#PCDATA | %Inline.line;)*>
 <!ATTLIST deffunction
+          %defargattr;>
+<!ELEMENT defsymbol (#PCDATA | %Inline.line;)*>
+<!ATTLIST defsymbol
           %defargattr;>
 <!ELEMENT defvariable  (#PCDATA | %Inline.line;)*>
 <!ATTLIST defvariable

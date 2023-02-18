@@ -1,5 +1,11 @@
 2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Texinfo/Convert/TexinfoMarkup.pm (%defcommand_name_type):
+	Specfify 'defline' as documenting 'symbol' objects.
+	* util/texinfo.dtd: Add <defsymbol>.
+
+2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/DocBook.pm (%defcommand_name_type):
 	For @defline, wrap main symbol in <varname>, which is the
 	best DocBook tag I could find for this.
