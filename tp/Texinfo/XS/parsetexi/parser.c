@@ -2095,8 +2095,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             || cmd == CM_ASTERISK /* @* */
             || cmd == CM_hyphenation
             || cmd == CM_anchor
-            || cmd == CM_errormsg
-            || (command_data(cmd).flags & CF_index_entry_command)))
+            || cmd == CM_errormsg))
         {
           ELEMENT *paragraph;
           paragraph = begin_paragraph (current);
