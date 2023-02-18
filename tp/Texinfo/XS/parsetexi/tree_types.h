@@ -136,7 +136,7 @@ typedef struct {
     ELEMENT *node;
     int number; /* Index of entry in containing index, 1-based. */
     enum command_id region;
-    IGNORED_CHARS ignored_chars;
+    TEXT ignored_chars;
 } INDEX_ENTRY;
 
 typedef struct INDEX {

@@ -129,6 +129,13 @@ add_index (char *name, int in_code)
 static void
 wipe_index (INDEX *idx)
 {
+  int i;
+  INDEX_ENTRY *ie;
+  for (i = 0; i < idx->index_number; i++)
+    {
+      ie = &idx->index_entries[i];
+      free (ie->ignored_chars.text);
+    }
   free (idx->name);
   free (idx->index_entries);
 }
@@ -282,7 +289,16 @@ enter_index_entry (enum command_id index_type_cmd,
   entry->index_prefix = idx->prefix;
   entry->command = element;
   entry->number = idx->index_number;
-  entry->ignored_chars = global_info.ignored_chars;
+
+  /* Create ignored_chars string. */
+  if (global_info.ignored_chars.backslash)
+    text_append (&(entry->ignored_chars), "\\");
+  if (global_info.ignored_chars.hyphen)
+    text_append (&(entry->ignored_chars), "-");
+  if (global_info.ignored_chars.lessthan)
+    text_append (&(entry->ignored_chars), "<");
+  if (global_info.ignored_chars.atsign)
+    text_append (&(entry->ignored_chars), "@");
 
   if (nesting_context.regions_stack.top > 0)
     entry->region = top_command (&nesting_context.regions_stack);

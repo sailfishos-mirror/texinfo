@@ -1,5 +1,11 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
+	tp/Texinfo/XS/parsetexi/indices.c (wipe_index, enter_index_entry):
+	store index_ignore_chars as a string already in enter_index_entry.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	Store index_ignore_chars as a string
 
 	* tp/Texinfo/Common.pm (_substitute_references),
