@@ -219,9 +219,9 @@ $result_trees{'unknown_region'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'fr_NOWHERE',
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'vr'
@@ -317,8 +317,8 @@ $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'ex
 $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'unknown_region'}{'contents'}[2];
 $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'unknown_region'}{'contents'}[2];
 $result_trees{'unknown_region'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'unknown_region'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unknown_region'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 

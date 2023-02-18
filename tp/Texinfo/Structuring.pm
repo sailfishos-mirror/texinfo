@@ -1855,8 +1855,10 @@ sub index_entry_sort_string($$$$;$)
     $entry_key = Texinfo::Convert::Text::convert_to_text(
                           $entry_tree_element, $convert_to_text_options);
     # FIXME do that for sortas too?
-    if (defined($main_entry->{'index_ignore_chars'})) {
-      my $ignore_chars = quotemeta($main_entry->{'index_ignore_chars'});
+    if (defined($main_entry->{'entry_element'}
+                       ->{'extra'}->{'index_ignore_chars'})) {
+      my $ignore_chars = quotemeta($main_entry->{'entry_element'}
+                                  ->{'extra'}->{'index_ignore_chars'});
       if ($ignore_chars ne '') {
         $entry_key =~ s/[$ignore_chars]//g;
       }

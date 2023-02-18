@@ -1060,9 +1060,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1099,9 +1099,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1138,9 +1138,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1177,9 +1177,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1216,9 +1216,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1255,9 +1255,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 6,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1333,18 +1333,18 @@ $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'conten
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[6]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[8]{'extra'}{'label'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[3];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[4];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[5]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[5];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[6]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[6];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[7]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[7];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
+$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[8]{'extra'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[8];
-$result_trees{'char_latin1_utf8_in_refs'}{'contents'}[12]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'char_latin1_utf8_in_refs'}{'contents'}[11];
 
 $result_texis{'char_latin1_utf8_in_refs'} = '\\input texinfo
 

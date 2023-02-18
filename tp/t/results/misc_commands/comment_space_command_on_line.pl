@@ -418,9 +418,9 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -753,8 +753,8 @@ $result_trees{'comment_space_command_on_line'}{'contents'}[1]{'extra'}{'node_con
 $result_trees{'comment_space_command_on_line'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'comment_space_command_on_line'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'comment_space_command_on_line'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'entry_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'float_section'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'args'}[1]{'contents'}[0];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'type'}{'content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'}[0];

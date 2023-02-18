@@ -280,9 +280,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -407,9 +407,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'vr'
@@ -543,13 +543,13 @@ $result_trees{'same_index_entry_merged_indices'}{'contents'}[3]{'extra'}{'nodes_
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
 
 $result_texis{'same_index_entry_merged_indices'} = '@syncodeindex vr fn
 

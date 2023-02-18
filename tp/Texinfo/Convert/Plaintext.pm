@@ -1334,10 +1334,11 @@ sub process_printindex($$;$)
   my $max_index_line_nr_string_length = 0;
   my %ignored_entries;
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
+    my $main_entry_element = $entry->{'entry_element'};
     # FIXME format in a way instead of ignoring
-    if ($entry->{'entry_element'}->{'extra'}
-         and ($entry->{'entry_element'}->{'extra'}->{'seeentry'}
-              or $entry->{'entry_element'}->{'extra'}->{'seealso'})) {
+    if ($main_entry_element->{'extra'}
+         and ($main_entry_element->{'extra'}->{'seeentry'}
+              or $main_entry_element->{'extra'}->{'seealso'})) {
       $ignored_entries{$entry} = 1;
       next;
     }
@@ -1345,11 +1346,11 @@ sub process_printindex($$;$)
 
     if ($self->{'index_entries_line_location'}
         and defined($self->{'index_entries_line_location'}
-                                              ->{$entry->{'entry_element'}})) {
+                                              ->{$main_entry_element})) {
       $line_nr = $self->{'index_entries_line_location'}
-                                     ->{$entry->{'entry_element'}}->{'lines'};
+                                     ->{$main_entry_element}->{'lines'};
       # ignore index entries in special regions that haven't been seen
-    } elsif ($entry->{'entry_region'}) {
+    } elsif ($main_entry_element->{'extra'}->{'entry_region'}) {
       $ignored_entries{$entry} = 1;
       next;
     }
@@ -1358,13 +1359,13 @@ sub process_printindex($$;$)
     # priority given to the location determined dynamically as the
     # index entry may be in footnote.
     if ($self->{'index_entries_line_location'}
-        and $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}
+        and $self->{'index_entries_line_location'}->{$main_entry_element}
         and defined($self->{'index_entries_line_location'}
-                                    ->{$entry->{'entry_element'}}->{'node'})) {
+                                    ->{$main_entry_element}->{'node'})) {
       $node = $self->{'index_entries_line_location'}
-                                    ->{$entry->{'entry_element'}}->{'node'};
-    } elsif (defined($entry->{'entry_node'})) {
-      $node = $entry->{'entry_node'};
+                                    ->{$main_entry_element}->{'node'};
+    } elsif (defined($main_entry_element->{'extra'}->{'entry_node'})) {
+      $node = $main_entry_element->{'extra'}->{'entry_node'};
     }
     $entry_nodes{$entry} = $node;
     if (!defined($node)) {
@@ -1494,7 +1495,7 @@ sub process_printindex($$;$)
       if (!$self->{'index_entries_no_node'}->{$entry}) {
         $self->converter_line_warn($self,
            sprintf(__("entry for index `%s' outside of any node"),
-                      $index_name), $entry->{'entry_element'}->{'source_info'});
+                      $index_name), $main_entry_element->{'source_info'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
     } else {

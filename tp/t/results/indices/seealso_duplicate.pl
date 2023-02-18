@@ -116,9 +116,9 @@ $result_trees{'seealso_duplicate'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -202,9 +202,9 @@ $result_trees{'seealso_duplicate'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -367,11 +367,11 @@ $result_trees{'seealso_duplicate'} = {
 };
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'args'}[0]{'contents'}[0];

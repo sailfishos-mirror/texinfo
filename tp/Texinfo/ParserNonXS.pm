@@ -3326,20 +3326,23 @@ sub _enter_index_entry($$$$)
                       'entry_element'        => $element,
                       'entry_number'         => $number,
                     };
+
+  $element->{'extra'} = {} if (!defined($element->{'extra'}));
+
   # gather set txiindex*ignore information
   foreach my $set_variable (@set_flag_index_char_ignore_order) {
     if (exists($self->{'values'}->{$set_variable})) {
       my $ignored_char = $set_flag_index_char_ignore{$set_variable};
-      $index_entry->{'index_ignore_chars'} = ''
-         if (!defined($index_entry->{'index_ignore_chars'}));
-      $index_entry->{'index_ignore_chars'} .= $ignored_char;
+      $element->{'extra'}->{'index_ignore_chars'} = ''
+         if (!defined($element->{'extra'}->{'index_ignore_chars'}));
+      $element->{'extra'}->{'index_ignore_chars'} .= $ignored_char;
     }
   }
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
-    $index_entry->{'entry_region'}
+    $element->{'extra'}->{'entry_region'}
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
-    $index_entry->{'entry_node'} = $self->{'current_node'};
+    $element->{'extra'}->{'entry_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or
@@ -3360,7 +3363,6 @@ sub _enter_index_entry($$$$)
 
   push @{$index->{'index_entries'}}, $index_entry;
 
-  $element->{'extra'} = {} if (!defined($element->{'extra'}));
   $element->{'extra'}->{'index_entry'} = $index_entry;
 }
 

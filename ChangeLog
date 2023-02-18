@@ -17,6 +17,20 @@
 
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries), tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tp/Texinfo/Structuring.pm (index_entry_sort_string),
+	tp/Texinfo/Transformations.pm (_reassociate_to_node),
+	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
+	tp/Texinfo/XS/parsetexi/indices.c (wipe_index, enter_index_entry),
+	tp/t/automatic_nodes.t: associate 'entry_node', 'entry_region'
+	and 'index_ignore_chars' to the element associated to an index entry
+	rather than to the index entry.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
 	tp/Texinfo/XS/parsetexi/indices.c (wipe_index, enter_index_entry):
 	store index_ignore_chars as a string already in enter_index_entry.

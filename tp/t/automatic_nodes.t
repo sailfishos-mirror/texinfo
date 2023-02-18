@@ -33,7 +33,7 @@ sub test_new_node($$$$)
   # $labels, $nodes_list, $targets_list are modified
   my $node = Texinfo::Transformations::_new_node($node_tree, $nodes_list,
                                                  $targets_list, $labels);
-  
+
   my ($texi_result, $normalized);
   if (defined($node)) {
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
@@ -67,9 +67,9 @@ test_new_node ('(in paren(too  aaa', '_0028in-paren_0028too-aaa',
 '@node @asis{(}in paren(too  aaa
 ', 'with parenthesis');
 test_new_node ('changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})',
-'changed-node-and-_0028file_0029', 
+'changed-node-and-_0028file_0029',
 '@node changed @code{node} and (@samp{file})
-', 
+',
 'ref in new node');
 test_new_node ('@asis{}', '-1', '@node @asis{} 1
 ', 'empty node');
@@ -92,7 +92,7 @@ is ('@node a node 1
 ',  Texinfo::Convert::Texinfo::convert_to_texinfo($node), 'duplicate node added');
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($node);
 
-my $sections_text = 
+my $sections_text =
 '@top top section
 
 @part part
@@ -119,7 +119,7 @@ Text.
 
 @bye';
 
-my $reference = 
+my $reference =
 '@node Top
 @top top section
 
@@ -203,14 +203,15 @@ is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'extra'}->
 @end menu
 ', 'reassociated menu is correct');
 #print STDERR join('|', keys(%{$index_names->{'cp'}->{'index_entries'}}))."\n";
-is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'entry_node'}, 
+is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]
+                                ->{'entry_element'}->{'extra'}->{'entry_node'},
   'index entry reassociated');
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 # Note: this test doesn't pass anymore because we only notice duplicate
 # nodes at the end.
 # $parser = Texinfo::Parser::parser();
-# my $text_duplicate_nodes = 
+# my $text_duplicate_nodes =
 # '@node NAME
 # @section DESCRIPTION
 # 

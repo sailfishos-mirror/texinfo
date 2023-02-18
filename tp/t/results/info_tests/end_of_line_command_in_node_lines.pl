@@ -271,9 +271,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -933,8 +933,8 @@ $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[3]{'extra'}{'node
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[2] = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[6]{'extra'}{'entry_node'} = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[3];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[6];
-$result_trees{'end_of_line_command_in_node_lines'}{'contents'}[4]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[3];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'end_of_line_command_in_node_lines'}{'contents'}[3];

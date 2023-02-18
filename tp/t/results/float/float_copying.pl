@@ -161,10 +161,10 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'cindex',
                                           'extra' => {
+                                            'entry_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
-                                              'entry_region' => 'copying',
                                               'in_code' => 0,
                                               'index_name' => 'cp'
                                             }
@@ -200,10 +200,10 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'findex',
                                           'extra' => {
+                                            'entry_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
-                                              'entry_region' => 'copying',
                                               'in_code' => 1,
                                               'index_name' => 'fn'
                                             }
@@ -392,10 +392,10 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'cindex',
                               'extra' => {
+                                'entry_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
-                                  'entry_region' => 'copying',
                                   'in_code' => 0,
                                   'index_name' => 'cp'
                                 }
@@ -431,10 +431,10 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'findex',
                               'extra' => {
+                                'entry_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
-                                  'entry_region' => 'copying',
                                   'in_code' => 1,
                                   'index_name' => 'fn'
                                 }

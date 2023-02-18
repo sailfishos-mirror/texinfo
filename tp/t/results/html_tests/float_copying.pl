@@ -218,10 +218,10 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'cindex',
                                           'extra' => {
+                                            'entry_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
-                                              'entry_region' => 'copying',
                                               'in_code' => 0,
                                               'index_name' => 'cp'
                                             }
@@ -257,10 +257,10 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'findex',
                                           'extra' => {
+                                            'entry_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
-                                              'entry_region' => 'copying',
                                               'in_code' => 1,
                                               'index_name' => 'fn'
                                             }
@@ -449,10 +449,10 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'cindex',
                               'extra' => {
+                                'entry_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
-                                  'entry_region' => 'copying',
                                   'in_code' => 0,
                                   'index_name' => 'cp'
                                 }
@@ -488,10 +488,10 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'findex',
                               'extra' => {
+                                'entry_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
-                                  'entry_region' => 'copying',
                                   'in_code' => 1,
                                   'index_name' => 'fn'
                                 }
@@ -720,9 +720,9 @@ $result_trees{'float_copying'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1122,9 +1122,9 @@ $result_trees{'float_copying'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -1396,8 +1396,8 @@ $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'con
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
@@ -1408,8 +1408,8 @@ $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'ext
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
 
 $result_texis{'float_copying'} = '\\input texinfo @c -*-texinfo-*-

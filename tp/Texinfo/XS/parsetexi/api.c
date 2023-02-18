@@ -891,18 +891,6 @@ build_single_index_data (INDEX *i)
       STORE2("entry_element",
              newRV_inc ((SV *)e->command->hv));
       STORE2("entry_number", newSViv (entry_number));
-      if (e->region)
-        {
-          STORE2("entry_region",
-                 newSVpv (command_name(e->region), 0));
-        }
-
-      if (e->node)
-        STORE2("entry_node", newRV_inc ((SV *)e->node->hv));
-
-      if (e->ignored_chars.end > 0)
-        STORE2("index_ignore_chars",
-               newSVpv_utf8 (e->ignored_chars.text, 0));
 
       av_push (entries, newRV_inc ((SV *)entry));
       entry_number++;

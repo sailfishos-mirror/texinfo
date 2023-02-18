@@ -836,9 +836,9 @@ $result_trees{'macro_in_index_commands'} = {
           ],
           'cmdname' => 'trucindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'truc'
@@ -969,9 +969,9 @@ $result_trees{'macro_in_index_commands'} = {
           ],
           'cmdname' => 'codeidxindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
               'index_name' => 'codeidx'
@@ -1040,9 +1040,9 @@ $result_trees{'macro_in_index_commands'} = {
           ],
           'cmdname' => 'kindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
               'index_name' => 'ky'
@@ -1123,9 +1123,9 @@ $result_trees{'macro_in_index_commands'} = {
           ],
           'cmdname' => 'pindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
               'index_name' => 'pg'
@@ -1330,14 +1330,14 @@ $result_trees{'macro_in_index_commands'} = {
 };
 $result_trees{'macro_in_index_commands'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'macro_in_index_commands'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 

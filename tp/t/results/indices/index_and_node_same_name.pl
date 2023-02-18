@@ -116,9 +116,9 @@ $result_trees{'index_and_node_same_name'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -288,8 +288,8 @@ $result_trees{'index_and_node_same_name'} = {
 };
 $result_trees{'index_and_node_same_name'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_and_node_same_name'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[1];
 $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3];
-$result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[1];
 $result_trees{'index_and_node_same_name'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'index_and_node_same_name'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 

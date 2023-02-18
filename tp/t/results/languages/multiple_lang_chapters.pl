@@ -860,9 +860,9 @@ $result_trees{'multiple_lang_chapters'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'ja',
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'vr'
@@ -1174,9 +1174,9 @@ $result_trees{'multiple_lang_chapters'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'en',
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
                   'index_name' => 'vr'
@@ -1449,9 +1449,9 @@ $result_trees{'multiple_lang_chapters'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'fr_FR',
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
                   'index_name' => 'vr'
@@ -1811,8 +1811,8 @@ $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'
 $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[3];
 $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0];
-$result_trees{'multiple_lang_chapters'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[3];
 $result_trees{'multiple_lang_chapters'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'multiple_lang_chapters'}{'contents'}[3];
@@ -1824,8 +1824,8 @@ $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'
 $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[5];
 $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0];
-$result_trees{'multiple_lang_chapters'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[5];
 $result_trees{'multiple_lang_chapters'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
@@ -1835,8 +1835,8 @@ $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'
 $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[7];
 $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'multiple_lang_chapters'}{'contents'}[7];
 $result_trees{'multiple_lang_chapters'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters'}{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'multiple_lang_chapters'}{'contents'}[11]{'args'}[0]{'contents'}[0];

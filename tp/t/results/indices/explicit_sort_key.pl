@@ -190,9 +190,9 @@ $result_trees{'explicit_sort_key'} = {
           ],
           'cmdname' => 'SKindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'SK'
@@ -252,9 +252,9 @@ $result_trees{'explicit_sort_key'} = {
           ],
           'cmdname' => 'SKindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
               'index_name' => 'SK'
@@ -314,9 +314,9 @@ $result_trees{'explicit_sort_key'} = {
           ],
           'cmdname' => 'SKindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
               'index_name' => 'SK'
@@ -387,9 +387,9 @@ $result_trees{'explicit_sort_key'} = {
           ],
           'cmdname' => 'SKindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
               'index_name' => 'SK'
@@ -642,14 +642,14 @@ $result_trees{'explicit_sort_key'} = {
 };
 $result_trees{'explicit_sort_key'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'explicit_sort_key'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
+$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
+$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
+$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 

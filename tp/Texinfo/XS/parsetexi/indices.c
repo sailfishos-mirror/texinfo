@@ -129,13 +129,6 @@ add_index (char *name, int in_code)
 static void
 wipe_index (INDEX *idx)
 {
-  int i;
-  INDEX_ENTRY *ie;
-  for (i = 0; i < idx->index_number; i++)
-    {
-      ie = &idx->index_entries[i];
-      free (ie->ignored_chars.text);
-    }
   free (idx->name);
   free (idx->index_entries);
 }
@@ -273,6 +266,7 @@ enter_index_entry (enum command_id index_type_cmd,
   INDEX *idx;
   INDEX_ENTRY *entry;
   KEY_PAIR *k;
+  TEXT ignored_chars;
 
   idx = index_of_command (index_type_cmd);
   if (idx->index_number == idx->index_space)
@@ -286,26 +280,32 @@ enter_index_entry (enum command_id index_type_cmd,
   memset (entry, 0, sizeof (INDEX_ENTRY));
 
   entry->index_name = idx->name;
-  entry->index_prefix = idx->prefix;
   entry->command = element;
   entry->number = idx->index_number;
 
   /* Create ignored_chars string. */
+  text_init (&ignored_chars);
   if (global_info.ignored_chars.backslash)
-    text_append (&(entry->ignored_chars), "\\");
+    text_append (&ignored_chars, "\\");
   if (global_info.ignored_chars.hyphen)
-    text_append (&(entry->ignored_chars), "-");
+    text_append (&ignored_chars, "-");
   if (global_info.ignored_chars.lessthan)
-    text_append (&(entry->ignored_chars), "<");
+    text_append (&ignored_chars, "<");
   if (global_info.ignored_chars.atsign)
-    text_append (&(entry->ignored_chars), "@");
+    text_append (&ignored_chars, "@");
+  if (ignored_chars.end > 0)
+    {
+      add_extra_string_dup (element, "index_ignore_chars", ignored_chars.text);
+      free (ignored_chars.text);
+    }
 
   if (nesting_context.regions_stack.top > 0)
-    entry->region = top_command (&nesting_context.regions_stack);
-  else
-    entry->node = current_node;
-
-  entry->number = idx->index_number;
+    {
+      enum command_id region = top_command (&nesting_context.regions_stack);
+      add_extra_string_dup (element, "entry_region", command_name (region));
+    }
+  else if (current_node)
+    add_extra_element (element, "entry_node", current_node);
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)

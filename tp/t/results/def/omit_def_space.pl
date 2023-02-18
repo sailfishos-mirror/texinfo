@@ -207,9 +207,9 @@ $result_trees{'omit_def_space'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -297,9 +297,9 @@ $result_trees{'omit_def_space'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -411,13 +411,13 @@ $result_trees{'omit_def_space'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'nod
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
 $result_trees{'omit_def_space'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'omit_def_space'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'omit_def_space'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'omit_def_space'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 

@@ -130,13 +130,9 @@ typedef struct IGNORED_CHARS {
 
 typedef struct {
     char *index_name;
-    char *index_prefix;
 
     ELEMENT *command;
-    ELEMENT *node;
     int number; /* Index of entry in containing index, 1-based. */
-    enum command_id region;
-    TEXT ignored_chars;
 } INDEX_ENTRY;
 
 typedef struct INDEX {

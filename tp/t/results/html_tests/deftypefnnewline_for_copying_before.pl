@@ -142,10 +142,10 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                       'name' => {},
                       'type' => {}
                     },
+                    'entry_region' => 'copying',
                     'index_entry' => {
                       'entry_element' => {},
                       'entry_number' => 1,
-                      'entry_region' => 'copying',
                       'in_code' => 1,
                       'index_name' => 'fn'
                     },
@@ -485,9 +485,9 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   'name' => {},
                   'type' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -593,8 +593,8 @@ $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[
 $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[3];
 $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'deftypefnnewline_for_copying_before'}{'contents'}[3];
 
 $result_texis{'deftypefnnewline_for_copying_before'} = '
 @deftypefnnewline on

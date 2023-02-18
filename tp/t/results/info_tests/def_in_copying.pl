@@ -255,10 +255,10 @@ $result_trees{'def_in_copying'} = {
                       'category' => {},
                       'name' => {}
                     },
+                    'entry_region' => 'copying',
                     'index_entry' => {
                       'entry_element' => {},
                       'entry_number' => 1,
-                      'entry_region' => 'copying',
                       'in_code' => 1,
                       'index_name' => 'fn'
                     },
@@ -325,10 +325,10 @@ $result_trees{'def_in_copying'} = {
                       'category' => {},
                       'name' => {}
                     },
+                    'entry_region' => 'copying',
                     'index_entry' => {
                       'entry_element' => {},
                       'entry_number' => 2,
-                      'entry_region' => 'copying',
                       'in_code' => 1,
                       'index_name' => 'fn'
                     },
@@ -540,9 +540,9 @@ $result_trees{'def_in_copying'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -610,9 +610,9 @@ $result_trees{'def_in_copying'} = {
                   'category' => {},
                   'name' => {}
                 },
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -765,13 +765,13 @@ $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'co
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'def_in_copying'}{'contents'}[1];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0];
-$result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'def_in_copying'}{'contents'}[1];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'def_in_copying'}{'contents'}[1];
 $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1];
-$result_trees{'def_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'def_in_copying'}{'contents'}[1];
 
 $result_texis{'def_in_copying'} = '@macro mymacro
 @deffn aa bb cc

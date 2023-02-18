@@ -663,9 +663,9 @@ $result_trees{'documentlanguage_unknown'} = {
                   'type' => {}
                 },
                 'documentlanguage' => 'unknown',
+                'entry_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
-                  'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
                   'index_name' => 'fn'
@@ -821,8 +821,8 @@ $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'content
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 
 $result_texis{'documentlanguage_unknown'} = '\\input texinfo @c -*-texinfo-*-
 

@@ -194,9 +194,9 @@ $result_trees{'subentry_and_sortas'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
               'index_name' => 'cp'
@@ -316,9 +316,9 @@ $result_trees{'subentry_and_sortas'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
+            'entry_node' => {},
             'index_entry' => {
               'entry_element' => {},
-              'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
               'index_name' => 'fn'
@@ -486,11 +486,11 @@ $result_trees{'subentry_and_sortas'}{'contents'}[1]{'extra'}{'node_content'}[0] 
 $result_trees{'subentry_and_sortas'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'subentry_and_sortas'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'subentry_and_sortas'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'subentry_and_sortas'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'subentry_and_sortas'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'subentry_and_sortas'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1];
-$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
+$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4];
-$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[5] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
 
 $result_texis{'subentry_and_sortas'} = '@node Top
