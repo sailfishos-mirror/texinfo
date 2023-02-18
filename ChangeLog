@@ -1,5 +1,10 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parser): remove a check and handling of
+	user-provided state in parser.  Both codes were not active.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%default_no_paragraph_commands, parser):
 	(_parse_line_command_args), tp/Texinfo/XS/parsetexi/command_data.awk,
 	tp/Texinfo/XS/parsetexi/indices.c (add_index_command),

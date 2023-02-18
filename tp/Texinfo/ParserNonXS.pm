@@ -540,54 +540,6 @@ foreach my $name (keys(%index_names)) {
   }
 }
 
-if (0) {
-  # FIXME this seems to be obsolete, should be removed or updated for
-  # the changes with the nesting context.
-  # check that all the commands either are in %default_valid_nestings,
-  # do not have arguments at all, have special parsing of their arguments
-  # or accept any command
-  my %all_commands_nesting_check = %Texinfo::Common::all_commands;
-  foreach my $command (keys(%default_valid_nestings)) {
-    if (not exists($all_commands_nesting_check{$command})) {
-      die "In \%default_valid_nestings: Not a command $command\n";
-    }
-    delete $all_commands_nesting_check{$command};
-  }
-  # no argument
-  foreach my $command (keys(%Texinfo::Commands::nobrace_commands)) {
-    delete $all_commands_nesting_check{$command};
-  }
-  foreach my $command (keys(%Texinfo::Commands::block_commands)) {
-    # remove block commands without argument, they should have
-    # an error message for any content
-    delete $all_commands_nesting_check{$command}
-      if (not $commands_args_number{$command}
-          and not $variadic_commands{$command});
-  }
-  foreach my $brace_command(keys(%brace_commands)) {
-    delete $all_commands_nesting_check{$brace_command}
-           # no argument
-       if ($brace_commands{$brace_command} eq 'noarg'
-           # @inline* can contain anything in their second argument
-           or $inline_format_commands{$brace_command}
-           or $Texinfo::Commands::inline_conditional_commands{$brace_command});
-  }
-  foreach my $command (keys(%line_commands)) {
-    delete $all_commands_nesting_check{$command}
-       # special formatting, commands on line are not parsed as usual
-       if ($line_commands{$command} eq 'skipline'
-           or $line_commands{$command} eq 'special'
-           or $line_commands{$command} eq 'lineraw');
-  }
-  # U, value and verb have special checks of argument.
-  # caption and footnotes can contain any command.
-  foreach my $command ('U', 'value', 'verb', 'caption', 'footnote') {
-    delete $all_commands_nesting_check{$command};
-  }
-
-  print STDERR "".join('|', sort(keys(%all_commands_nesting_check)))."\n";
-}
-
 foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
    'html', 'log','aux','dvi','texi','txi','texinfo','tex','bib') {
   $forbidden_index_name{$other_forbidden_index_name} = 1;
@@ -649,53 +601,6 @@ sub parser(;$$)
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'nesting_context'}->{'regions_stack'} = [];
   $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
-
-  # handle user provided state.
-
-  # Currently not done, as none of the user provided configuration
-  # keys of interest are in %parser_state_configuration.  If this
-  # changes, the if (0) could be removed.  However, this setting of
-  # configuration is also not handled by the XS parser, which is
-  # again in favor of keeping the code ignored.
-  if (0) {
-    # REMARK the following code will not be used for user defined state
-    # if the corresponding key is ignored in _setup_conf()
-    #
-    # a hash is simply concatenated.  It should be like %index_names.
-    if (ref($parser->{'indices'}) eq 'HASH') {
-      %{$parser->{'index_names'}} = (%{$parser->{'index_names'}},
-                                     %{$parser->{'indices'}});
-    } else { # an array holds index names defined with @defindex
-      foreach my $name (@{$parser->{'indices'}}) {
-        $parser->{'index_names'}->{$name} = {'in_code' => 0};
-      }
-    }
-    foreach my $index (keys (%{$parser->{'index_names'}})) {
-      if (!exists($parser->{'index_names'}->{$index}->{'name'})) {
-        $parser->{'index_names'}->{$index}->{'name'} = $index;
-      }
-      if (!exists($parser->{'index_names'}->{$index}->{'contained_indices'})) {
-        $parser->{'index_names'}->{$index}->{'contained_indices'}->{$index} = 1;
-      }
-      foreach my $prefix ($index, substr($index, 0, 1)) {
-        $parser->{'line_commands'}->{$prefix.'index'} = 'line';
-        $parser->{'close_paragraph_commands'}->{$prefix.'index'} = 1;
-        $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
-        $parser->{'command_index'}->{$prefix.'index'} = $index;
-      }
-    }
-    if ($parser->{'merged_indices'}) {
-      foreach my $index_from (keys (%{$parser->{'merged_indices'}})) {
-        my $index_to = $parser->{'merged_indices'}->{$index_from};
-        if (defined($parser->{'index_names'}->{$index_from})
-            and defined($parser->{'index_names'}->{$index_to})) {
-          $parser->{'index_names'}->{$index_from}->{'merged_in'} = $index_to;
-          $parser->{'index_names'}->{$index_to}->{'contained_indices'}
-                                                          ->{$index_from} = 1;
-        }
-      }
-    }
-  }
 
   # following is common with simple_parser
   $parser->_init_context_stack();
