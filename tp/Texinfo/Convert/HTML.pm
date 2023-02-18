@@ -6796,70 +6796,10 @@ sub _convert_def_line_type($$$$)
 
   my $def_call = '';
   $def_call .= $result_type . ' ' if ($result_type ne '');
-
   $def_call .= $result_name;
-
   $def_call .= $def_space . $result_arguments if ($result_arguments ne '');
 
-  if (!$self->get_conf('DEF_TABLE')) {
-    my $category;
-    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-        and defined($element->{'extra'}->{'def_parsed_hash'}->{'category'})) {
-      $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
-    }
-    my $category_result = '';
-    my $category_tree;
-    if (defined($category) and $category ne '') {
-      if ($element->{'extra'}->{'def_parsed_hash'}->{'class'}) {
-        if ($command_name eq 'deftypeop'
-            and $element->{'extra'}->{'def_parsed_hash'}->{'type'}
-            and $self->get_conf('deftypefnnewline') eq 'on') {
-          $category_tree = $self->gdt('{category} on @code{{class}}:@* ',
-                {'category' => $category,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
-        } elsif ($command_name eq 'defop' or $command_name eq 'deftypeop') {
-          $category_tree = $self->gdt('{category} on @code{{class}}: ',
-                {'category' => $category,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
-        } elsif ($command_name eq 'defcv' or $command_name eq 'deftypecv') {
-          $category_tree = $self->gdt('{category} of @code{{class}}: ',
-                {'category' => $category,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
-        }
-      } elsif ($element->{'extra'}->{'def_parsed_hash'}->{'type'}
-              and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')
-              and $self->get_conf('deftypefnnewline') eq 'on') {
-          # FIXME if in @def* in @example and with @deftypefnnewline on
-          # there is no effect of @deftypefnnewline on, as @* in preformatted
-          # environment becomes an end of line, but the def* line is not in a preformatted
-          # environment.  There should be an explicit <br> in that case.  Probably
-          # requires changing the conversion of @* in a @def* line in preformatted,
-          # nothing really specific of @deftypefnnewline on.
-          $category_tree = $self->gdt('{category}:@* ', {'category' => $category});
-      } else {
-        $category_tree = $self->gdt('{category}: ', {'category' => $category});
-      }
-      $category_result = $self->convert_tree($category_tree);
-    }
-
-    if ($category_result ne '') {
-      my $open = $self->html_attribute_class('span', ['category-def']);
-      if ($open ne '') {
-        $category_result = $open.'>'.$category_result.'</span>';
-      }
-    }
-    my $anchor_span_open = '';
-    my $anchor_span_close = '';
-    my $anchor = $self->_get_copiable_anchor($index_id);
-    if ($anchor ne '') {
-      $anchor_span_open = '<span>';
-      $anchor_span_close = '</span>';
-    }
-    return $self->html_attribute_class('dt', \@classes)
-         . "$index_label>" . $category_result . $anchor_span_open
-         . $def_call
-         . "$anchor$anchor_span_close</dt>\n";
-  } else {
+  if ($self->get_conf('DEF_TABLE')) {
     my $category_result = '';
     my $definition_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($self, $element);
@@ -6872,6 +6812,66 @@ sub _convert_def_line_type($$$$)
       . $def_call . '</td>'.$self->html_attribute_class('td', ['category-def'])
       . '>' . '[' . $category_result . ']' . "</td></tr>\n";
   }
+
+  my $category;
+  if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+      and defined($element->{'extra'}->{'def_parsed_hash'}->{'category'})) {
+    $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
+  }
+  my $category_result = '';
+  my $category_tree;
+  if (defined($category) and $category ne '') {
+    if ($element->{'extra'}->{'def_parsed_hash'}->{'class'}) {
+      if ($command_name eq 'deftypeop'
+          and $element->{'extra'}->{'def_parsed_hash'}->{'type'}
+          and $self->get_conf('deftypefnnewline') eq 'on') {
+        $category_tree = $self->gdt('{category} on @code{{class}}:@* ',
+              {'category' => $category,
+              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+      } elsif ($command_name eq 'defop' or $command_name eq 'deftypeop') {
+        $category_tree = $self->gdt('{category} on @code{{class}}: ',
+              {'category' => $category,
+              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+      } elsif ($command_name eq 'defcv' or $command_name eq 'deftypecv') {
+        $category_tree = $self->gdt('{category} of @code{{class}}: ',
+              {'category' => $category,
+              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+      }
+    } elsif ($element->{'extra'}->{'def_parsed_hash'}->{'type'}
+            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')
+            and $self->get_conf('deftypefnnewline') eq 'on') {
+        # FIXME if in @def* in @example and with @deftypefnnewline
+        # on there is no effect of @deftypefnnewline on, as @* in
+        # preformatted environment becomes an end of line, but the def*
+        # line is not in a preformatted environment.  There should be
+        # an explicit <br> in that case.  Probably requires changing
+        # the conversion of @* in a @def* line in preformatted, nothing
+        # really specific of @deftypefnnewline on.
+        $category_tree = $self->gdt('{category}:@* ',
+                                    {'category' => $category});
+    } else {
+      $category_tree = $self->gdt('{category}: ', {'category' => $category});
+    }
+    $category_result = $self->convert_tree($category_tree);
+  }
+
+  if ($category_result ne '') {
+    my $open = $self->html_attribute_class('span', ['category-def']);
+    if ($open ne '') {
+      $category_result = $open.'>'.$category_result.'</span>';
+    }
+  }
+  my $anchor_span_open = '';
+  my $anchor_span_close = '';
+  my $anchor = $self->_get_copiable_anchor($index_id);
+  if ($anchor ne '') {
+    $anchor_span_open = '<span>';
+    $anchor_span_close = '</span>';
+  }
+  return $self->html_attribute_class('dt', \@classes)
+       . "$index_label>" . $category_result . $anchor_span_open
+       . $def_call
+       . "$anchor$anchor_span_close</dt>\n";
 }
 
 sub _get_copiable_anchor {

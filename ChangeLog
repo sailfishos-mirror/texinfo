@@ -1,5 +1,11 @@
 2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Texinfo/Convert/HTML.pm (_convert_def_line_type) <DEF_TABLE>:
+	Reorder conditional and remove one level of indentation.  No
+	functional changes.
+
+2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Texinfo/Convert/TexinfoMarkup.pm (%defcommand_name_type):
 	Specfify 'defline' as documenting 'symbol' objects.
 	* util/texinfo.dtd: Add <defsymbol>.
