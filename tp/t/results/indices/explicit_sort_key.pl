@@ -195,7 +195,6 @@ $result_trees{'explicit_sort_key'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'SK'
             },
             'sortas' => 'A'
@@ -258,7 +257,6 @@ $result_trees{'explicit_sort_key'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'SK'
             },
             'sortas' => 'B'
@@ -321,7 +319,6 @@ $result_trees{'explicit_sort_key'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'SK'
             },
             'sortas' => '0'
@@ -395,7 +392,6 @@ $result_trees{'explicit_sort_key'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'SK'
             }
           },

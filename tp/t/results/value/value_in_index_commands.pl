@@ -591,7 +591,6 @@ $result_trees{'value_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'truc'
             }
           },
@@ -725,7 +724,6 @@ $result_trees{'value_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'codeidx'
             }
           },
@@ -795,7 +793,6 @@ $result_trees{'value_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'ky'
             }
           },
@@ -875,7 +872,6 @@ $result_trees{'value_in_index_commands'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'pg'
             }
           },

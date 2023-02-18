@@ -210,7 +210,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seealso' => {}
@@ -273,7 +272,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seealso' => {}
@@ -341,7 +339,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seeentry' => {}
@@ -404,7 +401,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seeentry' => {}
@@ -472,7 +468,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seealso' => {}
@@ -535,7 +530,6 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_node' => {},
               'entry_number' => 6,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'seeentry' => {}

@@ -160,7 +160,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -417,7 +416,6 @@ $result_trees{'split_chapter_index'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },
@@ -457,7 +455,6 @@ $result_trees{'split_chapter_index'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },
@@ -497,7 +494,6 @@ $result_trees{'split_chapter_index'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 }
               },
@@ -537,7 +533,6 @@ $result_trees{'split_chapter_index'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },
@@ -624,7 +619,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -669,7 +663,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'fn'
             }
           },
@@ -709,7 +702,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 6,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -749,7 +741,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'fn'
             }
           },
@@ -1086,7 +1077,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 7,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -1131,7 +1121,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 8,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -1270,7 +1259,6 @@ $result_trees{'split_chapter_index'} = {
               'entry_node' => {},
               'entry_number' => 9,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },

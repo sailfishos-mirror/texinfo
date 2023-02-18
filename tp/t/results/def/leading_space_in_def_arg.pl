@@ -84,7 +84,6 @@ $result_trees{'leading_space_in_def_arg'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'

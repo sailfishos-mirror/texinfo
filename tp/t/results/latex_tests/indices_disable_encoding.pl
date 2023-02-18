@@ -263,9 +263,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -305,9 +303,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -347,9 +343,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 3,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -389,9 +383,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 4,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -431,9 +423,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 5,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -488,9 +478,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 6,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -603,9 +591,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 7,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             },
             'subentry' => {
@@ -871,9 +857,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 8,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             }
           },
@@ -935,9 +919,7 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 9,
               'in_code' => 0,
-              'index_ignore_chars' => {
-                '\\' => 1
-              },
+              'index_ignore_chars' => '\\',
               'index_name' => 'cp'
             },
             'sortas' => '\\cmd'
@@ -1039,7 +1021,6 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 10,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -1123,7 +1104,6 @@ $result_trees{'indices_disable_encoding'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'fn'
             }
           },

@@ -97,7 +97,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
@@ -213,7 +212,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
@@ -255,7 +253,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'entry_element' => {},
                       'entry_number' => 1,
                       'in_code' => 0,
-                      'index_ignore_chars' => {},
                       'index_name' => 'cp'
                     }
                   },
@@ -368,7 +365,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'entry_element' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffnx'
@@ -410,7 +406,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'entry_element' => {},
                       'entry_number' => 2,
                       'in_code' => 0,
-                      'index_ignore_chars' => {},
                       'index_name' => 'cp'
                     }
                   },

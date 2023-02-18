@@ -1911,9 +1911,6 @@ sub _substitute_references($$$)
                       $current->{'extra'}->{$key}->{$type_key},
                       $reference_associations,
                       "[$command_or_type]{$key}{$type_key}");
-                } elsif ($key eq 'index_entry' and $type_key eq 'index_ignore_chars') {
-                  $new->{'extra'}->{$key}->{$type_key}
-                     = { %{$current->{'extra'}->{$key}->{$type_key}} };
                 } else {
                   print STDERR "Not substituting [$command_or_type]{$key}: $type_key\n";
                 }

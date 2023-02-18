@@ -413,7 +413,6 @@ $result_trees{'formats_titles'} = {
                           'entry_element' => {},
                           'entry_number' => 1,
                           'in_code' => 1,
-                          'index_ignore_chars' => {},
                           'index_name' => 'vr'
                         }
                       },

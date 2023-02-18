@@ -212,7 +212,6 @@ $result_trees{'omit_def_space'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'omit_def_name_space' => 1,
@@ -303,7 +302,6 @@ $result_trees{'omit_def_space'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'omit_def_name_space' => 1,

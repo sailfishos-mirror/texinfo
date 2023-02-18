@@ -38,7 +38,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },
@@ -134,7 +133,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },

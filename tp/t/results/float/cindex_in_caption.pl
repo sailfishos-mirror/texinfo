@@ -198,7 +198,6 @@ $result_trees{'cindex_in_caption'} = {
                               'entry_node' => {},
                               'entry_number' => 1,
                               'in_code' => 0,
-                              'index_ignore_chars' => {},
                               'index_name' => 'cp'
                             }
                           },

@@ -415,7 +415,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'eee'
             }
           },
@@ -529,7 +528,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'ccc'
             }
           },
@@ -569,7 +567,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'bbb'
             }
           },
@@ -609,7 +606,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'aaa'
             }
           },
@@ -649,7 +645,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'ddd'
             }
           },
@@ -689,7 +684,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'entry_node' => {},
               'entry_number' => 2,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'eee'
             }
           },

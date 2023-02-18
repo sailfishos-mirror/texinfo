@@ -103,7 +103,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'entry_number' => 1,
                       'entry_region' => 'copying',
                       'in_code' => 1,
-                      'index_ignore_chars' => {},
                       'index_name' => 'fn'
                     },
                     'original_def_cmdname' => 'deftypefun'
@@ -526,7 +525,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefun'

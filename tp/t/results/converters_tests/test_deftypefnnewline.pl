@@ -315,7 +315,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefun'
@@ -452,7 +451,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefn'
@@ -634,7 +632,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -803,7 +800,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -972,7 +968,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
@@ -1154,7 +1149,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
@@ -1277,7 +1271,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 5,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
@@ -1471,7 +1464,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 6,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefun'
@@ -1608,7 +1600,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 7,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypefn'
@@ -1790,7 +1781,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 8,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -1959,7 +1949,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 9,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -2128,7 +2117,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
@@ -2310,7 +2298,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'deftypecv'
@@ -2433,7 +2420,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'entry_node' => {},
                   'entry_number' => 10,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'

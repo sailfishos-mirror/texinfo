@@ -285,7 +285,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'
@@ -413,7 +412,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'vr'
                 },
                 'original_def_cmdname' => 'defvar'

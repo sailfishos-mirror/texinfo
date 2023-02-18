@@ -350,7 +350,6 @@ $result_trees{'index_entry_at_end_node'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },

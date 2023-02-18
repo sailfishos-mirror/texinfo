@@ -199,7 +199,6 @@ $result_trees{'subentry_and_sortas'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             },
             'sortas' => 'A---S',
@@ -322,7 +321,6 @@ $result_trees{'subentry_and_sortas'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'fn'
             },
             'sortas' => 'X---S',

@@ -197,7 +197,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'entry_node' => {},
                       'entry_number' => 1,
                       'in_code' => 0,
-                      'index_ignore_chars' => {},
                       'index_name' => 'cp'
                     }
                   },
@@ -261,7 +260,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'entry_node' => {},
                       'entry_number' => 2,
                       'in_code' => 0,
-                      'index_ignore_chars' => {},
                       'index_name' => 'cp'
                     }
                   },
@@ -305,7 +303,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'entry_node' => {},
                       'entry_number' => 3,
                       'in_code' => 0,
-                      'index_ignore_chars' => {},
                       'index_name' => 'cp'
                     }
                   },

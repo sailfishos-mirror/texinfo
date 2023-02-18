@@ -545,7 +545,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'entry_node' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -825,7 +824,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'entry_node' => {},
                   'entry_number' => 2,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defop'
@@ -1356,7 +1354,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'entry_node' => {},
                   'entry_number' => 3,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deftypeop'
@@ -1636,7 +1633,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'entry_node' => {},
                   'entry_number' => 4,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'defop'

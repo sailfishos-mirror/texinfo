@@ -1,5 +1,16 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	Store index_ignore_chars as a string
+
+	* tp/Texinfo/Common.pm (_substitute_references),
+	tp/Texinfo/ParserNonXS.pm (@set_flag_index_char_ignore_order)
+	(_enter_index_entry), tp/Texinfo/Structuring.pm
+	(index_entry_sort_string), tp/Texinfo/XS/parsetexi/api.c
+	(build_single_index_data): store index_ignore_chars as a string,
+	by concatenating txiindex*ignore characters in a predetermined order.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/09indices.t: add index_entries_before_nodes
 	test, with NODE_NAME_IN_INDEX set to get the HTML warning, as when the
 	converter is called with convert, as is sthe case for html_text,

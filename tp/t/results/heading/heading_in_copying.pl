@@ -105,7 +105,6 @@ $result_trees{'heading_in_copying'} = {
                   'entry_number' => 1,
                   'entry_region' => 'copying',
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },

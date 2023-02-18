@@ -353,6 +353,10 @@ my %set_flag_index_char_ignore = (
  'txiindexhyphenignore' => '-',
 );
 
+# same as in XS parser
+my @set_flag_index_char_ignore_order = ('txiindexbackslashignore',
+   'txiindexhyphenignore', 'txiindexlessthanignore', 'txiindexatsignignore');
+
 my %type_with_paragraph;
 foreach my $type ('before_item', 'before_node_section', 'document_root',
                   'brace_command_context') {
@@ -3321,13 +3325,14 @@ sub _enter_index_entry($$$$)
   my $index_entry = { 'index_name'           => $index_name,
                       'entry_element'        => $element,
                       'entry_number'         => $number,
-                      'index_ignore_chars'   => {},
                     };
   # gather set txiindex*ignore information
-  foreach my $set_variable (keys(%set_flag_index_char_ignore)) {
+  foreach my $set_variable (@set_flag_index_char_ignore_order) {
     if (exists($self->{'values'}->{$set_variable})) {
       my $ignored_char = $set_flag_index_char_ignore{$set_variable};
-      $index_entry->{'index_ignore_chars'}->{$ignored_char} = 1;
+      $index_entry->{'index_ignore_chars'} = ''
+         if (!defined($index_entry->{'index_ignore_chars'}));
+      $index_entry->{'index_ignore_chars'} .= $ignored_char;
     }
   }
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
@@ -7616,9 +7621,8 @@ The index name.
 
 =item index_ignore_chars
 
-A hash reference with characters as keys and 1 as value.  Corresponds to
-the characters flagged as ignored in key sorting in the document by
-setting flags such as I<txiindexbackslashignore>.
+A string containing the characters flagged as ignored in key sorting
+in the document by setting flags such as I<txiindexbackslashignore>.
 
 =item entry_element
 

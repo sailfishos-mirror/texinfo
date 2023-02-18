@@ -114,7 +114,6 @@ $result_trees{'before_node_and_section'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 0,
-                  'index_ignore_chars' => {},
                   'index_name' => 'cp'
                 }
               },

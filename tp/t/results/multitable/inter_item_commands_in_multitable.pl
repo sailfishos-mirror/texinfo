@@ -107,7 +107,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                               'entry_element' => {},
                               'entry_number' => 1,
                               'in_code' => 0,
-                              'index_ignore_chars' => {},
                               'index_name' => 'cp'
                             }
                           },
@@ -506,7 +505,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                   'entry_element' => {},
                                   'entry_number' => 2,
                                   'in_code' => 0,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'cp'
                                 }
                               },
@@ -686,7 +684,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                           'entry_element' => {},
                           'entry_number' => 3,
                           'in_code' => 0,
-                          'index_ignore_chars' => {},
                           'index_name' => 'cp'
                         }
                       },

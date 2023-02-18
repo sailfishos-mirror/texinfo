@@ -97,7 +97,6 @@ $result_trees{'empty_def_arguments'} = {
                   'entry_element' => {},
                   'entry_number' => 1,
                   'in_code' => 1,
-                  'index_ignore_chars' => {},
                   'index_name' => 'fn'
                 },
                 'original_def_cmdname' => 'deffn'

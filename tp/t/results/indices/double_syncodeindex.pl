@@ -183,7 +183,6 @@ $result_trees{'double_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },
@@ -223,7 +222,6 @@ $result_trees{'double_syncodeindex'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 1,
-              'index_ignore_chars' => {},
               'index_name' => 'fn'
             }
           },

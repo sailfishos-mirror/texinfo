@@ -423,7 +423,6 @@ $result_trees{'comment_space_command_on_line'} = {
               'entry_node' => {},
               'entry_number' => 1,
               'in_code' => 0,
-              'index_ignore_chars' => {},
               'index_name' => 'cp'
             }
           },

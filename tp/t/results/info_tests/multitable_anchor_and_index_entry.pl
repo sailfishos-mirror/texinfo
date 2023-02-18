@@ -284,7 +284,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'entry_node' => {},
                                   'entry_number' => 1,
                                   'in_code' => 0,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'cp'
                                 }
                               },
@@ -596,7 +595,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'entry_node' => {},
                                   'entry_number' => 2,
                                   'in_code' => 0,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'cp'
                                 }
                               },

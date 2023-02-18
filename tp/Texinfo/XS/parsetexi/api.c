@@ -900,21 +900,23 @@ build_single_index_data (INDEX *i)
       if (e->node)
         STORE2("entry_node", newRV_inc ((SV *)e->node->hv));
 
-      /* Create ignored_chars hash. */
+      /* Create ignored_chars string. */
       {
-#define STORE3(key) hv_store (hv, key, strlen (key), newSViv(1), 0)
-        HV *hv = newHV ();
-        if (e->ignored_chars.backslash)
-          STORE3("\\");
-        if (e->ignored_chars.hyphen)
-          STORE3("-");
-        if (e->ignored_chars.lessthan)
-          STORE3("<");
-        if (e->ignored_chars.atsign)
-          STORE3("@");
-#undef STORE3
+        TEXT index_ignore_chars_string;
+        text_init (&index_ignore_chars_string);
 
-        STORE2("index_ignore_chars", newRV_inc ((SV *)hv));
+        if (e->ignored_chars.backslash)
+          text_append (&index_ignore_chars_string, "\\");
+        if (e->ignored_chars.hyphen)
+          text_append (&index_ignore_chars_string, "-");
+        if (e->ignored_chars.lessthan)
+          text_append (&index_ignore_chars_string, "<");
+        if (e->ignored_chars.atsign)
+          text_append (&index_ignore_chars_string, "@");
+
+        if (index_ignore_chars_string.end > 0)
+          STORE2("index_ignore_chars",
+                 newSVpv_utf8 (index_ignore_chars_string.text, 0));
       }
 
       av_push (entries, newRV_inc ((SV *)entry));

@@ -116,7 +116,6 @@ $result_trees{'tab_in_index'} = {
                                   'entry_element' => {},
                                   'entry_number' => 1,
                                   'in_code' => 1,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'vr'
                                 }
                               },

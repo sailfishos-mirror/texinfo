@@ -112,7 +112,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                       'entry_element' => {},
                                       'entry_number' => 1,
                                       'in_code' => 0,
-                                      'index_ignore_chars' => {},
                                       'index_name' => 'cp'
                                     }
                                   },

@@ -117,7 +117,6 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                               'entry_element' => {},
                               'entry_number' => 1,
                               'in_code' => 1,
-                              'index_ignore_chars' => {},
                               'index_name' => 'fn'
                             },
                             'original_def_cmdname' => 'deffn'

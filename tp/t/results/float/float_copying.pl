@@ -166,7 +166,6 @@ $result_trees{'float_copying'} = {
                                               'entry_number' => 1,
                                               'entry_region' => 'copying',
                                               'in_code' => 0,
-                                              'index_ignore_chars' => {},
                                               'index_name' => 'cp'
                                             }
                                           },
@@ -206,7 +205,6 @@ $result_trees{'float_copying'} = {
                                               'entry_number' => 1,
                                               'entry_region' => 'copying',
                                               'in_code' => 1,
-                                              'index_ignore_chars' => {},
                                               'index_name' => 'fn'
                                             }
                                           },
@@ -399,7 +397,6 @@ $result_trees{'float_copying'} = {
                                   'entry_number' => 2,
                                   'entry_region' => 'copying',
                                   'in_code' => 0,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'cp'
                                 }
                               },
@@ -439,7 +436,6 @@ $result_trees{'float_copying'} = {
                                   'entry_number' => 2,
                                   'entry_region' => 'copying',
                                   'in_code' => 1,
-                                  'index_ignore_chars' => {},
                                   'index_name' => 'fn'
                                 }
                               },

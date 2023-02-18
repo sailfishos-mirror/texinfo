@@ -307,7 +307,6 @@ $result_trees{'complex_nestings'} = {
                       'entry_node' => {},
                       'entry_number' => 1,
                       'in_code' => 1,
-                      'index_ignore_chars' => {},
                       'index_name' => 'fn'
                     },
                     'original_def_cmdname' => 'defun'
@@ -406,7 +405,6 @@ $result_trees{'complex_nestings'} = {
                       'entry_node' => {},
                       'entry_number' => 2,
                       'in_code' => 1,
-                      'index_ignore_chars' => {},
                       'index_name' => 'fn'
                     },
                     'original_def_cmdname' => 'defunx'
@@ -545,7 +543,6 @@ $result_trees{'complex_nestings'} = {
                               'entry_node' => {},
                               'entry_number' => 3,
                               'in_code' => 1,
-                              'index_ignore_chars' => {},
                               'index_name' => 'fn'
                             },
                             'original_def_cmdname' => 'deffn'
@@ -635,7 +632,6 @@ $result_trees{'complex_nestings'} = {
                                       'entry_node' => {},
                                       'entry_number' => 1,
                                       'in_code' => 1,
-                                      'index_ignore_chars' => {},
                                       'index_name' => 'vr'
                                     },
                                     'original_def_cmdname' => 'defvar'
@@ -736,7 +732,6 @@ $result_trees{'complex_nestings'} = {
                                       'entry_node' => {},
                                       'entry_number' => 2,
                                       'in_code' => 1,
-                                      'index_ignore_chars' => {},
                                       'index_name' => 'vr'
                                     },
                                     'original_def_cmdname' => 'defvarx'
