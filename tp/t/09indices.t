@@ -353,6 +353,19 @@ Text.
 
 @printindex fn
 '],
+['index_entries_before_nodes',
+'@cindex before
+
+@node Top
+
+@cindex in top
+
+@node chap
+
+@cindex in chap
+
+@printindex cp
+', {}, {'NODE_NAME_IN_INDEX' => 1}],
 ['printindex_index_entry_in_copying',
 '@copying
 

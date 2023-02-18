@@ -1,5 +1,12 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/09indices.t: add index_entries_before_nodes
+	test, with NODE_NAME_IN_INDEX set to get the HTML warning, as when the
+	converter is called with convert, as is sthe case for html_text,
+	NODE_NAME_IN_INDEX is not set based on USE_NODES.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): add
 	targetted warnings for index entries not asociated to node or section
 	that are formatted in printindex with warnings only if the index entry

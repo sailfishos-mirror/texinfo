@@ -751,6 +751,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/image_lines_count.pl \
   t/results/indices/image_text_lines_count.pl \
   t/results/indices/index_and_node_same_name.pl \
+  t/results/indices/index_entries_before_nodes.pl \
   t/results/indices/index_entries_locations.pl \
   t/results/indices/index_entry_before_first_node.pl \
   t/results/indices/index_entry_before_node.pl \
