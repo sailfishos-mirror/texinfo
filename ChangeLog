@@ -1,5 +1,16 @@
 2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@defblock, @defline in XS parser
+
+	* tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup):
+	Call gather_def_item for @defblock.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	Handle @defline.  Allow @defline and @deflinex in @defblock.
+	* tp/Texinfo/XS/parsetexi/end_line.c (_end_line_def_line):
+	No index entry for @defline.
+
+2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (%def_map): Add defline.
 
 2023-02-17  Patrice Dumas  <pertusus@free.fr>

@@ -583,25 +583,37 @@ handle_line_command (ELEMENT *current, char **line_inout,
           if (command_data(cmd).flags & CF_def)
             {
               enum command_id base_command;
-              char *base_name;
-              int base_len;
               int after_paragraph;
               char *val;
 
-              /* Find the command with "x" stripped from the end, e.g.
-                 deffnx -> deffn. */
-              base_name = command_name(cmd);
-              add_extra_string_dup (misc, "original_def_cmdname", base_name);
+              if (cmd == CM_defline)
+                {
+                  base_command = cmd;
+                  add_extra_string_dup (misc, "original_def_cmdname",
+                                        command_name(cmd));
+                  add_extra_string_dup (misc, "def_command",
+                                        command_name(cmd));
+                }
+              else
+                {
+                  /* Find the command with "x" stripped from the end, e.g.
+                     deffnx -> deffn. */
 
-              base_name = strdup (base_name);
-              base_len = strlen (base_name);
-              if (base_name[base_len - 1] != 'x')
-                fatal ("no x at end of def command name");
-              base_name[base_len - 1] = '\0';
-              base_command = lookup_command (base_name);
-              if (base_command == CM_NONE)
-                fatal ("no def base command");
-              add_extra_string (misc, "def_command", base_name);
+                  char *base_name;
+                  int base_len;
+
+                  base_name = command_name(cmd);
+                  add_extra_string_dup (misc, "original_def_cmdname", base_name);
+                  base_name = strdup (base_name);
+                  base_len = strlen (base_name);
+                  if (base_name[base_len - 1] != 'x')
+                    fatal ("no x at end of def command name");
+                  base_name[base_len - 1] = '\0';
+                  base_command = lookup_command (base_name);
+                  if (base_command == CM_NONE)
+                    fatal ("no def base command");
+                  add_extra_string (misc, "def_command", base_name);
+                }
 
               after_paragraph = check_no_text (current);
               push_context (ct_def, cmd);
@@ -620,9 +632,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   gather_def_item (current, cmd);
                   add_to_element_contents (current, e);
                 }
-              if (current->cmd != base_command || after_paragraph)
+              if (current->cmd != base_command && current->cmd != CM_defblock
+                  || after_paragraph)
                 {
-                  // error - deffnx not after deffn
+                  /* error - deffnx not after deffn */
                   line_error ("must be after `@%s' to use `@%s'",
                                command_name(base_command),
                                command_name(cmd));

@@ -2106,7 +2106,8 @@ end_line_def_line (ELEMENT *current)
 
   def_command = original_def_command;
   /* Strip an trailing x from the command, e.g. @deffnx -> @deffn */
-  if (command_data(def_command).flags & CF_line)
+  if (command_data(def_command).flags & CF_line
+      && def_command != CM_defline)
     {
       char *stripped = strdup (command_name(def_command));
       stripped[strlen (stripped) - 1] = '\0';
@@ -2170,7 +2171,10 @@ end_line_def_line (ELEMENT *current)
                                  index_entry);
             }
 
-          enter_index_entry (def_command, current);
+          if (def_command != CM_defline && def_command != CM_defblock)
+            enter_index_entry (def_command, current);
+          /* TODO: match Perl parser closer where def_command is set
+             differently.  */
         }
       else
         {

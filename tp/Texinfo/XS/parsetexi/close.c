@@ -237,7 +237,8 @@ close_command_cleanup (ELEMENT *current)
 
   /* Put everything after the last @def*x command in a def_item type
      container. */
-  if (command_data(current->cmd).flags & CF_def)
+  if (command_data(current->cmd).flags & CF_def
+      || current->cmd == CM_defblock)
     {
       gather_def_item (current, 0);
     }
