@@ -32,7 +32,7 @@ This is a fine document.
 
 @node Top
 @top Top
-@chapter Chapter
+@chapter Chapter  @c note this chapter is not associated to a node
 
 @c @insertcopying
 

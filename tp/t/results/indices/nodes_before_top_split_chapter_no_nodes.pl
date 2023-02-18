@@ -2442,6 +2442,123 @@ $result_converted_errors{'file_html'}->{'nodes_before_top_split_chapter_no_nodes
     'file_name' => 'nodes_before_top.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 40,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 70,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 62,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 24,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 65,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 42,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 60,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 69,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 41,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 61,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
   }
 ];
 

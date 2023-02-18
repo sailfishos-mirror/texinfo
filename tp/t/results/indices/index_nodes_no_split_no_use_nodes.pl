@@ -1859,6 +1859,105 @@ $result_converted_errors{'file_html'}->{'index_nodes_no_split_no_use_nodes'} = [
     'file_name' => 'index_nodes.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 21,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 51,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 43,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 46,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 23,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 41,
+    'macro' => '',
+    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 50,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 22,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
+',
+    'file_name' => 'index_nodes.texi',
+    'line_nr' => 42,
+    'macro' => '',
+    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
+    'type' => 'warning'
   }
 ];
 

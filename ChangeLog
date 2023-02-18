@@ -1,3 +1,14 @@
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): add
+	targetted warnings for index entries not asociated to node or section
+	that are formatted in printindex with warnings only if the index entry
+	is expected to be associated with a node (NODE_NAME_IN_INDEX set) or
+	a section (NODE_NAME_IN_INDEX set to 0), and if th eindex entry is not
+	in a special region, titlepage or copying.
+
+	* tp/t/input_files/index_special_region.texi: add a comment.
+
 2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line):

@@ -691,9 +691,24 @@ $result_trees{'index_special_region_no_titlepage_no_nodes'} = {
             }
           ],
           'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            'comment_at_end' => {
+              'args' => [
+                {
+                  'text' => ' note this chapter is not associated to a node
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' note this chapter is not associated to a node
 '
+                ]
+              }
+            },
+            'spaces_after_argument' => {
+              'text' => '  '
             }
           },
           'type' => 'line_arg'
@@ -1826,7 +1841,7 @@ This is a fine document.
 
 @node Top
 @top Top
-@chapter Chapter
+@chapter Chapter  @c note this chapter is not associated to a node
 
 @insertcopying
 

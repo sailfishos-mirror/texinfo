@@ -3336,6 +3336,19 @@ sub _enter_index_entry($$$$)
   } elsif ($self->{'current_node'}) {
     $index_entry->{'entry_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
+    # NOTE depending on the location, format and presence of @printindex,
+    # an index entry out of node and sections may be correctly formatted (or
+    # rightfully ignored).  For example if there is no printindex and the index
+    # formatting is done by texi2any for HTML or Info output, it does not matter
+    # that the entry is outside of nodes, as it does not appear anywhere
+    # anyway.  When outputting HTML, in most cases the content before the first
+    # node or section is output, such that an index entry there is not
+    # problematic either.  It could be possible to remove the warning from here
+    # and warn only in the converters.  However, in some cases there won't be
+    # any warning, for example when both the index entry and the printindex are
+    # before @setfilename, while it is good to warn in that case.  Therefore
+    # the warning here is kept -- at least until a relevant use case for
+    # index entry outside of node and section is reported.
     $self->_line_warn(sprintf(__("entry for index `%s' outside of any node"),
                              $index_name), $source_info);
   }

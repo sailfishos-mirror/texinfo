@@ -5792,6 +5792,20 @@ sub _convert_printindex_command($$$$)
           $associated_command
             = $self->command_node($target_element);
         }
+        if (!defined($associated_command)
+            # do not warn if the entry is in a special region, like titlepage
+            and not $index_entry_ref->{'entry_region'}
+            and $formatted_index_entries->{$index_entry_ref} == 1) {
+          # NOTE _noticed_line_warn is not used as printindex should not
+          # happen in multiple tree parsing that lead to ignore_notice being set,
+          # but the error message is printed only for the first entry formatting.
+          $self->line_warn($self,
+                           sprintf(
+           __("entry for index `%s' for \@printindex %s outside of any node"),
+                                   $index_entry_ref->{'index_name'},
+                                   $index_name),
+                           $main_entry_element->{'source_info'});
+        }
       }
       if (!$associated_command) {
         $associated_command
@@ -5801,6 +5815,29 @@ sub _convert_printindex_command($$$$)
           $associated_command
             = $self->tree_unit_element_command(
                                    $self->global_direction_element('Top'));
+          # NOTE the warning here catches the most relevant cases of
+          # index entry that is not associated to the right command, which
+          # are very few in the test suite.  There is also a warning in the
+          # parser with a much broader scope with possible overlap, but the
+          # overlap is not a problem.
+          # NODE_NAME_IN_INDEX may be undef even with USE_NODES set if the
+          # converter is called as convert() as in the test suite
+          if (defined($self->get_conf('NODE_NAME_IN_INDEX'))
+              and not $self->get_conf('NODE_NAME_IN_INDEX')
+              # do not warn if the entry is in a special region, like titlepage
+              and not $index_entry_ref->{'entry_region'}
+              and $formatted_index_entries->{$index_entry_ref} == 1) {
+            # NOTE _noticed_line_warn is not used as printindex should not
+            # happen in multiple tree parsing that lead to ignore_notice being set,
+            # but the error message is printed only for the first entry formatting.
+            # NOTE the index entry may be associated to a node in that case.
+            $self->line_warn($self,
+                             sprintf(
+        __("entry for index `%s' for \@printindex %s outside of any section"),
+                                     $index_entry_ref->{'index_name'},
+                                     $index_name),
+                             $main_entry_element->{'source_info'});
+          }
         }
       }
       my ($associated_command_href, $associated_command_text);
