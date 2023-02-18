@@ -86,7 +86,7 @@ void wipe_user_commands (void);
 #define CF_contain_basic_inline        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
-/* unused                               0x01000000 */
+#define CF_no_paragraph			0x01000000
 /* unused                               0x02000000 */
 #define CF_nobrace			0x04000000
 /* blockitem commands have a possible content before an item */

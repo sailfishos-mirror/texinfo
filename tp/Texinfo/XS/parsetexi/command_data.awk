@@ -148,6 +148,11 @@ END {
               if (flag_idx == 1) {
                 # first flag is always kept, corresponds to the category
                 flags_str = flags_array[flag_idx]
+                # all the line and block commands have the no_paragraph flag
+                if (flags_str == "line" || flags_str == "block") {
+                  old_str = flags_str
+                  flags_str = old_str "," "no_paragraph"
+                }
               } else {
                 # filter out flags not relevant for the XS parser.  Use
                 # an array and not a regexp because word boundary matching
@@ -171,10 +176,13 @@ END {
                 }
               }
             }
+        }
+
+        if (flags_str == "") {
+            flags = "0"
+        } else {
             flags = "CF_" flags_str
             gsub (/,/, " | CF_", flags)
-        } else {
-            flags = "0"
         }
 
         if (data[c] != "") {

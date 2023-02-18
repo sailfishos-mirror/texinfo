@@ -42,7 +42,7 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 
 # no brace commands - single letter commands
 
-*                       nobrace,preamble,formatted_nobrace   NOBRACE_symbol
+*                       nobrace,preamble,formatted_nobrace,no_paragraph   NOBRACE_symbol
 # space
 \x20                    nobrace,formatted_nobrace       NOBRACE_symbol
 \t                      nobrace,formatted_nobrace       NOBRACE_symbol
@@ -63,11 +63,11 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 # no brace commands - miscellaneous commands
 
 # formatting
-noindent                nobrace,preamble                NOBRACE_skipspace
-indent                  nobrace,preamble                NOBRACE_skipspace
-headitem                nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
-item                    nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
-tab                     nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
+noindent                nobrace,preamble,no_paragraph                NOBRACE_skipspace
+indent                  nobrace,preamble,no_paragraph                NOBRACE_skipspace
+headitem                nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace
+item                    nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace
+tab                     nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace
 # only valid in heading or footing
 thischapter             nobrace,in_heading_spec         NOBRACE_other
 thischaptername         nobrace,in_heading_spec         NOBRACE_other
@@ -79,7 +79,7 @@ thisfile                nobrace,in_heading_spec         NOBRACE_other
 thispage                nobrace,in_heading_spec         NOBRACE_other
 thistitle               nobrace,in_heading_spec         NOBRACE_other
 # obsolete @-commands.
-refill                  nobrace,preamble,deprecated     NOBRACE_other
+refill                  nobrace,preamble,deprecated,no_paragraph     NOBRACE_other
 
 
 ##########################################################
@@ -90,6 +90,9 @@ refill                  nobrace,preamble,deprecated     NOBRACE_other
 
 # commands taking a line as argument or no argument.
 # index commands are added dynamically.
+#
+# Note that all the line commands are set to no_paragraph when this
+# file is processed
 #
 # The values signification is:
 # special:     no value and macro expansion, all the line is used, and
@@ -399,8 +402,8 @@ r                       brace                           BRACE_style_no_code
 # context brace commands - commands that enclose full texts
 # not in the main document context.  They can contain multiple paragraphs.
 footnote                brace,global                    BRACE_context
-caption                 brace,close_paragraph           BRACE_context
-shortcaption            brace,close_paragraph,contain_basic_inline    BRACE_context
+caption                 brace,close_paragraph,no_paragraph           BRACE_context
+shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph    BRACE_context
 # Commands that enclose math content, and, because of that, are not in the
 # main document context.
 math                    brace,math,contain_basic_inline  BRACE_context
@@ -412,9 +415,9 @@ math                    brace,math,contain_basic_inline  BRACE_context
 # without even indicatric @-commands.
 # Parsers have specific checks for U content.
 U                       brace                                      BRACE_arguments     1
-hyphenation             brace,global,preamble,contain_plain_text   BRACE_arguments     1
-anchor                  brace,contain_basic_inline                 BRACE_arguments     1
-errormsg                brace,preamble,contain_basic_inline        BRACE_arguments     1
+hyphenation             brace,global,preamble,contain_plain_text,no_paragraph   BRACE_arguments     1
+anchor                  brace,contain_basic_inline,no_paragraph                 BRACE_arguments     1
+errormsg                brace,preamble,contain_basic_inline,no_paragraph        BRACE_arguments     1
 sortas                  brace,in_index,contain_plain_text          BRACE_arguments     1
 seeentry                brace,in_index,contain_basic_inline        BRACE_arguments     1
 seealso                 brace,in_index,contain_basic_inline        BRACE_arguments     1
@@ -432,7 +435,7 @@ inforef                 brace,ref,contain_basic_inline,deprecated     BRACE_argu
 xref                    brace,ref,contain_basic_inline  BRACE_arguments     5
 ref                     brace,ref,contain_basic_inline  BRACE_arguments     5
 pxref                   brace,ref,contain_basic_inline  BRACE_arguments     5
-image                   brace,contain_basic_inline      BRACE_arguments     5
+image                   brace,contain_basic_inline,no_paragraph      BRACE_arguments     5
 
 # leading space is ignored in inline brace commands, not trailing space
 # inline format command
@@ -453,7 +456,7 @@ w                       brace,contain_basic_inline      BRACE_special
 
 # other brace commands, leading and trailing spaces kept in main text
 dmn                     brace,contain_plain_text        BRACE_other         1
-titlefont               brace,close_paragraph,global,contain_basic_inline    BRACE_other         1
+titlefont               brace,close_paragraph,global,contain_basic_inline,no_paragraph    BRACE_other         1
 
 
 ##########################################################
@@ -463,6 +466,9 @@ titlefont               brace,close_paragraph,global,contain_basic_inline    BRA
 # commands delimiting blocks, with an @end.
 #
 ##########################################################
+
+# Note that all the block commands are set to no_paragraph when this
+# file is processed
 
 # def* commands
 deffn                   block,def,contain_basic_inline,close_paragraph       BLOCK_def

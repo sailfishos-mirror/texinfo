@@ -1,5 +1,17 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%default_no_paragraph_commands, parser):
+	(_parse_line_command_args), tp/Texinfo/XS/parsetexi/command_data.awk,
+	tp/Texinfo/XS/parsetexi/indices.c (add_index_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/command_data.txt,
+	tp/maintain/regenerate_commands_perl_info.pl: add no_paragraph flag.
+	Put the flag explicitly for brace and nobrace commands in
+	command_data.txt and add automatically for line and block commands.
+	Add default index commands and add dynamically new index commands.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	remove index entry commands from the list of commands that do not
 	start paragraphs in the check before calling begin_paragraph.

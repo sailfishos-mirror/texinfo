@@ -104,6 +104,10 @@ foreach my $category (sort(keys(%command_categories))) {
   foreach my $type (sort(keys(%{$command_categories{$category}}))) {
     foreach my $command (sort(@{$command_categories{$category}->{$type}})) {
       print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => '$type',\n";
+
+      # set no_paragraph flag for all the line and block commands
+      push @{$flags_hashes{'no_paragraph'}}, $command
+          if ($category eq 'line' or $category eq 'block');
     }
   }
   print OUT ");\n\n";

@@ -2081,21 +2081,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
 
       /* check command doesn't start a paragraph */
-      /* TODO store this in cmd->flags. */
-      if (!((command_data(cmd).flags & (CF_line | CF_block))
-            || (command_data(cmd).flags & CF_nobrace
-                && (command_data(cmd).data == NOBRACE_skipspace
-           /* FIXME NOBRACE_other should probably start a paragraph
-              except for refill */
-                    || command_data(cmd).data == NOBRACE_other))
-            || cmd == CM_titlefont
-            || cmd == CM_caption
-            || cmd == CM_shortcaption
-            || cmd == CM_image
-            || cmd == CM_ASTERISK /* @* */
-            || cmd == CM_hyphenation
-            || cmd == CM_anchor
-            || cmd == CM_errormsg))
+      if (!(command_data(cmd).flags & CF_no_paragraph))
         {
           ELEMENT *paragraph;
           paragraph = begin_paragraph (current);
