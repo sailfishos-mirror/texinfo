@@ -21,6 +21,17 @@
 	(_prepare_index_entries), tp/Texinfo/Convert/IXIN.pm (output_ixin),
 	tp/Texinfo/Convert/Plaintext.pm (process_printindex),
 	tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tp/Texinfo/Transformations.pm (_reassociate_to_node),
+	tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
+	tp/t/automatic_nodes.t: rename 'entry_node' as 'element_node' and
+	'entry_region' as 'element_region'.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries), tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
 	tp/Texinfo/Structuring.pm (index_entry_sort_string),
 	tp/Texinfo/Transformations.pm (_reassociate_to_node),
 	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),

@@ -64,7 +64,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                   ],
                                   'cmdname' => 'cindex',
                                   'extra' => {
-                                    'entry_region' => 'copying',
+                                    'element_region' => 'copying',
                                     'index_entry' => {
                                       'entry_element' => {},
                                       'entry_number' => 1,

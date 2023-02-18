@@ -204,7 +204,7 @@ is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'extra'}->
 ', 'reassociated menu is correct');
 #print STDERR join('|', keys(%{$index_names->{'cp'}->{'index_entries'}}))."\n";
 is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]
-                                ->{'entry_element'}->{'extra'}->{'entry_node'},
+                                ->{'entry_element'}->{'extra'}->{'element_node'},
   'index entry reassociated');
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

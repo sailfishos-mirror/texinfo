@@ -693,7 +693,7 @@ sub output_ixin($$)
       my $dts_in_code = $index_names->{$index_name}->{'in_code'};
       foreach my $dts_entry (@{$entries->{$index_name}}) {
         my $main_entry_element = $dts_entry->{'entry_element'};
-        my $node = $main_entry_element->{'extra'}->{'entry_node'};
+        my $node = $main_entry_element->{'extra'}->{'element_node'};
         my $associated_node_id;
         if (defined($node)) {
           $associated_node_id = $self->_associated_node_id(undef,

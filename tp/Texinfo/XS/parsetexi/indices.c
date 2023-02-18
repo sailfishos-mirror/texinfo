@@ -302,10 +302,10 @@ enter_index_entry (enum command_id index_type_cmd,
   if (nesting_context.regions_stack.top > 0)
     {
       enum command_id region = top_command (&nesting_context.regions_stack);
-      add_extra_string_dup (element, "entry_region", command_name (region));
+      add_extra_string_dup (element, "element_region", command_name (region));
     }
   else if (current_node)
-    add_extra_element (element, "entry_node", current_node);
+    add_extra_element (element, "element_node", current_node);
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)

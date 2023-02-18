@@ -3339,10 +3339,10 @@ sub _enter_index_entry($$$$)
     }
   }
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
-    $element->{'extra'}->{'entry_region'}
+    $element->{'extra'}->{'element_region'}
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
-    $element->{'extra'}->{'entry_node'} = $self->{'current_node'};
+    $element->{'extra'}->{'element_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or

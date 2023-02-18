@@ -5560,11 +5560,11 @@ sub _convert_printindex_command($$$$)
       $entry_nr++;
       my $main_entry_element = $index_entry_ref->{'entry_element'};
       next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-               and defined($main_entry_element->{'extra'}->{'entry_node'})
-               and $main_entry_element->{'extra'}->{'entry_node'}->{'extra'}
-               and $main_entry_element->{'extra'}->{'entry_node'}
+               and defined($main_entry_element->{'extra'}->{'element_node'})
+               and $main_entry_element->{'extra'}->{'element_node'}->{'extra'}
+               and $main_entry_element->{'extra'}->{'element_node'}
                                                ->{'extra'}->{'normalized'}
-               and $main_entry_element->{'extra'}->{'entry_node'}
+               and $main_entry_element->{'extra'}->{'element_node'}
                                        ->{'extra'}->{'normalized'} eq 'Top');
 
       # to avoid double error messages, call convert_tree_new_formatting_context
@@ -5789,14 +5789,14 @@ sub _convert_printindex_command($$$$)
 
       my $associated_command;
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {
-        $associated_command = $main_entry_element->{'extra'}->{'entry_node'};
+        $associated_command = $main_entry_element->{'extra'}->{'element_node'};
         if (!defined($associated_command)) {
           $associated_command
             = $self->command_node($target_element);
         }
         if (!defined($associated_command)
             # do not warn if the entry is in a special region, like titlepage
-            and not $main_entry_element->{'extra'}->{'entry_region'}
+            and not $main_entry_element->{'extra'}->{'element_region'}
             and $formatted_index_entries->{$index_entry_ref} == 1) {
           # NOTE _noticed_line_warn is not used as printindex should not
           # happen in multiple tree parsing that lead to ignore_notice being set,
@@ -5827,7 +5827,7 @@ sub _convert_printindex_command($$$$)
           if (defined($self->get_conf('NODE_NAME_IN_INDEX'))
               and not $self->get_conf('NODE_NAME_IN_INDEX')
               # do not warn if the entry is in a special region, like titlepage
-              and not $main_entry_element->{'extra'}->{'entry_region'}
+              and not $main_entry_element->{'extra'}->{'element_region'}
               and $formatted_index_entries->{$index_entry_ref} == 1) {
             # NOTE _noticed_line_warn is not used as printindex should not
             # happen in multiple tree parsing that lead to ignore_notice being set,
@@ -9275,8 +9275,8 @@ sub _prepare_index_entries($)
                  and ($main_entry_element->{'extra'}->{'seeentry'}
                       or $main_entry_element->{'extra'}->{'seealso'}));
         my $region = '';
-        $region = "$main_entry_element->{'extra'}->{'entry_region'}-"
-          if (defined($main_entry_element->{'extra'}->{'entry_region'}));
+        $region = "$main_entry_element->{'extra'}->{'element_region'}-"
+          if (defined($main_entry_element->{'extra'}->{'element_region'}));
         my $entry_reference_content_element
           = Texinfo::Common::index_content_element($main_entry_element, 1);
         my @contents = ($entry_reference_content_element);

@@ -149,7 +149,7 @@ $result_trees{'w_lines_count'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -266,7 +266,7 @@ $result_trees{'w_lines_count'} = {
 };
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'w_lines_count'}{'contents'}[1];
+$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'w_lines_count'}{'contents'}[1];
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3];
 
 $result_texis{'w_lines_count'} = '@node Top

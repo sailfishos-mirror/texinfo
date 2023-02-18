@@ -103,7 +103,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -142,7 +142,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 2,
@@ -181,7 +181,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 3,
@@ -220,7 +220,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 4,
@@ -502,7 +502,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 5,
@@ -541,7 +541,7 @@ $result_trees{'printindex_between_part_chapter'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 6,
@@ -584,22 +584,22 @@ $result_trees{'printindex_between_part_chapter'} = {
 };
 $result_trees{'printindex_between_part_chapter'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[1];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[2]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[2];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[3];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[4];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[3];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[6]{'extra'}{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[6]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'printindex_between_part_chapter'}{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[1];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[2]{'extra'}{'entry_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[2];
 
 $result_texis{'printindex_between_part_chapter'} = '@node Top

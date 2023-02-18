@@ -158,7 +158,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -198,7 +198,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 2,
@@ -238,7 +238,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 3,
@@ -300,7 +300,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 4,
@@ -393,13 +393,13 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
 };
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
+$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[1];
-$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[2]{'extra'}{'entry_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
+$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[2];
-$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
+$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[3];
-$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
+$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[4];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'args'}[0]{'contents'}[0];

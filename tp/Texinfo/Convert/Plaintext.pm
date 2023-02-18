@@ -1350,7 +1350,7 @@ sub process_printindex($$;$)
       $line_nr = $self->{'index_entries_line_location'}
                                      ->{$main_entry_element}->{'lines'};
       # ignore index entries in special regions that haven't been seen
-    } elsif ($main_entry_element->{'extra'}->{'entry_region'}) {
+    } elsif ($main_entry_element->{'extra'}->{'element_region'}) {
       $ignored_entries{$entry} = 1;
       next;
     }
@@ -1364,8 +1364,8 @@ sub process_printindex($$;$)
                                     ->{$main_entry_element}->{'node'})) {
       $node = $self->{'index_entries_line_location'}
                                     ->{$main_entry_element}->{'node'};
-    } elsif (defined($main_entry_element->{'extra'}->{'entry_node'})) {
-      $node = $main_entry_element->{'extra'}->{'entry_node'};
+    } elsif (defined($main_entry_element->{'extra'}->{'element_node'})) {
+      $node = $main_entry_element->{'extra'}->{'element_node'};
     }
     $entry_nodes{$entry} = $node;
     if (!defined($node)) {

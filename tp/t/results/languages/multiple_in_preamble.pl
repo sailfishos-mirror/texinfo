@@ -160,7 +160,7 @@ $result_trees{'multiple_in_preamble'} = {
                           'name' => {}
                         },
                         'documentlanguage' => 'fr',
-                        'entry_region' => 'copying',
+                        'element_region' => 'copying',
                         'index_entry' => {
                           'entry_element' => {},
                           'entry_number' => 1,
@@ -579,7 +579,7 @@ $result_trees{'multiple_in_preamble'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'hr',
-                'entry_node' => {},
+                'element_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
                   'entry_number' => 2,
@@ -806,7 +806,7 @@ $result_trees{'multiple_in_preamble'} = {
                   'name' => {}
                 },
                 'documentlanguage' => 'de',
-                'entry_node' => {},
+                'element_node' => {},
                 'index_entry' => {
                   'entry_element' => {},
                   'entry_number' => 3,
@@ -901,7 +901,7 @@ $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
+$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
@@ -910,7 +910,7 @@ $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'entry_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
+$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
 $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
 
 $result_texis{'multiple_in_preamble'} = '@documentlanguage fr

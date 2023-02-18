@@ -49,7 +49,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   ],
                   'cmdname' => 'findex',
                   'extra' => {
-                    'entry_region' => 'copying',
+                    'element_region' => 'copying',
                     'index_entry' => {
                       'entry_element' => {},
                       'entry_number' => 1,
@@ -135,7 +135,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'category' => {},
                           'name' => {}
                         },
-                        'entry_region' => 'copying',
+                        'element_region' => 'copying',
                         'index_entry' => {
                           'entry_element' => {},
                           'entry_number' => 2,
@@ -210,7 +210,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'category' => {},
                           'name' => {}
                         },
-                        'entry_region' => 'copying',
+                        'element_region' => 'copying',
                         'index_entry' => {
                           'entry_element' => {},
                           'entry_number' => 3,
@@ -342,7 +342,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               ],
                               'cmdname' => 'item',
                               'extra' => {
-                                'entry_region' => 'copying',
+                                'element_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 4,
@@ -380,7 +380,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               ],
                               'cmdname' => 'itemx',
                               'extra' => {
-                                'entry_region' => 'copying',
+                                'element_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 5,

@@ -178,7 +178,7 @@ $result_trees{'double_syncodeindex'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -217,7 +217,7 @@ $result_trees{'double_syncodeindex'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -342,9 +342,9 @@ $result_trees{'double_syncodeindex'} = {
 };
 $result_trees{'double_syncodeindex'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'double_syncodeindex'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1]{'extra'}{'entry_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
+$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1];
-$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2]{'extra'}{'entry_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
+$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2];
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'double_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];

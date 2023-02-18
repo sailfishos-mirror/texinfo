@@ -142,7 +142,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 1,
@@ -181,7 +181,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           ],
           'cmdname' => 'cpindex',
           'extra' => {
-            'entry_node' => {},
+            'element_node' => {},
             'index_entry' => {
               'entry_element' => {},
               'entry_number' => 2,
@@ -272,9 +272,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
 };
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[3];
-$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'entry_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'contents'}[4];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[2]{'args'}[0]{'contents'}[0];

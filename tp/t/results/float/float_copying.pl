@@ -161,7 +161,7 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'cindex',
                                           'extra' => {
-                                            'entry_region' => 'copying',
+                                            'element_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
@@ -200,7 +200,7 @@ $result_trees{'float_copying'} = {
                                           ],
                                           'cmdname' => 'findex',
                                           'extra' => {
-                                            'entry_region' => 'copying',
+                                            'element_region' => 'copying',
                                             'index_entry' => {
                                               'entry_element' => {},
                                               'entry_number' => 1,
@@ -392,7 +392,7 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'cindex',
                               'extra' => {
-                                'entry_region' => 'copying',
+                                'element_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
@@ -431,7 +431,7 @@ $result_trees{'float_copying'} = {
                               ],
                               'cmdname' => 'findex',
                               'extra' => {
-                                'entry_region' => 'copying',
+                                'element_region' => 'copying',
                                 'index_entry' => {
                                   'entry_element' => {},
                                   'entry_number' => 2,
