@@ -565,6 +565,7 @@ our %def_map = (
     # basic commands.
     # 'arg' and 'argtype' are for everything appearing after the other
     # arguments.
+    'defline',   [ 'category', 'name', 'arg' ],
     'deffn',     [ 'category', 'name', 'arg' ],
     'defvr',     [ 'category', 'name' ],
     'deftypefn', [ 'category', 'type', 'name', 'argtype' ],
