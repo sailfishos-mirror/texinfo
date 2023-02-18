@@ -1,3 +1,8 @@
+2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line):
+	Reorder conditional to match XS code.  No functional changes.
+
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry): remove

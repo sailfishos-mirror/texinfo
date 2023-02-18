@@ -3778,7 +3778,11 @@ sub _end_line_def_line($$$)
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
 
   $current = $current->{'parent'};
-  if (scalar(@$arguments)) {
+  if (scalar(@$arguments) == 0) {
+    $self->_command_warn($current, $source_info,
+                         __('missing category for @%s'),
+       $current->{'extra'}->{'original_def_cmdname'});
+  } else {
     #$current->{'extra'}->{'def_args'} = $arguments;
     my $def_parsed_hash = {};
     foreach my $arg (@$arguments) {
@@ -3831,10 +3835,6 @@ sub _end_line_def_line($$$)
                            __('missing name for @%s'),
          $current->{'extra'}->{'original_def_cmdname'});
     }
-  } else {
-    $self->_command_warn($current, $source_info,
-                         __('missing category for @%s'),
-       $current->{'extra'}->{'original_def_cmdname'});
   }
   $current = $current->{'parent'};
   $current = _begin_preformatted($self, $current);
