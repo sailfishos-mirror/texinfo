@@ -7619,30 +7619,17 @@ The keys of the index entry structures are
 
 =item index_name
 
-The index name.
-
-=item index_ignore_chars
-
-A string containing the characters flagged as ignored in key sorting
-in the document by setting flags such as I<txiindexbackslashignore>.
+The index name associated to the command.  Not modified if the corresponding
+index is merged in another index (with C<@synindex>, for example).
 
 =item entry_element
 
 The element in the parsed tree associated with the @-command holding the
 index entry.
 
-=item entry_node
-
-The node in the parsed tree containing the index entry.
-
 =item entry_number
 
 The number of the index entry.
-
-=item entry_region
-
-The region command (C<@copying>, C<@titlepage>) containing the index entry,
-if it is in such an environement.
 
 =back
 
@@ -8275,11 +8262,29 @@ X<Texinfo tree element extra key>
 
 =over
 
+=item element_node
+
+The node element in the parsed tree containing the element.
+Set for @-commands elements that have an associated
+index entry.
+
+=item element_region
+
+The region command (C<@copying>, C<@titlepage>) containing the element,
+if it is in such an environement.  Set for @-commands elements that have an
+associated index entry.
+
 =item index_entry
 
 The index entry information (described in L</index_entries>
 in details) is associated to @-commands that have an associated
 index entry.
+
+=item index_ignore_chars
+
+A string containing the characters flagged as ignored in key sorting in the
+document by setting flags such as I<txiindexbackslashignore>.  Set, if
+not empty, for @-commands elements that have an associated index entry.
 
 =item misc_args
 
@@ -8391,6 +8396,19 @@ contents, I<normalized> holds the normalized float type.
 I<caption> and I<shortcaption> holds the corresponding
 tree elements for float.  The C<@caption> or C<@shortcaption>
 have the float tree element stored in I<float>.
+
+=item index entry @-command
+
+=item C<@subentry>
+
+If an index entry @-command, such as C<@cindex>, or a C<@subentry> contains
+a C<@sortas> command, I<sortas> holds the C<@sortas> command content
+formatted as plain text.
+
+I<subentry> links to the next level C<@subentry> element.
+
+Index entry @-command (but not C<@subentry>) can also have I<seentry>
+and I<seealso> keys that link to the corresponding @-commands elements.
 
 =item C<@inlinefmt>
 

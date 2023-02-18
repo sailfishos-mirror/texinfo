@@ -1,3 +1,12 @@
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry): remove
+	the number field from the index entry structure as it is not
+	used, the position in the index array is directly used in api.c.
+
+	* tp/Texinfo/ParserNonXS.pm: update POD documentation of index
+	entries, add index related extra keys documentation.
+
 2023-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* Texinfo/Convert/HTML.pm (_convert_def_line_type) <DEF_TABLE>:

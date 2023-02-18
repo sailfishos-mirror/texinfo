@@ -253,12 +253,9 @@ typedef struct {
 
 
 /* INDEX_TYPE_CMD is used to determine which index to enter the entry in.
-   CONTENT is an element whose contents represent the text of the
    index entry.  ELEMENT is the element in the main body of the manual that
    the index entry refers/belongs to.
-
-   CONTENT_NORMALIZED would be "the index entry content, independent
-   of the current language." */
+*/
 void
 enter_index_entry (enum command_id index_type_cmd,
                    ELEMENT *element)
@@ -280,8 +277,10 @@ enter_index_entry (enum command_id index_type_cmd,
   memset (entry, 0, sizeof (INDEX_ENTRY));
 
   entry->index_name = idx->name;
-  entry->command = element;
+  /* not needed, the position in the index is directly used
   entry->number = idx->index_number;
+  */
+  entry->command = element;
 
   /* Create ignored_chars string. */
   text_init (&ignored_chars);

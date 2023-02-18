@@ -129,10 +129,8 @@ typedef struct IGNORED_CHARS {
 } IGNORED_CHARS;
 
 typedef struct {
-    char *index_name;
-
+    char *index_name; /* kept with the entry as the indices may be merged */
     ELEMENT *command;
-    int number; /* Index of entry in containing index, 1-based. */
 } INDEX_ENTRY;
 
 typedef struct INDEX {
