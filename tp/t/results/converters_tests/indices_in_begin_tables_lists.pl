@@ -602,48 +602,48 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => 'T--ext before items.
 '
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'also a cindex in itemize'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'cindex',
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 4,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 25,
-                        'macro' => ''
-                      },
-                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'also a cindex in itemize'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'cindex',
+                  'extra' => {
+                    'element_node' => {},
+                    'index_entry' => {
+                      'entry_element' => {},
+                      'entry_number' => 4,
+                      'in_code' => 0,
+                      'index_name' => 'cp'
+                    }
+                  },
+                  'info' => {
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'source_info' => {
+                    'file_name' => 'indices_in_begin_tables_lists.texi',
+                    'line_nr' => 25,
+                    'macro' => ''
+                  },
+                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -1268,48 +1268,48 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => 'Title
 '
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cindex'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'cindex',
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 8,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'indices_in_begin_tables_lists.texi',
-                        'line_nr' => 56,
-                        'macro' => ''
-                      },
-                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'cindex'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'cindex',
+                  'extra' => {
+                    'element_node' => {},
+                    'index_entry' => {
+                      'entry_element' => {},
+                      'entry_number' => 8,
+                      'in_code' => 0,
+                      'index_name' => 'cp'
+                    }
+                  },
+                  'info' => {
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'source_info' => {
+                    'file_name' => 'indices_in_begin_tables_lists.texi',
+                    'line_nr' => 56,
+                    'macro' => ''
+                  },
+                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -4054,8 +4054,8 @@ $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'co
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1];
@@ -4063,8 +4063,8 @@ $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'c
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];

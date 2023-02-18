@@ -14,47 +14,47 @@ $result_trees{'one_node_counted_elements'} = {
             {
               'text' => 'Garbage
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'before nodes'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 1,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 2,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'before nodes'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 1,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -108,48 +108,48 @@ $result_trees{'one_node_counted_elements'} = {
             {
               'text' => 'Top node
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Top node'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 2,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Top node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'element_node' => {},
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 2,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -442,13 +442,13 @@ $result_trees{'one_node_counted_elements'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_node_counted_elements'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'one_node_counted_elements'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'label'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'one_node_counted_elements'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'one_node_counted_elements'}{'contents'}[0]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'extra'}{'label'} = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'contents'}[1];
@@ -592,7 +592,7 @@ Top node
 * Menu:
 
 * before nodes:                          (outside of any node). (line 0)
-* Top node:                              one node.              (line 3)
+* Top node:                              one node.              (line 4)
 
 
 

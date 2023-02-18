@@ -27,8 +27,8 @@
 <itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <beforefirstitem><!-- c comment in itemize -->
 <para>T&textndash;ext before items.
-<cindex index="cp" spaces=" "><indexterm index="cp" number="4">also a cindex in itemize</indexterm></cindex>
-</para></beforefirstitem><listitem><prepend>&bullet;</prepend> <para>bullet item
+</para><cindex index="cp" spaces=" "><indexterm index="cp" number="4">also a cindex in itemize</indexterm></cindex>
+</beforefirstitem><listitem><prepend>&bullet;</prepend> <para>bullet item
 </para></listitem></itemize>
 
 <enumerate first="1" endspaces=" ">
@@ -58,8 +58,8 @@
 
 <enumerate first="1" endspaces=" ">
 <beforefirstitem><para>Title
-<cindex index="cp" spaces=" "><indexterm index="cp" number="8">cindex</indexterm></cindex>
-</para></beforefirstitem><listitem> <para>enum
+</para><cindex index="cp" spaces=" "><indexterm index="cp" number="8">cindex</indexterm></cindex>
+</beforefirstitem><listitem> <para>enum
 </para></listitem></enumerate>
 
 <enumerate first="1" endspaces=" ">

@@ -239,47 +239,47 @@ $result_trees{'multitable'} = {
                             {
                               'text' => 'multitable tab 2
 '
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'index entry within multitable'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'cmdname' => 'cindex',
-                              'extra' => {
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 1,
-                                  'in_code' => 0,
-                                  'index_name' => 'cp'
-                                }
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 7,
-                                'macro' => ''
-                              },
-                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'index entry within multitable'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'cindex',
+                          'extra' => {
+                            'index_entry' => {
+                              'entry_element' => {},
+                              'entry_number' => 1,
+                              'in_code' => 0,
+                              'index_name' => 'cp'
+                            }
+                          },
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 7,
+                            'macro' => ''
+                          },
+                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {
@@ -553,7 +553,7 @@ $result_trees{'multitable'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[2];
 $result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'extra'}{'columnfractions'} = $result_trees{'multitable'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multitable'}{'contents'}[0]{'contents'}[3]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable'}{'contents'}[0]{'contents'}[3]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[2]{'contents'}[0];
@@ -640,8 +640,8 @@ $result_converted{'xml'}->{'multitable'} = '
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
 </para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
-</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
+</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
+</entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
@@ -671,8 +671,8 @@ $result_converted{'docbook'}->{'multitable'} = '
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
 <!-- comment in multitable -->
 </para></entry></row><row><entry><para>mu&#8211;ltitable item 2 </para></entry><entry><para>multitable tab 2
-<indexterm role="cp"><primary>index entry within multitable</primary></indexterm>
-</para></entry></row><row><entry><para>lone mu&#8211;ltitable item
+</para><indexterm role="cp"><primary>index entry within multitable</primary></indexterm>
+</entry></row><row><entry><para>lone mu&#8211;ltitable item
 </para></entry></row></tbody></tgroup></informaltable>
 <informaltable><tgroup cols="2"><colspec colwidth="4*"></colspec><colspec colwidth="6*"></colspec><tbody><row><entry><para>truc </para></entry><entry><para>bidule
 </para></entry></row></tbody></tgroup></informaltable>';

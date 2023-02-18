@@ -5,6 +5,20 @@
 
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	Index commands close paragraphs
+
+	* tp/Texinfo/ParserNonXS.pm (%default_close_paragraph_commands),
+	(parser, _parse_line_command_args), tp/Texinfo/XS/parsetexi/commands.c
+	(close_preformatted_command), tp/Texinfo/XS/parsetexi/indices.c
+	(add_index_command): set index commands as close_paragraph commands,
+	but do not set them to close preformatted containers.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_paragraph),
+	tp/Texinfo/XS/parsetexi/parser.c (end_paragraph): remove empty
+	paragraphs.
+
+2023-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry): remove
 	the number field from the index entry structure as it is not
 	used, the position in the index array is directly used in api.c.
@@ -87,11 +101,11 @@
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): add
-	targetted warnings for index entries not asociated to node or section
+	targetted warnings for index entries not associated to node or section
 	that are formatted in printindex with warnings only if the index entry
 	is expected to be associated with a node (NODE_NAME_IN_INDEX set) or
-	a section (NODE_NAME_IN_INDEX set to 0), and if th eindex entry is not
-	in a special region, titlepage or copying.
+	a section (NODE_NAME_IN_INDEX set to 0), and if the index entry is not
+	in a special region (titlepage or copying).
 
 	* tp/t/input_files/index_special_region.texi: add a comment.
 

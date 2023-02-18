@@ -606,7 +606,7 @@ end_paragraph (ELEMENT *current,
   if (current->type == ET_paragraph)
     {
       debug ("CLOSE PARA");
-      current = current->parent;
+      current = close_container(current);
     }
 
   return current;

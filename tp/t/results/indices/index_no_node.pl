@@ -261,47 +261,47 @@ $result_trees{'index_no_node'} = {
             {
               'text' => 'in unnumbered
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'unnumbered after text'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 3,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_no_node.texi',
-                'line_nr' => 15,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'unnumbered after text'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 3,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => 'index_no_node.texi',
+            'line_nr' => 15,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -825,47 +825,47 @@ $result_trees{'index_no_node'} = {
             {
               'text' => 'second node
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'second'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 12,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_no_node.texi',
-                'line_nr' => 39,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'second'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 12,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => 'index_no_node.texi',
+            'line_nr' => 39,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -1019,47 +1019,47 @@ $result_trees{'index_no_node'} = {
             {
               'text' => 'Text of chapter
 '
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Chapter2'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 14,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_no_node.texi',
-                'line_nr' => 47,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Chapter2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 14,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => 'index_no_node.texi',
+            'line_nr' => 47,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -1143,7 +1143,7 @@ $result_trees{'index_no_node'} = {
 };
 $result_trees{'index_no_node'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[0]{'contents'}[2];
 $result_trees{'index_no_node'}{'contents'}[1]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[1]{'contents'}[2];
-$result_trees{'index_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'index_no_node'}{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[1]{'contents'}[4];
 $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[1];
 $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[2];
 $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[3];
@@ -1152,9 +1152,9 @@ $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_ent
 $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[6];
 $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[2]{'contents'}[11];
 $result_trees{'index_no_node'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[3]{'contents'}[2];
-$result_trees{'index_no_node'}{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[3]{'contents'}[3]{'contents'}[1];
+$result_trees{'index_no_node'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[3]{'contents'}[4];
 $result_trees{'index_no_node'}{'contents'}[4]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[4]{'contents'}[0];
-$result_trees{'index_no_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
+$result_trees{'index_no_node'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_no_node'}{'contents'}[4]{'contents'}[4];
 
 $result_texis{'index_no_node'} = '\\input texinfo @c -*-texinfo-*-
 

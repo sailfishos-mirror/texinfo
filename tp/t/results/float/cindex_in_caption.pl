@@ -173,48 +173,48 @@ $result_trees{'cindex_in_caption'} = {
                         {
                           'text' => 'in caption
 '
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 1,
-                              'in_code' => 0,
-                              'index_name' => 'cp'
-                            }
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 9,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'type' => 'paragraph'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'index entry'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => {
+                          'entry_element' => {},
+                          'entry_number' => 1,
+                          'in_code' => 0,
+                          'index_name' => 'cp'
+                        }
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 9,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'brace_command_context'
@@ -369,8 +369,8 @@ $result_trees{'cindex_in_caption'} = {
 $result_trees{'cindex_in_caption'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cindex_in_caption'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cindex_in_caption'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cindex_in_caption'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'args'}[1]{'contents'}[0];
@@ -486,7 +486,7 @@ fl 1: in caption
 
 * Menu:
 
-* index entry:                           chap.                  (line 6)
+* index entry:                           chap.                  (line 7)
 
 ';
 
@@ -510,7 +510,7 @@ fl 1: in caption
  [index ]
 * Menu:
 
-* index entry:                           chap.                  (line 9)
+* index entry:                           chap.                 (line 10)
 
 
 
@@ -579,8 +579,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 <div class="float" id="label">
 <p>In float.
 </p><div class="caption"><p><strong class="strong">fl 1: </strong>in caption
-<a class="index-entry-id" id="index-index-entry"></a>
-</p></div></div>
+</p><a class="index-entry-id" id="index-index-entry"></a>
+</div></div>
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
@@ -617,8 +617,8 @@ $result_converted{'xml'}->{'cindex_in_caption'} = '<node name="Top" spaces=" "><
 <float name="label" type="fl" number="1" spaces=" " endspaces=" "><floattype>fl</floattype><floatname spaces=" ">label</floatname>
 <para>In float.
 </para><caption><para>in caption
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
-</para></caption>
+</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
+</caption>
 </float>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>

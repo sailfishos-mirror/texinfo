@@ -1,6 +1,6 @@
 * Menu:
 
 * a function:                            a node.               (line  0)
-* fun in node:                           chap first.           (line 30)
+* fun in node:                           chap first.           (line 31)
 * somewhere:                             another.              (line  0)
 

@@ -231,11 +231,11 @@ my %parser_default_configuration = (
 #                         is also in that structure.
 # line_commands           the same as %line_commands in Texinfo::Common,
 #                         but with index entry commands dynamically added
-# close_paragraph_commands      same as %close_paragraph_commands
+# close_paragraph_commands      same as %default_close_paragraph_commands, with
+#                               index commands dynamically added.
 # close_preformatted_commands   same as %close_preformatted_commands
 # no_paragraph_commands   the same as %default_no_paragraph_commands
-#                         below, with index
-#                         entry commands dynamically added
+#                         below.
 # basic_inline_commands   the same as %contain_basic_inline_commands below, but
 #                         with index entry commands dynamically added
 # current_node            last seen node.
@@ -397,6 +397,20 @@ foreach my $not_begin_line_command ('comment', 'c', 'columnfractions',
   delete $begin_line_commands{$not_begin_line_command};
 }
 
+# default indices
+my %index_names = %Texinfo::Commands::index_names;
+
+my %default_close_paragraph_commands = %close_paragraph_commands;
+my %default_basic_inline_commands = %contain_basic_inline_commands;
+foreach my $index (keys(%index_names)) {
+  my $one_letter_prefix = substr($index, 0, 1);
+  foreach my $prefix ($index, $one_letter_prefix) {
+    $default_close_paragraph_commands{$prefix.'index'} = 1;
+    $default_basic_inline_commands{$prefix.'index'} = 1;
+  }
+}
+
+# does not include index commands
 my %close_preformatted_commands = %close_paragraph_commands;
 foreach my $no_close_preformatted('sp') {
   delete $close_preformatted_commands{$no_close_preformatted};
@@ -525,9 +539,6 @@ foreach my $block_command (keys(%block_commands)) {
 }
 
 
-# default indices
-my %index_names = %Texinfo::Commands::index_names;
-
 # index names that cannot be set by the user.
 my %forbidden_index_name = ();
 
@@ -535,15 +546,6 @@ foreach my $name (keys(%index_names)) {
   $forbidden_index_name{$name} = 1;
   if ($name =~ /^(.).$/) {
     $forbidden_index_name{$1} = 1;
-  }
-}
-
-my %default_basic_inline_commands = %contain_basic_inline_commands;
-foreach my $index (keys(%index_names)) {
-  my $one_letter_prefix = substr($index, 0, 1);
-  foreach my $prefix ($index, $one_letter_prefix) {
-    $default_no_paragraph_commands{$prefix.'index'} = 1;
-    $default_basic_inline_commands{$prefix.'index'} = 1;
   }
 }
 
@@ -639,10 +641,10 @@ sub parser(;$$)
   $parser->{'line_commands'} = dclone(\%line_commands);
   $parser->{'brace_commands'} = dclone(\%brace_commands);
   $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
-  $parser->{'no_paragraph_commands'} = { %default_no_paragraph_commands };
+  $parser->{'no_paragraph_commands'} = dclone(\%default_no_paragraph_commands);
   $parser->{'index_names'} = dclone(\%index_names);
   $parser->{'command_index'} = {%command_index};
-  $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
+  $parser->{'close_paragraph_commands'} = {%default_close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
   # other initializations
@@ -684,7 +686,7 @@ sub parser(;$$)
       }
       foreach my $prefix ($index, substr($index, 0, 1)) {
         $parser->{'line_commands'}->{$prefix.'index'} = 'line';
-        $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
+        $parser->{'close_paragraph_commands'}->{$prefix.'index'} = 1;
         $parser->{'command_index'}->{$prefix.'index'} = $index;
       }
     }
@@ -726,10 +728,10 @@ sub parser(;$$)
 my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_brace_commands = dclone(\%brace_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
-my $simple_parser_no_paragraph_commands = { %default_no_paragraph_commands };
+my $simple_parser_no_paragraph_commands = dclone(\%default_no_paragraph_commands);
 my $simple_parser_index_names = dclone(\%index_names);
 my $simple_parser_command_index = {%command_index};
-my $simple_parser_close_paragraph_commands = {%close_paragraph_commands};
+my $simple_parser_close_paragraph_commands = {%default_close_paragraph_commands};
 my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
 sub simple_parser(;$)
 {
@@ -1637,7 +1639,7 @@ sub _end_paragraph($$$;$$)
                                        $interrupting_command);
   if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
     print STDERR "CLOSE PARA\n" if ($self->{'DEBUG'});
-    $current = $current->{'parent'};
+    $current = _close_container($self, $current);
   }
   return $current;
 }
@@ -7055,7 +7057,7 @@ sub _parse_line_command_args($$$)
           $self->{'index_names'}->{$name}->{'contained_indices'} = {$name => 1};
         }
         $self->{'line_commands'}->{$name.'index'} = 'line';
-        $self->{'no_paragraph_commands'}->{$name.'index'} = 1;
+        $self->{'close_paragraph_commands'}->{$name.'index'} = 1;
         $self->{'basic_inline_commands'}->{$name.'index'} = 1;
         $self->{'command_index'}->{$name.'index'} = $name;
       }

@@ -44,7 +44,7 @@ more fun
 * ?oncept:                               indices refs.          (line 0)
 * /oncept:                               indices refs.          (line 0)
 * an second index entry in node:         node with ftable and vtable.
-                                                                (line 6)
+                                                                (line 7)
 * aoncept:                               indices refs.          (line 0)
 * boncept:                               indices refs.          (line 0)
 * c,ncept:                               indices refs.          (line 0)
@@ -182,7 +182,7 @@ more fun
 * ?oncept:                               indices refs.        (line 176)
 * /oncept:                               indices refs.        (line 176)
 * an second index entry in node:         node with ftable and vtable.
-                                                              (line   6)
+                                                              (line   7)
 * aoncept:                               indices refs.        (line 176)
 * boncept:                               indices refs.        (line 176)
 * c,ncept:                               indices refs.        (line 176)

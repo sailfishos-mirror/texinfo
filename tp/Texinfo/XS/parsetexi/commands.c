@@ -134,7 +134,8 @@ int
 close_preformatted_command (enum command_id cmd_id)
 {
   return cmd_id != CM_sp
-          && command_data(cmd_id).flags & CF_close_paragraph;
+          && command_data(cmd_id).flags & CF_close_paragraph
+          && !(command_data(cmd_id).flags & CF_index_entry_command);
 }
 
 int

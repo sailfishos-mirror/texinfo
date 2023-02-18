@@ -258,48 +258,48 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                         {
                           'text' => 'in footnote
 '
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry in footnote'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 1,
-                              'in_code' => 0,
-                              'index_name' => 'cp'
-                            }
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 11,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'type' => 'paragraph'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'index entry in footnote'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => {
+                          'entry_element' => {},
+                          'entry_number' => 1,
+                          'in_code' => 0,
+                          'index_name' => 'cp'
+                        }
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 11,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     },
                     {
                       'text' => '
@@ -514,10 +514,10 @@ $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'cont
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2];
-$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2];
-$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6];
+$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2];
+$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2];
+$result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7];
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_different_node_end'}{'contents'}[3]{'args'}[0]{'contents'}[0];
@@ -688,7 +688,7 @@ File: ,  Node: First,  Prev: chap,  Up: Top
 * Menu:
 
 * counting entry:                        chap.                 (line 12)
-* index entry in footnote:               chap.                 (line  7)
+* index entry in footnote:               chap.                 (line  8)
 
 
 
@@ -720,7 +720,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 * Menu:
 
 * counting entry:                        chap.                  (line 9)
-* index entry in footnote:               chap.                  (line 4)
+* index entry in footnote:               chap.                  (line 5)
 
 ';
 
@@ -776,8 +776,8 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote
-<a class="index-entry-id" id="index-index-entry-in-footnote"></a>
-</p>
+</p><a class="index-entry-id" id="index-index-entry-in-footnote"></a>
+
 <p>Blah
 </p>
 <p>Blih
@@ -797,8 +797,8 @@ $result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<nod
 <node name="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">First</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <para>chap node<footnote><para>in footnote
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
-</para>
+</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
+
 <para>Blah
 </para>
 <para>Blih

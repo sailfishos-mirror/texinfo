@@ -90,45 +90,50 @@ $result_trees{'before_node_and_section'} = {
             {
               'text' => '.
 '
-            },
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'args' => [
             {
-              'args' => [
+              'contents' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'index entry before anything'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
+                  'text' => 'index entry before anything'
                 }
               ],
-              'cmdname' => 'cindex',
-              'extra' => {
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 1,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
-              },
               'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
+                'spaces_after_argument' => {
+                  'text' => ' 
+'
                 }
               },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              },
-              'type' => 'index_entry_command'
-            },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'entry_element' => {},
+              'entry_number' => 1,
+              'in_code' => 0,
+              'index_name' => 'cp'
+            }
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
+        },
+        {
+          'contents' => [
             {
               'text' => 'Hey'
             },
@@ -663,11 +668,11 @@ $result_trees{'before_node_and_section'} = {
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[1];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[1] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'label'};
-$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'extra'}{'label'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
+$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'extra'}{'label'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[3]{'args'}[0]{'contents'}[0];
@@ -870,7 +875,8 @@ $result_indices_sort_strings{'before_node_and_section'} = {
 
 $result_converted{'info'}->{'before_node_and_section'} = 'This is , produced from .
 
-Garbage ref to Top *note Top::.  Hey(1).  An anchor .
+Garbage ref to Top *note Top::.
+   Hey(1).  An anchor .
 
 * Menu:
 
@@ -909,11 +915,11 @@ File: ,  Node: node1,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Ref: anchor178
-Node: Top102
-Ref: Top-Footnote-1317
-Ref: Top-Footnote-2336
-Node: node1361
+Ref: anchor180
+Node: Top104
+Ref: Top-Footnote-1319
+Ref: Top-Footnote-2338
+Node: node1363
 
 End Tag Table
 

@@ -18,8 +18,8 @@
 </para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <para>T&#8211;ext before items.
-<indexterm role="cp"><primary>also a cindex in itemize</primary></indexterm>
-</para><listitem><para>bullet item
+</para><indexterm role="cp"><primary>also a cindex in itemize</primary></indexterm>
+<listitem><para>bullet item
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic">
 <!-- comment before first item in enumerate -->
@@ -39,8 +39,8 @@
 <listitem><para>enumerate item
 </para></listitem></orderedlist>
 <orderedlist numeration="arabic"><para>Title
-<indexterm role="cp"><primary>cindex</primary></indexterm>
-</para><listitem><para>enum
+</para><indexterm role="cp"><primary>cindex</primary></indexterm>
+<listitem><para>enum
 </para></listitem></orderedlist>
 <orderedlist numeration="arabic"><indexterm role="cp"><primary>first idx</primary></indexterm>
 <!-- comment -->

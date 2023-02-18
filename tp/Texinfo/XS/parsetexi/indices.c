@@ -71,7 +71,8 @@ add_index_command (char *cmdname, INDEX *idx)
 {
   enum command_id new = add_texinfo_command (cmdname);
   user_defined_command_data[new & ~USER_COMMAND_BIT].flags
-    = CF_line | CF_index_entry_command | CF_contain_basic_inline;
+    = CF_line | CF_index_entry_command | CF_contain_basic_inline
+      | CF_close_paragraph;
   user_defined_command_data[new & ~USER_COMMAND_BIT].data = LINE_line;
   associate_command_to_index (new, idx);
 }
