@@ -16912,18 +16912,12 @@ value.  Default 100.
 
 @item HIGHLIGHT_SYNTAX
 If set, @code{@@example} blocks with language information as first
-argument are highlighted in the HTML output.  It is also possible to
-specify a default for the language with
-@code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE}.  Syntax highlighting
-requires an external program to generate the highlighted HTML
-output (@pxref{Syntax Highlighting}).
-
-@cartouche
-@quotation warning
-The meaning of the value associated to @code{HIGHLIGHT_SYNTAX}
-is expected to evolve, be ready to change the value
-@end quotation
-@end cartouche
+argument are highlighted in the HTML output.  It is also possible to specify a
+default for the language with @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE}.  Syntax
+highlighting requires an external program to generate the highlighted HTML.
+The @code{HIGHLIGHT_SYNTAX} value allows to select a specific program.  The
+possibilities are @code{highlight}, @code{pygments}, any other value standing
+for @code{source-highlight} (@pxref{Syntax Highlighting}).
 
 @item HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
 The default language used for syntax highlighting when there is no
@@ -18540,9 +18534,16 @@ specified for syntax highlighting is the first argument on the @code{@@example} 
 (@pxref{@code{@@example}}), or @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE} if set
 and there is no first argument.
 
-Syntax highlighting is performed by the @command{source-highlight} command
-(@pxref{,,,source-highlight, GNU Source-highlight}).  In the future other
-possibilites could be added.
+The @code{HIGHLIGHT_SYNTAX} value determines the command used for highlighting:
+@table @code
+@item highlight
+Use @command{highlight} from
+@url{http://www.andre-simon.de/doku/highlight/en/highlight.php};
+@item pygments
+Use @command{pygmentize} from @url{https://pygments.org/};
+@item anything else
+Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight}).
+@end table
 
 @xref{Other Customization Variables}.
 

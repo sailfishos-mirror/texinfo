@@ -22,6 +22,8 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use File::Spec;
+use IPC::Open3;
+use Symbol;
 
 use Texinfo::Commands;
 # also for __(
@@ -29,10 +31,20 @@ use Texinfo::Common;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 
-my %languages_name_mapping = (
-  'C++' => 'C',
-  'Perl' => 'perl',
+my %highlight_type_languages_name_mappings = (
+  'source-highlight' => {
+    'C++' => 'C',
+    'Perl' => 'perl',
+  },
+  'highlight' => {
+    'C++' => 'c++',
+  },
+  'pygments' => {
+    'C++' => 'c++',
+  }
 );
+
+my %languages_name_mapping;
 
 my %languages_extensions = (
   'texinfo' => 'texi',
@@ -58,7 +70,23 @@ sub highlight_setup($$)
 
   %highlighted_languages_list = ();
 
-  my $cmd = 'source-highlight --lang-list';
+  my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
+
+  my $cmd;
+  if ($highlight_type eq 'highlight') {
+    $cmd = 'highlight --list-scripts=lang';
+  } elsif ($highlight_type eq 'pygments') {
+    $cmd = 'pygmentize -L lexers';
+  } else {
+    $highlight_type = 'source-highlight';
+    $cmd = 'source-highlight --lang-list';
+  }
+  if ($highlight_type_languages_name_mappings{$highlight_type}) {
+    %languages_name_mapping
+      = %{$highlight_type_languages_name_mappings{$highlight_type}};
+  } else {
+    %languages_name_mapping = ();
+  }
 
   # NOTE open failure triggers a warning message if run with -w if the
   # file is not found.  This message can be catched with $SIG{__WARN__}.
@@ -92,14 +120,68 @@ sub highlight_setup($$)
   }
 
   my $line;
-  while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
-    chomp($line);
-    if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
-      my $language = $1;
-      $highlighted_languages_list{$language} = 1;
-    } else {
-      $self->document_warn($self, sprintf(__(
-                      '%s: %s: cannot parse language line'), $cmd, $line))
+  if ($highlight_type eq 'highlight') {
+    my $in_languages;
+    while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
+      chomp($line);
+      #print STDERR "LL $line\n";
+      if (!$in_languages) {
+        if ($line =~ /^.+: [a-z]/) {
+          $in_languages = 1;
+        } else {
+          next;
+        }
+      }
+      #print STDERR "$line\n";
+      if ($line =~ /^.+: ([a-z0-9+_\/-]+)( \( (([a-z0-9+_\/-]+ )+)\))?$/) {
+        my $main_language = $1;
+        my $other_languages = $3;
+        $highlighted_languages_list{$main_language} = 1;
+        if (defined($other_languages)) {
+          foreach my $other_language (split(/ /, $other_languages)) {
+            $languages_name_mapping{$other_language} = $main_language
+              unless ($other_language eq $main_language);
+          }
+        }
+      } else {
+        last;
+      }
+    }
+    #use Data::Dumper;
+    #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
+    #print STDERR Data::Dumper->Dump([\%highlighted_languages_list]);
+    #exit 1;
+  } elsif ($highlight_type eq 'pygments') {
+    while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
+      chomp($line);
+      if ($line =~ /^\* (.+):$/) {
+        my @languages = split (/, /, $1);
+        if (scalar(@languages) == 0) {
+          $self->document_warn($self, sprintf(__(
+                        '%s: %s: cannot parse language line'), $cmd, $line))
+        } else {
+          my $main_language = shift @languages;
+          $highlighted_languages_list{$main_language} = 1;
+          foreach my $other_language (@languages) {
+            $languages_name_mapping{$other_language} = $main_language;
+          }
+        }
+      }
+    }
+    #use Data::Dumper;
+    #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
+    #print STDERR Data::Dumper->Dump([\%highlighted_languages_list]);
+    #exit 1;
+  } else {
+    while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
+      chomp($line);
+      if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
+        my $language = $1;
+        $highlighted_languages_list{$language} = 1;
+      } else {
+        $self->document_warn($self, sprintf(__(
+                        '%s: %s: cannot parse language line'), $cmd, $line))
+      }
     }
   }
   # FIXME check error status
@@ -146,15 +228,40 @@ sub _get_language($$$)
   if (defined($converted_language)
       and defined($languages_name_mapping{$converted_language})) {
     $language = $languages_name_mapping{$converted_language};
+    while (defined($languages_name_mapping{$language})) {
+      $language = $languages_name_mapping{$language};
+    }
   } else {
     $language = $converted_language;
   }
 
   if (defined($language) and $highlighted_languages_list{$language}) {
-    return $language;
+    return ($language, $converted_language);
   } else {
-    return undef;
+    return (undef, $converted_language);
   }
+}
+
+sub _convert_element($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $tree = {'contents' => [@{$element->{'contents'}}]};
+  if ($tree->{'contents'}->[0]
+      and $tree->{'contents'}->[0]->{'type'}
+      and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+    shift @{$tree->{'contents'}};
+  }
+  if ($tree->{'contents'}->[-1]->{'cmdname'}
+      and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
+    pop @{$tree->{'contents'}};
+  }
+  my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
+              Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+  # make sure that the text ends with a newline
+  chomp ($text);
+  $text .= "\n";
 }
 
 # the end of the string was randomly generated once for all.
@@ -178,10 +285,7 @@ sub highlight_process($$)
 
   return 0 if (!scalar(keys(%highlighted_languages_list)));
 
-  my $document_name = $self->get_info('document_name');
-  my $highlight_basename = "${document_name}_highlight";
-
-  my $highlight_out_dir = $self->get_info('destination_directory');
+  my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
 
   my $verbose = $self->get_conf('VERBOSE');
 
@@ -195,7 +299,8 @@ sub highlight_process($$)
   foreach my $cmdname (@highlighted_commands) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
       foreach my $element (@{$collected_commands->{$cmdname}}) {
-        my $language = _get_language($self, $cmdname, $element);
+        my ($language, $converted_language)
+              = _get_language($self, $cmdname, $element);
         if (defined($language)) {
           $languages{$language} = {'counter' => 0, 'commands' => [],
                                    'line_ranges' => []}
@@ -215,10 +320,84 @@ sub highlight_process($$)
             $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
             $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
           }
+        } elsif (defined($converted_language) and $verbose) {
+          warn "# highlight_syntax: language not found: $converted_language\n";
         }
       }
     }
   }
+
+  # When there is no possibility to specify all the fragments to highlight
+  # in an input file, pass each fragment to a command.
+  if ($highlight_type eq 'highlight' or $highlight_type eq 'pygments') {
+    foreach my $language (keys(%languages)) {
+      foreach my $element_command (@{$languages{$language}->{'commands'}}) {
+        my ($element, $cmdname) = @{$element_command};
+
+        my $text = _convert_element($self, $element);
+
+        my ($wtr, $rdr, $err);
+        $err = gensym();
+        my $cmd;
+        if ($highlight_type eq 'highlight') {
+          $cmd = 'highlight -f --syntax='.$language
+                         .' --style-outfile=html --inline-css';
+        } else {
+          $cmd = 'pygmentize -f html -l '.$language
+                 . ' -O noclasses=True';
+        }
+        my $pid = IPC::Open3::open3($wtr, $rdr, $err, $cmd);
+        if (! $pid) {
+          $self->document_error($self, sprintf(__('%s: %s'), $cmd, $!));
+          return 1;
+        }
+        binmode($wtr, ':utf8');
+        binmode($rdr, ':utf8');
+        # not so sure here.  Use locale?
+        binmode($err, ':utf8');
+        print $wtr $text;
+        if (!close($wtr)) {
+          $self->document_error($self,
+            sprintf(__('%s: error closing input: %s'), $cmd, $!));
+          close ($rdr);
+          close ($err);
+          return 1;
+        }
+
+        my @outlines = <$rdr>;
+        my @errlines = <$err>;
+        my $status = 0;
+        if (!close($rdr)) {
+          $self->document_error($self,
+            sprintf(__('%s: error closing output: %s'), $cmd, $!));
+          $status = 1;
+        }
+        if (!close($err)) {
+          $self->document_error($self,
+            sprintf(__('%s: error closing errors: %s'), $cmd, $!));
+          $status = 1;
+        }
+        waitpid($pid, 0);
+        if (@errlines) {
+          $status = 1;
+          $self->document_error($self, sprintf(__('%s: errors: %s'),
+                                               $cmd, shift @errlines));
+          foreach my $error_line (@errlines) {
+            $self->document_error($self, sprintf(__('  %s'), $error_line), 1);
+          }
+        }
+        return 1 if ($status);
+        $commands{$cmdname}->{'results'}->{$element} = join('', @outlines);
+        $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
+      }
+    }
+    return 0;
+  }
+
+  my $document_name = $self->get_info('document_name');
+  my $highlight_basename = "${document_name}_highlight";
+
+  my $highlight_out_dir = $self->get_info('destination_directory');
   foreach my $language (keys(%languages)) {
     my $suffix;
     if (defined($languages_extensions{$language})) {
@@ -255,23 +434,7 @@ sub highlight_process($$)
 
     my $counter = 0;
     foreach my $element_command (@{$languages{$language}->{'commands'}}) {
-
-      my $element = $element_command->[0];
-      my $tree = {'contents' => [@{$element->{'contents'}}]};
-      if ($tree->{'contents'}->[0]
-          and $tree->{'contents'}->[0]->{'type'}
-          and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
-        shift @{$tree->{'contents'}};
-      }
-      if ($tree->{'contents'}->[-1]->{'cmdname'}
-          and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-        pop @{$tree->{'contents'}};
-      }
-      my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-      # make sure that the text ends with a newline
-      chomp ($text);
-      $text .= "\n";
+      my $text = _convert_element($self, $element_command->[0]);
       # count the number of record separator $/
       my $buffer = $text;
       my $text_lines_nr = ( $buffer =~ s|$/||g );
@@ -418,7 +581,8 @@ sub highlight_preformatted_command($$$$$)
   # no highlighting or some error.
   if (exists ($commands{$cmdname})
       and exists ($commands{$cmdname}->{'results'})) {
-    my $language = _get_language($self, $cmdname, $command);
+    my ($language, $converted_language)
+                = _get_language($self, $cmdname, $command);
     if (exists ($commands{$cmdname}->{'results'}->{$command})
         and defined($commands{$cmdname}->{'results'}->{$command})) {
 

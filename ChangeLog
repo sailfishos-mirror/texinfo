@@ -1,3 +1,17 @@
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
+	Add other commands for syntax highlighting
+
+	* doc/texinfo.texi (Other Customization Variables)
+	(Syntax Highlighting), tp/ext/highlight_syntax.pm
+	(%highlight_type_languages_name_mappings, highlight_setup)
+	(_convert_element, highlight_process): add the possibility to use
+	the highlight command and the pygmentize command. 
+
+	* tp/ext/highlight_syntax.pm (_get_language, highlight_process):
+	return the language to be converted to warn if verbose and the
+	language is not found.
+
 2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo-tex-test.texi (Index and paragraphs): New section.
