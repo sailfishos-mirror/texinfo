@@ -16910,6 +16910,25 @@ are considered to be fatal errors.  You should not need to change this
 value.  Default 100.
 @end ignore
 
+@item HIGHLIGHT_SYNTAX
+If set, @code{@@example} blocks with language information as first
+argument are highlighted in the HTML output.  It is also possible to
+specify a default for the language with
+@code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE}.  Syntax highlighting
+requires an external program to generate the highlighted HTML
+output (@pxref{Syntax Highlighting}).
+
+@cartouche
+@quotation warning
+The meaning of the value associated to @code{HIGHLIGHT_SYNTAX}
+is expected to evolve, be ready to change the value
+@end quotation
+@end cartouche
+
+@item HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
+The default language used for syntax highlighting when there is no
+language information.
+
 @item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
 If set, spaces are ignored after an @@-command that takes braces.
 Default true, matching the @TeX{} behavior.
@@ -18144,18 +18163,16 @@ other programs.  This chapter gives some details on such HTML output.
 
 @command{texi2any} has many user-definable customization variables
 with which you can influence the HTML output.  @xref{Customization
-Variables}.  You can also write so-called @dfn{initialization files}, or
-@dfn{init files} for short, to modify almost every aspect of HTML output
-formatting.  Initialization files contain code and are loaded by
-@option{--init-file} (@pxref{Invoking @command{texi2any}}).
+Variables}.  In particular, there is support for syntax highlighting in
+@code{@@example} (@pxref{Syntax Highlighting}). You can also write so-called
+@dfn{initialization files}, or @dfn{init files} for short, to modify almost
+every aspect of HTML output formatting.  Initialization files contain code and
+are loaded by @option{--init-file} (@pxref{Invoking @command{texi2any}}).
 
 Some initialization files are maintained with Texinfo and installed
 in the default case.  For example, @file{chm.pm} produces the intermediate
 compressed HTML Help format files that can be subsequently converted to
-the CHM format.  As another example, @file{highlight_syntax.pm} uses
-@command{source-highlight} for syntax highlighting of @code{@@example}
-blocks using the first argument to specify the language of the code
-(@pxref{@code{@@example}}). @xref{,,,source-highlight, GNU Source-highlight}.
+the CHM format.
 
 The documentation of @command{texi2any} HTML output adaptation using
 customization files is in a separate manual.  @xref{,,, texi2any_api, GNU
@@ -18503,6 +18520,31 @@ used internally for the conversion, and should not interact with any
 customization set by the user.
 
 @xref{HTML Customization Variables}.
+
+
+@node Syntax Highlighting
+@section Code Examples Syntax Highlighting in HTML
+@cindex @command{source-highlight}
+
+@cartouche
+@quotation warning
+Source highlighting is experimental, feedback is welcomed.
+@end quotation
+@end cartouche
+
+Support for source code syntax highlighting is available in
+@command{texi2any} for the HTML output, with the help of external software.
+This feature is turned on by setting @code{HIGHLIGHT_SYNTAX}.  Source code
+highlighting is set up for @code{@@example} blocks.  The language
+specified for syntax highlighting is the first argument on the @code{@@example} line
+(@pxref{@code{@@example}}), or @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE} if set
+and there is no first argument.
+
+Syntax highlighting is performed by the @command{source-highlight} command
+(@pxref{,,,source-highlight, GNU Source-highlight}).  In the future other
+possibilites could be added.
+
+@xref{Other Customization Variables}.
 
 
 @node HTML Xref

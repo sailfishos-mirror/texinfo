@@ -39,8 +39,6 @@ my %languages_extensions = (
   'perl' => 'pl',
 );
 
-texinfo_add_valid_customization_option('HIGHLIGHT_SYNTAX_DEFAULT');
-
 # reference on a hash
 my $highlighted_languages_list;
 
@@ -110,7 +108,7 @@ sub _get_language($$$)
 
   if (not defined($converted_language) and defined($self)) {
     my $default_highlight_language
-      = $self->get_conf('HIGHLIGHT_SYNTAX_DEFAULT');
+      = $self->get_conf('HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE');
     if (defined($default_highlight_language)) {
       $converted_language = $default_highlight_language;
     }

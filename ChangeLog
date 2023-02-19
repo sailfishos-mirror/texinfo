@@ -1,3 +1,19 @@
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/ext/highlight_syntax.pm (_get_language), tp/texi2any.pl,
+	tp/Makefile.am (dist_extensions_DATA): load highlight_syntax.pm in
+	main program if HIGHLIGHT_SYNTAX is set.  Rename
+	HIGHLIGHT_SYNTAX_DEFAULT as HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE.  Setup
+	highlight_syntax.pm as an internal extension.
+
+	* doc/texinfo.texi (Other Customization Variables, Generating HTML)
+	(Syntax Highlighting): document syntax highlighting support in
+	texi2any for @example for HTML.
+
+	* tp/tests/other/list-of-tests: use the HIGHLIGHT_SYNTAX to load
+	syntax highlighting for one test case.
+
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (parser): remove a check and handling of

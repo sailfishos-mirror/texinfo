@@ -115,6 +115,7 @@ dist_debugmodules_DATA = \
 extensionsdir = $(datadir)/texinfo/ext
 dist_extensions_DATA = \
  ext/epub3.pm \
+ ext/highlight_syntax.pm \
  ext/tex4ht.pm \
  ext/latex2html.pm
 
@@ -123,8 +124,7 @@ dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
  init/documentation_examples.pm \
- init/html32.pm \
- init/highlight_syntax.pm
+ init/html32.pm
 
 test_files = \
  t/README \

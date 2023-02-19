@@ -1147,6 +1147,12 @@ if (defined($cmdline_options->{'HTML_MATH'})
   locate_and_load_extension_file($tex4ht_file, $internal_extension_dirs);
 }
 
+my $highlight_syntax_file = 'highlight_syntax.pm';
+if ($cmdline_options->{'HIGHLIGHT_SYNTAX'}) {
+  locate_and_load_extension_file($highlight_syntax_file,
+                                 $internal_extension_dirs);
+}
+
 # For tests, set some strings to values not changing with releases
 my %test_conf = (
     'PACKAGE_VERSION' => '',

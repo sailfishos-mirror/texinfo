@@ -374,6 +374,8 @@ our @variable_string_settables = (
 'FRAMES',
 'FRAMESET_DOCTYPE',
 'HEADER_IN_TABLE',
+'HIGHLIGHT_SYNTAX', # for ext/highlight_syntax.pm
+'HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE', # for ext/highlight_syntax.pm
 'HTML_MATH',
 'HTML_ROOT_ELEMENT_ATTRIBUTES',
 'HTMLXREF_FILE',
