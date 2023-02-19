@@ -1,5 +1,9 @@
 2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Index and paragraphs): New section.
+
+2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Reorganise test file
 
 	* doc/texinfo-tex-test.texi (Headings and Footings): Change some
