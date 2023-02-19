@@ -346,16 +346,13 @@ my %set_flag_command_equivalent = (
 );
 
 # could be moved to Texinfo::Common if needed more generally
-my %set_flag_index_char_ignore = (
- 'txiindexatsignignore' => '@',
- 'txiindexbackslashignore' => '\\',
- 'txiindexlessthanignore' => '<',
- 'txiindexhyphenignore' => '-',
+# same order as in XS parser
+my @set_flag_index_char_ignore = (
+   ['txiindexbackslashignore', '\\'],
+   ['txiindexhyphenignore', '-'],
+   ['txiindexlessthanignore', '<'],
+   ['txiindexatsignignore', '@'],
 );
-
-# same as in XS parser
-my @set_flag_index_char_ignore_order = ('txiindexbackslashignore',
-   'txiindexhyphenignore', 'txiindexlessthanignore', 'txiindexatsignignore');
 
 my %type_with_paragraph;
 foreach my $type ('before_item', 'before_node_section', 'document_root',
@@ -3231,9 +3228,9 @@ sub _enter_index_entry($$$$)
   $element->{'extra'} = {} if (!defined($element->{'extra'}));
 
   # gather set txiindex*ignore information
-  foreach my $set_variable (@set_flag_index_char_ignore_order) {
+  foreach my $set_variable_and_symbol (@set_flag_index_char_ignore) {
+    my ($set_variable, $ignored_char) = @{$set_variable_and_symbol};
     if (exists($self->{'values'}->{$set_variable})) {
-      my $ignored_char = $set_flag_index_char_ignore{$set_variable};
       $element->{'extra'}->{'index_ignore_chars'} = ''
          if (!defined($element->{'extra'}->{'index_ignore_chars'}));
       $element->{'extra'}->{'index_ignore_chars'} .= $ignored_char;
