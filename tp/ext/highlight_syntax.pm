@@ -39,51 +39,80 @@ my %languages_extensions = (
   'perl' => 'pl',
 );
 
-# reference on a hash
-my $highlighted_languages_list;
+my %highlighted_languages_list;
 
-# FIXME open shows an error message if the file is not found
-# which is a duplicate with the texinfo_register_init_loading_error
-# registered message, which is better
-# Can't exec "source-highlight": No such file or directory at ./init/highlight_syntax.pm line 74
-my $cmd = 'source-highlight --lang-list';
-if (not(open(HIGHLIGHT_LANG_LIST, '-|', $cmd))) {
-  texinfo_register_init_loading_error(
-        sprintf(__('%s: %s'), $cmd, $!));
-} else {
-  $highlighted_languages_list = {};
+texinfo_register_handler('setup', \&highlight_setup);
+texinfo_register_handler('structure', \&highlight_process);
+texinfo_register_command_formatting('example', \&highlight_preformatted_command);
+# normally this is done in preformatted type, but preformatted
+# types conversion output in example is discarded in
+# highlight_preformatted_command, so register a replacement.
+# Register inline pending content when opening an example block.
+texinfo_register_command_opening('example',
+                                 \&highlight_open_inline_container_type);
+
+sub highlight_setup($$)
+{
+  my $self = shift;
+  my $document_root = shift;
+
+  %highlighted_languages_list = ();
+
+  my $cmd = 'source-highlight --lang-list';
+
+  # NOTE open failure triggers a warning message if run with -w if the
+  # file is not found.  This message can be catched with $SIG{__WARN__}.
+  # This message is along:
+  # Can't exec "source-highlight": No such file or directory at ./init/highlight_syntax.pm line XX
+  # This message is redundant with the message registered below with
+  # document_error, using $!.  $! is set to: No such file or directory
+
+  # Tried to show both messages, but through the $self->document_*()
+  # facility, either by getting the warning message in the main context or by
+  # register the warning message, but failed.  So simply silence the redundant
+  # message.
+
+  # does not store the message from within the sub but syntactically
+  # needed.
+  my $message;
+  local $SIG{__WARN__} = sub {
+        $message = shift;
+        # this shows the message
+        #warn "$message";
+        # not sure why, but this does not work, the warning is not actually
+        # registered, as if it was done in a scope that is later destroyed.
+        #$self->document_warn($self, sprintf(__('%s: %s'), $cmd, $message));
+      };
+
+  my $status = open(HIGHLIGHT_LANG_LIST, '-|', $cmd);
+  $SIG{__WARN__} = undef;
+  if (not($status)) {
+    $self->document_error($self, sprintf(__('%s: %s'), $cmd, $!));
+    return 1;
+  }
+
   my $line;
   while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
     chomp($line);
     if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
-       my $language = $1;
-       $highlighted_languages_list->{$language} = 1;
+      my $language = $1;
+      $highlighted_languages_list{$language} = 1;
     } else {
-      texinfo_register_init_loading_warning(sprintf(__(
-                        '%s: %s: cannot parse language line'), $cmd, $line))
+      $self->document_warn($self, sprintf(__(
+                      '%s: %s: cannot parse language line'), $cmd, $line))
     }
   }
+  # FIXME check error status
   close(HIGHLIGHT_LANG_LIST);
-}
 
-if (defined($highlighted_languages_list)) {
-  if (scalar(keys(%$highlighted_languages_list)) > 0) {
-    texinfo_register_handler('structure', \&highlight_process);
-
-    texinfo_register_command_formatting('example', \&highlight_preformatted_command);
-
-    # normally this is done in preformatted type, but preformatted
-    # types conversion output in example is discarded in
-    # highlight_preformatted_command, so register a replacement.
-    # Register inline pending content when opening an example block.
-    texinfo_register_command_opening('example',
-                                     \&highlight_open_inline_container_type);
-  } else {
+  if (scalar(keys(%highlighted_languages_list)) == 0) {
     # important if $cmd returns no output to have a message.  If there
     # is some output, there will already be some line parse error messages.
-    texinfo_register_init_loading_warning(sprintf(__(
-                              '%s: no highlighted language found'), $cmd));
+    $self->document_warn($self, sprintf(__(
+                            '%s: no highlighted language found'), $cmd));
+    # the remaining will be skipped, but no error is returned
   }
+  return 0;
 }
 
 sub _get_language($$$)
@@ -121,7 +150,7 @@ sub _get_language($$$)
     $language = $converted_language;
   }
 
-  if ($highlighted_languages_list->{$language}) {
+  if (defined($language) and $highlighted_languages_list{$language}) {
     return $language;
   } else {
     return undef;
@@ -139,7 +168,7 @@ sub highlight_process($$)
   my $self = shift;
   my $document_root = shift;
 
-  # initialization, important in case of multiple manuals processed
+  # initialization, important in case multiple manuals are processed
   %commands = ();              # associates a command name and element to the resulting
                                # highlighted text.
                                # Also holds per language counters.
@@ -147,10 +176,14 @@ sub highlight_process($$)
   return 0 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
+  return 0 if (!scalar(keys(%highlighted_languages_list)));
+
   my $document_name = $self->get_info('document_name');
   my $highlight_basename = "${document_name}_highlight";
 
   my $highlight_out_dir = $self->get_info('destination_directory');
+
+  my $verbose = $self->get_conf('VERBOSE');
 
   my @highlighted_commands = ('example');
 
@@ -266,6 +299,8 @@ sub highlight_process($$)
        ."-i '$input_language_path_name' -o '$html_result_path_name' "
    ."--line-range=$option_line_range_str --range-separator='$range_separator'";
 
+    warn "# highlight_syntax: exec ($language): $cmd\n" if ($verbose);
+
     my $encoding = $self->get_conf('MESSAGE_ENCODING');
     my $encoded_cmd;
     if (defined($encoding)) {
@@ -353,6 +388,14 @@ sub highlight_open_inline_container_type($$$)
   my $cmdname = shift;
   my $command = shift;
 
+  if (!scalar(keys(%highlighted_languages_list))) {
+    my $default_open = $self->default_command_open($cmdname);
+    if (defined($default_open)) {
+      return &{$default_open}($self, $cmdname, $command);
+    } else {
+      return '';
+    }
+  }
   my $pending_formatted = $self->get_pending_formatted_inline_content();
 
   if (defined($pending_formatted)) {

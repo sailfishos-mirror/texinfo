@@ -62,7 +62,24 @@ Previous: <a href="index.html" accesskey="p" rel="prev">top</a>, Up: <a href="in
 <span style="color:#FF0000">}</span>
 </pre></div>
 
-<div class="example user-unknown">
+<div class="example user-perl">
+<pre class="example-preformatted"><b><span style="color:#0000FF">my</span></b> <span style="color:#009900">@SECTION_BUTTONS</span> <span style="color:#990000">=</span>
+  <span style="color:#990000">(</span>
+   <span style="color:#990000">\&amp;</span>singular_banner<span style="color:#990000">,</span>
+   <span style="color:#FF0000">'Back'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'Forward'</span><span style="color:#990000">,</span>   <span style="color:#FF0000">'FastBack'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'FastForward'</span><span style="color:#990000">,</span>
+   <span style="color:#FF0000">'Up'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'Top'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'Contents'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'Index'</span><span style="color:#990000">,</span> <span style="color:#FF0000">'About'</span>
+  <span style="color:#990000">);</span>
+
+<b><span style="color:#000000">texinfo_set_from_init_file</span></b> <span style="color:#990000">(</span><span style="color:#FF0000">'SECTION_BUTTONS'</span><span style="color:#990000">,</span> <span style="color:#990000">\</span><span style="color:#009900">@SECTION_BUTTONS</span><span style="color:#990000">);</span>
+</pre></div>
+
+<p>No argument
+</p><div class="example">
+<pre class="example-preformatted">texinfo_set_from_init_file('NO_CSS', 1);
+</pre></div>
+
+<p>Unknown language
+</p><div class="example user-unknown">
 <pre class="example-preformatted">unknown language
 </pre></div>
 

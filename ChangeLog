@@ -20,6 +20,22 @@
 
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/highlight_syntax.pm (highlight_setup, highlight_process):
+	determine list of languages highlighted in an handler, highlight_setup
+	in order to be able to use the customization variables while doing
+	this initialization.
+
+	* tp/ext/highlight_syntax.pm (highlight_setup): silence the redundant
+	warning message associated to a failure to run the command through
+	open.
+
+	* tp/ext/highlight_syntax.pm (_get_language): handle not defined language.
+
+	* tp/tests/other/highlight_example.texi: add more @example blocks,
+	including without language set.
+
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (@variable_string_settables),
 	tp/ext/highlight_syntax.pm (_get_language), tp/texi2any.pl,
 	tp/Makefile.am (dist_extensions_DATA): load highlight_syntax.pm in
@@ -31,7 +47,7 @@
 	(Syntax Highlighting): document syntax highlighting support in
 	texi2any for @example for HTML.
 
-	* tp/tests/other/list-of-tests: use the HIGHLIGHT_SYNTAX to load
+	* tp/tests/other/list-of-tests: use HIGHLIGHT_SYNTAX to load
 	syntax highlighting for one test case.
 
 2023-02-18  Patrice Dumas  <pertusus@free.fr>
