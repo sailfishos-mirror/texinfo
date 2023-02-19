@@ -1,5 +1,14 @@
 2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reorganise test file
+
+	* doc/texinfo-tex-test.texi (Headings and Footings): Change some
+	@chapter's to @section's to simplify table of contents.
+	(Test of @displaymath): Move earlier in file.
+	(Index display): Move to end.
+
+2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Index commands end paragraphs
 
 	* doc/texinfo.tex (\indexpar): New macro to end open paragraphs.
