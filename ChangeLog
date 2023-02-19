@@ -1,3 +1,14 @@
+2023-02-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index commands end paragraphs
+
+	* doc/texinfo.tex (\indexpar): New macro to end open paragraphs.
+	(\doindex, \docodeindex): Use \indexpar.
+	(\itemzzz, \itemizeitem): Add penalty that will be recognized in
+	\indexpar to make an exception immediately after @item.
+	(\safewhatsit): Propagate \lastpenalty in horizontal mode.
+	(\newindex): Remove obsolete comment about vms filenames.
+
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (@variable_string_settables),
