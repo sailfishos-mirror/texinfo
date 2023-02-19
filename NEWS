@@ -20,12 +20,16 @@ See the manual for detailed information.
    if encoded characters are output instead of entities or commands for
    HTML, XML, DocBook and LaTeX, instead the OUTPUT_CHARACTERS customization
    variable value is used.
+ . Add source marks in the tree for all Texinfo source information that
+   is not in the final tree (location of macro, values and included files
+   expansion, @if* blocks, DEL comment, @ protecting end of line on @def* lines).
  . HTML output:
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.
     . Change @point expansion to U+22C6 in HTML Cross-references.
     . omit colons after index entries by default.  this can still be
       configured with INDEX_ENTRY_COLON.
+    . add @example syntax highlighting as a texi2any extension.
  . XML output:
     . menu leading text and menu separator in elements instead of attributes.
 
