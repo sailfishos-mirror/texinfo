@@ -1,5 +1,15 @@
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/highlight_syntax.pm (highlight_setup, highlight_process):
+	handle HIGHLIGHT_SYNTAX customization option being not defined.  Can
+	happen if highlight_syntax.pm is loaded as an init file and not
+	as an extension.
+
+	* tp/tests/Makefile.onetst, tp/tests/other/list-of-tests: add syntax
+	highlighting tests with HIGHLIGHT_SYNTAX highlight and pygments.
+
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	Add other commands for syntax highlighting
 
 	* doc/texinfo.texi (Other Customization Variables)

@@ -131,5 +131,7 @@ type_tex_html_one_test_files_generated_list =  \
 # list of type other test files
 type_other_one_test_files_generated_list =  \
     test_scripts/other_highlight_syntax_example.sh \
+    test_scripts/other_highlight_syntax_example_pygments.sh \
+    test_scripts/other_highlight_syntax_example_highlight.sh \
     test_scripts/other_highlight_syntax_example_latin9.sh
 

@@ -73,9 +73,9 @@ sub highlight_setup($$)
   my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
 
   my $cmd;
-  if ($highlight_type eq 'highlight') {
+  if (defined($highlight_type) and $highlight_type eq 'highlight') {
     $cmd = 'highlight --list-scripts=lang';
-  } elsif ($highlight_type eq 'pygments') {
+  } elsif (defined($highlight_type) and $highlight_type eq 'pygments') {
     $cmd = 'pygmentize -L lexers';
   } else {
     $highlight_type = 'source-highlight';
@@ -329,7 +329,8 @@ sub highlight_process($$)
 
   # When there is no possibility to specify all the fragments to highlight
   # in an input file, pass each fragment to a command.
-  if ($highlight_type eq 'highlight' or $highlight_type eq 'pygments') {
+  if (defined($highlight_type)
+      and ($highlight_type eq 'highlight' or $highlight_type eq 'pygments')) {
     foreach my $language (keys(%languages)) {
       foreach my $element_command (@{$languages{$language}->{'commands'}}) {
         my ($element, $cmdname) = @{$element_command};
