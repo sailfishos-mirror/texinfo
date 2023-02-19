@@ -1,5 +1,10 @@
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/Makefile.onetst, tp/tests/other/list-of-tests: add a test
+	of HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE.
+
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/highlight_syntax.pm (highlight_setup, highlight_process):
 	handle HIGHLIGHT_SYNTAX customization option being not defined.  Can
 	happen if highlight_syntax.pm is loaded as an init file and not

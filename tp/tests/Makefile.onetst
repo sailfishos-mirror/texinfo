@@ -133,5 +133,6 @@ type_other_one_test_files_generated_list =  \
     test_scripts/other_highlight_syntax_example.sh \
     test_scripts/other_highlight_syntax_example_pygments.sh \
     test_scripts/other_highlight_syntax_example_highlight.sh \
+    test_scripts/other_highlight_syntax_example_default_language.sh \
     test_scripts/other_highlight_syntax_example_latin9.sh
 
