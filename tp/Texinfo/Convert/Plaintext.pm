@@ -320,6 +320,8 @@ foreach my $asis_command (@asis_commands) {
 my @quoted_commands = ('cite', 'code', 'command', 'env', 'file', 'kbd',
   'option', 'samp', 'indicateurl');
 
+my @double_quoted_commands = ('dfn');
+
 # %non_quoted_commands_when_nested have no quote when in code command contexts
 my %non_quoted_commands_when_nested;
 
@@ -448,8 +450,10 @@ sub converter_initialize($)
         # Directed single quotes
         $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
       }
-      # Directed double quotes
-      $self->{'style_map'}->{'dfn'} = ["\x{201C}", "\x{201D}"];
+      foreach my $quoted_command (@double_quoted_commands) {
+        # Directed double quotes
+        $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
+      }
     }
   }
   if (defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
@@ -464,6 +468,20 @@ sub converter_initialize($)
        = $self->get_conf('CLOSE_QUOTE_SYMBOL');
     }
   }
+
+  if (defined($self->get_conf('OPEN_DOUBLE_QUOTE_SYMBOL'))) {
+    foreach my $quoted_command (@double_quoted_commands) {
+      $self->{'style_map'}->{$quoted_command}->[0]
+       = $self->get_conf('OPEN_DOUBLE_QUOTE_SYMBOL');
+    }
+  }
+  if (defined($self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL'))) {
+    foreach my $quoted_command (@double_quoted_commands) {
+      $self->{'style_map'}->{$quoted_command}->[1]
+       = $self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL');
+    }
+  }
+
   if ($self->get_conf('FILLCOLUMN')) {
     $self->{'fillcolumn'} = $self->get_conf('FILLCOLUMN');
     # else it's already set via the defaults

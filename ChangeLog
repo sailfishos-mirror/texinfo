@@ -1,5 +1,13 @@
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/Plaintext.pm (converter_initialize): add
+	OPEN_DOUBLE_QUOTE_SYMBOL and CLOSE_DOUBLE_QUOTE_SYMBOL to be able to
+	customize double quotes used for @dfn in Info and Plaintext.
+
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (@set_flag_index_char_ignore): use only
 	one data structure for txiindex*ignore sets order and association
 	with symbols.

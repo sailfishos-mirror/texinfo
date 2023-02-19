@@ -16818,6 +16818,12 @@ encoding includes that character.
 The default for Info is set the same as for @code{OPEN_QUOTE_SYMBOL},
 except that the Unicode code is a closing quote (see below).
 
+@item CLOSE_DOUBLE_QUOTE_SYMBOL
+When a closing double quote is needed, for @samp{@@dfn} in Info, use this
+character.  The default for Info is set the same as for
+@code{OPEN_DOUBLE_QUOTE_SYMBOL}, except that the Unicode code is a closing
+double quote (see below).
+
 @item COMMAND_LINE_ENCODING
 Encoding used to decode command-line arguments.  Default is based on the locale
 encoding.  This may affect file names inserted into output files or error
@@ -17016,6 +17022,12 @@ For Info, the default depends on the enabled document encoding.  If
 @samp{'} is used.  This character usually appears
 as an undirected single quote on modern systems.  Otherwise, the Info
 output uses a Unicode left quote.
+
+@item OPEN_DOUBLE_QUOTE_SYMBOL
+When an opening double quote is needed, for @samp{@@dfn} output in Info, use
+the specified character.  If @option{--disable-encoding} is set or the document
+encoding is not UTF-8, @samp{"} is used.  Otherwise, the Info output uses a
+Unicode left double quote.
 
 @item OUTPUT_CHARACTERS
 If not set, the default, output accented and special characters in HTML, XML
