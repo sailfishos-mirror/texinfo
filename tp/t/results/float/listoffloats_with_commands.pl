@@ -75,7 +75,6 @@ $result_trees{'listoffloats_with_commands'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => "th\x{e9}or\x{e8}me"
             }
           },
@@ -96,7 +95,6 @@ $result_trees{'listoffloats_with_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 
 $result_texis{'listoffloats_with_commands'} = '@listoffloats th@\'eor@`eme
 ';

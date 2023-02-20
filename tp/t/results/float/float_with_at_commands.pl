@@ -276,7 +276,6 @@ $result_trees{'float_with_at_commands'} = {
           'extra' => {
             'caption' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => "entr\x{e9}e"
             },
             'node_content' => [
@@ -350,7 +349,6 @@ $result_trees{'float_with_at_commands'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => "entr\x{e9}e"
             }
           },
@@ -373,13 +371,11 @@ $result_trees{'float_with_at_commands'} = {
 };
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1];
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[1];
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[2] = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[2];
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[3] = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[3];
 $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[4] = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[4];
-$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[4]{'extra'}{'float_type'}{'content'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'};
 
 $result_texis{'float_with_at_commands'} = '@float entr@\'ee, premi@`ere entr@\'ee
 
@@ -416,17 +412,6 @@ $result_floats{'float_with_at_commands'} = {
           }
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'entr'
-            },
-            {
-              'cmdname' => '\''
-            },
-            {
-              'text' => 'e'
-            }
-          ],
           'normalized' => "entr\x{e9}e"
         },
         'normalized' => 'premi_00e8re-entr_00e9e'

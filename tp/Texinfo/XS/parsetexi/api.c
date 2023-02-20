@@ -393,7 +393,15 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
             case extra_string:
               { /* A simple string. */
               char *value = (char *) f;
-              STORE(newSVpv_utf8 (value, 0));
+              if (!strcmp (key, "float_type"))
+                {
+                  HV *float_type = newHV ();
+                  SV *sv = newSVpv_utf8 (value, 0);
+                  hv_store (float_type, "normalized", strlen ("normalized"), sv, 0);
+                  STORE(newRV_inc ((SV *)float_type));
+                }
+              else
+                STORE(newSVpv_utf8 (value, 0));
               break;
               }
             case extra_integer:
@@ -476,21 +484,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                 SAVE_DEF(type)
               if (d->name)
                 SAVE_DEF(name)
-              break;
-              }
-            case extra_float_type:
-              {
-              EXTRA_FLOAT_TYPE *eft = (EXTRA_FLOAT_TYPE *) f;
-              HV *float_type = newHV ();
-              if (eft->content)
-                hv_store (float_type, "content", strlen ("content"),
-                          build_perl_array (&eft->content->contents), 0);
-              if (eft->normalized)
-                {
-                  SV *sv = newSVpv_utf8 (eft->normalized, 0);
-                  hv_store (float_type, "normalized", strlen ("normalized"), sv, 0);
-                }
-              STORE(newRV_inc ((SV *)float_type));
               break;
               }
             default:

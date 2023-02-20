@@ -36,7 +36,6 @@ enum extra_type {
     extra_string,
     extra_integer,
     extra_def_info,
-    extra_float_type,
     extra_deleted
 };
 
@@ -162,11 +161,5 @@ typedef struct {
     ELEMENT *type;
     ELEMENT *name;
 } DEF_INFO;
-
-typedef struct {
-    ELEMENT *content;
-    char *normalized;
-} EXTRA_FLOAT_TYPE;
-
 
 #endif

@@ -161,7 +161,6 @@ $result_trees{'equivalent_labels'} = {
           ],
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'truc'
             },
             'node_content' => [
@@ -379,7 +378,6 @@ $result_trees{'equivalent_labels'} = {
   'type' => 'document_root'
 };
 $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[4]{'extra'}{'float_type'}{'content'} = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[4]{'args'}[1]{'contents'}[0];
 $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
@@ -450,11 +448,6 @@ $result_menus{'equivalent_labels'} = {
           'cmdname' => 'float',
           'extra' => {
             'float_type' => {
-              'content' => [
-                {
-                  'text' => 'truc'
-                }
-              ],
               'normalized' => 'truc'
             },
             'normalized' => 'floa'
@@ -509,11 +502,6 @@ $result_floats{'equivalent_labels'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'truc'
-            }
-          ],
           'normalized' => 'truc'
         },
         'normalized' => 'floa'

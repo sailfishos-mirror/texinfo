@@ -142,14 +142,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
               free (array);
               break;
             }
-        case extra_float_type:
-          {
-            EXTRA_FLOAT_TYPE *eft = (EXTRA_FLOAT_TYPE *) a->info[i].value;
-            free (eft->normalized);
-
-            free (eft);
-            break;
-          }
         case extra_misc_args:
           destroy_element_and_children (a->info[i].value);
           break;

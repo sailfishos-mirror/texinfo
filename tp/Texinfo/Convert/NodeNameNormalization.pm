@@ -424,7 +424,6 @@ sub _parse_float_type($)
     my $normalized
       = convert_to_normalized(
         {'contents' => $current->{'args'}->[0]->{'contents'}});
-    $float_type_info->{'content'} = $current->{'args'}->[0]->{'contents'};
     $float_type_info->{'normalized'} = $normalized;
   } else {
     $float_type_info->{'normalized'} = '';

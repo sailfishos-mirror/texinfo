@@ -70,7 +70,6 @@ $result_trees{'empty_label_no_space'} = {
           ],
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'Type'
             }
           },
@@ -91,7 +90,6 @@ $result_trees{'empty_label_no_space'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 
 $result_texis{'empty_label_no_space'} = '@float Type,
 @end float
@@ -110,11 +108,6 @@ $result_floats{'empty_label_no_space'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'Type'
-            }
-          ],
           'normalized' => 'Type'
         }
       },

@@ -564,7 +564,6 @@ $result_trees{'references_to_top_no_top_output'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'list'
             },
             'node_content' => [
@@ -1113,7 +1112,6 @@ $result_trees{'references_to_top_no_top_output'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'list'
             },
             'node_content' => [
@@ -1157,7 +1155,6 @@ $result_trees{'references_to_top_no_top_output'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'list'
             }
           },
@@ -1199,7 +1196,6 @@ $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'contents'}[1]{'extra'}{'float'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'extra'}{'caption'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'contents'}[1];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'extra'}{'float_section'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[2];
-$result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'extra'}{'float_type'}{'content'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'};
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'extra'}{'node_content'}[0] = $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[12]{'args'}[1]{'contents'}[0];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[1];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[2]{'contents'}[14];
@@ -1222,9 +1218,7 @@ $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[3]{'
 $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'float'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'contents'}[1];
 $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[4];
-$result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'extra'}{'float_type'}{'content'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[7]{'args'}[1]{'contents'}[0];
-$result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[9]{'extra'}{'float_type'}{'content'} = $result_trees{'references_to_top_no_top_output'}{'contents'}[4]{'contents'}[9]{'args'}[0]{'contents'};
 
 $result_texis{'references_to_top_no_top_output'} = '
 @setfilename references_to_top_no_top_output.info
@@ -1439,11 +1433,6 @@ $result_floats{'references_to_top_no_top_output'} = {
           'structure' => {}
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'list'
-            }
-          ],
           'normalized' => 'list'
         },
         'normalized' => 'My-Flist'
@@ -1471,11 +1460,6 @@ $result_floats{'references_to_top_no_top_output'} = {
           }
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'list'
-            }
-          ],
           'normalized' => 'list'
         },
         'normalized' => 'Main-Flist'

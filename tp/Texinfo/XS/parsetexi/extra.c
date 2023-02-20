@@ -138,13 +138,6 @@ add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value)
 }
 
 void
-add_extra_float_type (ELEMENT *e, char *key, EXTRA_FLOAT_TYPE *value)
-{
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value,
-                           extra_float_type);
-}
-
-void
 add_extra_string (ELEMENT *e, char *key, char *value)
 {
   add_associated_info_key (e->extra_info, key, (ELEMENT *) value, extra_string);

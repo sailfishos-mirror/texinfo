@@ -118,7 +118,6 @@ $result_trees{'simple'} = {
           'extra' => {
             'caption' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'Type'
             },
             'node_content' => [
@@ -145,7 +144,6 @@ $result_trees{'simple'} = {
 };
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 
 $result_texis{'simple'} = '@float Type, Label
@@ -175,11 +173,6 @@ $result_floats{'simple'} = {
           }
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'Type'
-            }
-          ],
           'normalized' => 'Type'
         },
         'normalized' => 'Label'

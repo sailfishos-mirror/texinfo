@@ -1172,7 +1172,6 @@ $result_trees{'form_feeds'} = {
           ],
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'type'
             },
             'node_content' => [
@@ -1216,7 +1215,6 @@ $result_trees{'form_feeds'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'type'
             }
           },
@@ -1283,9 +1281,7 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'extra
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'extra'}{'float_type'}{'content'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'};
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'args'}[1]{'contents'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'float_type'}{'content'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'};
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
@@ -1436,11 +1432,6 @@ $result_floats{'form_feeds'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'type'
-            }
-          ],
           'normalized' => 'type'
         },
         'normalized' => 'fl'

@@ -413,7 +413,6 @@ $result_trees{'punctuation_in_line_commands'} = {
           'extra' => {
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'float type! After punc'
             },
             'node_content' => [
@@ -545,7 +544,6 @@ $result_trees{'punctuation_in_line_commands'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'float type! After punc'
             },
             'node_content' => [
@@ -589,7 +587,6 @@ $result_trees{'punctuation_in_line_commands'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'float type! After punc'
             }
           },
@@ -828,15 +825,12 @@ $result_trees{'punctuation_in_line_commands'}{'contents'}[1]{'extra'}{'nodes_man
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'float_type'}{'content'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'args'}[1]{'contents'}[0];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'contents'}[1];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'contents'}[1];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'float_type'}{'content'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'args'}[1]{'contents'}[0];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[9]{'extra'}{'float_type'}{'content'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'};
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[1];
 $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[11];
 
@@ -975,11 +969,6 @@ $result_floats{'punctuation_in_line_commands'} = {
           'structure' => {}
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'float type! After punc'
-            }
-          ],
           'normalized' => 'float type! After punc'
         },
         'normalized' => 'float-label_0021-After-punc',
@@ -1006,11 +995,6 @@ $result_floats{'punctuation_in_line_commands'} = {
         },
         'float_section' => {},
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'float type! After punc'
-            }
-          ],
           'normalized' => 'float type! After punc'
         },
         'normalized' => 'label-with-caption'

@@ -983,26 +983,18 @@ size_t floats_space = 0;
 char *
 parse_float_type (ELEMENT *current)
 {
-  EXTRA_FLOAT_TYPE *eft;
-  eft = malloc (sizeof (EXTRA_FLOAT_TYPE));
-  eft->content = 0;
-  eft->normalized = 0;
-
+  char *normalized;
   if (current->args.number > 0
       && current->args.list[0]->contents.number > 0)
     {
-      char *normalized;
       /* TODO convert_to_texinfo is incorrect here, conversion should follow
          code of Texinfo::Convert::NodeNameNormalization::convert_to_normalized */
       normalized = convert_to_texinfo (current->args.list[0]);
-      eft->content = current->args.list[0];
-      eft->normalized = normalized;
-
     }
   else
-    eft->normalized = strdup ("");
-  add_extra_float_type (current, "float_type", eft);
-  return eft->normalized;
+    normalized = strdup ("");
+  add_extra_string (current, "float_type", normalized);
+  return normalized;
 }
 
 /* Actions to be taken at the end of a line that started a block that

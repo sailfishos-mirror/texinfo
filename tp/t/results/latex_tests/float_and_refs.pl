@@ -458,7 +458,6 @@ $result_trees{'float_and_refs'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'Thing'
             },
             'node_content' => [
@@ -621,7 +620,6 @@ $result_trees{'float_and_refs'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'Figure'
             },
             'node_content' => [
@@ -1636,7 +1634,6 @@ $result_trees{'float_and_refs'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'Figure'
             }
           },
@@ -1671,7 +1668,6 @@ $result_trees{'float_and_refs'} = {
           'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => {
-              'content' => [],
               'normalized' => 'Thing'
             }
           },
@@ -1720,14 +1716,12 @@ $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'ex
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'extra'}{'float_section'} = $result_trees{'float_and_refs'}{'contents'}[4];
-$result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'extra'}{'shortcaption'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[3]{'contents'}[3];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'extra'}{'float_section'} = $result_trees{'float_and_refs'}{'contents'}[4];
-$result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'extra'}{'float_type'}{'content'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'args'}[1]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[5]{'contents'}[3];
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'float_and_refs'}{'contents'}[4]{'contents'}[1];
@@ -1754,8 +1748,6 @@ $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[4]{'ex
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[4]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[6]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'extra'}{'float_type'}{'content'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'};
 
 $result_texis{'float_and_refs'} = '@node Top
 @top top
@@ -2034,11 +2026,6 @@ $result_floats{'float_and_refs'} = {
         },
         'float_section' => {},
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'Figure'
-            }
-          ],
           'normalized' => 'Figure'
         },
         'normalized' => 'my-figure',
@@ -2067,11 +2054,6 @@ $result_floats{'float_and_refs'} = {
         },
         'float_section' => {},
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'Thing'
-            }
-          ],
           'normalized' => 'Thing'
         },
         'normalized' => 'with-type',

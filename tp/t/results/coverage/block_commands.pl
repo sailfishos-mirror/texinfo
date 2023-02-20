@@ -288,7 +288,6 @@ $result_trees{'block_commands'} = {
           'extra' => {
             'caption' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'a float'
             },
             'node_content' => [
@@ -315,7 +314,6 @@ $result_trees{'block_commands'} = {
 };
 $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5];
 $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
-$result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'extra'}{'float_type'}{'content'} = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'args'}[1]{'contents'}[0];
 
 $result_texis{'block_commands'} = '
@@ -365,11 +363,6 @@ $result_floats{'block_commands'} = {
           }
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'a float'
-            }
-          ],
           'normalized' => 'a float'
         },
         'normalized' => 'b-float'

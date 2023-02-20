@@ -1416,7 +1416,6 @@ $result_trees{'image_inline_or_not'} = {
             'caption' => {},
             'float_section' => {},
             'float_type' => {
-              'content' => [],
               'normalized' => 'F'
             },
             'node_content' => [
@@ -1462,7 +1461,6 @@ $result_trees{'image_inline_or_not'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]
 $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'contents'}[4]{'extra'}{'float'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6];
 $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'caption'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'contents'}[4];
 $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'float_section'} = $result_trees{'image_inline_or_not'}{'contents'}[4];
-$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'float_type'}{'content'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'};
 $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'node_content'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'args'}[1]{'contents'}[0];
 
 $result_texis{'image_inline_or_not'} = '@image{A}
@@ -1729,11 +1727,6 @@ $result_floats{'image_inline_or_not'} = {
           }
         },
         'float_type' => {
-          'content' => [
-            {
-              'text' => 'F'
-            }
-          ],
           'normalized' => 'F'
         },
         'normalized' => 'g'
