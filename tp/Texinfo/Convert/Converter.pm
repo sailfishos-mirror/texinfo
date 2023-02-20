@@ -1157,7 +1157,7 @@ sub present_bug_message($$;$)
     }
     if ($current) {
       $current_element_message = "current: ".
-        Texinfo::Common::debug_print_element($current);
+        Texinfo::Common::debug_print_element($current, 1);
     }
   }
   my $additional_information = '';

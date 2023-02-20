@@ -1323,7 +1323,7 @@ sub from_element_direction($$$;$$$)
     ######## debug
     if (!$target_element->{'type'}) {
       die "No type for element_target $direction $target_element: "
-       . Texinfo::Common::debug_print_element_details($target_element)
+       . Texinfo::Common::debug_print_element_details($target_element, 1)
        . "directions :"
            . Texinfo::Structuring::print_element_directions($source_element);
     }
@@ -3971,7 +3971,7 @@ sub _default_format_element_header($$$$)
   print STDERR "FORMAT elt header "
      # uncomment to get perl object names
      #."$tree_unit (@{$tree_unit->{'contents'}}) ".
-     . "(".join('|', map{Texinfo::Common::debug_print_element_short($_)}
+     . "(".join('|', map{Texinfo::Common::debug_print_element($_)}
              @{$tree_unit->{'contents'}}) . ") ".
      Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
@@ -6197,7 +6197,7 @@ sub _convert_preformatted_type($$$$)
 
   if (!defined($content)) {
     cluck "content undef in _convert_preformatted_type "
-       .Texinfo::Common::debug_print_element($element);
+       .Texinfo::Common::debug_print_element($element, 1);
   }
 
   $content = $self->get_associated_formatted_inline_content($element).$content;
@@ -8605,7 +8605,7 @@ sub _html_get_tree_root_element($$;$)
   #my $debug = 1;
 
   my $current = $command;
-  #print STDERR "START ".Texinfo::Common::debug_print_element_short($current)."\n" if ($debug);
+  #print STDERR "START ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
 
   my ($root_element, $root_command);
   while (1) {
@@ -8659,13 +8659,13 @@ sub _html_get_tree_root_element($$;$)
     }
     if ($current->{'structure'}
         and $current->{'structure'}->{'associated_unit'}) {
-      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element_short($current->{'structure'}->{'associated_unit'})."\n" if ($debug);
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element($current->{'structure'}->{'associated_unit'})."\n" if ($debug);
       $current = $current->{'structure'}->{'associated_unit'};
     } elsif ($current->{'parent'}) {
-      #print STDERR "PARENT ".Texinfo::Common::debug_print_element_short($current->{'parent'})."\n" if ($debug);
+      #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
       $current = $current->{'parent'};
     } else {
-      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::debug_print_element_short($current)."\n" if ($debug);
+      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
       return (undef, $root_command);
     }
   }
@@ -9228,7 +9228,8 @@ sub _prepare_tree_units_global_targets($$)
   } elsif ($node_top) {
     my $tree_unit_top = $node_top->{'structure'}->{'associated_unit'};
     if (!$tree_unit_top) {
-      die "No parent for node_top: ".Texinfo::Common::debug_print_element($node_top);
+      die "No associated unit for node_top: "
+         .Texinfo::Common::debug_print_element($node_top, 1);
     }
     $self->{'global_target_elements_directions'}->{'Top'} = $tree_unit_top;
   } else {

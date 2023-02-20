@@ -1609,7 +1609,7 @@ sub split_custom_heading_command_contents($)
   while (scalar(@contents)) {
     my $current_content = $contents[0];
     #print STDERR "$nr_split_contents ".scalar(@contents).": "
-    #          .debug_print_element_short($current_content)."\n";
+    #          .debug_print_element($current_content)."\n";
     if (defined($current_content->{'cmdname'})
         and $current_content->{'cmdname'} eq '|') {
       shift @contents;
@@ -2031,7 +2031,8 @@ sub _protect_text($$)
   my $current = shift;
   my $to_protect = shift;
 
-  #print STDERR "_protect_text: $to_protect: $current ".debug_print_element($current)."\n";
+  #print STDERR "_protect_text: $to_protect: $current "
+  #                         .debug_print_element($current, 1)."\n";
   if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
       and !(defined($current->{'type'}) and $current->{'type'} eq 'raw')) {
     my @result = ();
@@ -2313,16 +2314,16 @@ sub _parent_string($)
 }
 
 # informations on a tree element, short version
-sub debug_print_element_short($;$)
+sub debug_print_element($;$)
 {
   my $current = shift;
   my $print_parent = shift;
 
   if (!defined($current)) {
-    return "debug_print_element_short: UNDEF\n";
+    return "debug_print_element: UNDEF\n";
   }
   if (ref($current) ne 'HASH') {
-    return "debug_print_element_short: $current not a hash\n";
+    return "debug_print_element: $current not a hash\n";
   }
   my $type = '';
   my $cmd = '';
@@ -2352,48 +2353,13 @@ sub debug_print_element_short($;$)
   return "$cmd$type$text$args$contents$parent_string";
 }
 
-# informations on a tree element, long version
-sub debug_print_element($)
-{
-  my $current = shift;
-  if (ref($current) ne 'HASH') {
-    return  "debug_print_element: $current not a hash\n";
-  }
-  my $type = '';
-  my $cmd = '';
-  my $text = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  # specific of HTML
-  $type .= '{'.$current->{'extra'}->{'special_element_type'}.'}'
-    if (defined($current->{'extra'})
-      and defined($current->{'extra'}->{'special_element_type'}));
-  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $cmd .= "($current->{'structure'}->{'section_level'})"
-        if (defined($current->{'structure'}->{'section_level'}));
-  if (defined($current->{'text'})) {
-    my $text_str = $current->{'text'};
-    $text_str =~ s/\n/\\n/g;
-    $text = "[T: $text_str]";
-  }
-  my $parent_string = _parent_string($current);
-  if (defined($parent_string)) {
-    $parent_string .= "\n";
-  } else {
-    $parent_string = '';
-  }
-  my $args = '';
-  my $contents = '';
-  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
-  $contents = "[C".scalar(@{$current->{'contents'}}).']'
-    if $current->{'contents'};
-  return "$cmd$type$text$args$contents\n$parent_string";
-}
-
 # for debugging
-sub debug_print_element_details($)
+sub debug_print_element_details($;$)
 {
   my $current = shift;
-  my $string = debug_print_element($current);
+  my $print_parent = shift;
+
+  my $string = debug_print_element($current, $print_parent);
   foreach my $key (keys (%$current)) {
     $string .= "   $key: $current->{$key}\n";
   }

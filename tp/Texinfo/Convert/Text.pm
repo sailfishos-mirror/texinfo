@@ -390,7 +390,7 @@ sub _convert($;$)
   #                         ? $options->{'_code_state'} : 'UNDEF')
   #   ." r: ".(defined($options->{'_raw_state'})
   #                         ? $options->{'_raw_state'} : 'UNDEF')
-  #   .", ".Texinfo::Common::debug_print_element_short($element, 1)."\n";
+  #   .", ".Texinfo::Common::debug_print_element($element, 1)."\n";
 
   if (!defined($element)) {
     confess("Texinfo::Convert::Text::_convert: element undef");

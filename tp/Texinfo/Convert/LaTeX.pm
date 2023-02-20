@@ -2548,7 +2548,7 @@ sub _convert($$)
 
   if ($self->{'debug'}) {
     print STDERR "CONVLTX "
-         .Texinfo::Common::debug_print_element_short($element)."\n";
+         .Texinfo::Common::debug_print_element($element)."\n";
     if ($self->{'debug'} > 4) {
       print STDERR "    CTX "._show_top_context_stack($self)."\n";
     }
@@ -4232,10 +4232,10 @@ sub _convert($$)
         my @str_contents = ();
         foreach my $item_content (@contents) {
           push @str_contents,
-               Texinfo::Common::debug_print_element_short($item_content);
+               Texinfo::Common::debug_print_element($item_content);
         }
         print STDERR "C "
-           .Texinfo::Common::debug_print_element_short($element)
+           .Texinfo::Common::debug_print_element($element)
                                      .": ".join("|", @str_contents)."\n";
       }
     }

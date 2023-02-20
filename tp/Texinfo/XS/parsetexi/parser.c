@@ -1917,10 +1917,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                  for the removed elements */
               /*
               debug_nonl ("REMOVE content. Accent: ");
-              debug_print_element_short (current, 1);
+              debug_print_element (current, 1);
               debug ("");
               debug_nonl ("       removed: ");
-              debug_print_element_short (popped_element, 0);
+              debug_print_element (popped_element, 0);
               debug ("");
               */
               destroy_element (popped_element);
@@ -2197,7 +2197,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else /*  End of line */
     {
       debug_nonl ("END LINE ");
-      debug_print_element_short (current, 1);
+      debug_print_element (current, 1);
       debug ("");
 
       if (*line == '\n')

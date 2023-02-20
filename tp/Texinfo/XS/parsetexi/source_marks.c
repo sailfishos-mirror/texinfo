@@ -100,7 +100,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   debug_nonl ("MARKS: %d c: %d, %d %d ", source_mark->type,
               source_mark->counter, source_mark->position,
               source_mark->status);
-  debug_print_element_short (mark_element, 1);
+  debug_print_element (mark_element, 1);
   debug("");
   add_source_mark (source_mark, mark_element);
 }

@@ -1408,7 +1408,7 @@ sub root_or_external_element_cmd_texi($)
   }
   if (!$element->{'type'}) {
     return "element $element without type: ".
-       Texinfo::Common::debug_print_element_details($element);
+       Texinfo::Common::debug_print_element_details($element, 1);
   }
 
   if ($element->{'type'} eq 'external_node') {

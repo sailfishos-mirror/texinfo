@@ -47,7 +47,7 @@ debug_nonl (char *s, ...)
 }
 
 void
-debug_print_element_short (ELEMENT *e, int print_parent)
+debug_print_element (ELEMENT *e, int print_parent)
 {
   if (e->cmd)
     debug_nonl("@%s", command_name(e->cmd));

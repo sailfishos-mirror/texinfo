@@ -2385,7 +2385,7 @@ end_line (ELEMENT *current)
   if (current_context () == ct_line || current_context () == ct_def)
     {
       debug_nonl ("Still opened line command %d:", current_context ());
-      debug_print_element_short (current, 1); debug("");
+      debug_print_element (current, 1); debug("");
       if (current_context () == ct_def)
         {
           while (current->parent

@@ -148,7 +148,7 @@ extern size_t floats_space;
 void debug (char *s, ...);
 void debug_nonl (char *s, ...);
 extern int debug_output;
-void debug_print_element_short (ELEMENT *e, int print_parent);
+void debug_print_element (ELEMENT *e, int print_parent);
 
 
 /* In separator.c */

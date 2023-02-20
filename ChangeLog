@@ -1,5 +1,17 @@
 2023-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (debug_print_element): rename
+	debug_print_element_short as debug_print_element as both functions are
+	almost the same, and remove the former debug_print_element function.
+	Update callers.
+
+	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element): rename
+	debug_print_element_short as debug_print_element.  Update callers.
+
+	* tp/Texinfo/ParserNonXS.pm (_print_current): inline and remove.
+
+2023-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Other Customization Variables),
 	tp/Texinfo/Common.pm (@variable_string_settables),
 	tp/Texinfo/Convert/Plaintext.pm (converter_initialize): add

@@ -1100,18 +1100,12 @@ sub _bug_message($$;$$)
   my $message_context_stack = "context_stack: (@context_stack)\n";
   my $current_element_message = '';
   if ($current) {
-    $current_element_message = "current: ". _print_current($current);
+    $current_element_message = "current: "
+                    .Texinfo::Common::debug_print_element($current);
   }
   warn "You found a bug: $message\n\n".
        "Additional information:\n".
        $line_message.$message_context_stack.$current_element_message;
-}
-
-# for debugging
-sub _print_current($)
-{
-  my $current = shift;
-  return Texinfo::Common::debug_print_element($current);
 }
 
 # for debugging
@@ -1220,8 +1214,8 @@ sub _place_source_mark
   }
 
   print STDERR "MARK: "._debug_show_source_mark($source_mark)
-     ." $add_element ".Texinfo::Common::debug_print_element_short($mark_element)
-      .' '.Texinfo::Common::debug_print_element_short($element)."\n"
+     ." $add_element ".Texinfo::Common::debug_print_element($mark_element)
+      .' '.Texinfo::Common::debug_print_element($element)."\n"
         if ($self->{'DEBUG'});
         ;
 
@@ -1564,8 +1558,8 @@ sub _remove_empty_content($$)
         and _is_container_empty($child_element)) {
       _transfer_source_marks($child_element, $current);
       print STDERR "REMOVE empty child "
-         .Texinfo::Common::debug_print_element_short($child_element)
-          .' '.Texinfo::Common::debug_print_element_short($current)."\n"
+         .Texinfo::Common::debug_print_element($child_element)
+          .' '.Texinfo::Common::debug_print_element($current)."\n"
             if ($self->{'DEBUG'});
       _pop_element_from_contents($self, $current);
     }
@@ -1601,7 +1595,7 @@ sub _close_container($$)
       and scalar(@{$current->{'contents'}})
       and $current->{'contents'}->[-1] eq $element_to_remove) {
     print STDERR "REMOVE empty type "
-      .Texinfo::Common::debug_print_element_short($element_to_remove)."\n"
+      .Texinfo::Common::debug_print_element($element_to_remove)."\n"
         if ($self->{'DEBUG'});
     _pop_element_from_contents($self, $current);
   }
@@ -2207,8 +2201,8 @@ sub _merge_text {
     # Append text
     $merged_to->{'text'} .= $text;
     print STDERR "MERGED TEXT: $text|||in "
-      .Texinfo::Common::debug_print_element_short($merged_to)
-      ." last of: ".Texinfo::Common::debug_print_element_short($current)."\n"
+      .Texinfo::Common::debug_print_element($merged_to)
+      ." last of: ".Texinfo::Common::debug_print_element($current)."\n"
          if ($self->{'DEBUG'});
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
@@ -2780,7 +2774,7 @@ sub _isolate_last_space
   my $debug_str;
   if ($self->{'DEBUG'}) {
     $debug_str = 'p: '
-         .Texinfo::Common::debug_print_element_short($current)."; c ";
+         .Texinfo::Common::debug_print_element($current)."; c ";
     if (scalar(@{$current->{'contents'}})) {
       if ($current->{'contents'}->[-1]->{'type'}) {
         $debug_str .= "($current->{'contents'}->[-1]->{'type'})";
@@ -3670,7 +3664,7 @@ sub _end_line_def_line($$$)
   my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
 
   print STDERR "END DEF LINE $def_command; current: "
-    .Texinfo::Common::debug_print_element_short($current)."\n"
+    .Texinfo::Common::debug_print_element($current)."\n"
       if ($self->{'DEBUG'});
 
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
@@ -3771,7 +3765,7 @@ sub _end_line_starting_block($$$)
                       'in block_line_arg');
 
   print STDERR "END BLOCK LINE: "
-     .Texinfo::Common::debug_print_element_short($current, 1)."\n"
+     .Texinfo::Common::debug_print_element($current, 1)."\n"
        if ($self->{'DEBUG'});
 
   # @multitable args
@@ -4299,7 +4293,7 @@ sub _end_line($$$)
   my $top_context = $self->_top_context();
   if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
     print STDERR "Still opened line/block command $top_context:"
-      ._print_current($current)
+      .Texinfo::Common::debug_print_element($current)
         if ($self->{'DEBUG'});
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'} and !($current->{'parent'}->{'type'}
@@ -4317,11 +4311,13 @@ sub _end_line($$$)
     # check for infinite loop bugs...
     if ($current eq $current_old) {
       my $indent_str = '- ';
-      my $tree_msg = $indent_str . _print_current($current);
+      my $tree_msg
+            = $indent_str . Texinfo::Common::debug_print_element($current);
       while ($current->{'parent'}) {
         $indent_str = '-'.$indent_str;
         $current = $current->{'parent'};
-        $tree_msg .= $indent_str . _print_current($current);
+        $tree_msg
+            .= $indent_str . Texinfo::Common::debug_print_element($current);
       }
       $self->_bug_message("Nothing closed while a line context remains\n"
                                                                 . $tree_msg,
@@ -4993,7 +4989,7 @@ sub _process_remaining_on_line($$$$)
   #   at the end of an expanded Texinfo fragment
   while ($line eq '') {
     print STDERR "EMPTY TEXT in: "
-     .Texinfo::Common::debug_print_element_short($current)."\n"
+     .Texinfo::Common::debug_print_element($current)."\n"
       if ($self->{'DEBUG'});
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
@@ -6599,7 +6595,7 @@ sub _process_remaining_on_line($$$$)
   # end of line
   } else {
     print STDERR "END LINE: "
-        .Texinfo::Common::debug_print_element_short($current, 1)."\n"
+        .Texinfo::Common::debug_print_element($current, 1)."\n"
           if ($self->{'DEBUG'});
     if ($line =~ s/^(\n)//) {
       $current = _merge_text($self, $current, $1);
@@ -6641,7 +6637,7 @@ sub _parse_texi($$$)
          .join('|', $self->_get_context_stack())
          .":@cond_commands:$source_info_text): $line";
       #print STDERR "  $current: "
-      #             .Texinfo::Common::debug_print_element_short($current)."\n";
+      #             .Texinfo::Common::debug_print_element($current)."\n";
     }
 
     # This almost never happens in the tests, because empty lines are mostly

@@ -782,7 +782,7 @@ sub _convert($$;$)
                     and $element->{'parent'}->{'type'}
                     and $element->{'parent'}->{'type'} eq 'row') {
           warn "BUG: multitable cell command not in a row "
-            .Texinfo::Common::debug_print_element($element);
+            .Texinfo::Common::debug_print_element($element, 1);
         }
         $result .= "<entry>";
         push @close_format_elements, 'entry';
@@ -1679,7 +1679,8 @@ sub _convert($$;$)
     #my $nr = -1;
     foreach my $content (@{$element->{'contents'}}) {
       #$nr++;
-      #print STDERR "C$debug_element_nr[$nr] ".Texinfo::Common::debug_print_element_short($content)."\n";
+      #print STDERR "C$debug_element_nr[$nr] "
+      #   .Texinfo::Common::debug_print_element($content)."\n";
       $result .= $self->_convert($content);
     }
     pop @{$self->{'document_context'}->[-1]->{'monospace'}}
