@@ -434,9 +434,10 @@ sub set_float_types
 {
   my $self = shift;
 
-  my $global_commands = $self->global_commands_information();
-
   $self->{'floats'} = {};
+
+  my $global_commands = $self->global_commands_information();
+  return unless ($global_commands);
 
   if ($global_commands->{'float'}) {
     foreach my $current (@{$global_commands->{'float'}}) {
