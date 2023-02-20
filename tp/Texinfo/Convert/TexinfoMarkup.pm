@@ -890,8 +890,7 @@ sub _convert($$;$)
           }
         } else {
           my $attribute = [_leading_spaces_arg($element)];
-          if ($cmdname eq 'listoffloats' and $element->{'extra'}
-              and defined($element->{'extra'}->{'float_type'})) {
+          if ($cmdname eq 'listoffloats') {
             unshift @$attribute, ['type',
                                   $element->{'extra'}->{'float_type'}];
           }
@@ -1261,10 +1260,8 @@ sub _convert($$;$)
                    { 'contents' => $element->{'extra'}->{'node_content'} });
           push @$attribute, ['name', $normalized];
         }
-        if (defined($element->{'extra'}->{'float_type'})) {
-          push @$attribute, ['type',
-                             $element->{'extra'}->{'float_type'}];
-        }
+        push @$attribute, ['type',
+                           $element->{'extra'}->{'float_type'}];
         if ($element->{'structure'}
             and defined($element->{'structure'}->{'float_number'})) {
           push @$attribute, ['number',

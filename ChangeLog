@@ -1,5 +1,15 @@
 2023-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (float_type_number),
+	tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): @float and
+	@listoffloats always have {'extra'}->{'float_type'} set, assume that
+	in the code.
+
+2023-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_float_types): avoid
 	autovivification.
 

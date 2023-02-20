@@ -786,15 +786,12 @@ sub output_ixin($$)
     foreach my $listoffloats_element (@{$self->{'global_commands'}->{'listoffloats'}}) {
       my $associated_node_id = $self->_associated_node_id($listoffloats_element,
                                                      \%node_label_number);
-      if ($listoffloats_element->{'extra'}
-          and defined($listoffloats_element->{'extra'}->{'float_type'})) {
-        my $float_type = $listoffloats_element->{'extra'}->{'float_type'};
-        if ($float_type ne '') {
-          $floats_information{$float_type}->{'type'}
-            = $self->convert_tree($listoffloats_element->{'args'}->[0]);
-        }
-        push @{$floats_information{$float_type}->{'node_id'}}, $associated_node_id;
+      my $float_type = $listoffloats_element->{'extra'}->{'float_type'};
+      if ($float_type ne '') {
+        $floats_information{$float_type}->{'type'}
+          = $self->convert_tree($listoffloats_element->{'args'}->[0]);
       }
+      push @{$floats_information{$float_type}->{'node_id'}}, $associated_node_id;
     }
   }
 
@@ -851,9 +848,7 @@ sub output_ixin($$)
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
         my $float_element = $self->{'floats'}->{$type}->[0];
-        if ($float_element->{'extra'}
-            and defined($float_element->{'extra'}->{'float_type'})
-            and $float_element->{'extra'}->{'float_type'} ne '') {
+        if ($float_element->{'extra'}->{'float_type'} ne '') {
           $floats_information{$type}->{'type'}
             = $self->convert_tree($float_element->{'args'}->[0]);
         }

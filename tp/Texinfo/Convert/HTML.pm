@@ -4691,12 +4691,13 @@ sub _convert_listoffloats_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  # should probably never happen
+  return '' if ($self->in_string());
+
   my $floats = $self->get_info('floats');
-  if (!$self->in_string()
-      and $command->{'extra'} and defined($command->{'extra'}->{'float_type'})
-      and $floats and $floats->{$command->{'extra'}->{'float_type'}}
-      and scalar(@{$floats->{$command->{'extra'}->{'float_type'}}})) {
-    my $listoffloats_name = $command->{'extra'}->{'float_type'};
+  my $listoffloats_name = $command->{'extra'}->{'float_type'};
+  if ($floats and $floats->{$listoffloats_name}
+      and scalar(@{$floats->{$listoffloats_name}})) {
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
     foreach my $float (@{$floats->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);

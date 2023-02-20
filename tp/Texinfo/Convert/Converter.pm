@@ -1249,8 +1249,7 @@ sub float_type_number($$)
   my $float = shift;
 
   my $type_element;
-  if ($float->{'extra'}
-      and $float->{'extra'}->{'float_type'} ne '') {
+  if ($float->{'extra'}->{'float_type'} ne '') {
     $type_element = $float->{'args'}->[0];
   }
 
@@ -1290,8 +1289,7 @@ sub float_name_caption($$)
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
   my $type_element;
-  if ($element->{'extra'}
-      and $element->{'extra'}->{'float_type'} ne '') {
+  if ($element->{'extra'}->{'float_type'} ne '') {
     $type_element = $element->{'args'}->[0];
   }
 
