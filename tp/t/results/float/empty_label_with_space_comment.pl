@@ -84,10 +84,8 @@ $result_trees{'empty_label_with_space_comment'} = {
             }
           ],
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Type'
             }
           },
@@ -108,7 +106,7 @@ $result_trees{'empty_label_with_space_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_label_with_space_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'empty_label_with_space_comment'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_label_with_space_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'empty_label_with_space_comment'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 
 $result_texis{'empty_label_with_space_comment'} = '@float Type, @c comment
 @end float
@@ -126,7 +124,7 @@ $result_floats{'empty_label_with_space_comment'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Type'

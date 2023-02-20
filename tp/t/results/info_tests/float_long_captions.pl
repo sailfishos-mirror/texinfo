@@ -130,16 +130,14 @@ $result_trees{'float_long_captions'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'Text'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'text1',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'Text'
-            }
+            'normalized' => 'text1'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -253,16 +251,14 @@ $result_trees{'float_long_captions'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'Text'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'text2',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'Text'
-            }
+            'normalized' => 'text2'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -299,10 +295,8 @@ $result_trees{'float_long_captions'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Text'
             }
           },
@@ -348,13 +342,13 @@ $result_trees{'float_long_captions'} = {
 };
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1];
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3];
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[5]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[5]{'extra'}{'float_type'}{'content'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'float_long_captions'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_long_captions'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_long_captions'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
@@ -409,15 +403,15 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'normalized' => 'text1',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'text1'
       },
       'info' => {},
       'structure' => {
@@ -433,15 +427,15 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'normalized' => 'text2',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'text2'
       },
       'info' => {},
       'structure' => {

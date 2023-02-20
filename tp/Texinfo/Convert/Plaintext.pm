@@ -2839,12 +2839,13 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'listoffloats') {
       my $lines_count = 0;
-      if ($element->{'extra'} and $element->{'extra'}->{'type'}
-          and defined($element->{'extra'}->{'type'}->{'normalized'})
+      if ($element->{'extra'} and $element->{'extra'}->{'float_type'}
+          and defined($element->{'extra'}->{'float_type'}->{'normalized'})
           and $self->{'floats'}
-          and $self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}
+          and $self->{'floats'}->{$element->{'extra'}->{'float_type'}->{'normalized'}}
           and scalar(@{$self->{'floats'}
-                        ->{$element->{'extra'}->{'type'}->{'normalized'}}})) {
+                        ->{$element->{'extra'}->{'float_type'}->{'normalized'}}})) {
+        my $float_type = $element->{'extra'}->{'float_type'}->{'normalized'};
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         if (!$self->{'empty_lines_count'}) {
           $result .= "\n";
@@ -2852,8 +2853,7 @@ sub _convert($$)
         }
         $result .= "* Menu:\n\n";
         $lines_count += 2;
-        foreach my $float (@{$self->{'floats'}
-                           ->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
+        foreach my $float (@{$self->{'floats'}->{$float_type}}) {
           next if !$float->{'args'} or !$float->{'args'}->[1]
                    or !$float->{'args'}->[1]->{'contents'}
                    or !@{$float->{'args'}->[1]->{'contents'}};
@@ -3542,8 +3542,8 @@ sub _convert($$)
   if ($command) {
     if ($command eq 'float') {
       if ($element->{'extra'}
-          and (($element->{'extra'}->{'type'}
-                and $element->{'extra'}->{'type'}->{'normalized'} ne '')
+          and (($element->{'extra'}->{'float_type'}
+                and $element->{'extra'}->{'float_type'}->{'normalized'} ne '')
                or ($element->{'structure'}
                    and defined($element->{'structure'}->{'float_number'}))
                or $element->{'extra'}->{'caption'}

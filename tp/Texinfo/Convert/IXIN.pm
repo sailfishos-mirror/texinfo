@@ -776,8 +776,8 @@ sub output_ixin($$)
 
   # collect all float types corresponding to float commands
   if ($self->{'floats'}) {
-    foreach my $type (keys(%{$self->{'floats'}})) {
-      $floats_information{$type} = {};
+    foreach my $float_type (keys(%{$self->{'floats'}})) {
+      $floats_information{$float_type} = {};
     }
   }
 
@@ -787,15 +787,15 @@ sub output_ixin($$)
       my $associated_node_id = $self->_associated_node_id($command,
                                                      \%node_label_number);
       if ($command->{'extra'}
-          and $command->{'extra'}->{'type'}
-          and defined($command->{'extra'}->{'type'}->{'normalized'})) {
-        my $type = $command->{'extra'}->{'type'}->{'normalized'};
-        if ($command->{'extra'}->{'type'}->{'content'}) {
-          $floats_information{$type}->{'type'}
+          and $command->{'extra'}->{'float_type'}
+          and defined($command->{'extra'}->{'float_type'}->{'normalized'})) {
+        my $float_type = $command->{'extra'}->{'float_type'}->{'normalized'};
+        if ($command->{'extra'}->{'float_type'}->{'content'}) {
+          $floats_information{$float_type}->{'type'}
             = $self->convert_tree({'contents'
-                             => $command->{'extra'}->{'type'}->{'content'}});
+                             => $command->{'extra'}->{'float_type'}->{'content'}});
         }
-        push @{$floats_information{$type}->{'node_id'}}, $associated_node_id;
+        push @{$floats_information{$float_type}->{'node_id'}}, $associated_node_id;
       }
     }
   }
@@ -853,11 +853,11 @@ sub output_ixin($$)
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
         my $command = $self->{'floats'}->{$type}->[0];
-        if ($command->{'extra'}->{'type'}
-            and $command->{'extra'}->{'type'}->{'content'}) {
+        if ($command->{'extra'}->{'float_type'}
+            and $command->{'extra'}->{'float_type'}->{'content'}) {
           $floats_information{$type}->{'type'}
             = $self->convert_tree({'contents'
-                           => $command->{'extra'}->{'type'}->{'content'}});
+                      => $command->{'extra'}->{'float_type'}->{'content'}});
         }
       }
     }

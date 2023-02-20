@@ -335,13 +335,13 @@ $result_trees{'things_before_setfilename'} = {
                 }
               ],
               'extra' => {
+                'float_type' => {
+                  'normalized' => ''
+                },
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'float-anchor',
-                'type' => {
-                  'normalized' => ''
-                }
+                'normalized' => 'float-anchor'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -514,16 +514,14 @@ $result_trees{'things_before_setfilename'} = {
               ],
               'extra' => {
                 'caption' => {},
+                'float_type' => {
+                  'content' => [],
+                  'normalized' => 'Text'
+                },
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'ta',
-                'type' => {
-                  'content' => [
-                    {}
-                  ],
-                  'normalized' => 'Text'
-                }
+                'normalized' => 'ta'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -768,10 +766,8 @@ $result_trees{'things_before_setfilename'} = {
               ],
               'cmdname' => 'listoffloats',
               'extra' => {
-                'type' => {
-                  'content' => [
-                    {}
-                  ],
+                'float_type' => {
+                  'content' => [],
                   'normalized' => 'Text'
                 }
               },
@@ -1105,11 +1101,11 @@ $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'conten
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'extra'}{'float'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'float_type'}{'content'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'};
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'type'}{'content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[20];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'extra'}{'type'}{'content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'extra'}{'float_type'}{'content'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0]{'contents'};
 $result_trees{'things_before_setfilename'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0]{'contents'}[0];
@@ -1345,10 +1341,10 @@ $result_floats{'things_before_setfilename'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'float-anchor',
-        'type' => {
+        'float_type' => {
           'normalized' => ''
-        }
+        },
+        'normalized' => 'float-anchor'
       },
       'info' => {},
       'structure' => {
@@ -1366,15 +1362,15 @@ $result_floats{'things_before_setfilename'} = {
             'float' => {}
           }
         },
-        'normalized' => 'ta',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'ta'
       },
       'info' => {},
       'structure' => {

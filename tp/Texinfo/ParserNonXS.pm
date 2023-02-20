@@ -3844,7 +3844,7 @@ sub _end_line_starting_block($$$)
     # for now done in Texinfo::Convert::NodeNameNormalization, but could be
     # good to do in Parser/XS
     #_parse_float_type($current);
-    #$type = $current->{'extra'}->{'type'}->{'normalized'};
+    #$type = $current->{'extra'}->{'float_type'}->{'normalized'};
     #push @{$self->{'floats'}->{$type}}, $current;
     _register_label($self->{'targets'}, $current, $float_label);
     if (defined($self->{'current_section'})) {
@@ -8284,7 +8284,7 @@ The I<enumerate_specification> C<extra> key contains the enumerate argument.
 =item C<@listoffloats>
 
 If float has a first argument, and for C<@listoffloats>
-argument there is a I<type> key which is also a hash reference,
+argument there is a I<float_type> key which is also a hash reference,
 with two keys. I<content> is an array holding the associated
 contents, I<normalized> holds the normalized float type.
 

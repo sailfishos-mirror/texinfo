@@ -106,10 +106,8 @@ $result_trees{'float_without_type'} = {
             }
           ],
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'a'
             }
           },
@@ -148,10 +146,8 @@ $result_trees{'float_without_type'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'a'
             }
           },
@@ -195,8 +191,8 @@ $result_trees{'float_without_type'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_without_type'}{'contents'}[1]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_without_type'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_without_type'}{'contents'}[1]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_without_type'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'float_without_type'}{'contents'}[1]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'float_without_type'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'float_without_type'}{'contents'}[1]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'float_without_type'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'float_without_type'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_without_type'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_without_type'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_without_type'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
@@ -242,7 +238,7 @@ $result_floats{'float_without_type'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'a'

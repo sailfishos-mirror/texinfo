@@ -183,10 +183,8 @@ $result_trees{'caption_in_example'} = {
           ],
           'extra' => {
             'caption' => {},
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'float'
             }
           },
@@ -209,7 +207,7 @@ $result_trees{'caption_in_example'} = {
 };
 $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0];
 $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'type'}{'content'}[0] = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'float_type'}{'content'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 
 $result_texis{'caption_in_example'} = '@float float
 
@@ -257,7 +255,7 @@ $result_floats{'caption_in_example'} = {
             'float' => {}
           }
         },
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'float'

@@ -138,16 +138,14 @@ $result_trees{'float_in_style_command'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'A'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'B',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'A'
-            }
+            'normalized' => 'B'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -168,8 +166,8 @@ $result_trees{'float_in_style_command'} = {
 };
 $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1];
 $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'float_in_style_command'} = '@code{
 }@float A, B
@@ -226,15 +224,15 @@ $result_floats{'float_in_style_command'} = {
             'float' => {}
           }
         },
-        'normalized' => 'B',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'A'
             }
           ],
           'normalized' => 'A'
-        }
+        },
+        'normalized' => 'B'
       },
       'info' => {},
       'structure' => {

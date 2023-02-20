@@ -638,16 +638,14 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'extra' => {
             'float_section' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'Text'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'label',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'Text'
-            }
+            'normalized' => 'label'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -699,11 +697,8 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {},
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Text  '
             }
           },
@@ -756,10 +751,9 @@ $result_trees{'comment_space_command_on_line'}{'contents'}[3]{'extra'}{'nodes_ma
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'float_section'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4];
+$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'float_type'}{'content'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'};
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'args'}[1]{'contents'}[0];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'type'}{'content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'}[0];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'extra'}{'type'}{'content'}[1] = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[1];
+$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'extra'}{'float_type'}{'content'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'};
 
 $result_texis{'comment_space_command_on_line'} = '@settitle Settitle @ @c settittle
 
@@ -926,15 +920,15 @@ $result_floats{'comment_space_command_on_line'} = {
             'section_number' => 1
           }
         },
-        'normalized' => 'label',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'label'
       },
       'info' => {},
       'structure' => {

@@ -108,16 +108,14 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'a'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'b',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'a'
-            }
+            'normalized' => 'b'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -224,14 +222,14 @@ $result_trees{'empty_caption'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'normalized' => ''
+            },
             'node_content' => [
               {}
             ],
             'normalized' => 'c',
-            'shortcaption' => {},
-            'type' => {
-              'normalized' => ''
-            }
+            'shortcaption' => {}
           },
           'info' => {
             'spaces_before_argument' => {
@@ -349,10 +347,10 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'caption' => {},
-            'shortcaption' => {},
-            'type' => {
+            'float_type' => {
               'normalized' => ''
-            }
+            },
+            'shortcaption' => {}
           },
           'source_info' => {
             'file_name' => '',
@@ -368,8 +366,8 @@ $result_trees{'empty_caption'} = {
 };
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
@@ -413,15 +411,15 @@ $result_floats{'empty_caption'} = {
     {
       'cmdname' => 'float',
       'extra' => {
+        'float_type' => {
+          'normalized' => ''
+        },
         'normalized' => 'c',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
           'extra' => {
             'float' => {}
           }
-        },
-        'type' => {
-          'normalized' => ''
         }
       },
       'info' => {},
@@ -438,14 +436,14 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         },
+        'float_type' => {
+          'normalized' => ''
+        },
         'shortcaption' => {
           'cmdname' => 'shortcaption',
           'extra' => {
             'float' => {}
           }
-        },
-        'type' => {
-          'normalized' => ''
         }
       }
     }
@@ -460,15 +458,15 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         },
-        'normalized' => 'b',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'a'
             }
           ],
           'normalized' => 'a'
-        }
+        },
+        'normalized' => 'b'
       },
       'info' => {},
       'structure' => {

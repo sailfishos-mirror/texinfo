@@ -1896,7 +1896,7 @@ sub _substitute_references($$$)
             if (($current->{'cmdname'}
                  and ($current->{'cmdname'} eq 'listoffloats'
                       or $current->{'cmdname'} eq 'float')
-                 and $key eq 'type')
+                 and $key eq 'float_type')
                 or ($key eq 'index_entry')
                 or ($current->{'type'}
                     and $current->{'type'} eq 'menu_entry'

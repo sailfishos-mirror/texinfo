@@ -481,16 +481,16 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
             case extra_float_type:
               {
               EXTRA_FLOAT_TYPE *eft = (EXTRA_FLOAT_TYPE *) f;
-              HV *type = newHV ();
+              HV *float_type = newHV ();
               if (eft->content)
-                hv_store (type, "content", strlen ("content"),
+                hv_store (float_type, "content", strlen ("content"),
                           build_perl_array (&eft->content->contents), 0);
               if (eft->normalized)
                 {
                   SV *sv = newSVpv_utf8 (eft->normalized, 0);
-                  hv_store (type, "normalized", strlen ("normalized"), sv, 0);
+                  hv_store (float_type, "normalized", strlen ("normalized"), sv, 0);
                 }
-              STORE(newRV_inc ((SV *)type));
+              STORE(newRV_inc ((SV *)float_type));
               break;
               }
             default:

@@ -131,16 +131,14 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
+                'float_type' => {
+                  'content' => [],
+                  'normalized' => 'Text'
+                },
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'in-example',
-                'type' => {
-                  'content' => [
-                    {}
-                  ],
-                  'normalized' => 'Text'
-                }
+                'normalized' => 'in-example'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -307,16 +305,14 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
+                'float_type' => {
+                  'content' => [],
+                  'normalized' => 'Text'
+                },
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'in-quotation',
-                'type' => {
-                  'content' => [
-                    {}
-                  ],
-                  'normalized' => 'Text'
-                }
+                'normalized' => 'in-quotation'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -483,16 +479,14 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
+                'float_type' => {
+                  'content' => [],
+                  'normalized' => 'Text'
+                },
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'in-cartouche',
-                'type' => {
-                  'content' => [
-                    {}
-                  ],
-                  'normalized' => 'Text'
-                }
+                'normalized' => 'in-cartouche'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -557,16 +551,16 @@ $result_trees{'float_in_block_commands'} = {
 };
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'float_type'}{'content'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
+$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'float_type'}{'content'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
+$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'float_type'}{'content'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'float_in_block_commands'} = '@example
 @float Text, in example
@@ -612,15 +606,15 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'normalized' => 'in-example',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'in-example'
       },
       'info' => {},
       'structure' => {
@@ -636,15 +630,15 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'normalized' => 'in-quotation',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'in-quotation'
       },
       'info' => {},
       'structure' => {
@@ -660,15 +654,15 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'normalized' => 'in-cartouche',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'in-cartouche'
       },
       'info' => {},
       'structure' => {

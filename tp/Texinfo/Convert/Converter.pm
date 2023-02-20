@@ -1250,9 +1250,9 @@ sub float_type_number($$)
 
   my $type;
   if ($float->{'extra'}
-      and $float->{'extra'}->{'type'}
-      and $float->{'extra'}->{'type'}->{'normalized'} ne '') {
-    $type = {'contents' => $float->{'extra'}->{'type'}->{'content'}};
+      and $float->{'extra'}->{'float_type'}
+      and $float->{'extra'}->{'float_type'}->{'normalized'} ne '') {
+    $type = {'contents' => $float->{'extra'}->{'float_type'}->{'content'}};
   }
 
   my $tree;
@@ -1291,9 +1291,9 @@ sub float_name_caption($$)
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
   my $type;
-  if ($element->{'extra'} and $element->{'extra'}->{'type'}
-      and $element->{'extra'}->{'type'}->{'normalized'} ne '') {
-    $type = {'contents' => $element->{'extra'}->{'type'}->{'content'}};
+  if ($element->{'extra'} and $element->{'extra'}->{'float_type'}
+      and $element->{'extra'}->{'float_type'}->{'normalized'} ne '') {
+    $type = {'contents' => $element->{'extra'}->{'float_type'}->{'content'}};
   }
 
   my $prepended;

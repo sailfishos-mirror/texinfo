@@ -418,18 +418,18 @@ sub _parse_float_type($)
 {
   my $current = shift;
   #$current->{'extra'} = {} if (!$current->{'extra'});
-  $current->{'extra'}->{'type'} = {};
+  $current->{'extra'}->{'float_type'} = {};
+  my $float_type_info = $current->{'extra'}->{'float_type'};
   if ($current->{'args'} and @{$current->{'args'}}
       and $current->{'args'}->[0]->{'contents'}) {
     my $normalized
       = convert_to_normalized(
         {'contents' => $current->{'args'}->[0]->{'contents'}});
-    $current->{'extra'}->{'type'}->{'content'} =
-                                    $current->{'args'}->[0]->{'contents'};
-    $current->{'extra'}->{'type'}->{'normalized'} = $normalized;
+    $float_type_info->{'content'} = $current->{'args'}->[0]->{'contents'};
+    $float_type_info->{'normalized'} = $normalized;
     return 1;
   }
-  $current->{'extra'}->{'type'}->{'normalized'} = '';
+  $float_type_info->{'normalized'} = '';
   return 0;
 }
 
@@ -448,7 +448,7 @@ sub set_float_types
     foreach my $current (@{$global_commands->{'float'}}) {
       my $type = '';
       _parse_float_type($current);
-      $type = $current->{'extra'}->{'type'}->{'normalized'};
+      $type = $current->{'extra'}->{'float_type'}->{'normalized'};
       push @{$self->{'floats'}->{$type}}, $current;
     }
   }

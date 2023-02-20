@@ -27,7 +27,7 @@ $result_trees{'empty_listoffloats'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
+            'float_type' => {
               'normalized' => ''
             }
           },

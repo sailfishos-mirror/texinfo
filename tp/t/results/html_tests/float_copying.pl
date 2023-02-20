@@ -562,16 +562,14 @@ $result_trees{'float_copying'} = {
                   ],
                   'extra' => {
                     'caption' => {},
+                    'float_type' => {
+                      'content' => [],
+                      'normalized' => 'Copyright notice'
+                    },
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'public-domain',
-                    'type' => {
-                      'content' => [
-                        {}
-                      ],
-                      'normalized' => 'Copyright notice'
-                    }
+                    'normalized' => 'public-domain'
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1230,10 +1228,8 @@ $result_trees{'float_copying'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Copyright notice'
             }
           },
@@ -1392,8 +1388,8 @@ $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'con
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3];
+$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'float_copying'}{'contents'}[1];
@@ -1410,7 +1406,7 @@ $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'ext
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
+$result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'extra'}{'float_type'}{'content'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'};
 
 $result_texis{'float_copying'} = '\\input texinfo @c -*-texinfo-*-
 
@@ -1653,15 +1649,15 @@ $result_floats{'float_copying'} = {
             'float' => {}
           }
         },
-        'normalized' => 'public-domain',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Copyright notice'
             }
           ],
           'normalized' => 'Copyright notice'
-        }
+        },
+        'normalized' => 'public-domain'
       },
       'info' => {},
       'structure' => {

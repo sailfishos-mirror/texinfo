@@ -391,13 +391,13 @@ $result_trees{'no_element'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'normalized' => ''
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'float-anchor',
-            'type' => {
-              'normalized' => ''
-            }
+            'normalized' => 'float-anchor'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -698,10 +698,10 @@ $result_floats{'no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'float-anchor',
-        'type' => {
+        'float_type' => {
           'normalized' => ''
-        }
+        },
+        'normalized' => 'float-anchor'
       },
       'info' => {},
       'structure' => {

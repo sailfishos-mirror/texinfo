@@ -997,12 +997,12 @@ parse_float_type (ELEMENT *current)
           eft->content = current->args.list[0];
           eft->normalized = normalized;
 
-          add_extra_float_type (current, "type", eft);
+          add_extra_float_type (current, "float_type", eft);
           return 1;
         }
     }
   eft->normalized = strdup ("");
-  add_extra_float_type (current, "type", eft);
+  add_extra_float_type (current, "float_type", eft);
   return 0;
 }
 
@@ -1139,7 +1139,7 @@ end_line_starting_block (ELEMENT *current)
          good to do in Parser/XS */
       /*
       parse_float_type (current);
-      k = lookup_extra (current, "type");
+      k = lookup_extra (current, "float_type");
       if (k)
         {
           eft = (EXTRA_FLOAT_TYPE *) k->value;

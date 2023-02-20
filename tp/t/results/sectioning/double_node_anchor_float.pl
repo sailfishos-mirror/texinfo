@@ -257,10 +257,8 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Text'
             }
           },
@@ -344,10 +342,8 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'Text'
             }
           },
@@ -431,16 +427,14 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'Text'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'float1',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'Text'
-            }
+            'normalized' => 'float1'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -526,10 +520,10 @@ $result_trees{'double_node_anchor_float'}{'contents'}[1]{'extra'}{'node_content'
 $result_trees{'double_node_anchor_float'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'double_node_anchor_float'}{'contents'}[2]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'double_node_anchor_float'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'extra'}{'float_type'}{'content'} = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'args'}[1]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'extra'}{'type'}{'content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'double_node_anchor_float'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'double_node_anchor_float'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
@@ -708,7 +702,7 @@ $result_floats{'double_node_anchor_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
@@ -722,7 +716,7 @@ $result_floats{'double_node_anchor_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
@@ -736,15 +730,15 @@ $result_floats{'double_node_anchor_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'float1',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'float1'
       },
       'info' => {},
       'structure' => {

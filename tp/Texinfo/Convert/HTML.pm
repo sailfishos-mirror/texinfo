@@ -4693,12 +4693,12 @@ sub _convert_listoffloats_command($$$$)
 
   my $floats = $self->get_info('floats');
   if (!$self->in_string()
-      and $command->{'extra'} and $command->{'extra'}->{'type'}
-      and defined($command->{'extra'}->{'type'}->{'normalized'})
+      and $command->{'extra'} and $command->{'extra'}->{'float_type'}
+      and defined($command->{'extra'}->{'float_type'}->{'normalized'})
       and $floats
-      and $floats->{$command->{'extra'}->{'type'}->{'normalized'}}
-      and @{$floats->{$command->{'extra'}->{'type'}->{'normalized'}}}) {
-    my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
+      and $floats->{$command->{'extra'}->{'float_type'}->{'normalized'}}
+      and scalar(@{$floats->{$command->{'extra'}->{'float_type'}->{'normalized'}}})) {
+    my $listoffloats_name = $command->{'extra'}->{'float_type'}->{'normalized'};
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
     foreach my $float (@{$floats->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);

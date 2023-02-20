@@ -74,14 +74,8 @@ $result_trees{'listoffloats_with_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {},
-                {},
-                {},
-                {},
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => "th\x{e9}or\x{e8}me"
             }
           },
@@ -102,11 +96,7 @@ $result_trees{'listoffloats_with_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[1] = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[2] = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[3] = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[4] = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4];
+$result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'listoffloats_with_commands'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 
 $result_texis{'listoffloats_with_commands'} = '@listoffloats th@\'eor@`eme
 ';

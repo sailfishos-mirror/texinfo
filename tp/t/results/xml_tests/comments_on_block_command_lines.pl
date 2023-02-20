@@ -2050,16 +2050,14 @@ $result_trees{'comments_on_block_command_lines'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'f'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'g',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'f'
-            }
+            'normalized' => 'g'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -2258,8 +2256,8 @@ $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[12]{
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[30]{'extra'}{'columnfractions'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'extra'}{'float_type'}{'content'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[0]{'contents'};
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'extra'}{'node_content'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[1]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'extra'}{'type'}{'content'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[0]{'contents'}[0];
 
 $result_texis{'comments_on_block_command_lines'} = '@itemize @c comm
 @item itemize it
@@ -2396,15 +2394,15 @@ $result_floats{'comments_on_block_command_lines'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'g',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'f'
             }
           ],
           'normalized' => 'f'
-        }
+        },
+        'normalized' => 'g'
       },
       'info' => {},
       'structure' => {

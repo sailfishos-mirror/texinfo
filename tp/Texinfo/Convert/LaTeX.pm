@@ -1331,7 +1331,7 @@ sub _latex_header() {
         if ($normalized_float_type ne '') {
           _push_new_context($self, 'float_type '.$normalized_float_type);
           my $float = $self->{'floats'}->{$normalized_float_type}->[0];
-          my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
+          my $float_type_contents = $float->{'extra'}->{'float_type'}->{'content'};
           my $float_type = _convert($self, {'contents' => $float_type_contents});
           _pop_context($self);
         }
@@ -3249,10 +3249,10 @@ sub _convert($$)
           my $float_type;
           if (exists($reference->{'cmdname'})
               and $reference->{'cmdname'} eq 'float') {
-            if ($reference->{'extra'}->{'type'}
-                and $reference->{'extra'}->{'type'}->{'normalized'} ne '') {
+            if ($reference->{'extra'}->{'float_type'}
+                and $reference->{'extra'}->{'float_type'}->{'normalized'} ne '') {
               my $float_type_contents
-                          = $reference->{'extra'}->{'type'}->{'content'};
+                          = $reference->{'extra'}->{'float_type'}->{'content'};
               $float_type
                    = _convert($self, {'contents' => $float_type_contents});
             } else {
@@ -3506,8 +3506,8 @@ sub _convert($$)
       if (scalar(@{$self->{'formatting_context'}->[-1]
                                                ->{'non_floating_commands'}})) {
         my $normalized_float_type = '';
-        if ($float->{'extra'}->{'type'}) {
-          $normalized_float_type = $float->{'extra'}->{'type'}->{'normalized'};
+        if ($float->{'extra'}->{'float_type'}) {
+          $normalized_float_type = $float->{'extra'}->{'float_type'}->{'normalized'};
         }
         if (not exists($self->{'normalized_float_latex'}
                                                  ->{$normalized_float_type})) {
@@ -3663,9 +3663,9 @@ sub _convert($$)
       } elsif ($cmdname eq 'float') {
         if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
           my $normalized_float_type = '';
-          if ($element->{'extra'}->{'type'}) {
+          if ($element->{'extra'}->{'float_type'}) {
             $normalized_float_type
-                 = $element->{'extra'}->{'type'}->{'normalized'};
+                 = $element->{'extra'}->{'float_type'}->{'normalized'};
           }
           if (not exists($self->{'normalized_float_latex'}
                                                  ->{$normalized_float_type})) {
@@ -3846,12 +3846,12 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'listoffloats') {
-      if ($element->{'extra'} and $element->{'extra'}->{'type'}
-          and defined($element->{'extra'}->{'type'}->{'normalized'})
+      if ($element->{'extra'} and $element->{'extra'}->{'float_type'}
+          and defined($element->{'extra'}->{'float_type'}->{'normalized'})
           and $self->{'floats'}
-          and $self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}
-          and @{$self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
-        my $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+          and $self->{'floats'}->{$element->{'extra'}->{'float_type'}->{'normalized'}}
+          and @{$self->{'floats'}->{$element->{'extra'}->{'float_type'}->{'normalized'}}}) {
+        my $normalized_float_type = $element->{'extra'}->{'float_type'}->{'normalized'};
         if (not exists($self->{'normalized_float_latex'}
                                                  ->{$normalized_float_type})) {
           cluck("\@listoffloats $normalized_float_type: not found\n");
@@ -4316,9 +4316,9 @@ sub _convert($$)
           $latex_float_environment = $non_floating_float_environment;
         } else {
           my $normalized_float_type = '';
-          if ($element->{'extra'}->{'type'}) {
+          if ($element->{'extra'}->{'float_type'}) {
             $normalized_float_type
-              = $element->{'extra'}->{'type'}->{'normalized'};
+              = $element->{'extra'}->{'float_type'}->{'normalized'};
           }
           # this should never happen as we returned at the command
           # open.  If this happens it means that the tree has been modified...

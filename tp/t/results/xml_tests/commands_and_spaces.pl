@@ -741,17 +741,15 @@ $result_trees{'commands_and_spaces'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'ff'
+            },
             'node_content' => [
               {}
             ],
             'normalized' => 'b',
-            'shortcaption' => {},
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'ff'
-            }
+            'shortcaption' => {}
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1753,9 +1751,9 @@ $result_trees{'commands_and_spaces'} = {
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'extra'}{'float'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[3]{'extra'}{'float'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'caption'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'float_type'}{'content'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'args'}[0]{'contents'};
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'node_content'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'args'}[1]{'contents'}[0];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'shortcaption'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[3];
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'type'}{'content'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'extra'}{'columnfractions'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[27]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[27]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[27]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[27]{'args'}[0]{'contents'}[2]{'contents'}[0];
@@ -1958,20 +1956,20 @@ $result_floats{'commands_and_spaces'} = {
           },
           'info' => {}
         },
-        'normalized' => 'b',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'ff'
             }
           ],
           'normalized' => 'ff'
+        },
+        'normalized' => 'b',
+        'shortcaption' => {
+          'cmdname' => 'shortcaption',
+          'extra' => {
+            'float' => {}
+          }
         }
       },
       'info' => {},

@@ -86,16 +86,14 @@ $result_trees{'ref_to_float'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'Text'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'Label1',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'Text'
-            }
+            'normalized' => 'Label1'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -181,13 +179,13 @@ $result_trees{'ref_to_float'} = {
             }
           ],
           'extra' => {
+            'float_type' => {
+              'normalized' => ''
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'Label2',
-            'type' => {
-              'normalized' => ''
-            }
+            'normalized' => 'Label2'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -288,8 +286,8 @@ $result_trees{'ref_to_float'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'label'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -329,10 +327,10 @@ $result_floats{'ref_to_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'Label2',
-        'type' => {
+        'float_type' => {
           'normalized' => ''
-        }
+        },
+        'normalized' => 'Label2'
       },
       'info' => {},
       'structure' => {
@@ -344,15 +342,15 @@ $result_floats{'ref_to_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'Label1',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'Text'
             }
           ],
           'normalized' => 'Text'
-        }
+        },
+        'normalized' => 'Label1'
       },
       'info' => {},
       'structure' => {

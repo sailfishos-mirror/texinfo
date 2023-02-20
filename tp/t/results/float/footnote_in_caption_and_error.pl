@@ -102,10 +102,8 @@ $result_trees{'footnote_in_caption_and_error'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'type' => {
-              'content' => [
-                {}
-              ],
+            'float_type' => {
+              'content' => [],
               'normalized' => 'fl'
             }
           },
@@ -261,16 +259,14 @@ $result_trees{'footnote_in_caption_and_error'} = {
           ],
           'extra' => {
             'caption' => {},
+            'float_type' => {
+              'content' => [],
+              'normalized' => 'fl'
+            },
             'node_content' => [
               {}
             ],
-            'normalized' => 'label',
-            'type' => {
-              'content' => [
-                {}
-              ],
-              'normalized' => 'fl'
-            }
+            'normalized' => 'label'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -314,11 +310,11 @@ $result_trees{'footnote_in_caption_and_error'} = {
 };
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[1]{'extra'}{'float_type'}{'content'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'float_type'}{'content'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
@@ -394,15 +390,15 @@ $result_floats{'footnote_in_caption_and_error'} = {
             'float' => {}
           }
         },
-        'normalized' => 'label',
-        'type' => {
+        'float_type' => {
           'content' => [
             {
               'text' => 'fl'
             }
           ],
           'normalized' => 'fl'
-        }
+        },
+        'normalized' => 'label'
       },
       'info' => {},
       'structure' => {
