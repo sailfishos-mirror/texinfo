@@ -1,5 +1,12 @@
 2023-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (_parse_float_type),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_float_type): return
+	the float type.  (Note that parse_float_type in end_line.c
+	is not currently used).
+
+2023-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_substitute_references),
 	tp/Texinfo/Convert/Converter.pm (float_type_number)
 	(float_name_caption), tp/Texinfo/Convert/HTML.pm

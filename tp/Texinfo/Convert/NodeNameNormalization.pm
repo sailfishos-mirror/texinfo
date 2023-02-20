@@ -417,9 +417,8 @@ sub set_nodes_list_labels($$$)
 sub _parse_float_type($)
 {
   my $current = shift;
-  #$current->{'extra'} = {} if (!$current->{'extra'});
-  $current->{'extra'}->{'float_type'} = {};
-  my $float_type_info = $current->{'extra'}->{'float_type'};
+
+  my $float_type_info = {};
   if ($current->{'args'} and @{$current->{'args'}}
       and $current->{'args'}->[0]->{'contents'}) {
     my $normalized
@@ -427,10 +426,12 @@ sub _parse_float_type($)
         {'contents' => $current->{'args'}->[0]->{'contents'}});
     $float_type_info->{'content'} = $current->{'args'}->[0]->{'contents'};
     $float_type_info->{'normalized'} = $normalized;
-    return 1;
+  } else {
+    $float_type_info->{'normalized'} = '';
   }
-  $float_type_info->{'normalized'} = '';
-  return 0;
+  #$current->{'extra'} = {} if (!$current->{'extra'});
+  $current->{'extra'}->{'float_type'} = $float_type_info;
+  return $float_type_info->{'normalized'};
 }
 
 # Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
@@ -446,10 +447,8 @@ sub set_float_types
 
   if ($global_commands->{'float'}) {
     foreach my $current (@{$global_commands->{'float'}}) {
-      my $type = '';
-      _parse_float_type($current);
-      $type = $current->{'extra'}->{'float_type'}->{'normalized'};
-      push @{$self->{'floats'}->{$type}}, $current;
+      my $float_type = _parse_float_type($current);
+      push @{$self->{'floats'}->{$float_type}}, $current;
     }
   }
   if ($global_commands->{'listoffloats'}) {

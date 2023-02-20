@@ -3843,9 +3843,8 @@ sub _end_line_starting_block($$$)
     }
     # for now done in Texinfo::Convert::NodeNameNormalization, but could be
     # good to do in Parser/XS
-    #_parse_float_type($current);
-    #$type = $current->{'extra'}->{'float_type'}->{'normalized'};
-    #push @{$self->{'floats'}->{$type}}, $current;
+    #my $float_type = _parse_float_type($current);
+    #push @{$self->{'floats'}->{$float_type}}, $current;
     _register_label($self->{'targets'}, $current, $float_label);
     if (defined($self->{'current_section'})) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));

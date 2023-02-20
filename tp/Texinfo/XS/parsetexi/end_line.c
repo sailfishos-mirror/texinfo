@@ -980,7 +980,7 @@ size_t floats_number = 0;
 size_t floats_space = 0;
 
 
-int
+char *
 parse_float_type (ELEMENT *current)
 {
   EXTRA_FLOAT_TYPE *eft;
@@ -988,22 +988,21 @@ parse_float_type (ELEMENT *current)
   eft->content = 0;
   eft->normalized = 0;
 
-  if (current->args.number > 0)
+  if (current->args.number > 0
+      && current->args.list[0]->contents.number > 0)
     {
-      if (current->args.list[0]->contents.number > 0)
-        {
-          char *normalized;
-          normalized = convert_to_texinfo (current->args.list[0]);
-          eft->content = current->args.list[0];
-          eft->normalized = normalized;
+      char *normalized;
+      /* TODO convert_to_texinfo is incorrect here, conversion should follow
+         code of Texinfo::Convert::NodeNameNormalization::convert_to_normalized */
+      normalized = convert_to_texinfo (current->args.list[0]);
+      eft->content = current->args.list[0];
+      eft->normalized = normalized;
 
-          add_extra_float_type (current, "float_type", eft);
-          return 1;
-        }
     }
-  eft->normalized = strdup ("");
+  else
+    eft->normalized = strdup ("");
   add_extra_float_type (current, "float_type", eft);
-  return 0;
+  return eft->normalized;
 }
 
 /* Actions to be taken at the end of a line that started a block that
@@ -1120,9 +1119,7 @@ end_line_starting_block (ELEMENT *current)
 
   if (command == CM_float)
     {
-      char *type = "";
-      KEY_PAIR *k;
-      EXTRA_FLOAT_TYPE *eft;
+      char *float_type = "";
       current->source_info = current_source_info;
       if (current->args.number >= 2)
         {
@@ -1138,13 +1135,7 @@ end_line_starting_block (ELEMENT *current)
       /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
          good to do in Parser/XS */
       /*
-      parse_float_type (current);
-      k = lookup_extra (current, "float_type");
-      if (k)
-        {
-          eft = (EXTRA_FLOAT_TYPE *) k->value;
-          type = eft->normalized;
-        }
+      float_type = parse_float_type (current);
       */
       /* add to global 'floats' array */
       /*
@@ -1153,7 +1144,7 @@ end_line_starting_block (ELEMENT *current)
           floats_list = realloc (floats_list,
                                  (floats_space += 5) * sizeof (FLOAT_RECORD));
         }
-      floats_list[floats_number].type = type;
+      floats_list[floats_number].type = float_type;
       floats_list[floats_number++].element = current;
       */
       if (current_section)
