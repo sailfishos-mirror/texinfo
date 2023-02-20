@@ -1331,8 +1331,7 @@ sub _latex_header() {
         if ($normalized_float_type ne '') {
           _push_new_context($self, 'float_type '.$normalized_float_type);
           my $float = $self->{'floats'}->{$normalized_float_type}->[0];
-          my $float_type_contents = $float->{'extra'}->{'float_type'}->{'content'};
-          my $float_type = _convert($self, {'contents' => $float_type_contents});
+          my $float_type = _convert($self, $float->{'args'}->[0]);
           _pop_context($self);
         }
         my $floats_extension = $self->{'floats_extension'};
@@ -3251,10 +3250,8 @@ sub _convert($$)
               and $reference->{'cmdname'} eq 'float') {
             if ($reference->{'extra'}->{'float_type'}
                 and $reference->{'extra'}->{'float_type'}->{'normalized'} ne '') {
-              my $float_type_contents
-                          = $reference->{'extra'}->{'float_type'}->{'content'};
               $float_type
-                   = _convert($self, {'contents' => $float_type_contents});
+                   = _convert($self, $reference->{'args'}->[0]);
             } else {
               $float_type = '';
             }

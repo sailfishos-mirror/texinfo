@@ -1,5 +1,13 @@
 2023-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (float_type_number)
+	(float_name_caption), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/LaTeX.pm (_latex_header, _convert): use directly
+	float or listoffloats {'args'}->[0] instead of
+	{'extra'}->{'float_type'}->{'content'}.
+
+2023-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (_parse_float_type),
 	tp/Texinfo/XS/parsetexi/end_line.c (parse_float_type): return
 	the float type.  (Note that parse_float_type in end_line.c

@@ -783,17 +783,15 @@ sub output_ixin($$)
 
   # collect listoffloats information
   if ($self->{'global_commands'}->{'listoffloats'}) {
-    foreach my $command (@{$self->{'global_commands'}->{'listoffloats'}}) {
-      my $associated_node_id = $self->_associated_node_id($command,
+    foreach my $listoffloats_element (@{$self->{'global_commands'}->{'listoffloats'}}) {
+      my $associated_node_id = $self->_associated_node_id($listoffloats_element,
                                                      \%node_label_number);
-      if ($command->{'extra'}
-          and $command->{'extra'}->{'float_type'}
-          and defined($command->{'extra'}->{'float_type'}->{'normalized'})) {
-        my $float_type = $command->{'extra'}->{'float_type'}->{'normalized'};
-        if ($command->{'extra'}->{'float_type'}->{'content'}) {
+      if ($listoffloats_element->{'extra'}
+          and $listoffloats_element->{'extra'}->{'float_type'}) {
+        my $float_type = $listoffloats_element->{'extra'}->{'float_type'}->{'normalized'};
+        if ($float_type ne '') {
           $floats_information{$float_type}->{'type'}
-            = $self->convert_tree({'contents'
-                             => $command->{'extra'}->{'float_type'}->{'content'}});
+            = $self->convert_tree($listoffloats_element->{'args'}->[0]);
         }
         push @{$floats_information{$float_type}->{'node_id'}}, $associated_node_id;
       }
@@ -852,12 +850,11 @@ sub output_ixin($$)
       # determine type expandable string from first float if it was not
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
-        my $command = $self->{'floats'}->{$type}->[0];
-        if ($command->{'extra'}->{'float_type'}
-            and $command->{'extra'}->{'float_type'}->{'content'}) {
+        my $float_element = $self->{'floats'}->{$type}->[0];
+        if ($float_element->{'extra'}->{'float_type'}
+            and $float_element->{'extra'}->{'float_type'}->{'normalized'} ne '') {
           $floats_information{$type}->{'type'}
-            = $self->convert_tree({'contents'
-                      => $command->{'extra'}->{'float_type'}->{'content'}});
+            = $self->convert_tree($float_element->{'args'}->[0]);
         }
       }
     }

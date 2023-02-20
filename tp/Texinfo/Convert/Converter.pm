@@ -1248,23 +1248,23 @@ sub float_type_number($$)
   my $self = shift;
   my $float = shift;
 
-  my $type;
+  my $type_element;
   if ($float->{'extra'}
       and $float->{'extra'}->{'float_type'}
       and $float->{'extra'}->{'float_type'}->{'normalized'} ne '') {
-    $type = {'contents' => $float->{'extra'}->{'float_type'}->{'content'}};
+    $type_element = $float->{'args'}->[0];
   }
 
   my $tree;
-  if ($type) {
+  if ($type_element) {
     if (defined($float->{'structure'})
         and defined($float->{'structure'}->{'float_number'})) {
       $tree = $self->gdt("{float_type} {float_number}",
-          {'float_type' => $type,
+          {'float_type' => $type_element,
             'float_number' => $float->{'structure'}->{'float_number'}});
     } else {
       $tree = $self->gdt("{float_type}",
-          {'float_type' => $type});
+          {'float_type' => $type_element});
     }
   } elsif (defined($float->{'structure'})
            and defined($float->{'structure'}->{'float_number'})) {
@@ -1290,35 +1290,35 @@ sub float_name_caption($$)
   #    Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' => $caption->{'contents'}});
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
-  my $type;
+  my $type_element;
   if ($element->{'extra'} and $element->{'extra'}->{'float_type'}
       and $element->{'extra'}->{'float_type'}->{'normalized'} ne '') {
-    $type = {'contents' => $element->{'extra'}->{'float_type'}->{'content'}};
+    $type_element = $element->{'args'}->[0];
   }
 
   my $prepended;
-  if ($type) {
+  if ($type_element) {
     if ($caption) {
       if ($element->{'structure'}
           and defined($element->{'structure'}->{'float_number'})) {
         # TRANSLATORS: added before caption
         $prepended = $self->gdt('{float_type} {float_number}: ',
-            {'float_type' => $type,
+            {'float_type' => $type_element,
              'float_number' => $element->{'structure'}->{'float_number'}});
       } else {
         # TRANSLATORS: added before caption, no float label
         $prepended = $self->gdt('{float_type}: ',
-          {'float_type' => $type});
+          {'float_type' => $type_element});
       }
     } else {
       if ($element->{'structure'}
           and defined($element->{'structure'}->{'float_number'})) {
         $prepended = $self->gdt("{float_type} {float_number}",
-            {'float_type' => $type,
+            {'float_type' => $type_element,
               'float_number' => $element->{'structure'}->{'float_number'}});
       } else {
         $prepended = $self->gdt("{float_type}",
-            {'float_type' => $type});
+            {'float_type' => $type_element});
       }
     }
   } elsif ($element->{'structure'}
