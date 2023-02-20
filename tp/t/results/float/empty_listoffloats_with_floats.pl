@@ -91,9 +91,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'node_content' => [
               {}
             ],
@@ -215,9 +213,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'node_content' => [
               {}
             ],
@@ -296,9 +292,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            }
+            'float_type' => ''
           },
           'source_info' => {
             'file_name' => '',
@@ -400,9 +394,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => ''
-            }
+            'float_type' => ''
           },
           'source_info' => {
             'file_name' => '',
@@ -429,9 +421,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            }
+            'float_type' => ''
           },
           'source_info' => {
             'file_name' => '',
@@ -495,9 +485,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'label1'
       },
       'info' => {},
@@ -514,9 +502,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'label2'
       },
       'info' => {},
@@ -527,9 +513,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => ''
-        }
+        'float_type' => ''
       }
     },
     {
@@ -541,9 +525,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => ''
-        }
+        'float_type' => ''
       }
     }
   ]

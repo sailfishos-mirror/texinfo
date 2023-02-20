@@ -133,9 +133,7 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'a'
-            },
+            'float_type' => 'a',
             'node_content' => [
               {}
             ],
@@ -176,9 +174,7 @@ $result_trees{'empty_caption'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'a'
-            }
+            'float_type' => 'a'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -275,9 +271,7 @@ $result_floats{'empty_caption'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'a'
-        },
+        'float_type' => 'a',
         'normalized' => 'b'
       },
       'info' => {},

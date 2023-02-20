@@ -295,9 +295,7 @@ $result_trees{'float_and_refs'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'node_content' => [
               {}
             ],
@@ -457,9 +455,7 @@ $result_trees{'float_and_refs'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'Thing'
-            },
+            'float_type' => 'Thing',
             'node_content' => [
               {}
             ],
@@ -619,9 +615,7 @@ $result_trees{'float_and_refs'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'Figure'
-            },
+            'float_type' => 'Figure',
             'node_content' => [
               {}
             ],
@@ -1604,9 +1598,7 @@ $result_trees{'float_and_refs'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            }
+            'float_type' => ''
           },
           'source_info' => {
             'file_name' => '',
@@ -1633,9 +1625,7 @@ $result_trees{'float_and_refs'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Figure'
-            }
+            'float_type' => 'Figure'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1667,9 +1657,7 @@ $result_trees{'float_and_refs'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Thing'
-            }
+            'float_type' => 'Thing'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1997,9 +1985,7 @@ $result_floats{'float_and_refs'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'no-type',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
@@ -2025,9 +2011,7 @@ $result_floats{'float_and_refs'} = {
           }
         },
         'float_section' => {},
-        'float_type' => {
-          'normalized' => 'Figure'
-        },
+        'float_type' => 'Figure',
         'normalized' => 'my-figure',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
@@ -2053,9 +2037,7 @@ $result_floats{'float_and_refs'} = {
           }
         },
         'float_section' => {},
-        'float_type' => {
-          'normalized' => 'Thing'
-        },
+        'float_type' => 'Thing',
         'normalized' => 'with-type',
         'shortcaption' => {
           'cmdname' => 'shortcaption',

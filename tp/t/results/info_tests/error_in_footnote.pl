@@ -252,9 +252,7 @@ $result_trees{'error_in_footnote'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -295,9 +293,7 @@ $result_trees{'error_in_footnote'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -334,9 +330,7 @@ $result_trees{'error_in_footnote'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -462,9 +456,7 @@ $result_floats{'error_in_footnote'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'label'
       },
       'info' => {},

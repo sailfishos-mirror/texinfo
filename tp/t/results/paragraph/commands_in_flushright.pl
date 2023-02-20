@@ -820,9 +820,7 @@ $result_trees{'commands_in_flushright'} = {
               ],
               'extra' => {
                 'caption' => {},
-                'float_type' => {
-                  'normalized' => 'label'
-                },
+                'float_type' => 'label',
                 'node_content' => [
                   {}
                 ],
@@ -1296,9 +1294,7 @@ $result_floats{'commands_in_flushright'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'label'
-        },
+        'float_type' => 'label',
         'normalized' => 'type'
       },
       'info' => {},

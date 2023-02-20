@@ -391,9 +391,7 @@ $result_trees{'no_element'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'node_content' => [
               {}
             ],
@@ -698,9 +696,7 @@ $result_floats{'no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'float-anchor'
       },
       'info' => {},

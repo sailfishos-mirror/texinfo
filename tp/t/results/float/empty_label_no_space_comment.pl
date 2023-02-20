@@ -81,9 +81,7 @@ $result_trees{'empty_label_no_space_comment'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Type'
-            }
+            'float_type' => 'Type'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -119,9 +117,7 @@ $result_floats{'empty_label_no_space_comment'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Type'
-        }
+        'float_type' => 'Type'
       },
       'info' => {}
     }

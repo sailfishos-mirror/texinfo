@@ -2839,13 +2839,12 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'listoffloats') {
       my $lines_count = 0;
-      if ($element->{'extra'} and $element->{'extra'}->{'float_type'}
-          and defined($element->{'extra'}->{'float_type'}->{'normalized'})
+      if ($element->{'extra'} and defined($element->{'extra'}->{'float_type'})
           and $self->{'floats'}
-          and $self->{'floats'}->{$element->{'extra'}->{'float_type'}->{'normalized'}}
+          and $self->{'floats'}->{$element->{'extra'}->{'float_type'}}
           and scalar(@{$self->{'floats'}
-                        ->{$element->{'extra'}->{'float_type'}->{'normalized'}}})) {
-        my $float_type = $element->{'extra'}->{'float_type'}->{'normalized'};
+                        ->{$element->{'extra'}->{'float_type'}}})) {
+        my $float_type = $element->{'extra'}->{'float_type'};
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         if (!$self->{'empty_lines_count'}) {
           $result .= "\n";
@@ -3542,8 +3541,8 @@ sub _convert($$)
   if ($command) {
     if ($command eq 'float') {
       if ($element->{'extra'}
-          and (($element->{'extra'}->{'float_type'}
-                and $element->{'extra'}->{'float_type'}->{'normalized'} ne '')
+          and ((defined($element->{'extra'}->{'float_type'})
+                and $element->{'extra'}->{'float_type'} ne '')
                or ($element->{'structure'}
                    and defined($element->{'structure'}->{'float_number'}))
                or $element->{'extra'}->{'caption'}

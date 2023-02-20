@@ -257,9 +257,7 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -341,9 +339,7 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -425,9 +421,7 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -696,27 +690,21 @@ $result_floats{'double_node_anchor_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Text'
-        }
+        'float_type' => 'Text'
       },
       'info' => {}
     },
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Text'
-        }
+        'float_type' => 'Text'
       },
       'info' => {}
     },
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'float1'
       },
       'info' => {},

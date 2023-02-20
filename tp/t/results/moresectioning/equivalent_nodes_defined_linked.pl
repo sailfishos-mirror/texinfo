@@ -325,9 +325,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Figure'
-            }
+            'float_type' => 'Figure'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -364,9 +362,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Figure'
-            }
+            'float_type' => 'Figure'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -680,9 +676,7 @@ $result_floats{'equivalent_nodes_defined_linked'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Figure'
-        }
+        'float_type' => 'Figure'
       },
       'info' => {}
     }

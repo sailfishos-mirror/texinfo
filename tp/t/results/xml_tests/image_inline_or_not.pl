@@ -1415,9 +1415,7 @@ $result_trees{'image_inline_or_not'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'F'
-            },
+            'float_type' => 'F',
             'node_content' => [
               {}
             ],
@@ -1726,9 +1724,7 @@ $result_floats{'image_inline_or_not'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => 'F'
-        },
+        'float_type' => 'F',
         'normalized' => 'g'
       },
       'info' => {},

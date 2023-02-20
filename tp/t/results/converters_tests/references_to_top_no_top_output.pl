@@ -563,9 +563,7 @@ $result_trees{'references_to_top_no_top_output'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'list'
-            },
+            'float_type' => 'list',
             'node_content' => [
               {}
             ],
@@ -1111,9 +1109,7 @@ $result_trees{'references_to_top_no_top_output'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'list'
-            },
+            'float_type' => 'list',
             'node_content' => [
               {}
             ],
@@ -1154,9 +1150,7 @@ $result_trees{'references_to_top_no_top_output'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'list'
-            }
+            'float_type' => 'list'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1432,9 +1426,7 @@ $result_floats{'references_to_top_no_top_output'} = {
           'info' => {},
           'structure' => {}
         },
-        'float_type' => {
-          'normalized' => 'list'
-        },
+        'float_type' => 'list',
         'normalized' => 'My-Flist'
       },
       'info' => {},
@@ -1459,9 +1451,7 @@ $result_floats{'references_to_top_no_top_output'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => 'list'
-        },
+        'float_type' => 'list',
         'normalized' => 'Main-Flist'
       },
       'info' => {},

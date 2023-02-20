@@ -130,9 +130,7 @@ $result_trees{'float_long_captions'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -250,9 +248,7 @@ $result_trees{'float_long_captions'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -293,9 +289,7 @@ $result_trees{'float_long_captions'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -397,9 +391,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'text1'
       },
       'info' => {},
@@ -416,9 +408,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'text2'
       },
       'info' => {},

@@ -412,9 +412,7 @@ $result_trees{'punctuation_in_line_commands'} = {
           ],
           'extra' => {
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'float type! After punc'
-            },
+            'float_type' => 'float type! After punc',
             'node_content' => [
               {}
             ],
@@ -543,9 +541,7 @@ $result_trees{'punctuation_in_line_commands'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'float type! After punc'
-            },
+            'float_type' => 'float type! After punc',
             'node_content' => [
               {}
             ],
@@ -586,9 +582,7 @@ $result_trees{'punctuation_in_line_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'float type! After punc'
-            }
+            'float_type' => 'float type! After punc'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -968,9 +962,7 @@ $result_floats{'punctuation_in_line_commands'} = {
           'info' => {},
           'structure' => {}
         },
-        'float_type' => {
-          'normalized' => 'float type! After punc'
-        },
+        'float_type' => 'float type! After punc',
         'normalized' => 'float-label_0021-After-punc',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
@@ -994,9 +986,7 @@ $result_floats{'punctuation_in_line_commands'} = {
           }
         },
         'float_section' => {},
-        'float_type' => {
-          'normalized' => 'float type! After punc'
-        },
+        'float_type' => 'float type! After punc',
         'normalized' => 'label-with-caption'
       },
       'info' => {},

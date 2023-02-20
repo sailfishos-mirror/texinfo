@@ -183,9 +183,7 @@ $result_trees{'caption_in_example'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'float'
-            }
+            'float_type' => 'float'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -253,9 +251,7 @@ $result_floats{'caption_in_example'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'float'
-        }
+        'float_type' => 'float'
       },
       'info' => {}
     }

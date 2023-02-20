@@ -383,9 +383,7 @@ $result_trees{'transliterated_names_conflicts'} = [
             ],
             'extra' => {
               'float_section' => {},
-              'float_type' => {
-                'normalized' => 'Figure'
-              },
+              'float_type' => 'Figure',
               'node_content' => [
                 {}
               ],
@@ -1036,9 +1034,7 @@ $result_floats{'transliterated_names_conflicts'} = {
             'section_number' => 2
           }
         },
-        'float_type' => {
-          'normalized' => 'Figure'
-        },
+        'float_type' => 'Figure',
         'normalized' => 'Pr_00e8s'
       },
       'info' => {},

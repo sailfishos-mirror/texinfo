@@ -74,9 +74,7 @@ $result_trees{'listoffloats_with_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => "th\x{e9}or\x{e8}me"
-            }
+            'float_type' => "th\x{e9}or\x{e8}me"
           },
           'info' => {
             'spaces_before_argument' => {

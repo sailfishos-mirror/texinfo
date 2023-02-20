@@ -106,9 +106,7 @@ $result_trees{'float_without_type'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'a'
-            }
+            'float_type' => 'a'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -145,9 +143,7 @@ $result_trees{'float_without_type'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'a'
-            }
+            'float_type' => 'a'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -234,9 +230,7 @@ $result_floats{'float_without_type'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'a'
-        }
+        'float_type' => 'a'
       },
       'info' => {}
     }

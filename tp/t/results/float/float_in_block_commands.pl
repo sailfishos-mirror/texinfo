@@ -131,9 +131,7 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
-                'float_type' => {
-                  'normalized' => 'Text'
-                },
+                'float_type' => 'Text',
                 'node_content' => [
                   {}
                 ],
@@ -304,9 +302,7 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
-                'float_type' => {
-                  'normalized' => 'Text'
-                },
+                'float_type' => 'Text',
                 'node_content' => [
                   {}
                 ],
@@ -477,9 +473,7 @@ $result_trees{'float_in_block_commands'} = {
               ],
               'extra' => {
                 'caption' => {},
-                'float_type' => {
-                  'normalized' => 'Text'
-                },
+                'float_type' => 'Text',
                 'node_content' => [
                   {}
                 ],
@@ -600,9 +594,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'in-example'
       },
       'info' => {},
@@ -619,9 +611,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'in-quotation'
       },
       'info' => {},
@@ -638,9 +628,7 @@ $result_floats{'float_in_block_commands'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'in-cartouche'
       },
       'info' => {},

@@ -38,9 +38,7 @@ $result_trees{'section_on_float_line'} = {
           ],
           'cmdname' => 'float',
           'extra' => {
-            'float_type' => {
-              'normalized' => 't'
-            },
+            'float_type' => 't',
             'node_content' => [
               {}
             ],
@@ -157,9 +155,7 @@ $result_floats{'section_on_float_line'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 't'
-        },
+        'float_type' => 't',
         'normalized' => 'l'
       },
       'info' => {},

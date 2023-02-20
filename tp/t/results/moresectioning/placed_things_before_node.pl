@@ -322,9 +322,7 @@ $result_trees{'placed_things_before_node'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'node_content' => [
               {}
             ],
@@ -1004,9 +1002,7 @@ $result_floats{'placed_things_before_node'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'float-anchor'
       },
       'info' => {},

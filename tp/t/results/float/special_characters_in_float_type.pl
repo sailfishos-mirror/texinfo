@@ -341,9 +341,7 @@ $result_trees{'special_characters_in_float_type'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'A < " `` ` \' \' \\aaa . --- in var'
-            },
+            'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
             'node_content' => [
               {},
               {},
@@ -411,9 +409,7 @@ $result_trees{'special_characters_in_float_type'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'A < " `` ` \' \' \\aaa . --- in var'
-            }
+            'float_type' => 'A < " `` ` \' \' \\aaa . --- in var'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -601,9 +597,7 @@ $result_floats{'special_characters_in_float_type'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => 'A < " `` ` \' \' \\aaa . --- in var'
-        },
+        'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
         'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
       },
       'info' => {},

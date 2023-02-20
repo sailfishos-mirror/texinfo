@@ -138,9 +138,7 @@ $result_trees{'float_in_style_command'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'A'
-            },
+            'float_type' => 'A',
             'node_content' => [
               {}
             ],
@@ -222,9 +220,7 @@ $result_floats{'float_in_style_command'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'A'
-        },
+        'float_type' => 'A',
         'normalized' => 'B'
       },
       'info' => {},

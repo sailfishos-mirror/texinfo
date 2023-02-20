@@ -130,9 +130,7 @@ $result_trees{'caption_not_closed'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -211,9 +209,7 @@ $result_floats{'caption_not_closed'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        }
+        'float_type' => 'Text'
       },
       'info' => {}
     }

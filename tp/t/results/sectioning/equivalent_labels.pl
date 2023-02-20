@@ -160,9 +160,7 @@ $result_trees{'equivalent_labels'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'truc'
-            },
+            'float_type' => 'truc',
             'node_content' => [
               {}
             ],
@@ -447,9 +445,7 @@ $result_menus{'equivalent_labels'} = {
         'menu_next' => {
           'cmdname' => 'float',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'truc'
-            },
+            'float_type' => 'truc',
             'normalized' => 'floa'
           },
           'info' => {},
@@ -501,9 +497,7 @@ $result_floats{'equivalent_labels'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'truc'
-        },
+        'float_type' => 'truc',
         'normalized' => 'floa'
       },
       'info' => {},

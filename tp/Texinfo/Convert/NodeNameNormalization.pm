@@ -418,19 +418,15 @@ sub _parse_float_type($)
 {
   my $current = shift;
 
-  my $float_type_info = {};
-  if ($current->{'args'} and @{$current->{'args'}}
+  my $normalized = '';
+  if ($current->{'args'} and scalar(@{$current->{'args'}})
       and $current->{'args'}->[0]->{'contents'}) {
-    my $normalized
-      = convert_to_normalized(
+    $normalized = convert_to_normalized(
         {'contents' => $current->{'args'}->[0]->{'contents'}});
-    $float_type_info->{'normalized'} = $normalized;
-  } else {
-    $float_type_info->{'normalized'} = '';
   }
   #$current->{'extra'} = {} if (!$current->{'extra'});
-  $current->{'extra'}->{'float_type'} = $float_type_info;
-  return $float_type_info->{'normalized'};
+  $current->{'extra'}->{'float_type'} = $normalized;
+  return $normalized;
 }
 
 # Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.

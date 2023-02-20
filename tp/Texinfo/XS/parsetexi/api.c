@@ -393,15 +393,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
             case extra_string:
               { /* A simple string. */
               char *value = (char *) f;
-              if (!strcmp (key, "float_type"))
-                {
-                  HV *float_type = newHV ();
-                  SV *sv = newSVpv_utf8 (value, 0);
-                  hv_store (float_type, "normalized", strlen ("normalized"), sv, 0);
-                  STORE(newRV_inc ((SV *)float_type));
-                }
-              else
-                STORE(newSVpv_utf8 (value, 0));
+              STORE(newSVpv_utf8 (value, 0));
               break;
               }
             case extra_integer:

@@ -1893,11 +1893,7 @@ sub _substitute_references($$$)
               $current->{'extra'}->{$key}, $reference_associations,
               "[$command_or_type]{$key}");
           } else {
-            if (($current->{'cmdname'}
-                 and ($current->{'cmdname'} eq 'listoffloats'
-                      or $current->{'cmdname'} eq 'float')
-                 and $key eq 'float_type')
-                or ($key eq 'index_entry')
+            if ($key eq 'index_entry'
                 or ($current->{'type'}
                     and $current->{'type'} eq 'menu_entry'
                     and $key eq 'menu_entry_node_label')) {

@@ -741,9 +741,7 @@ $result_trees{'commands_and_spaces'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'ff'
-            },
+            'float_type' => 'ff',
             'node_content' => [
               {}
             ],
@@ -1954,9 +1952,7 @@ $result_floats{'commands_and_spaces'} = {
           },
           'info' => {}
         },
-        'float_type' => {
-          'normalized' => 'ff'
-        },
+        'float_type' => 'ff',
         'normalized' => 'b',
         'shortcaption' => {
           'cmdname' => 'shortcaption',

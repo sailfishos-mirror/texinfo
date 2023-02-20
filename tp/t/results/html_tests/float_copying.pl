@@ -562,9 +562,7 @@ $result_trees{'float_copying'} = {
                   ],
                   'extra' => {
                     'caption' => {},
-                    'float_type' => {
-                      'normalized' => 'Copyright notice'
-                    },
+                    'float_type' => 'Copyright notice',
                     'node_content' => [
                       {}
                     ],
@@ -1227,9 +1225,7 @@ $result_trees{'float_copying'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Copyright notice'
-            }
+            'float_type' => 'Copyright notice'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1645,9 +1641,7 @@ $result_floats{'float_copying'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Copyright notice'
-        },
+        'float_type' => 'Copyright notice',
         'normalized' => 'public-domain'
       },
       'info' => {},

@@ -275,9 +275,7 @@ $result_trees{'float_with_at_commands'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => "entr\x{e9}e"
-            },
+            'float_type' => "entr\x{e9}e",
             'node_content' => [
               {},
               {},
@@ -348,9 +346,7 @@ $result_trees{'float_with_at_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => "entr\x{e9}e"
-            }
+            'float_type' => "entr\x{e9}e"
           },
           'info' => {
             'spaces_before_argument' => {
@@ -411,9 +407,7 @@ $result_floats{'float_with_at_commands'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => "entr\x{e9}e"
-        },
+        'float_type' => "entr\x{e9}e",
         'normalized' => 'premi_00e8re-entr_00e9e'
       },
       'info' => {},

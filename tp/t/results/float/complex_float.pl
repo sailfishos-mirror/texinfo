@@ -111,9 +111,7 @@ $result_trees{'complex_float'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text'
-            }
+            'float_type' => 'Text'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -2319,9 +2317,7 @@ $result_trees{'complex_float'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -3502,9 +3498,7 @@ $result_trees{'complex_float'} = {
           'extra' => {
             'caption' => {},
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -3950,9 +3944,7 @@ $result_floats{'complex_float'} = {
           'info' => {},
           'structure' => {}
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'text-with-a-lot-of-features',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
@@ -3984,9 +3976,7 @@ $result_floats{'complex_float'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
       },
       'info' => {},

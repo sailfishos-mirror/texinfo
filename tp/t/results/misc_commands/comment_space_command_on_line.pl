@@ -638,9 +638,7 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'extra' => {
             'float_section' => {},
-            'float_type' => {
-              'normalized' => 'Text'
-            },
+            'float_type' => 'Text',
             'node_content' => [
               {}
             ],
@@ -696,9 +694,7 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text  '
-            }
+            'float_type' => 'Text  '
           },
           'info' => {
             'spaces_before_argument' => {
@@ -916,9 +912,7 @@ $result_floats{'comment_space_command_on_line'} = {
             'section_number' => 1
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'label'
       },
       'info' => {},

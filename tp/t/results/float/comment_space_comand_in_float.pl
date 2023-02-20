@@ -174,9 +174,7 @@ $result_trees{'comment_space_comand_in_float'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text  '
-            },
+            'float_type' => 'Text  ',
             'node_content' => [
               {},
               {}
@@ -233,9 +231,7 @@ $result_trees{'comment_space_comand_in_float'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Text  '
-            }
+            'float_type' => 'Text  '
           },
           'info' => {
             'spaces_before_argument' => {
@@ -339,9 +335,7 @@ $result_floats{'comment_space_comand_in_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'Text  '
-        },
+        'float_type' => 'Text  ',
         'normalized' => 'label-'
       },
       'info' => {},

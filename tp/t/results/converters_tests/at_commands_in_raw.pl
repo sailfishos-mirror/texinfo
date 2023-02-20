@@ -955,9 +955,7 @@ $result_trees{'at_commands_in_raw'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Figs'
-            }
+            'float_type' => 'Figs'
           },
           'info' => {
             'spaces_before_argument' => {

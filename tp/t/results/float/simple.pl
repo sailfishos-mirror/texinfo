@@ -117,9 +117,7 @@ $result_trees{'simple'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Type'
-            },
+            'float_type' => 'Type',
             'node_content' => [
               {}
             ],
@@ -172,9 +170,7 @@ $result_floats{'simple'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Type'
-        },
+        'float_type' => 'Type',
         'normalized' => 'Label'
       },
       'info' => {},

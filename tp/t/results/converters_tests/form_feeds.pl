@@ -1077,9 +1077,7 @@ $result_trees{'form_feeds'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => ''
-            },
+            'float_type' => '',
             'shortcaption' => {}
           },
           'source_info' => {
@@ -1171,9 +1169,7 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'extra' => {
-            'float_type' => {
-              'normalized' => 'type'
-            },
+            'float_type' => 'type',
             'node_content' => [
               {}
             ],
@@ -1214,9 +1210,7 @@ $result_trees{'form_feeds'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'type'
-            }
+            'float_type' => 'type'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1414,9 +1408,7 @@ $result_floats{'form_feeds'} = {
           },
           'info' => {}
         },
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
           'extra' => {
@@ -1431,9 +1423,7 @@ $result_floats{'form_feeds'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => 'type'
-        },
+        'float_type' => 'type',
         'normalized' => 'fl'
       },
       'info' => {},

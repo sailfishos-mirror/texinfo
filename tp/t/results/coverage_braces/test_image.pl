@@ -2668,9 +2668,7 @@ $result_trees{'test_image'} = {
           ],
           'extra' => {
             'caption' => {},
-            'float_type' => {
-              'normalized' => 'Image'
-            },
+            'float_type' => 'Image',
             'node_content' => [
               {}
             ],
@@ -2711,9 +2709,7 @@ $result_trees{'test_image'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'float_type' => {
-              'normalized' => 'Image'
-            }
+            'float_type' => 'Image'
           },
           'info' => {
             'spaces_before_argument' => {
@@ -3104,9 +3100,7 @@ $result_floats{'test_image'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Image'
-        },
+        'float_type' => 'Image',
         'normalized' => 'Image-with-commands'
       },
       'info' => {},

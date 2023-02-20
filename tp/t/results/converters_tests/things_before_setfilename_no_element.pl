@@ -335,9 +335,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 }
               ],
               'extra' => {
-                'float_type' => {
-                  'normalized' => ''
-                },
+                'float_type' => '',
                 'node_content' => [
                   {}
                 ],
@@ -514,9 +512,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
               ],
               'extra' => {
                 'caption' => {},
-                'float_type' => {
-                  'normalized' => 'Text'
-                },
+                'float_type' => 'Text',
                 'node_content' => [
                   {}
                 ],
@@ -765,9 +761,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
               ],
               'cmdname' => 'listoffloats',
               'extra' => {
-                'float_type' => {
-                  'normalized' => 'Text'
-                }
+                'float_type' => 'Text'
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -1062,9 +1056,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'float_type' => {
-          'normalized' => ''
-        },
+        'float_type' => '',
         'normalized' => 'float-anchor'
       },
       'info' => {},
@@ -1083,9 +1075,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
             'float' => {}
           }
         },
-        'float_type' => {
-          'normalized' => 'Text'
-        },
+        'float_type' => 'Text',
         'normalized' => 'ta'
       },
       'info' => {},

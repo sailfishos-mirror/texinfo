@@ -1,5 +1,18 @@
 2023-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_substitute_references),
+	tp/Texinfo/Convert/Converter.pm (float_type_number)
+	(float_name_caption), tp/Texinfo/Convert/HTML.pm
+	(_convert_listoffloats_command), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_parse_float_type),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.p (_convert),
+	tp/Texinfo/XS/parsetexi/api.c (store_additional_info): put
+	float_type directly in extra as string.
+
+2023-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (_parse_float_type),
 	tp/Texinfo/XS/parsetexi/api.c (store_additional_info),
 	tp/Texinfo/XS/parsetexi/end_line.c (parse_float_type),
