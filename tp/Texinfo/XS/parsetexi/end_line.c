@@ -984,8 +984,7 @@ char *
 parse_float_type (ELEMENT *current)
 {
   char *normalized;
-  if (current->args.number > 0
-      && current->args.list[0]->contents.number > 0)
+  if (current->args.number > 0)
     {
       /* TODO convert_to_texinfo is incorrect here, conversion should follow
          code of Texinfo::Convert::NodeNameNormalization::convert_to_normalized */

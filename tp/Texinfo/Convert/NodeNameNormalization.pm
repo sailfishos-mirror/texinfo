@@ -419,12 +419,10 @@ sub _parse_float_type($)
   my $current = shift;
 
   my $normalized = '';
-  if ($current->{'args'} and scalar(@{$current->{'args'}})
-      and $current->{'args'}->[0]->{'contents'}) {
-    $normalized = convert_to_normalized(
-        {'contents' => $current->{'args'}->[0]->{'contents'}});
+  if ($current->{'args'} and scalar(@{$current->{'args'}})) {
+    $normalized = convert_to_normalized($current->{'args'}->[0]);
   }
-  #$current->{'extra'} = {} if (!$current->{'extra'});
+  $current->{'extra'} = {} if (!$current->{'extra'});
   $current->{'extra'}->{'float_type'} = $normalized;
   return $normalized;
 }
