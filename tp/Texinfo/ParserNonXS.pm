@@ -8282,14 +8282,12 @@ The I<enumerate_specification> C<extra> key contains the enumerate argument.
 
 =item C<@listoffloats>
 
-If float has a first argument, and for C<@listoffloats>
-argument there is a I<float_type> key which is also a hash reference,
-with two keys. I<content> is an array holding the associated
-contents, I<normalized> holds the normalized float type.
+If C<@float> has a first argument, and for C<@listoffloats> argument there
+is a I<float_type> key with the normalized float type.
 
-I<caption> and I<shortcaption> holds the corresponding
-tree elements for float.  The C<@caption> or C<@shortcaption>
-have the float tree element stored in I<float>.
+I<caption> and I<shortcaption> hold the corresponding tree elements
+associated to a C<@float>.  The C<@caption> or C<@shortcaption> have the
+float tree element stored in I<float>.
 
 =item index entry @-command
 
