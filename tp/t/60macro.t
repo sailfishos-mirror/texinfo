@@ -1220,6 +1220,18 @@ aa(b *c)
 
 @deffn Command forward-word count arg@string{} a (@string{}(bb@string{}]@string{} a
 '],
+['bye_in_macro',
+'@macro byeinmacro
+Text
+@bye
+
+after bye
+@end macro
+
+@byeinmacro
+
+After end
+'],
 # this does not lead to a recursive call with the current implementation
 ['recursive_call_in_argument',
 '@macro anorecurse{arg}

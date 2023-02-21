@@ -115,7 +115,7 @@ reset_floats ()
 void
 reset_parser_except_conf (void)
 {
-  /* do before destroying tree because index entries usually refer to in-tree
+  /* do before destroying tree because index entries refer to in-tree
      elements. */
   wipe_indices ();
   if (Root)

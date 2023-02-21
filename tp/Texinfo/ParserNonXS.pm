@@ -2351,6 +2351,7 @@ sub _next_text($;$)
       #                                .scalar(@{$self->{'input'}}).")",
       #                    $input->{'input_source_info'}, $current);
       #Texinfo::Common::debug_hash($input);
+      #cluck();
     }
     # Top input source failed.  Close, pop, and try the next one.
     if (exists($input->{'th'})) {
@@ -5009,10 +5010,8 @@ sub _process_remaining_on_line($$$$)
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
       # end of the file or of a text fragment.
-      $current = _end_line($self, $current, $source_info);
-      # It may happen that there is an @include file on the line, it
-      # will be picked up at NEXT_LINE, beginning a new line
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
+      print STDERR "NO MORE LINE for empty text\n" if ($self->{'DEBUG'});
+      return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
     }
     # this shows beginning of lines (right after 'empty_line') with
@@ -5632,7 +5631,7 @@ sub _process_remaining_on_line($$$$)
         }
 
         # Complete the line if there was a user macro expansion.
-        # REMARK the source marks (mostly end of macro/value expansion) will
+        # NOTE the source marks (mostly end of macro/value expansion) will
         # be associated to the previous element in $current, as the command being
         # considered has not been added already, although the end of macro
         # expansion is located after the command opening.  Wrongly placed
@@ -6636,12 +6635,17 @@ sub _parse_texi($$$)
   my ($self, $root, $current) = @_;
 
   my $source_info;
+  my $status;
+  my $line;
 
  NEXT_LINE:
   while (1) {
-    my $line;
+    #my $line;
     ($line, $source_info) = _next_text($self, $current);
-    last if (!defined($line));
+    if (!defined($line)) {
+      print STDERR "NEXT_LINE NO MORE\n" if ($self->{'DEBUG'});
+      last;
+    }
 
     if ($self->{'DEBUG'}) {
       my $source_info_text = '';
@@ -6697,20 +6701,22 @@ sub _parse_texi($$$)
     }
 
     while (1) {
-      my $status;
       ($current, $line, $source_info, $status)
          = _process_remaining_on_line($self, $current, $line, $source_info);
       if ($status == $GET_A_NEW_LINE) {
         last;
       } elsif ($status == $FINISHED_TOTALLY) {
+        print STDERR "FINISHED_TOTALLY\n" if ($self->{'DEBUG'});
         goto finished_totally;
       }
-      # can happen if there is macro expansion at the end of a text fragment.
-      # Not sure that it can happen otherwise.
+      # can happen if there is macro expansion at the end of a text fragment
+      # or at the end of a text fragment.
       if (! defined($line)) {
         print STDERR "END LINE in line loop STILL_MORE_TO_PROCESS\n"
                                                  if ($self->{'DEBUG'});
         $current = _end_line($self, $current, $source_info);
+        # It may happen that there was an @include file on the line, it
+        # will be picked up at NEXT_LINE, beginning a new line
         last;
       }
     }
@@ -6735,21 +6741,22 @@ sub _parse_texi($$$)
            .join('|', @context_stack)));
   }
 
-  # TODO only if $line is not undef and $status == $FINISHED_TOTALLY?
-
   # Gather text after @bye
-  my $element_after_bye = {'type' => 'postamble_after_end', 'contents' => [],
-                           'parent' => $current};
-  while (1) {
-    my $line;
-    ($line, $source_info) = _next_text($self);
-    last if (!defined($line));
-    push @{$element_after_bye->{'contents'}},
-           {'text' => $line, 'type' => 'text_after_end',
-            'parent' => $element_after_bye};
-  }
-  if (scalar(@{$element_after_bye->{'contents'}})) {
-    push @{$current->{'contents'}}, $element_after_bye;
+  if (defined($line) and $status == $FINISHED_TOTALLY) {
+    print STDERR "GATHER AFTER BYE\n" if ($self->{'DEBUG'});
+    my $element_after_bye = {'type' => 'postamble_after_end', 'contents' => [],
+                             'parent' => $current};
+    while (1) {
+      my $line;
+      ($line, $source_info) = _next_text($self, $element_after_bye);
+      last if (!defined($line));
+      push @{$element_after_bye->{'contents'}},
+             {'text' => $line, 'type' => 'text_after_end',
+              'parent' => $element_after_bye};
+    }
+    if (scalar(@{$element_after_bye->{'contents'}})) {
+      push @{$current->{'contents'}}, $element_after_bye;
+    }
   }
 
   # Setup labels info and nodes list based on 'targets'

@@ -1624,8 +1624,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (!line)
         {
           /* TODO: Can this only happen at end of file? */
-          current = end_line (current);
-          retval = GET_A_NEW_LINE;
           goto funexit;
         }
     }
@@ -2290,6 +2288,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   ELEMENT *current = current_elt;
   static char *allocated_line;
   char *line;
+  int status;
 
   /* Read input file line-by-line. */
   while (1)
@@ -2342,7 +2341,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          of line. */
       while (1)
         {
-          int status = process_remaining_on_line (&current, &line);
+          status = process_remaining_on_line (&current, &line);
           if (status == GET_A_NEW_LINE)
             break;
           if (status == FINISHED_TOTALLY)
@@ -2383,10 +2382,11 @@ finished_totally:
         current = current->parent;
     }
   
-  /* TODO: Check for "unclosed stacks". */
+  if (current_context () != ct_NONE)
+    fatal ("context_stack not empty at the end");
 
   /* Gather text after @bye */
-  {
+  if (line && status == FINISHED_TOTALLY) {
     ELEMENT *element_after_bye;
     element_after_bye = new_element (ET_postamble_after_end);
 
@@ -2394,7 +2394,7 @@ finished_totally:
       {
         ELEMENT *e;
         free (allocated_line);
-        line = allocated_line = next_text (0);
+        line = allocated_line = next_text (element_after_bye);
         if (!allocated_line)
           break; /* Out of input. */
 
@@ -2412,7 +2412,19 @@ finished_totally:
       }
   }
 
-  input_reset_input_stack (); /* to avoid a memory leak if @bye is given */
+  if (macro_expansion_nr > 0)
+    fprintf (stderr, "BUG: at end, macro_expansion_nr > 0: %d\n",
+             macro_expansion_nr);
+  if (value_expansion_nr > 0)
+    fprintf (stderr, "BUG: at end, value_expansion_nr > 0: %d\n",
+             value_expansion_nr);
+  if (input_number > 0)
+    fprintf (stderr, "BUG: at end, input_number > 0: %d", input_number);
+
+  /* to avoid a memory leak if @bye is given */
+  /*
+  input_reset_input_stack ();
+  */
 
   return current;
 }
