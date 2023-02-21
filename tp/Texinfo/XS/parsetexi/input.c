@@ -45,6 +45,7 @@ typedef struct {
 
     FILE *file;
     SOURCE_INFO source_info;
+    char *input_file_path; /* for IN_file type, the full input file path */
 
     char *text;  /* Input text to be parsed as Texinfo. */
     char *ptext; /* How far we are through 'text'.  Used to split 'text'
@@ -213,12 +214,14 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
     }
 
   t.text[t.end] = '\0';
+  /* FIXME freeing t.text leads to invalid memory access in the loop
+     above, both in the case E2BIG and in text_buffer_iconv */
   return strdup (t.text);
 }
 
 /* Return conversion of S according to input_encoding.  This function
    frees S. */
-static char *
+char *
 convert_to_utf8 (char *s)
 {
   iconv_t our_iconv = (iconv_t) -1;
@@ -490,9 +493,20 @@ next_text (ELEMENT *current)
           if (file != stdin)
             {
               if (fclose (input->file) == EOF)
-                fprintf (stderr, "error on closing %s: %s",
-                        input->source_info.file_name,
-                        strerror (errno));
+                {
+          /* convert to UTF-8 for the messages, to have character strings in perl
+             that will be encoded on output to the locale encoding.
+             Done differently for the file names in source_info
+             which are byte strings and end up unmodified in output error
+             messages.
+          */
+                  char *decoded_file_name
+                          = convert_to_utf8 (strdup(input->input_file_path));
+                  line_warn ("error on closing %s: %s",
+                             decoded_file_name,
+                             strerror (errno));
+                  free (decoded_file_name);
+                }
             }
         }
       else
@@ -550,6 +564,7 @@ input_push_text (char *text, int line_number, char *macro, char *value_flag)
 
   input_stack[input_number].type = IN_text;
   input_stack[input_number].file = 0;
+  input_stack[input_number].input_file_path = 0;
   input_stack[input_number].text = text;
   input_stack[input_number].ptext = text;
 
@@ -715,6 +730,7 @@ input_push_file (char *filename)
 {
   FILE *stream = 0;
   char *p, *q;
+  char *base_filename;
 
   if (!strcmp (filename, "-"))
     stream = stdin;
@@ -741,13 +757,14 @@ input_push_file (char *filename)
       q = strchr (q + 1, '/');
     }
   if (p)
-    filename = save_string (p+1);
+    base_filename = save_string (p+1);
   else
-    filename = save_string (filename);
+    base_filename = save_string (filename);
 
   input_stack[input_number].type = IN_file;
   input_stack[input_number].file = stream;
-  input_stack[input_number].source_info.file_name = filename;
+  input_stack[input_number].input_file_path = filename;
+  input_stack[input_number].source_info.file_name = base_filename;
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;
   input_stack[input_number].input_source_mark = 0;

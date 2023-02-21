@@ -20,6 +20,7 @@ int top_file_index (void);
 
 char *locate_include_file (char *filename);
 char *encode_file_name (char *filename);
+char *convert_to_utf8 (char *s);
 void set_input_encoding (char *encoding);
 void add_include_directory (char *filename);
 void clear_include_directories (void);

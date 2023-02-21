@@ -407,9 +407,6 @@ foreach my $no_close_preformatted('sp') {
 
 foreach my $block_command (keys(%block_commands)) {
   $begin_line_commands{$block_command} = 1;
-  # FIXME to close preformated or not to close?
-  #$close_preformatted_commands{$format_raw_command} = 1
-  #  if ($brace_commands{$format_raw_command}) eq 'format_raw');
 }
 
 # commands that may appear in commands containing plain text only
@@ -679,15 +676,15 @@ sub _new_text_input($$)
   my $input_source_info = shift;
 
   my $texthandle = do { local *FH };
-  # FIXME in-memory scalar strings are considered a stream of bytes, so need
-  # to encode/decode.  Is it a performance issue?  Do we care?
+  # In-memory scalar strings are considered a stream of bytes, so need
+  # to encode/decode.
   $text = Encode::encode("utf8", $text);
   # Could fail with error like
   # Strings with code points over 0xFF may not be mapped into in-memory file handles
   if (!open ($texthandle, '<', \$text)) {
     my $error_message = $!;
-    print STDERR "ERROR: open on a reference failed: $error_message\n";
-    #return undef, $error_message;
+    # Better die now than later reading on a closed filehandle.
+    die "BUG? open on a reference failed: $error_message\n";
   }
   return {'th' => $texthandle,
           'input_source_info' => $input_source_info};
@@ -793,7 +790,7 @@ sub _input_push_file
 
   my $filehandle = do { local *FH };
   if (!open($filehandle, $input_file_path)) {
-    return 0, undef, undef;
+    return 0, undef, undef, $!;
   }
 
   if (defined($self->{'info'}->{'input_perl_encoding'})) {
@@ -818,7 +815,8 @@ sub _input_push_file
           'line_nr' => 0,
           'macro' => '',
        },
-       'fh' => $filehandle
+       'fh' => $filehandle,
+       'input_file_path' => $input_file_path,
     };
 
   $file_input->{'file_name_encoding'} = $file_name_encoding
@@ -826,7 +824,7 @@ sub _input_push_file
   $self->{'input'} = [] if (!defined($self->{'input'}));
   unshift @{$self->{'input'}}, $file_input;
 
-  return 1, $file_name, $directories;
+  return 1, $file_name, $directories, undef;
 }
 
 # parse a texi file
@@ -835,7 +833,7 @@ sub parse_texi_file($$)
 {
   my ($self, $input_file_path) = @_;
 
-  my ($status, $file_name, $directories)
+  my ($status, $file_name, $directories, $error_message)
     = _input_push_file($self, $input_file_path);
   if (!$status) {
     my $input_file_name = $input_file_path;
@@ -845,7 +843,7 @@ sub parse_texi_file($$)
     }
     $self->{'registrar'}->document_error($self,
                  sprintf(__("could not open %s: %s"),
-                                  $input_file_name, $!));
+                                  $input_file_name, $error_message));
     return undef;
   }
 
@@ -2335,6 +2333,7 @@ sub _next_text($;$)
         }
         # DEL as comment character
         if ($line =~ s/\x{7F}(.*\s*)//) {
+          # push empty text to place a source mark
           _input_push_text($self, '',
                            $input->{'input_source_info'}->{'line_nr'});
           my $delcomment_source_mark = {'sourcemark_type' => 'delcomment'};
@@ -2345,11 +2344,22 @@ sub _next_text($;$)
         $input->{'input_source_info'}->{'line_nr'}++;
         return ($line, { %{$input->{'input_source_info'}} });
       }
+    } else {
+      # TODO currently possible if called for lines after @bye but
+      # there is nothing anymore
+      #$self->_bug_message("Unexpected input $input ("
+      #                                .scalar(@{$self->{'input'}}).")",
+      #                    $input->{'input_source_info'}, $current);
+      #Texinfo::Common::debug_hash($input);
     }
     # Top input source failed.  Close, pop, and try the next one.
     if (exists($input->{'th'})) {
       # End of text reached.
-      # FIXME close $input->{'th'} explicitly?
+      if (!close($input->{'th'})) {
+        my $error_message = $!;
+        warn "BUG? close text reference failed: $error_message\n";
+      }
+      delete $input->{'th'};
       if ($input->{'input_source_info'}->{'macro'} ne '') {
         my $top_macro = shift @{$self->{'macro_stack'}};
         print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}):"
@@ -2365,20 +2375,25 @@ sub _next_text($;$)
     } elsif ($input->{'fh'}
              and $input->{'input_source_info'}->{'file_name'} ne '-') {
       if (!close($input->{'fh'})) {
-        # need to decode for error message
+        # decode for the message, to have character strings in perl
+        # that will be encoded on output to the locale encoding.
+        # Done differently for the file names in source_info
+        # which are byte strings and end up unmodified in output error
+        # messages.
         my $file_name_encoding;
         if (defined($input->{'file_name_encoding'})) {
           $file_name_encoding = $input->{'file_name_encoding'};
         } else {
           $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         }
-        my $file_name = $input->{'input_source_info'}->{'file_name'};
+        my $decoded_file_name = $input->{'input_file_path'};
         if (defined($file_name_encoding)) {
-          $file_name = decode($file_name_encoding, $file_name);
+          $decoded_file_name = decode($file_name_encoding,
+                                      $input->{'input_file_path'});
         }
         $self->{'registrar'}->document_warn($self,
                              sprintf(__("error on closing %s: %s"),
-                                     $file_name, $!));
+                                     $decoded_file_name, $!));
       }
       delete $input->{'fh'};
     }
@@ -2412,6 +2427,8 @@ sub _next_text($;$)
     # source_info, even when nothing is returned and the first input
     # file is closed.
     if (scalar(@{$self->{'input'}}) == 1) {
+      print STDERR "INPUT FINISHED\n" if ($self->{'DEBUG'});
+      #cluck();
       return (undef, { %{$input->{'input_source_info'}} });
     } else {
       shift @{$self->{'input'}};
@@ -3387,12 +3404,12 @@ sub _end_line_misc_line($$$)
         # @-command effects are ignored, an error message is issued below.
       } elsif ($command eq 'include') {
         # We want Perl binary strings representing sequences of bytes,
-        # not character strings of codepoints in the internal perl encoding.
+        # not character strings in the internal perl encoding.
         my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
         my $included_file_path
              = Texinfo::Common::locate_include_file($self, $file_path);
         if (defined($included_file_path)) {
-          my ($status, $file_name, $directories)
+          my ($status, $file_name, $directories, $error_message)
              = _input_push_file($self, $included_file_path, $file_name_encoding);
           if ($status) {
             $included_file = 1;
@@ -3401,12 +3418,11 @@ sub _end_line_misc_line($$$)
                                     'status' => 'start'};
             $self->{'input'}->[0]->{'input_source_mark'} = $include_source_mark;
           } else {
-            # FIXME $text does not show the include directory.  Using
-            # $included_file_path would require decoding to character string
-            # using $file_name_encoding
+            my $decoded_file_path
+                = Encode::decode($file_name_encoding, $included_file_path);
             $self->_command_error($current, $source_info,
                             __("\@%s: could not open %s: %s"),
-                            $command, $text, $!);
+                            $command, $decoded_file_path, $error_message);
           }
         } else {
           $self->_command_error($current, $source_info,
@@ -6692,6 +6708,8 @@ sub _parse_texi($$$)
       # can happen if there is macro expansion at the end of a text fragment.
       # Not sure that it can happen otherwise.
       if (! defined($line)) {
+        print STDERR "END LINE in line loop STILL_MORE_TO_PROCESS\n"
+                                                 if ($self->{'DEBUG'});
         $current = _end_line($self, $current, $source_info);
         last;
       }
@@ -6716,6 +6734,8 @@ sub _parse_texi($$$)
     die($self->_bug_message("CONTEXT_STACK not empty at _parse_texi end: "
            .join('|', @context_stack)));
   }
+
+  # TODO only if $line is not undef and $status == $FINISHED_TOTALLY?
 
   # Gather text after @bye
   my $element_after_bye = {'type' => 'postamble_after_end', 'contents' => [],

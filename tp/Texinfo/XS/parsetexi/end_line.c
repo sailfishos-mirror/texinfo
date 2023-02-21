@@ -1568,10 +1568,13 @@ end_line_misc_line (ELEMENT *current)
                   status = input_push_file (fullpath);
                   if (status)
                     {
+                      char *decoded_file_path
+                         = convert_to_utf8 (strdup(fullpath));
                       command_error (current,
-                                     "@include: could not open %s:",
-                                     text,
+                                     "@include: could not open %s: %s",
+                                     decoded_file_path,
                                      strerror (status));
+                      free (decoded_file_path);
                     }
                   else
                     {
