@@ -711,6 +711,17 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
         {
           int columns;
           int char_len = mbrtowc (&w, p, left, NULL);
+          if (char_len == (size_t) -2) {
+            /* unfinished multibyte character */
+            char_len = left;
+          } else if (char_len == (size_t) -1) {
+            /* invalid character */
+            char_len = 1;
+          } else if (char_len == 0) {
+            /* not sure what this means but we must avoid an infinite loop.
+               Possibly only happens with invalid strings */
+            char_len = 1;
+          }
           left -= char_len;
 
           columns = wcwidth (w);
