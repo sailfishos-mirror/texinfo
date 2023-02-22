@@ -1869,6 +1869,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                  }
              }
 
+           /* The added element is only transiently present, it is removed
+              by calls of gather_spaces_after_cmd_before_arg, which transfer
+              the element to the info hash.  The contents allow to have source
+              marks easily associated.
+              The type name is not used anywhere but can be usefull for
+              debugging, in particular to check that the element does not
+              appear anywhere in the tree.
+              Note that contents is transiently set for brace commands, which in
+              general only have args. */
+
            if (current->contents.number == 0)
              {
                ELEMENT *spaces_after_cmd_before_arg
@@ -1880,6 +1890,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              }
            else
              {
+       /* contents, at this point can only be for spaces_after_cmd_before_arg */
             /* only ignore spaces and one newline, two newlines lead to
                an empty line before the brace or argument which is incorrect. */
                char *previous_value = current->contents.list[0]->text.text;
@@ -1916,26 +1927,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (current->cmd == CM_dotless
               && *line != 'i' && *line != 'j')
             {
+              /* TODO may show a partial character if non-ascii */
               line_error ("@dotless expects `i' or `j' as argument, "
                           "not `%c'", *line);
-            }
-          /* REMARK it happens in the test suite at least with macros
-             and accents, and requires source marks to be transmitted */
-          while (current->contents.number > 0)
-            {
-              ELEMENT *popped_element = pop_element_from_contents (current);
-              transfer_source_marks (popped_element, e);
-              /* current is the accent command.  So far only saw empty elements
-                 for the removed elements */
-              /*
-              debug_nonl ("REMOVE content. Accent: ");
-              debug_print_element (current, 1);
-              debug ("");
-              debug_nonl ("       removed: ");
-              debug_print_element (popped_element, 0);
-              debug ("");
-              */
-              destroy_element (popped_element);
             }
           line++;
           current = current->parent;

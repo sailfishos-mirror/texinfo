@@ -4695,6 +4695,8 @@ sub _gather_spaces_after_cmd_before_arg($$)
 {
   my $self = shift;
   my $current = shift;
+  # it could be possible to check that there is no other content and that
+  # the type is the expected type.
   my $spaces_element = _pop_element_from_contents($self, $current);
   delete $spaces_element->{'type'};
   $current->{'info'} = {} if (!$current->{'info'});
@@ -5224,28 +5226,39 @@ sub _process_remaining_on_line($$$$)
       }
       if (!$current->{'contents'}) {
         $line =~ s/^(\s+)//;
+        # The added element is only transiently present, it is removed
+        # by calls of gather_spaces_after_cmd_before_arg, which transfer
+        # the element to the info hash.  The contents allow to have source
+        # marks easily associated.
+        # The type name is not used anywhere but can be usefull for
+        # debugging, in particular to check that the element does not
+        # appear anywhere in the tree.
+        # Note that contents is transiently set for brace commands, which in
+        # general only have args.
         my $spaces_after_cmd_before_arg
            = {'type' => 'internal_spaces_after_cmd_before_arg',
               'text' => $1, 'parent' => $current};
         $current->{'contents'} = [$spaces_after_cmd_before_arg];
         print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
           if $self->{'DEBUG'};
-      # only ignore spaces and one newline, two newlines lead to
-      # an empty line before the brace or argument which is incorrect.
-      } elsif ($additional_newline
-               and $current->{'contents'}
-               and $current->{'contents'}->[0]->{'text'} =~ /\n/) {
-        print STDERR "BRACE CMD before brace second newline stops spaces\n"
-          if $self->{'DEBUG'};
-        $self->_line_error(sprintf(__("\@%s expected braces"),
-                           $current->{'cmdname'}), $source_info);
-        _gather_spaces_after_cmd_before_arg($self, $current);
-        $current = $current->{'parent'};
       } else {
-        $line =~ s/^(\s+)//;
-        $current->{'contents'}->[0]->{'text'} .= $added_space;
-        print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
-          if $self->{'DEBUG'};
+        # contents, at this point can only be for spaces_after_cmd_before_arg
+        if ($additional_newline
+            and $current->{'contents'}->[0]->{'text'} =~ /\n/) {
+          # only ignore spaces and one newline, two newlines lead to
+          # an empty line before the brace or argument which is incorrect.
+          print STDERR "BRACE CMD before brace second newline stops spaces\n"
+            if $self->{'DEBUG'};
+          $self->_line_error(sprintf(__("\@%s expected braces"),
+                             $current->{'cmdname'}), $source_info);
+          _gather_spaces_after_cmd_before_arg($self, $current);
+          $current = $current->{'parent'};
+        } else {
+          $line =~ s/^(\s+)//;
+          $current->{'contents'}->[0]->{'text'} .= $added_space;
+          print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
+            if $self->{'DEBUG'};
+        }
       }
     # special case for accent commands, use following character except @
     # as argument.  Note that since we checked before that there isn't
@@ -5268,18 +5281,6 @@ sub _process_remaining_on_line($$$$)
            __("%c%s expects `i' or `j' as argument, not `%s'"),
                                    ord('@'), $current->{'cmdname'}, $1),
                            $source_info);
-      }
-      # FIXME this is like the XS parser, and it matters to have the contents
-      # removed here when there are source marks.  It is not clear why there
-      # are contents to begin with, nor what would be the best, remove them
-      # as is done here, or keep them as contents.  Also, in theory the
-      # elements may have text/args/contents, although never saw anything
-      # else than empty elements.
-      while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
-        # TODO not clear that it leads to a correct location of source marks
-        print STDERR "HHHHHHH ".Texinfo::Common::debug_print_element($current->{'contents'}->[0], 1)."\n";
-        my $removed_element = _pop_element_from_contents($self, $current);
-        _transfer_source_marks($removed_element, $following_arg);
       }
       $current = $current->{'parent'};
     } else {
