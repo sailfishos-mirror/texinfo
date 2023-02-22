@@ -1571,7 +1571,9 @@ $result_trees{'glossary'} = {
               'status' => 'start'
             }
           ],
-          'text' => ''
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => ' ',
@@ -1724,6 +1726,7 @@ text2
 
 @node glossary
 @chapter glossary
+
  name2 @anchor{id2}
 text2
 
@@ -1747,6 +1750,7 @@ id2
 
 1 glossary
 **********
+
 name2 text2
 
 

@@ -34,8 +34,8 @@ typedef struct {
 void new_macro (char *name, ELEMENT *macro);
 ELEMENT *parse_macro_command_line (enum command_id, char **line_inout,
                                    ELEMENT *parent);
-ELEMENT *handle_macro (ELEMENT *current, char **line_inout,
-                       enum command_id cmd_id);
+int handle_macro (ELEMENT *current, char **line_inout,
+                  enum command_id cmd_id);
 void delete_macro (char *name);
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);

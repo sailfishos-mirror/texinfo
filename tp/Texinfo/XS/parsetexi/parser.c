@@ -1683,11 +1683,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if (cmd && (command_data(cmd).flags & CF_MACRO))
     {
       static char *allocated_line;
+      int expansion_error;
+
       line = line_after_command;
-      current = handle_macro (current, &line, cmd);
-      free (allocated_line);
-      allocated_line = next_text (current);
-      line = allocated_line;
+      expansion_error = handle_macro (current, &line, cmd);
+      if (!expansion_error)
+        {
+          free (allocated_line);
+          allocated_line = next_text (current);
+          line = allocated_line;
+        }
       retval = STILL_MORE_TO_PROCESS;
       goto funexit;
     }

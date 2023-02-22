@@ -517,7 +517,7 @@ wipe_macros (void)
 }
 
 /* Handle macro expansion.  CMD is the macro command. */
-ELEMENT *
+int
 handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 {
   char *line, *p;
@@ -528,6 +528,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   int args_number;
   SOURCE_MARK *macro_source_mark;
   ELEMENT *arguments_container = new_element (ET_NONE);
+  int error = 0;
 
   line = *line_inout;
   text_init (&expanded);
@@ -574,8 +575,8 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     }
   else
     {
-      ELEMENT *current = new_element (ET_line_arg);
-      add_to_element_args (arguments_container, current);
+      ELEMENT *arg_elt = new_element (ET_line_arg);
+      add_to_element_args (arguments_container, arg_elt);
 
       while (1)
         {
@@ -583,7 +584,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
             {
             /* If it takes a single line of input, and we don't have a
                full line of input already, call new_line. */
-              line = new_line (current);
+              line = new_line (arg_elt);
               if (!line)
                 {
                   line = "";
@@ -593,7 +594,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
           else
             {
               int leading_spaces_added = 0;
-              if (current->contents.number == 0)
+              if (arg_elt->contents.number == 0)
                 {
                   int leading_spaces_nr = strspn (line,
                                            whitespace_chars_except_newline);
@@ -606,7 +607,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                       add_extra_element (internal_space,
                                          "spaces_associated_command",
                                          arguments_container);
-                      add_to_element_contents (current, internal_space);
+                      add_to_element_contents (arg_elt, internal_space);
 
                       line += leading_spaces_nr;
 
@@ -618,13 +619,13 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                   char *p = strchr (line, '\n');
                   if (!p)
                     {
-                      current = merge_text (current, line, 0);
+                      arg_elt = merge_text (arg_elt, line, 0);
                       line += strlen(line);
                     }
                   else
                     {
                       *p = '\0';
-                      current = merge_text (current, line, 0);
+                      arg_elt = merge_text (arg_elt, line, 0);
                       line = "\n";
                       break;
                     }
@@ -633,12 +634,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
         }
     }
 
-  expand_macro_body (macro_record, arguments_container, &expanded);
-  debug ("MACROBODY: %s||||||", expanded.text);
-
-  if (expanded.end > 0 && expanded.text[expanded.end - 1] == '\n')
-    expanded.text[--expanded.end] = '\0';
-
   if (conf.max_macro_call_nesting
       && macro_expansion_nr >= conf.max_macro_call_nesting)
     {
@@ -646,6 +641,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
          "macro call nested too deeply "
          "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
                 conf.max_macro_call_nesting);
+      error = 1;
       goto funexit;
     }
 
@@ -655,13 +651,16 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
         {
           line_error ("recursive call of macro %s is not allowed; "
                       "use @rmacro if needed", command_name(cmd));
-          expanded.text[0] = '\0';
-          expanded.end = 0;
+          error = 1;
           goto funexit;
         }
     }
 
-  // 3958 Pop macro stack
+  expand_macro_body (macro_record, arguments_container, &expanded);
+  debug ("MACROBODY: %s||||||", expanded.text);
+
+  if (expanded.end > 0 && expanded.text[expanded.end - 1] == '\n')
+    expanded.text[--expanded.end] = '\0';
 
   macro_source_mark = new_source_mark (SM_type_macro_expansion);
   macro_source_mark->status = SM_status_start;
@@ -672,6 +671,8 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   /* Put expansion in front of the current line. */
   input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
+  /* not really important as line is ignored by the caller if there
+     was no macro expansion error */
   line = strchr (line, '\0');
   if (expanded.text)
     expanded_macro_text = expanded.text;
@@ -685,7 +686,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
  funexit:
 
   *line_inout = line;
-  return current;
+  return error;
 }
 
 

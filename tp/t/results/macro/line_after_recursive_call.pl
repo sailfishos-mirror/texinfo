@@ -96,6 +96,10 @@ $result_trees{'line_after_recursive_call'} = {
 '
             },
             {
+              'text' => ' xxx
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -122,10 +126,12 @@ ggg
 fff
 @end macro
 ggg
+ xxx
 fff';
 
 
 $result_texts{'line_after_recursive_call'} = 'ggg
+ xxx
 fff';
 
 $result_errors{'line_after_recursive_call'} = [

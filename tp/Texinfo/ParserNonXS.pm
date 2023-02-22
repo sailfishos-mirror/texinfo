@@ -2582,8 +2582,8 @@ sub _expand_macro_arguments($$$$$)
                "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
   }
-  print STDERR "END MACRO ARGS EXPANSION(".scalar(@{$current->{'args'}})."): "
-                 ."|\n" if ($self->{'DEBUG'});
+  print STDERR "END MACRO ARGS EXPANSION(".scalar(@{$current->{'args'}}).") "
+                 ."line: '$line'\n" if ($self->{'DEBUG'});
   return ($line, $source_info);
 }
 
@@ -4711,6 +4711,8 @@ sub _handle_macro($$$$$)
   my $source_info = shift;
   my $command = shift;
 
+  my $error = 0;
+
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
   my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
   my $arguments_container = {'type' => $expanded_macro->{'cmdname'}.'_call',
@@ -4733,31 +4735,31 @@ sub _handle_macro($$$$$)
                               $command), $source_info)
        if ($args_number >= 2);
   } else {
-    my $current = {'type' => 'line_arg',
+    my $arg_elt = {'type' => 'line_arg',
                    'parent' => $arguments_container};
-    push @{$arguments_container->{'args'}}, $current;
+    push @{$arguments_container->{'args'}}, $arg_elt;
     while (1) {
       if ($line eq '') {
-        ($line, $source_info) = _new_line($self, $current);
+        ($line, $source_info) = _new_line($self, $arg_elt);
         if (!defined($line)) {
           $line = '';
           last;
         }
       } else {
-        if (not $current->{'contents'} and $line =~ s/^([^\S\r\n]+)//) {
+        if (not $arg_elt->{'contents'} and $line =~ s/^([^\S\r\n]+)//) {
           my $internal_space = {'type' => 'internal_spaces_before_argument',
                                 'text' => $1,
-                                'parent' => $current,
+                                'parent' => $arg_elt,
                                 'extra' => {'spaces_associated_command'
                                               => $arguments_container}};
-          push @{$current->{'contents'}}, $internal_space;
+          push @{$arg_elt->{'contents'}}, $internal_space;
         } else {
           if ($line !~ /\n/) {
-            $current = _merge_text($self, $current, $line);
+            $arg_elt = _merge_text($self, $arg_elt, $line);
             $line = '';
           } else {
             my $has_end_of_line = chomp $line;
-            $current = _merge_text($self, $current, $line);
+            $arg_elt = _merge_text($self, $arg_elt, $line);
             $line = "\n" if ($has_end_of_line);
             last;
           }
@@ -4765,34 +4767,36 @@ sub _handle_macro($$$$$)
       }
     }
   }
-  my $expanded = _expand_macro_body($self,
-                            $self->{'macros'}->{$command},
-                            $arguments_container->{'args'}, $source_info);
-  print STDERR "MACROBODY: $expanded".'||||||'."\n"
-    if ($self->{'DEBUG'});
-  chomp($expanded);
-
   if ($self->{'MAX_MACRO_CALL_NESTING'}
       and scalar(@{$self->{'macro_stack'}}) >= $self->{'MAX_MACRO_CALL_NESTING'}) {
     $self->_line_warn(sprintf(__(
   "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                           $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-    goto funexit;
+    $error = 1;
+    # goto funexit in XS parser
+    return ($error, $line, $source_info);
   }
 
   if ($expanded_macro->{'cmdname'} eq 'macro') {
-    my $found = 0;
     foreach my $macro (@{$self->{'macro_stack'}}) {
       if ($macro->{'args'}->[0]->{'text'} eq $command) {
         $self->_line_error(sprintf(__(
        "recursive call of macro %s is not allowed; use \@rmacro if needed"),
                                    $command), $source_info);
-        $found = 1;
-        last;
+        $error = 1;
+        # goto funexit in XS parser
+        return ($error, $line, $source_info);
       }
     }
-    goto funexit if ($found);
   }
+
+  my $expanded = _expand_macro_body($self,
+                            $self->{'macros'}->{$command},
+                            $arguments_container->{'args'}, $source_info);
+  print STDERR "MACROBODY: $expanded".'||||||'."\n"
+    if ($self->{'DEBUG'});
+
+  chomp($expanded);
 
   unshift @{$self->{'macro_stack'}}, $expanded_macro;
   print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
@@ -4811,9 +4815,11 @@ sub _handle_macro($$$$$)
   $macro_source_mark->{'element'} = $arguments_container;
   _register_source_mark($self, $current, $macro_source_mark);
   $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
+  # not really important as line is ignored by the caller if there
+  # was no macro expansion error
   $line = '';
- funexit:
-  return ($line, $source_info);
+ #funexit:
+  return ($error, $line, $source_info);
 }
 
 my $STILL_MORE_TO_PROCESS = 0;
@@ -5074,14 +5080,15 @@ sub _process_remaining_on_line($$$$)
     if ($self->{'macros'}->{$command}) {
       substr($line, 0, $at_command_length) = '';
 
-      # TODO check that the $line here, which is discarded right after
-      # is necessarily empty
-      ($line, $source_info)
+      my $expansion_error;
+      ($expansion_error, $line, $source_info)
         = _handle_macro($self, $current, $line, $source_info, $command);
-      # FIXME this is the same as in the XS parser, and it gives somewhat better
-      # results in test cases, avoiding useless text.  But it is unclear why
-      # it is so and if it is not covering up some other bug.
-      ($line, $source_info) = _next_text($self, $current);
+      if (!$expansion_error) {
+        # FIXME this is the same as in the XS parser, and it gives somewhat better
+        # results in test cases, avoiding useless text.  But it is unclear why
+        # it is so and if it is not covering up some other bug.
+        ($line, $source_info) = _next_text($self, $current);
+      }
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
     }
