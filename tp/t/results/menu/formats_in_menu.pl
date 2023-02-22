@@ -338,9 +338,6 @@ $result_trees{'formats_in_menu'} = {
                         'line_nr' => 11,
                         'macro' => ''
                       }
-                    },
-                    {
-                      'type' => 'preformatted'
                     }
                   ],
                   'type' => 'menu_entry_description'
@@ -944,7 +941,7 @@ $result_converted{'xml'}->{'formats_in_menu'} = '<node name="first" spaces=" "><
 some @ verb{x atim
 * texinfo:: in @ verbatim
 </verbatim>
-<pre xml:space="preserve"></pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual2)</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">%
+</menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual2)</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">%
 <html endspaces=" ">
 
 &lt;i&gt;&lt;/i&gt;

@@ -115,14 +115,6 @@ $result_trees{'invalid_node_name_no_warning'} = {
                     }
                   ],
                   'type' => 'menu_entry_node'
-                },
-                {
-                  'contents' => [
-                    {
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
                 }
               ],
               'extra' => {

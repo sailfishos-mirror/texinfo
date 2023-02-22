@@ -62,14 +62,6 @@ $result_trees{'menu_entry_name'} = {
                     }
                   ],
                   'type' => 'menu_entry_node'
-                },
-                {
-                  'contents' => [
-                    {
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
                 }
               ],
               'extra' => {
@@ -923,7 +915,7 @@ $result_converted_errors{'html'}->{'menu_entry_name'} = [
 
 $result_converted{'xml'}->{'menu_entry_name'} = '<menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b
-</menunode><menudescription><pre xml:space="preserve"></pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.c</menunode><menuseparator>,</menuseparator><menudescription><pre xml:space="preserve">
+</menunode></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.c</menunode><menuseparator>,</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b2.c</menunode><menuseparator>,     </menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b3.c</menunode><menuseparator>,    </menuseparator><menudescription><pre xml:space="preserve">d
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>: </menuseparator><menunode>(f)b1.</menunode><menuseparator>. </menuseparator><menudescription><pre xml:space="preserve">

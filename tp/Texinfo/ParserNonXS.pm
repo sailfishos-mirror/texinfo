@@ -2103,8 +2103,9 @@ sub _close_commands($$$;$$)
          and !($current->{'cmdname'}
                and ($root_commands{$current->{'cmdname'}}
                     or ($closed_block_command and $current->{'parent'}->{'cmdname'}
-                       and (exists($brace_commands{$current->{'parent'}->{'cmdname'}})
-            and $brace_commands{$current->{'parent'}->{'cmdname'}} eq 'context'))))) {
+                        and exists($brace_commands{$current->{'parent'}->{'cmdname'}})
+                        and $brace_commands{
+                                $current->{'parent'}->{'cmdname'}} eq 'context')))) {
     _close_command_cleanup($self, $current);
     $current = _close_current($self, $current, $source_info,
                               $closed_block_command,
@@ -5329,7 +5330,6 @@ sub _process_remaining_on_line($$$$)
       my $menu_star_element = _pop_element_from_contents($self, $current);
       $line =~ s/^(\s+)//;
       my $leading_text = '*' . $1;
-      # FIXME remove empty description too?
       if ($current->{'type'} eq 'preformatted'
           and $current->{'parent'}->{'type'}
           and $current->{'parent'}->{'type'} eq 'menu_comment') {
@@ -5338,7 +5338,8 @@ sub _process_remaining_on_line($$$$)
         # close menu_comment
         $current = _close_container($self, $current);
       } else {
-        # first parent preformatted, third is menu_entry
+        # if in the preceding menu entry description, first parent is preformatted,
+        # second is the description, third is the menu_entry
         if ($current->{'type'} ne 'preformatted'
             or $current->{'parent'}->{'type'} ne 'menu_entry_description'
             or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
@@ -5347,7 +5348,12 @@ sub _process_remaining_on_line($$$$)
           $self->_bug_message("Not in menu comment nor description",
                                $source_info, $current);
         }
-        $current = $current->{'parent'}->{'parent'}->{'parent'};
+        # close preformatted
+        $current = _close_container($self, $current);
+        # close menu_description
+        $current = _close_container($self, $current);
+        # close menu_entry (which cannot actually be empty).
+        $current = _close_container($self, $current);
       }
       push @{$current->{'contents'}}, { 'type' => 'menu_entry',
                                         'parent' => $current,
@@ -5640,17 +5646,29 @@ sub _process_remaining_on_line($$$$)
       if ($root_commands{$command} or $command eq 'bye') {
         $current = _close_commands($self, $current, $source_info, undef,
                                    $command);
+        # if the root command happens in a Texinfo fragment going through
+        # parse_texi_line we are directly in the root_line document
+        # root container (in this case _close_commands returned immediately),
+        # and there is no parent for $current.
+        # In any other situation, _close_command stops at the preceding
+        # root command or in before_node_section, both being in the document
+        # root container, so that there is a parent for $current, the document
+        # root container.
         if (!defined($current->{'parent'})) {
-          # if parse_texi_line is called on a line with a node/section then
-          # it will directly be in the root_line, otherwise it is not directly
-          # in the root, but in another container
-          #
-          # FIXME warn/error with a root command in parse_texi_line?
           if ($current->{'type'} ne 'root_line') {
             $self->_bug_message("no parent element", $source_info, $current);
             die;
+          } else {
+            # TODO do we want to error out if there is a root command in
+            # Texinfo fragment processed with parse_texi_text (and therefore
+            # here in root_line)?
+            # $self->_line_error(sprintf(__(
+            #  "\@%s should not appear in Texinfo parsed as a short fragment"),
+            #                            $command), $source_info);
           }
         } else {
+          # in a root command or before_node_section, get to the document root
+          # container.
           $current = $current->{'parent'};
         }
       }

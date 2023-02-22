@@ -143,8 +143,11 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           /* current should be ET_preformatted,
              1st parent ET_menu_entry_description,
              2nd parent ET_menu_entry,
-             3rd parent @menu. */
-          current = current->parent->parent->parent;
+             3rd parent @menu.
+             Close current, 1st and 2nd parent (which cannot be empty) */
+          current = close_container (current);
+          current = close_container (current);
+          current = close_container (current);
         }
 
       menu_entry = new_element (ET_menu_entry);
