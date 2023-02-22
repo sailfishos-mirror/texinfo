@@ -898,12 +898,12 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_itemize'} = 'top
 1 chap
 ******
 
-   − e–mph item
+   − e-mph item
 
-   • i–tem 1
-   • i–tem 2
+   • i-tem 1
+   • i-tem 2
 
-     T–ext before items.
+     T-ext before items.
    • bullet item
 ';
 

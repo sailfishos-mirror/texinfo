@@ -357,7 +357,8 @@ foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
 
 my %defaults = (
   'ENABLE_ENCODING'      => 1,
-  'ASCII_PUNCTUATION'    => 0,
+  'ASCII_PUNCTUATION'    => 1,
+  'ASCII_GLYPH'          => 0,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
   'EXTENSION'            => 'txt',
@@ -433,7 +434,6 @@ sub converter_initialize($)
       = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   if ($self->get_conf('ASCII_PUNCTUATION')) {
-    $self->{'convert_text_options'}->{'ascii_punctuation'} = 1;
     # cache to avoid calling get_conf
     $self->{'ascii_punctuation'} = 1;
   } else {
@@ -445,15 +445,13 @@ sub converter_initialize($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->{'ascii_punctuation'}) {
-      foreach my $quoted_command (@quoted_commands) {
-        # Directed single quotes
-        $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
-      }
-      foreach my $quoted_command (@double_quoted_commands) {
-        # Directed double quotes
-        $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
-      }
+    foreach my $quoted_command (@quoted_commands) {
+      # Directed single quotes
+      $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
+    }
+    foreach my $quoted_command (@double_quoted_commands) {
+      # Directed double quotes
+      $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
     }
   }
   if (defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
@@ -654,8 +652,8 @@ sub _process_text($$$)
     $text = uc($text);
   }
 
-  if ($self->{'to_utf8'}
-      and !$self->{'ascii_punctuation'}) {
+  if (!$self->{'ascii_punctuation'}
+      and $self->{'to_utf8'}) {
     return Texinfo::Convert::Unicode::unicode_text($text,
                         $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {

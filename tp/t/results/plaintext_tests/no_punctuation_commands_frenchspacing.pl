@@ -363,11 +363,11 @@ $result_converted{'plaintext'}->{'no_punctuation_commands_frenchspacing'} = 'Dot
 
    End of lines and spaces Dot. Exclam! Question? End.
 
-   With paren.) paren.) Symb.)"’] Symb.)"’] End.
+   With paren.) paren.) Symb.)"\'] Symb.)"\'] End.
 
-   End of lines paren.) Symb.)"’] End.
+   End of lines paren.) Symb.)"\'] End.
 
-   End of lines and spaces paren.) Symb.)"’] End.
+   End of lines and spaces paren.) Symb.)"\'] End.
 ';
 
 1;

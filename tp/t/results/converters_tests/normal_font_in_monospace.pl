@@ -205,9 +205,9 @@ $result_floats{'normal_font_in_monospace'} = {};
 
 
 
-$result_converted{'plaintext'}->{'normal_font_in_monospace'} = '     in example in r—now ‘in co---de’
+$result_converted{'plaintext'}->{'normal_font_in_monospace'} = '     in example in r--now ‘in co---de’
 
-   ‘in command---c in r—r ‘in file---’’.
+   ‘in command---c in r--r ‘in file---’’.
 ';
 
 

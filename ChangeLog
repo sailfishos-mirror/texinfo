@@ -1,3 +1,18 @@
+2023-02-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Split ASCII_GLYPH and ASCII_PUNCTUATION
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Add ASCII_GLYPH.
+	* tp/Texinfo/Convert/Plaintext.pm (converter_initialize):
+	Ignore ASCII_PUNCTUATION for the output of @quoted_commands.
+	(_process_text): Reorder conditional.
+	(%defaults): Set ASCII_PUNCTUATION to 1 and ASCII_GLYPH to 0.
+	* tp/Texinfo/Convert/Text.pm
+	(copy_options_for_convert_text): Propagate ASCII_GLYPH.
+	(brace_no_arg_command): Check ASCII_GLYPH setting rather than
+	that of ASCII_PUNCTUATION.
+
 2023-02-22  Patrice Dumas  <pertusus@free.fr>
 
 	* p/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

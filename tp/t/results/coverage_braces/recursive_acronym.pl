@@ -88,7 +88,7 @@ $result_floats{'recursive_acronym'} = {};
 
 
 
-$result_converted{'plaintext'}->{'recursive_acronym'} = 'GNU (GNU’s Not Unix)
+$result_converted{'plaintext'}->{'recursive_acronym'} = 'GNU (GNU\'s Not Unix)
 ';
 
 

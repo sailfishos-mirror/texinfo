@@ -155,7 +155,7 @@ $result_floats{'inlinefmt'} = {};
 
 
 
-$result_converted{'plaintext'}->{'inlinefmt'} = 'A plaintext “ { a.  Now html .
+$result_converted{'plaintext'}->{'inlinefmt'} = 'A plaintext " { a.  Now html .
 ';
 
 

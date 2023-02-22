@@ -1,9 +1,9 @@
 This is direntry_dircategory.info, produced from
 direntry_dircategory.texi.
 
-INFO-DIR-SECTION “category—TH ERE?”
+INFO-DIR-SECTION "category--TH ERE?"
 START-INFO-DIR-ENTRY
-* foo: (foo).   “hello—THERE?”
+* foo: (foo).   "hello--THERE?"
 END-INFO-DIR-ENTRY
 
 INFO-DIR-SECTION cat2
@@ -21,13 +21,13 @@ END-INFO-DIR-ENTRY
 
 
 Indirect:
-direntry_dircategory.info-1: 420
-direntry_dircategory.info-2: 1004
+direntry_dircategory.info-1: 410
+direntry_dircategory.info-2: 984
 
 Tag Table:
 (Indirect)
-Node: Top420
-Node: chapter1004
+Node: Top410
+Node: chapter984
 
 End Tag Table
 

@@ -412,16 +412,16 @@ $result_floats{'quotation_and_author'} = {};
 
 $result_converted{'plaintext'}->{'quotation_and_author'} = 'Text before quotation
 
-     A quot—ation
-                             — _Some One_
+     A quot--ation
+                             -- _Some One_
 
    Text between quotation and smallquotation
 
-     in small—quotation.
-                          — _An Author Name_
+     in small--quotation.
+                          -- _An Author Name_
 
      Note: A Note
-                           — _Some Notifier_
+                          -- _Some Notifier_
 ';
 
 

@@ -3,23 +3,23 @@ formatting.texi.
 
 In copying
 
-   < > " & ’ ‘
+   < > " & ' '
 
-   “simple-double–three—four—-”
+   "simple-double-three--four---"
 code: ‘``simple-double--three---four----''’
-asis: “simple-double–three—four—-”
-strong: *“simple-double–three—four—-”*
+asis: "simple-double-three--four---"
+strong: *"simple-double-three--four---"*
 kbd: ‘``simple-double--three---four----''’
 
-   ‘‘simple-double--three—four—-’’
+   ''simple-double--three--four---''
 
-   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @’e é (é) @=o ō (ō) @‘i ì
-(ì) @’{e} é (é) @’{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
+   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @'e é (é) @=o ō (ō) @'i ì
+(ì) @'{e} é (é) @'{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
 (ȷ) ‘@H{a}’ a̋ ‘@dotaccent{a}’ ȧ (ȧ) ‘@ringaccent{a}’ å (å)
 ‘@tieaccent{a}’ a͡ ‘@u{a}’ ă (ă) ‘@ubaraccent{a}’ a̲ ‘@udotaccent{a}’ ạ
 (ạ) ‘@v{a}’ ǎ (ǎ) @,c ç (ç) ‘@,{c}’ ç (ç) ‘@ogonek{a}’ ą (ą)
 
-   @‘{@=E} Ḕ @l{} ł @,{@’C} Ḉ @,c@"u çü
+   @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c@"u çü
 
    ‘@H{--a}’ -a̋ ‘@dotaccent{--a}’ -ȧ ‘@ringaccent{--a}’ -å
 ‘@tieaccent{--a}’ -a͡ ‘@u{--a}’ -ă ‘@ubaraccent{--a}’ -a̲
@@ -55,22 +55,22 @@ Now !  !@ but , ,
    @textdegree ° (°) @euro € (€) @arrow → (→) @leq ≤ (≤) @geq ≥ (≥) @tie
 a b
 
-   ‘@acronym{--a,an accronym}’ –a (an accronym) ‘@acronym{--a}’ –a
-‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É–. ,A. (Étude Autonome)
-‘@abbr{@'E--. @comma{}A.}’ É–. ,A. ‘@asis{--a}’ –a ‘@b{--a}’ –a
-‘@cite{--a}’ ‘–a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
-“–a” ‘@dmn{--a}’ –a ‘@email{--a,--b}’ –b <--a> ‘@email{,--b}’ –b
-‘@email{--a}’ <--a> ‘@emph{--a}’ _–a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
-‘--a’ ‘@i{--a}’ –a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
+   ‘@acronym{--a,an accronym}’ -a (an accronym) ‘@acronym{--a}’ -a
+‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É-. ,A. (Étude Autonome)
+‘@abbr{@'E--. @comma{}A.}’ É-. ,A. ‘@asis{--a}’ -a ‘@b{--a}’ -a
+‘@cite{--a}’ ‘-a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
+“-a” ‘@dmn{--a}’ -a ‘@email{--a,--b}’ -b <--a> ‘@email{,--b}’ -b
+‘@email{--a}’ <--a> ‘@emph{--a}’ _-a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
+‘--a’ ‘@i{--a}’ -a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
 {\frac{1}{2}} @minus{}}’ --a {\frac{1}{2}} − ‘@option{--a}’ ‘--a’
-‘@r{--a}’ –a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ –A ‘@strong{--a}’ *–a*
-‘@t{--a}’ --a ‘@sansserif{--a}’ –a ‘@slanted{--a}’ –a ‘@titlefont{--a}’
-–a
+‘@r{--a}’ -a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ -A ‘@strong{--a}’ *-a*
+‘@t{--a}’ --a ‘@sansserif{--a}’ -a ‘@slanted{--a}’ -a ‘@titlefont{--a}’
+-a
 **
-   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ –b (--a) ‘@uref{--a}’
-<--a> ‘@uref{,--b}’ –b ‘@uref{--a,--b,--c}’ –c ‘@uref{,--b,--c}’ –c
-‘@uref{--a,,--c}’ –c ‘@uref{,,--c}’ –c ‘@url{--a,--b}’ –b (--a)
-‘@url{--a,}’ <--a> ‘@url{,--b}’ –b ‘@var{--a}’ –A ‘@verb{:--a:}’ --a
+   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ -b (--a) ‘@uref{--a}’
+<--a> ‘@uref{,--b}’ -b ‘@uref{--a,--b,--c}’ -c ‘@uref{,--b,--c}’ -c
+‘@uref{--a,,--c}’ -c ‘@uref{,,--c}’ -c ‘@url{--a,--b}’ -b (--a)
+‘@url{--a,}’ <--a> ‘@url{,--b}’ -b ‘@var{--a}’ -A ‘@verb{:--a:}’ --a
 ‘@verb{:a < & @ % " -- b:}’ a  < & @ % " --    b ‘@w{a a a a a a a a a a
 a a a a a a a a a a a a a a a a a a a a a a a a a}’
 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
@@ -136,7 +136,7 @@ b i r SC sansserif slanted
      in example distinct kbdinputstyle
      ‘vtable i--tem in example distinct kbdinputstyle’
 
-     A quot—ation
+     A quot--ation
 
      Note: A Note
 
@@ -163,11 +163,11 @@ b i r SC sansserif slanted
 
      : 
      aaa quotation
-                         — _quotation author_
+                         -- _quotation author_
 
      indent in quotation
 
-exdented quotation line and dash — in quotation
+exdented quotation line and dash -- in quotation
 
      Not exdented followed by exdented
 exdented quotation line
@@ -182,46 +182,46 @@ in exdented a @*
 and following
      after exdented
 
-     A small quot—ation
+     A small quot--ation
 
      Note: A small Note
 
      something, other thing: something, other thing
 
-   • i–temize
+   • i-temize
 
-   + i–tem +
+   + i-tem +
 
-   • b–ullet
+   • b-ullet
 
-   − minu–s
+   − minu-s
 
-   _after emph_ e–mph item
+   _after emph_ e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     with w a–b
-     with w c–d
+     with w a-b
+     with w c-d
 
-    on a line line w a–b
-    on a line line with w c–d
+    on a line line w a-b
+    on a line line with w c-d
 
-  1. e–numerate
+  1. e-numerate
 
   3. first third
   4. second third
 
-  a. e–numerate
+  a. e-numerate
 
   c. first c
   d. second c
 
-mu–ltitable headitem          another tab
+mu-ltitable headitem          another tab
 --------------------------------------------------------------------------
-mu–ltitable item              multitable tab
-mu–ltitable item 2            multitable tab 2
-lone mu–ltitable item
+mu-ltitable item              multitable tab
+mu-ltitable item 2            multitable tab 2
+lone mu-ltitable item
 
 truc   bidule
 
@@ -267,24 +267,24 @@ exdented two
      $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
 Less recent versions are also present.
 
-     d–isplay
+     d-isplay
 
-     s–malldisplay
+     s-malldisplay
 
      l--isp
 
      s--malllisp
 
-f–ormat
+f-ormat
 
-s–mallformat
+s-mallformat
 
  -- c--ategory: d--effn_name a--rguments...
-     d–effn
+     d-effn
 
  -- cate--gory: de--ffn_name ar--guments more args
           even more so
-     def–fn
+     def-fn
 
  -- fset: I a g
  -- cmde: truc
@@ -313,85 +313,85 @@ s–mallformat
      text in def item for second def item
 
  -- c--ategory: d--efvr_name
-     d–efvr
+     d-efvr
 
  -- c--ategory: n--ame a--rguments...
-     d–effn
+     d-effn
 
  -- c--ategory: n--ame
-     d–effn no arg
+     d-effn no arg
 
  -- c--ategory: t--ype d--eftypefn_name a--rguments...
-     d–eftypefn
+     d-eftypefn
 
  -- c--ategory: t--ype d--eftypefn_name
-     d–eftypefn no arg
+     d-eftypefn no arg
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name a--rguments...
-     d–eftypeop
+     d-eftypeop
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name
-     d–eftypeop no arg
+     d-eftypeop no arg
 
  -- c--ategory: t--ype d--eftypevr_name
-     d–eftypevr
+     d-eftypevr
 
  -- c--ategory of c--lass: d--efcv_name
-     d–efcv
+     d-efcv
 
  -- c--ategory of c--lass: d--efcv_name a--rguments...
-     d–efcv with arguments
+     d-efcv with arguments
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name
-     d–eftypecv
+     d-eftypecv
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name a--rguments...
-     d–eftypecv with arguments
+     d-eftypecv with arguments
 
  -- c--ategory on c--lass: d--efop_name a--rguments...
-     d–efop
+     d-efop
 
  -- c--ategory on c--lass: d--efop_name
-     d–efop no arg
+     d-efop no arg
 
  -- c--ategory: d--eftp_name a--ttributes...
-     d–eftp
+     d-eftp
 
  -- Function: d--efun_name a--rguments...
-     d–efun
+     d-efun
 
  -- Macro: d--efmac_name a--rguments...
-     d–efmac
+     d-efmac
 
  -- Special Form: d--efspec_name a--rguments...
-     d–efspec
+     d-efspec
 
  -- Variable: d--efvar_name
-     d–efvar
+     d-efvar
 
  -- Variable: d--efvar_name arg--var arg--var1
-     d–efvar with args
+     d-efvar with args
 
  -- User Option: d--efopt_name
-     d–efopt
+     d-efopt
 
  -- Function: t--ype d--eftypefun_name a--rguments...
-     d–eftypefun
+     d-eftypefun
 
  -- Variable: t--ype d--eftypevar_name
-     d–eftypevar
+     d-eftypevar
 
  -- Instance Variable of c--lass: d--efivar_name
-     d–efivar
+     d-efivar
 
  -- Instance Variable of c--lass: t--ype d--eftypeivar_name
-     d–eftypeivar
+     d-eftypeivar
 
  -- Method on c--lass: d--efmethod_name a--rguments...
-     d–efmethod
+     d-efmethod
 
  -- Method on c--lass: t--ype d--eftypemethod_name a--rguments...
-     d–eftypemethod
+     d-eftypemethod
 
  -- Function:
           data-type2
@@ -401,29 +401,29 @@ s–mallformat
  -- c--ategory2:
           t--ype2
           d--eftypefn_name2
-     d–eftypefn no arg2
+     d-eftypefn no arg2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2 a--rguments2...
-     d–eftypeop2
+     d-eftypeop2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2
-     d–eftypeop no arg2
+     d-eftypeop no arg2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2
-     d–eftypecv2
+     d-eftypecv2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
-     d–eftypecv with arguments2
+     d-eftypecv with arguments2
 
  -- fun2: arg2
      fff2
 
    ‘@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@,
-ma---nual@@}’ *Note cross r—ef name@: (file n---ame@)c---hapter@.
+ma---nual@@}’ *Note cross r--ef name@: (file n---ame@)c---hapter@.
 ‘@ref{chapter, cross ref name, title, file name, manual}’ *note cross
 ref name: (file name)chapter. ‘@pxref{chapter, cross ref name, title,
 file name, manual}’ *note cross ref name: (file name)chapter.
@@ -492,40 +492,40 @@ in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion.
 *note cross ref with uref uref1 (href://http/myhost.com/index.html):
 chapter.
 
-*a–strong*
-     l–ine
+*a-strong*
+     l-ine
 
-a–asis
+a-asis
 b
-     l–ine
+     l-ine
 
 _a_
 _b_
-     l–ine
+     l-ine
 
      Title
 ‘a--code’
-     Value–table code
+     Value-table code
 
      Title
 ‘a--samp’
 ‘a2--samp’
-     Value–table samp
+     Value-table samp
 
-   c–artouche
+   c-artouche
 
-                            Tit–le _of box_
-   With title c–artouche
+                            Tit-le _of box_
+   With title c-artouche
 
-f–lushleft
+f-lushleft
 more text
 
-                                                            f–lushright
+                                                            f-lushright
                                                               more text
 
-                            ce–ntered line
+                            ce-ntered line
 
-   r–raggedright more text
+   r-raggedright more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -556,9 +556,9 @@ subheading
 subsubheading
 .............
 
-‘@acronym{--a,an accronym @comma{} @enddots{}}’ –a (an accronym , ...)
-‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É–. ,A.
-(Étude–, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É–. ,A.
+‘@acronym{--a,an accronym @comma{} @enddots{}}’ -a (an accronym , ...)
+‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É-. ,A.
+(Étude-, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É-. ,A.
 
    ‘@math{--a@minus{} {\frac{1}{2}}}’ --a− {\frac{1}{2}}
 
@@ -566,9 +566,9 @@ subsubheading
 @, ̧
 @,@"u ̧ü
 
-   Invalid use of @’:
-@’ ́
-@’@"u ́ü
+   Invalid use of @':
+@' ́
+@'@"u ́ü
 
    ‘@|’
 
@@ -581,7 +581,7 @@ U+FFFFFFFFFFFFFF @U{110000}, value just beyond Unicode U+110000
 
    @TeX, but without brace TeX ‘@#’ #
 
-   ‘@w{--a}’ –a
+   ‘@w{--a}’ -a
 
    ‘@image{,1--xt}’  ‘@image{,,2--xt}’  ‘@image{,,,3--xt}’ 
 
@@ -612,25 +612,25 @@ TeX LaTeX ⋆ å ® °
 
 t
 
-   __ e–mph item
+   __ e-mph item
 
-   __ after emph e–mph item
+   __ after emph e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     without brace w a–b
-     without brace w c–d
+     without brace w a-b
+     without brace w c-d
 
 a
-     l–ine
+     l-ine
 
-a–missing style formatting
-     l–ine
+a-missing style formatting
+     l-ine
 
 a
 b
-     l–ine
+     l-ine
 
  -- fun:
  -- truc: machin bidule chose and
@@ -647,7 +647,7 @@ b
  -- :
  -- truc:
 
-   g–roupe
+   g-roupe
 
    ‘@ref{node}’ *note node::
 
@@ -691,7 +691,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
 INFO-DIR-SECTION Formatting é ‘@ TeX’ test
 START-INFO-DIR-ENTRY
 * Truc: (formatting).           The GNU documentation truc.
-* ‘@ é ≡’: (formatting).  “— something”
+* ‘@ é ≡’: (formatting).  "-- something"
                            ‘cmd’ à
 END-INFO-DIR-ENTRY
 
@@ -727,23 +727,23 @@ noindent in para.
    Insertcopying in normal text
    In copying
 
-   < > " & ’ ‘
+   < > " & ' '
 
-   “simple-double–three—four—-”
+   "simple-double-three--four---"
 code: ‘``simple-double--three---four----''’
-asis: “simple-double–three—four—-”
-strong: *“simple-double–three—four—-”*
+asis: "simple-double-three--four---"
+strong: *"simple-double-three--four---"*
 kbd: ‘``simple-double--three---four----''’
 
-   ‘‘simple-double--three—four—-’’
+   ''simple-double--three--four---''
 
-   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @’e é (é) @=o ō (ō) @‘i ì
-(ì) @’{e} é (é) @’{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
+   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @'e é (é) @=o ō (ō) @'i ì
+(ì) @'{e} é (é) @'{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
 (ȷ) ‘@H{a}’ a̋ ‘@dotaccent{a}’ ȧ (ȧ) ‘@ringaccent{a}’ å (å)
 ‘@tieaccent{a}’ a͡ ‘@u{a}’ ă (ă) ‘@ubaraccent{a}’ a̲ ‘@udotaccent{a}’ ạ
 (ạ) ‘@v{a}’ ǎ (ǎ) @,c ç (ç) ‘@,{c}’ ç (ç) ‘@ogonek{a}’ ą (ą)
 
-   @‘{@=E} Ḕ @l{} ł @,{@’C} Ḉ @,c@"u çü
+   @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c@"u çü
 
    ‘@H{--a}’ -a̋ ‘@dotaccent{--a}’ -ȧ ‘@ringaccent{--a}’ -å
 ‘@tieaccent{--a}’ -a͡ ‘@u{--a}’ -ă ‘@ubaraccent{--a}’ -a̲
@@ -779,22 +779,22 @@ Now !  !@ but , ,
    @textdegree ° (°) @euro € (€) @arrow → (→) @leq ≤ (≤) @geq ≥ (≥) @tie
 a b
 
-   ‘@acronym{--a,an accronym}’ –a (an accronym) ‘@acronym{--a}’ –a
-‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É–. ,A. (Étude Autonome)
-‘@abbr{@'E--. @comma{}A.}’ É–. ,A. ‘@asis{--a}’ –a ‘@b{--a}’ –a
-‘@cite{--a}’ ‘–a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
-“–a” ‘@dmn{--a}’ –a ‘@email{--a,--b}’ –b <--a> ‘@email{,--b}’ –b
-‘@email{--a}’ <--a> ‘@emph{--a}’ _–a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
-‘--a’ ‘@i{--a}’ –a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
+   ‘@acronym{--a,an accronym}’ -a (an accronym) ‘@acronym{--a}’ -a
+‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É-. ,A. (Étude Autonome)
+‘@abbr{@'E--. @comma{}A.}’ É-. ,A. ‘@asis{--a}’ -a ‘@b{--a}’ -a
+‘@cite{--a}’ ‘-a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
+“-a” ‘@dmn{--a}’ -a ‘@email{--a,--b}’ -b <--a> ‘@email{,--b}’ -b
+‘@email{--a}’ <--a> ‘@emph{--a}’ _-a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
+‘--a’ ‘@i{--a}’ -a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
 {\frac{1}{2}} @minus{}}’ --a {\frac{1}{2}} − ‘@option{--a}’ ‘--a’
-‘@r{--a}’ –a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ –A ‘@strong{--a}’ *–a*
-‘@t{--a}’ --a ‘@sansserif{--a}’ –a ‘@slanted{--a}’ –a ‘@titlefont{--a}’
-–a
+‘@r{--a}’ -a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ -A ‘@strong{--a}’ *-a*
+‘@t{--a}’ --a ‘@sansserif{--a}’ -a ‘@slanted{--a}’ -a ‘@titlefont{--a}’
+-a
 **
-   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ –b (--a) ‘@uref{--a}’
-<--a> ‘@uref{,--b}’ –b ‘@uref{--a,--b,--c}’ –c ‘@uref{,--b,--c}’ –c
-‘@uref{--a,,--c}’ –c ‘@uref{,,--c}’ –c ‘@url{--a,--b}’ –b (--a)
-‘@url{--a,}’ <--a> ‘@url{,--b}’ –b ‘@var{--a}’ –A ‘@verb{:--a:}’ --a
+   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ -b (--a) ‘@uref{--a}’
+<--a> ‘@uref{,--b}’ -b ‘@uref{--a,--b,--c}’ -c ‘@uref{,--b,--c}’ -c
+‘@uref{--a,,--c}’ -c ‘@uref{,,--c}’ -c ‘@url{--a,--b}’ -b (--a)
+‘@url{--a,}’ <--a> ‘@url{,--b}’ -b ‘@var{--a}’ -A ‘@verb{:--a:}’ --a
 ‘@verb{:a < & @ % " -- b:}’ a  < & @ % " --    b ‘@w{a a a a a a a a a a
 a a a a a a a a a a a a a a a a a a a a a a a a a}’
 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
@@ -860,7 +860,7 @@ b i r SC sansserif slanted
      in example distinct kbdinputstyle
      ‘vtable i--tem in example distinct kbdinputstyle’
 
-     A quot—ation
+     A quot--ation
 
      Note: A Note
 
@@ -887,11 +887,11 @@ b i r SC sansserif slanted
 
      : 
      aaa quotation
-                         — _quotation author_
+                         -- _quotation author_
 
      indent in quotation
 
-exdented quotation line and dash — in quotation
+exdented quotation line and dash -- in quotation
 
      Not exdented followed by exdented
 exdented quotation line
@@ -906,46 +906,46 @@ in exdented a @*
 and following
      after exdented
 
-     A small quot—ation
+     A small quot--ation
 
      Note: A small Note
 
      something, other thing: something, other thing
 
-   • i–temize
+   • i-temize
 
-   + i–tem +
+   + i-tem +
 
-   • b–ullet
+   • b-ullet
 
-   − minu–s
+   − minu-s
 
-   _after emph_ e–mph item
+   _after emph_ e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     with w a–b
-     with w c–d
+     with w a-b
+     with w c-d
 
-    on a line line w a–b
-    on a line line with w c–d
+    on a line line w a-b
+    on a line line with w c-d
 
-  1. e–numerate
+  1. e-numerate
 
   3. first third
   4. second third
 
-  a. e–numerate
+  a. e-numerate
 
   c. first c
   d. second c
 
-mu–ltitable headitem          another tab
+mu-ltitable headitem          another tab
 --------------------------------------------------------------------------
-mu–ltitable item              multitable tab
-mu–ltitable item 2            multitable tab 2
-lone mu–ltitable item
+mu-ltitable item              multitable tab
+mu-ltitable item 2            multitable tab 2
+lone mu-ltitable item
 
 truc   bidule
 
@@ -991,24 +991,24 @@ exdented two
      $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
 Less recent versions are also present.
 
-     d–isplay
+     d-isplay
 
-     s–malldisplay
+     s-malldisplay
 
      l--isp
 
      s--malllisp
 
-f–ormat
+f-ormat
 
-s–mallformat
+s-mallformat
 
  -- c--ategory: d--effn_name a--rguments...
-     d–effn
+     d-effn
 
  -- cate--gory: de--ffn_name ar--guments more args
           even more so
-     def–fn
+     def-fn
 
  -- fset: I a g
  -- cmde: truc
@@ -1037,85 +1037,85 @@ s–mallformat
      text in def item for second def item
 
  -- c--ategory: d--efvr_name
-     d–efvr
+     d-efvr
 
  -- c--ategory: n--ame a--rguments...
-     d–effn
+     d-effn
 
  -- c--ategory: n--ame
-     d–effn no arg
+     d-effn no arg
 
  -- c--ategory: t--ype d--eftypefn_name a--rguments...
-     d–eftypefn
+     d-eftypefn
 
  -- c--ategory: t--ype d--eftypefn_name
-     d–eftypefn no arg
+     d-eftypefn no arg
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name a--rguments...
-     d–eftypeop
+     d-eftypeop
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name
-     d–eftypeop no arg
+     d-eftypeop no arg
 
  -- c--ategory: t--ype d--eftypevr_name
-     d–eftypevr
+     d-eftypevr
 
  -- c--ategory of c--lass: d--efcv_name
-     d–efcv
+     d-efcv
 
  -- c--ategory of c--lass: d--efcv_name a--rguments...
-     d–efcv with arguments
+     d-efcv with arguments
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name
-     d–eftypecv
+     d-eftypecv
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name a--rguments...
-     d–eftypecv with arguments
+     d-eftypecv with arguments
 
  -- c--ategory on c--lass: d--efop_name a--rguments...
-     d–efop
+     d-efop
 
  -- c--ategory on c--lass: d--efop_name
-     d–efop no arg
+     d-efop no arg
 
  -- c--ategory: d--eftp_name a--ttributes...
-     d–eftp
+     d-eftp
 
  -- Function: d--efun_name a--rguments...
-     d–efun
+     d-efun
 
  -- Macro: d--efmac_name a--rguments...
-     d–efmac
+     d-efmac
 
  -- Special Form: d--efspec_name a--rguments...
-     d–efspec
+     d-efspec
 
  -- Variable: d--efvar_name
-     d–efvar
+     d-efvar
 
  -- Variable: d--efvar_name arg--var arg--var1
-     d–efvar with args
+     d-efvar with args
 
  -- User Option: d--efopt_name
-     d–efopt
+     d-efopt
 
  -- Function: t--ype d--eftypefun_name a--rguments...
-     d–eftypefun
+     d-eftypefun
 
  -- Variable: t--ype d--eftypevar_name
-     d–eftypevar
+     d-eftypevar
 
  -- Instance Variable of c--lass: d--efivar_name
-     d–efivar
+     d-efivar
 
  -- Instance Variable of c--lass: t--ype d--eftypeivar_name
-     d–eftypeivar
+     d-eftypeivar
 
  -- Method on c--lass: d--efmethod_name a--rguments...
-     d–efmethod
+     d-efmethod
 
  -- Method on c--lass: t--ype d--eftypemethod_name a--rguments...
-     d–eftypemethod
+     d-eftypemethod
 
  -- Function:
           data-type2
@@ -1125,29 +1125,29 @@ s–mallformat
  -- c--ategory2:
           t--ype2
           d--eftypefn_name2
-     d–eftypefn no arg2
+     d-eftypefn no arg2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2 a--rguments2...
-     d–eftypeop2
+     d-eftypeop2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2
-     d–eftypeop no arg2
+     d-eftypeop no arg2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2
-     d–eftypecv2
+     d-eftypecv2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
-     d–eftypecv with arguments2
+     d-eftypecv with arguments2
 
  -- fun2: arg2
      fff2
 
    ‘@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@,
-ma---nual@@}’ *Note cross r—ef name@: (file n---ame@)c---hapter@.
+ma---nual@@}’ *Note cross r--ef name@: (file n---ame@)c---hapter@.
 ‘@ref{chapter, cross ref name, title, file name, manual}’ *note cross
 ref name: (file name)chapter. ‘@pxref{chapter, cross ref name, title,
 file name, manual}’ *note cross ref name: (file name)chapter.
@@ -1216,40 +1216,40 @@ in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion.
 *note cross ref with uref uref1 (href://http/myhost.com/index.html):
 chapter.
 
-*a–strong*
-     l–ine
+*a-strong*
+     l-ine
 
-a–asis
+a-asis
 b
-     l–ine
+     l-ine
 
 _a_
 _b_
-     l–ine
+     l-ine
 
      Title
 ‘a--code’
-     Value–table code
+     Value-table code
 
      Title
 ‘a--samp’
 ‘a2--samp’
-     Value–table samp
+     Value-table samp
 
-   c–artouche
+   c-artouche
 
-                            Tit–le _of box_
-   With title c–artouche
+                            Tit-le _of box_
+   With title c-artouche
 
-f–lushleft
+f-lushleft
 more text
 
-                                                            f–lushright
+                                                            f-lushright
                                                               more text
 
-                            ce–ntered line
+                            ce-ntered line
 
-   r–raggedright more text
+   r-raggedright more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -1280,9 +1280,9 @@ subheading
 subsubheading
 .............
 
-‘@acronym{--a,an accronym @comma{} @enddots{}}’ –a (an accronym , ...)
-‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É–. ,A.
-(Étude–, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É–. ,A.
+‘@acronym{--a,an accronym @comma{} @enddots{}}’ -a (an accronym , ...)
+‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É-. ,A.
+(Étude-, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É-. ,A.
 
    ‘@math{--a@minus{} {\frac{1}{2}}}’ --a− {\frac{1}{2}}
 
@@ -1290,9 +1290,9 @@ subsubheading
 @, ̧
 @,@"u ̧ü
 
-   Invalid use of @’:
-@’ ́
-@’@"u ́ü
+   Invalid use of @':
+@' ́
+@'@"u ́ü
 
    ‘@|’
 
@@ -1305,7 +1305,7 @@ U+FFFFFFFFFFFFFF @U{110000}, value just beyond Unicode U+110000
 
    @TeX, but without brace TeX ‘@#’ #
 
-   ‘@w{--a}’ –a
+   ‘@w{--a}’ -a
 
    ‘@image{,1--xt}’  ‘@image{,,2--xt}’  ‘@image{,,,3--xt}’ 
 
@@ -1336,25 +1336,25 @@ TeX LaTeX ⋆ å ® °
 
 t
 
-   __ e–mph item
+   __ e-mph item
 
-   __ after emph e–mph item
+   __ after emph e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     without brace w a–b
-     without brace w c–d
+     without brace w a-b
+     without brace w c-d
 
 a
-     l–ine
+     l-ine
 
-a–missing style formatting
-     l–ine
+a-missing style formatting
+     l-ine
 
 a
 b
-     l–ine
+     l-ine
 
  -- fun:
  -- truc: machin bidule chose and
@@ -1371,7 +1371,7 @@ b
  -- :
  -- truc:
 
-   g–roupe
+   g-roupe
 
    ‘@ref{node}’ *note node::
 
@@ -1408,23 +1408,23 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
 
    Normal text
 
-   < > " & ’ ‘
+   < > " & ' '
 
-   “simple-double–three—four—-”
+   "simple-double-three--four---"
 code: ‘``simple-double--three---four----''’
-asis: “simple-double–three—four—-”
-strong: *“simple-double–three—four—-”*
+asis: "simple-double-three--four---"
+strong: *"simple-double-three--four---"*
 kbd: ‘``simple-double--three---four----''’
 
-   ‘‘simple-double--three—four—-’’
+   ''simple-double--three--four---''
 
-   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @’e é (é) @=o ō (ō) @‘i ì
-(ì) @’{e} é (é) @’{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
+   @"u ü (ü) @"{U} Ü (Ü) @~n ñ (ñ) @^a â (â) @'e é (é) @=o ō (ō) @'i ì
+(ì) @'{e} é (é) @'{@dotless{i}} í (í) @dotless{i} ı (ı) @dotless{j} ȷ
 (ȷ) ‘@H{a}’ a̋ ‘@dotaccent{a}’ ȧ (ȧ) ‘@ringaccent{a}’ å (å)
 ‘@tieaccent{a}’ a͡ ‘@u{a}’ ă (ă) ‘@ubaraccent{a}’ a̲ ‘@udotaccent{a}’ ạ
 (ạ) ‘@v{a}’ ǎ (ǎ) @,c ç (ç) ‘@,{c}’ ç (ç) ‘@ogonek{a}’ ą (ą)
 
-   @‘{@=E} Ḕ @l{} ł @,{@’C} Ḉ @,c@"u çü
+   @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c@"u çü
 
    ‘@H{--a}’ -a̋ ‘@dotaccent{--a}’ -ȧ ‘@ringaccent{--a}’ -å
 ‘@tieaccent{--a}’ -a͡ ‘@u{--a}’ -ă ‘@ubaraccent{--a}’ -a̲
@@ -1460,22 +1460,22 @@ Now !  !@ but , ,
    @textdegree ° (°) @euro € (€) @arrow → (→) @leq ≤ (≤) @geq ≥ (≥) @tie
 a b
 
-   ‘@acronym{--a,an accronym}’ –a (an accronym) ‘@acronym{--a}’ –a
-‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É–. ,A. (Étude Autonome)
-‘@abbr{@'E--. @comma{}A.}’ É–. ,A. ‘@asis{--a}’ –a ‘@b{--a}’ –a
-‘@cite{--a}’ ‘–a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
-“–a” ‘@dmn{--a}’ –a ‘@email{--a,--b}’ –b <--a> ‘@email{,--b}’ –b
-‘@email{--a}’ <--a> ‘@emph{--a}’ _–a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
-‘--a’ ‘@i{--a}’ –a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
+   ‘@acronym{--a,an accronym}’ -a (an accronym) ‘@acronym{--a}’ -a
+‘@abbr{@'E--. @comma{}A., @'Etude Autonome }’ É-. ,A. (Étude Autonome)
+‘@abbr{@'E--. @comma{}A.}’ É-. ,A. ‘@asis{--a}’ -a ‘@b{--a}’ -a
+‘@cite{--a}’ ‘-a’ ‘@code{--a}’ ‘--a’ ‘@command{--a}’ ‘--a’ ‘@dfn{--a}’
+“-a” ‘@dmn{--a}’ -a ‘@email{--a,--b}’ -b <--a> ‘@email{,--b}’ -b
+‘@email{--a}’ <--a> ‘@emph{--a}’ _-a_ ‘@env{--a}’ ‘--a’ ‘@file{--a}’
+‘--a’ ‘@i{--a}’ -a ‘@kbd{--a}’ ‘--a’ ‘@key{--a}’ <--a> ‘@math{--a
 {\frac{1}{2}} @minus{}}’ --a {\frac{1}{2}} − ‘@option{--a}’ ‘--a’
-‘@r{--a}’ –a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ –A ‘@strong{--a}’ *–a*
-‘@t{--a}’ --a ‘@sansserif{--a}’ –a ‘@slanted{--a}’ –a ‘@titlefont{--a}’
-–a
+‘@r{--a}’ -a ‘@samp{--a}’ ‘--a’ ‘@sc{--a}’ -A ‘@strong{--a}’ *-a*
+‘@t{--a}’ --a ‘@sansserif{--a}’ -a ‘@slanted{--a}’ -a ‘@titlefont{--a}’
+-a
 **
-   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ –b (--a) ‘@uref{--a}’
-<--a> ‘@uref{,--b}’ –b ‘@uref{--a,--b,--c}’ –c ‘@uref{,--b,--c}’ –c
-‘@uref{--a,,--c}’ –c ‘@uref{,,--c}’ –c ‘@url{--a,--b}’ –b (--a)
-‘@url{--a,}’ <--a> ‘@url{,--b}’ –b ‘@var{--a}’ –A ‘@verb{:--a:}’ --a
+   ‘@indicateurl{--a}’ ‘--a’ ‘@uref{--a,--b}’ -b (--a) ‘@uref{--a}’
+<--a> ‘@uref{,--b}’ -b ‘@uref{--a,--b,--c}’ -c ‘@uref{,--b,--c}’ -c
+‘@uref{--a,,--c}’ -c ‘@uref{,,--c}’ -c ‘@url{--a,--b}’ -b (--a)
+‘@url{--a,}’ <--a> ‘@url{,--b}’ -b ‘@var{--a}’ -A ‘@verb{:--a:}’ --a
 ‘@verb{:a < & @ % " -- b:}’ a  < & @ % " --    b ‘@w{a a a a a a a a a a
 a a a a a a a a a a a a a a a a a a a a a a a a a}’
 a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
@@ -1541,7 +1541,7 @@ b i r SC sansserif slanted
      in example distinct kbdinputstyle
      ‘vtable i--tem in example distinct kbdinputstyle’
 
-     A quot—ation
+     A quot--ation
 
      Note: A Note
 
@@ -1568,11 +1568,11 @@ b i r SC sansserif slanted
 
      : 
      aaa quotation
-                         — _quotation author_
+                         -- _quotation author_
 
      indent in quotation
 
-exdented quotation line and dash — in quotation
+exdented quotation line and dash -- in quotation
 
      Not exdented followed by exdented
 exdented quotation line
@@ -1587,46 +1587,46 @@ in exdented a @*
 and following
      after exdented
 
-     A small quot—ation
+     A small quot--ation
 
      Note: A small Note
 
      something, other thing: something, other thing
 
-   • i–temize
+   • i-temize
 
-   + i–tem +
+   + i-tem +
 
-   • b–ullet
+   • b-ullet
 
-   − minu–s
+   − minu-s
 
-   _after emph_ e–mph item
+   _after emph_ e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     with w a–b
-     with w c–d
+     with w a-b
+     with w c-d
 
-    on a line line w a–b
-    on a line line with w c–d
+    on a line line w a-b
+    on a line line with w c-d
 
-  1. e–numerate
+  1. e-numerate
 
   3. first third
   4. second third
 
-  a. e–numerate
+  a. e-numerate
 
   c. first c
   d. second c
 
-mu–ltitable headitem          another tab
+mu-ltitable headitem          another tab
 --------------------------------------------------------------------------
-mu–ltitable item              multitable tab
-mu–ltitable item 2            multitable tab 2
-lone mu–ltitable item
+mu-ltitable item              multitable tab
+mu-ltitable item 2            multitable tab 2
+lone mu-ltitable item
 
 truc   bidule
 
@@ -1672,24 +1672,24 @@ exdented two
      $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
 Less recent versions are also present.
 
-     d–isplay
+     d-isplay
 
-     s–malldisplay
+     s-malldisplay
 
      l--isp
 
      s--malllisp
 
-f–ormat
+f-ormat
 
-s–mallformat
+s-mallformat
 
  -- c--ategory: d--effn_name a--rguments...
-     d–effn
+     d-effn
 
  -- cate--gory: de--ffn_name ar--guments more args
           even more so
-     def–fn
+     def-fn
 
  -- fset: I a g
  -- cmde: truc
@@ -1718,85 +1718,85 @@ s–mallformat
      text in def item for second def item
 
  -- c--ategory: d--efvr_name
-     d–efvr
+     d-efvr
 
  -- c--ategory: n--ame a--rguments...
-     d–effn
+     d-effn
 
  -- c--ategory: n--ame
-     d–effn no arg
+     d-effn no arg
 
  -- c--ategory: t--ype d--eftypefn_name a--rguments...
-     d–eftypefn
+     d-eftypefn
 
  -- c--ategory: t--ype d--eftypefn_name
-     d–eftypefn no arg
+     d-eftypefn no arg
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name a--rguments...
-     d–eftypeop
+     d-eftypeop
 
  -- c--ategory on c--lass: t--ype d--eftypeop_name
-     d–eftypeop no arg
+     d-eftypeop no arg
 
  -- c--ategory: t--ype d--eftypevr_name
-     d–eftypevr
+     d-eftypevr
 
  -- c--ategory of c--lass: d--efcv_name
-     d–efcv
+     d-efcv
 
  -- c--ategory of c--lass: d--efcv_name a--rguments...
-     d–efcv with arguments
+     d-efcv with arguments
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name
-     d–eftypecv
+     d-eftypecv
 
  -- c--ategory of c--lass: t--ype d--eftypecv_name a--rguments...
-     d–eftypecv with arguments
+     d-eftypecv with arguments
 
  -- c--ategory on c--lass: d--efop_name a--rguments...
-     d–efop
+     d-efop
 
  -- c--ategory on c--lass: d--efop_name
-     d–efop no arg
+     d-efop no arg
 
  -- c--ategory: d--eftp_name a--ttributes...
-     d–eftp
+     d-eftp
 
  -- Function: d--efun_name a--rguments...
-     d–efun
+     d-efun
 
  -- Macro: d--efmac_name a--rguments...
-     d–efmac
+     d-efmac
 
  -- Special Form: d--efspec_name a--rguments...
-     d–efspec
+     d-efspec
 
  -- Variable: d--efvar_name
-     d–efvar
+     d-efvar
 
  -- Variable: d--efvar_name arg--var arg--var1
-     d–efvar with args
+     d-efvar with args
 
  -- User Option: d--efopt_name
-     d–efopt
+     d-efopt
 
  -- Function: t--ype d--eftypefun_name a--rguments...
-     d–eftypefun
+     d-eftypefun
 
  -- Variable: t--ype d--eftypevar_name
-     d–eftypevar
+     d-eftypevar
 
  -- Instance Variable of c--lass: d--efivar_name
-     d–efivar
+     d-efivar
 
  -- Instance Variable of c--lass: t--ype d--eftypeivar_name
-     d–eftypeivar
+     d-eftypeivar
 
  -- Method on c--lass: d--efmethod_name a--rguments...
-     d–efmethod
+     d-efmethod
 
  -- Method on c--lass: t--ype d--eftypemethod_name a--rguments...
-     d–eftypemethod
+     d-eftypemethod
 
  -- Function:
           data-type2
@@ -1806,29 +1806,29 @@ s–mallformat
  -- c--ategory2:
           t--ype2
           d--eftypefn_name2
-     d–eftypefn no arg2
+     d-eftypefn no arg2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2 a--rguments2...
-     d–eftypeop2
+     d-eftypeop2
 
  -- c--ategory2 on c--lass2:
           t--ype2
           d--eftypeop_name2
-     d–eftypeop no arg2
+     d-eftypeop no arg2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2
-     d–eftypecv2
+     d-eftypecv2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
-     d–eftypecv with arguments2
+     d-eftypecv with arguments2
 
  -- fun2: arg2
      fff2
 
    ‘@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@,
-ma---nual@@}’ *Note cross r—ef name@: (file n---ame@)c---hapter@.
+ma---nual@@}’ *Note cross r--ef name@: (file n---ame@)c---hapter@.
 ‘@ref{chapter, cross ref name, title, file name, manual}’ *note cross
 ref name: (file name)chapter. ‘@pxref{chapter, cross ref name, title,
 file name, manual}’ *note cross ref name: (file name)chapter.
@@ -1897,40 +1897,40 @@ in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion.
 *note cross ref with uref uref1 (href://http/myhost.com/index.html):
 chapter.
 
-*a–strong*
-     l–ine
+*a-strong*
+     l-ine
 
-a–asis
+a-asis
 b
-     l–ine
+     l-ine
 
 _a_
 _b_
-     l–ine
+     l-ine
 
      Title
 ‘a--code’
-     Value–table code
+     Value-table code
 
      Title
 ‘a--samp’
 ‘a2--samp’
-     Value–table samp
+     Value-table samp
 
-   c–artouche
+   c-artouche
 
-                            Tit–le _of box_
-   With title c–artouche
+                            Tit-le _of box_
+   With title c-artouche
 
-f–lushleft
+f-lushleft
 more text
 
-                                                            f–lushright
+                                                            f-lushright
                                                               more text
 
-                            ce–ntered line
+                            ce-ntered line
 
-   r–raggedright more text
+   r-raggedright more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -1961,9 +1961,9 @@ subheading
 subsubheading
 .............
 
-‘@acronym{--a,an accronym @comma{} @enddots{}}’ –a (an accronym , ...)
-‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É–. ,A.
-(Étude–, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É–. ,A.
+‘@acronym{--a,an accronym @comma{} @enddots{}}’ -a (an accronym , ...)
+‘@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }’ É-. ,A.
+(Étude-, Autonome) ‘@abbr{@'E--. @comma{}A.}’ É-. ,A.
 
    ‘@math{--a@minus{} {\frac{1}{2}}}’ --a− {\frac{1}{2}}
 
@@ -1971,9 +1971,9 @@ subsubheading
 @, ̧
 @,@"u ̧ü
 
-   Invalid use of @’:
-@’ ́
-@’@"u ́ü
+   Invalid use of @':
+@' ́
+@'@"u ́ü
 
    ‘@|’
 
@@ -1986,7 +1986,7 @@ U+FFFFFFFFFFFFFF @U{110000}, value just beyond Unicode U+110000
 
    @TeX, but without brace TeX ‘@#’ #
 
-   ‘@w{--a}’ –a
+   ‘@w{--a}’ -a
 
    ‘@image{,1--xt}’  ‘@image{,,2--xt}’  ‘@image{,,,3--xt}’ 
 
@@ -2017,25 +2017,25 @@ TeX LaTeX ⋆ å ® °
 
 t
 
-   __ e–mph item
+   __ e-mph item
 
-   __ after emph e–mph item
+   __ after emph e-mph item
 
-   • a–n itemize line i–tem 1
-   • a–n itemize line i–tem 2
+   • a-n itemize line i-tem 1
+   • a-n itemize line i-tem 2
 
-     without brace w a–b
-     without brace w c–d
+     without brace w a-b
+     without brace w c-d
 
 a
-     l–ine
+     l-ine
 
-a–missing style formatting
-     l–ine
+a-missing style formatting
+     l-ine
 
 a
 b
-     l–ine
+     l-ine
 
  -- fun:
  -- truc: machin bidule chose and
@@ -2052,7 +2052,7 @@ b
  -- :
  -- truc:
 
-   g–roupe
+   g-roupe
 
    ‘@ref{node}’ *note node::
 
@@ -2265,7 +2265,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
      @key{--a} <--a>
      @math{--a {\frac{1}{2}} @minus{}} --a {\frac{1}{2}} −
      @option{--a} --a
-     @r{--a} –a
+     @r{--a} -a
      @samp{--a} ‘--a’
      @sc{--a} --A
      @strong{--a} *--a*
@@ -2273,7 +2273,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
      @sansserif{--a} --a
      @slanted{--a} --a
      @titlefont{--a}
-     –a
+     -a
      **
      @indicateurl{--a} ‘--a’
      @uref{--a,--b} --b (--a)
@@ -2385,7 +2385,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
 
           : 
           aaa quotation
-                         — _quotation author_
+                         -- _quotation author_
 
           indent in quotation
 
@@ -2420,8 +2420,8 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
 
         _after emph_ e--mph item
 
-        • a–n itemize line i--tem 1
-        • a–n itemize line i--tem 2
+        • a-n itemize line i--tem 1
+        • a-n itemize line i--tem 2
 
           with w a--b
           with w c--d
@@ -2716,10 +2716,10 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
      *note cross ref with uref uref1 (href://http/myhost.com/index.html): (info file with uref3 uref3 (href://http/myhost.com/index3.html))ext.
      *note cross ref with uref uref1 (href://http/myhost.com/index.html): chapter.
 
-     *a–strong*
+     *a-strong*
           l--ine
 
-     a–asis
+     a-asis
      b
           l--ine
 
@@ -2738,7 +2738,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
 
      c--artouche
 
-                            Tit–le _of box_
+                            Tit-le _of box_
           With title c--artouche
 
      f--lushleft
@@ -2747,7 +2747,7 @@ cross ref name: (file name). ‘@inforef{}’ *note ::
                                                            f--lushright
                                                               more text
 
-                            ce–ntered line
+                            ce-ntered line
 
      r--raggedright
      more text
@@ -2873,8 +2873,8 @@ aaa" ]
 
         __ after emph e--mph item
 
-        • a–n itemize line i--tem 1
-        • a–n itemize line i--tem 2
+        • a-n itemize line i--tem 1
+        • a-n itemize line i--tem 2
 
           without brace w a--b
           without brace w c--d
@@ -2882,7 +2882,7 @@ aaa" ]
      a
           l--ine
 
-     a–missing style formatting
+     a-missing style formatting
           l--ine
 
      a
@@ -2966,26 +2966,26 @@ aaa" ]
  [index ]
 * Menu:
 
-* –option:                               chapter.            (line   28)
-* –option <1>:                           chapter.            (line  709)
-* –option <2>:                           chapter.            (line 1401)
+* -option:                               chapter.            (line   28)
+* -option <1>:                           chapter.            (line  709)
+* -option <2>:                           chapter.            (line 1401)
 * ?:                                     chapter.            (line 2236)
 * .:                                     chapter.            (line 2236)
-* “:                                     chapter.            (line   28)
-* “ <1>:                                 chapter.            (line  709)
-* “ <2>:                                 chapter.            (line 1401)
+* ":                                     chapter.            (line   28)
+* " <1>:                                 chapter.            (line  709)
+* " <2>:                                 chapter.            (line 1401)
 * a:                                     chapter.            (line 2236)
 * aaa, bbb:                              chapter.            (line 2236)
-* a—a:                                   chapter.            (line 2236)
+* a--a:                                  chapter.            (line 2236)
 * a--asis:                               chapter.            (line  510)
 * a--asis <1>:                           chapter.            (line 1191)
 * a--asis <2>:                           chapter.            (line 2010)
 * b:                                     chapter.            (line  511)
 * b <1>:                                 chapter.            (line 1192)
 * b <2>:                                 chapter.            (line 2011)
-* b—b, c—c:                              chapter.            (line 2236)
+* b--b, c--c:                            chapter.            (line 2236)
 * counting entry:                        chapter.            (line    4)
-* d—dd, e—ee, f—ff:                      chapter.            (line 2236)
+* d--dd, e--ee, f--ff:                   chapter.            (line 2236)
 * d--efcv_name:                          chapter.            (line  351)
 * d--efcv_name <1>:                      chapter.            (line  354)
 * d--efcv_name <2>:                      chapter.            (line 1032)
@@ -3028,7 +3028,7 @@ aaa" ]
 * d--efvr_name:                          chapter.            (line  327)
 * d--efvr_name <1>:                      chapter.            (line 1008)
 * d--efvr_name <2>:                      chapter.            (line 1827)
-* g—gg, h—hh jjj, k—kk, l—ll:            chapter.            (line 2236)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2236)
 * index entry between item and itemx:    chapter.            (line  515)
 * index entry between item and itemx <1>: chapter.           (line  644)
 * index entry between item and itemx <2>: chapter.           (line 1196)
@@ -3045,8 +3045,8 @@ aaa" ]
 * index entry within multitable:         chapter.            (line  236)
 * index entry within multitable <1>:     chapter.            (line  917)
 * index entry within multitable <2>:     chapter.            (line 1734)
-* t–ruc:                                 chapter.            (line 2236)
-* T–ruc:                                 chapter.            (line 2236)
+* t-ruc:                                 chapter.            (line 2236)
+* T-ruc:                                 chapter.            (line 2236)
 * vtable i--tem code kbdinputstyle:      chapter.            (line  137)
 * vtable i--tem code kbdinputstyle <1>:  chapter.            (line  818)
 * vtable i--tem code kbdinputstyle <2>:  chapter.            (line 1634)
@@ -3269,10 +3269,10 @@ aaa" ]
 
 * Menu:
 
-* s--ect,ion:: s–ect,ion
+* s--ect,ion:: s-ect,ion
 
 Menu comment
-“simple-double–three—four—-”
+"simple-double-three--four---"
 
 
 
@@ -3327,14 +3327,14 @@ File: formatting.info,  Node: subsection,  Up: s--ect,ion
 
 File: formatting.info,  Node: subsubsection ``simple-double--,  Next: subsubsection three---four----'',  Up: subsection
 
-1.1.1.1 subsubsection “simple-double–
+1.1.1.1 subsubsection "simple-double-
 .....................................
 
 
 File: formatting.info,  Node: subsubsection three---four----'',  Prev: subsubsection ``simple-double--,  Up: subsection
 
-1.1.1.2 three—four—-”
-.....................
+1.1.1.2 three--four---"
+.......................
 
 
 File: formatting.info,  Node: chapter2,  Prev: chapter,  Up: Top
@@ -3345,26 +3345,26 @@ chapter 2
  [index ]
 * Menu:
 
-* –option:                               chapter.            (line   28)
-* –option <1>:                           chapter.            (line  709)
-* –option <2>:                           chapter.            (line 1401)
+* -option:                               chapter.            (line   28)
+* -option <1>:                           chapter.            (line  709)
+* -option <2>:                           chapter.            (line 1401)
 * ?:                                     chapter.            (line 2236)
 * .:                                     chapter.            (line 2236)
-* “:                                     chapter.            (line   28)
-* “ <1>:                                 chapter.            (line  709)
-* “ <2>:                                 chapter.            (line 1401)
+* ":                                     chapter.            (line   28)
+* " <1>:                                 chapter.            (line  709)
+* " <2>:                                 chapter.            (line 1401)
 * a:                                     chapter.            (line 2236)
 * aaa, bbb:                              chapter.            (line 2236)
-* a—a:                                   chapter.            (line 2236)
+* a--a:                                  chapter.            (line 2236)
 * a--asis:                               chapter.            (line  510)
 * a--asis <1>:                           chapter.            (line 1191)
 * a--asis <2>:                           chapter.            (line 2010)
 * b:                                     chapter.            (line  511)
 * b <1>:                                 chapter.            (line 1192)
 * b <2>:                                 chapter.            (line 2011)
-* b—b, c—c:                              chapter.            (line 2236)
+* b--b, c--c:                            chapter.            (line 2236)
 * counting entry:                        chapter.            (line 2586)
-* d—dd, e—ee, f—ff:                      chapter.            (line 2236)
+* d--dd, e--ee, f--ff:                   chapter.            (line 2236)
 * d--efcv_name:                          chapter.            (line  351)
 * d--efcv_name <1>:                      chapter.            (line  354)
 * d--efcv_name <2>:                      chapter.            (line 1032)
@@ -3407,7 +3407,7 @@ chapter 2
 * d--efvr_name:                          chapter.            (line  327)
 * d--efvr_name <1>:                      chapter.            (line 1008)
 * d--efvr_name <2>:                      chapter.            (line 1827)
-* g—gg, h—hh jjj, k—kk, l—ll:            chapter.            (line 2236)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2236)
 * index entry between item and itemx:    chapter.            (line  515)
 * index entry between item and itemx <1>: chapter.           (line  644)
 * index entry between item and itemx <2>: chapter.           (line 1196)
@@ -3424,8 +3424,8 @@ chapter 2
 * index entry within multitable:         chapter.            (line  236)
 * index entry within multitable <1>:     chapter.            (line  917)
 * index entry within multitable <2>:     chapter.            (line 1734)
-* t–ruc:                                 chapter.            (line 2236)
-* T–ruc:                                 chapter.            (line 2236)
+* t-ruc:                                 chapter.            (line 2236)
+* T-ruc:                                 chapter.            (line 2236)
 * vtable i--tem code kbdinputstyle:      chapter.            (line  137)
 * vtable i--tem code kbdinputstyle <1>:  chapter.            (line  818)
 * vtable i--tem code kbdinputstyle <2>:  chapter.            (line 1634)
@@ -3630,22 +3630,22 @@ chapter 2
 
 
 Tag Table:
-Node: Top20328
-Node: chapter20513
-Ref: chapter-Footnote-1103158
-Ref: chapter-Footnote-2103178
-Ref: chapter-Footnote-3103199
-Ref: chapter-Footnote-4103219
-Ref: chapter-Footnote-5103240
-Ref: chapter-Footnote-6103260
-Ref: chapter-Footnote-7103281
-Ref: chapter-Footnote-8103319
-Node: s--ect,ion103339
-Node: subsection103542
-Ref: anchor103723
-Node: subsubsection ``simple-double--103723
-Node: subsubsection three---four----''103927
-Node: chapter2104101
+Node: Top20028
+Node: chapter20213
+Ref: chapter-Footnote-1102199
+Ref: chapter-Footnote-2102219
+Ref: chapter-Footnote-3102240
+Ref: chapter-Footnote-4102260
+Ref: chapter-Footnote-5102281
+Ref: chapter-Footnote-6102301
+Ref: chapter-Footnote-7102322
+Ref: chapter-Footnote-8102360
+Node: s--ect,ion102380
+Node: subsection102583
+Ref: anchor102764
+Node: subsubsection ``simple-double--102764
+Node: subsubsection three---four----''102964
+Node: chapter2103136
 
 End Tag Table
 

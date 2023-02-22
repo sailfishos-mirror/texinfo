@@ -1502,7 +1502,7 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 <b>in b(1).</b>
    ‘in kbd before tex’(2).
 
-   {No value for ‘flag’}
+   {No value for \'flag\'}
    .
 
    ‘in kbd after tex’.

@@ -607,11 +607,11 @@ $result_indices_sort_strings{'multitable'} = {
 
 
 
-$result_converted{'plaintext'}->{'multitable'} = 'mu–ltitable headitem                        another tab
+$result_converted{'plaintext'}->{'multitable'} = 'mu-ltitable headitem                        another tab
 --------------------------------------------------------------------------
-mu–ltitable item                            multitable tab
-mu–ltitable item 2                          multitable tab 2
-lone mu–ltitable item
+mu-ltitable item                            multitable tab
+mu-ltitable item 2                          multitable tab 2
+lone mu-ltitable item
 
 truc   bidule
 ';

@@ -1954,11 +1954,11 @@ $result_indices_sort_strings{'def'} = {
 
 
 $result_converted{'plaintext'}->{'def'} = ' -- c--ategory: d--effn_name a--rguments...
-     d–effn
+     d-effn
 
  -- cate--gory: de--ffn_name ar--guments more args
           even more so
-     def–fn
+     def-fn
 
  -- fset: I a g
  -- cmde: truc

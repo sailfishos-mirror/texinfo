@@ -3056,7 +3056,7 @@ $result_indices_sort_strings{'encoding_index_utf8_enable_encoding'} = {
     '"',
     '"',
     '"',
-    '"',
+    "\x{201c}",
     '@',
     '`',
     "\x{b0}",

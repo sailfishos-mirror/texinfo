@@ -650,9 +650,9 @@ $result_converted{'plaintext'}->{'itemize_in_example'} = '        • first
 
         + item +
 
-        m–n with m--n
+        m-n with m--n
 
-        • a–n itemize line in an itemize line
+        • a-n itemize line in an itemize line
 ';
 
 

@@ -603,7 +603,7 @@ $result_floats{'inline_expand_tex'} = {};
 
 
 
-$result_converted{'plaintext'}->{'inline_expand_tex'} = ', , , , $\\underlinea < b ‘tex \\hbox code ’$ “
+$result_converted{'plaintext'}->{'inline_expand_tex'} = ', , , , $\\underlinea < b ‘tex \\hbox code ’$ "
 
    , , , , raw $\\underline{a < b ‘tex \\hbox{ code }’}$ ``
 ';

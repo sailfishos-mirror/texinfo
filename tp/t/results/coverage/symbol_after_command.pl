@@ -441,10 +441,10 @@ $result_converted{'plaintext'}->{'symbol_after_command'} = '. dot
 @ @
 { {
 ! exclam
-” quotes
+" quotes
 : colon
 
-   @.  {, @@ ?, !: @{ @” @:
+   @.  {, @@ ?, !: @{ @" @:
 ';
 
 

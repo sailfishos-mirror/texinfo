@@ -446,7 +446,7 @@ $result_indices_sort_strings{'commands'} = {
 
 $result_converted{'plaintext'}->{'commands'} = '@ TeX  ë î ã å
 
-   File → Open.  b <a> ‘code --- -- \'\' ``’ — – ” “.  SMALL CAPS.
+   File → Open.  b <a> ‘code --- -- \'\' ``’ -- - " ".  SMALL CAPS.
 
 majorheading in b
 *****************

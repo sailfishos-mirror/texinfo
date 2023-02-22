@@ -176,7 +176,7 @@ $result_floats{'inlinefmtspaces'} = {};
 
 
 
-$result_converted{'plaintext'}->{'inlinefmtspaces'} = 'A plaintext “ { a.  Now html .
+$result_converted{'plaintext'}->{'inlinefmtspaces'} = 'A plaintext " { a.  Now html .
 ';
 
 

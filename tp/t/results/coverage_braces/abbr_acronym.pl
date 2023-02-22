@@ -346,9 +346,9 @@ $result_floats{'abbr_acronym'} = {};
 
 
 
-$result_converted{'plaintext'}->{'abbr_acronym'} = '–a (an accronym) –a –a (an accronym , ...)
+$result_converted{'plaintext'}->{'abbr_acronym'} = '-a (an accronym) -a -a (an accronym , ...)
 
-   É–a. ,A. (Étude–, Autonome) É–a. ,A.
+   É-a. ,A. (Étude-, Autonome) É-a. ,A.
 ';
 
 

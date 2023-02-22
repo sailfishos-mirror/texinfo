@@ -254,7 +254,7 @@ sub brace_no_arg_command($;$)
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($text_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if (!($options and $options->{'ascii_punctuation'})
+  if (!($options and $options->{'ASCII_GLYPH'})
         or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
     $result = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }
@@ -357,6 +357,7 @@ sub copy_options_for_convert_text($;$)
   # for error registering
   $options{'DEBUG'} = $self->get_conf('DEBUG');
   $options{'PROGRAM'} = $self->get_conf('PROGRAM');
+  $options{'ASCII_GLYPH'} = $self->get_conf('ASCII_GLYPH');
   return %options;
 }
 

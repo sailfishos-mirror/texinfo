@@ -915,7 +915,7 @@ max
 
 * chap::
 
- — The Detailed Node Listing —
+ -- The Detailed Node Listing --
 
 chap
 
@@ -941,8 +941,8 @@ File: ,  Node: section,  Up: chap
 
 Tag Table:
 Node: Top49
-Node: chap179
-Node: section261
+Node: chap177
+Node: section259
 
 End Tag Table
 

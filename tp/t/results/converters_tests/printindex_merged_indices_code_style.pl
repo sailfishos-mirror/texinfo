@@ -923,11 +923,11 @@ $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = 'top
 
 * Menu:
 
-* c“b:                                   chap.                  (line 6)
-* cdi“h:                                 chap.                  (line 6)
+* c"b:                                   chap.                  (line 6)
+* cdi"h:                                 chap.                  (line 6)
 * ddi``g:                                chap.                  (line 6)
 * f``g:                                  chap.                  (line 6)
-* v“j:                                   chap.                  (line 6)
+* v"j:                                   chap.                  (line 6)
 
 ';
 

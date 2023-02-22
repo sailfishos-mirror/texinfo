@@ -619,12 +619,13 @@ $result_converted{'plaintext'}->{'special_characters_in_float_type'} = 'top
 
 F
 
-A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: float A < " “ ‘ ’ ’ \\aaa .  — IN VAR
+A < " " \' \' \' \\aaa . -- IN VAR 1.1: float A < " " \' \' \' \\aaa .  -- IN
+VAR
 
 * Menu:
 
-* A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
-                                         float A < " “ ‘ ’ ’ \\aaa .  ...
+* A < " " \' \' \' \\aaa . -- IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
+                                         float A < " " \' \' \' \\aaa .  ...
 
 ';
 
@@ -649,12 +650,13 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 F
 
-A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: float A < " “ ‘ ’ ’ \\aaa .  — IN VAR
+A < " " \' \' \' \\aaa . -- IN VAR 1.1: float A < " " \' \' \' \\aaa .  -- IN
+VAR
 
 * Menu:
 
-* A < " “ ‘ ’ ’ \\aaa . — IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
-                                         float A < " “ ‘ ’ ’ \\aaa .  ...
+* A < " " \' \' \' \\aaa . -- IN VAR 1.1: L < " `` ` \' \' \\aaa . --- IN VAR.
+                                         float A < " " \' \' \' \\aaa .  ...
 
 
 

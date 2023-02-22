@@ -2345,17 +2345,17 @@ $result_floats{'accent_enable_encoding'} = {};
 $result_converted{'plaintext'}->{'accent_enable_encoding'} = 'top
 ***
 
-should be e‘: è è
+should be e\': è è
 
-   should be e’: é é
+   should be e\': é é
 
    should be e^: ê ê
 
    should be u": ü ü
 
-   should be i‘: ì ì
+   should be i\': ì ì
 
-   should be i’: í í
+   should be i\': í í
 
    should be i^: î î
 
@@ -2367,7 +2367,7 @@ should be e‘: è è
 
    should be e=: ē ē
 
-   should be e’’: e̋ e̋
+   should be e\'\': e̋ e̋
 
    should be e.: ė ė
 
@@ -2403,17 +2403,17 @@ should be e‘: è è
 
    pounds sterling: £
 
-   should be dotless i‘: ì
+   should be dotless i\': ì
 
-   should be dotless i’: í
+   should be dotless i\': í
 
    should be dotless i^: î
 
    should be dotless i": ï
 
-   should be dotless j‘: j̀
+   should be dotless j\': j̀
 
-   should be dotless j’: j́
+   should be dotless j\': j́
 
    should be dotless j^: ĵ
 
