@@ -5084,9 +5084,10 @@ sub _process_remaining_on_line($$$$)
       ($expansion_error, $line, $source_info)
         = _handle_macro($self, $current, $line, $source_info, $command);
       if (!$expansion_error) {
-        # FIXME this is the same as in the XS parser, and it gives somewhat better
-        # results in test cases, avoiding useless text.  But it is unclear why
-        # it is so and if it is not covering up some other bug.
+        # directly get the following input (macro expansion text) instead
+        # of going through the next call of process_remaining_on_line and
+        # the processing of empty text.  No difference in output, more
+        # efficient.
         ($line, $source_info) = _next_text($self, $current);
       }
       return ($current, $line, $source_info, $retval);

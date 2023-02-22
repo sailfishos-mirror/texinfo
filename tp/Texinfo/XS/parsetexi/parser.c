@@ -1689,6 +1689,12 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       expansion_error = handle_macro (current, &line, cmd);
       if (!expansion_error)
         {
+          /* directly get the following input (macro expansion text) instead
+             of going through the next call of process_remaining_on_line and
+             the processing of empty text.  No difference in output, more
+             efficient.
+           */
+
           free (allocated_line);
           allocated_line = next_text (current);
           line = allocated_line;
