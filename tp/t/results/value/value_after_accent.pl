@@ -42,6 +42,12 @@ $result_trees{'value_after_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => 'ringaccent',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 1,
@@ -54,16 +60,13 @@ $result_trees{'value_after_accent'} = {
                         'cmdname' => 'value'
                       },
                       'line' => 'a',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => ' '
                 }
-              ],
-              'cmdname' => 'ringaccent',
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -90,6 +93,12 @@ $result_trees{'value_after_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => '~',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 2,
@@ -106,10 +115,9 @@ $result_trees{'value_after_accent'} = {
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => ''
                 }
-              ],
-              'cmdname' => '~',
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,

@@ -14,7 +14,9 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
             {
               'cmdname' => 'code',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -39,7 +41,9 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
             {
               'cmdname' => '~',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

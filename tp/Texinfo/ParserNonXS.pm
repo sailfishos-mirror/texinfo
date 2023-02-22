@@ -4691,6 +4691,16 @@ sub _new_value_element($$;$)
   return $value_elt;
 }
 
+sub _gather_spaces_after_cmd_before_arg($$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $spaces_element = _pop_element_from_contents($self, $current);
+  delete $spaces_element->{'type'};
+  $current->{'info'} = {} if (!$current->{'info'});
+  $current->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
+}
+
 sub _handle_macro($$$$$)
 {
   my $self = shift;
@@ -5146,6 +5156,9 @@ sub _process_remaining_on_line($$$$)
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     $self->_line_error(sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
+    if ($current->{'contents'}) {
+      _gather_spaces_after_cmd_before_arg($self, $current);
+    }
     $current = $current->{'parent'};
   }
 
@@ -5178,7 +5191,8 @@ sub _process_remaining_on_line($$$$)
   if ($current->{'cmdname'}
         and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
         and !$open_brace) {
-    print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
+    print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: '$line'"
+     . ($line =~ /\n/ ? '' : "\n")
       if $self->{'DEBUG'};
     # Note that non ascii spaces do not count as spaces
     if ($line =~ /^(\s+)/
@@ -5195,6 +5209,10 @@ sub _process_remaining_on_line($$$$)
           # do not consider the end of line to be possibly between
           # the @-command and the argument if at the end of a
           # line or block @-command.
+          if ($current->{'contents'}) {
+            # TODO specific case not tested
+            _gather_spaces_after_cmd_before_arg($self, $current);
+          }
           $current = $current->{'parent'};
           $current = _merge_text($self, $current, $added_space);
           _isolate_last_space($self, $current);
@@ -5204,24 +5222,28 @@ sub _process_remaining_on_line($$$$)
         }
         $additional_newline = 1;
       }
-      $current->{'info'} = {} if (!$current->{'info'});
-      if (!defined($current->{'info'}->{'spaces_after_cmd_before_arg'})) {
+      if (!$current->{'contents'}) {
         $line =~ s/^(\s+)//;
-        $current->{'info'}->{'spaces_after_cmd_before_arg'} = $added_space;
+        my $spaces_after_cmd_before_arg
+           = {'type' => 'internal_spaces_after_cmd_before_arg',
+              'text' => $1, 'parent' => $current};
+        $current->{'contents'} = [$spaces_after_cmd_before_arg];
         print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
           if $self->{'DEBUG'};
       # only ignore spaces and one newline, two newlines lead to
       # an empty line before the brace or argument which is incorrect.
       } elsif ($additional_newline
-               and $current->{'info'}->{'spaces_after_cmd_before_arg'} =~ /\n/) {
+               and $current->{'contents'}
+               and $current->{'contents'}->[0]->{'text'} =~ /\n/) {
         print STDERR "BRACE CMD before brace second newline stops spaces\n"
           if $self->{'DEBUG'};
         $self->_line_error(sprintf(__("\@%s expected braces"),
                            $current->{'cmdname'}), $source_info);
+        _gather_spaces_after_cmd_before_arg($self, $current);
         $current = $current->{'parent'};
       } else {
         $line =~ s/^(\s+)//;
-        $current->{'info'}->{'spaces_after_cmd_before_arg'} .= $added_space;
+        $current->{'contents'}->[0]->{'text'} .= $added_space;
         print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
           if $self->{'DEBUG'};
       }
@@ -5233,6 +5255,9 @@ sub _process_remaining_on_line($$$$)
              and $line =~ s/^([^@])//) {
       print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"
         if ($self->{'DEBUG'});
+      if ($current->{'contents'}) {
+        _gather_spaces_after_cmd_before_arg($self, $current);
+      }
       my $following_arg = {'type' => 'following_arg',
                            'parent' => $current};
       $following_arg->{'contents'} = [{ 'text' => $1,
@@ -5252,6 +5277,7 @@ sub _process_remaining_on_line($$$$)
       # else than empty elements.
       while ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
         # TODO not clear that it leads to a correct location of source marks
+        print STDERR "HHHHHHH ".Texinfo::Common::debug_print_element($current->{'contents'}->[0], 1)."\n";
         my $removed_element = _pop_element_from_contents($self, $current);
         _transfer_source_marks($removed_element, $following_arg);
       }
@@ -5259,6 +5285,9 @@ sub _process_remaining_on_line($$$$)
     } else {
       $self->_line_error(sprintf(__("\@%s expected braces"),
                          $current->{'cmdname'}), $source_info);
+      if ($current->{'contents'}) {
+        _gather_spaces_after_cmd_before_arg($self, $current);
+      }
       $current = $current->{'parent'};
     }
   # maybe a menu entry beginning: a * at the beginning of a menu line
@@ -6051,6 +6080,11 @@ sub _process_remaining_on_line($$$$)
            and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
         my $command = $current->{'cmdname'};
 
+        # if there is already content it is for spaces_after_cmd_before_arg
+        if ($current->{'contents'}) {
+          _gather_spaces_after_cmd_before_arg($self, $current);
+        }
+
         if (defined($commands_args_number{$command})
             and $commands_args_number{$command} > 1) {
           $current->{'remaining_args'}
@@ -6226,7 +6260,10 @@ sub _process_remaining_on_line($$$$)
                             $current->{'parent'}->{'cmdname'}, $source_info)) {
             _register_label($self->{'targets'}, $current->{'parent'},
                             $parsed_anchor);
-             if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
+             if ($self->{'nesting_context'}
+                 and $self->{'nesting_context'}->{'regions_stack'}
+           and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
+                $current->{'extra'} = {} if (!$current->{'extra'});
                 $current->{'extra'}->{'region'}
                   = $self->{'nesting_context'}->{'regions_stack'}->[-1];
              }
@@ -8180,8 +8217,8 @@ For accent commands with spaces following the @-command, like:
  @ringaccent A
  @^ u
 
-there is a I<spaces_after_cmd_before_arg> key which holds the
-spaces appearing after the command.
+there is a I<spaces_after_cmd_before_arg> key linking to an element
+containing the spaces appearing after the command in I<text>.
 
 Space between a brace @-command name and its opening brace also
 ends up in I<spaces_after_cmd_before_arg>.  It is not recommended

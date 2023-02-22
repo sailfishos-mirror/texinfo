@@ -43,6 +43,7 @@ char *element_type_names[] = {
 "internal_spaces_after_command",
 "internal_spaces_before_argument",
 "internal_spaces_before_brace_in_index",
+"internal_spaces_after_cmd_before_arg",
 "macro_name",
 "macro_arg",
 "before_item",

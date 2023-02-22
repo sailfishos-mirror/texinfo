@@ -143,6 +143,12 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => 'ringaccent',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 1,
@@ -157,16 +163,13 @@ $result_trees{'macro_in_accent'} = {
                         },
                         'type' => 'macro_call'
                       },
+                      'position' => 1,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => ' '
                 }
-              ],
-              'cmdname' => 'ringaccent',
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -193,6 +196,12 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => 'ringaccent',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 2,
@@ -211,10 +220,9 @@ $result_trees{'macro_in_accent'} = {
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => ''
                 }
-              ],
-              'cmdname' => 'ringaccent',
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -240,6 +248,12 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => '~',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 3,
@@ -258,10 +272,9 @@ $result_trees{'macro_in_accent'} = {
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => ''
                 }
-              ],
-              'cmdname' => '~',
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -343,6 +356,12 @@ $result_trees{'macro_in_accent'} = {
                       'text' => 'a'
                     }
                   ],
+                  'type' => 'following_arg'
+                }
+              ],
+              'cmdname' => 'ringaccent',
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 5,
@@ -362,6 +381,7 @@ $result_trees{'macro_in_accent'} = {
                     },
                     {
                       'counter' => 5,
+                      'position' => 2,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
                     },
@@ -378,16 +398,13 @@ $result_trees{'macro_in_accent'} = {
                         },
                         'type' => 'macro_call'
                       },
+                      'position' => 2,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'text' => '  '
                 }
-              ],
-              'cmdname' => 'ringaccent',
-              'info' => {
-                'spaces_after_cmd_before_arg' => '  '
               },
               'source_info' => {
                 'file_name' => '',

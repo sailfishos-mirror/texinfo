@@ -1285,8 +1285,8 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 12,
@@ -1296,7 +1296,7 @@ $result_trees{'value_in_misc_commands'} = {
                   ],
                   'text' => ''
                 }
-              ],
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 50,
@@ -1433,8 +1433,12 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [
-                {
+              'extra' => {
+                'begin' => '(strong:',
+                'end' => ':)'
+              },
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 15,
@@ -1444,10 +1448,6 @@ $result_trees{'value_in_misc_commands'} = {
                   ],
                   'text' => ''
                 }
-              ],
-              'extra' => {
-                'begin' => '(strong:',
-                'end' => ':)'
               },
               'source_info' => {
                 'file_name' => '',

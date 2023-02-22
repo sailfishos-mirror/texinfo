@@ -658,7 +658,7 @@ sub _convert($$;$)
           if ($element->{'info'}
               and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
             push @$attributes, ['spacesaftercmd',
-                    $element->{'info'}->{'spaces_after_cmd_before_arg'}];
+               $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}];
           }
           if ($element->{'args'}->[0]->{'type'} eq 'following_arg') {
             push @$attributes, ['bracketed', 'off'];
@@ -1077,7 +1077,7 @@ sub _convert($$;$)
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
         $space_after_command_attribute = ['spacesaftercmd',
-                $element->{'info'}->{'spaces_after_cmd_before_arg'}];
+                $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}];
       }
 
       my @format_elements;

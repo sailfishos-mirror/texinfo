@@ -74,8 +74,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 1,
@@ -88,15 +88,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '{a}',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -117,8 +115,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'ringaccent',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 2,
@@ -131,15 +129,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '@unknown',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -170,8 +166,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 3,
@@ -184,15 +180,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '{a}',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -213,8 +207,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => '^',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 4,
@@ -227,15 +221,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '@unknown',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -266,8 +258,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 5,
@@ -280,15 +272,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '{a}',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -309,8 +299,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'code',
-              'contents' => [
-                {
+              'info' => {
+                'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 6,
@@ -323,15 +313,13 @@ $result_trees{'value_after_brace_command'} = {
                         'cmdname' => 'value'
                       },
                       'line' => '@unknown',
+                      'position' => 1,
                       'sourcemark_type' => 'value_expansion',
                       'status' => 'start'
                     }
                   ],
-                  'text' => ''
+                  'text' => ' '
                 }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

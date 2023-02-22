@@ -68,7 +68,9 @@ $result_trees{'inlinefmtspaces'} = {
                 'format' => 'plaintext'
               },
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

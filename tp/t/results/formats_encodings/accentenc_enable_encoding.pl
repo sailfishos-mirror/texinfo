@@ -794,7 +794,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'H',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -853,7 +855,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'dotaccent',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -912,7 +916,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ringaccent',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1006,7 +1012,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'u',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1065,7 +1073,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ubaraccent',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1124,7 +1134,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'udotaccent',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1183,7 +1195,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'v',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1242,7 +1256,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ogonek',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -1301,7 +1317,9 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ogonek',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

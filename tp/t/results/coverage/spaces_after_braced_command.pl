@@ -24,7 +24,9 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'code',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -59,8 +61,10 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'samp',
               'info' => {
-                'spaces_after_cmd_before_arg' => '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => '
 '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -90,8 +94,10 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'AA',
               'info' => {
-                'spaces_after_cmd_before_arg' => '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => '
  '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -143,8 +149,10 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'email',
               'info' => {
-                'spaces_after_cmd_before_arg' => '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => '
 '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -169,8 +177,10 @@ $result_trees{'spaces_after_braced_command'} = {
             {
               'cmdname' => 'TeX',
               'info' => {
-                'spaces_after_cmd_before_arg' => '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => '
 '
+                }
               },
               'source_info' => {
                 'file_name' => '',

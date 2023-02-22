@@ -67,7 +67,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
       ADD("@");  ADD(command_name(cmd));
       k = lookup_info (e, "spaces_after_cmd_before_arg");
       if (k)
-        ADD((char *)k->value);
+        ADD((char *)k->value->text.text);
     }
 
   // TODO extra spaces

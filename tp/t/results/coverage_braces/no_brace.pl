@@ -14,7 +14,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'TeX',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -28,7 +30,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'code',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',
@@ -42,7 +46,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'footnote',
               'info' => {
-                'spaces_after_cmd_before_arg' => ' '
+                'spaces_after_cmd_before_arg' => {
+                  'text' => ' '
+                }
               },
               'source_info' => {
                 'file_name' => '',

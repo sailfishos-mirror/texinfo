@@ -190,6 +190,7 @@ void set_documentlanguage_override (char *value);
 void set_accept_internalvalue (void);
 char *element_type_name (ELEMENT *e);
 int check_space_element (ELEMENT *e);
+void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 
 /* Return values */
 #define GET_A_NEW_LINE 0

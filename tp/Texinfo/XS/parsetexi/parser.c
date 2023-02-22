@@ -1012,6 +1012,15 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   }
 }
 
+void
+gather_spaces_after_cmd_before_arg(ELEMENT *current)
+{
+  ELEMENT *spaces_element = pop_element_from_contents (current);
+  spaces_element->type = ET_NONE;
+  add_info_element_oot (current, "spaces_after_cmd_before_arg",
+                        spaces_element);
+}
+
 ELEMENT *
 new_value_element (enum command_id cmd, char *flag)
 {
@@ -1787,6 +1796,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       line_error ("@%s expected braces",
                   command_name(current->cmd));
+      if (current->contents.number > 0)
+        gather_spaces_after_cmd_before_arg (current);
       current = current->parent;
     }
 
@@ -1840,6 +1851,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                        the @-command and the argument if at the end of a
                        line or block @-command. */
                        char saved; /* TODO: Have a length argument to merge_text? */
+                       if (current->contents.number > 0)
+                         gather_spaces_after_cmd_before_arg (current);
                        current = current->parent;
                        saved = line[whitespaces_len];
                        line[whitespaces_len] = '\0';
@@ -1856,34 +1869,32 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                  }
              }
 
-           k = lookup_info (current, "spaces_after_cmd_before_arg");
-           if (!k)
+           if (current->contents.number == 0)
              {
-               p = line + whitespaces_len;
-               xasprintf (&s, "%.*s", (int) (p - line), line);
-               add_info_string (current, "spaces_after_cmd_before_arg", s);
-               line = p;
+               ELEMENT *spaces_after_cmd_before_arg
+                 = new_element (ET_internal_spaces_after_cmd_before_arg);
+               text_append_n (&(spaces_after_cmd_before_arg->text),
+                              line, whitespaces_len);
+               add_to_element_contents (current, spaces_after_cmd_before_arg);
+               line += whitespaces_len;
              }
            else
              {
             /* only ignore spaces and one newline, two newlines lead to
                an empty line before the brace or argument which is incorrect. */
-               char *previous_value = (char *) k->value;
+               char *previous_value = current->contents.list[0]->text.text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
                    line_error ("@%s expected braces",
                                command_name(current->cmd));
+                   gather_spaces_after_cmd_before_arg (current);
                    current = current->parent;
                  }
                else
                  {
-                   p = line + whitespaces_len;
-                   xasprintf (&s, "%s%.*s",
-                              previous_value,
-                             (int) (p - line), line);
-                   free (k->value);
-                   k->value = (ELEMENT *) s;
-                   line = p;
+                   text_append_n (&(current->contents.list[0]->text),
+                                  line, whitespaces_len);
+                   line += whitespaces_len;
                  }
              }
         }
@@ -1894,6 +1905,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         {
           ELEMENT *e, *e2;
           debug ("ACCENT following_arg");
+          if (current->contents.number > 0)
+            gather_spaces_after_cmd_before_arg (current);
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
           e2 = new_element (ET_NONE);
@@ -1931,6 +1944,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         {
           line_error ("@%s expected braces",
                       command_name(current->cmd));
+          if (current->contents.number > 0)
+            gather_spaces_after_cmd_before_arg (current);
           current = current->parent;
         }
     }

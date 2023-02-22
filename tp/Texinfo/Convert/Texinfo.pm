@@ -155,8 +155,8 @@ sub _expand_cmd_args_to_texi($) {
   # this is done here otherwise for some constructs, there are
   # no 'args', and so the space is never readded.
   if ($cmd->{'info'}
-      and exists ($cmd->{'info'}->{'spaces_after_cmd_before_arg'})) {
-    $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'};
+      and $cmd->{'info'}->{'spaces_after_cmd_before_arg'}) {
+    $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
   }
   # arg_line set for line_commands with type special and @macro
   if ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {

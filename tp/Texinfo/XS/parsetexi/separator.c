@@ -37,6 +37,11 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       ELEMENT *arg;
 
       command = current->cmd;
+
+      /* if there is already content it is for spaces_after_cmd_before_arg */
+      if (current->contents.number > 0)
+        gather_spaces_after_cmd_before_arg (current);
+
       counter_push (&count_remaining_args, current,
                     command_data(current->cmd).args_number);
       counter_dec (&count_remaining_args);
