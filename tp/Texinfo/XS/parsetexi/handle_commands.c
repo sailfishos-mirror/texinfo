@@ -19,6 +19,8 @@
 #include <string.h>
 
 #include "parser.h"
+#include "debug.h"
+#include "tree.h"
 #include "input.h"
 #include "text.h"
 

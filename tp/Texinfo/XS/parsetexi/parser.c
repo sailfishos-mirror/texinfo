@@ -23,6 +23,7 @@
 #include "unistr.h"
 
 #include "parser.h"
+#include "debug.h"
 #include "text.h"
 #include "input.h"
 #include "source_marks.h"

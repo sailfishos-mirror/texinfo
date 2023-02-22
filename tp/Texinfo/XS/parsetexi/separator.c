@@ -19,6 +19,7 @@
 #include <stdio.h>
 
 #include "parser.h"
+#include "debug.h"
 #include "text.h"
 #include "convert.h"
 #include "input.h"

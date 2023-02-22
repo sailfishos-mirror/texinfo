@@ -1,3 +1,22 @@
+2023-02-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_SOURCES),
+	tp/Texinfo/XS/parsetexi/debug.h, tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/close.c,
+	tp/Texinfo/XS/parsetexi/context_stack.c,
+	tp/Texinfo/XS/parsetexi/debug.c, tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/parsetexi/macro.c, tp/Texinfo/XS/parsetexi/menus.c,
+	tp/Texinfo/XS/parsetexi/parser.c, tp/Texinfo/XS/parsetexi/parser.h,
+	tp/Texinfo/XS/parsetexi/separator.c,
+	tp/Texinfo/XS/parsetexi/source_marks.c,
+	tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/input.c:
+	add a separate include fle for debug.c.  More include of header files
+	when the code declared in these header files is directly used.
+
+	* tp/Texinfo/XS/parsetexi/input.c (next_text): add a debug statement
+	if a source mark was missed, more similar code as in the perl parser.
+
 2023-02-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

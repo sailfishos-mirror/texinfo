@@ -16,7 +16,10 @@
 #include <config.h>
 #include <stdlib.h>
 
-#include "parser.h"
+#include "debug.h"
+#include "context_stack.h"
+#include "commands.h"
+#include "errors.h"
 
 static enum context *context_stack;
 static size_t top; /* One above last pushed context. */

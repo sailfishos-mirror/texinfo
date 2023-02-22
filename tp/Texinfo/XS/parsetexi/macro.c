@@ -19,11 +19,13 @@
 #include <ctype.h>
 
 #include "parser.h"
+#include "debug.h"
 #include "tree.h"
 #include "text.h"
 #include "input.h"
 #include "convert.h"
 #include "source_marks.h"
+#include "macro.h"
 
 static MACRO *macro_list;
 static size_t macro_number;

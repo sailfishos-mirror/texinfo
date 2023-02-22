@@ -23,6 +23,7 @@
 #include <sys/stat.h>
 
 #include "errors.h"
+#include "debug.h"
 #include "input.h"
 #include "text.h"
 #include "commands.h"
@@ -522,22 +523,28 @@ next_text (ELEMENT *current)
             macro_expansion_nr--;
         }
 
-      if (input->input_source_mark && current)
+      if (input->input_source_mark)
         {
-          SOURCE_MARK *input_source_mark = input->input_source_mark;
-          SOURCE_MARK *end_include_source_mark;
-          if (input_source_mark->type == SM_type_delcomment)
-            end_include_source_mark = input_source_mark;
-          else
+          if (current)
             {
-              end_include_source_mark
-                = new_source_mark (input_source_mark->type);
-              end_include_source_mark->counter = input_source_mark->counter;
-              end_include_source_mark->status = SM_status_end;
+              SOURCE_MARK *input_source_mark = input->input_source_mark;
+              SOURCE_MARK *end_include_source_mark;
+              if (input_source_mark->type == SM_type_delcomment)
+                end_include_source_mark = input_source_mark;
+              else
+                {
+                  end_include_source_mark
+                    = new_source_mark (input_source_mark->type);
+                  end_include_source_mark->counter = input_source_mark->counter;
+                  end_include_source_mark->status = SM_status_end;
+                }
+              register_source_mark (current, end_include_source_mark);
             }
-          register_source_mark (current, end_include_source_mark);
-        }
+          else
+            debug ("INPUT MARK MISSED");
 
+          input->input_source_mark = 0;
+        }
       input_number--;
     }
   return 0;

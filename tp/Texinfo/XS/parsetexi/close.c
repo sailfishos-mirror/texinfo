@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "parser.h"
+#include "debug.h"
 #include "source_marks.h"
 
 /* Return CURRENT->parent.  The other arguments are used if an error message

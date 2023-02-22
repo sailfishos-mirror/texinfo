@@ -1,5 +1,5 @@
-/* parser.h - include many other header files.  type declarations.  
-   declarations for close.c, end_line.c, debug.c, separator.c, parser.c, 
+/* parser.h - include many other header files.  type declarations.
+   declarations for close.c, end_line.c, separator.c, parser.c,
    multitable.c, extra.c and menu.c. */
 
 #ifndef PARSER_H
@@ -143,12 +143,6 @@ typedef struct {
 extern FLOAT_RECORD *floats_list;
 extern size_t floats_number;
 extern size_t floats_space;
-
-/* In debug.c */
-void debug (char *s, ...);
-void debug_nonl (char *s, ...);
-extern int debug_output;
-void debug_print_element (ELEMENT *e, int print_parent);
 
 
 /* In separator.c */

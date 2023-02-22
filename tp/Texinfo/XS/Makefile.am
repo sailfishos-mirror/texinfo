@@ -120,6 +120,7 @@ Parsetexi_la_SOURCES= parsetexi/Parsetexi.c \
 		      parsetexi/context_stack.c \
 		      parsetexi/context_stack.h \
 		      parsetexi/debug.c \
+		      parsetexi/debug.h \
 		      parsetexi/convert.c \
 		      parsetexi/convert.h \
 		      parsetexi/end_line.c \

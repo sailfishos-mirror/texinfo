@@ -18,7 +18,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "parser.h"
+#include "debug.h"
+#include "commands.h"
 
 /* Whether to dump debugging output on stderr. */
 int debug_output = 0;

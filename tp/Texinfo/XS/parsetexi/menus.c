@@ -18,6 +18,7 @@
 #include <string.h>
 
 #include "parser.h"
+#include "debug.h"
 #include "input.h"
 #include "text.h"
 #include "convert.h"

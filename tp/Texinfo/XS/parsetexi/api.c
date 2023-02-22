@@ -38,10 +38,13 @@
 #include <string.h>
 
 #include "parser.h"
+#include "debug.h"
+#include "tree.h"
 #include "input.h"
 #include "source_marks.h"
 #include "labels.h"
 #include "indices.h"
+#include "errors.h"
 #include "api.h"
 
 ELEMENT *Root;

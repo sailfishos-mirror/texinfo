@@ -15,10 +15,11 @@
 
 #include <string.h>
 
+#include "parser.h"
+#include "debug.h"
 #include "source_marks.h"
 #include "tree.h"
 #include "errors.h"
-#include "parser.h"
 
 int include_counter = 0;
 int setfilename_counter = 0;
