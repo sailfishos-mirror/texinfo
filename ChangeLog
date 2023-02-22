@@ -1,5 +1,18 @@
 2023-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text, _parse_texi)
+	(_process_remaining_on_line): adapt to input stack not being empty
+	even after last input has been fetched.  Remove completly the empty
+	input from the input stack at the end of _parse_texi.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): in case
+	of an unclosed raw output ignored block, exit to get to end line
+	processing in parse_texi instead of setting the line to an empty
+	string.
+
+2023-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (Parsetexi_la_SOURCES),
 	tp/Texinfo/XS/parsetexi/debug.h, tp/Texinfo/XS/parsetexi/api.c,
 	tp/Texinfo/XS/parsetexi/close.c,

@@ -2296,7 +2296,7 @@ sub _next_text($;$)
 {
   my ($self, $current) = @_;
 
-  while (@{$self->{'input'}}) {
+  while (1) {
     my $input = $self->{'input'}->[0];
     if (exists($input->{'th'})) {
       my $texthandle = $input->{'th'};
@@ -2345,13 +2345,18 @@ sub _next_text($;$)
         return ($line, { %{$input->{'input_source_info'}} });
       }
     } else {
-      # TODO currently possible if called for lines after @bye but
-      # there is nothing anymore
-      #$self->_bug_message("Unexpected input $input ("
-      #                                .scalar(@{$self->{'input'}}).")",
-      #                    $input->{'input_source_info'}, $current);
-      #Texinfo::Common::debug_hash($input);
-      #cluck();
+      # At the end of the input, when some text is demanded, for instance
+      # to get new input in case an @include added more input, but there
+      # is nothing, we get here.  Also macro arguments ending on the last
+      # line will lead to the consumption of the last text, then macro
+      # expansion can readd more text, and the end of input will be reached
+      # again.  With numerous macros expansions on the last line, this
+      # place can be reached more than twice.
+      $input->{'after_end_fetch_nr'}++;
+      if ($self->{'DEBUG'} and $input->{'after_end_fetch_nr'} > 1) {
+        print STDERR "AFTER END FETCHED INPUT NR: "
+                         .$input->{'after_end_fetch_nr'}."\n";
+      }
     }
     # Top input source failed.  Close, pop, and try the next one.
     if (exists($input->{'th'})) {
@@ -2417,19 +2422,20 @@ sub _next_text($;$)
                               $end_source_mark);
       } else {
         if ($self->{'DEBUG'}) {
-        #if (1) {
           print STDERR "INPUT MARK MISSED: "
             ._debug_show_source_mark($input->{'input_source_mark'})."\n";
           cluck();
         }
       }
+      delete $input->{'input_source_mark'};
     }
     # keep the first input level to have a permanent source for
     # source_info, even when nothing is returned and the first input
     # file is closed.
     if (scalar(@{$self->{'input'}}) == 1) {
       print STDERR "INPUT FINISHED\n" if ($self->{'DEBUG'});
-      #cluck();
+      $input->{'after_end_fetch_nr'} = 0
+         if (!defined($input->{'after_end_fetch_nr'}));
       return (undef, { %{$input->{'input_source_info'}} });
     } else {
       shift @{$self->{'input'}};
@@ -4977,10 +4983,13 @@ sub _process_remaining_on_line($$$$)
     while (1) {
     # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
       ($line, $source_info) = _new_line($self, $elided_rawpreformatted);
-      if (!$line) {
+      print STDERR "IGNORED RAW_PREFORMATTED $current->{'cmdname'}"
+        .(defined($line) ? ": $line" : "\n")
+          if ($self->{'DEBUG'});
+      if (!defined($line)) {
         # unclosed block
-        $line = '';
-        last;
+        return ($current, $line, $source_info, $retval);
+        # goto funexit;  # used in XS code
       } elsif ($line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
         last;
       } else {
@@ -6614,11 +6623,9 @@ sub _process_remaining_on_line($$$$)
     if ($line =~ s/^(\n)//) {
       $current = _merge_text($self, $current, $1);
     } else {
-      if (scalar(@{$self->{'input'}})) {
-        $self->_bug_message("Text remaining without normal text but `$line'",
-                            $source_info, $current);
-        die;
-      }
+      $self->_bug_message("Should be at end of line but have `$line'",
+                          $source_info, $current);
+      die;
     }
     $current = _end_line($self, $current, $source_info);
     return ($current, $line, $source_info, $GET_A_NEW_LINE);
@@ -6716,7 +6723,13 @@ sub _parse_texi($$$)
                                                  if ($self->{'DEBUG'});
         $current = _end_line($self, $current, $source_info);
         # It may happen that there was an @include file on the line, it
-        # will be picked up at NEXT_LINE, beginning a new line
+        # was pushed to input in _end_line, its contents will be picked up at
+        # NEXT_LINE.  Normally, macro and value expansion cannot be triggered
+        # by _end_line, so cannot lead to more input being available after
+        # an undefined line.
+        # Because there can still be content with an include file expansion,
+        # need to go to NEXT_LINE, even though for any other situation
+        # there is no input anymore.
         last;
       }
     }
@@ -6757,6 +6770,16 @@ sub _parse_texi($$$)
     if (scalar(@{$element_after_bye->{'contents'}})) {
       push @{$current->{'contents'}}, $element_after_bye;
     }
+  }
+
+  # check that there is only one empty input remaining and remove
+  # it such that it is not re-used by following parser calls.
+  my $empty_last_input = shift(@{$self->{'input'}});
+  if ($empty_last_input->{'th'} or $empty_last_input->{'fh'}
+      or $empty_last_input->{'source_mark'}
+      or scalar(@{$self->{'input'}})) {
+    $self->_bug_message("Non empty last input at the end\n");
+    die;
   }
 
   # Setup labels info and nodes list based on 'targets'

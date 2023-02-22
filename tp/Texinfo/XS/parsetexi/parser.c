@@ -1573,8 +1573,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           line = new_line (e);
           if (!line)
             {
-              line = "";
-              break;
+              /* unclosed block */
+              goto funexit;
             }
           else
             {

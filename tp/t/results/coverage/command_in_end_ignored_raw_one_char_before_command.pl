@@ -32,10 +32,6 @@ $result_trees{'command_in_end_ignored_raw_one_char_before_command'} = {
                 }
               ],
               'type' => 'elided_rawpreformatted'
-            },
-            {
-              'text' => '',
-              'type' => 'empty_line'
             }
           ],
           'source_info' => {

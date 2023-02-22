@@ -25,10 +25,6 @@ $result_trees{'false_format_not_closed'} = {
           'contents' => [
             {
               'type' => 'elided_rawpreformatted'
-            },
-            {
-              'text' => '',
-              'type' => 'empty_line'
             }
           ],
           'source_info' => {
