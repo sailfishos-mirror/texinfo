@@ -111,7 +111,7 @@ $result_trees{'float_copying'} = {
                                                     }
                                                   ],
                                                   'extra' => {
-                                                    'region' => 'copying'
+                                                    'element_region' => 'copying'
                                                   },
                                                   'type' => 'brace_command_arg'
                                                 }
@@ -350,7 +350,7 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'extra' => {
-                                    'region' => 'copying'
+                                    'element_region' => 'copying'
                                   },
                                   'type' => 'brace_command_arg'
                                 }

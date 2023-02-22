@@ -39,7 +39,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                         }
                       ],
                       'extra' => {
-                        'region' => 'titlepage'
+                        'element_region' => 'titlepage'
                       },
                       'type' => 'brace_command_arg'
                     }

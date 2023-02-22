@@ -6261,13 +6261,14 @@ sub _process_remaining_on_line($$$$)
                             $current->{'parent'}->{'cmdname'}, $source_info)) {
             _register_label($self->{'targets'}, $current->{'parent'},
                             $parsed_anchor);
+             # the @anchor element_region information is not used in converters
              if ($self->{'nesting_context'}
                  and $self->{'nesting_context'}->{'regions_stack'}
            and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
                 $current->{'extra'} = {} if (!$current->{'extra'});
-                $current->{'extra'}->{'region'}
+                $current->{'extra'}->{'element_region'}
                   = $self->{'nesting_context'}->{'regions_stack'}->[-1];
-             }
+            }
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
           my $ref = $current->{'parent'};
@@ -8254,7 +8255,7 @@ index entry.
 
 The region command (C<@copying>, C<@titlepage>) containing the element,
 if it is in such an environement.  Set for @-commands elements that have an
-associated index entry.
+associated index entry and for @anchor.
 
 =item index_entry
 
@@ -8306,9 +8307,6 @@ The first argument normalized is in I<normalized>.
 the normalized label, built as specified in the Texinfo documentation in the
 I<HTML Xref> node.  There is also a I<node_content> key for an array holding
 the corresponding content.
-
-C<@anchor> also has I<region> set to the special region name if
-in a special region (C<@copying>, C<@titlepage>).
 
 =item C<@author>
 

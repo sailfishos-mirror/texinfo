@@ -93,7 +93,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                         }
                       ],
                       'extra' => {
-                        'region' => 'copying'
+                        'element_region' => 'copying'
                       },
                       'type' => 'brace_command_arg'
                     }
@@ -143,7 +143,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                                     }
                                   ],
                                   'extra' => {
-                                    'region' => 'copying'
+                                    'element_region' => 'copying'
                                   },
                                   'type' => 'brace_command_arg'
                                 }
@@ -395,7 +395,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                         }
                       ],
                       'extra' => {
-                        'region' => 'titlepage'
+                        'element_region' => 'titlepage'
                       },
                       'type' => 'brace_command_arg'
                     }
@@ -441,7 +441,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
                                     }
                                   ],
                                   'extra' => {
-                                    'region' => 'titlepage'
+                                    'element_region' => 'titlepage'
                                   },
                                   'type' => 'brace_command_arg'
                                 }

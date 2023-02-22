@@ -55,7 +55,7 @@ $result_trees{'anchor_in_copying'} = {
                             }
                           ],
                           'extra' => {
-                            'region' => 'copying'
+                            'element_region' => 'copying'
                           },
                           'type' => 'brace_command_arg'
                         }

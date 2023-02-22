@@ -39,7 +39,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                             }
                           ],
                           'extra' => {
-                            'region' => 'copying'
+                            'element_region' => 'copying'
                           },
                           'type' => 'brace_command_arg'
                         }

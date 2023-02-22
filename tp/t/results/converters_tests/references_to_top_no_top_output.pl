@@ -92,7 +92,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                             }
                           ],
                           'extra' => {
-                            'region' => 'copying'
+                            'element_region' => 'copying'
                           },
                           'type' => 'brace_command_arg'
                         }
