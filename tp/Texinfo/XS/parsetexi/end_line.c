@@ -103,7 +103,7 @@ is_whole_number (char *string)
 
 /* Return end of argument before comment and whitespace. */
 char *
-skip_comment (char *q, int *has_comment)
+skip_to_comment (char *q, int *has_comment)
 {
   char *q1;
 
@@ -118,7 +118,7 @@ skip_comment (char *q, int *has_comment)
 
       /* q is advanced to after @c/@comment, whether there is indeed
          a comment or not.  In case there is no @c/@comment, this allows
-         to advance on the line and search again for @c/@comment */
+         to advance on the line and loop to search again for @c/@comment */
       q = read_comment (q1, has_comment);
       if (*has_comment)
         {
@@ -134,6 +134,27 @@ skip_comment (char *q, int *has_comment)
     q--;
 
   return q;
+}
+
+/* Return end of argument before comment and whitespace if the
+   line is followed either by whitespaces or a comment. */
+char *
+skip_to_comment_if_comment_or_spaces (char *after_argument,
+                                 int *has_comment)
+{
+  char *r = skip_to_comment (after_argument, has_comment);
+
+  if (!strchr (whitespace_chars, *after_argument)
+      && *after_argument != '@')
+    return 0;
+
+  if (*after_argument == '@')
+    {
+      /* Check for a comment, e.g. "@set flag@c comment" */
+      if (after_argument != r)
+        return 0;
+    }
+  return r;
 }
 
 /* Process argument to special line command. */
@@ -163,19 +184,17 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
       q = strpbrk (p,
                    " \t\f\r\n"       /* whitespace */
                    "{\\}~^+\"<>|@"); /* other bytes that aren't allowed */
-      /* see also read_flag_name function in end_line.c */
-
-      r = skip_comment (p, has_comment);
-
-      if (!strchr (whitespace_chars, *q) && *q != '@')
-        goto set_invalid;
-
-      if (*q == '@')
+      if (q)
         {
-          /* Check for a comment, e.g. "@set flag@c comment" */
-          if (q != r)
+        /* see also read_flag_name function in end_line.c */
+          r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+          if (!r)
             goto set_invalid;
         }
+      else /* very specific case of end of text fragment after name
+              without anything following the name, in particular
+              without new line */
+        q = p + strlen(p);
 
       ADD_ARG(p, q - p); /* name */
 
@@ -209,8 +228,8 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
       flag = read_flag_name (&q);
       if (!flag)
         goto clear_invalid;
-      r = q + strspn (q, whitespace_chars);
-      if (*r)
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
         goto clear_invalid; /* Trailing argument. */
 
       ADD_ARG (p, q - p);

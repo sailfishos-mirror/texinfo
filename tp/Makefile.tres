@@ -1791,6 +1791,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/transformations/master_menu_fr.pl \
   t/results/transformations/master_menu_fr/res_html \
   t/results/value/bad_syntax.pl \
+  t/results/value/begin_like_comment_on_set_line.pl \
+  t/results/value/clear_no_end_of_line.pl \
+  t/results/value/comment_on_clear_line.pl \
   t/results/value/comment_on_set_line.pl \
   t/results/value/empty_set.pl \
   t/results/value/empty_value_in_line.pl \
@@ -1800,6 +1803,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/value/set_flag_command_equivalent.pl \
   t/results/value/set_form_feed.pl \
   t/results/value/set_in_item_missing_line.pl \
+  t/results/value/set_no_end_of_line.pl \
   t/results/value/set_on_item_line.pl \
   t/results/value/simple.pl \
   t/results/value/spaces_before_value.pl \

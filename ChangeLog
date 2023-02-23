@@ -1,3 +1,27 @@
+2023-02-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(skip_to_comment_if_comment_or_spaces, parse_special_misc_command):
+	add skip_to_comment_if_comment_or_spaces based on set argument
+	handling, to return end of argument before comment and whitespace if
+	the line is followed either by whitespaces or a comment.  Use in
+	@clear argument parsing to allow for comments but error out if
+	there is anything else than a comment or whitespaces following
+	the flag argument.
+
+	* * tp/Texinfo/XS/parsetexi/end_line.c (parse_special_misc_command):
+	handle the case of Texinfo framgment with @set ending right after
+	the argument, without a new line.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (skip_to_comment): rename
+	skip_comment as skip_to_comment.
+
+	* tp/Makefile.tres, tp/t/50value.t: add
+	begin_like_comment_on_set_line, comment_on_clear_line,
+	set_no_end_of_line and clear_no_end_of_line tests.
+
+	remove or replace some FIXME.
+
 2023-02-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

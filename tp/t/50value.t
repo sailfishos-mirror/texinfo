@@ -44,6 +44,25 @@ Say @value{-e_\'::;}.
 
 !@value{x}!, !@value{y}!, !@value{z}!, !@value{t}!
 '],
+['begin_like_comment_on_set_line',
+'@set x@come with me
+@set y some thing @commentary is it
+
+!@value{x}! !@value{y}!
+'],
+['comment_on_clear_line',
+'@set x
+@set y
+@set z g
+@set t a vv @comment@ggg
+
+@clear x@c
+@clear y @c
+@clear z g@c
+@clear t a vv @comment@ggg
+
+!@value{x}!, !@value{y}!, !@value{z}!, !@value{t}!
+'],
 ['value_zero',
 '@set zero 0
 Value
@@ -61,6 +80,12 @@ Value
 @value{myspace} 
 1
 '],
+['set_no_end_of_line',
+'@set arg'
+],
+['clear_no_end_of_line',
+'@clear jj',
+],
 ['recursive_expansion_in_set',
 '@set V @value{V}
 @value{V}

@@ -5385,7 +5385,7 @@ sub _process_remaining_on_line($$$$)
       $current = _merge_text($self, $current, $separator, $popped_element);
     # here we collect spaces following separators.
     } elsif ($line =~ s/^([^\S\r\n]+)//) {
-      # FIXME a trailing end of line could be considered to be part
+      # NOTE a trailing end of line could be considered to be part
       # of the separator. Right now it is part of the description,
       # since it is catched (in the next while) as one of the case below
       $current->{'contents'}->[-1]->{'text'} .= $1;
@@ -5533,7 +5533,7 @@ sub _process_remaining_on_line($$$$)
           }
         }
         if ($arg_spec eq 'symbol') {
-          # FIXME generalize?
+          # TODO generalize?
           if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
             $self->_line_warn(sprintf(
                        __("\@%s should only appear in math context"),

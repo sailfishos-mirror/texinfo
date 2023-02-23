@@ -21,10 +21,6 @@
 #include "command_ids.h"
 #include "commands.h"
 #include "errors.h"
-
-/* FIXME pass global_accept_internalvalue to lookup_command instead of
- * #include parser.h to get the global variable value? */
-
 /* for global_accept_internalvalue */
 #include "parser.h"
 
