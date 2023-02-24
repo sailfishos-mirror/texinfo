@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-02-20 17:48+0100\n"
+"POT-Creation-Date: 2023-02-24 22:24+0100\n"
 "PO-Revision-Date: 2022-10-21 16:49+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -37,7 +37,7 @@ msgstr "Cuprins"
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:587
 #, fuzzy
 #| msgid "Function"
 msgctxt "category of functions for @defun"
@@ -45,16 +45,16 @@ msgid "Function"
 msgstr "Funcție"
 
 #. TRANSLATORS: category of macros for @defmac
-#: tp/Texinfo/Common.pm:588
+#: tp/Texinfo/Common.pm:589
 msgid "Macro"
 msgstr "Macro"
 
 #. TRANSLATORS: category of special forms for @defspec
-#: tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591
 msgid "Special Form"
 msgstr "Formă specială"
 
-#: tp/Texinfo/Common.pm:592
+#: tp/Texinfo/Common.pm:593
 #, fuzzy
 #| msgid "Variable"
 msgctxt "category of variables for @defvar"
@@ -62,25 +62,25 @@ msgid "Variable"
 msgstr "Variabilă"
 
 #. TRANSLATORS: category of users-modifiable options for @defopt
-#: tp/Texinfo/Common.pm:594
+#: tp/Texinfo/Common.pm:595
 msgid "User Option"
 msgstr "Opțiunea utilizatorului"
 
-#: tp/Texinfo/Common.pm:597
+#: tp/Texinfo/Common.pm:598
 #, fuzzy
 #| msgid "Function"
 msgctxt "category of general definition for functions for @deftypefun"
 msgid "Function"
 msgstr "Funcție"
 
-#: tp/Texinfo/Common.pm:600
+#: tp/Texinfo/Common.pm:601
 #, fuzzy
 #| msgid "Variable"
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Variabilă"
 
-#: tp/Texinfo/Common.pm:603
+#: tp/Texinfo/Common.pm:604
 #, fuzzy
 #| msgid "Instance Variable"
 msgctxt ""
@@ -88,7 +88,7 @@ msgctxt ""
 msgid "Instance Variable"
 msgstr "Variabilă de instanță"
 
-#: tp/Texinfo/Common.pm:606
+#: tp/Texinfo/Common.pm:607
 #, fuzzy
 #| msgid "Instance Variable"
 msgctxt ""
@@ -97,14 +97,14 @@ msgctxt ""
 msgid "Instance Variable"
 msgstr "Variabilă de instanță"
 
-#: tp/Texinfo/Common.pm:609
+#: tp/Texinfo/Common.pm:610
 #, fuzzy
 #| msgid "Method"
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "Metodă"
 
-#: tp/Texinfo/Common.pm:612
+#: tp/Texinfo/Common.pm:613
 #, fuzzy
 #| msgid "Method"
 msgctxt ""
@@ -324,18 +324,18 @@ msgid "see {title_ref}"
 msgstr "consultați {title_ref}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1378 tp/Texinfo/Convert/LaTeX.pm:3410
-#: tp/Texinfo/Convert/Plaintext.pm:2429
+#: tp/Texinfo/Convert/Plaintext.pm:2427
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tp/Texinfo/Convert/DocBook.pm:1558 tp/Texinfo/Convert/LaTeX.pm:3622
-#: tp/Texinfo/Convert/Plaintext.pm:2602 tp/Texinfo/Convert/HTML.pm:6058
+#: tp/Texinfo/Convert/Plaintext.pm:2600 tp/Texinfo/Convert/HTML.pm:6058
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
 
-#: tp/Texinfo/Convert/LaTeX.pm:3103 tp/Texinfo/Convert/Plaintext.pm:2126
+#: tp/Texinfo/Convert/LaTeX.pm:3103 tp/Texinfo/Convert/Plaintext.pm:2124
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr "{text} ({url})"
@@ -345,173 +345,173 @@ msgstr "{text} ({url})"
 # «→ cred că aici merg ghilimele românești: „ ”»
 # ===
 # Ok, modificare aplicată
-#: tp/Texinfo/Convert/LaTeX.pm:3564 tp/Texinfo/Convert/Plaintext.pm:2525
+#: tp/Texinfo/Convert/LaTeX.pm:3564 tp/Texinfo/Convert/Plaintext.pm:2523
 #: tp/Texinfo/Convert/HTML.pm:2974
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
 msgstr "@{Nici o valoare pentru „{value}“@}"
 
 #. TRANSLATORS: quotation author
-#: tp/Texinfo/Convert/LaTeX.pm:4328 tp/Texinfo/Convert/Plaintext.pm:3574
+#: tp/Texinfo/Convert/LaTeX.pm:4328 tp/Texinfo/Convert/Plaintext.pm:3572
 #: tp/Texinfo/Convert/HTML.pm:4908
 #, perl-brace-format
 msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1216 tp/Texinfo/Convert/HTML.pm:1101
+#: tp/Texinfo/Convert/Plaintext.pm:1214 tp/Texinfo/Convert/HTML.pm:1101
 #: tp/Texinfo/Convert/Utils.pm:313
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr "Apendice {number} {section_title}"
 
 #. TRANSLATORS: numbered section title
-#: tp/Texinfo/Convert/Plaintext.pm:1222 tp/Texinfo/Convert/HTML.pm:1108
+#: tp/Texinfo/Convert/Plaintext.pm:1220 tp/Texinfo/Convert/HTML.pm:1108
 #: tp/Texinfo/Convert/Utils.pm:317
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1499
+#: tp/Texinfo/Convert/Plaintext.pm:1497
 msgid "(outside of any node)"
 msgstr "(în afara oricărui nod)"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2096
+#: tp/Texinfo/Convert/Plaintext.pm:2094
 #, perl-brace-format
 msgid "{name} @url{{email}}"
 msgstr "{name} @url{{email}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2099
+#: tp/Texinfo/Convert/Plaintext.pm:2097
 #, perl-brace-format
 msgid "@url{{email}}"
 msgstr "@url{{email}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2131
+#: tp/Texinfo/Convert/Plaintext.pm:2129
 #, perl-brace-format
 msgid "@t{<{url}>}"
 msgstr "@t{<{url}>}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2646
+#: tp/Texinfo/Convert/Plaintext.pm:2644
 #, fuzzy, perl-brace-format
 #| msgid "@center --- @emph{{author}}"
 msgid "@center @b{{cartouche_arg}}"
 msgstr "@center --- @emph{{author}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3061
+#: tp/Texinfo/Convert/Plaintext.pm:3059
 #, perl-brace-format
 msgid "@tie{}-- {category}: {name}{arguments}"
 msgstr "@tie{}-- {category}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3064
+#: tp/Texinfo/Convert/Plaintext.pm:3062
 #, perl-brace-format
 msgid "@tie{}-- {category}: {name} {arguments}"
 msgstr "@tie{}-- {category}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3068
+#: tp/Texinfo/Convert/Plaintext.pm:3066
 #, perl-brace-format
 msgid "@tie{}-- {category}: {name}"
 msgstr "@tie{}-- {category}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3086
+#: tp/Texinfo/Convert/Plaintext.pm:3084
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name}{arguments}"
 msgstr "@tie{}-- {category}:@*{type}@*{name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3090
+#: tp/Texinfo/Convert/Plaintext.pm:3088
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3096
+#: tp/Texinfo/Convert/Plaintext.pm:3094
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name}{arguments}"
 msgstr "@tie{}-- {category}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3100
+#: tp/Texinfo/Convert/Plaintext.pm:3098
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgstr "@tie{}-- {category}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3111
+#: tp/Texinfo/Convert/Plaintext.pm:3109
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name}"
 msgstr "@tie{}-- {category}:@*{type}@*{name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3114
+#: tp/Texinfo/Convert/Plaintext.pm:3112
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name}"
 msgstr "@tie{}-- {category}: {type} {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3129
+#: tp/Texinfo/Convert/Plaintext.pm:3127
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name}{arguments}"
 msgstr "@tie{}-- {category} de {class}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3133
+#: tp/Texinfo/Convert/Plaintext.pm:3131
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name} {arguments}"
 msgstr "@tie{}-- {category} de {class}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3137
+#: tp/Texinfo/Convert/Plaintext.pm:3135
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name}"
 msgstr "@tie{}-- {category} de {class}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3153
+#: tp/Texinfo/Convert/Plaintext.pm:3151
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name}{arguments}"
 msgstr "@tie{}-- {category} în {class}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3157
+#: tp/Texinfo/Convert/Plaintext.pm:3155
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name} {arguments}"
 msgstr "@tie{}-- {category} în {class}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3161
+#: tp/Texinfo/Convert/Plaintext.pm:3159
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name}"
 msgstr "@tie{}-- {category} în {class}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3177
+#: tp/Texinfo/Convert/Plaintext.pm:3175
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}"
 msgstr "@tie{}-- {category} în {class}:@*{type}@*{name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3181
+#: tp/Texinfo/Convert/Plaintext.pm:3179
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}"
 msgstr "@tie{}-- {category} în {class}:@*{type}@*{name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3187
+#: tp/Texinfo/Convert/Plaintext.pm:3185
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name}{arguments}"
 msgstr "@tie{}-- {category} în {class}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3191
+#: tp/Texinfo/Convert/Plaintext.pm:3189
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name} {arguments}"
 msgstr "@tie{}-- {category} în {class}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3203
+#: tp/Texinfo/Convert/Plaintext.pm:3201
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name}"
 msgstr "@tie{}-- {category} în {class}:@*{type}@*{name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3207
+#: tp/Texinfo/Convert/Plaintext.pm:3205
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name}"
 msgstr "@tie{}-- {category} în {class}: {type} {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3221
+#: tp/Texinfo/Convert/Plaintext.pm:3219
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}{arguments}"
 msgstr "@tie{}-- {category} de {class}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3225
+#: tp/Texinfo/Convert/Plaintext.pm:3223
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name} {arguments}"
 msgstr "@tie{}-- {category} de {class}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3235
+#: tp/Texinfo/Convert/Plaintext.pm:3233
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{}-- {category} de {class}: {type} {name}"
