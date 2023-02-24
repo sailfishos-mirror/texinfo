@@ -1230,15 +1230,13 @@ end_line_starting_block (ELEMENT *current)
                                  command_name(command));
                   k->key = "";
                   k->type = extra_deleted;
-                  /* FIXME: Error message for accent commands is done
-                     elsewhere (3040). */
                 }
             }
         }
 
       /* check that command_as_argument of the @itemize is alone on the line,
          otherwise it is not a command_as_argument */
-      if (command == CM_itemize)
+      else if (command == CM_itemize)
         {
           KEY_PAIR *k;
           k = lookup_extra (current, "command_as_argument");
@@ -1274,25 +1272,21 @@ end_line_starting_block (ELEMENT *current)
         }
 
       /* Check if command_as_argument isn't an accent command */
-      if (command == CM_itemize || item_line_command(command))
+      KEY_PAIR *k = lookup_extra (current, "command_as_argument");
+      if (k && k->value)
         {
-          KEY_PAIR *k = lookup_extra (current, "command_as_argument");
-          if (k && k->value)
+          enum command_id cmd = k->value->cmd;
+          if (cmd && (command_data(cmd).flags & CF_accent))
             {
-              enum command_id cmd = k->value->cmd;
-              if (cmd && (command_data(cmd).flags & CF_accent))
-                {
-                  command_warn (current, "accent command `@%s' "
-                                "not allowed as @%s argument",
-                                command_name(cmd),
-                                command_name(command));
-                  k->key = "";
-                  k->value = 0;
-                  k->type = extra_deleted;
-                }
+              command_warn (current, "accent command `@%s' "
+                            "not allowed as @%s argument",
+                            command_name(cmd),
+                            command_name(command));
+              k->key = "";
+              k->value = 0;
+              k->type = extra_deleted;
             }
         }
-
       /* if no command_as_argument given, default to @bullet for
          @itemize, and @asis for @table. */
       if (command == CM_itemize

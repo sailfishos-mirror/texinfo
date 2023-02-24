@@ -3948,12 +3948,11 @@ sub _end_line_starting_block($$$)
         }
       }
     }
+    # Check if command_as_argument isn't an accent command
     if ($current->{'extra'}
         and $current->{'extra'}->{'command_as_argument'}
         and $accent_commands{$current->{'extra'}->{'command_as_argument'}
-                                                                 ->{'cmdname'}}
-        and ($command eq 'itemize'
-             or $block_commands{$command} eq 'item_line')) {
+                                                            ->{'cmdname'}}) {
       # this can only happen to an accent command with brace, if without
       # brace it is not set as command_as_argument to begin with.
       $self->_command_warn($current, $source_info,
@@ -3966,10 +3965,9 @@ sub _end_line_starting_block($$$)
       }
     }
     if ($command eq 'itemize') {
-      if ((!$current->{'args'}
-          or !$current->{'args'}->[0]
-          or !$current->{'args'}->[0]->{'contents'}
-          or !@{$current->{'args'}->[0]->{'contents'}})) {
+      if (!$current->{'args'}
+          or !scalar(@{$current->{'args'}})
+          or !$current->{'args'}->[0]->{'contents'}) {
         my $block_line_arg;
         if ($current->{'args'} and $current->{'args'}->[-1]
             and $current->{'args'}->[-1]->{'type'}
