@@ -92,7 +92,15 @@ Text line after the text line followed by the sp.
 '@clickstyle @result
 
 A @click{} (result).
+
+@clickstyle@equiv
+
+A @click{} (equiv no space)
+
 '],
+['clickstyle_no_end_of_line',
+'@clickstyle @result',
+],
 ['bye',
 '@bye
 '],
@@ -114,6 +122,15 @@ A @click{} (nocmd).
 @clickstyle something
 
 A @click{} (something).
+'],
+['clickstyle_and_comments',
+'@clickstyle@comment a
+@clickstyle @comment b
+@clickstyle nocmd@comment c
+@clickstyle more than one word @comment d
+@clickstyle @result@comment e
+@clickstyle @result   @comment f
+@clickstyle @result on the same line @comment g
 '],
 ['contents','
 first @@contents @contents line following first content

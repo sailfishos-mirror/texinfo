@@ -254,7 +254,9 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
       value = read_command_name (&q);
       if (!value)
         goto unmacro_badname;
-      /* FIXME: Check comment syntax is right */
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
+        goto clear_invalid; /* Trailing argument. */
       delete_macro (value);
       ADD_ARG(value, q - p);
       debug ("UNMACRO %s", value);
@@ -277,10 +279,18 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
         goto clickstyle_invalid;
       ADD_ARG (p - 1, q - p + 1);
       free (global_clickstyle); global_clickstyle = value;
-      if (!memcmp (q, "{}", 2))
+      /* if strlen is not used to guard against checking after the end of q,
+         for some reason, valgrind does not find that the *(q+1) could be
+         unallocated */
+      if (strlen (q) >= 2 && !memcmp (q, "{}", 2))
         q += 2;
-      remaining = q;
-      /* FIXME: check comment */
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
+        {
+          q += strspn (q, whitespace_chars);
+          line_warn ("remaining argument on @%s line: %s",
+                     command_name(cmd), q);
+        }
       break;
     clickstyle_invalid:
       line_error ("@clickstyle should only accept an @-command as argument, "
@@ -291,15 +301,6 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
       fatal ("unknown special line command");
     }
 
-  if (remaining)
-    {
-      remaining += strspn (remaining, whitespace_chars);
-      if (*remaining)
-        {
-          line_warn ("remaining argument on @%s line: %s",
-                     command_name(cmd), remaining);
-        }
-    }
   return args;
 #undef ADD_ARG
 }

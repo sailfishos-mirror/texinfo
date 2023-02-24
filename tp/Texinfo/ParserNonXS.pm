@@ -5720,6 +5720,7 @@ sub _process_remaining_on_line($$$$)
           ($args, $has_comment)
            = _parse_special_misc_command($self, $line, $command, $source_info);
           $misc->{'info'} = {'arg_line' => $line};
+          # FIXME add a check on @clickstyle argument at that point?
         }
 
         # if using the @set txi* instead of a proper @-command, replace
@@ -6864,11 +6865,10 @@ sub _parse_special_misc_command($$$$)
   my $args = [];
 
   my $has_comment = 0;
-  my $remaining;
   if ($command eq 'set') {
     # REVALUE
-    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(c|comment)((\@|\s+).*)?|\s+(.*?))?\s*$/) {
-      if ($line =~ s/\@(c|comment)((\@|\s+).*)?$//) {
+    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(comment|c)((\@|\s+).*)?|\s+(.*?))?\s*$/) {
+      if ($line =~ s/\@(comment|c)((\@|\s+).*)?$//) {
         $has_comment = 1;
       }
       $line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\s+(.*?))?\s*$/;
@@ -6886,7 +6886,7 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'clear') {
     # REVALUE
-    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
+    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(comment|c)((\@|\s+).*)?)?$/) {
       $args = [$1];
       delete $self->{'values'}->{$1};
       $has_comment = 1 if (defined($3));
@@ -6899,7 +6899,7 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'unmacro') {
     # REMACRO
-    if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
+    if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(comment|c)((\@|\s+).*)?)?$/) {
       $args = [$1];
       delete $self->{'macros'}->{$1};
       $has_comment = 1 if (defined($3));
@@ -6913,12 +6913,20 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'clickstyle') {
     # REMACRO
-    if ($line =~ /^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
+    if ($line =~ /^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
       $args = ['@'.$1];
       $self->{'clickstyle'} = $1;
-      $remaining = $line;
-      $remaining =~ s/^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(c|comment)((\@|\s+).*)?)?//;
+      my $remaining = $line;
+      $remaining =~ s/^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(comment|c)((\@|\s+).*)?)?//;
       $has_comment = 1 if (defined($4));
+      if (defined($remaining)) {
+        chomp($remaining);
+        if ($remaining ne '') {
+          $self->_line_warn(sprintf(__(
+                         "remaining argument on \@%s line: %s"),
+                           $command, $remaining), $source_info);
+        }
+      }
     } else {
       $self->_line_error(sprintf(__(
                 "\@%s should only accept an \@-command as argument, not `%s'"),
@@ -6926,14 +6934,6 @@ sub _parse_special_misc_command($$$$)
     }
   } else {
     die $self->_bug_message("Unknown special command $command", $source_info);
-  }
-  if (defined($remaining)) {
-    chomp($remaining);
-    if ($remaining ne '') {
-      $self->_line_warn(sprintf(__(
-                         "remaining argument on \@%s line: %s"),
-                           $command, $remaining), $source_info);
-    }
   }
   return ($args, $has_comment);
 }

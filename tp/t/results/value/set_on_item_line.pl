@@ -45,7 +45,7 @@ $result_trees{'set_on_item_line'} = {
                             {
                               'args' => [
                                 {
-                                  'text' => 'a',
+                                  'text' => 'ca',
                                   'type' => 'misc_arg'
                                 },
                                 {
@@ -56,12 +56,12 @@ $result_trees{'set_on_item_line'} = {
                               'cmdname' => 'set',
                               'extra' => {
                                 'misc_args' => [
-                                  'a',
+                                  'ca',
                                   'b'
                                 ]
                               },
                               'info' => {
-                                'arg_line' => ' a b@c
+                                'arg_line' => ' ca b@c
 '
                               }
                             },
@@ -119,12 +119,12 @@ $result_trees{'set_on_item_line'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'jj '
+                              'text' => 'cjj '
                             },
                             {
                               'args' => [
                                 {
-                                  'text' => 'j',
+                                  'text' => 'cj',
                                   'type' => 'misc_arg'
                                 },
                                 {
@@ -135,12 +135,12 @@ $result_trees{'set_on_item_line'} = {
                               'cmdname' => 'set',
                               'extra' => {
                                 'misc_args' => [
-                                  'j',
+                                  'cj',
                                   ''
                                 ]
                               },
                               'info' => {
-                                'arg_line' => ' j@c
+                                'arg_line' => ' cj@c
 '
                               }
                             },
@@ -184,12 +184,12 @@ $result_trees{'set_on_item_line'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'vvv '
+                              'text' => 'cvvv '
                             },
                             {
                               'args' => [
                                 {
-                                  'text' => 'g',
+                                  'text' => 'cg',
                                   'type' => 'misc_arg'
                                 },
                                 {
@@ -200,12 +200,12 @@ $result_trees{'set_on_item_line'} = {
                               'cmdname' => 'set',
                               'extra' => {
                                 'misc_args' => [
-                                  'g',
+                                  'cg',
                                   ''
                                 ]
                               },
                               'info' => {
-                                'arg_line' => ' g@c
+                                'arg_line' => ' cg@c
 '
                               }
                             }
@@ -562,12 +562,12 @@ $result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'comman
 $result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'set_on_item_line'} = '@table @code
-@item @set a b@c
+@item @set ca b@c
 item text
 in item
-@item jj @set j@c
+@item cjj @set cj@c
 line
-@item vvv @set g@c
+@item cvvv @set cg@c
 @end table
 
 @table @code
@@ -583,8 +583,8 @@ line
 
 $result_texts{'set_on_item_line'} = 'item text
 in item
-jj line
-vvv 
+cjj line
+cvvv 
 
 
 item text

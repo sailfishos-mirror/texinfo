@@ -215,12 +215,12 @@ $result_trees{'set_in_item_missing_line'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'xx '
+                              'text' => 'cxx '
                             },
                             {
                               'args' => [
                                 {
-                                  'text' => 'n',
+                                  'text' => 'cn',
                                   'type' => 'misc_arg'
                                 },
                                 {
@@ -231,12 +231,12 @@ $result_trees{'set_in_item_missing_line'} = {
                               'cmdname' => 'set',
                               'extra' => {
                                 'misc_args' => [
-                                  'n',
+                                  'cn',
                                   ''
                                 ]
                               },
                               'info' => {
-                                'arg_line' => ' n@c
+                                'arg_line' => ' cn@c
 '
                               }
                             },
@@ -337,7 +337,7 @@ $result_texis{'set_in_item_missing_line'} = '@table @code
 @end table
 
 @table @code
-@item xx @set n@c
+@item cxx @set cn@c
  jj
 @end table
 ';
@@ -346,7 +346,7 @@ $result_texis{'set_in_item_missing_line'} = '@table @code
 $result_texts{'set_in_item_missing_line'} = 'xx 
 jj
 
-xx jj
+cxx jj
 ';
 
 $result_errors{'set_in_item_missing_line'} = [

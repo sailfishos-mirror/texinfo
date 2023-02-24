@@ -1,3 +1,26 @@
+2023-02-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_special_misc_command): match
+	@comment before @c.  Allow @clickstyle argument to be be right
+	after @clickstyle without space in-between.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_special_misc_command):
+	check that there is only comments or spaces after argument for
+	unmacro and clickstyle.  For clickstyle, verify that the string is not
+	finished before doing memcmp.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_special_misc_command),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_special_misc_command): check
+	remaining on line only for @clickstyle.
+
+	* tp/Makefile.tres, tp/t/08misc_commands.t: add
+	clickstyle_no_end_of_line and clickstyle_and_comments tests.  Add a
+	case without spaces between @clickstyle and argument in the clickstyle
+	test.
+	For set_on_item_line and set_in_item_missing_line tests, use different
+	item names with and without comments following to be able to check
+	more easily the results.
+
 2023-02-24  Arsen Arsenović  <arsen@aarsen.me>
 
 	install-info: Fix dir file mode being restricted

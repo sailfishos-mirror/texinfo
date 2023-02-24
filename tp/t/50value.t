@@ -348,12 +348,12 @@ After page on it\'s own line.
 '],
 ['set_on_item_line',
 '@table @code
-@item @set a b@c
+@item @set ca b@c
 item text
 in item
-@item jj @set j@c
+@item cjj @set cj@c
 line
-@item vvv @set g@c
+@item cvvv @set cg@c
 @end table
 
 @table @code
@@ -365,6 +365,8 @@ line
 @item vvv @set g
 @end table
 '],
+# very similar with previous test, maybe the difference is that the
+# next @item is right after the @item with @set on the line
 ['set_in_item_missing_line',
 '@table @code
 @item xx @set n
@@ -372,7 +374,7 @@ line
 @end table
 
 @table @code
-@item xx @set n@c
+@item cxx @set cn@c
 @item jj
 @end table
 '],
