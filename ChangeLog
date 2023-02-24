@@ -1,3 +1,16 @@
+2023-02-24  Arsen Arsenović  <arsen@aarsen.me>
+
+	install-info: Fix dir file mode being restricted
+
+	The recent switch to mkstemp and atomic updating of the directory
+	file unintentionally lead to overly restrictive permissions being
+	set on directory file.  This error was originally introduced in
+	93162b78d84f731710025b300bc0cd7ca8b14347 (2022-12-03 Gavin Smith
+	<gavinsmith0123@gmail.com>).
+	* install-info/install-info.c (output_dirfile): Change mode of
+	installed dir file back to its usual value, rather than the
+	mkstemp default of 0600.
+
 2023-02-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c
