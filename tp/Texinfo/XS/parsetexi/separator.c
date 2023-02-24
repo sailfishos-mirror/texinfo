@@ -204,13 +204,6 @@ handle_open_brace (ELEMENT *current, char **line_inout)
   else
     {
       line_error ("misplaced {");
-      if (current->contents.number > 0
-          && last_contents_child(current)->type
-               == ET_internal_spaces_before_argument)
-        {
-          /* FIXME: Is this right? */
-          remove_from_contents (current, 0);
-        }
     }
 
   *line_inout = line;

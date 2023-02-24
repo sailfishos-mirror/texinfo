@@ -2046,10 +2046,8 @@ sub _close_current($$$;$$)
   } elsif ($current->{'type'}) {
     print STDERR "CLOSING type $current->{'type'}\n" if ($self->{'DEBUG'});
     if ($current->{'type'} eq 'bracketed') {
-      $self->_command_error($current, $source_info,
-                            __("misplaced %c"), ord('{'));
+      $self->_command_error($current, $source_info, __("misplaced {"));
       if ($current->{'contents'}
-          and @{$current->{'contents'}}
           and $current->{'contents'}->[0]->{'type'}
           and $current->{'contents'}->[0]->{'type'}
                 eq 'internal_spaces_before_argument') {
@@ -6199,7 +6197,8 @@ sub _process_remaining_on_line($$$$)
             if ($command eq 'inlineraw');
         }
         print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
-          .(defined($current->{'parent'}->{'remaining_args'}) ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
+          .(defined($current->{'parent'}->{'remaining_args'})
+              ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
           .($current->{'type'} ? "type: $current->{'type'}" : '')."\n"
            if ($self->{'DEBUG'});
       } elsif ($current->{'parent'}
@@ -6241,8 +6240,7 @@ sub _process_remaining_on_line($$$$)
         print STDERR "BRACKETED in math/rawpreformatted/inlineraw\n"
            if ($self->{'DEBUG'});
       } else {
-        $self->_line_error(sprintf(__("misplaced %c"),
-                                         ord('{')), $source_info);
+        $self->_line_error(sprintf(__("misplaced {")), $source_info);
       }
 
     } elsif ($separator eq '}') {
@@ -6480,8 +6478,7 @@ sub _process_remaining_on_line($$$$)
                                          'parent' => $current };
 
       } else {
-        $self->_line_error(sprintf(__("misplaced %c"),
-                                 ord('}')), $source_info);
+        $self->_line_error(sprintf(__("misplaced }")), $source_info);
       }
     } elsif ($separator eq ','
              and $current->{'parent'}
@@ -6759,7 +6756,6 @@ sub _parse_texi($$$)
       print STDERR "BEGIN LINE\n" if ($self->{'DEBUG'});
 
       if ($current->{'contents'}
-          and $current->{'contents'}->[-1]
           and $current->{'contents'}->[-1]->{'type'}
           and $current->{'contents'}->[-1]->{'type'}
                eq 'internal_spaces_before_argument') {
