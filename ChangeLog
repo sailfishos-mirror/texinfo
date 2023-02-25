@@ -1,5 +1,10 @@
 2023-02-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels):
+	use -> systematically with references.
+
+2023-02-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_target_elements_list):
 	rename build_label_list as build_target_elements_list.
 

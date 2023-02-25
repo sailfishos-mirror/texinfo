@@ -353,7 +353,7 @@ sub set_nodes_list_labels($$$)
     for my $target (@{$self->{'targets'}}) {
       if ($target->{'cmdname'} eq 'node') {
         if ($target->{'extra'}->{'nodes_manuals'}) {
-          for my $node_manual (@{$target->{'extra'}{'nodes_manuals'}}) {
+          for my $node_manual (@{$target->{'extra'}->{'nodes_manuals'}}) {
             if (defined $node_manual
                   and defined $node_manual->{'node_content'}) {
               my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
@@ -393,8 +393,8 @@ sub set_nodes_list_labels($$$)
             $target->{'extra'}->{'normalized'} = $normalized;
             if ($target->{'cmdname'} eq 'node') {
               if ($target->{'extra'}
-                  and $target->{'extra'}{'node_argument'}) {
-                $target->{'extra'}{'node_argument'}{'normalized'}
+                  and $target->{'extra'}->{'node_argument'}) {
+                $target->{'extra'}->{'node_argument'}->{'normalized'}
                   = $normalized;
               }
               push @{$self->{'nodes'}}, $target;
