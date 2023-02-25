@@ -209,7 +209,7 @@ sub _set_errors_node_lists_labels_indices($)
 {
   my $self = shift;
 
-  my $TARGETS = build_label_list ();
+  my $TARGETS = build_target_elements_list ();
   $self->{'targets'} = $TARGETS;
 
   _get_errors ($self);

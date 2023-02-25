@@ -1,3 +1,23 @@
+2023-02-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/api.c (build_target_elements_list):
+	rename build_label_list as build_target_elements_list.
+
+	* tp/Texinfo/XS/parsetexi/labels.c (register_label),
+	tp/Texinfo/XS/parsetexi/labels.h, tp/Texinfo/XS/parsetexi/api.c
+	(build_target_elements_list): rename labels_list as
+	target_elements_list and make it a list of element.  Remove the LABEL
+	type.  More explicit comments and variable names.
+
+	* tp/Texinfo/XS/parsetexi/labels.h: remove external definition of
+	internal_xref_space.
+
+	* tp/Texinfo/ParserNonXS.pm: remove _register_label, call directly
+	Texinfo::Common::register_label.
+
+	* tp/Texinfo/Common.pm (register_label): more explicit comments and
+	variable names.
+
 2023-02-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),

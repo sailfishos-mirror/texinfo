@@ -3210,16 +3210,6 @@ sub _parse_def($$$$)
   return [@result, @args_results];
 }
 
-# register a label, that is something that may be the target of a reference
-# and must be unique in the document.  Corresponds to @node, @anchor and
-# @float second arg.
-sub _register_label($$$)
-{
-  my ($targets_list, $current, $label) = @_;
-
-  Texinfo::Common::register_label($targets_list, $current, $label);
-}
-
 # store an index entry.
 # $COMMAND_CONTAINER is the name of the @-command the index entry
 #  is associated with, for instance 'cindex', 'defivar' or 'vtable'.
@@ -3493,8 +3483,8 @@ sub _end_line_misc_line($$$)
     }
     _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
                          $source_info);
-    _register_label($self->{'targets'}, $current,
-                 $current->{'extra'}->{'nodes_manuals'}->[0]);
+    Texinfo::Common::register_label($self->{'targets'}, $current,
+                                    $current->{'extra'}->{'nodes_manuals'}->[0]);
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
       if (not $part->{'extra'}
@@ -3867,7 +3857,7 @@ sub _end_line_starting_block($$$)
     # good to do in Parser/XS
     #my $float_type = _parse_float_type($current);
     #push @{$self->{'floats'}->{$float_type}}, $current;
-    _register_label($self->{'targets'}, $current, $float_label);
+    Texinfo::Common::register_label($self->{'targets'}, $current, $float_label);
     if (defined($self->{'current_section'})) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'float_section'} = $self->{'current_section'};
@@ -6282,8 +6272,9 @@ sub _process_remaining_on_line($$$$)
           my $parsed_anchor = _parse_node_manual($current);
           if (_check_node_label($self, $parsed_anchor,
                             $current->{'parent'}->{'cmdname'}, $source_info)) {
-            _register_label($self->{'targets'}, $current->{'parent'},
-                            $parsed_anchor);
+            Texinfo::Common::register_label($self->{'targets'},
+                                            $current->{'parent'},
+                                            $parsed_anchor);
              # the @anchor element_region information is not used in converters
              if ($self->{'nesting_context'}
                  and $self->{'nesting_context'}->{'regions_stack'}

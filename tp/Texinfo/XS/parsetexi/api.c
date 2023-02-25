@@ -706,7 +706,7 @@ build_texinfo_tree (void)
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
 AV *
-build_label_list (void)
+build_target_elements_list (void)
 {
   AV *target_array;
   SV *sv;
@@ -718,7 +718,7 @@ build_label_list (void)
 
   for (i = 0; i < labels_number; i++)
     {
-      sv = newRV_inc (labels_list[i].target->hv);
+      sv = newRV_inc (target_elements_list[i]->hv);
       av_push (target_array, sv);
     }
 

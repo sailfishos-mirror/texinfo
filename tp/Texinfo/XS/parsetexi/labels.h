@@ -18,16 +18,7 @@
 
 #include "tree_types.h"
 
-/* Information about a possible target of a cross-reference, often a node. */
-typedef struct {
-    /* Pointer to the element for the command defining this label, usually a
-       node element.  FIXME: I'm not sure if we actualy need to get to the
-       target - much of the use of the labels_information is to check that 
-       references are to real places. */
-    ELEMENT *target;
-} LABEL;
-
-extern LABEL *labels_list;
+extern ELEMENT **target_elements_list;
 extern size_t labels_number;
 void register_label (ELEMENT *current, ELEMENT *label);
 void reset_labels (void);
@@ -35,7 +26,6 @@ void reset_labels (void);
 
 extern ELEMENT **internal_xref_list;
 extern size_t internal_xref_number;
-extern size_t internal_xref_space;
 
 void remember_internal_xref (ELEMENT *element);
 void reset_internal_xrefs (void);

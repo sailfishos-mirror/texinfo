@@ -2273,21 +2273,25 @@ sub relate_index_entries_to_table_items_in_tree($)
 
 # Common to different module, but not meant to be used in user-defined
 # codes.
+
+# Register a target element associated to a label that may be the target of
+# a reference and must be unique in the document.  Corresponds to @node,
+# @anchor, and @float (float label corresponds to the second argument).
 #
-# register a label, that is something that may be the target of a reference
-# and must be unique in the document.  Corresponds to @node, @anchor and
-# @float second arg.
+# $TARGET_ELEMENTS_LIST array reference for elements associated to a label
+# $TARGET_ELEMENT is the tree element associated to the label.
+# $LABEL is a hash reference with 'node_content' key and an array of
+#    Texinfo content in it, corresponding to the target label.
 sub register_label($$$)
 {
-  my ($targets_list, $current, $label) = @_;
+  my ($target_elements_list, $target_element, $label) = @_;
 
-  #if (ref($targets_list) ne 'ARRAY') {
-  #  cluck("BUG: register_label \$targets_list not an ARRAY reference\n");
-  #}
-  push @{$targets_list}, $current;
+  # register the element in the list.
+  push @{$target_elements_list}, $target_element;
   if ($label and $label->{'node_content'}) {
-    #$current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'node_content'} = $label->{'node_content'};
+    # register the label in the element
+    #$target_element->{'extra'} = {} if (!$current->{'extra'});
+    $target_element->{'extra'}->{'node_content'} = $label->{'node_content'};
   }
 }
 

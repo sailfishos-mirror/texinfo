@@ -70,7 +70,7 @@ HV *
 build_texinfo_tree ()
 
 AV *
-build_label_list ()
+build_target_elements_list ()
 
 AV *
 build_internal_xref_list ()

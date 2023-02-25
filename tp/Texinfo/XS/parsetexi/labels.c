@@ -18,31 +18,32 @@
 #include "convert.h"
 #include "labels.h"
 
-/* Array of recorded labels. */
-/* If looking through this array turns out to be slow, we might have to replace
-   it with some kind of hash table implementation. */
-LABEL *labels_list = 0;
+/* Array of recorded elements with labels. */
+ELEMENT **target_elements_list = 0;
 size_t labels_number = 0;
 size_t labels_space = 0;
 
-/* Register a label, that is something that may be the target of a reference
-   and must be unique in the document.  Corresponds to @node, @anchor, and 
-   second arg of @float. */
+/* Register a target element associated to a label that may be the target of
+   a reference and must be unique in the document.  Corresponds to @node,
+   @anchor, and @float (float label corresponds to the second argument). */
 void
-register_label (ELEMENT *current, ELEMENT *label)
+register_label (ELEMENT *target_element, ELEMENT *label)
 {
+  /* register the element in the list. */
   if (labels_number == labels_space)
     {
       labels_space += 1;
       labels_space *= 1.5;
-      labels_list = realloc (labels_list, labels_space * sizeof (LABEL));
-      if (!labels_list)
+      target_elements_list = realloc (target_elements_list,
+                                      labels_space * sizeof (ELEMENT *));
+      if (!target_elements_list)
         fatal ("realloc failed");
     }
-  labels_list[labels_number++].target = current;
+  target_elements_list[labels_number++] = target_element;
 
+  /* register the label in the element */
   if (label)
-    add_extra_contents (current, "node_content", label);
+    add_extra_contents (target_element, "node_content", label);
 }
 
 void
