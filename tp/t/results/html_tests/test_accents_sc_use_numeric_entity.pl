@@ -50,14 +50,6 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -127,14 +119,6 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-chap'
-          }
-        ],
         'normalized' => 'node-chap'
       },
       'info' => {
@@ -1147,8 +1131,6 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'test_accents_sc_use_numeric_entity'} = '\\input texinfo
 

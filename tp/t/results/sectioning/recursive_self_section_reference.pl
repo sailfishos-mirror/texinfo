@@ -35,14 +35,6 @@ $result_trees{'recursive_self_section_reference'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'sharp'
-          }
-        ],
         'normalized' => 'sharp'
       },
       'info' => {
@@ -116,7 +108,6 @@ $result_trees{'recursive_self_section_reference'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'recursive_self_section_reference'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'label'} = $result_trees{'recursive_self_section_reference'}{'contents'}[1];
 $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 

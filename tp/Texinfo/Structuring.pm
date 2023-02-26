@@ -429,7 +429,10 @@ sub check_nodes_are_referenced
     # the nodes appearing in the automatic menu are referenced.
     # Note that the menu may not be actually setup, but
     # it is better not to warn for nothing.
-    if ((scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1)
+    my $automatic_directions
+      = (not ($node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
+              and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0));
+    if ($automatic_directions
         and (not $node->{'extra'}->{'menus'}
              or not scalar(@{$node->{'extra'}->{'menus'}}))) {
       my @node_childs = get_node_node_childs_from_sectioning($node);
@@ -618,8 +621,9 @@ sub complete_node_tree_with_menus($$$$)
   return undef unless ($nodes_list and @{$nodes_list});
   # Go through all the nodes
   foreach my $node (@{$nodes_list}) {
-    my $automatic_directions =
-      (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+    my $automatic_directions
+      = (not ($node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
+              and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0));
 
     if ($automatic_directions) {
       if ($node->{'extra'}->{'normalized'} ne 'Top') {
@@ -706,7 +710,11 @@ sub complete_node_tree_with_menus($$$$)
             if ($first_non_top_node ne $node) {
               $node->{'structure'} = {} if (! $node->{'structure'});
               $node->{'structure'}->{'node_next'} = $first_non_top_node;
-              if (scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) == 1) {
+              my $first_non_top_automatic
+                = (not ($first_non_top_node->{'extra'}
+                        and $first_non_top_node->{'extra'}->{'nodes_manuals'}
+         and scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) > 0));
+              if ($first_non_top_automatic) {
                 $first_non_top_node->{'structure'} = {}
                      if (! $first_non_top_node->{'structure'});
                 $first_non_top_node->{'structure'}->{'node_prev'} = $node;
@@ -783,7 +791,8 @@ sub nodes_tree($$$$$)
       $top_node = $node;
     }
     my $automatic_directions
-        = (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+      = (not ($node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
+              and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0));
 
     if ($automatic_directions) {
       if ($node->{'extra'}->{'normalized'} ne 'Top') {
@@ -832,7 +841,13 @@ sub nodes_tree($$$$$)
                                              ->{'extra'}->{'associated_node'};
           $node->{'structure'} = {} if (! $node->{'structure'});
           $node->{'structure'}->{'node_next'} = $top_node_section_child;
-          if (scalar(@{$top_node_section_child->{'extra'}->{'nodes_manuals'}}) == 1) {
+
+          my $first_section_child_automatic
+             = (not ($top_node_section_child->{'extra'}
+                     and $top_node_section_child->{'extra'}->{'nodes_manuals'}
+            and scalar(@{$top_node_section_child->{'extra'}->{'nodes_manuals'}}) > 0));
+
+          if ($first_section_child_automatic) {
             $top_node_section_child->{'structure'} = {}
                 if (! $top_node_section_child->{'structure'});
             $top_node_section_child->{'structure'}->{'node_prev'} = $node;
@@ -841,7 +856,6 @@ sub nodes_tree($$$$$)
       }
     } else { # explicit directions
       my @directions = @{$node->{'extra'}->{'nodes_manuals'}};
-      shift @directions;
       foreach my $direction (@node_directions) {
         my $node_direction = shift @directions;
         next if (!defined($node_direction));
@@ -1174,8 +1188,9 @@ sub elements_directions($$$)
             if ($node->{'structure'}->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
-      my $automatic_directions =
-        (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+      my $automatic_directions
+        = (not ($node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
+                and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0));
       if ($node->{'structure'}->{'menu_child'}) {
         $directions->{'NodeForward'}
           = _label_target_element($node->{'structure'}->{'menu_child'});

@@ -83,14 +83,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -109,7 +101,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
 };
 $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1];
 $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ref_to_top_in_anchor'} = '@node Top
 @anchor{TOP @ref{Top}}';

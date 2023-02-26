@@ -35,14 +35,6 @@ $result_trees{'empty_cindex_entry'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -99,14 +91,6 @@ $result_trees{'empty_cindex_entry'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -123,8 +107,6 @@ $result_trees{'empty_cindex_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_cindex_entry'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_cindex_entry'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_cindex_entry'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_cindex_entry'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_cindex_entry'} = '@node Top
 @node chap

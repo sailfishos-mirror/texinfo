@@ -72,14 +72,6 @@ $result_trees{'all_spaces'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "Top"
-          }
-        ],
         "normalized" => "Top"
       },
       "info" => {
@@ -444,14 +436,6 @@ $result_trees{'all_spaces'} = {
         }
       ],
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "chap"
-          }
-        ],
         "normalized" => "chap"
       },
       "info" => {
@@ -468,8 +452,6 @@ $result_trees{'all_spaces'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'all_spaces'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[1]{"args"}[0]{"contents"}[0];
-$result_trees{'all_spaces'}{"contents"}[2]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[2]{"args"}[0]{"contents"}[0];
 
 $result_texis{'all_spaces'} = '@documentencoding utf-8
 

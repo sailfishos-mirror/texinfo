@@ -29,14 +29,6 @@ $result_trees{'image_formatting'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -106,14 +98,6 @@ $result_trees{'image_formatting'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -1880,8 +1864,6 @@ $result_trees{'image_formatting'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_formatting'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'image_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'image_formatting'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'image_formatting'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'image_formatting'} = '@node Top
 @top top

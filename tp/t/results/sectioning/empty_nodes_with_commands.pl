@@ -49,11 +49,7 @@ $result_trees{'empty_nodes_with_commands'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'nodes_manuals' => [
-          undef
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -78,16 +74,7 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => '-'
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -117,16 +104,7 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => ''
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -171,16 +149,7 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => '-'
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -195,9 +164,6 @@ $result_trees{'empty_nodes_with_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_nodes_with_commands'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_nodes_with_commands'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_nodes_with_commands'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_nodes_with_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_nodes_with_commands'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_nodes_with_commands'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_nodes_with_commands'} = '
 @node @c comment

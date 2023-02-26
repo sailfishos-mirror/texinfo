@@ -125,14 +125,6 @@ $result_trees{'cpp_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -1187,14 +1179,6 @@ $result_trees{'cpp_lines'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -1221,8 +1205,6 @@ $result_trees{'cpp_lines'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cpp_lines'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cpp_lines'} = '\\input texinfo
 @setfilename cpp_lines.info

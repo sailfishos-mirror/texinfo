@@ -56,14 +56,6 @@ $result_trees{'error_in_sectioning_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -176,17 +168,6 @@ $result_trees{'error_in_sectioning_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {},
-              {},
-              {},
-              {}
-            ],
-            'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
-          }
-        ],
         'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
       },
       'info' => {
@@ -308,11 +289,6 @@ $result_trees{'error_in_sectioning_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'error_in_sectioning_command'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'error_in_sectioning_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_sectioning_command'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'error_in_sectioning_command'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_sectioning_command'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[1] = $result_trees{'error_in_sectioning_command'}{'contents'}[3]{'args'}[0]{'contents'}[1];
-$result_trees{'error_in_sectioning_command'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[2] = $result_trees{'error_in_sectioning_command'}{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'error_in_sectioning_command'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[3] = $result_trees{'error_in_sectioning_command'}{'contents'}[3]{'args'}[0]{'contents'}[3];
 
 $result_texis{'error_in_sectioning_command'} = '@contents
 

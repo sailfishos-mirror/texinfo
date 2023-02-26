@@ -50,14 +50,6 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -247,14 +239,6 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -483,14 +467,6 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'section'
-          }
-        ],
         'normalized' => 'section'
       },
       'info' => {
@@ -589,14 +565,6 @@ $result_trees{'contents_in_middle_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'section1'
-          }
-        ],
         'normalized' => 'section1'
       },
       'info' => {
@@ -674,13 +642,9 @@ $result_trees{'contents_in_middle_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_in_middle_section'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_in_middle_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'contents_in_middle_section'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_in_middle_section'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'contents_in_middle_section'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'contents_in_middle_section'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'contents_in_middle_section'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_middle_section'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 
 $result_texis{'contents_in_middle_section'} = '\\input texinfo @c -*-texinfo-*-
 

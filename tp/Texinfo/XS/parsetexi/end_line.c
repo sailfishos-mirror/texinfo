@@ -1831,45 +1831,32 @@ end_line_misc_line (ELEMENT *current)
     {
       int i;
       ELEMENT *arg;
+      NODE_SPEC_EXTRA *node_label_manual_info;
 
       NODE_SPEC_EXTRA **nodes_manuals;
 
-      /* Construct 'nodes_manuals' array.  Maximum of four elements
-         (node name, up, prev, next). */
-      nodes_manuals = malloc (sizeof (NODE_SPEC_EXTRA *) * 5);
+      /* Construct 'nodes_manuals' array.  Maximum of three elements
+         (up, prev, next). */
+      nodes_manuals = malloc (sizeof (NODE_SPEC_EXTRA *) * 4);
 
-      for (i = 0; i < current->args.number && i < 4; i++)
+      for (i = 1; i < current->args.number && i < 4; i++)
         {
           arg = current->args.list[i];
-          nodes_manuals[i] = parse_node_manual (arg);
+          nodes_manuals[i-1] = parse_node_manual (arg);
         }
-      nodes_manuals[i] = 0;
+      nodes_manuals[i-1] = 0;
 
       add_extra_node_spec_array (current, "nodes_manuals", nodes_manuals);
 
-      check_internal_node (nodes_manuals[0]);
+      /* Now take care of the node itself */
+      node_label_manual_info = parse_node_manual (current->args.list[0]);
+      check_internal_node (node_label_manual_info);
 
-      if (nodes_manuals[0])
+      if (node_label_manual_info)
         {
-          ELEMENT *label = 0;
-          if (nodes_manuals[0]->node_content)
-            {
-              /* Copy the first 'node_content' array, to avoid the complication
-                 of it being referenced in two different places.
-                 This might be better with a separate function. */
-              int i;
-
-              label = new_element (0);
-
-              for (i = 0; i<nodes_manuals[0]->node_content->contents.number;
-                   i++)
-                {
-                  add_to_contents_as_array (label,
-                   contents_child_by_index(nodes_manuals[0]->node_content, i));
-                }
-            }
           register_label (current);
         }
+      free (node_label_manual_info);
       if (current_part
           && !lookup_extra (current_part, "part_associated_section"))
         {

@@ -188,14 +188,6 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -597,14 +589,6 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Preface'
-          }
-        ],
         'normalized' => 'Preface'
       },
       'info' => {
@@ -693,14 +677,6 @@ $result_trees{'japanese_shift_jis'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Introduction'
-          }
-        ],
         'normalized' => 'Introduction'
       },
       'info' => {
@@ -778,11 +754,8 @@ $result_trees{'japanese_shift_jis'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'japanese_shift_jis'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'japanese_shift_jis'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'japanese_shift_jis'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'japanese_shift_jis'} = '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 @documentencoding shift_jis

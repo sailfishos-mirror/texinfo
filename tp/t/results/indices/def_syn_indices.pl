@@ -76,14 +76,6 @@ $result_trees{'def_syn_indices'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -154,14 +146,6 @@ $result_trees{'def_syn_indices'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-index'
-          }
-        ],
         'normalized' => 'Chapter-index'
       },
       'info' => {
@@ -1339,8 +1323,6 @@ $result_trees{'def_syn_indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_syn_indices'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'def_syn_indices'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'def_syn_indices'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'def_syn_indices'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];

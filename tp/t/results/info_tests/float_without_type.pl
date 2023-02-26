@@ -158,14 +158,6 @@ $result_trees{'float_without_type'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -182,7 +174,6 @@ $result_trees{'float_without_type'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_without_type'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_without_type'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'float_without_type'} = '
 @node Top

@@ -3477,11 +3477,16 @@ sub _end_line_misc_line($$$)
     }
   } elsif ($command eq 'node') {
     $current->{'extra'} = {} if (!$current->{'extra'});
+    my @parsed_manual_args;
     foreach my $arg (@{$current->{'args'}}) {
-      my $node = _parse_node_manual($arg);
-      push @{$current->{'extra'}->{'nodes_manuals'}}, $node;
+      my $arg_label_manual_info = _parse_node_manual($arg);
+      push @parsed_manual_args, $arg_label_manual_info;
     }
-    _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
+    my $node_label_manual_info = shift @parsed_manual_args;
+    if (scalar(@parsed_manual_args)) {
+      $current->{'extra'}->{'nodes_manuals'} = \@parsed_manual_args;
+    }
+    _check_internal_node($self, $node_label_manual_info,
                          $source_info);
     Texinfo::Common::register_label($self->{'targets'}, $current);
     if ($self->{'current_part'}) {
@@ -4375,7 +4380,7 @@ sub _check_internal_node($$$)
 
   if ($parsed_node and $parsed_node->{'manual_content'}) {
     $self->_line_error(sprintf(__("syntax for an external node used for `%s'"),
-        Texinfo::Structuring::node_extra_to_texi($parsed_node)), $source_info);
+        Texinfo::Convert::Texinfo::node_extra_to_texi($parsed_node)), $source_info);
   }
 }
 

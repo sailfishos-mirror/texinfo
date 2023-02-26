@@ -56,14 +56,6 @@ $result_trees{'nodes_before_after_top'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-before'
-          }
-        ],
         'normalized' => 'node-before'
       },
       'info' => {
@@ -96,14 +88,6 @@ $result_trees{'nodes_before_after_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -208,14 +192,6 @@ $result_trees{'nodes_before_after_top'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'after'
-          }
-        ],
         'normalized' => 'after'
       },
       'info' => {
@@ -248,14 +224,6 @@ $result_trees{'nodes_before_after_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -318,10 +286,6 @@ $result_trees{'nodes_before_after_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nodes_before_after_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'nodes_before_after_top'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_after_top'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'nodes_before_after_top'} = '@node node before
 

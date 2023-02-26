@@ -29,14 +29,6 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -106,14 +98,6 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter'
-          }
-        ],
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -183,14 +167,6 @@ $result_trees{'automatic_menu_referencing_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'section'
-          }
-        ],
         'normalized' => 'section'
       },
       'info' => {
@@ -237,9 +213,6 @@ $result_trees{'automatic_menu_referencing_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'automatic_menu_referencing_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'automatic_menu_referencing_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'automatic_menu_referencing_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'automatic_menu_referencing_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'automatic_menu_referencing_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'automatic_menu_referencing_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'automatic_menu_referencing_node'} = '@node Top
 @top top

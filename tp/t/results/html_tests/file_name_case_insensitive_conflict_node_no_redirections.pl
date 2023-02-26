@@ -29,14 +29,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -106,14 +98,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -214,14 +198,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Foo'
-          }
-        ],
         'normalized' => 'Foo'
       },
       'info' => {
@@ -291,14 +267,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Bar'
-          }
-        ],
         'normalized' => 'Bar'
       },
       'info' => {
@@ -368,14 +336,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'foo'
-          }
-        ],
         'normalized' => 'foo'
       },
       'info' => {
@@ -506,11 +466,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[9];
 $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[5];

@@ -114,14 +114,6 @@ $result_trees{'chinese_mixed_with_en'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -205,14 +197,6 @@ $result_trees{'chinese_mixed_with_en'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Mixed-english-and-chinese'
-          }
-        ],
         'normalized' => 'Mixed-english-and-chinese'
       },
       'info' => {
@@ -429,8 +413,6 @@ $result_trees{'chinese_mixed_with_en'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chinese_mixed_with_en'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'chinese_mixed_with_en'} = '\\input texinfo
 @documentencoding utf-8

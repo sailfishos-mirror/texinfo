@@ -381,14 +381,6 @@ $result_trees{'documentlanguage_unknown'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -459,14 +451,6 @@ $result_trees{'documentlanguage_unknown'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -801,8 +785,6 @@ $result_trees{'documentlanguage_unknown'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentlanguage_unknown'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'documentlanguage_unknown'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'documentlanguage_unknown'}{'contents'}[3];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'documentlanguage_unknown'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[6];

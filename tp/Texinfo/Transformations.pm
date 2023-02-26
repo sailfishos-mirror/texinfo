@@ -284,7 +284,6 @@ sub _new_node($$$$)
   }
 
   $node->{'extra'}->{'normalized'} = $normalized;
-  push @{$node->{'extra'}->{'nodes_manuals'}}, $node;
   # FIXME $node->{'extra'}->{'normalized'} eq '' does not seems to be possible,
   # as in that case there should be a return undef in the loop.
   if ($node->{'extra'}->{'normalized'} ne '') {
@@ -489,7 +488,9 @@ sub _get_non_automatic_nodes_with_sections($)
   my @non_automatic_nodes;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and (scalar(@{$content->{'extra'}->{'nodes_manuals'}}) == 1)
+        and $content->{'extra'}
+        and not ($content->{'extra'}->{'nodes_manuals'}
+                 and scalar(@{$content->{'extra'}->{'nodes_manuals'}}) > 0)
         and $content->{'extra'}
         and $content->{'extra'}->{'associated_section'}) {
       push @non_automatic_nodes, $content;

@@ -30,6 +30,8 @@ use Carp qw(cluck confess);
 
 # commands definitions
 use Texinfo::Commands;
+# get_label_element
+use Texinfo::Common;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);

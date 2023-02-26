@@ -77,14 +77,6 @@ $result_trees{'simplest_test_date_in_header'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -111,7 +103,6 @@ $result_trees{'simplest_test_date_in_header'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simplest_test_date_in_header'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'simplest_test_date_in_header'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'simplest_test_date_in_header'} = '\\input texinfo @c -*-texinfo-*-
 

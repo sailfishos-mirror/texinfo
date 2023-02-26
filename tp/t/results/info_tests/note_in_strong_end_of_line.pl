@@ -105,14 +105,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -129,7 +121,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'note_in_strong_end_of_line'} = '@node Top
 

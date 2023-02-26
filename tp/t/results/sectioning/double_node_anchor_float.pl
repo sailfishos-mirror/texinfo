@@ -36,14 +36,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node1'
-          }
-        ],
         'normalized' => 'node1'
       },
       'info' => {
@@ -142,16 +134,7 @@ $result_trees{'double_node_anchor_float'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node1'
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -435,16 +418,7 @@ $result_trees{'double_node_anchor_float'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'anchor1'
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -474,16 +448,7 @@ $result_trees{'double_node_anchor_float'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'float1'
-          }
-        ]
-      },
+      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -498,10 +463,6 @@ $result_trees{'double_node_anchor_float'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_node_anchor_float'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'double_node_anchor_float'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_node_anchor_float'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
 $result_texis{'double_node_anchor_float'} = '@node node1
 

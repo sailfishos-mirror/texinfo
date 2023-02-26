@@ -76,14 +76,6 @@ $result_trees{'shorttitlepage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -153,14 +145,6 @@ $result_trees{'shorttitlepage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -223,8 +207,6 @@ $result_trees{'shorttitlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'shorttitlepage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'shorttitlepage'} = '@shorttitlepage the title with shorttitlepage @* it can be long
 

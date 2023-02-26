@@ -822,16 +822,12 @@ sub _convert($$;$)
                 push @$attributes, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
-              if (! defined($element->{'extra'}->{'nodes_manuals'}
-                                                        ->[$direction_index])) {
+              if (!$element->{'extra'}
+                  or !$element->{'extra'}->{'nodes_manuals'}
+                  or ! defined($element->{'extra'}->{'nodes_manuals'}
+                                                   ->[$direction_index - 1])) {
                 push @$attributes, ['automatic', 'on'];
 
-                if ($node_direction->{'extra'}->{'manual_content'}) {
-                  $node_name .= $self->_convert({
-                               'contents' => [{'text' => '('},
-                              @{$node_direction->{'extra'}->{'manual_content'}},
-                                            {'text' => ')'}]});
-                }
                 if (defined($node_direction->{'extra'}->{'normalized'})) {
                   $node_name .= Texinfo::Common::normalize_top_node_name(
                     $self->_convert({'contents'

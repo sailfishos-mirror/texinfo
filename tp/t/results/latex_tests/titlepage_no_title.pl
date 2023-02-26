@@ -153,14 +153,6 @@ $result_trees{'titlepage_no_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -230,14 +222,6 @@ $result_trees{'titlepage_no_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -301,8 +285,6 @@ $result_trees{'titlepage_no_title'} = {
   'type' => 'document_root'
 };
 $result_trees{'titlepage_no_title'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'titlepage'} = $result_trees{'titlepage_no_title'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_title'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_no_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_title'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_no_title'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'titlepage_no_title'} = '@titlepage
 @titlefont{Some manual tested}

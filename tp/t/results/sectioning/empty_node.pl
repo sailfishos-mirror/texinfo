@@ -30,11 +30,7 @@ $result_trees{'empty_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'nodes_manuals' => [
-          undef
-        ]
-      },
+      'extra' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -93,7 +89,6 @@ $result_trees{'empty_node'} = {
       'cmdname' => 'node',
       'extra' => {
         'nodes_manuals' => [
-          undef,
           {
             'node_content' => [
               {}
@@ -128,9 +123,9 @@ $result_trees{'empty_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[1]{'contents'}[0];
-$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[2]{'contents'}[0];
-$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[1]{'contents'}[0];
+$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[2]{'contents'}[0];
+$result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[3]{'contents'}[0];
 
 $result_texis{'empty_node'} = '@node
 

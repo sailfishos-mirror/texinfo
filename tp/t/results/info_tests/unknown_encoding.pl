@@ -80,14 +80,6 @@ $result_trees{'unknown_encoding'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -104,7 +96,6 @@ $result_trees{'unknown_encoding'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_encoding'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unknown_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'unknown_encoding'} = '
 @documentencoding ggg

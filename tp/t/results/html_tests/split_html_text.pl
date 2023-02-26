@@ -30,14 +30,6 @@ $result_trees{'split_html_text'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'Top'
         },
         'info' => {
@@ -124,14 +116,6 @@ $result_trees{'split_html_text'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'chap'
-            }
-          ],
           'normalized' => 'chap'
         },
         'info' => {
@@ -182,9 +166,7 @@ $result_trees{'split_html_text'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'split_html_text'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_html_text'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'split_html_text'}[0]{'extra'}{'unit_command'} = $result_trees{'split_html_text'}[0]{'contents'}[1];
-$result_trees{'split_html_text'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_html_text'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'split_html_text'}[1]{'extra'}{'unit_command'} = $result_trees{'split_html_text'}[1]{'contents'}[0];
 
 $result_texis{'split_html_text'} = '@node Top

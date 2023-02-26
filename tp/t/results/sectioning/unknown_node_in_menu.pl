@@ -137,14 +137,6 @@ $result_trees{'unknown_node_in_menu'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          }
-        ],
         'normalized' => 'first'
       },
       'info' => {
@@ -162,7 +154,6 @@ $result_trees{'unknown_node_in_menu'} = {
   'type' => 'document_root'
 };
 $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'unknown_node_in_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unknown_node_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'unknown_node_in_menu'} = '@node first
 

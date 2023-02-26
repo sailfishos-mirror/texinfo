@@ -72,14 +72,6 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -199,14 +191,6 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-after'
-          }
-        ],
         'normalized' => 'node-after'
       },
       'info' => {
@@ -223,8 +207,6 @@ $result_trees{'section_before_after_top_node_last_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'section_before_after_top_node_last_node'} = '@unnumbered before
 

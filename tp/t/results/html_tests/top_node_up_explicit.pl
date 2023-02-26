@@ -86,12 +86,6 @@ $result_trees{'top_node_up_explicit'} = {
       'extra' => {
         'nodes_manuals' => [
           {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          },
-          {
             'manual_content' => [
               {}
             ]
@@ -296,14 +290,6 @@ $result_trees{'top_node_up_explicit'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chap'
-          }
-        ],
         'normalized' => 'Chap'
       },
       'info' => {
@@ -366,12 +352,10 @@ $result_trees{'top_node_up_explicit'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_up_explicit'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'top_node_up_explicit'} = '@node Top, (dir), (weird), (dir)
 @top The top

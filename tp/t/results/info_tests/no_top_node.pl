@@ -29,14 +29,6 @@ $result_trees{'no_top_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-Top-not-Top-node'
-          }
-        ],
         'normalized' => 'node-Top-not-Top-node'
       },
       'info' => {
@@ -53,7 +45,6 @@ $result_trees{'no_top_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_top_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'no_top_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'no_top_node'} = '@node node Top not Top node
 ';

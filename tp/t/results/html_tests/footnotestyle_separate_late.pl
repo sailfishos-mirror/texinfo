@@ -30,14 +30,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'Top'
         },
         'info' => {
@@ -115,14 +107,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'chap-f'
-            }
-          ],
           'normalized' => 'chap-f'
         },
         'info' => {
@@ -237,14 +221,6 @@ $result_trees{'footnotestyle_separate_late'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'chap-s'
-            }
-          ],
           'normalized' => 'chap-s'
         },
         'info' => {
@@ -373,11 +349,8 @@ $result_trees{'footnotestyle_separate_late'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[0]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1];
-$result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
-$result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 
 $result_texis{'footnotestyle_separate_late'} = '@node Top

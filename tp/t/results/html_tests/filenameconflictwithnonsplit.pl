@@ -29,14 +29,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -121,7 +113,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'filenameconflictwithnonsplit'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'filenameconflictwithnonsplit'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'filenameconflictwithnonsplit'} = '@node Top
 @top top

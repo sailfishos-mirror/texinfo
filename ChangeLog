@@ -14,6 +14,23 @@
 
 2023-02-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/ParserNonXS.pm
+	(_end_line_misc_line), tp/Texinfo/Structuring.pm,
+	tp/Texinfo/Transformations.pm (_new_node)
+	(_get_non_automatic_nodes_with_sections),
+	tp/Texinfo/XS/parsetexi/api.c (store_additional_info),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): do not put
+	the node name itself in extra nodes_manuals, only the node directions.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): remove check on
+	existing manual_content for automatic directions, as it should never
+	be possible.
+
+	* tp/Texinfo/Convert/Texinfo.pm: use Texinfo::Common;
+
+2023-02-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (register_label, get_label_element),
 	tp/Texinfo/Convert/Converter.pm (node_information_filename)
 	(_set_tree_units_files, sort_element_counts),

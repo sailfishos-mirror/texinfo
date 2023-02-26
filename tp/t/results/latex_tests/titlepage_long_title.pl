@@ -134,14 +134,6 @@ $result_trees{'titlepage_long_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -211,14 +203,6 @@ $result_trees{'titlepage_long_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -281,8 +265,6 @@ $result_trees{'titlepage_long_title'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_long_title'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_long_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'titlepage_long_title'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_long_title'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'titlepage_long_title'} = '@titlepage
 @title a title than is long, very long, veeeeeeeeeeeeeeeeery long, it seems to never stop and it is not so interesting only very long oh an end of line @* and the title continue and keep on being unfinished until it is the end

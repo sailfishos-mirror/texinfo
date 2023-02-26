@@ -36,14 +36,6 @@ $result_trees{'between_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -113,14 +105,6 @@ $result_trees{'between_node_and_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'sec1'
-          }
-        ],
         'normalized' => 'sec1'
       },
       'info' => {
@@ -218,14 +202,6 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'sec2'
-          }
-        ],
         'normalized' => 'sec2'
       },
       'info' => {
@@ -272,9 +248,6 @@ $result_trees{'between_node_and_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'between_node_and_section'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'between_node_and_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'between_node_and_section'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'between_node_and_section'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'between_node_and_section'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'between_node_and_section'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'between_node_and_section'} = '
 @node chap

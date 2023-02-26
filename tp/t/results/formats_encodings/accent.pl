@@ -35,14 +35,6 @@ $result_trees{'accent'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          }
-        ],
         'normalized' => 'first'
       },
       'info' => {
@@ -2122,7 +2114,6 @@ $result_trees{'accent'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'accent'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'accent'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'accent'} = '@node first
 @top top

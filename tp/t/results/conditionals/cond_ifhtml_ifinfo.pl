@@ -290,14 +290,6 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -747,14 +739,6 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -781,8 +765,6 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cond_ifhtml_ifinfo'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cond_ifhtml_ifinfo'} = '\\input texinfo
 

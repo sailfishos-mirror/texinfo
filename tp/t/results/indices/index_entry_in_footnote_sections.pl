@@ -35,14 +35,6 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -207,14 +199,6 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Index'
-          }
-        ],
         'normalized' => 'Index'
       },
       'info' => {
@@ -302,10 +286,8 @@ $result_trees{'index_entry_in_footnote_sections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entry_in_footnote_sections'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1];
 $result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'index_entry_in_footnote_sections'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_entry_in_footnote_sections'} = '@node Top
 @top index_entry_in_footnote

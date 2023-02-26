@@ -35,14 +35,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -154,7 +146,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'setfilename_on_top_and_after_node'} = '@node Top
 @top In top @setfilename very badly placed setfilename

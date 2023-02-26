@@ -29,14 +29,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -237,7 +229,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'direntry_dircategory_after_first_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'direntry_dircategory_after_first_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1];
 
 $result_texis{'direntry_dircategory_after_first_node'} = '@node Top

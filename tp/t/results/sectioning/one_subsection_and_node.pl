@@ -29,14 +29,6 @@ $result_trees{'one_subsection_and_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'one-node'
-          }
-        ],
         'normalized' => 'one-node'
       },
       'info' => {
@@ -83,7 +75,6 @@ $result_trees{'one_subsection_and_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_subsection_and_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'one_subsection_and_node'} = '@node one node
 @subsection The subsection

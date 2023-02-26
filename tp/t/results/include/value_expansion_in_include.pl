@@ -152,14 +152,6 @@ $result_trees{'value_expansion_in_include'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -737,14 +729,6 @@ $result_trees{'value_expansion_in_include'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -761,8 +745,6 @@ $result_trees{'value_expansion_in_include'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_expansion_in_include'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'value_expansion_in_include'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_expansion_in_include'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'value_expansion_in_include'} = '@set testvar incl-incl.txi
 

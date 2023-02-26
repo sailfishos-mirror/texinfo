@@ -57,14 +57,6 @@ $result_trees{'node_in_copying'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node'
-          }
-        ],
         'normalized' => 'node'
       },
       'info' => {
@@ -81,7 +73,6 @@ $result_trees{'node_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_in_copying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_in_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'node_in_copying'} = '@copying
 @node node

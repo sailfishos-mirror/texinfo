@@ -29,14 +29,6 @@ $result_trees{'refs_formatting'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -2929,7 +2921,6 @@ $result_trees{'refs_formatting'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'refs_formatting'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'refs_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'label'} = $result_trees{'refs_formatting'}{'contents'}[1];
 $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'extra'}{'label'} = $result_trees{'refs_formatting'}{'contents'}[1];

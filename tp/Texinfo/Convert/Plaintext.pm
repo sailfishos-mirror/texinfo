@@ -3605,10 +3605,10 @@ sub _convert($$)
         and $command ne 'part') {
       # add menu if missing
       my $node = $self->{'current_node'};
-      my $automatic_directions;
-      if ($node and defined($node->{'extra'}->{'nodes_manuals'})) {
-        $automatic_directions =
-            (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+      my $automatic_directions = 1;
+      if ($node and $node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
+          and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0) {
+        $automatic_directions = 0;
       }
       if ($node and $automatic_directions
             and !$self->{'seenmenus'}->{$node}) {

@@ -43,14 +43,6 @@ $result_trees{'only_special_spaces_node'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "Top"
-          }
-        ],
         "normalized" => "Top"
       },
       "info" => {
@@ -117,14 +109,6 @@ $result_trees{'only_special_spaces_node'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "_2002_2003_2002"
-          }
-        ],
         "normalized" => "_2002_2003_2002"
       },
       "info" => {
@@ -185,11 +169,7 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "extra" => {
-        "nodes_manuals" => [
-          undef
-        ]
-      },
+      "extra" => {},
       "source_info" => {
         "file_name" => "only_special_spaces_node.texi",
         "line_nr" => 8,
@@ -243,11 +223,7 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "extra" => {
-        "nodes_manuals" => [
-          undef
-        ]
-      },
+      "extra" => {},
       "source_info" => {
         "file_name" => "only_special_spaces_node.texi",
         "line_nr" => 11,
@@ -307,14 +283,6 @@ $result_trees{'only_special_spaces_node'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "_0085_00a0_1680"
-          }
-        ],
         "normalized" => "_0085_00a0_1680"
       },
       "info" => {
@@ -381,14 +349,6 @@ $result_trees{'only_special_spaces_node'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "_180e_2003"
-          }
-        ],
         "normalized" => "_180e_2003"
       },
       "info" => {
@@ -461,14 +421,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "extra" => {
-        "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
-          }
-        ],
         "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
       },
       "info" => {
@@ -529,11 +481,6 @@ $result_trees{'only_special_spaces_node'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'only_special_spaces_node'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0];
-$result_trees{'only_special_spaces_node'}{"contents"}[3]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0]{"contents"}[0];
-$result_trees{'only_special_spaces_node'}{"contents"}[9]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0]{"contents"}[0];
-$result_trees{'only_special_spaces_node'}{"contents"}[11]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[11]{"args"}[0]{"contents"}[0];
-$result_trees{'only_special_spaces_node'}{"contents"}[13]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0]{"contents"}[0];
 
 $result_texis{'only_special_spaces_node'} = '
 @node Top

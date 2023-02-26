@@ -29,14 +29,6 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -250,14 +242,6 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Additional'
-          }
-        ],
         'normalized' => 'Additional'
       },
       'info' => {
@@ -304,9 +288,7 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'chapter_between_nodes_with_appendix'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
 $result_texis{'chapter_between_nodes_with_appendix'} = '@node Top
 @top top section

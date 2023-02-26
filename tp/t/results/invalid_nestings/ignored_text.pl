@@ -65,14 +65,6 @@ $result_trees{'ignored_text'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'before-ignore'
-          }
-        ],
         'normalized' => 'before-ignore'
       },
       'info' => {
@@ -89,7 +81,6 @@ $result_trees{'ignored_text'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_text'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ignored_text'} = '@node before ignore in ifinfo
 ';

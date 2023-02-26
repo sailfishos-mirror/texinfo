@@ -29,14 +29,6 @@ $result_trees{'anchor_and_spaces'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -187,7 +179,6 @@ $result_trees{'anchor_and_spaces'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_and_spaces'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'anchor_and_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_and_spaces'} = '@node Top
 @top Element

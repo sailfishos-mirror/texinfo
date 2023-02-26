@@ -36,14 +36,6 @@ $result_trees{'top_in_ref'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -2922,14 +2914,6 @@ $result_trees{'top_in_ref'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap-refs-node'
-          }
-        ],
         'normalized' => 'chap-refs-node'
       },
       'info' => {
@@ -2946,7 +2930,6 @@ $result_trees{'top_in_ref'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_in_ref'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'label'} = $result_trees{'top_in_ref'}{'contents'}[1];
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'extra'}{'label'} = $result_trees{'top_in_ref'}{'contents'}[1];
@@ -2996,7 +2979,6 @@ $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'extra'
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[6]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[10]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[14]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[2]{'contents'}[5]{'contents'}[14]{'args'}[0]{'contents'}[0];
-$result_trees{'top_in_ref'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_in_ref'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'top_in_ref'} = '@node Top
 

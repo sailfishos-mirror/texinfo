@@ -29,14 +29,6 @@ $result_trees{'contents_in_document'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -139,7 +131,6 @@ $result_trees{'contents_in_document'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_in_document'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'contents_in_document'} = '@node Top
 @top contents in document

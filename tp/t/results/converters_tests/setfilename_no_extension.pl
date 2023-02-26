@@ -73,14 +73,6 @@ $result_trees{'setfilename_no_extension'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -166,14 +158,6 @@ $result_trees{'setfilename_no_extension'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -190,8 +174,6 @@ $result_trees{'setfilename_no_extension'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'setfilename_no_extension'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'setfilename_no_extension'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'setfilename_no_extension'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'setfilename_no_extension'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'setfilename_no_extension'} = '@setfilename setfilename_no_extension
 

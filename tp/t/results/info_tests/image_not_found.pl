@@ -56,14 +56,6 @@ $result_trees{'image_not_found'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -80,7 +72,6 @@ $result_trees{'image_not_found'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_not_found'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'image_not_found'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'image_not_found'} = '@node Top
 @image{n_f_image}

@@ -148,14 +148,6 @@ $result_trees{'nested_footnotes_separate'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -172,7 +164,6 @@ $result_trees{'nested_footnotes_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_footnotes_separate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nested_footnotes_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'nested_footnotes_separate'} = '@footnotestyle separate
 @node Top

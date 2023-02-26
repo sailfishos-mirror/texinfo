@@ -90,14 +90,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -174,14 +166,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => '_00e9sseul_00e9'
-          }
-        ],
         'normalized' => '_00e9sseul_00e9'
       },
       'info' => {
@@ -214,14 +198,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapitr_00e9'
-          }
-        ],
         'normalized' => 'Chapitr_00e9'
       },
       'info' => {
@@ -287,9 +263,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
 $result_texis{'manual_simple_latin1_with_error'} = '\\input texinfo.tex
 

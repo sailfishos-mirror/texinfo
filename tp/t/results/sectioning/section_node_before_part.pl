@@ -36,14 +36,6 @@ $result_trees{'section_node_before_part'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -126,7 +118,6 @@ $result_trees{'section_node_before_part'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_node_before_part'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'section_node_before_part'} = '
 @node Top

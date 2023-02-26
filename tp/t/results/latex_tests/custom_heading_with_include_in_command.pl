@@ -143,14 +143,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -240,14 +232,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'in-main'
-          }
-        ],
         'normalized' => 'in-main'
       },
       'info' => {
@@ -513,14 +497,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-in-included-file'
-          }
-        ],
         'normalized' => 'Chapter-in-included-file'
       },
       'info' => {
@@ -696,14 +672,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Section'
-          }
-        ],
         'normalized' => 'Section'
       },
       'info' => {
@@ -879,14 +847,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Subsection'
-          }
-        ],
         'normalized' => 'Subsection'
       },
       'info' => {
@@ -2150,14 +2110,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'last-chap'
-          }
-        ],
         'normalized' => 'last-chap'
       },
       'info' => {
@@ -2211,14 +2163,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[23]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[23]{'args'}[0]{'contents'}[0];
 
 $result_texis{'custom_heading_with_include_in_command'} = '@setchapternewpage odd
 @everyheading @thischapter @emph{@thisfile} @| @| @thispage

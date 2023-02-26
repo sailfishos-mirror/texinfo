@@ -50,14 +50,6 @@ $result_trees{'navigation_no_header'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -233,14 +225,6 @@ $result_trees{'navigation_no_header'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -416,14 +400,6 @@ $result_trees{'navigation_no_header'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'section'
-          }
-        ],
         'normalized' => 'section'
       },
       'info' => {
@@ -785,14 +761,6 @@ $result_trees{'navigation_no_header'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'subsection'
-          }
-        ],
         'normalized' => 'subsection'
       },
       'info' => {
@@ -876,13 +844,9 @@ $result_trees{'navigation_no_header'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'navigation_no_header'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'navigation_no_header'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation_no_header'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'navigation_no_header'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation_no_header'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'navigation_no_header'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[6]{'contents'}[27]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation_no_header'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'navigation_no_header'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 
 $result_texis{'navigation_no_header'} = '\\input texinfo @c -*-texinfo-*-
 

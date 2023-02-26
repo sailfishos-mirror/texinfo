@@ -85,14 +85,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -2744,14 +2736,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -2778,7 +2762,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[1];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
@@ -2889,7 +2872,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
 $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'encoding_index_utf8_enable_encoding'} = '
 @documentencoding utf-8

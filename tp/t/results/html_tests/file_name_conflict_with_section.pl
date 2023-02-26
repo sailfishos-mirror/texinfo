@@ -29,14 +29,6 @@ $result_trees{'file_name_conflict_with_section'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -145,7 +137,6 @@ $result_trees{'file_name_conflict_with_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_conflict_with_section'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_conflict_with_section'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'file_name_conflict_with_section'} = '@node Top
 @top top

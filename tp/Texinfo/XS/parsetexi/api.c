@@ -438,15 +438,18 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               break;
             case extra_node_spec_array:
               {
-              AV *av;
               NODE_SPEC_EXTRA **array;
-              av = newAV ();
-              STORE(newRV_inc ((SV *)av));
               array = (NODE_SPEC_EXTRA **) f;
-              while (*array)
+              if (*array)
                 {
-                  av_push (av, build_node_spec (*array));
-                  array++;
+                  AV *av;
+                  av = newAV ();
+                  STORE(newRV_inc ((SV *)av));
+                  while (*array)
+                    {
+                      av_push (av, build_node_spec (*array));
+                      array++;
+                    }
                 }
               break;
               }

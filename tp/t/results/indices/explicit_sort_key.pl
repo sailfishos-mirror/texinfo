@@ -35,14 +35,6 @@ $result_trees{'explicit_sort_key'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -610,14 +602,6 @@ $result_trees{'explicit_sort_key'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -634,7 +618,6 @@ $result_trees{'explicit_sort_key'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'explicit_sort_key'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
@@ -643,7 +626,6 @@ $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'eleme
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'explicit_sort_key'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'explicit_sort_key'} = '@node Top
 @top

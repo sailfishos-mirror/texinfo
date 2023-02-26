@@ -36,14 +36,6 @@ $result_trees{'undefined_node_filename'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -76,14 +68,6 @@ $result_trees{'undefined_node_filename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap-Other'
-          }
-        ],
         'normalized' => 'chap-Other'
       },
       'info' => {
@@ -100,8 +84,6 @@ $result_trees{'undefined_node_filename'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'undefined_node_filename'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'undefined_node_filename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'undefined_node_filename'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'undefined_node_filename'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'undefined_node_filename'} = '@node Top
 

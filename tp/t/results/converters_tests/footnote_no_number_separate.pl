@@ -29,14 +29,6 @@ $result_trees{'footnote_no_number_separate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -106,14 +98,6 @@ $result_trees{'footnote_no_number_separate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -242,8 +226,6 @@ $result_trees{'footnote_no_number_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_no_number_separate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'footnote_no_number_separate'} = '@node Top
 @top top

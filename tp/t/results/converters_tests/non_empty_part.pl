@@ -80,14 +80,6 @@ $result_trees{'non_empty_part'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -454,14 +446,6 @@ $result_trees{'non_empty_part'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'part-chapter-node'
-          }
-        ],
         'normalized' => 'part-chapter-node'
       },
       'info' => {
@@ -783,14 +767,6 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-between-part-and-chapter'
-          }
-        ],
         'normalized' => 'node-between-part-and-chapter'
       },
       'info' => {
@@ -846,15 +822,12 @@ $result_trees{'non_empty_part'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_empty_part'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[1];
 $result_trees{'non_empty_part'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[4];
-$result_trees{'non_empty_part'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[9]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[8];
 $result_trees{'non_empty_part'}{'contents'}[12]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[11];
-$result_trees{'non_empty_part'}{'contents'}[14]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[14]{'args'}[0]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[15]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[13];
 
 $result_texis{'non_empty_part'} = '@part part before

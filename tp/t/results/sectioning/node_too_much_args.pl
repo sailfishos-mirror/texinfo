@@ -59,12 +59,6 @@ $result_trees{'node_too_much_args'} = {
       'cmdname' => 'node',
       'extra' => {
         'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          },
           undef,
           undef,
           {
@@ -89,8 +83,7 @@ $result_trees{'node_too_much_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_too_much_args'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'node_too_much_args'}{'contents'}[1]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'node_too_much_args'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 
 $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 

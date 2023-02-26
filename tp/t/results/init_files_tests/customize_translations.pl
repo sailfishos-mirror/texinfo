@@ -56,14 +56,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -133,14 +125,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter'
-          }
-        ],
         'normalized' => 'Chapter'
       },
       'info' => {
@@ -269,14 +253,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-fr'
-          }
-        ],
         'normalized' => 'Chapter-fr'
       },
       'info' => {
@@ -373,14 +349,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'section-fr'
-          }
-        ],
         'normalized' => 'section-fr'
       },
       'info' => {
@@ -482,14 +450,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-de'
-          }
-        ],
         'normalized' => 'Chapter-de'
       },
       'info' => {
@@ -586,14 +546,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Last-chapter'
-          }
-        ],
         'normalized' => 'Last-chapter'
       },
       'info' => {
@@ -647,12 +599,6 @@ $result_trees{'customize_translations'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'customize_translations'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[11]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[11]{'args'}[0]{'contents'}[0];
 
 $result_texis{'customize_translations'} = '
 @contents

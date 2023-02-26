@@ -50,14 +50,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -324,14 +316,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-with-ftable-and-vtable'
-          }
-        ],
         'normalized' => 'node-with-ftable-and-vtable'
       },
       'info' => {
@@ -942,14 +926,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node-with-printindex'
-          }
-        ],
         'normalized' => 'node-with-printindex'
       },
       'info' => {
@@ -1127,14 +1103,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'indices-refs'
-          }
-        ],
         'normalized' => 'indices-refs'
       },
       'info' => {
@@ -6378,12 +6346,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       'cmdname' => 'node',
       'extra' => {
         'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'node'
-          },
           undef,
           undef,
           undef
@@ -6480,11 +6442,9 @@ $result_trees{'index_table_chapter_no_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_table_chapter_no_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'index_table_chapter_no_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[3];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[1];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[3];
@@ -6501,8 +6461,6 @@ $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'con
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[3];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[4]{'contents'}[11]{'args'}[0];
-$result_trees{'index_table_chapter_no_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'index_table_chapter_no_node'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[7];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[1];
@@ -6760,7 +6718,6 @@ $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[127]{'ex
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[127]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[127];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[128]{'extra'}{'element_node'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[7];
 $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[128]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_table_chapter_no_node'}{'contents'}[8]{'contents'}[128];
-$result_trees{'index_table_chapter_no_node'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_table_chapter_no_node'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_table_chapter_no_node'} = '\\input texinfo @c -*-texinfo-*-
 

@@ -596,14 +596,6 @@ $result_trees{'submenu_in_example'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          }
-        ],
         'normalized' => 'first'
       },
       'info' => {
@@ -620,7 +612,6 @@ $result_trees{'submenu_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'submenu_in_example'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'submenu_in_example'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'submenu_in_example'} = '@node first
 

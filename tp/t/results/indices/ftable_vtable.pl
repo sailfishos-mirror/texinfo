@@ -45,14 +45,6 @@ $result_trees{'ftable_vtable'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -678,14 +670,6 @@ $result_trees{'ftable_vtable'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chap'
-          }
-        ],
         'normalized' => 'chap'
       },
       'info' => {
@@ -702,7 +686,6 @@ $result_trees{'ftable_vtable'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ftable_vtable'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ftable_vtable'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
@@ -719,7 +702,6 @@ $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'con
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
 $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[5];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ftable_vtable'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ftable_vtable'} = '
 @node Top

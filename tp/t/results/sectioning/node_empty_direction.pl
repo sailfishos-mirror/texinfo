@@ -32,12 +32,6 @@ $result_trees{'node_empty_direction'} = {
       'cmdname' => 'node',
       'extra' => {
         'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'name'
-          },
           undef
         ],
         'normalized' => 'name'
@@ -56,7 +50,6 @@ $result_trees{'node_empty_direction'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_empty_direction'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'node_empty_direction'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'node_empty_direction'} = '@node name, ';
 

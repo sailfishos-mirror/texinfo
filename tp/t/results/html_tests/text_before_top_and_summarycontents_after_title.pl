@@ -50,14 +50,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -181,7 +173,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_top_and_summarycontents_after_title'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'text_before_top_and_summarycontents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'text_before_top_and_summarycontents_after_title'} = '
 Some text before top

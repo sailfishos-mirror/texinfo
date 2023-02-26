@@ -622,14 +622,6 @@ $result_trees{'test_image'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -2723,14 +2715,6 @@ $result_trees{'test_image'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'chapter'
-          }
-        ],
         'normalized' => 'chapter'
       },
       'info' => {
@@ -2747,10 +2731,8 @@ $result_trees{'test_image'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_image'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11];
 $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'test_image'} = '@macro files-char
 @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}

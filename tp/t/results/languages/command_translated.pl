@@ -73,14 +73,6 @@ $result_trees{'command_translated'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -203,15 +195,6 @@ $result_trees{'command_translated'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {},
-              {}
-            ],
-            'normalized' => 'chapter-error_002d_002d_003e'
-          }
-        ],
         'normalized' => 'chapter-error_002d_002d_003e'
       },
       'info' => {
@@ -258,9 +241,6 @@ $result_trees{'command_translated'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_translated'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'command_translated'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'command_translated'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'command_translated'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'command_translated'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[1] = $result_trees{'command_translated'}{'contents'}[3]{'args'}[0]{'contents'}[1];
 
 $result_texis{'command_translated'} = '@documentlanguage fr
 

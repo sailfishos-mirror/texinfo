@@ -29,14 +29,6 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -106,14 +98,6 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-1'
-          }
-        ],
         'normalized' => 'Chapter-1'
       },
       'info' => {
@@ -214,14 +198,6 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Chapter-2'
-          }
-        ],
         'normalized' => 'Chapter-2'
       },
       'info' => {
@@ -268,9 +244,6 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_conflict_with_user_defined'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_conflict_with_user_defined'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_conflict_with_user_defined'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_conflict_with_user_defined'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_conflict_with_user_defined'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'file_name_conflict_with_user_defined'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'file_name_conflict_with_user_defined'} = '@node Top
 @top top
