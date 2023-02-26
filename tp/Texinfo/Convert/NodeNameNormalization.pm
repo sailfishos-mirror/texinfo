@@ -354,10 +354,10 @@ sub set_nodes_list_labels($$$)
       if ($target->{'cmdname'} eq 'node') {
         if ($target->{'extra'} and $target->{'extra'}->{'nodes_manuals'}) {
           foreach my $node_manual (@{$target->{'extra'}->{'nodes_manuals'}}) {
-            if (defined $node_manual
-                  and defined $node_manual->{'node_content'}) {
-              my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                                    {'contents' => $node_manual->{'node_content'}});
+            if (defined($node_manual) and $node_manual->{'node_content'}) {
+              my $normalized
+                = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                                {'contents' => $node_manual->{'node_content'}});
               $node_manual->{'normalized'} = $normalized;
             }
           }
@@ -365,38 +365,33 @@ sub set_nodes_list_labels($$$)
       }
       my $label_element = Texinfo::Common::get_label_element($target);
       if ($label_element and $label_element->{'contents'}) {
-        my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                             $label_element);
+        my $normalized
+            = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                                                           $label_element);
         if ($normalized !~ /[^-]/) {
           $registrar->line_error($configuration_information,
-               sprintf(__("empty node name after expansion `%s'"),
-                     # convert the contents only, to avoid spaces
-                     Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                         {'contents' => $label_element->{'contents'}})),
-                            $target->{'source_info'});
-          delete $target->{'extra'}->{'node_content'};
+                      sprintf(__("empty node name after expansion `%s'"),
+                         # convert the contents only, to avoid spaces
+                              Texinfo::Convert::Texinfo::convert_to_texinfo(
+                               {'contents' => $label_element->{'contents'}})),
+                                 $target->{'source_info'});
         } else {
           if (defined $labels{$normalized}) {
             $registrar->line_error($configuration_information,
-              sprintf(__("\@%s `%s' previously defined"),
-                         $target->{'cmdname'},
-                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                    => $label_element->{'contents'}})),
-                               $target->{'source_info'});
+                                   sprintf(__("\@%s `%s' previously defined"),
+                                           $target->{'cmdname'},
+                          Texinfo::Convert::Texinfo::convert_to_texinfo(
+                               {'contents' => $label_element->{'contents'}})),
+                                    $target->{'source_info'});
             $registrar->line_error($configuration_information,
-              sprintf(__("here is the previous definition as \@%s"),
-                               $labels{$normalized}->{'cmdname'}),
-                       $labels{$normalized}->{'source_info'}, 1);
-            delete $target->{'extra'}->{'node_content'};
+                         sprintf(__("here is the previous definition as \@%s"),
+                                 $labels{$normalized}->{'cmdname'}),
+                                   $labels{$normalized}->{'source_info'}, 1);
           } else {
             $labels{$normalized} = $target;
+            $target->{'extra'} = {} if (!$target->{'extra'});
             $target->{'extra'}->{'normalized'} = $normalized;
             if ($target->{'cmdname'} eq 'node') {
-              if ($target->{'extra'}
-                  and $target->{'extra'}->{'node_argument'}) {
-                $target->{'extra'}->{'node_argument'}->{'normalized'}
-                  = $normalized;
-              }
               push @{$self->{'nodes'}}, $target;
             }
           }
@@ -406,7 +401,6 @@ sub set_nodes_list_labels($$$)
           $registrar->line_error($configuration_information,
                sprintf(__("empty argument in \@%s"),
                   $target->{'cmdname'}), $target->{'source_info'});
-          delete $target->{'extra'}->{'node_content'};
         }
       }
     }

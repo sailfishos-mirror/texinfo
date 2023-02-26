@@ -123,7 +123,6 @@ $result_trees{'double_top'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'extra' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,

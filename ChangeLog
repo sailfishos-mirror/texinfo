@@ -1,3 +1,10 @@
+2023-02-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels):
+	remove code related to structures not present for target elements
+	anymore.
+	Reindent.
+
 2023-02-26  Arsen Arsenović  <arsen@aarsen.me>
 
 	install-info: Invert umask in mode computation
