@@ -431,16 +431,22 @@ sub converter_initialize($)
        unless ($self->{'expanded_formats_hash'}->{$format});
   }
 
-  %{$self->{'style_map'}} = %style_map;
-  $self->{'convert_text_options'}
-      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
-
+  if ($self->get_conf('NO_GRATUITOUS_UTF8')) {
+    $self->set_conf('ASCII_PUNCTUATION', 1);
+    $self->set_conf('ASCII_GLYPH', 1);
+    $self->set_conf('OPEN_QUOTE_SYMBOL', '\'');
+    $self->set_conf('CLOSE_QUOTE_SYMBOL', '\'');
+    $self->set_conf('OPEN_DOUBLE_QUOTE_SYMBOL', '"');
+    $self->set_conf('CLOSE_DOUBLE_QUOTE_SYMBOL', '"');
+  }
   if ($self->get_conf('ASCII_PUNCTUATION')) {
     # cache to avoid calling get_conf
     $self->{'ascii_punctuation'} = 1;
   } else {
     $self->{'ascii_punctuation'} = 0;
   }
+
+  %{$self->{'style_map'}} = %style_map;
 
   if ($self->get_conf('ENABLE_ENCODING')
       and $self->get_conf('OUTPUT_ENCODING_NAME')
@@ -517,6 +523,9 @@ sub converter_initialize($)
   $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
+
+  $self->{'convert_text_options'}
+      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   return $self;
 }
