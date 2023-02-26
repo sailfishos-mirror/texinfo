@@ -1,5 +1,12 @@
 2023-02-26  Arsen Arsenović  <arsen@aarsen.me>
 
+	install-info: Invert umask in mode computation
+	* install-info/install-info.c (output_dirfile): Invert umask
+	applied to tempfile (as is specified in the definition for
+	umasks).
+
+2023-02-26  Arsen Arsenović  <arsen@aarsen.me>
+
 	install-info: Relax tempfile mode earlier
 	* install-info/install-info.c (output_dirfile): Reorder the
 	tempfile mode relaxation block directly under mkstemp, in order to

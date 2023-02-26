@@ -933,7 +933,7 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   /* Reset the mode that the file is set to.  */
   mode_t um = umask (0022);
   umask (um);
-  if (fchmod (tempfile, 0666 & um) < 0)
+  if (fchmod (tempfile, 0666 & ~um) < 0)
     {
       perror ("chmod");
       remove (tempname);
