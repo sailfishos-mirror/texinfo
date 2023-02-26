@@ -929,6 +929,17 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
   char tempname[] = "infodirXXXXXX";
 
   tempfile = mkstemp (tempname);
+
+  /* Reset the mode that the file is set to.  */
+  mode_t um = umask (0022);
+  umask (um);
+  if (fchmod (tempfile, 0666 & um) < 0)
+    {
+      perror ("chmod");
+      remove (tempname);
+      exit (EXIT_FAILURE);
+    }
+
   if (compression_program)
     {
       char *command;
@@ -1052,16 +1063,6 @@ output_dirfile (char *dirfile, int dir_nlines, struct line_data *dir_lines,
     pclose (output);
   else
     fclose (output);
-
-  /* Reset the mode that the file is set to.  */
-  mode_t um = umask (0022);
-  umask (um);
-  if (fchmod (tempfile, 0666 & um) < 0)
-    {
-      perror ("chmod");
-      remove (tempname);
-      exit (EXIT_FAILURE);
-    }
 
   /* Update dir file atomically.  This stops the dir file being corrupted
      if install-info is interrupted. */

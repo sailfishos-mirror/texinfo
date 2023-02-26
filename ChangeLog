@@ -1,3 +1,10 @@
+2023-02-26  Arsen Arsenović  <arsen@aarsen.me>
+
+	install-info: Relax tempfile mode earlier
+	* install-info/install-info.c (output_dirfile): Reorder the
+	tempfile mode relaxation block directly under mkstemp, in order to
+	not accidentally operate on a closed file descriptor.
+
 2023-02-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (register_label, get_label_element),
