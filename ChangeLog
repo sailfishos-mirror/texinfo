@@ -4,6 +4,23 @@
 
 	* tp/t/plaintext.t
 	(punctuation_sc_accents_ascii_punct)
+	(punctuation_sc_accents_ascii_glyph)
+	(punctuation_sc_accents_ascii_punct_latin1)
+	(punctuation_sc_accents_ascii_glyph_latin1)
+	(punctuation_sc_accents_ascii_punct_usascii)
+	(punctuation_sc_accents_ascii_glyph_usascii)
+	(punctuation_sc_accents_to_utf8_ascii_punct_latin1)
+	(punctuation_sc_accents_to_utf8_ascii_glyph_latin1)
+	(punctuation_sc_accents_to_utf8_ascii_punct_usascii):
+	(punctuation_sc_accents_to_utf8_ascii_glyph_usascii):
+	Rename from *_ascii_punct_* to *_ascii_glyph_*.
+
+2023-02-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	ASCII_GLYPH in tests
+
+	* tp/t/plaintext.t
+	(punctuation_sc_accents_ascii_punct)
 	(punctuation_sc_accents_ascii_punct_latin1)
 	(punctuation_sc_accents_ascii_punct_usascii)
 	(punctuation_sc_accents_to_utf8_ascii_punct_latin1)

@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
+$result_trees{'punctuation_sc_accents_ascii_glyph_latin1'} = {
   'contents' => [
     {
       'contents' => [
@@ -1193,12 +1193,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct_latin1'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_glyph_latin1'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
-$result_texis{'punctuation_sc_accents_ascii_punct_latin1'} = '\\input texinfo
+$result_texis{'punctuation_sc_accents_ascii_glyph_latin1'} = '\\input texinfo
 
 @documentencoding ISO-8859-1
 
@@ -1226,7 +1226,7 @@ $result_texis{'punctuation_sc_accents_ascii_punct_latin1'} = '\\input texinfo
 ';
 
 
-$result_texts{'punctuation_sc_accents_ascii_punct_latin1'} = '
+$result_texts{'punctuation_sc_accents_ascii_glyph_latin1'} = '
 top section
 ***********
 
@@ -1250,7 +1250,7 @@ AA AA E^ E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'} = {
+$result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -1298,12 +1298,12 @@ $result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_sc_accents_ascii_punct_latin1'};
+$result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'punctuation_sc_accents_ascii_glyph_latin1'};
 
-$result_nodes{'punctuation_sc_accents_ascii_punct_latin1'} = {
+$result_nodes{'punctuation_sc_accents_ascii_glyph_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -1337,10 +1337,10 @@ $result_nodes{'punctuation_sc_accents_ascii_punct_latin1'} = {
     }
   }
 };
-$result_nodes{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'punctuation_sc_accents_ascii_punct_latin1'};
-$result_nodes{'punctuation_sc_accents_ascii_punct_latin1'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'punctuation_sc_accents_ascii_punct_latin1'};
+$result_nodes{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'punctuation_sc_accents_ascii_glyph_latin1'};
+$result_nodes{'punctuation_sc_accents_ascii_glyph_latin1'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'punctuation_sc_accents_ascii_glyph_latin1'};
 
-$result_menus{'punctuation_sc_accents_ascii_punct_latin1'} = {
+$result_menus{'punctuation_sc_accents_ascii_glyph_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -1349,10 +1349,10 @@ $result_menus{'punctuation_sc_accents_ascii_punct_latin1'} = {
   'structure' => {}
 };
 
-$result_errors{'punctuation_sc_accents_ascii_punct_latin1'} = [];
+$result_errors{'punctuation_sc_accents_ascii_glyph_latin1'} = [];
 
 
-$result_floats{'punctuation_sc_accents_ascii_punct_latin1'} = {};
+$result_floats{'punctuation_sc_accents_ascii_glyph_latin1'} = {};
 
 
 1;
