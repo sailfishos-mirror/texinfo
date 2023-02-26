@@ -718,27 +718,28 @@ sub normalized_sectioning_command_filename($$)
   return ($normalized_name, $filename);
 }
 
-sub node_information_filename($$)
+sub node_information_filename($$$)
 {
   my $self = shift;
-  my $node_info = shift;
+  my $normalized = shift;
+  my $node_contents = shift;
 
   my $no_unidecode;
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
 
   my $filename;
-  if (defined($node_info->{'normalized'})) {
+  if (defined($normalized)) {
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
       $filename = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-       {'contents' => $node_info->{'node_content'}},
+       {'contents' => $node_contents},
             $no_unidecode);
     } else {
-      $filename = $node_info->{'normalized'};
+      $filename = $normalized;
     }
-  } elsif (defined($node_info->{'node_content'})) {
+  } elsif (defined($node_contents)) {
     $filename = Texinfo::Convert::NodeNameNormalization::normalize_node(
-             { 'contents' => $node_info->{'node_content'} });
+             { 'contents' => $node_contents });
   } else {
     $filename = '';
   }
@@ -979,11 +980,14 @@ sub _set_tree_units_files($$$$$$)
             my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'labels'}->{$root_command->{'extra'}->{'normalized'}})) {
+                or !defined($self->{'labels'}->{
+                               $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
             } else {
               $node_filename
-               = $self->node_information_filename($root_command->{'extra'});
+               = $self->node_information_filename(
+                               $root_command->{'extra'}->{'normalized'},
+                               $root_command->{'args'}->[0]->{'contents'});
             }
             $node_filename .= $extension;
             $self->set_file_path($node_filename,$destination_directory);
@@ -1476,23 +1480,16 @@ sub sort_element_counts($$;$$)
 
   require Texinfo::Convert::Texinfo;
   foreach my $element (@$elements) {
-    my $name = 'UNNAMED tree element';
+    my $name;
     if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
       my $command = $element->{'extra'}->{'unit_command'};
-      if ($command->{'cmdname'} eq 'node'
-          and $command->{'extra'}
-          and $command->{'extra'}->{'nodes_manuals'}
-          and scalar(@{$command->{'extra'}->{'nodes_manuals'}})
-          and $command->{'extra'}->{'nodes_manuals'}->[0]
-          and $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}) {
-        $name = Texinfo::Convert::Texinfo::convert_to_texinfo(
-    {'contents' => $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}});
-      } else {
+      if ($command->{'args'}->[0]->{'contents'}) {
         $name = "\@$command->{'cmdname'} "
-          .Texinfo::Convert::Texinfo::convert_to_texinfo($command->{'args'}->[0]);
+          .Texinfo::Convert::Texinfo::convert_to_texinfo(
+                       {'contents' => $command->{'args'}->[0]->{'contents'}});
       }
     }
-    chomp($name);
+    $name = 'UNNAMED tree element' if (!defined($name));
     my $count;
     my $converted_element = $converter->convert_tree($element);
     if ($count_words) {
@@ -2105,11 +2102,11 @@ better formatted with new lines added independently of the presence
 of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
 
-=item $filename = sub $converter->node_information_filename($node_info)
+=item $filename = sub $converter->node_information_filename($normalized, $node_contents)
 X<C<node_information_filename>>
 
-Returns the normalized file name corresponding to the I<$node_info>
-node element tree C<extra> field.
+Returns the normalized file name corresponding to the I<$normalized>
+node name and to the I<$node_contents> node name contents.
 
 =item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
 X<C<normalized_sectioning_command_filename>>

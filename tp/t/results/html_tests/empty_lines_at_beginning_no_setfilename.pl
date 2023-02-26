@@ -77,9 +77,6 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -151,7 +148,6 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_lines_at_beginning_no_setfilename'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_lines_at_beginning_no_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_lines_at_beginning_no_setfilename'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_lines_at_beginning_no_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_lines_at_beginning_no_setfilename'} = '\\input texinfo

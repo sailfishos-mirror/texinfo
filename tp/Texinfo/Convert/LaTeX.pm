@@ -3127,7 +3127,7 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'anchor') {
       my $anchor_label
-         = _tree_anchor_label($element->{'extra'}->{'node_content'});
+         = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
       $result .= "\\label{$anchor_label}%\n";
       return $result;
     } elsif ($ref_commands{$cmdname}) {
@@ -3181,7 +3181,8 @@ sub _convert($$)
           my $reference
            = $self->{'labels'}
                    ->{$element->{'extra'}->{'node_argument'}->{'normalized'}};
-          my $reference_node_content = $reference->{'extra'}->{'node_content'};
+          my $label_element = Texinfo::Common::get_label_element($reference);
+          my $reference_node_content = $label_element->{'contents'};
           
           my $section_command;
           if ($reference->{'extra'}->{'associated_section'}) {
@@ -3693,7 +3694,7 @@ sub _convert($$)
         # add the label only if not associated with a section
         if (not $element->{'extra'}->{'associated_section'}) {
           my $node_label
-            = _tree_anchor_label($element->{'extra'}->{'node_content'});
+            = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       } else {
@@ -3733,7 +3734,7 @@ sub _convert($$)
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
           my $associated_node = $element->{'extra'}->{'associated_node'};
           my $node_label
-            = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
+            = _tree_anchor_label($associated_node->{'args'}->[0]->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       }
@@ -4290,9 +4291,10 @@ sub _convert($$)
     if ($cmdname eq 'float') {
       # do that at the end of the float to be sure that it is after
       # the caption
-      if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
+      if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
+          and $element->{'args'}->[1]->{'contents'}) {
         my $float_label
-          = _tree_anchor_label($element->{'extra'}->{'node_content'});
+          = _tree_anchor_label($element->{'args'}->[1]->{'contents'});
         $result .= "\\label{$float_label}%\n";
       }
       if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {

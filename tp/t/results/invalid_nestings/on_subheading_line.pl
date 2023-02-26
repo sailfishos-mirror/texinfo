@@ -62,9 +62,6 @@ $result_trees{'on_subheading_line'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
                     'normalized' => 'in-anchor'
                   },
                   'source_info' => {
@@ -150,7 +147,6 @@ $result_trees{'on_subheading_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'on_subheading_line'} = '@subheading @noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
 ';

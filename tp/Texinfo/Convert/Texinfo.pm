@@ -38,6 +38,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 %EXPORT_TAGS = ( 'all' => [ qw(
   convert_to_texinfo
   node_extra_to_texi
+  target_element_to_texi_label
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -59,6 +60,7 @@ for my $a (@ignored_types) {
   $ignored_types{$a} = 1;
 }
 
+# TODO document?
 # used to put a node name in error messages.
 sub node_extra_to_texi($)
 {
@@ -72,6 +74,17 @@ sub node_extra_to_texi($)
     $result .= convert_to_texinfo({'contents' => $node->{'node_content'}});
   }
   return $result;
+}
+
+# TODO document?
+sub target_element_to_texi_label($)
+{
+  my $element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'manual_content'}) {
+    return node_extra_to_texi($element->{'extra'});
+  }
+  my $label_element = Texinfo::Common::get_label_element($element);
+  return convert_to_texinfo({'contents' => $label_element->{'contents'}});
 }
 
 # for debugging.

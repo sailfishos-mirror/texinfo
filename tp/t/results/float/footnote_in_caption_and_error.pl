@@ -35,9 +35,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -257,9 +254,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'fl',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'label'
           },
           'info' => {
@@ -275,9 +269,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -302,12 +293,9 @@ $result_trees{'footnote_in_caption_and_error'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'footnote_in_caption_and_error'} = '@node Top

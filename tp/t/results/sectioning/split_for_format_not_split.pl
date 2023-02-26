@@ -77,9 +77,6 @@ $result_trees{'split_for_format_not_split'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -114,7 +111,6 @@ $result_trees{'split_for_format_not_split'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'split_for_format_not_split'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_for_format_not_split'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'split_for_format_not_split'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_for_format_not_split'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'split_for_format_not_split'} = '\\input texinfo @c -*-texinfo-*-

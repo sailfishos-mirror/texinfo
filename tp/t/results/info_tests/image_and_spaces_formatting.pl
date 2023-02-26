@@ -712,9 +712,6 @@ $result_trees{'image_and_spaces_formatting'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -739,7 +736,6 @@ $result_trees{'image_and_spaces_formatting'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_and_spaces_formatting'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'image_and_spaces_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'image_and_spaces_formatting'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'image_and_spaces_formatting'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'image_and_spaces_formatting'} = '@node Top

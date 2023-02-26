@@ -357,9 +357,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'anchor'
               },
               'source_info' => {
@@ -423,7 +420,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
   'type' => 'document_root'
 };
 $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[3];
 
 $result_texis{'at_commands_glued_in_paragraph'} = 'at@@.

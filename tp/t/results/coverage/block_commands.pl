@@ -288,9 +288,6 @@ $result_trees{'block_commands'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'a float',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'b-float'
           },
           'info' => {
@@ -312,7 +309,6 @@ $result_trees{'block_commands'} = {
 };
 $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5];
 $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
-$result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'block_commands'}{'contents'}[0]{'contents'}[5]{'args'}[1]{'contents'}[0];
 
 $result_texis{'block_commands'} = '
 @group

@@ -51,9 +51,6 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -139,9 +136,6 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -227,9 +221,6 @@ $result_trees{'transliterated_names_conflicts'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -288,9 +279,6 @@ $result_trees{'transliterated_names_conflicts'} = [
             ],
             'cmdname' => 'anchor',
             'extra' => {
-              'node_content' => [
-                {}
-              ],
               'normalized' => 'Pr_00eas'
             },
             'source_info' => {
@@ -384,9 +372,6 @@ $result_trees{'transliterated_names_conflicts'} = [
             'extra' => {
               'float_section' => {},
               'float_type' => 'Figure',
-              'node_content' => [
-                {}
-              ],
               'normalized' => 'Pr_00e8s'
             },
             'info' => {
@@ -435,17 +420,12 @@ $result_trees{'transliterated_names_conflicts'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[0]{'extra'}{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[0]{'contents'}[1];
-$result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[1]{'extra'}{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[1]{'contents'}[0];
-$result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[4]{'extra'}{'float_section'} = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1];
-$result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[1]{'contents'}[4]{'args'}[1]{'contents'}[0];
 $result_trees{'transliterated_names_conflicts'}[2]{'extra'}{'unit_command'} = $result_trees{'transliterated_names_conflicts'}[2]{'contents'}[0];
 
 $result_texis{'transliterated_names_conflicts'} = '\\input texinfo.tex

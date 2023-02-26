@@ -2051,9 +2051,6 @@ $result_trees{'comments_on_block_command_lines'} = {
           ],
           'extra' => {
             'float_type' => 'f',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'g'
           },
           'info' => {
@@ -2253,7 +2250,6 @@ $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[12]{
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[30]{'extra'}{'columnfractions'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'extra'}{'node_content'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[1]{'contents'}[0];
 
 $result_texis{'comments_on_block_command_lines'} = '@itemize @c comm
 @item itemize it

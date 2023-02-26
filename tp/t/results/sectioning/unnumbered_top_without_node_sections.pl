@@ -56,9 +56,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -238,9 +235,6 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -322,12 +316,10 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'extra'}{'unit_command'} = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[2];
 $result_trees{'unnumbered_top_without_node_sections'}[1]{'extra'}{'unit_command'} = $result_trees{'unnumbered_top_without_node_sections'}[1]{'contents'}[0];
-$result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[0]{'args'}[3]{'contents'}[1];
 $result_trees{'unnumbered_top_without_node_sections'}[2]{'extra'}{'unit_command'} = $result_trees{'unnumbered_top_without_node_sections'}[2]{'contents'}[1];

@@ -290,9 +290,6 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -756,9 +753,6 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -793,9 +787,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_ifhtml_ifinfo_iftex'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cond_ifhtml_ifinfo_iftex'} = '\\input texinfo

@@ -39,9 +39,6 @@ $result_trees{'section_on_float_line'} = {
           'cmdname' => 'float',
           'extra' => {
             'float_type' => 't',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'l'
           },
           'info' => {
@@ -90,7 +87,6 @@ $result_trees{'section_on_float_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_on_float_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'section_on_float_line'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0];
 
 $result_texis{'section_on_float_line'} = '@float t, l @section first
 ';

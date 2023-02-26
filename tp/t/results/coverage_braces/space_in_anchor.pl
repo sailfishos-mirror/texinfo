@@ -30,9 +30,6 @@ $result_trees{'space_in_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'anchor-name'
           },
           'source_info' => {
@@ -56,7 +53,6 @@ $result_trees{'space_in_anchor'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_in_anchor'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'space_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'space_in_anchor'} = '@anchor{   anchor  name   }.
 ';

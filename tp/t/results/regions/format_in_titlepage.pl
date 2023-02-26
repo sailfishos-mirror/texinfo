@@ -166,9 +166,6 @@ $result_trees{'format_in_titlepage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -216,9 +213,6 @@ $result_trees{'format_in_titlepage'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -243,9 +237,7 @@ $result_trees{'format_in_titlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'format_in_titlepage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'format_in_titlepage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'format_in_titlepage'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'format_in_titlepage'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'format_in_titlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'format_in_titlepage'} = '@titlepage

@@ -34,9 +34,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node_menu'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "node_content" => [
-          {}
-        ],
         "nodes_manuals" => [
           {
             "node_content" => [
@@ -335,7 +332,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node_menu'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'in_menu_only_special_ascii_spaces_node_menu'}{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node_menu'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 $result_trees{'in_menu_only_special_ascii_spaces_node_menu'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node_menu'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 
 $result_texis{'in_menu_only_special_ascii_spaces_node_menu'} = '@node Top

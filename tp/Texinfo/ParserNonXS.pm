@@ -3483,8 +3483,7 @@ sub _end_line_misc_line($$$)
     }
     _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
                          $source_info);
-    Texinfo::Common::register_label($self->{'targets'}, $current,
-                                    $current->{'extra'}->{'nodes_manuals'}->[0]);
+    Texinfo::Common::register_label($self->{'targets'}, $current);
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
       if (not $part->{'extra'}
@@ -3857,7 +3856,7 @@ sub _end_line_starting_block($$$)
     # good to do in Parser/XS
     #my $float_type = _parse_float_type($current);
     #push @{$self->{'floats'}->{$float_type}}, $current;
-    Texinfo::Common::register_label($self->{'targets'}, $current, $float_label);
+    Texinfo::Common::register_label($self->{'targets'}, $current);
     if (defined($self->{'current_section'})) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'float_section'} = $self->{'current_section'};
@@ -6273,8 +6272,7 @@ sub _process_remaining_on_line($$$$)
           if (_check_node_label($self, $parsed_anchor,
                             $current->{'parent'}->{'cmdname'}, $source_info)) {
             Texinfo::Common::register_label($self->{'targets'},
-                                            $current->{'parent'},
-                                            $parsed_anchor);
+                                            $current->{'parent'});
              # the @anchor element_region information is not used in converters
              if ($self->{'nesting_context'}
                  and $self->{'nesting_context'}->{'regions_stack'}

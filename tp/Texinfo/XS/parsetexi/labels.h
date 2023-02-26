@@ -20,7 +20,7 @@
 
 extern ELEMENT **target_elements_list;
 extern size_t labels_number;
-void register_label (ELEMENT *current, ELEMENT *label);
+void register_label (ELEMENT *current);
 void reset_labels (void);
 
 

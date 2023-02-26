@@ -45,9 +45,6 @@ $result_trees{'index_entries_locations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -370,9 +367,6 @@ $result_trees{'index_entries_locations'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -397,7 +391,6 @@ $result_trees{'index_entries_locations'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entries_locations'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_entries_locations'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entries_locations'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4];
@@ -407,7 +400,6 @@ $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10]{'extra'}
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_entries_locations'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entries_locations'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_entries_locations'} = '

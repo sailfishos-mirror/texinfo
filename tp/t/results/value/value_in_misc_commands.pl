@@ -59,9 +59,6 @@ $result_trees{'value_in_misc_commands'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -3920,9 +3917,6 @@ $result_trees{'value_in_misc_commands'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -3963,9 +3957,7 @@ $result_trees{'value_in_misc_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_in_misc_commands'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_in_misc_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'value_in_misc_commands'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_in_misc_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'value_in_misc_commands'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'value_in_misc_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'value_in_misc_commands'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_in_misc_commands'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'value_in_misc_commands'} = '@set text atext

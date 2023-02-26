@@ -95,9 +95,6 @@ $result_trees{'non_break_spaces'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -122,7 +119,6 @@ $result_trees{'non_break_spaces'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_break_spaces'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'non_break_spaces'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'non_break_spaces'} = '@documentencoding utf-8

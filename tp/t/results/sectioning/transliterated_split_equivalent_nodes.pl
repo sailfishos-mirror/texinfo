@@ -269,9 +269,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
           }
         ],
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -335,9 +332,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -445,9 +439,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
           }
         ],
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -511,9 +502,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -545,16 +533,12 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'extra'}{'unit_command'} = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'contents'}[1];
-$result_trees{'transliterated_split_equivalent_nodes'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[1]{'extra'}{'unit_command'} = $result_trees{'transliterated_split_equivalent_nodes'}[1]{'contents'}[0];
-$result_trees{'transliterated_split_equivalent_nodes'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[2]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[2]{'extra'}{'unit_command'} = $result_trees{'transliterated_split_equivalent_nodes'}[2]{'contents'}[0];
-$result_trees{'transliterated_split_equivalent_nodes'}[3]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[3]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[3]{'extra'}{'unit_command'} = $result_trees{'transliterated_split_equivalent_nodes'}[3]{'contents'}[0];
 

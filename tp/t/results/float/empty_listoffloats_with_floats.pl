@@ -92,9 +92,6 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           ],
           'extra' => {
             'float_type' => '',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'label1'
           },
           'info' => {
@@ -214,9 +211,6 @@ $result_trees{'empty_listoffloats_with_floats'} = {
           'extra' => {
             'caption' => {},
             'float_type' => '',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'label2'
           },
           'info' => {
@@ -435,10 +429,8 @@ $result_trees{'empty_listoffloats_with_floats'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
 

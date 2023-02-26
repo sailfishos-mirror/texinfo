@@ -66,9 +66,6 @@ $result_trees{'print_merged_index'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -140,9 +137,6 @@ $result_trees{'print_merged_index'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -167,9 +161,7 @@ $result_trees{'print_merged_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'print_merged_index'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'print_merged_index'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'print_merged_index'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'print_merged_index'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'print_merged_index'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'print_merged_index'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'print_merged_index'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'print_merged_index'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'print_merged_index'} = '@syncodeindex fn cp

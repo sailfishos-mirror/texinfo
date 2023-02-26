@@ -77,9 +77,6 @@ $result_trees{'simplest_test_prefix'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -114,7 +111,6 @@ $result_trees{'simplest_test_prefix'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simplest_test_prefix'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simplest_test_prefix'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'simplest_test_prefix'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'simplest_test_prefix'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'simplest_test_prefix'} = '\\input texinfo @c -*-texinfo-*-

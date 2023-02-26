@@ -821,9 +821,6 @@ $result_trees{'commands_in_flushright'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'label',
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'type'
               },
               'info' => {
@@ -1174,7 +1171,6 @@ $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[3]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11];
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[3];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[1]{'contents'}[0];
 
 $result_texis{'commands_in_flushright'} = '@flushright
 

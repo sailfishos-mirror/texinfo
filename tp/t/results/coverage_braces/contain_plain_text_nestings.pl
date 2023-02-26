@@ -29,9 +29,6 @@ $result_trees{'contain_plain_text_nestings'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -110,9 +107,6 @@ $result_trees{'contain_plain_text_nestings'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -740,9 +734,7 @@ $result_trees{'contain_plain_text_nestings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[2];

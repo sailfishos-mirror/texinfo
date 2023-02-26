@@ -366,9 +366,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
                     'normalized' => 'anchor'
                   },
                   'source_info' => {
@@ -471,7 +468,6 @@ $result_trees{'at_commands_glued_in_example'} = {
   'type' => 'document_root'
 };
 $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[37]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[37]{'args'}[0]{'contents'}[0];
 $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[40]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[40];
 
 $result_texis{'at_commands_glued_in_example'} = '@example

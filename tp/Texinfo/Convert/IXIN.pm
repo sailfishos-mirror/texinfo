@@ -822,10 +822,11 @@ sub output_ixin($$)
         } else {
           $float_text .= $self->ixin_none_element('floatlabel');
         }
-        if ($float->{'extra'}->{'node_content'}) {
+        if ($float->{'args'} and scalar(@{$float->{'args'}}) >= 2
+            and $float->{'args'}->[1]->{'contents'}) {
           $float_text .= $self->ixin_open_element('floatname');
           $float_text .= $self->convert_tree({'contents'
-                                 => $float->{'extra'}->{'node_content'}});
+                                 => $float->{'args'}->[1]->{'contents'}});
           $float_text .= $self->ixin_close_element('floatname');
         } else {
           $float_text .= $self->ixin_none_element('floatname');

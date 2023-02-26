@@ -381,9 +381,6 @@ $result_trees{'glossary'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -1096,9 +1093,6 @@ $result_trees{'glossary'} = {
                   ],
                   'cmdname' => 'anchor',
                   'extra' => {
-                    'node_content' => [
-                      {}
-                    ],
                     'normalized' => 'id2'
                   },
                   'source_info' => {
@@ -1498,9 +1492,6 @@ $result_trees{'glossary'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -1638,13 +1629,10 @@ $result_trees{'glossary'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'glossary'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'glossary'}{'contents'}[4]{'contents'}[2]{'contents'}[1] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
 

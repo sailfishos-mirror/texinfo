@@ -209,9 +209,6 @@ $result_trees{'two_paragraphindent_in_preamble'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -327,7 +324,6 @@ $result_trees{'two_paragraphindent_in_preamble'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'two_paragraphindent_in_preamble'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'two_paragraphindent_in_preamble'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'two_paragraphindent_in_preamble'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'two_paragraphindent_in_preamble'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'two_paragraphindent_in_preamble'} = '@copying

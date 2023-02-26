@@ -63,9 +63,6 @@ $result_trees{'on_section_line'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'in-anchor'
               },
               'source_info' => {
@@ -148,7 +145,6 @@ $result_trees{'on_section_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'on_section_line'} = '@section @noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
 ';

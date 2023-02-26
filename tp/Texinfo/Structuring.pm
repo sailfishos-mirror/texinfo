@@ -40,7 +40,7 @@ use Texinfo::Commands;
 use Texinfo::Common;
 
 # for error messages
-use Texinfo::Convert::Texinfo qw(node_extra_to_texi);
+use Texinfo::Convert::Texinfo qw(node_extra_to_texi target_element_to_texi_label);
 # for debugging.  Also for index entries sorting.
 use Texinfo::Convert::Text;
 # for internal references and misc uses
@@ -330,15 +330,18 @@ sub warn_non_empty_parts($$$)
   }
 }
 
+# $REFERENCE_NODE should always be a target element associated to
+# a label.
 sub _check_node_same_texinfo_code($$)
 {
   my $reference_node = shift;
   my $node_extra = shift;
 
   my $reference_node_texi;
-  if ($reference_node->{'extra'}->{'node_content'}) {
+  if (defined($reference_node->{'extra'}->{'normalized'})) {
+    my $label_element = Texinfo::Common::get_label_element($reference_node);
     $reference_node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
-        {'contents' => $reference_node->{'extra'}->{'node_content'}});
+        {'contents' => $label_element->{'contents'}});
     $reference_node_texi =~ s/\s+/ /g;
   } else {
     $reference_node_texi = '';
@@ -393,7 +396,7 @@ sub _check_menu_entry($$$$$)
          $command,
          node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node_label'}),
          $menu_node->{'cmdname'},
-         node_extra_to_texi($menu_node->{'extra'})),
+         target_element_to_texi_label($menu_node)),
        $menu_content->{'source_info'});
     }
   }
@@ -457,7 +460,7 @@ sub check_nodes_are_referenced
     if (not exists($referenced_nodes{$node})) {
       $registrar->line_warn($customization_information,
                             sprintf(__("node `%s' unreferenced"),
-                                    node_extra_to_texi($node->{'extra'})),
+                                    target_element_to_texi_label($node)),
                             $node->{'source_info'});
     }
   }
@@ -655,8 +658,8 @@ sub complete_node_tree_with_menus($$$$)
                   $registrar->line_warn($customization_information,
            sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
                    $direction,
-                   node_extra_to_texi($node->{'extra'}),
-                   node_extra_to_texi($direction_associated_node->{'extra'})),
+                   target_element_to_texi_label($node),
+                   target_element_to_texi_label($direction_associated_node)),
                                         $node->{'source_info'});
                 }
               }
@@ -675,10 +678,10 @@ sub complete_node_tree_with_menus($$$$)
                   and $node->{'extra'}->{'associated_section'}) {
               $registrar->line_warn($customization_information,
           sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
-                node_extra_to_texi(
-                         $node->{'structure'}->{'menu_'.$direction}->{'extra'}),
+                target_element_to_texi_label(
+                         $node->{'structure'}->{'menu_'.$direction}),
                                    $direction,
-                node_extra_to_texi($node->{'extra'}),
+                target_element_to_texi_label($node),
                   ),
                 $node->{'source_info'});
             }
@@ -727,12 +730,12 @@ sub complete_node_tree_with_menus($$$$)
           $registrar->line_warn($customization_information,
             sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                   $direction,
-                  node_extra_to_texi($node->{'extra'}),
-                  node_extra_to_texi(
-                      $node->{'structure'}->{'node_'.$direction}->{'extra'}),
+                  target_element_to_texi_label($node),
+                  target_element_to_texi_label(
+                               $node->{'structure'}->{'node_'.$direction}),
                   $direction,
-                  node_extra_to_texi(
-                      $node->{'structure'}->{'menu_'.$direction}->{'extra'})),
+                  target_element_to_texi_label(
+                      $node->{'structure'}->{'menu_'.$direction})),
                  $node->{'source_info'});
         }
       }
@@ -752,8 +755,8 @@ sub complete_node_tree_with_menus($$$$)
         $registrar->line_warn($customization_information,
          sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"),
-           node_extra_to_texi($node->{'structure'}->{'node_up'}->{'extra'}),
-           node_extra_to_texi($node->{'extra'})),
+           target_element_to_texi_label($node->{'structure'}->{'node_up'}),
+           target_element_to_texi_label($node)),
          $node->{'structure'}->{'node_up'}->{'source_info'});
       }
       # FIXME check that the menu_up_hash is not empty (except for Top)?
@@ -862,9 +865,9 @@ sub nodes_tree($$$$$)
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
                   node_extra_to_texi($node_direction),
-                  node_extra_to_texi($node->{'extra'}),
+                  target_element_to_texi_label($node),
                                      $node_target->{'cmdname'},
-                  node_extra_to_texi($node_target->{'extra'})),
+                  target_element_to_texi_label($node_target)),
                 $node->{'source_info'});
             }
           } else {
@@ -1507,7 +1510,7 @@ sub associate_internal_references($$$$$)
                  $ref->{'cmdname'},
                  node_extra_to_texi($node_arg),
                  $node_target->{'cmdname'},
-                 node_extra_to_texi($node_target->{'extra'})),
+                 target_element_to_texi_label($node_target)),
              $ref->{'source_info'});
         }
       }
@@ -1524,7 +1527,7 @@ sub number_floats($)
     my $float_index = 0;
     foreach my $float (@{$floats->{$style}}) {
       next if (!$float->{'extra'}
-               or !defined($float->{'extra'}->{'node_content'}));
+               or !defined($float->{'extra'}->{'normalized'}));
       $float_index++;
       my $number;
       if ($float->{'extra'}->{'float_section'}) {
@@ -1601,7 +1604,9 @@ sub new_node_menu_entry
   my ($node, $use_sections) = @_;
 
   my $node_contents;
-  $node_contents = $node->{'extra'}->{'node_content'} if ($node->{'extra'});
+  if ($node->{'extra'} and defined($node->{'extra'}->{'normalized'})) {
+    $node_contents = $node->{'args'}->[0]->{'contents'};
+  }
 
   # can happen with node without argument or with empty argument
   return undef if (not defined($node_contents));

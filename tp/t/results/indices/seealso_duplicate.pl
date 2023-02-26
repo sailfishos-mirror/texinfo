@@ -35,9 +35,6 @@ $result_trees{'seealso_duplicate'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -338,9 +335,6 @@ $result_trees{'seealso_duplicate'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -365,7 +359,6 @@ $result_trees{'seealso_duplicate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1];
@@ -374,7 +367,6 @@ $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'eleme
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'seealso_duplicate'} = '@node Top

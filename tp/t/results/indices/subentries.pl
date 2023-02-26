@@ -35,9 +35,6 @@ $result_trees{'subentries'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -106,9 +103,6 @@ $result_trees{'subentries'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -944,9 +938,7 @@ $result_trees{'subentries'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'subentries'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'subentries'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'subentries'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'subentries'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'subentries'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'subentries'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'subentries'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'subentries'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'subentries'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
 $result_trees{'subentries'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[1];

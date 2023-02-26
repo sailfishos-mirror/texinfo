@@ -284,9 +284,6 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -744,9 +741,6 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -781,9 +775,7 @@ $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cond_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '\\input texinfo

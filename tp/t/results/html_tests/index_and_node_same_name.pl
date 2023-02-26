@@ -144,9 +144,6 @@ $result_trees{'index_and_node_same_name'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -173,7 +170,6 @@ $result_trees{'index_and_node_same_name'} = {
 };
 $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[2];
 $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[1];
-$result_trees{'index_and_node_same_name'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'index_and_node_same_name'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_and_node_same_name'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_and_node_same_name'} = '@top top

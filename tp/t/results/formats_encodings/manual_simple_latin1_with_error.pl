@@ -90,9 +90,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -177,9 +174,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -220,9 +214,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -296,11 +287,8 @@ $result_trees{'manual_simple_latin1_with_error'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'manual_simple_latin1_with_error'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 
 $result_texis{'manual_simple_latin1_with_error'} = '\\input texinfo.tex

@@ -120,9 +120,6 @@ $result_trees{'anchor_in_command'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
                                 'normalized' => 'anchor-in-emph'
                               },
                               'source_info' => {
@@ -162,9 +159,6 @@ $result_trees{'anchor_in_command'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -189,8 +183,6 @@ $result_trees{'anchor_in_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_command'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_command'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_in_command'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_command'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'anchor_in_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_command'} = '@node Top

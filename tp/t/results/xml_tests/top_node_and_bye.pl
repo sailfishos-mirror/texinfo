@@ -37,9 +37,6 @@ $result_trees{'top_node_and_bye'} = [
           }
         ],
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -75,7 +72,6 @@ $result_trees{'top_node_and_bye'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'top_node_and_bye'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_node_and_bye'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'top_node_and_bye'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_node_and_bye'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'top_node_and_bye'} = '@node Top

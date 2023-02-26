@@ -93,9 +93,6 @@ $result_trees{'space_in_setfilename'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -120,7 +117,6 @@ $result_trees{'space_in_setfilename'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_in_setfilename'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'space_in_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'space_in_setfilename'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'space_in_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'space_in_setfilename'} = '@setfilename @ @verb{: name :}@ 

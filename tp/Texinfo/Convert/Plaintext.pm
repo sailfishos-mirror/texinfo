@@ -33,6 +33,8 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Carp qw(cluck);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -948,32 +950,41 @@ sub process_footnotes($;$)
 {
   my ($self, $element) = @_;
 
-  $element = undef if ($element and
-                       (not defined($element->{'extra'})
-                        or not defined($element->{'extra'}->{'unit_command'})));
-
   my $result = '';
   if (scalar(@{$self->{'pending_footnotes'}})) {
+
+    $element = undef if ($element and
+                         (not defined($element->{'extra'})
+                          or not defined($element->{'extra'}->{'unit_command'})));
+    my $node_element;
+    my $node_contents;
+    if ($element) {
+      $node_element = $element->{'extra'}->{'unit_command'};
+      if ($node_element->{'extra'}
+          and defined($node_element->{'extra'}->{'normalized'})) {
+        $node_contents = $node_element->{'args'}->[0]->{'contents'};
+      }
+    }
+
     $result .= _add_newline_if_needed($self);
     if ($self->get_conf('footnotestyle') eq 'end'
         # no node content happens only in very special cases, such as
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
-        or !$element or !$element->{'extra'}->{'unit_command'}->{'extra'}
-        or !$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}) {
+        or !$node_contents) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       $result .= $footnotes_header;
       add_text_to_count($self, $footnotes_header);
       _add_lines_count($self, 2);
       $self->{'empty_lines_count'} = 1;
     } else {
-
-      my $node_contents
-       = [@{$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}},
-          {'text' => '-Footnotes'}];
+      my $footnotes_node_contents
+            = [@$node_contents, {'text' => '-Footnotes'}];
       my $footnotes_node = {
         'cmdname' => 'node',
-        'structure' => {'node_up' => $element->{'extra'}->{'unit_command'}},
-        'extra' => {'node_content' => $node_contents }
+        'structure' => {'node_up' => $node_element},
+        'args' => [{'contents' => $footnotes_node_contents}],
+        'extra' => {'normalized'
+                  => $node_element->{'extra'}->{'normalized'}.'-Footnotes'}
       };
       $result .= $self->format_node($footnotes_node);
       $self->{'current_node'} = $footnotes_node;
@@ -986,13 +997,15 @@ sub process_footnotes($;$)
       # element, while the pxref will point to the name with the
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
-      if ($element and $element->{'extra'}->{'unit_command'}->{'extra'}
-          and $element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}) {
-        my $node_contents
-         = [@{$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}},
-            {'text' => "-Footnote-$footnote->{'number'}"}];
+      if ($node_contents) {
+        my $footnote_anchor_postfix = "-Footnote-$footnote->{'number'}";
+        my $footnote_anchor_contents
+         = [@$node_contents,
+            {'text' => $footnote_anchor_postfix}];
         $self->add_location({'cmdname' => 'anchor',
-                             'extra' => {'node_content' => $node_contents }
+                    'args' => [{'contents' => $footnote_anchor_contents}],
+                    'extra' => {'normalized'
+       => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
                             });
       }
       # this pushes on 'context', 'formatters', 'format_context',
@@ -1297,8 +1310,16 @@ sub node_line($$)
   my ($self, $node) = @_;
   $self->{'node_lines_text'} = {} if (!$self->{'node_lines_text'});
   if (!$self->{'node_lines_text'}->{$node}) {
+    my $node_contents;
+    if ($node->{'cmdname'}) {
+      my $label_element = Texinfo::Common::get_label_element($node);
+      $node_contents = $label_element->{'contents'};
+    } else {
+      # node direction to an external node
+      $node_contents = $node->{'extra'}->{'node_content'};
+    }
     my $node_text = {'type' => '_code',
-              'contents' => $node->{'extra'}->{'node_content'}};
+              'contents' => $node_contents};
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
     $self->{'node_lines_text'}->{$node}
       = {'text' => _normalize_top_node($self->convert_line($node_text,
@@ -2164,7 +2185,7 @@ sub _convert($$)
            'args' => [
              {'type' => 'brace_command_arg',
               'contents' => [
-                 @{$self->{'current_node'}->{'extra'}->{'node_content'}},
+                 @{$self->{'current_node'}->{'args'}->[0]->{'contents'}},
                  {'text' => "-Footnote-$self->{'footnote_index'}"}
               ]
              }
@@ -2195,11 +2216,14 @@ sub _convert($$)
         # NOTE as a consequence, the line numbers appearing in case of errors
         # correspond to the node lines numbers, and not the @ref.
         my $node_content;
-        if ($element->{'extra'}
-            and $element->{'extra'}->{'label'}) {
-          $node_content
-              = $element->{'extra'}->{'label'}->{'extra'}->{'node_content'};
-        } else {
+        if ($element->{'extra'} and $element->{'extra'}->{'label'}) {
+          my $label_element
+            = Texinfo::Common::get_label_element($element->{'extra'}->{'label'});
+          if (defined($label_element) and $label_element->{'contents'}) {
+            $node_content = $label_element->{'contents'};
+          }
+        }
+        if (!defined($node_content)) {
           $node_content = $args[0];
         }
 
@@ -2632,7 +2656,8 @@ sub _convert($$)
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
       } elsif ($command eq 'float') {
         $result .= _add_newline_if_needed($self);
-        if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
+        if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
+            and $element->{'args'}->[1]->{'contents'}) {
           $result .= $self->_anchor($element);
         }
       } elsif ($command eq 'cartouche') {

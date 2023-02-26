@@ -253,7 +253,8 @@ sub output($)
   my %seen_anchors;
   foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
     next unless ($label->{'root'} and $label->{'root'}->{'extra'}
-                   and defined($label->{'root'}->{'extra'}->{'node_content'}));
+                 and defined($label->{'root'}->{'extra'}->{'normalized'}));
+    my $label_element = Texinfo::Common::get_label_element($label->{'root'});
     my $prefix;
     
     if ($label->{'root'}->{'cmdname'} eq 'node') {
@@ -264,10 +265,11 @@ sub output($)
     my ($label_text, $byte_count) = $self->node_line($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
-      $self->converter_line_error($self, sprintf(__("\@%s output more than once: %s"),
+      $self->converter_line_error($self,
+                                  sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
-              $label->{'root'}->{'extra'}->{'node_content'}})),
+                                                  $label_element->{'contents'}})),
         $label->{'root'}->{'source_info'});
       next;
     } else {
@@ -430,9 +432,15 @@ sub format_node($$)
 {
   my $self = shift;
   my $node = shift;
-  
+
   my $result = '';
-  return '' if (!defined($node->{'extra'}->{'node_content'}));
+  return '' if (not $node->{'extra'}
+                or not defined($node->{'extra'}->{'normalized'}));
+
+  my ($node_text, $byte_count) = $self->node_line($node);
+  # check not needed most probably because of the test of 'normalized'.
+  #return '' if ($node_text eq '');
+
   if (!$self->{'empty_lines_count'}) {
     $result .= "\n";
     $self->add_text_to_count("\n");
@@ -457,7 +465,6 @@ sub format_node($$)
   my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
   $result .= $node_begin;
   $self->add_text_to_count($node_begin);
-  my ($node_text, $byte_count) = $self->node_line($node);
   my $pre_quote = '';
   my $post_quote = '';
   if ($node_text =~ /,/) {
@@ -486,7 +493,7 @@ sub format_node($$)
                              @{$node_direction->{'extra'}->{'manual_content'}},
                                           {'text' => ')'}]});
       }
-      if ($node_direction->{'extra'}->{'node_content'}) {
+      if ($node_direction->{'extra'}->{'normalized'}) {
         my $pre_quote = '';
         my $post_quote = '';
         my ($node_text, $byte_count) = $self->node_line($node_direction);

@@ -90,9 +90,6 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -170,9 +167,6 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -1214,9 +1208,7 @@ $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = '\\input texinfo

@@ -1077,8 +1077,9 @@ sub command_text($$;$)
         $explanation = "command_text $special_element_variety";
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node'
                                           or $command->{'cmdname'} eq 'anchor')) {
+        # FIXME is it possible not to have contents (nor args)?
         $tree = {'type' => '_code',
-                 'contents' => $command->{'extra'}->{'node_content'}};
+                 'contents' => $command->{'args'}->[0]->{'contents'}};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
       } elsif ($command->{'extra'}
@@ -8393,21 +8394,19 @@ sub _prepare_css($)
 }
 
 # Get the name of a file containing a label, as well as the identifier within
-# that file to link to that label.  Argument is the 'extra' value on
-# an element hash, or something that looks like it.  Labels are typically
-# associated to @node, @anchor or @float.
-sub _normalized_label_id_file($$)
+# that file to link to that label.  $normalized is the normalized label name
+# and $node_contents is the label contents.  Labels are typically associated
+# to @node, @anchor or @float and to external nodes.
+sub _normalized_label_id_file($$$)
 {
   my $self = shift;
-  my $label_info = shift;
+  my $normalized = shift;
+  my $node_contents = shift;
 
   my $target;
-  my $normalized;
-  if ($label_info->{'normalized'}) {
-    $normalized = $label_info->{'normalized'};
-  } elsif ($label_info->{'node_content'}) {
+  if (!defined($normalized)) {
     $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-      { 'contents' => $label_info->{'node_content'} });
+      { 'contents' => $node_contents });
   }
 
   if (defined($normalized)) {
@@ -8415,13 +8414,14 @@ sub _normalized_label_id_file($$)
   } else {
     $target = '';
   }
-  # to find out the Top node, one could check $label_info->{'normalized'}
+  # to find out the Top node, one could check $normalized
   if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
     $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
-                                                       $label_info, $target);
+                             $normalized, $node_contents, $target);
   }
 
-  my $filename = $self->node_information_filename($label_info);
+  my $filename = $self->node_information_filename($normalized,
+                                                  $node_contents);
 
   return ($filename, $target);
 }
@@ -8538,9 +8538,11 @@ sub _set_root_commands_targets_node_files($$)
                 and $self->get_conf('EXTENSION') ne '');
   if ($self->{'labels'}) {
     foreach my $label (sort(keys(%{$self->{'labels'}}))) {
-      my $label_element = $self->{'labels'}->{$label};
+      my $target_element = $self->{'labels'}->{$label};
+      my $label_element = Texinfo::Common::get_label_element($target_element);
       my ($node_filename, $target)
-        = $self->_normalized_label_id_file($label_element->{'extra'});
+        = $self->_normalized_label_id_file($target_element->{'extra'}->{'normalized'},
+                                           $label_element->{'contents'});
       $node_filename .= $extension;
       if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
         # a non defined filename is ok if called with convert, but not
@@ -8548,7 +8550,7 @@ sub _set_root_commands_targets_node_files($$)
         # in case called by convert.
         my $user_node_filename
               = &{$self->{'file_id_setting'}->{'node_file_name'}}(
-                                       $self, $label_element, $node_filename);
+                                       $self, $target_element, $node_filename);
         if (defined($user_node_filename)) {
           $node_filename = $user_node_filename;
         } elsif ($self->get_conf('VERBOSE')) {
@@ -8563,10 +8565,10 @@ sub _set_root_commands_targets_node_files($$)
       if ($self->get_conf('DEBUG')) {
         print STDERR 'Label'
          # uncomment to get the perl object names
-         #."($label_element)"
-          ." \@$label_element->{'cmdname'} $target, $node_filename\n";
+         #."($target_element)"
+          ." \@$target_element->{'cmdname'} $target, $node_filename\n";
       }
-      $self->{'targets'}->{$label_element} = {'target' => $target,
+      $self->{'targets'}->{$target_element} = {'target' => $target,
                                            'node_filename' => $node_filename};
       $self->{'seen_ids'}->{$target} = 1;
     }
@@ -9360,7 +9362,8 @@ sub _external_node_href($$$;$)
 
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $target)
-      = $self->_normalized_label_id_file($external_node);
+      = $self->_normalized_label_id_file($external_node->{'normalized'},
+                                         $external_node->{'node_content'});
 
   my $xml_target = _normalized_to_id($target);
 
@@ -11226,18 +11229,21 @@ sub output($$)
       and $self->{'labels'} and $output_file ne '') {
     my %redirection_filenames;
     foreach my $label (sort(keys (%{$self->{'labels'}}))) {
-      my $node = $self->{'labels'}->{$label};
-      my $target = $self->_get_target($node);
+      my $target_element = $self->{'labels'}->{$label};
+      my $label_element = Texinfo::Common::get_label_element($target_element);
+      my $label_contents = $label_element->{'contents'};
+      my $target = $self->_get_target($target_element);
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.
-      my $filename = $self->command_filename($node);
+      my $filename = $self->command_filename($target_element);
       my $node_filename;
       # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
       # is.  The other manual must use the same convention to get it
       # right.  We do not do 'node_filename' as a redirection file
       # either.
-      if ($node->{'extra'} and $node->{'extra'}->{'normalized'}
-          and $node->{'extra'}->{'normalized'} eq 'Top'
+      if ($target_element->{'extra'}
+          and $target_element->{'extra'}->{'normalized'}
+          and $target_element->{'extra'}->{'normalized'} eq 'Top'
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
@@ -11252,11 +11258,11 @@ sub output($$)
             or $redirection_filenames{$redirection_filename}) {
           $self->line_warn($self,
              sprintf(__("\@%s `%s' file %s for redirection exists"),
-               $node->{'cmdname'},
+               $target_element->{'cmdname'},
                Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                 => $node->{'extra'}->{'node_content'}}),
+                                                   => $label_contents}),
                $redirection_filename),
-            $node->{'source_info'});
+            $target_element->{'source_info'});
           my $file_source = $files_source_info{$redirection_filename};
           my $file_info_type = $file_source->{'file_info_type'};
           if ($file_info_type eq 'special_file'
@@ -11289,25 +11295,18 @@ sub output($$)
                      "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_node->{'extra'}->{'node_content'}}),
-                 ),
-              $conflicting_node->{'source_info'}, 1);
-          } elsif ($file_info_type eq 'node') {
-            my $conflicting_node = $file_source->{'file_info_element'};
-            $self->line_warn($self,
-               sprintf(__("conflict with \@%s `%s' file"),
-                 $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_node->{'extra'}->{'node_content'}}),
+                   => $conflicting_node->{'args'}->[0]->{'contents'}}),
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'redirection') {
             my $conflicting_node = $file_source->{'file_info_element'};
+            my $conflicting_label_contents
+                 = $file_source->{'file_info_label_contents'};
             $self->line_warn($self,
                sprintf(__("conflict with \@%s `%s' redirection file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_node->{'extra'}->{'node_content'}}),
+                                            => $conflicting_label_contents}),
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
@@ -11330,12 +11329,14 @@ sub output($$)
           }
           next;
         }
-        $redirection_filenames{$redirection_filename} = $node;
+        $redirection_filenames{$redirection_filename} = $target_element;
         $files_source_info{$redirection_filename}
-          = {'file_info_type' => 'redirection', 'file_info_element' => $node};
+          = {'file_info_type' => 'redirection',
+             'file_info_element' => $target_element,
+             'file_info_label_contents' => $label_contents};
         my $redirection_page
           = &{$self->formatting_function('format_node_redirection_page')}($self,
-                                                                         $node);
+                                                               $target_element);
         my $out_filename;
         if (defined($destination_directory) and $destination_directory ne '') {
           $out_filename = File::Spec->catfile($destination_directory,

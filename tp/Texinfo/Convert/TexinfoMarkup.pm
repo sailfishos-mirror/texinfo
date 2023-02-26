@@ -802,10 +802,11 @@ sub _convert($$;$)
                           [['name', $nodename], _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
           $result .= $self->txi_markup_open_element('nodename',
-                               [_trailing_spaces_arg($element->{'args'}->[0])])
-             .$self->_convert({'contents'
-                                  => $element->{'extra'}->{'node_content'}})
-             .$self->txi_markup_close_element('nodename');
+                               [_trailing_spaces_arg($element->{'args'}->[0])]);
+          $result .= $self->_convert({'contents'
+                                  => $element->{'args'}->[0]->{'contents'}})
+            if ($nodename ne '');
+          $result .= $self->txi_markup_close_element('nodename');
           # first arg is the node name, directions start at 1.
           my $direction_index = 1;
           my $pending_empty_directions = '';
@@ -831,10 +832,10 @@ sub _convert($$;$)
                               @{$node_direction->{'extra'}->{'manual_content'}},
                                             {'text' => ')'}]});
                 }
-                if ($node_direction->{'extra'}->{'node_content'}) {
+                if (defined($node_direction->{'extra'}->{'normalized'})) {
                   $node_name .= Texinfo::Common::normalize_top_node_name(
                     $self->_convert({'contents'
-                             => $node_direction->{'extra'}->{'node_content'}}));
+                             => $node_direction->{'args'}->[0]->{'contents'}}));
                 }
               } else {
                 $node_name
@@ -1254,11 +1255,8 @@ sub _convert($$;$)
         push @$attribute, ['first',
                            $element->{'extra'}->{'enumerate_specification'}];
       } elsif ($element->{'cmdname'} eq 'float' and $element->{'extra'}) {
-        if (defined($element->{'extra'}->{'node_content'})) {
-          my $normalized =
-            Texinfo::Convert::NodeNameNormalization::normalize_node (
-                   { 'contents' => $element->{'extra'}->{'node_content'} });
-          push @$attribute, ['name', $normalized];
+        if (defined($element->{'extra'}->{'normalized'})) {
+          push @$attribute, ['name', $element->{'extra'}->{'normalized'}];
         }
         push @$attribute, ['type',
                            $element->{'extra'}->{'float_type'}];

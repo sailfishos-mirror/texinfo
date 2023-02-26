@@ -29,9 +29,6 @@ $result_trees{'footnote_no_number'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -109,9 +106,6 @@ $result_trees{'footnote_no_number'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -248,9 +242,7 @@ $result_trees{'footnote_no_number'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_no_number'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnote_no_number'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_no_number'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnote_no_number'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_no_number'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'footnote_no_number'} = '@node Top

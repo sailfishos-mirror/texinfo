@@ -1519,11 +1519,9 @@ sub _convert($$;$)
           }
         }
       } elsif ($element->{'cmdname'} eq 'float') {
-        if ($element->{'extra'} and defined($element->{'extra'}->{'node_content'})) {
-          my $normalized =
-            Texinfo::Convert::NodeNameNormalization::normalize_node (
-                   { 'contents' => $element->{'extra'}->{'node_content'} });
-          $result .= "<anchor id=\"$normalized\"/>\n";
+        if ($element->{'extra'}
+            and defined($element->{'extra'}->{'normalized'})) {
+          $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
         }
       } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @format_elements, 'screen';

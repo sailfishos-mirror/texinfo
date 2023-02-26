@@ -45,9 +45,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
               ],
               'cmdname' => 'anchor',
               'extra' => {
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'aa'
               },
               'source_info' => {
@@ -201,7 +198,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'form_feed_in_brace_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'form_feed_in_brace_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'form_feed_in_brace_commands'} = '@option{ aa} @anchor{aa}something @email{aaa,  fff}@footnote{ 
  f1 } @footnote{  ggjj}.

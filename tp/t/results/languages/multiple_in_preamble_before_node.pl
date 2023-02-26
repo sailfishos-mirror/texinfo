@@ -404,9 +404,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -484,9 +481,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -741,9 +735,7 @@ $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'multiple_in_preamble_before_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_in_preamble_before_node'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[0] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'multiple_in_preamble_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'}{'contents'}[2] = $result_trees{'multiple_in_preamble_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];

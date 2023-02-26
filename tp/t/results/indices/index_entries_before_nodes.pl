@@ -129,9 +129,6 @@ $result_trees{'index_entries_before_nodes'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -258,9 +255,6 @@ $result_trees{'index_entries_before_nodes'} = {
       ],
       'extra' => {
         'isindex' => 1,
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -288,11 +282,9 @@ $result_trees{'index_entries_before_nodes'} = {
 $result_trees{'index_entries_before_nodes'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_before_nodes'}{'contents'}[0]{'contents'}[1];
 $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_before_nodes'}{'contents'}[1];
 $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'contents'}[1];
-$result_trees{'index_entries_before_nodes'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entries_before_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_before_nodes'}{'contents'}[2];
 $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'index_entries_before_nodes'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'index_entries_before_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_entries_before_nodes'} = '@cindex before

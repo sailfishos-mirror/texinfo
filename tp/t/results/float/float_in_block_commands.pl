@@ -132,9 +132,6 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'in-example'
               },
               'info' => {
@@ -303,9 +300,6 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'in-quotation'
               },
               'info' => {
@@ -474,9 +468,6 @@ $result_trees{'float_in_block_commands'} = {
               'extra' => {
                 'caption' => {},
                 'float_type' => 'Text',
-                'node_content' => [
-                  {}
-                ],
                 'normalized' => 'in-cartouche'
               },
               'info' => {
@@ -542,13 +533,10 @@ $result_trees{'float_in_block_commands'} = {
 };
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
 $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[1]{'contents'}[0];
 
 $result_texis{'float_in_block_commands'} = '@example
 @float Text, in example

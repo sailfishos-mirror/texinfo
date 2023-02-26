@@ -68,9 +68,6 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -148,9 +145,6 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -260,9 +254,6 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -372,9 +363,6 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -484,9 +472,6 @@ $result_trees{'multiple_documentlanguage'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -548,15 +533,10 @@ $result_trees{'multiple_documentlanguage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiple_documentlanguage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 
 $result_texis{'multiple_documentlanguage'} = '@documentlanguage ja

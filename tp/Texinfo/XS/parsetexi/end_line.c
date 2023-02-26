@@ -1139,7 +1139,7 @@ end_line_starting_block (ELEMENT *current)
           float_label = parse_node_manual (args_child_by_index (current, 1));
           check_internal_node (float_label);
 
-          register_label (current, float_label->node_content);
+          register_label (current);
           if (float_label->manual_content)
             destroy_element (float_label->manual_content);
           free (float_label);
@@ -1868,7 +1868,7 @@ end_line_misc_line (ELEMENT *current)
                    contents_child_by_index(nodes_manuals[0]->node_content, i));
                 }
             }
-          register_label (current, label);
+          register_label (current);
         }
       if (current_part
           && !lookup_extra (current_part, "part_associated_section"))

@@ -363,16 +363,16 @@ sub set_nodes_list_labels($$$)
           }
         }
       }
-      if (defined $target->{'extra'}
-            and defined $target->{'extra'}->{'node_content'}) {
+      my $label_element = Texinfo::Common::get_label_element($target);
+      if ($label_element and $label_element->{'contents'}) {
         my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                             {'contents' => $target->{'extra'}->{'node_content'}});
-
+                             $label_element);
         if ($normalized !~ /[^-]/) {
           $registrar->line_error($configuration_information,
                sprintf(__("empty node name after expansion `%s'"),
-                     Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                   => $target->{'extra'}->{'node_content'}})),
+                     # convert the contents only, to avoid spaces
+                     Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                         {'contents' => $label_element->{'contents'}})),
                             $target->{'source_info'});
           delete $target->{'extra'}->{'node_content'};
         } else {
@@ -381,7 +381,7 @@ sub set_nodes_list_labels($$$)
               sprintf(__("\@%s `%s' previously defined"),
                          $target->{'cmdname'},
                    Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                    => $target->{'extra'}->{'node_content'}})),
+                                    => $label_element->{'contents'}})),
                                $target->{'source_info'});
             $registrar->line_error($configuration_information,
               sprintf(__("here is the previous definition as \@%s"),

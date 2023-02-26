@@ -271,7 +271,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           parsed_anchor = parse_node_manual (current);
           if (check_node_label (parsed_anchor, CM_anchor))
             {
-              register_label (current->parent, parsed_anchor->node_content);
+              register_label (current->parent);
               if (nesting_context.regions_stack.top > 0)
                 {
                   add_extra_string_dup (current, "element_region",

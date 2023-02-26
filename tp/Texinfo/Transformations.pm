@@ -244,11 +244,10 @@ sub _new_node($$$$)
                                          or $comment_at_end);
 
   my $appended_number = 0 +$empty_node;
-  my ($node, $parsed_node);
+  my ($node, $normalized);
 
   while (!defined($node)
-         or ($labels
-            and $labels->{$parsed_node->{'normalized'}})) {
+         or ($labels and $labels->{$normalized})) {
     $node = {'cmdname' => 'node',
              'args' => [
                {'type' => 'line_arg',}
@@ -268,18 +267,14 @@ sub _new_node($$$$)
     foreach my $content (@{$node_line_arg->{'contents'}}) {
       $content->{'parent'} = $node_line_arg;
     }
-    my $modified_node_content;
-    ($parsed_node, $modified_node_content)
-       = Texinfo::Common::parse_node_manual($node_line_arg);
-    if ($parsed_node and $parsed_node->{'node_content'}) {
-      $parsed_node->{'normalized'} =
-       Texinfo::Convert::NodeNameNormalization::normalize_node(
-        { 'contents' => $parsed_node->{'node_content'} });
-    }
-    $node_line_arg->{'contents'} = $modified_node_content;
-    if (!defined($parsed_node) or !$parsed_node->{'node_content'}
-        or $parsed_node->{'normalized'} !~ /[^-]/) {
+
+    $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                       { 'contents' => $node_line_arg->{'contents'} });
+
+    if ($normalized !~ /[^-]/) {
       if ($appended_number) {
+        # FIXME does not seems to be possible, as there is a trailing number.
+        # Maybe in case of error?
         return undef;
       } else {
         $node = undef;
@@ -288,12 +283,14 @@ sub _new_node($$$$)
     $appended_number++;
   }
 
-  push @{$node->{'extra'}->{'nodes_manuals'}}, $parsed_node;
-  if ($parsed_node->{'normalized'} ne '') {
-    $labels->{$parsed_node->{'normalized'}} = $node;
-    $node->{'extra'}->{'normalized'} = $parsed_node->{'normalized'};
+  $node->{'extra'}->{'normalized'} = $normalized;
+  push @{$node->{'extra'}->{'nodes_manuals'}}, $node;
+  # FIXME $node->{'extra'}->{'normalized'} eq '' does not seems to be possible,
+  # as in that case there should be a return undef in the loop.
+  if ($node->{'extra'}->{'normalized'} ne '') {
+    $labels->{$node->{'extra'}->{'normalized'}} = $node;
   }
-  Texinfo::Common::register_label($targets_list, $node, $parsed_node);
+  Texinfo::Common::register_label($targets_list, $node);
   push @{$nodes_list}, $node;
   return $node;
 }
@@ -567,7 +564,8 @@ sub _print_down_menus($$)
           = Texinfo::Common::copy_contents(
                       $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'});
       } else {
-        $node_title_contents = Texinfo::Common::copy_contents($node->{'extra'}->{'node_content'});
+        $node_title_contents
+           = Texinfo::Common::copy_contents($node->{'args'}->[0]->{'contents'});
       }
       my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
       $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',

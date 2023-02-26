@@ -29,9 +29,6 @@ $result_trees{'contents_at_end_document'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -144,7 +141,6 @@ $result_trees{'contents_at_end_document'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_at_end_document'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_at_end_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_at_end_document'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_at_end_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'contents_at_end_document'} = '@node Top

@@ -27,7 +27,7 @@ size_t labels_space = 0;
    a reference and must be unique in the document.  Corresponds to @node,
    @anchor, and @float (float label corresponds to the second argument). */
 void
-register_label (ELEMENT *target_element, ELEMENT *label)
+register_label (ELEMENT *target_element)
 {
   /* register the element in the list. */
   if (labels_number == labels_space)
@@ -40,10 +40,6 @@ register_label (ELEMENT *target_element, ELEMENT *label)
         fatal ("realloc failed");
     }
   target_elements_list[labels_number++] = target_element;
-
-  /* register the label in the element */
-  if (label)
-    add_extra_contents (target_element, "node_content", label);
 }
 
 void

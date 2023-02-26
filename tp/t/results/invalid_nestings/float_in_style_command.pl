@@ -139,9 +139,6 @@ $result_trees{'float_in_style_command'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'A',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'B'
           },
           'info' => {
@@ -163,7 +160,6 @@ $result_trees{'float_in_style_command'} = {
 };
 $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1];
 $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 
 $result_texis{'float_in_style_command'} = '@code{
 }@float A, B

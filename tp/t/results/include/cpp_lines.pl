@@ -125,9 +125,6 @@ $result_trees{'cpp_lines'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -1190,9 +1187,6 @@ $result_trees{'cpp_lines'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -1227,9 +1221,7 @@ $result_trees{'cpp_lines'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'cpp_lines'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'cpp_lines'} = '\\input texinfo

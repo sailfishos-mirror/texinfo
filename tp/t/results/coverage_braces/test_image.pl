@@ -622,9 +622,6 @@ $result_trees{'test_image'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -2669,9 +2666,6 @@ $result_trees{'test_image'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'Image',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'Image-with-commands'
           },
           'info' => {
@@ -2729,9 +2723,6 @@ $result_trees{'test_image'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -2756,12 +2747,9 @@ $result_trees{'test_image'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_image'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11];
 $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'args'}[1]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'test_image'} = '@macro files-char

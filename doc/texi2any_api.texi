@@ -1930,10 +1930,9 @@ The following function reference is for target items (nodes, anchors,
 floats):
 
 @deftypefn {Function Reference} @var{$target} label_target_name @
-           (@var{$converter}, @var{\%label_info}, @var{$default_target})
-@var{$converter} is a converter object.  @var{\%label_info} is a hash
-reference containing a @code{normalized} key with value the
-normalized node name, a @code{node_content} key with value a reference on an
+           (@var{$converter}, @var{$normalized}, @var{\@@node_contents}, @var{$default_target})
+@var{$converter} is a converter object.  @var{$normalized} is the
+normalized node name, @var{\@@node_contents} is a reference on an
 array containing the Texinfo tree contents of the command label.
 @var{$default_target} is the target that has been already set.  The function
 should return the target (@var{$target}).
@@ -1943,8 +1942,8 @@ The element corresponding to the label can be found with @code{label_command}
 (@pxref{Target Commands Links@comma{} Texts and Associated Commands}):
 @example
 my $element;
-$element = $converter->label_command($label_info->@{'normalized'@})
-  if (defined($label_info->@{'normalized'@}));
+$element = $converter->label_command($normalized)
+  if (defined($normalized));
 @end example
 
 For sectioning commands, in addition to the sectioning command target,

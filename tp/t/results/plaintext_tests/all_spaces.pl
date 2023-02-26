@@ -72,9 +72,6 @@ $result_trees{'all_spaces'} = {
       ],
       "cmdname" => "node",
       "extra" => {
-        "node_content" => [
-          {}
-        ],
         "nodes_manuals" => [
           {
             "node_content" => [
@@ -447,9 +444,6 @@ $result_trees{'all_spaces'} = {
         }
       ],
       "extra" => {
-        "node_content" => [
-          {}
-        ],
         "nodes_manuals" => [
           {
             "node_content" => [
@@ -474,9 +468,7 @@ $result_trees{'all_spaces'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'all_spaces'}{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 $result_trees{'all_spaces'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[1]{"args"}[0]{"contents"}[0];
-$result_trees{'all_spaces'}{"contents"}[2]{"extra"}{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[2]{"args"}[0]{"contents"}[0];
 $result_trees{'all_spaces'}{"contents"}[2]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'all_spaces'}{"contents"}[2]{"args"}[0]{"contents"}[0];
 
 $result_texis{'all_spaces'} = '@documentencoding utf-8

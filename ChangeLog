@@ -1,3 +1,47 @@
+2023-02-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (register_label, get_label_element),
+	tp/Texinfo/Convert/Converter.pm (node_information_filename)
+	(_set_tree_units_files, sort_element_counts),
+	tp/Texinfo/Convert/HTML.pm (command_text, _normalized_label_id_file)
+	(_set_root_commands_targets_node_files, _external_node_href, output),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm (output)
+	(format_node), tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/Convert/Plaintext.pm (process_footnotes, node_line)
+	(_convert), tp/Texinfo/Convert/Texinfo.pm
+	(target_element_to_texi_label), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_end_line_starting_block, _process_remaining_on_line),
+	tp/Texinfo/Structuring.pm (_check_node_same_texinfo_code)
+	(_check_menu_entry, check_nodes_are_referenced)
+	(complete_node_tree_with_menus, nodes_tree)
+	(associate_internal_references, number_floats, new_node_menu_entry),
+	tp/Texinfo/Transformations.pm (_new_node),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/labels.c
+	(register_label), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_close_brace), tp/init/documentation_examples.pm: do not
+	register the label element in register_label, instead use directly
+	arguments, first argument of node or anchor, second argument of float,
+	possibly using get_label_element when the element command name is not
+	known.
+	Use {'extra'}->{'normalized'} instead of {'extra'}->{'node_content'}
+	to determine if th enode is present multiple times, or empty.
+	Pass normalized label string and label contents separately to
+	node_information_filename, to _normalized_label_id_file and to user
+	defined reference label_target_name.
+	Add file_info_label_contents with label contents to files_source_info
+	for a redirection file.
+	Add 'normalized' extra key in Plaintext/Info for nodes or anchors
+	created for footnotes.
+	Add target_element_to_texi_label to format target element label to
+	Texinfo.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): use directly the
+	normalized extra key instead of redoing the normalization.
+
 2023-02-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	ASCII_GLYPH in tests

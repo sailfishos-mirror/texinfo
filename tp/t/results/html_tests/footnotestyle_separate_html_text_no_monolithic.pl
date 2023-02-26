@@ -70,9 +70,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -185,9 +182,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -249,9 +243,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 
 $result_texis{'footnotestyle_separate_html_text_no_monolithic'} = '@footnotestyle separate

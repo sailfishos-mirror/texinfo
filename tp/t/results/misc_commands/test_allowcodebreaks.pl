@@ -35,9 +35,6 @@ $result_trees{'test_allowcodebreaks'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -559,9 +556,6 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
                         'normalized' => 'A-node0'
                       },
                       'source_info' => {
@@ -1053,9 +1047,6 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
                         'normalized' => 'A-node1'
                       },
                       'source_info' => {
@@ -1516,9 +1507,6 @@ $result_trees{'test_allowcodebreaks'} = {
                               ],
                               'cmdname' => 'anchor',
                               'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
                                 'normalized' => 'A-nodew'
                               },
                               'source_info' => {
@@ -2014,9 +2002,6 @@ $result_trees{'test_allowcodebreaks'} = {
                       ],
                       'cmdname' => 'anchor',
                       'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
                         'normalized' => 'A-node2'
                       },
                       'source_info' => {
@@ -2163,9 +2148,6 @@ $result_trees{'test_allowcodebreaks'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -2190,13 +2172,7 @@ $result_trees{'test_allowcodebreaks'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[5]{'contents'}[20]{'args'}[0]{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[5]{'contents'}[20]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[10]{'contents'}[20]{'args'}[0]{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[10]{'contents'}[20]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[14]{'contents'}[1]{'args'}[0]{'contents'}[19]{'args'}[0]{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[14]{'contents'}[1]{'args'}[0]{'contents'}[19]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[19]{'contents'}[20]{'args'}[0]{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'contents'}[19]{'contents'}[20]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'test_allowcodebreaks'} = '@node Top

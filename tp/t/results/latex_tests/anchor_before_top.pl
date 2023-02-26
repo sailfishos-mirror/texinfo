@@ -36,9 +36,6 @@ $result_trees{'anchor_before_top'} = {
           ],
           'cmdname' => 'anchor',
           'extra' => {
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'a-before-Top'
           },
           'source_info' => {
@@ -79,9 +76,6 @@ $result_trees{'anchor_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -159,9 +153,6 @@ $result_trees{'anchor_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -259,10 +250,7 @@ $result_trees{'anchor_before_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_before_top'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_before_top'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_before_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_before_top'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_before_top'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'anchor_before_top'}{'contents'}[0]{'contents'}[2];
 $result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];

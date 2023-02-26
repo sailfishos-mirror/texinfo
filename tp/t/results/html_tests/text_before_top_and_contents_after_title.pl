@@ -50,9 +50,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -184,7 +181,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'text_before_top_and_contents_after_title'} = '

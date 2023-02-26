@@ -105,9 +105,6 @@ $result_trees{'unnumbered_before_top_node'} = [
           }
         ],
         'extra' => {
-          'node_content' => [
-            {}
-          ],
           'nodes_manuals' => [
             {
               'node_content' => [
@@ -136,7 +133,6 @@ $result_trees{'unnumbered_before_top_node'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_before_top_node'}[0]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[1];
 

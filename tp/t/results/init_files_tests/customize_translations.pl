@@ -56,9 +56,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -136,9 +133,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -275,9 +269,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -382,9 +373,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -494,9 +482,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -601,9 +586,6 @@ $result_trees{'customize_translations'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -665,17 +647,11 @@ $result_trees{'customize_translations'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'customize_translations'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'customize_translations'}{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[11]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[11]{'args'}[0]{'contents'}[0];
 
 $result_texis{'customize_translations'} = '

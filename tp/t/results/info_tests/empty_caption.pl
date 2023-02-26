@@ -134,9 +134,6 @@ $result_trees{'empty_caption'} = {
           'extra' => {
             'caption' => {},
             'float_type' => 'a',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'b'
           },
           'info' => {
@@ -189,9 +186,6 @@ $result_trees{'empty_caption'} = {
         }
       ],
       'extra' => {
-        'node_content' => [
-          {}
-        ],
         'nodes_manuals' => [
           {
             'node_content' => [
@@ -218,8 +212,6 @@ $result_trees{'empty_caption'} = {
 };
 $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_caption'} = '

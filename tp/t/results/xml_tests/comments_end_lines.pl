@@ -833,9 +833,6 @@ $result_trees{'comments_end_lines'} = {
           ],
           'extra' => {
             'float_type' => 'f',
-            'node_content' => [
-              {}
-            ],
             'normalized' => 'g'
           },
           'info' => {
@@ -1022,7 +1019,6 @@ $result_trees{'comments_end_lines'} = {
 $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[12]{'extra'}{'columnfractions'} = $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[12]{'args'}[0]{'contents'}[0];
-$result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[14]{'extra'}{'node_content'}[0] = $result_trees{'comments_end_lines'}{'contents'}[0]{'contents'}[14]{'args'}[1]{'contents'}[0];
 
 $result_texis{'comments_end_lines'} = '@itemize
 @item itemize it

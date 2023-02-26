@@ -1007,7 +1007,7 @@ sub _count_opened_tree_braces($$)
 # typically to replace $LABEL_CONTENTS_CONTAINER->{'contents'}
 # for consistency.
 #
-# Could be documented, but only is there is evidence that this function
+# Could be documented, but only if there is evidence that this function
 # is useful in user-defined code.
 sub parse_node_manual($)
 {
@@ -2280,21 +2280,26 @@ sub relate_index_entries_to_table_items_in_tree($)
 #
 # $TARGET_ELEMENTS_LIST array reference for elements associated to a label
 # $TARGET_ELEMENT is the tree element associated to the label.
-# $LABEL is a hash reference with 'node_content' key and an array of
-#    Texinfo content in it, corresponding to the target label.
-sub register_label($$$)
+sub register_label($$)
 {
-  my ($target_elements_list, $target_element, $label) = @_;
+  my ($target_elements_list, $target_element) = @_;
 
   # register the element in the list.
   push @{$target_elements_list}, $target_element;
-  if ($label and $label->{'node_content'}) {
-    # register the label in the element
-    #$target_element->{'extra'} = {} if (!$current->{'extra'});
-    $target_element->{'extra'}->{'node_content'} = $label->{'node_content'};
-  }
 }
 
+sub get_label_element($)
+{
+  my $current = shift;
+  if (($current->{'cmdname'} eq 'node' or $current->{'cmdname'} eq 'anchor')
+      and $current->{'args'} and scalar(@{$current->{'args'}})) {
+    return $current->{'args'}->[0]
+  } elsif ($current->{'cmdname'} eq 'float'
+      and $current->{'args'} and scalar(@{$current->{'args'}}) >= 2) {
+    return $current->{'args'}->[1];
+  }
+  return undef;
+}
 
 # functions used for debugging.  May be used in other modules.
 # Not documented.
