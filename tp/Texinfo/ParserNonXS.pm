@@ -3483,7 +3483,7 @@ sub _end_line_misc_line($$$)
     }
     my $node_label_manual_info = _parse_node_manual($current->{'args'}->[0]);
     _check_internal_node($self, $node_label_manual_info,
-                         $source_info);
+                         $current, $source_info);
     Texinfo::Common::register_label($self->{'targets'}, $current);
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
@@ -3856,7 +3856,7 @@ sub _end_line_starting_block($$$)
     my $float_label;
     if ($current->{'args'} and $current->{'args'}->[1]) {
       $float_label = _parse_node_manual($current->{'args'}->[1]);
-      _check_internal_node($self, $float_label, $source_info);
+      _check_internal_node($self, $float_label, $current, $source_info);
     }
     # for now done in Texinfo::Convert::NodeNameNormalization, but could be
     # good to do in Parser/XS
@@ -4362,35 +4362,15 @@ sub _start_empty_line_after_command($$$) {
   return $line;
 }
 
-sub _check_empty_node($$$$)
+sub _check_internal_node($$$$)
 {
-  my ($self, $parsed_node, $command, $source_info) = @_;
+  my ($self, $label_info, $target_element, $source_info) = @_;
 
-  if (!defined($parsed_node) or !$parsed_node->{'node_content'}) {
-    $self->_line_error(sprintf(__("empty argument in \@%s"),
-                $command), $source_info);
-    return 0;
-  } else {
-    return 1;
-  }
-}
-
-sub _check_internal_node($$$)
-{
-  my ($self, $parsed_node, $source_info) = @_;
-
-  if ($parsed_node and $parsed_node->{'manual_content'}) {
+  if ($label_info and $label_info->{'manual_content'}) {
     $self->_line_error(sprintf(__("syntax for an external node used for `%s'"),
-        Texinfo::Convert::Texinfo::node_extra_to_texi($parsed_node)), $source_info);
+        Texinfo::Convert::Texinfo::target_element_to_texi_label($target_element)),
+                       $source_info);
   }
-}
-
-sub _check_node_label($$$$)
-{
-  my ($self, $parsed_node, $command, $source_info) = @_;
-
-  _check_internal_node($self, $parsed_node, $source_info);
-  return _check_empty_node($self, $parsed_node, $command, $source_info);
 }
 
 # Return 1 if an element is all whitespace.
@@ -6295,18 +6275,23 @@ sub _process_remaining_on_line($$$$)
         }
         if ($current->{'parent'}->{'cmdname'} eq 'anchor') {
           $current->{'parent'}->{'source_info'} = $source_info;
-          my $parsed_anchor = _parse_node_manual($current);
-          if (_check_node_label($self, $parsed_anchor,
-                            $current->{'parent'}->{'cmdname'}, $source_info)) {
+          if (! $current->{'contents'}) {
+            $self->_line_error(sprintf(__("empty argument in \@%s"),
+                               $current->{'parent'}->{'cmdname'}),
+                               $source_info);
+          } else {
+            my $parsed_anchor = _parse_node_manual($current);
+            _check_internal_node($self, $parsed_anchor,
+                                 $current->{'parent'}, $source_info);
             Texinfo::Common::register_label($self->{'targets'},
                                             $current->{'parent'});
-             # the @anchor element_region information is not used in converters
-             if ($self->{'nesting_context'}
-                 and $self->{'nesting_context'}->{'regions_stack'}
+            # the @anchor element_region information is not used in converters
+            if ($self->{'nesting_context'}
+                and $self->{'nesting_context'}->{'regions_stack'}
            and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
-                $current->{'extra'} = {} if (!$current->{'extra'});
-                $current->{'extra'}->{'element_region'}
-                  = $self->{'nesting_context'}->{'regions_stack'}->[-1];
+              $current->{'extra'} = {} if (!$current->{'extra'});
+              $current->{'extra'}->{'element_region'}
+                = $self->{'nesting_context'}->{'regions_stack'}->[-1];
             }
           }
         } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
@@ -6329,16 +6314,19 @@ sub _process_remaining_on_line($$$$)
                  "command \@%s missing a node or external manual argument"),
                                     $closed_command), $source_info);
             } else {
-              my $arg = $ref->{'args'}->[0];
-              my $ref_label_info = _parse_node_manual($arg);
+              my $arg_label = $ref->{'args'}->[0];
+              my $ref_label_info = _parse_node_manual($arg_label);
               if (defined $ref_label_info) {
                 foreach my $label_info (keys(%$ref_label_info)) {
-                  $arg->{'extra'} = {} if (!$arg->{'extra'});
-                  $arg->{'extra'}->{$label_info} = [@{$ref_label_info->{$label_info}}];
+                  $arg_label->{'extra'} = {} if (!$arg_label->{'extra'});
+                  $arg_label->{'extra'}->{$label_info}
+                    = [@{$ref_label_info->{$label_info}}];
                 }
                 if ($closed_command ne 'inforef'
                     and !defined($args[3]) and !defined($args[4])
                     and !$ref_label_info->{'manual_content'}) {
+                  # we use the @*ref command here and not the label command
+                  # to have more information for messages
                   push @{$self->{'internal_references'}}, $ref;
                 }
               }

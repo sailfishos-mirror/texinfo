@@ -21,6 +21,34 @@
 
 2023-02-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (link_element_to_texi),
+	tp/Texinfo/ParserNonXS.pm (_check_node_label),
+	tp/Texinfo/Structuring.pm: new function that replaces functionally
+	node_extra_to_texi and is applied to an element.  Update callers.
+
+	* tp/Texinfo/Structuring.pm associate_internal_references): more
+	common code to handle both types of internal references commands.
+
+	* tp/Texinfo/Convert/Texinfo.pm (target_element_to_texi_label): remove
+	call to node_extra_to_texi, it cannot happen.
+
+	* tp/Texinfo/ParserNonXS.pm (_check_node_label, _check_empty_node),
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (check_empty_node)
+	(check_node_label), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_close_brace): determine directly if an @anchor is empty, and
+	call check_internal_node if it is not the case.  Remove
+	check_node_label and check_empty_node.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): rename
+	arg as arg_label in the code determining @*ref link label information.
+
+	* tp/Texinfo/Structuring.pm (nodes_tree): rename $arg as
+	$direction_element.
+
+2023-02-27  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): update node
 	element creation to match with the current tree.
 

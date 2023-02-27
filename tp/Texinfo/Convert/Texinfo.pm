@@ -1,20 +1,20 @@
 # Texinfo.pm: output a Texinfo tree as Texinfo.
 #
 # Copyright 2010-2022 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
@@ -39,7 +39,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
   convert_to_texinfo
-  node_extra_to_texi
+  link_element_to_texi
   target_element_to_texi_label
 ) ] );
 
@@ -63,28 +63,26 @@ for my $a (@ignored_types) {
 }
 
 # TODO document?
-# used to put a node name in error messages.
-sub node_extra_to_texi($)
+sub link_element_to_texi($)
 {
-  my $node = shift;
+  my $element = shift;
   my $result = '';
-  if ($node->{'manual_content'}) {
+  return $result if (!$element->{'extra'});
+  if ($element->{'extra'}->{'manual_content'}) {
     $result = '('.convert_to_texinfo({'contents'
-                              => $node->{'manual_content'}}) .')';
+                         => $element->{'extra'}->{'manual_content'}}) .')';
   }
-  if ($node->{'node_content'}) {
-    $result .= convert_to_texinfo({'contents' => $node->{'node_content'}});
+  if ($element->{'extra'}->{'node_content'}) {
+    $result .= convert_to_texinfo({'contents'
+                         => $element->{'extra'}->{'node_content'}});
   }
-  return $result;
+  return $result
 }
 
 # TODO document?
 sub target_element_to_texi_label($)
 {
   my $element = shift;
-  if ($element->{'extra'} and $element->{'extra'}->{'manual_content'}) {
-    return node_extra_to_texi($element->{'extra'});
-  }
   my $label_element = Texinfo::Common::get_label_element($element);
   return convert_to_texinfo({'contents' => $label_element->{'contents'}});
 }
@@ -234,7 +232,7 @@ Texinfo::Convert::Texinfo - Convert a Texinfo tree to Texinfo code
 =head1 SYNOPSIS
 
   use Texinfo::Convert::Texinfo qw(convert_to_texinfo);
-  
+
   my $texinfo_text = convert_to_texinfo($tree);
 
 =head1 NOTES

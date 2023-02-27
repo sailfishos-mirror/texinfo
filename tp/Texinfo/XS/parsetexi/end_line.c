@@ -41,27 +41,6 @@ check_internal_node (NODE_SPEC_EXTRA *nse)
     }
 }
 
-int
-check_empty_node (NODE_SPEC_EXTRA *nse,
-                  enum command_id cmd)
-{
-  if (!nse || !nse->node_content || nse->node_content->contents.number == 0)
-    {
-      line_error ("empty argument in @%s", command_name(cmd));
-      return 0;
-    }
-  else
-    return 1;
-}
-
-int
-check_node_label (NODE_SPEC_EXTRA *nse,
-                  enum command_id cmd)
-{
-  check_internal_node (nse);
-  return check_empty_node (nse, cmd);
-}
-
 static int
 is_decimal_number (char *string)
 {

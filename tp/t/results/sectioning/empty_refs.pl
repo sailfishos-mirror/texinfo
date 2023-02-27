@@ -22,8 +22,7 @@ $result_trees{'empty_refs'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ],
-                    'normalized' => ''
+                    ]
                   },
                   'type' => 'brace_command_arg'
                 }

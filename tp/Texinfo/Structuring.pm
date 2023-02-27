@@ -40,7 +40,8 @@ use Texinfo::Commands;
 use Texinfo::Common;
 
 # for error messages
-use Texinfo::Convert::Texinfo qw(node_extra_to_texi target_element_to_texi_label);
+use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
+                                 link_element_to_texi);
 # for debugging.  Also for index entries sorting.
 use Texinfo::Convert::Text;
 # for internal references and misc uses
@@ -388,14 +389,14 @@ sub _check_menu_entry($$$$$$)
       $registrar->line_error($customization_information,
                   sprintf(__("\@%s reference to nonexistent node `%s'"),
                           $command,
-                          node_extra_to_texi($menu_entry_node->{'extra'})),
+                          link_element_to_texi($menu_entry_node)),
                             $menu_content->{'source_info'});
     } else {
       if (!_check_node_same_texinfo_code($menu_node, $menu_entry_node->{'extra'})) {
         $registrar->line_warn($customization_information,
         sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
                 $command,
-                node_extra_to_texi($menu_entry_node->{'extra'}),
+                link_element_to_texi($menu_entry_node),
                 $menu_node->{'cmdname'},
                 target_element_to_texi_label($menu_node)),
                                $menu_content->{'source_info'});
@@ -856,9 +857,9 @@ sub nodes_tree($$$$$)
       }
     } else { # explicit directions
       for (my $i = 1; $i < scalar(@{$node->{'args'}}); $i++) {
-        my $arg = $node->{'args'}->[$i];
-        next if (!$arg->{'extra'});
-        my $node_direction = $arg->{'extra'};
+        my $direction_element = $node->{'args'}->[$i];
+        next if (!$direction_element->{'extra'});
+        my $node_direction = $direction_element->{'extra'};
         my $direction = $node_directions[$i-1];
 
         $node->{'structure'} = {} if (! defined($node->{'structure'}));
@@ -879,7 +880,7 @@ sub nodes_tree($$$$$)
                 sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
-                  node_extra_to_texi($node_direction),
+                  link_element_to_texi($direction_element),
                   target_element_to_texi_label($node),
                                      $node_target->{'cmdname'},
                   target_element_to_texi_label($node_target)),
@@ -893,7 +894,7 @@ sub nodes_tree($$$$$)
               $registrar->line_error($customization_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
-                      node_extra_to_texi($node_direction)),
+                      link_element_to_texi($direction_element)),
                    $node->{'source_info'});
             }
           }
@@ -1485,45 +1486,47 @@ sub associate_internal_references($$$$$)
 
   return if (!defined($refs));
   foreach my $ref (@$refs) {
-    my $node_arg;
+    my $label_element;
     if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
-      if ($ref->{'extra'} and $ref->{'extra'}->{'node_content'}) {
-        my $normalized =
-          Texinfo::Convert::NodeNameNormalization::normalize_node(
-            {'contents' => $ref->{'extra'}->{'node_content'} });
-        $ref->{'extra'}->{'normalized'} = $normalized
-          if (defined $normalized and $normalized ne '');
-      }
-      next;
+      $label_element = $ref;
+    } else {
+      $label_element = $ref->{'args'}->[0];
     }
 
-    $node_arg = $ref->{'args'}->[0]->{'extra'}
-       if ($ref->{'args'} and scalar(@{$ref->{'args'}})
-           and $ref->{'args'}->[0]->{'extra'});
-    if ($node_arg and $node_arg->{'node_content'}) {
+    if ($label_element->{'extra'}
+        and $label_element->{'extra'}->{'node_content'}) {
       my $normalized =
-           Texinfo::Convert::NodeNameNormalization::normalize_node(
-              {'contents' => $node_arg->{'node_content'} });
-      $node_arg->{'normalized'} = $normalized;
+        Texinfo::Convert::NodeNameNormalization::normalize_node(
+            {'contents' => $label_element->{'extra'}->{'node_content'} });
+        $label_element->{'extra'}->{'normalized'} = $normalized
+          if (defined $normalized and $normalized ne '');
+    }
 
-      if (!defined($labels->{$node_arg->{'normalized'}})) {
+    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+      # similar messages are output in _check_menu_entry
+      next;
+    } elsif ($label_element->{'extra'}) {
+      my $label_info = $label_element->{'extra'};
+      if (!defined($label_info->{'normalized'})
+          or !defined($labels->{$label_info->{'normalized'}})) {
         if (!$customization_information->get_conf('novalidate')) {
           $registrar->line_error($customization_information,
-              sprintf(__("\@%s reference to nonexistent node `%s'"),
-                  $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
-                  $ref->{'source_info'});
+                     sprintf(__("\@%s reference to nonexistent node `%s'"),
+                             $ref->{'cmdname'},
+                             link_element_to_texi($label_element)),
+                                 $ref->{'source_info'});
         }
       } else {
-        my $node_target = $labels->{$node_arg->{'normalized'}};
+        my $node_target = $labels->{$label_info->{'normalized'}};
         if (!$customization_information->get_conf('novalidate')
-            and !_check_node_same_texinfo_code($node_target, $node_arg)) {
+            and !_check_node_same_texinfo_code($node_target, $label_info)) {
           $registrar->line_warn($customization_information,
              sprintf(__("\@%s to `%s', different from %s name `%s'"),
-                 $ref->{'cmdname'},
-                 node_extra_to_texi($node_arg),
-                 $node_target->{'cmdname'},
-                 target_element_to_texi_label($node_target)),
-             $ref->{'source_info'});
+                     $ref->{'cmdname'},
+                     link_element_to_texi($label_element),
+                     $node_target->{'cmdname'},
+                     target_element_to_texi_label($node_target)),
+                                $ref->{'source_info'});
         }
       }
     }
