@@ -1537,12 +1537,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/punctuation_in_command.pl \
   t/results/plaintext_tests/punctuation_in_command_end_line.pl \
   t/results/plaintext_tests/punctuation_in_sc.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct/res_plaintext \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct_latin1.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct_latin1/res_plaintext \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct_usascii.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_ascii_punct_usascii/res_plaintext \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph.pl \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph/res_plaintext \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph_latin1.pl \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph_latin1/res_plaintext \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph_usascii.pl \
+  t/results/plaintext_tests/punctuation_sc_accents_ascii_glyph_usascii/res_plaintext \
   t/results/plaintext_tests/punctuation_sc_accents_default.pl \
   t/results/plaintext_tests/punctuation_sc_accents_default/res_plaintext \
   t/results/plaintext_tests/punctuation_sc_accents_default_latin1.pl \
@@ -1555,10 +1555,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/punctuation_sc_accents_disable_encoding_latin1/res_plaintext \
   t/results/plaintext_tests/punctuation_sc_accents_disable_encoding_usascii.pl \
   t/results/plaintext_tests/punctuation_sc_accents_disable_encoding_usascii/res_plaintext \
-  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_punct_latin1.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_punct_latin1/res_plaintext \
-  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_punct_usascii.pl \
-  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_punct_usascii/res_plaintext \
+  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_glyph_latin1.pl \
+  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_glyph_latin1/res_plaintext \
+  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_glyph_usascii.pl \
+  t/results/plaintext_tests/punctuation_sc_accents_to_utf8_ascii_glyph_usascii/res_plaintext \
   t/results/plaintext_tests/punctuation_sc_accents_to_utf8_latin1.pl \
   t/results/plaintext_tests/punctuation_sc_accents_to_utf8_latin1/res_plaintext \
   t/results/plaintext_tests/punctuation_sc_accents_to_utf8_usascii.pl \
