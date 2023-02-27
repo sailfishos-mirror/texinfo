@@ -45,43 +45,6 @@ $result_trees{'ref_in_copying'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'extra' => {
-                        'label' => {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'GFDL'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'node',
-                          'extra' => {
-                            'normalized' => 'GFDL'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 14,
-                            'macro' => ''
-                          }
-                        },
-                        'node_argument' => {
-                          'normalized' => 'GFDL'
-                        }
-                      },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -338,7 +301,38 @@ $result_trees{'ref_in_copying'} = {
         'macro' => ''
       }
     },
-    {},
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'GFDL'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'GFDL'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 14,
+        'macro' => ''
+      }
+    },
     {
       'args' => [
         {
@@ -381,7 +375,6 @@ $result_trees{'ref_in_copying'} = {
 };
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'ref_in_copying'}{'contents'}[3] = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'};
 
 $result_texis{'ref_in_copying'} = '@copying
 @ref{GFDL}

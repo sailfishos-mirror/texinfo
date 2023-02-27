@@ -5311,9 +5311,8 @@ sub _convert_xref_commands($$$$)
   } else {
     # external reference
 
-    # We setup a label_info based on the parsed node entry instead of
-    # reusing the node_argument parsed node entry to be able to use
-    # the $file argument
+    # We setup a label_info based on the node argument and not directly the
+    # node argument to be able to use the $file argument
     my $label_info = {};
     if ($node_arg->{'extra'}) {
       $label_info->{'node_content'} = $node_arg->{'extra'}->{'node_content'}

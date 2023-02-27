@@ -54,11 +54,6 @@ $result_trees{'ref_in_multitable'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -182,11 +177,6 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'ref',
-                              'extra' => {
-                                'node_argument' => {
-                                  'normalized' => 'RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRRR'
-                                }
-                              },
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 8,
@@ -274,11 +264,6 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'ref',
-                              'extra' => {
-                                'node_argument' => {
-                                  'normalized' => 'SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSSSS'
-                                }
-                              },
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 10,
@@ -351,11 +336,6 @@ $result_trees{'ref_in_multitable'} = {
                                             }
                                           ],
                                           'cmdname' => 'ref',
-                                          'extra' => {
-                                            'node_argument' => {
-                                              'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
-                                            }
-                                          },
                                           'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 11,
@@ -506,11 +486,6 @@ $result_trees{'ref_in_multitable'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,

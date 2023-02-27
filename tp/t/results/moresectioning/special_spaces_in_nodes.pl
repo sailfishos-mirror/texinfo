@@ -877,12 +877,6 @@ $result_trees{'special_spaces_in_nodes'} = {
                 }
               ],
               "cmdname" => "ref",
-              "extra" => {
-                "label" => {},
-                "node_argument" => {
-                  "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
-                }
-              },
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
                 "line_nr" => 36,
@@ -935,7 +929,6 @@ $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"contents"}[0];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"contents"}[0];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"args"}[0]{"extra"}{"node_content"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"args"}[0]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"extra"}{"label"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[7];
 
 $result_texis{'special_spaces_in_nodes'} = '
 @node Top  

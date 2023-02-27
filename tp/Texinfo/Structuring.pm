@@ -1473,10 +1473,8 @@ sub print_element_directions($)
   return $result;
 }
 
-# For each internal reference command, set the 'normalized' key in the
-# @*ref and 'menu_entry_node' extra.
-# Set the 'label' key in the 'extra' hash of the reference tree element
-# linking to the associated labeled tree element.
+# For each internal reference command, set the 'normalized' key, in the
+# @*ref first argument or in 'menu_entry_node' extra.
 sub associate_internal_references($$$$$)
 {
   my $registrar = shift;
@@ -1507,7 +1505,6 @@ sub associate_internal_references($$$$$)
            Texinfo::Convert::NodeNameNormalization::normalize_node(
               {'contents' => $node_arg->{'node_content'} });
       $node_arg->{'normalized'} = $normalized;
-      $ref->{'extra'}->{'node_argument'}->{'normalized'} = $normalized;
 
       if (!defined($labels->{$node_arg->{'normalized'}})) {
         if (!$customization_information->get_conf('novalidate')) {
@@ -1518,7 +1515,6 @@ sub associate_internal_references($$$$$)
         }
       } else {
         my $node_target = $labels->{$node_arg->{'normalized'}};
-        $ref->{'extra'}->{'label'} = $node_target;
         if (!$customization_information->get_conf('novalidate')
             and !_check_node_same_texinfo_code($node_target, $node_arg)) {
           $registrar->line_warn($customization_information,
@@ -2219,10 +2215,8 @@ X<C<associate_internal_references>>
 Verify that internal references (C<@ref> and similar without fourth of
 fifth argument and menu entries) have an associated node, anchor or float.
 Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash for
-menu entries and in the C<extra> hash C<node_argument> hash for internal
-references C<@ref> and similar @-commands.  Set the C<label> key in the
-C<extra> hash of the reference tree element to the associated labeled tree
-element.  Register errors in I<$registrar>.
+menu entries and in the first argument C<extra> hash for internal
+references C<@ref> and similar @-commands.  Register errors in I<$registrar>.
 
 =item check_nodes_are_referenced($registrar, $customization_information, $nodes_list, $top_node, $labels, $refs)
 X<C<check_nodes_are_referenced>>

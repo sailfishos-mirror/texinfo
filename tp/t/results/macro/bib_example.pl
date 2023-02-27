@@ -4219,91 +4219,6 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 3,
-                              'position' => 10,
-                              'sourcemark_type' => 'value_expansion',
-                              'status' => 'end'
-                            },
-                            {
-                              'counter' => 7,
-                              'position' => 10,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'References'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => 'References'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'element' => {
-                            'args' => [
-                              {
-                                'type' => 'brace_command_arg'
-                              }
-                            ],
-                            'extra' => {
-                              'name' => 'mybibnode'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'args' => [
-                              {
-                                'text' => 'mybibrefnode'
-                              }
-                            ],
-                            'cmdname' => 'value'
-                          },
-                          'line' => 'References',
-                          'position' => 1,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'bib-example.texi',
-                    'line_nr' => 46,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => 'References'
-                }
-              },
               'source_info' => {
                 'file_name' => 'bib-example.texi',
                 'line_nr' => 43,
@@ -4395,7 +4310,86 @@ $result_trees{'bib_example'} = {
         'macro' => ''
       }
     },
-    {},
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'source_marks' => [
+                {
+                  'counter' => 3,
+                  'position' => 10,
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'end'
+                },
+                {
+                  'counter' => 7,
+                  'position' => 10,
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'end'
+                }
+              ],
+              'text' => 'References'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'References'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'source_marks' => [
+            {
+              'counter' => 7,
+              'element' => {
+                'args' => [
+                  {
+                    'type' => 'brace_command_arg'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mybibnode'
+                },
+                'type' => 'macro_call'
+              },
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'start'
+            },
+            {
+              'counter' => 3,
+              'element' => {
+                'args' => [
+                  {
+                    'text' => 'mybibrefnode'
+                  }
+                ],
+                'cmdname' => 'value'
+              },
+              'line' => 'References',
+              'position' => 1,
+              'sourcemark_type' => 'value_expansion',
+              'status' => 'start'
+            }
+          ],
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'bib-example.texi',
+        'line_nr' => 46,
+        'macro' => ''
+      }
+    },
     {
       'args' => [
         {
@@ -4930,7 +4924,6 @@ $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'conte
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'extra'}{'node_content'}[1] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[1];
-$result_trees{'bib_example'}{'contents'}[5] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'label'};
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'bib_example'} = '\\input texinfo   @c -*-texinfo-*-

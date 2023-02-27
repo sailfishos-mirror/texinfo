@@ -2221,13 +2221,22 @@ sub _convert($$)
         }
         $args[0] = [{'text' => ''}] if (!defined($args[0]));
 
+        my $node_arg = $element->{'args'}->[0];
+
         # normalize node name, to get a ref with the right formatting
         # NOTE as a consequence, the line numbers appearing in case of errors
         # correspond to the node lines numbers, and not the @ref.
         my $node_content;
-        if ($element->{'extra'} and $element->{'extra'}->{'label'}) {
+        my $target_element;
+        if ($node_arg and $node_arg->{'extra'}
+            and !$node_arg->{'extra'}->{'manual_content'}
+            and defined($node_arg->{'extra'}->{'normalized'})
+            and $self->{'labels'}
+            and $self->{'labels'}->{$node_arg->{'extra'}->{'normalized'}}) {
+          $target_element
+            = $self->{'labels'}->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element
-            = Texinfo::Common::get_label_element($element->{'extra'}->{'label'});
+            = Texinfo::Common::get_label_element($target_element);
           if (defined($label_element) and $label_element->{'contents'}) {
             $node_content = $label_element->{'contents'};
           }
@@ -2239,13 +2248,9 @@ sub _convert($$)
         # if it a reference to a float with a label, $arg[1] is
         # set to '$type $number' or '$number' if there is no type.
         if (! defined($args[1])
-            and $element->{'extra'}
-            and $element->{'extra'}->{'label'}
-            and $element->{'extra'}->{'label'}->{'cmdname'}
-            and $element->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
-          my $float = $element->{'extra'}->{'label'};
-
-          my $name = $self->float_type_number($float);
+            and $target_element and $target_element->{'cmdname'}
+            and $target_element->{'cmdname'} eq 'float') {
+          my $name = $self->float_type_number($target_element);
           $args[1] = $name->{'contents'};
         }
         if ($command eq 'inforef' and scalar(@args) == 3) {

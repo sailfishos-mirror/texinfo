@@ -137,12 +137,6 @@ $result_trees{'no_element'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'An-anchor'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -185,32 +179,6 @@ $result_trees{'no_element'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Anchor in footnote'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'anchor',
-                  'extra' => {
-                    'normalized' => 'Anchor-in-footnote'
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 15,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => 'Anchor-in-footnote'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -249,7 +217,27 @@ $result_trees{'no_element'} = {
 ',
                       'type' => 'empty_line'
                     },
-                    {},
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'Anchor in footnote'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'anchor',
+                      'extra' => {
+                        'normalized' => 'Anchor-in-footnote'
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 15,
+                        'macro' => ''
+                      }
+                    },
                     {
                       'text' => '
 ',
@@ -284,12 +272,6 @@ $result_trees{'no_element'} = {
                             }
                           ],
                           'cmdname' => 'ref',
-                          'extra' => {
-                            'label' => {},
-                            'node_argument' => {
-                              'normalized' => 'An-anchor'
-                            }
-                          },
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 18,
@@ -437,12 +419,6 @@ $result_trees{'no_element'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'float-anchor'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
@@ -610,13 +586,9 @@ $result_trees{'no_element'} = {
   'type' => 'document_root'
 };
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'label'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[4];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[4];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'extra'}{'label'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[19]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[19];
 

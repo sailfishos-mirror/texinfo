@@ -836,12 +836,12 @@ parse_line_command_args (ELEMENT *line_command)
                       node specification.
      node_content - Texinfo tree for the node name on its own
 
-   Objects returned from this function are used as an 'extra' key in a
-   few places: the elements of a 'nodes_manuals' array (itself an extra key),
-   the 'menu_entry_node' key on a 'menu_entry' element (not to be confused
-   with an ET_menu_entry_node element, which occurs in the args of a 
-   'menu_entry' element), and in the 'node_argument' key of a cross-reference 
-   command (like @xref). */
+   Objects returned from this function are used as an 'extra' key in
+   the element for elements linking to nodes (such as @*ref,
+   menu_entry_node or node direction arguments).
+   They are also used for elements that are targets of links (@node and
+   @anchor first argument, float second argument) mainly to check that
+   the syntax for an external node is not used. */
 NODE_SPEC_EXTRA *
 parse_node_manual (ELEMENT *node)
 {
@@ -1142,6 +1142,8 @@ end_line_starting_block (ELEMENT *current)
           register_label (current);
           if (float_label->manual_content)
             destroy_element (float_label->manual_content);
+          if (float_label->node_content)
+            destroy_element (float_label->node_content);
           free (float_label);
         }
       /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
@@ -1852,6 +1854,10 @@ end_line_misc_line (ELEMENT *current)
       if (node_label_manual_info)
         {
           register_label (current);
+          if (node_label_manual_info->manual_content)
+            destroy_element (node_label_manual_info->manual_content);
+          if (node_label_manual_info->node_content)
+            destroy_element (node_label_manual_info->node_content);
         }
       free (node_label_manual_info);
       if (current_part

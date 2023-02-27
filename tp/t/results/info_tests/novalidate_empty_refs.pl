@@ -81,11 +81,6 @@ $result_trees{'novalidate_empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => ''
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -129,11 +124,6 @@ $result_trees{'novalidate_empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => '-'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,

@@ -393,12 +393,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'foo'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
@@ -437,12 +431,6 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'Foo'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 20,
@@ -473,9 +461,7 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
   'type' => 'document_root'
 };
 $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[9];
 $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node'}{'contents'}[5];
 
 $result_texis{'file_name_case_insensitive_conflict_node'} = '@node Top
 @top top section

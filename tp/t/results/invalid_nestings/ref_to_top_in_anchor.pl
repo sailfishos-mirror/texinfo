@@ -54,12 +54,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
                     }
                   ],
                   'cmdname' => 'ref',
-                  'extra' => {
-                    'label' => {},
-                    'node_argument' => {
-                      'normalized' => 'Top'
-                    }
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -103,7 +97,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
   'type' => 'document_root'
 };
 $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1];
 
 $result_texis{'ref_to_top_in_anchor'} = '@node Top
 @anchor{TOP @ref{Top}}';

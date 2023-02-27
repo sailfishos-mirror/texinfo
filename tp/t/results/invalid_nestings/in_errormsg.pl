@@ -92,12 +92,6 @@ $result_trees{'in_errormsg'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'extra' => {
-                        'label' => {},
-                        'node_argument' => {
-                          'normalized' => 'in-ref'
-                        }
-                      },
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -264,7 +258,6 @@ $result_trees{'in_errormsg'} = {
   'type' => 'document_root'
 };
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'label'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
 
 $result_texis{'in_errormsg'} = '

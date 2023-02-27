@@ -1752,22 +1752,17 @@ sub _collect_commands_list_in_tree($$$)
 
 # TODO
 # also recurse into
-# extra->misc_args, extra->args_index
-# extra->index_entry extra->type
+# extra->misc_args
 #
 # extra that should point to other elements:
-# command_as_argument end_command
+# command_as_argument
 # associated_section part_associated_section associated_node associated_part
 # @prototypes @columnfractions titlepage quotation @author command
-# menu_entry_description menu_entry_name
 #
 # should point to other elements, or be copied.  And some should be recursed
 # into too.
-# extra->type->content
-# extra->nodes_manuals->[]
 # extra->node_content
-# extra->node_argument
-# extra->explanation_contents
+# extra->node_manual
 
 sub _copy_tree($$$);
 sub _copy_tree($$$)

@@ -245,44 +245,6 @@ $result_trees{'float_copying'} = {
                                                 }
                                               ],
                                               'cmdname' => 'ref',
-                                              'extra' => {
-                                                'label' => {
-                                                  'args' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'Copying and floats'
-                                                        }
-                                                      ],
-                                                      'info' => {
-                                                        'spaces_after_argument' => {
-                                                          'text' => '
-'
-                                                        }
-                                                      },
-                                                      'type' => 'line_arg'
-                                                    }
-                                                  ],
-                                                  'cmdname' => 'node',
-                                                  'extra' => {
-                                                    'isindex' => 1,
-                                                    'normalized' => 'Copying-and-floats'
-                                                  },
-                                                  'info' => {
-                                                    'spaces_before_argument' => {
-                                                      'text' => ' '
-                                                    }
-                                                  },
-                                                  'source_info' => {
-                                                    'file_name' => '',
-                                                    'line_nr' => 35,
-                                                    'macro' => ''
-                                                  }
-                                                },
-                                                'node_argument' => {
-                                                  'normalized' => 'Copying-and-floats'
-                                                }
-                                              },
                                               'source_info' => {
                                                 'file_name' => '',
                                                 'line_nr' => 15,
@@ -748,7 +710,39 @@ $result_trees{'float_copying'} = {
         'macro' => ''
       }
     },
-    {},
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'Copying and floats'
+            }
+          ],
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'Copying-and-floats'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 35,
+        'macro' => ''
+      }
+    },
     {
       'args' => [
         {
@@ -937,7 +931,6 @@ $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'con
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[3] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
 
 $result_texis{'float_copying'} = '@copying
 

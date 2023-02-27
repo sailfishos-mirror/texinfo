@@ -189,12 +189,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => '_2002_2003_2002'
-                }
-              },
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
                 'line_nr' => 8,
@@ -373,12 +367,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => '_2002_2003_2002'
-                }
-              },
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
                 'line_nr' => 13,
@@ -429,9 +417,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
   'type' => 'document_root'
 };
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
 
 $result_texis{'reference_to_only_special_spaces_node'} = '
 @node Top

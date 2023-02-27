@@ -402,12 +402,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'a-in-copying'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -436,12 +430,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'a-in-titlepage'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 20,
@@ -472,9 +460,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
   'type' => 'document_root'
 };
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'extra'}{'label'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[3];
 
 $result_texis{'anchor_in_copying_insertcopying_titlepage'} = '@copying
 Cop. @anchor{a in copying}. Ying.

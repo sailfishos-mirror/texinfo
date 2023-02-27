@@ -86,32 +86,6 @@ $result_trees{'test_index'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a counting anchor'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'anchor',
-                  'extra' => {
-                    'normalized' => 'a-counting-anchor'
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 233,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => 'a-counting-anchor'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -2891,7 +2865,27 @@ $result_trees{'test_index'} = {
 ',
           'type' => 'empty_line'
         },
-        {},
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'a counting anchor'
+                }
+              ],
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'anchor',
+          'extra' => {
+            'normalized' => 'a-counting-anchor'
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 233,
+            'macro' => ''
+          }
+        },
         {
           'text' => '
 ',
@@ -2971,7 +2965,6 @@ $result_trees{'test_index'}{'contents'}[6]{'contents'}[7]{'extra'}{'element_node
 $result_trees{'test_index'}{'contents'}[6]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'test_index'}{'contents'}[6]{'contents'}[7];
 $result_trees{'test_index'}{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
 $result_trees{'test_index'}{'contents'}[11]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'test_index'}{'contents'}[11]{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[11]{'contents'}[3] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'label'};
 
 $result_texis{'test_index'} = '@node Top
 @top Element top

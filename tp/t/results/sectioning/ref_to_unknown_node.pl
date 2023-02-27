@@ -29,11 +29,6 @@ $result_trees{'ref_to_unknown_node'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => 'unknown-node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,

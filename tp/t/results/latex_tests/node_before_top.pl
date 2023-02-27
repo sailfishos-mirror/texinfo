@@ -200,12 +200,6 @@ $result_trees{'node_before_top'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'before-Top'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -236,7 +230,6 @@ $result_trees{'node_before_top'} = {
   'type' => 'document_root'
 };
 $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'node_before_top'}{'contents'}[1];
 
 $result_texis{'node_before_top'} = '@node before Top
 

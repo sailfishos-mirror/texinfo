@@ -305,12 +305,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'chap'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -388,12 +382,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'chap'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
@@ -425,9 +413,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
 };
 $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[3];
 $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'label'} = $result_trees{'test_xrefautomaticsectiontitle_off_first'}{'contents'}[3];
 
 $result_texis{'test_xrefautomaticsectiontitle_off_first'} = '
 @xrefautomaticsectiontitle off

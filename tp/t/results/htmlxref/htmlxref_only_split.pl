@@ -1086,167 +1086,6 @@ $result_trees{'htmlxref_only_split'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '!_"#$%&\'()*+-.'
-                        }
-                      ],
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '/;<=>?[\\]^_`|~'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other nodes'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => 'other-nodes'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other nodes'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => 'other-nodes'
-                      },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'node',
-                  'contents' => [
-                    {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'id: _0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'end',
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => 'test_refs.texi',
-                            'line_nr' => 87,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'test_refs.texi',
-                        'line_nr' => 85,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'extra' => {
-                    'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'test_refs.texi',
-                    'line_nr' => 84,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-                }
-              },
               'source_info' => {
                 'file_name' => 'test_refs.texi',
                 'line_nr' => 46,
@@ -1372,157 +1211,6 @@ $result_trees{'htmlxref_only_split'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '/;<=>?[\\]^_`|~'
-                        }
-                      ],
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'local   node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => 'local-node'
-                      },
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '!_"#$%&\'()*+-.'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-                      },
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other nodes'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => 'other-nodes'
-                      },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'node',
-                  'contents' => [
-                    {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'id: 002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'end',
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => 'test_refs.texi',
-                            'line_nr' => 92,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'test_refs.texi',
-                        'line_nr' => 90,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'extra' => {
-                    'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'test_refs.texi',
-                    'line_nr' => 89,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                }
-              },
               'source_info' => {
                 'file_name' => 'test_refs.texi',
                 'line_nr' => 51,
@@ -1656,12 +1344,6 @@ $result_trees{'htmlxref_only_split'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'Top'
-                }
-              },
               'source_info' => {
                 'file_name' => 'test_refs.texi',
                 'line_nr' => 56,
@@ -1792,143 +1474,6 @@ $result_trees{'htmlxref_only_split'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'local   node'
-                        }
-                      ],
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '/;<=>?[\\]^_`|~'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                      },
-                      'type' => 'line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other nodes'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => [
-                          {}
-                        ],
-                        'normalized' => 'other-nodes'
-                      },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'node',
-                  'contents' => [
-                    {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'id: local-node
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'end',
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => 'test_refs.texi',
-                            'line_nr' => 97,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'test_refs.texi',
-                        'line_nr' => 95,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'extra' => {
-                    'normalized' => 'local-node'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => '  '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'test_refs.texi',
-                    'line_nr' => 94,
-                    'macro' => ''
-                  }
-                },
-                'node_argument' => {
-                  'normalized' => 'local-node'
-                }
-              },
               'source_info' => {
                 'file_name' => 'test_refs.texi',
                 'line_nr' => 61,
@@ -2250,12 +1795,6 @@ $result_trees{'htmlxref_only_split'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'Top'
-                }
-              },
               'source_info' => {
                 'file_name' => 'test_refs.texi',
                 'line_nr' => 73,
@@ -2545,9 +2084,440 @@ $result_trees{'htmlxref_only_split'} = {
         'macro' => ''
       }
     },
-    {},
-    {},
-    {},
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => '!_"#$%&\'()*+-.'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '/;<=>?[\\]^_`|~'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'other nodes'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'other-nodes'
+          },
+          'info' => {
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'other nodes'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'other-nodes'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'args' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'id: _0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e
+'
+                }
+              ],
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'example'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'test_refs.texi',
+                'line_nr' => 87,
+                'macro' => ''
+              }
+            }
+          ],
+          'source_info' => {
+            'file_name' => 'test_refs.texi',
+            'line_nr' => 85,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'test_refs.texi',
+        'line_nr' => 84,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => '/;<=>?[\\]^_`|~'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'local   node'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'local-node'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '!_"#$%&\'()*+-.'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'other nodes'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'other-nodes'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            },
+            'spaces_before_argument' => {
+              'text' => ' '
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'args' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'id: 002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e
+'
+                }
+              ],
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'example'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'test_refs.texi',
+                'line_nr' => 92,
+                'macro' => ''
+              }
+            }
+          ],
+          'source_info' => {
+            'file_name' => 'test_refs.texi',
+            'line_nr' => 90,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'test_refs.texi',
+        'line_nr' => 89,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'local   node'
+            }
+          ],
+          'type' => 'line_arg'
+        },
+        {
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => '/;<=>?[\\]^_`|~'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+          },
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'other nodes'
+            }
+          ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'other-nodes'
+          },
+          'info' => {
+            'spaces_after_argument' => {
+              'text' => '
+'
+            }
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'args' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'id: local-node
+'
+                }
+              ],
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'example'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'test_refs.texi',
+                'line_nr' => 97,
+                'macro' => ''
+              }
+            }
+          ],
+          'source_info' => {
+            'file_name' => 'test_refs.texi',
+            'line_nr' => 95,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'normalized' => 'local-node'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => '  '
+        }
+      },
+      'source_info' => {
+        'file_name' => 'test_refs.texi',
+        'line_nr' => 94,
+        'macro' => ''
+      }
+    },
     {
       'args' => [
         {
@@ -2569,29 +2539,24 @@ $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[14]{'contents'}[
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[14]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[14]{'contents'}[2]{'args'}[0]{'contents'}[3];
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[19]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[19]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[1]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[1]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[30]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[30]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[30]{'contents'}[2]{'extra'}{'label'} = $result_trees{'htmlxref_only_split'}{'contents'}[1];
 $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'label'}{'args'}[2]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'label'}{'args'}[3]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[2]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[3]{'args'}[3]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'extra'}{'label'} = $result_trees{'htmlxref_only_split'}{'contents'}[1];
 $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'htmlxref_only_split'}{'contents'}[5] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[24]{'contents'}[2]{'extra'}{'label'};
-$result_trees{'htmlxref_only_split'}{'contents'}[6] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'label'};
-$result_trees{'htmlxref_only_split'}{'contents'}[7] = $result_trees{'htmlxref_only_split'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'label'};
+$result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[1]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[2]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[5]{'args'}[3]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[1]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[2]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[6]{'args'}[3]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[7]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[7]{'args'}[2]{'contents'}[0];
+$result_trees{'htmlxref_only_split'}{'contents'}[7]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'htmlxref_only_split'}{'contents'}[7]{'args'}[3]{'contents'}[0];
 
 $result_texis{'htmlxref_only_split'} = '\\input texinfo @c -*-texinfo-*-
 

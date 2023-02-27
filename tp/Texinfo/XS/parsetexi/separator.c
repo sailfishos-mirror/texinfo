@@ -277,9 +277,11 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                   add_extra_string_dup (current, "element_region",
                     command_name(top_command(&nesting_context.regions_stack)));
                 }
-              if (parsed_anchor->manual_content)
-                destroy_element (parsed_anchor->manual_content);
             }
+          if (parsed_anchor->manual_content)
+            destroy_element (parsed_anchor->manual_content);
+          if (parsed_anchor->node_content)
+            destroy_element (parsed_anchor->node_content);
           free (parsed_anchor);
         }
       else if (command_data(closed_command).flags & CF_ref)

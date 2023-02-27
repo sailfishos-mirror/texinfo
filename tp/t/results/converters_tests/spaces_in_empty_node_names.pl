@@ -427,11 +427,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => '-'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -489,11 +484,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => '-'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
@@ -547,11 +537,6 @@ $result_trees{'spaces_in_empty_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => '-'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,

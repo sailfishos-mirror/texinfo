@@ -724,12 +724,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'normalized' => 'anchor-in-html'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 69,
@@ -768,11 +762,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => 'anchor-in-tex'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 71,
@@ -1084,7 +1073,6 @@ $result_trees{'at_commands_in_raw'} = {
   'type' => 'document_root'
 };
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'label'} = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[3];
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16];

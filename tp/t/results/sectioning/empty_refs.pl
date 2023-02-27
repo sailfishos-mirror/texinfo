@@ -29,11 +29,6 @@ $result_trees{'empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => ''
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -77,11 +72,6 @@ $result_trees{'empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => '-'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,

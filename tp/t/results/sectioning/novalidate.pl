@@ -202,11 +202,6 @@ $result_trees{'novalidate'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {
-                'node_argument' => {
-                  'normalized' => 'unknown-ref'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
