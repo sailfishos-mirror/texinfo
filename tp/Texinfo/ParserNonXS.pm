@@ -2133,7 +2133,6 @@ sub _close_commands($$$;$$)
 # content if it is also some text.
 # If $TRANSFER_MARKS_ELEMENT is given, also transfer mark sources
 # from that element.
-# NOTE - this sub has an XS override
 sub _merge_text {
   my ($self, $current, $text, $transfer_marks_element) = @_;
 
@@ -2677,7 +2676,6 @@ sub _pop_element_from_contents($$)
 # each time a new line appeared, a container is opened to hold the text
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
-# NOTE - this sub has an XS override
 sub _abort_empty_line {
   my ($self, $current, $additional_spaces) = @_;
 
