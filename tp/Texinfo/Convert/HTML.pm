@@ -1313,9 +1313,9 @@ sub from_element_direction($$$;$$$)
       return '';
     }
   } elsif (not $target_element and $source_element
-      and $source_element->{'structure'}
-      and $source_element->{'structure'}->{'directions'}
-      and $source_element->{'structure'}->{'directions'}->{$direction}) {
+           and $source_element->{'structure'}
+           and $source_element->{'structure'}->{'directions'}
+           and $source_element->{'structure'}->{'directions'}->{$direction}) {
     $target_element
       = $source_element->{'structure'}->{'directions'}->{$direction};
   }
@@ -5311,40 +5311,41 @@ sub _convert_xref_commands($$$$)
   } else {
     # external reference
 
-    # We setup a node_entry based on the parsed node entry instead of
-    # simply using the parsed node entry to be able to use the $file argument
-    my $node_entry = {};
+    # We setup a label_info based on the parsed node entry instead of
+    # reusing the node_argument parsed node entry to be able to use
+    # the $file argument
+    my $label_info = {};
     if ($root->{'extra'} and $root->{'extra'}->{'node_argument'}) {
-      $node_entry->{'node_content'}
+      $label_info->{'node_content'}
         = $root->{'extra'}->{'node_argument'}->{'node_content'}
           if ($root->{'extra'}->{'node_argument'}->{'node_content'});
-      $node_entry->{'normalized'} = $root->{'extra'}->{'node_argument'}->{'normalized'}
+      $label_info->{'normalized'} = $root->{'extra'}->{'node_argument'}->{'normalized'}
         if (exists($root->{'extra'}->{'node_argument'}->{'normalized'}));
     }
     # file argument takes precedence over the file in the node (file)node entry
     if (defined($file_arg_tree) and $file ne '') {
-      $node_entry->{'manual_content'} = $file_arg_tree->{'contents'};
+      $label_info->{'manual_content'} = $file_arg_tree->{'contents'};
     } elsif ($root->{'extra'}
              and $root->{'extra'}->{'node_argument'}
              and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
-      $node_entry->{'manual_content'}
+      $label_info->{'manual_content'}
         = $root->{'extra'}->{'node_argument'}->{'manual_content'};
       my $file_with_node_tree = {'type' => '_code',
-                                  'contents' => [@{$node_entry->{'manual_content'}}]};
+                                  'contents' => [@{$label_info->{'manual_content'}}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
-    my $href = $self->command_href($node_entry, undef, $root);
+    my $href = $self->command_href($label_info, undef, $root);
 
     if ($book eq '') {
       if (!defined($name)) {
-        my $node_name = $self->command_text($node_entry);
+        my $node_name = $self->command_text($label_info);
         $name = $node_name;
       } elsif ($file ne '') {
         $name = "($file)$name";
       }
-    } elsif (!defined($name) and $node_entry->{'node_content'}) {
+    } elsif (!defined($name) and $label_info->{'node_content'}) {
       my $node_no_file_tree = {'type' => '_code',
-                               'contents' => [@{$node_entry->{'node_content'}}]};
+                               'contents' => [@{$label_info->{'node_content'}}]};
       my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
       if (defined($node_name) and $node_name ne 'Top') {
         $name = $node_name;
@@ -6499,17 +6500,17 @@ sub _convert_menu_entry_type($$$)
   my $href = '';
   my $rel = '';
   my $section;
-  my $node_entry;
-  $node_entry = $element->{'extra'}->{'menu_entry_node_label'}
+  my $label_info;
+  $label_info = $element->{'extra'}->{'menu_entry_node_label'}
      if ($element->{'extra'});
   # external node
   my $external_node;
-  if ($node_entry and $node_entry->{'manual_content'}) {
-    $href = $self->command_href($node_entry, undef, $element);
+  if ($label_info and $label_info->{'manual_content'}) {
+    $href = $self->command_href($label_info, undef, $element);
     $external_node = 1;
   # may not be defined in case of menu entry node consisting only of spaces
-  } elsif ($node_entry and defined($node_entry->{'normalized'})) {
-    my $node = $self->label_command($node_entry->{'normalized'});
+  } elsif ($label_info and defined($label_info->{'normalized'})) {
+    my $node = $self->label_command($label_info->{'normalized'});
     if ($node) {
       # if !NODE_NAME_IN_MENU, we pick the associated section, except if
       # the node is the element command
@@ -6606,11 +6607,11 @@ sub _convert_menu_entry_type($$$)
       $name = $self->convert_tree($name_entry, 'convert menu_entry_name');
     }
     if (!defined($name) or $name eq '') {
-      if ($node_entry and $node_entry->{'manual_content'}) {
-        $name = $self->command_text($node_entry);
-      } elsif ($node_entry) {
+      if ($label_info and $label_info->{'manual_content'}) {
+        $name = $self->command_text($label_info);
+      } elsif ($label_info) {
         $name = $self->convert_tree({'type' => '_code',
-                          'contents' => $node_entry->{'node_content'}},
+                          'contents' => $label_info->{'node_content'}},
                           'menu_arg name');
       } else {
         $name = '';

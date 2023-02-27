@@ -12,6 +12,12 @@
 
 2023-02-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands)
+	(_convert_menu_entry_type): rename $node_entry as $label_info.
+	Reindent.
+
+2023-02-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels):
 	remove code related to structures not present for target elements
 	anymore.
