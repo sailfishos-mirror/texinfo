@@ -32,6 +32,12 @@ $result_trees{'nodes_before_top'} = {
               'text' => 'Top'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -59,6 +65,11 @@ $result_trees{'nodes_before_top'} = {
               'text' => ')'
             }
           ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -183,20 +194,6 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          },
-          undef,
-          {
-            'manual_content' => [
-              {}
-            ]
-          }
-        ],
         'normalized' => 'first'
       },
       'info' => {
@@ -232,6 +229,12 @@ $result_trees{'nodes_before_top'} = {
               'text' => 'first'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'first'
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -250,16 +253,6 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          undef,
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          }
-        ],
         'normalized' => 'node-in-menu-before-top'
       },
       'info' => {
@@ -292,6 +285,12 @@ $result_trees{'nodes_before_top'} = {
               'text' => 'first'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'first'
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -303,15 +302,6 @@ $result_trees{'nodes_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'first'
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -533,11 +523,11 @@ $result_trees{'nodes_before_top'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'nodes_before_top'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top'}{'contents'}[3]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[3]{'args'}[2]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[3]{'args'}[2]{'contents'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'nodes_before_top'} = '@node first, Top, ,(dir)

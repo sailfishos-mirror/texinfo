@@ -1830,23 +1830,20 @@ end_line_misc_line (ELEMENT *current)
   else if (current->cmd == CM_node)
     {
       int i;
-      ELEMENT *arg;
       NODE_SPEC_EXTRA *node_label_manual_info;
-
-      NODE_SPEC_EXTRA **nodes_manuals;
-
-      /* Construct 'nodes_manuals' array.  Maximum of three elements
-         (up, prev, next). */
-      nodes_manuals = malloc (sizeof (NODE_SPEC_EXTRA *) * 4);
 
       for (i = 1; i < current->args.number && i < 4; i++)
         {
-          arg = current->args.list[i];
-          nodes_manuals[i-1] = parse_node_manual (arg);
+          ELEMENT * arg = current->args.list[i];
+          NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg);
+          if (direction_label_info->node_content)
+            add_extra_contents (arg, "node_content",
+                                direction_label_info->node_content);
+          if (direction_label_info->manual_content)
+            add_extra_contents (arg, "manual_content",
+                                direction_label_info->manual_content);
+          free (direction_label_info);
         }
-      nodes_manuals[i-1] = 0;
-
-      add_extra_node_spec_array (current, "nodes_manuals", nodes_manuals);
 
       /* Now take care of the node itself */
       node_label_manual_info = parse_node_manual (current->args.list[0]);

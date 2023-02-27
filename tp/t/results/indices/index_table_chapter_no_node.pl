@@ -6345,11 +6345,6 @@ $result_trees{'index_table_chapter_no_node'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          undef,
-          undef
-        ],
         'normalized' => 'node'
       },
       'info' => {

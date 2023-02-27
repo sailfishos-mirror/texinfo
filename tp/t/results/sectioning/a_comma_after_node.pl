@@ -26,6 +26,12 @@ $result_trees{'a_comma_after_node'} = {
               'text' => 'Requirements'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Requirements'
+          },
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -39,6 +45,12 @@ $result_trees{'a_comma_after_node'} = {
               'text' => 'Nodes and Menus'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Nodes-and-Menus'
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -69,20 +81,6 @@ $result_trees{'a_comma_after_node'} = {
         }
       ],
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Requirements'
-          },
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Nodes-and-Menus'
-          }
-        ],
         'normalized' => 'Commands'
       },
       'info' => {
@@ -99,8 +97,8 @@ $result_trees{'a_comma_after_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'contents'}[0];
+$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'contents'}[0];
 
 $result_texis{'a_comma_after_node'} = '@node Commands, Requirements, Nodes and Menus
 

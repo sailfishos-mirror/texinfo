@@ -49,7 +49,6 @@ $result_trees{'empty_nodes_with_commands'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -74,7 +73,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -104,7 +102,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -149,7 +146,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

@@ -174,7 +174,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -204,7 +203,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -249,7 +247,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {},
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

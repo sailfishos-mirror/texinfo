@@ -84,6 +84,11 @@ $result_trees{'top_without_node_nodes'} = [
                 'text' => ')'
               }
             ],
+            'extra' => {
+              'manual_content' => [
+                {}
+              ]
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -95,15 +100,6 @@ $result_trees{'top_without_node_nodes'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            undef,
-            undef,
-            {
-              'manual_content' => [
-                {}
-              ]
-            }
-          ],
           'normalized' => 'second'
         },
         'info' => {
@@ -170,7 +166,7 @@ $result_trees{'top_without_node_nodes'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'contents'}[1];
+$result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2]{'args'}[3]{'contents'}[1];
 $result_trees{'top_without_node_nodes'}[0]{'extra'}{'unit_command'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2];
 
 $result_texis{'top_without_node_nodes'} = '@top top section

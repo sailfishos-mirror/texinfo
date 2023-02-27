@@ -31,9 +31,6 @@ $result_trees{'node_empty_direction'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef
-        ],
         'normalized' => 'name'
       },
       'info' => {

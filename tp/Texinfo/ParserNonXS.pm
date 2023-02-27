@@ -3476,16 +3476,19 @@ sub _end_line_misc_line($$$)
                      $command, $texi_line);
     }
   } elsif ($command eq 'node') {
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    my @parsed_manual_args;
-    foreach my $arg (@{$current->{'args'}}) {
+    for (my $i = 1; $i < scalar(@{$current->{'args'}}); $i++) {
+      my $arg = $current->{'args'}->[$i];
       my $arg_label_manual_info = _parse_node_manual($arg);
-      push @parsed_manual_args, $arg_label_manual_info;
+      if (defined($arg_label_manual_info)) {
+        # 'node_content' 'manual_content'
+        foreach my $label_info (keys(%$arg_label_manual_info)) {
+          $arg->{'extra'} = {} if (!$arg->{'extra'});
+          $arg->{'extra'}->{$label_info}
+            = [@{$arg_label_manual_info->{$label_info}}];
+        }
+      }
     }
-    my $node_label_manual_info = shift @parsed_manual_args;
-    if (scalar(@parsed_manual_args)) {
-      $current->{'extra'}->{'nodes_manuals'} = \@parsed_manual_args;
-    }
+    my $node_label_manual_info = _parse_node_manual($current->{'args'}->[0]);
     _check_internal_node($self, $node_label_manual_info,
                          $source_info);
     Texinfo::Common::register_label($self->{'targets'}, $current);
@@ -3497,6 +3500,7 @@ sub _end_line_misc_line($$$)
         # part is not already associate to a sectioning command,
         # but the part can be associated to the sectioning command later
         # if a sectioning command follows the node.
+        $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'node_preceding_part'} = $part;
         $part->{'extra'} = {} if (!defined($part->{'extra'}));
         $part->{'extra'}->{'part_following_node'} = $current;
@@ -3638,7 +3642,10 @@ sub _end_line_misc_line($$$)
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       if ($self->{'current_node'}
-         and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
+         and (!$self->{'current_node'}->{'extra'}
+              or !$self->{'current_node'}->{'extra'}->{'associated_section'})) {
+        $self->{'current_node'}->{'extra'} = {}
+          if (!$self->{'current_node'}->{'extra'});
         $self->{'current_node'}->{'extra'}->{'associated_section'} = $current;
         $current->{'extra'} = {} if (!$current->{'extra'});
         $current->{'extra'}->{'associated_node'} = $self->{'current_node'};
@@ -3660,7 +3667,8 @@ sub _end_line_misc_line($$$)
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $current;
       if ($self->{'current_node'}
-         and !$self->{'current_node'}->{'extra'}->{'associated_section'}) {
+         and (!$self->{'current_node'}->{'extra'}
+              or !$self->{'current_node'}->{'extra'}->{'associated_section'})) {
         $self->_line_warn(sprintf(__(
          "\@node precedes \@%s, but parts may not be associated with nodes"),
                                   $command), $source_info);
@@ -5916,6 +5924,8 @@ sub _process_remaining_on_line($$$$)
           # Record that @printindex occurs in this node so we know it
           # is an index node.
           if ($self->{'current_node'}) {
+            $self->{'current_node'}->{'extra'} = {}
+               if (!$self->{'current_node'}->{'extra'});
             $self->{'current_node'}->{'extra'}->{'isindex'} = 1;
           }
         }
@@ -6015,6 +6025,10 @@ sub _process_remaining_on_line($$$$)
             } elsif ($command eq 'menu') {
               if (!(defined $current->{'parent'}->{'cmdname'})
                   or $root_commands{$current->{'parent'}->{'cmdname'}}) {
+                $self->{'current_node'}->{'extra'} = {}
+                  if (!defined($self->{'current_node'}->{'extra'}));
+                $self->{'current_node'}->{'extra'}->{'menus'} = []
+                  if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
                 push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
               } else {
                 $self->_line_warn(__("\@menu in invalid context"),
@@ -8455,8 +8469,9 @@ line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
 =item C<menu_entry>
 
 The I<menu_entry_node_label> value is a hash with information about the
-parsed node entry; its keys are the same as those appearing in the
-elements of the I<nodes_manuals> array for C<@node>.
+node entry label; its keys are the same as those appearing in the
+C<@node> I<line_arg> explicit directions arguments C<extra> hash
+labels information.
 
 =item C<@multitable>
 
@@ -8468,11 +8483,12 @@ I<columnfractions> key is associated with the element for the
 
 =item C<@node>
 
-The arguments are in the I<nodes_manuals> array. Each
-of the entries is a hash with a I<node_content> key for
-an array holding the corresponding content, a I<manual_content> key
-if there is an associated external manual name, and a I<normalized>
-key for the normalized label, built as specified in the I<HTML Xref>
+Explicit directions labels information are in the I<line_arg>
+arguments C<extra> node direction C<@node> arguments.  They consist
+in a hash with the I<node_content> key for an array holding the
+corresponding content, a I<manual_content> key if there is an
+associated external manual name, and a I<normalized> key for the
+normalized label, built as specified in the I<HTML Xref>
 Texinfo documentation node.
 
 An I<associated_section> key holds the tree element of the
@@ -8505,8 +8521,9 @@ no sectioning command between the C<@part> and the node.
 
 =item C<@inforef>
 
-The I<node_argument> entry holds a parsed node entry, like
-the one appearing in the I<nodes_manuals> array for C<@node>.
+The I<node_argument> entry holds information on the node argument
+label, like the one appearing in the C<@node> I<line_arg> explicit
+directions arguments C<extra> hash labels information.
 
 =item C<row>
 

@@ -64,6 +64,12 @@ $result_trees{'value_node_directions'} = {
               'text' => 'bar'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'bar'
+          },
           'info' => {
             'spaces_before_argument' => {
               'source_marks' => [
@@ -100,6 +106,11 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -119,6 +130,11 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -133,24 +149,6 @@ $result_trees{'value_node_directions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'bar'
-          },
-          {
-            'manual_content' => [
-              {}
-            ]
-          },
-          {
-            'manual_content' => [
-              {}
-            ]
-          }
-        ],
         'normalized' => 'Top'
       },
       'info' => {
@@ -284,6 +282,12 @@ $result_trees{'value_node_directions'} = {
               'text' => 'BarFoo'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'BarFoo'
+          },
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -297,6 +301,12 @@ $result_trees{'value_node_directions'} = {
               'text' => 'Top'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -316,6 +326,11 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -330,25 +345,6 @@ $result_trees{'value_node_directions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'BarFoo'
-          },
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          },
-          {
-            'manual_content' => [
-              {}
-            ]
-          }
-        ],
         'normalized' => 'bar'
       },
       'info' => {
@@ -448,6 +444,12 @@ $result_trees{'value_node_directions'} = {
               'text' => 'bar'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'bar'
+          },
           'info' => {
             'spaces_before_argument' => {
               'source_marks' => [
@@ -484,6 +486,11 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
+          'extra' => {
+            'manual_content' => [
+              {}
+            ]
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -498,20 +505,6 @@ $result_trees{'value_node_directions'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'bar'
-          },
-          {
-            'manual_content' => [
-              {}
-            ]
-          }
-        ],
         'normalized' => 'BarFoo'
       },
       'info' => {
@@ -558,14 +551,14 @@ $result_trees{'value_node_directions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_node_directions'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[3]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[3]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'contents'}[1];
-$result_trees{'value_node_directions'}{'contents'}[5]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'contents'}[0];
-$result_trees{'value_node_directions'}{'contents'}[5]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[1]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[2]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[3]{'args'}[3]{'contents'}[1];
+$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[2]{'contents'}[0];
+$result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'value_node_directions'}{'contents'}[5]{'args'}[3]{'contents'}[1];
 
 $result_texis{'value_node_directions'} = '@set a--foo bar
 

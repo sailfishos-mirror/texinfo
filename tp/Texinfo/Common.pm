@@ -1025,6 +1025,7 @@ sub parse_node_manual($)
   my $result;
   my ($end_paren, $spaces_after);
 
+  # FIXME replace source marks
   if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
     $manual = [];
     # remove the leading ( from @contents, it is not in manual_content.

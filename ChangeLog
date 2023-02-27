@@ -12,6 +12,34 @@
 
 2023-02-26  Patrice Dumas  <pertusus@free.fr>
 
+	* p/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tp/Texinfo/Structuring.pm (nodes_tree) and other functions,
+	tp/Texinfo/Transformations.pm
+	(_get_non_automatic_nodes_with_sections),
+	tp/Texinfo/XS/parsetexi/api.c (store_additional_info),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/extra.c (add_extra_node_spec_array),
+	tp/Texinfo/XS/parsetexi/tree.c (destroy_associated_info):
+	remove the nodes_manuals extra key array, instead set extra
+	node_content, manual_content and normalized directly in the @node
+	directions arguments, and use the number of arguments of @node to
+	determine if there are automatic directions.
+	Remove completly add_extra_node_spec_array and extra type
+	extra_node_spec_array.
+
+	* tp/Texinfo/ParserNonXS.pm: avoid autovivification.
+
+	* tp/Texinfo/Structuring.pm (_label_target_unit_element): rename
+	_label_target_element as _label_target_unit_element.
+
+	* tp/Texinfo/XS/parsetexi/api.c (store_additional_info): to determine
+	if an extra key is needed, count the number of additional info set.
+
+2023-02-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/debug.c (print_element_debug)
 	(debug_print_element): add print_element_debug that sets up the
 	element debugging string based on debug_print_element code.  Use in

@@ -32,6 +32,12 @@ $result_trees{'section_before_top'} = {
               'text' => 'Top'
             }
           ],
+          'extra' => {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          },
           'info' => {
             'spaces_after_argument' => {
               'text' => '
@@ -43,16 +49,6 @@ $result_trees{'section_before_top'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          undef,
-          {
-            'node_content' => [
-              {}
-            ],
-            'normalized' => 'Top'
-          }
-        ],
         'normalized' => 'section-node'
       },
       'info' => {
@@ -276,7 +272,7 @@ $result_trees{'section_before_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_before_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'section_before_top'}{'contents'}[1]{'args'}[3]{'contents'}[0];
+$result_trees{'section_before_top'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'section_before_top'}{'contents'}[1]{'args'}[3]{'contents'}[0];
 $result_trees{'section_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'section_before_top'} = '@node section node,,,Top

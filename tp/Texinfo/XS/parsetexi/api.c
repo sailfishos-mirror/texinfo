@@ -337,7 +337,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
     {
       HV *extra;
       int i;
-      int all_deleted = 1;
+      int nr_info = 0; /* number of info type stored */
       extra = newHV ();
 
       for (i = 0; i < a->info_number; i++)
@@ -348,7 +348,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
 
           if (a->info[i].type == extra_deleted)
             continue;
-          all_deleted = 0;
+          nr_info++;
 
           switch (a->info[i].type)
             {
@@ -436,23 +436,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               if (f)
                 STORE(build_node_spec ((NODE_SPEC_EXTRA *) f));
               break;
-            case extra_node_spec_array:
-              {
-              NODE_SPEC_EXTRA **array;
-              array = (NODE_SPEC_EXTRA **) f;
-              if (*array)
-                {
-                  AV *av;
-                  av = newAV ();
-                  STORE(newRV_inc ((SV *)av));
-                  while (*array)
-                    {
-                      av_push (av, build_node_spec (*array));
-                      array++;
-                    }
-                }
-              break;
-              }
             case extra_index_entry:
             /* A "index_entry" extra key on a command defining an index
                entry.  Unlike the other keys, the value is not in the
@@ -491,7 +474,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
         }
 #undef STORE
 
-      if (!all_deleted)
+      if (nr_info > 0)
         hv_store (e->hv, key, strlen (key),
                   newRV_inc((SV *)extra), 0);
     }

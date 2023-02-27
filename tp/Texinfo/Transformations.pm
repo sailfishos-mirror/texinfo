@@ -489,8 +489,7 @@ sub _get_non_automatic_nodes_with_sections($)
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}
-        and not ($content->{'extra'}->{'nodes_manuals'}
-                 and scalar(@{$content->{'extra'}->{'nodes_manuals'}}) > 0)
+        and not ($content->{'args'} and scalar(@{$content->{'args'}}) > 1)
         and $content->{'extra'}
         and $content->{'extra'}->{'associated_section'}) {
       push @non_automatic_nodes, $content;

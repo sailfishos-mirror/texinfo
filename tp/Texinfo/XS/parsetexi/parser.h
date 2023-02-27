@@ -234,7 +234,6 @@ void add_extra_contents_array (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_node_spec (ELEMENT *e, char *key, NODE_SPEC_EXTRA *value);
-void add_extra_node_spec_array (ELEMENT *, char *, NODE_SPEC_EXTRA **value);
 void add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value);
 void add_extra_string (ELEMENT *e, char *key, char *value);
 void add_extra_string_dup (ELEMENT *e, char *key, char *value);

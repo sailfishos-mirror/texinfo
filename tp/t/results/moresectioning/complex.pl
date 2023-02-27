@@ -33,6 +33,12 @@ $result_trees{'complex'} = [
                 'text' => 'First node'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'First-node'
+            },
             'type' => 'line_arg'
           },
           {
@@ -47,6 +53,11 @@ $result_trees{'complex'} = [
                 'text' => ')'
               }
             ],
+            'extra' => {
+              'manual_content' => [
+                {}
+              ]
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -58,19 +69,6 @@ $result_trees{'complex'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'First-node'
-            },
-            {
-              'manual_content' => [
-                {}
-              ]
-            }
-          ],
           'normalized' => 'Top'
         },
         'info' => {
@@ -479,6 +477,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'type' => 'line_arg'
           },
           {
@@ -487,6 +491,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -498,21 +508,6 @@ $result_trees{'complex'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            undef,
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            },
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'First-node'
         },
         'info' => {
@@ -1788,6 +1783,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -1820,16 +1821,6 @@ $result_trees{'complex'} = [
           }
         ],
         'extra' => {
-          'nodes_manuals' => [
-            undef,
-            undef,
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'between-node'
         },
         'info' => {
@@ -1867,6 +1858,12 @@ $result_trees{'complex'} = [
                 'text' => 'Third node unnumbered'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Third-node-unnumbered'
+            },
             'type' => 'line_arg'
           },
           {
@@ -1878,6 +1875,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -1910,21 +1913,6 @@ $result_trees{'complex'} = [
           }
         ],
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Third-node-unnumbered'
-            },
-            undef,
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'Second-node'
         },
         'info' => {
@@ -2104,6 +2092,12 @@ $result_trees{'complex'} = [
                 'text' => 'Third node unnumbered'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Third-node-unnumbered'
+            },
             'info' => {
               'spaces_before_argument' => {
                 'text' => '  '
@@ -2117,6 +2111,12 @@ $result_trees{'complex'} = [
                 'text' => 'Last node no description'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Last-node-no-description'
+            },
             'info' => {
               'spaces_before_argument' => {
                 'text' => ' '
@@ -2130,6 +2130,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -2144,26 +2150,6 @@ $result_trees{'complex'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'nodes_manuals' => [
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Third-node-unnumbered'
-            },
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Last-node-no-description'
-            },
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'continuity'
         },
         'info' => {
@@ -2251,6 +2237,12 @@ $result_trees{'complex'} = [
                 'text' => 'continuity'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'continuity'
+            },
             'type' => 'line_arg'
           },
           {
@@ -2259,6 +2251,12 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
+            'extra' => {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            },
             'info' => {
               'spaces_after_argument' => {
                 'text' => '
@@ -2292,21 +2290,6 @@ $result_trees{'complex'} = [
           }
         ],
         'extra' => {
-          'nodes_manuals' => [
-            undef,
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'continuity'
-            },
-            {
-              'node_content' => [
-                {}
-              ],
-              'normalized' => 'Top'
-            }
-          ],
           'normalized' => 'Last-node-no-description'
         },
         'info' => {
@@ -2337,8 +2320,8 @@ $result_trees{'complex'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'complex'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'complex'}[0]{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'complex'}[0]{'contents'}[1]{'args'}[2]{'contents'}[1];
+$result_trees{'complex'}[0]{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'complex'}[0]{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'complex'}[0]{'contents'}[1]{'args'}[2]{'contents'}[1];
 $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
@@ -2346,8 +2329,8 @@ $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'
 $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[0]{'extra'}{'unit_command'} = $result_trees{'complex'}[0]{'contents'}[2];
-$result_trees{'complex'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'complex'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
+$result_trees{'complex'}[1]{'contents'}[0]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[0]{'args'}[2]{'contents'}[0];
+$result_trees{'complex'}[1]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
 $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
@@ -2364,17 +2347,17 @@ $result_trees{'complex'}[6]{'extra'}{'unit_command'} = $result_trees{'complex'}[
 $result_trees{'complex'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'complex'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'complex'}[7]{'extra'}{'unit_command'} = $result_trees{'complex'}[7]{'contents'}[1];
 $result_trees{'complex'}[8]{'extra'}{'unit_command'} = $result_trees{'complex'}[8]{'contents'}[1];
-$result_trees{'complex'}[9]{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'complex'}[9]{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'complex'}[9]{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[9]{'contents'}[2]{'args'}[3]{'contents'}[0];
 $result_trees{'complex'}[9]{'extra'}{'unit_command'} = $result_trees{'complex'}[9]{'contents'}[1];
-$result_trees{'complex'}[10]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'complex'}[10]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'complex'}[10]{'contents'}[0]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'complex'}[10]{'contents'}[0]{'args'}[3]{'contents'}[0];
+$result_trees{'complex'}[10]{'contents'}[0]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[10]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'complex'}[10]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[10]{'contents'}[0]{'args'}[3]{'contents'}[0];
 $result_trees{'complex'}[10]{'extra'}{'unit_command'} = $result_trees{'complex'}[10]{'contents'}[1];
 $result_trees{'complex'}[11]{'extra'}{'unit_command'} = $result_trees{'complex'}[11]{'contents'}[1];
-$result_trees{'complex'}[12]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'complex'}[12]{'contents'}[0]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'complex'}[12]{'contents'}[0]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'complex'}[12]{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[2]{'args'}[2]{'contents'}[0];
-$result_trees{'complex'}[12]{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'complex'}[12]{'contents'}[0]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'complex'}[12]{'contents'}[0]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[2]{'contents'}[0];
+$result_trees{'complex'}[12]{'contents'}[0]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[0]{'args'}[3]{'contents'}[0];
+$result_trees{'complex'}[12]{'contents'}[2]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[2]{'args'}[2]{'contents'}[0];
+$result_trees{'complex'}[12]{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'complex'}[12]{'contents'}[2]{'args'}[3]{'contents'}[0];
 $result_trees{'complex'}[12]{'extra'}{'unit_command'} = $result_trees{'complex'}[12]{'contents'}[1];
 
 $result_texis{'complex'} = '@node Top,First node,(dir)

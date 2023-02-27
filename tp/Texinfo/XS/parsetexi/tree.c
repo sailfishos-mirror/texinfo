@@ -126,22 +126,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
               free (nse);
               break;
             }
-        case extra_node_spec_array:
-            {
-              NODE_SPEC_EXTRA **array = (NODE_SPEC_EXTRA **) a->info[i].value;
-              NODE_SPEC_EXTRA **nse;
-
-              for (nse = array; (*nse); nse++)
-                {
-                  if ((*nse)->manual_content)
-                    destroy_element ((*nse)->manual_content);
-                  if ((*nse)->node_content)
-                    destroy_element ((*nse)->node_content);
-                  free (*nse);
-                }
-              free (array);
-              break;
-            }
         case extra_misc_args:
           destroy_element_and_children (a->info[i].value);
           break;

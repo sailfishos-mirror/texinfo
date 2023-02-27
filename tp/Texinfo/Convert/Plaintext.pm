@@ -3615,8 +3615,7 @@ sub _convert($$)
       # add menu if missing
       my $node = $self->{'current_node'};
       my $automatic_directions = 1;
-      if ($node and $node->{'extra'} and $node->{'extra'}->{'nodes_manuals'}
-          and scalar(@{$node->{'extra'}->{'nodes_manuals'}}) > 0) {
+      if ($node and $node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
         $automatic_directions = 0;
       }
       if ($node and $automatic_directions

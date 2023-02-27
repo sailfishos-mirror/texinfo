@@ -121,15 +121,6 @@ add_extra_node_spec (ELEMENT *e, char *key, NODE_SPEC_EXTRA *value)
                            extra_node_spec);
 }
 
-/* Used for 'node_manuals' array for the arguments given on a
-   @node line.  Argument is a null-terminated array of pointers. */
-void
-add_extra_node_spec_array (ELEMENT *e, char *key, NODE_SPEC_EXTRA **value)
-{
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value,
-                           extra_node_spec_array);
-}
-
 void
 add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value)
 {

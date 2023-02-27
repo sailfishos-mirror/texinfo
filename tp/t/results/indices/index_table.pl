@@ -6345,11 +6345,6 @@ $result_trees{'index_table'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'nodes_manuals' => [
-          undef,
-          undef,
-          undef
-        ],
         'normalized' => 'node'
       },
       'info' => {

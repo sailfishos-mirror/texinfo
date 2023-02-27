@@ -822,10 +822,13 @@ sub _convert($$;$)
                 push @$attributes, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
-              if (!$element->{'extra'}
-                  or !$element->{'extra'}->{'nodes_manuals'}
-                  or ! defined($element->{'extra'}->{'nodes_manuals'}
-                                                   ->[$direction_index - 1])) {
+              if (!$element->{'args'}
+                  or scalar(@{$element->{'args'}}) < $direction_index +1
+                  or !defined($element->{'args'}->[$direction_index]->{'extra'})
+                  or !(defined($element->{'args'}->[$direction_index]
+                                                    ->{'extra'}->{'manual_node'}
+                       or defined($element->{'args'}->[$direction_index]
+                                                     ->{'extra'}->{'normalized'})))) {
                 push @$attributes, ['automatic', 'on'];
 
                 if (defined($node_direction->{'extra'}->{'normalized'})) {
