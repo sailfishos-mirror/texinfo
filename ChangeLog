@@ -10,7 +10,7 @@
 
 2023-02-27  Patrice Dumas  <pertusus@free.fr>
 
-	* p/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Structuring.pm
+	* tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Structuring.pm
 	(associate_internal_references): remove the 'label' extra key, instead
 	dynamically determine the link target as already done in other output
 	formats than Plaintext.
@@ -78,7 +78,7 @@
 
 2023-02-26  Patrice Dumas  <pertusus@free.fr>
 
-	* p/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
 	tp/Texinfo/Convert/Plaintext.pm (_convert),
 	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
 	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line),
@@ -387,7 +387,7 @@
 
 2023-02-22  Patrice Dumas  <pertusus@free.fr>
 
-	* p/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): rename
 	region extra anchor key to element_region.
 
@@ -1017,7 +1017,7 @@
 
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
-	* t/init_files_tests.t, tp/t/init/undef_node_file_name.init: change
+	* tp/t/init_files_tests.t, tp/t/init/undef_node_file_name.init: change
 	tests to be more useful for LaTeX, and more like actual manuals by
 	renaming a node and adding a chapter.
 
@@ -1132,7 +1132,7 @@
 
 2023-02-15  Patrice Dumas  <pertusus@free.fr>
 
-	* t/10menu.t: rename Top node as first when it is not important for
+	* tp/t/10menu.t: rename Top node as first when it is not important for
 	the first node to be the Top node, for the formats in which Top node
 	is not output.
 
