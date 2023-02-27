@@ -47,13 +47,18 @@ debug_nonl (char *s, ...)
   vfprintf (stderr, s, v);
 }
 
-void
-debug_print_element (ELEMENT *e, int print_parent)
+char *
+print_element_debug (ELEMENT *e, int print_parent)
 {
+  TEXT text;
+  char *result;
+
+  text_init (&text);
+  text_append (&text, "");
   if (e->cmd)
-    debug_nonl("@%s", command_name(e->cmd));
+    text_printf (&text, "@%s", command_name(e->cmd));
   if (e->type)
-    debug_nonl("(%s)", element_type_names[e->type]);
+    text_printf (&text, "(%s)", element_type_names[e->type]);
   if (e->text.end > 0)
     {
       char *end_of_line = strchr (e->text.text, '\n');
@@ -67,20 +72,31 @@ debug_print_element (ELEMENT *e, int print_parent)
         *(p+1) = 'n';
         *(p+2) = '\0';
       }
-      debug_nonl ("[T: %s]", element_text);
+      text_printf (&text, "[T: %s]", element_text);
       if (end_of_line)
         free (element_text);
     }
   if (e->args.number)
-    debug_nonl ("[A%d]", e->args.number);
+    text_printf (&text, "[A%d]", e->args.number);
   if (e->contents.number)
-    debug_nonl ("[C%d]", e->contents.number);
+    text_printf (&text, "[C%d]", e->contents.number);
   if (print_parent && e->parent)
     {
-      debug_nonl (" <- ");
+      text_append (&text, " <- ");
       if (e->parent->cmd)
-        debug_nonl("@%s", command_name(e->parent->cmd));
+        text_printf (&text, "@%s", command_name(e->parent->cmd));
       if (e->parent->type)
-        debug_nonl("(%s)", element_type_names[e->parent->type]);
+        text_printf (&text, "(%s)", element_type_names[e->parent->type]);
     }
+  result = strdup (text.text);
+  free (text.text);
+  return result;
+}
+
+void
+debug_print_element (ELEMENT *e, int print_parent)
+{
+  char *result = print_element_debug (e, print_parent);
+  debug_nonl (result);
+  free (result);
 }
