@@ -359,7 +359,7 @@ foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
 
 my %defaults = (
   'ENABLE_ENCODING'      => 1,
-  'ASCII_PUNCTUATION'    => 1,
+  'ASCII_DASHES_AND_QUOTES' => 1,
   'ASCII_GLYPH'          => 0,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
@@ -431,19 +431,19 @@ sub converter_initialize($)
        unless ($self->{'expanded_formats_hash'}->{$format});
   }
 
-  if ($self->get_conf('NO_GRATUITOUS_UTF8')) {
-    $self->set_conf('ASCII_PUNCTUATION', 1);
+  if ($self->get_conf('ASCII_PUNCTUATION')) {
+    $self->set_conf('ASCII_DASHES_AND_QUOTES', 1);
     $self->set_conf('ASCII_GLYPH', 1);
     $self->set_conf('OPEN_QUOTE_SYMBOL', '\'');
     $self->set_conf('CLOSE_QUOTE_SYMBOL', '\'');
     $self->set_conf('OPEN_DOUBLE_QUOTE_SYMBOL', '"');
     $self->set_conf('CLOSE_DOUBLE_QUOTE_SYMBOL', '"');
   }
-  if ($self->get_conf('ASCII_PUNCTUATION')) {
+  if ($self->get_conf('ASCII_DASHES_AND_QUOTES')) {
     # cache to avoid calling get_conf
-    $self->{'ascii_punctuation'} = 1;
+    $self->{'ascii_dashes_and_quotes'} = 1;
   } else {
-    $self->{'ascii_punctuation'} = 0;
+    $self->{'ascii_dashes_and_quotes'} = 0;
   }
 
   %{$self->{'style_map'}} = %style_map;
@@ -663,8 +663,7 @@ sub _process_text($$$)
     $text = uc($text);
   }
 
-  if (!$self->{'ascii_punctuation'}
-      and $self->{'to_utf8'}) {
+  if (!$self->{'ascii_dashes_and_quotes'} and $self->{'to_utf8'}) {
     return Texinfo::Convert::Unicode::unicode_text($text,
                         $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {
