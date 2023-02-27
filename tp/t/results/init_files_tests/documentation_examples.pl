@@ -333,6 +333,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => 'my node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'my-node'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -474,9 +480,6 @@ $result_trees{'documentation_examples'} = {
                   }
                 },
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'my-node'
                 }
               },
@@ -905,7 +908,7 @@ $result_trees{'documentation_examples'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[5] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'extra'}{'label'};
 
 $result_texis{'documentation_examples'} = '

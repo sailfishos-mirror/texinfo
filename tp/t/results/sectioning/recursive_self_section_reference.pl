@@ -60,6 +60,12 @@ $result_trees{'recursive_self_section_reference'} = {
                       'text' => 'sharp'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'sharp'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -67,9 +73,6 @@ $result_trees{'recursive_self_section_reference'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'sharp'
                 }
               },
@@ -108,8 +111,8 @@ $result_trees{'recursive_self_section_reference'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'label'} = $result_trees{'recursive_self_section_reference'}{'contents'}[1];
-$result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'recursive_self_section_reference'} = '@node sharp
 @chapter @ref{sharp} tuple

@@ -76,6 +76,12 @@ $result_trees{'test_index'} = {
                       'text' => 'a counting anchor'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'a-counting-anchor'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -103,9 +109,6 @@ $result_trees{'test_index'} = {
                   }
                 },
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'a-counting-anchor'
                 }
               },
@@ -2924,7 +2927,7 @@ $result_trees{'test_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[4];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];

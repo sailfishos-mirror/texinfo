@@ -161,6 +161,12 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => "\x{2000}\x{2001}\x{2002}"
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => '_2002_2003_2002'
+                  },
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -186,9 +192,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => '_2002_2003_2002'
                 }
               },
@@ -332,6 +335,12 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       }
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => '_2002_2003_2002'
+                  },
                   'type' => 'brace_command_arg'
                 },
                 {
@@ -367,9 +376,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => '_2002_2003_2002'
                 }
               },
@@ -422,10 +428,10 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'reference_to_only_special_spaces_node'} = '
 @node Top

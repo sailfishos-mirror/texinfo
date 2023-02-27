@@ -241,6 +241,12 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                       'text' => 'in titlepage'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'in-titlepage'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -248,9 +254,6 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'in-titlepage'
                 }
               },
@@ -285,8 +288,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_titlepage_titlepage'} = '@titlepage
 

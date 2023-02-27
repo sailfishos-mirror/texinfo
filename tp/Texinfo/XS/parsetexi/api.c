@@ -287,34 +287,6 @@ build_perl_array (ELEMENT_LIST *e)
   return sv;
 }
 
-/* Return reference to hash corresponding to VALUE. */
-static SV *
-build_node_spec (NODE_SPEC_EXTRA *value)
-{
-  HV *hv;
-
-  dTHX;
-
-  if (!value->manual_content && !value->node_content)
-    return newSV(0); /* Perl 'undef' */
-
-  hv = newHV ();
-
-  if (value->manual_content)
-    {
-      hv_store (hv, "manual_content", strlen ("manual_content"),
-                build_perl_array (&value->manual_content->contents), 0);
-    }
-
-  if (value->node_content)
-    {
-      hv_store (hv, "node_content", strlen ("node_content"),
-                build_perl_array (&value->node_content->contents), 0);
-    }
-
-  return newRV_inc ((SV *)hv);
-}
-
 /* Used to create a "Perl-internal" string that represents a sequence
    of Unicode codepoints with no specific encoding. */
 static SV *
@@ -430,12 +402,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                 }
               break;
               }
-            case extra_node_spec:
-              /* A complex structure - see "parse_node_manual" function
-                 in end_line.c */
-              if (f)
-                STORE(build_node_spec ((NODE_SPEC_EXTRA *) f));
-              break;
             case extra_index_entry:
             /* A "index_entry" extra key on a command defining an index
                entry.  Unlike the other keys, the value is not in the

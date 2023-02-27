@@ -246,6 +246,12 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                       'text' => 'a in copying'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'a-in-copying'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -253,9 +259,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'a-in-copying'
                 }
               },
@@ -307,6 +310,12 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                       'text' => 'a in copying'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'a-in-copying'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -314,9 +323,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'a-in-copying'
                 }
               },
@@ -349,10 +355,10 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'label'} = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'anchor_in_copying_insertcopying_chap'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_copying_insertcopying_chap'} = '@copying
 Cop. @anchor{a in copying}. Ying.

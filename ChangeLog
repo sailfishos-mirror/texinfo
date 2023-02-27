@@ -1,5 +1,23 @@
 2023-02-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_xref_commands), tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/Structuring.pm (check_nodes_are_referenced)
+	(associate_internal_references), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_close_brace), tp/Texinfo/XS/parsetexi/tree.c
+	(destroy_associated_info), tp/Texinfo/XS/parsetexi/api.c
+	(build_node_spec, store_additional_info),
+	tp/Texinfo/XS/parsetexi/extra.c (add_extra_node_spec): put
+	node_content and node_manual information for @xref commands in the
+	first argument instead of with the command in node_argument.
+	Remove node_argument.
+	Remove completly extra_node_spec and associated functions,
+	build_node_spec and add_extra_node_spec from the XS parser.
+
+2023-02-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information)
 	(_enter_menu_entry_node), tp/Texinfo/Structuring.pm
 	(associate_internal_references), tp/Texinfo/XS/parsetexi/menus.c

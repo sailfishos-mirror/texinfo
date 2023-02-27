@@ -129,6 +129,12 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
                       'text' => 'to node1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'to-node1'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -149,6 +155,12 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
                                   'text' => 'node1'
                                 }
                               ],
+                              'extra' => {
+                                'node_content' => [
+                                  {}
+                                ],
+                                'normalized' => 'node1'
+                              },
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -156,9 +168,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
                           'extra' => {
                             'label' => {},
                             'node_argument' => {
-                              'node_content' => [
-                                {}
-                              ],
                               'normalized' => 'node1'
                             }
                           },
@@ -194,9 +203,6 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
                   }
                 },
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'to-node1'
                 }
               },
@@ -240,9 +246,9 @@ $result_trees{'double_recursive_self_section_node_reference'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[3];
-$result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[5] = $result_trees{'double_recursive_self_section_node_reference'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'extra'}{'label'};
 
 $result_texis{'double_recursive_self_section_node_reference'} = '@node Top

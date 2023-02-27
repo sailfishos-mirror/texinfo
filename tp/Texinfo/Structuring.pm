@@ -446,12 +446,10 @@ sub check_nodes_are_referenced
   # consider nodes in @*ref commands to be referenced
   if (defined($refs)) {
     foreach my $ref (@$refs) {
-      if ($ref->{'extra'} and $ref->{'extra'}->{'node_argument'}
-          and $ref->{'extra'}->{'node_argument'}->{'node_content'}) {
-        my $normalized =
-           Texinfo::Convert::NodeNameNormalization::normalize_node(
-              {'contents' =>
-                   $ref->{'extra'}->{'node_argument'}->{'node_content'} });
+      if ($ref->{'args'} and scalar(@{$ref->{'args'}})
+          and $ref->{'args'}->[0]->{'extra'}
+          and defined($ref->{'args'}->[0]->{'extra'}->{'normalized'})) {
+        my $normalized = $ref->{'args'}->[0]->{'extra'}->{'normalized'};
         my $node_target = $labels->{$normalized};
         if ($node_target) {
           $referenced_nodes{$node_target} = 1;
@@ -1476,9 +1474,9 @@ sub print_element_directions($)
 }
 
 # For each internal reference command, set the 'normalized' key in the
-# 'menu_entry_node' extra for menu entries, and 'node_argument' for @*ref.
+# @*ref and 'menu_entry_node' extra.
 # Set the 'label' key in the 'extra' hash of the reference tree element
-# with 'node_argument' to the associated labeled tree element.
+# linking to the associated labeled tree element.
 sub associate_internal_references($$$$$)
 {
   my $registrar = shift;
@@ -1501,12 +1499,15 @@ sub associate_internal_references($$$$$)
       next;
     }
 
-    $node_arg = $ref->{'extra'}->{'node_argument'} if ($ref->{'extra'});
+    $node_arg = $ref->{'args'}->[0]->{'extra'}
+       if ($ref->{'args'} and scalar(@{$ref->{'args'}})
+           and $ref->{'args'}->[0]->{'extra'});
     if ($node_arg and $node_arg->{'node_content'}) {
       my $normalized =
            Texinfo::Convert::NodeNameNormalization::normalize_node(
               {'contents' => $node_arg->{'node_content'} });
       $node_arg->{'normalized'} = $normalized;
+      $ref->{'extra'}->{'node_argument'}->{'normalized'} = $normalized;
 
       if (!defined($labels->{$node_arg->{'normalized'}})) {
         if (!$customization_information->get_conf('novalidate')) {

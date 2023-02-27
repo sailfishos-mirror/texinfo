@@ -50,6 +50,12 @@ $result_trees{'verb_in_xref'} = {
                       'text' => 'point'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'point'
+                  },
                   'type' => 'brace_command_arg'
                 },
                 {
@@ -104,9 +110,6 @@ $result_trees{'verb_in_xref'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'point'
                 }
               },
@@ -129,8 +132,8 @@ $result_trees{'verb_in_xref'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'label'} = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'verb_in_xref'} = '@anchor{point}
 

@@ -383,6 +383,12 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                       'text' => 'foo'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'foo'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -390,9 +396,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'foo'
                 }
               },
@@ -424,6 +427,12 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                       'text' => 'Foo'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Foo'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -431,9 +440,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'Foo'
                 }
               },
@@ -466,10 +472,10 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[9];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'extra'}{'label'} = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[5];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'file_name_case_insensitive_conflict_node_no_redirections'} = '@node Top
 @top top section

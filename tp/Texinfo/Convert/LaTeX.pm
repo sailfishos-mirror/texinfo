@@ -3140,6 +3140,7 @@ sub _convert($$)
             push @args, undef;
           }
         }
+        my $node_arg = $element->{'args'}->[0];
         if ($cmdname eq 'inforef' and scalar(@args) == 3) {
           $args[3] = $args[2];
           $args[2] = undef;
@@ -3155,12 +3156,11 @@ sub _convert($$)
         # in parentheses
         if (defined($args[3])) {
           $file_contents = $args[3];
-        } elsif ($element->{'extra'}
-                 and $element->{'extra'}->{'node_argument'}
-                 and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
-                 and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
+        } elsif ($node_arg and $node_arg->{'extra'}
+                 and defined($node_arg->{'extra'}->{'normalized'})
+                 and $node_arg->{'extra'}->{'manual_content'}) {
           $file_contents
-             = $element->{'extra'}->{'node_argument'}->{'manual_content'};
+             = $node_arg->{'extra'}->{'manual_content'};
         }
         my $filename = '';
         if ($file_contents) {
@@ -3168,19 +3168,17 @@ sub _convert($$)
           $filename = _convert($self, {'contents' => $file_contents});
           pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
-        
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
-            and $element->{'extra'}
-            and $element->{'extra'}->{'node_argument'}
-            and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
-            and !$element->{'extra'}->{'node_argument'}->{'manual_content'}
+            and $node_arg and $node_arg->{'extra'}
+            and defined($node_arg->{'extra'}->{'normalized'})
+            and !$node_arg->{'extra'}->{'manual_content'}
             and $self->{'labels'}
             and $self->{'labels'}
-                   ->{$element->{'extra'}->{'node_argument'}->{'normalized'}}) {
+                   ->{$node_arg->{'extra'}->{'normalized'}}) {
           # internal reference
           my $reference
            = $self->{'labels'}
-                   ->{$element->{'extra'}->{'node_argument'}->{'normalized'}};
+                   ->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element = Texinfo::Common::get_label_element($reference);
           my $reference_node_content = $label_element->{'contents'};
           
@@ -3189,7 +3187,7 @@ sub _convert($$)
             $section_command = $reference->{'extra'}->{'associated_section'};
           } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
-              = $element->{'extra'}->{'node_argument'}->{'normalized'};
+              = $node_arg->{'extra'}->{'normalized'};
             if ($self->{'normalized_nodes_associated_section'}
                 and $self->{'normalized_nodes_associated_section'}
                                                          ->{$normalized_name}) {

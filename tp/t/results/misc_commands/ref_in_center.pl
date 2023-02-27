@@ -153,6 +153,12 @@ $result_trees{'ref_in_center'} = {
                           'text' => 'Top'
                         }
                       ],
+                      'extra' => {
+                        'node_content' => [
+                          {}
+                        ],
+                        'normalized' => 'Top'
+                      },
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -160,9 +166,6 @@ $result_trees{'ref_in_center'} = {
                   'extra' => {
                     'label' => {},
                     'node_argument' => {
-                      'node_content' => [
-                        {}
-                      ],
                       'normalized' => 'Top'
                     }
                   },
@@ -279,8 +282,8 @@ $result_trees{'ref_in_center'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'ref_in_center'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_center'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_center'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'extra'}{'label'} = $result_trees{'ref_in_center'}{'contents'}[1];
-$result_trees{'ref_in_center'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_in_center'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'ref_in_center'} = '@node Top
 @top top

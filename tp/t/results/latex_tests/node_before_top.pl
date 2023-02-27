@@ -190,6 +190,12 @@ $result_trees{'node_before_top'} = {
                       'text' => 'before Top'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'before-Top'
+                  },
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -197,9 +203,6 @@ $result_trees{'node_before_top'} = {
               'extra' => {
                 'label' => {},
                 'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
                   'normalized' => 'before-Top'
                 }
               },
@@ -232,8 +235,8 @@ $result_trees{'node_before_top'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'node_before_top'}{'contents'}[1];
-$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'node_before_top'} = '@node before Top
 

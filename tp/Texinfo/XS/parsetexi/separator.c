@@ -305,17 +305,25 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                 }
               else
                 {
-                  NODE_SPEC_EXTRA *nse;
-                  nse = parse_node_manual (args_child_by_index (ref, 0));
-                  if (nse && (nse->manual_content || nse->node_content))
-                    add_extra_node_spec (ref, "node_argument", nse);
+                  ELEMENT *arg = args_child_by_index (ref, 0);
+                  NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg);
+
+                  if (ref_label_info && (ref_label_info->manual_content
+                                         || ref_label_info->node_content))
+                    {
+                      if (ref_label_info->node_content)
+                        add_extra_contents (arg, "node_content",
+                                            ref_label_info->node_content);
+                      if (ref_label_info->manual_content)
+                        add_extra_contents (arg, "manual_content",
+                                            ref_label_info->manual_content);
+                    }
                   else
                     {
-                      if (nse->manual_content)
-                        destroy_element (nse->manual_content);
-                      if (nse->node_content)
-                        destroy_element (nse->node_content);
-                      free (nse);
+                      if (ref_label_info->manual_content)
+                        destroy_element (ref_label_info->manual_content);
+                      if (ref_label_info->node_content)
+                        destroy_element (ref_label_info->node_content);
                     }
                   if (closed_command != CM_inforef
                       && (ref->args.number <= 3
@@ -323,10 +331,11 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                              && ref->args.list[3]->contents.number == 0
                           || (ref->args.list[3]->contents.number == 0
                                && ref->args.list[4]->contents.number == 0))
-                      && !nse->manual_content)
+                      && !ref_label_info->manual_content)
                     {
                       remember_internal_xref (ref);
                     }
+                  free (ref_label_info);
                 }
 
               if (ref->args.number > 1

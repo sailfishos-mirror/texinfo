@@ -1200,11 +1200,11 @@ sub _convert($$;$)
             return '';
           } else {
             my $linkend = '';
-            if ($element->{'extra'}
-                and $element->{'extra'}->{'node_argument'}
-                and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
-                and !$element->{'extra'}->{'node_argument'}->{'manual_content'}) {
-              $linkend = " linkend=\"$element->{'extra'}->{'node_argument'}->{'normalized'}\"";
+            my $node_arg = $element->{'args'}->[0];
+            if ($node_arg and $node_arg->{'extra'}
+                and defined($node_arg->{'extra'}->{'normalized'})
+                and !$node_arg->{'extra'}->{'manual_content'}) {
+              $linkend = " linkend=\"$node_arg->{'extra'}->{'normalized'}\"";
             }
             my $link_text = $section_name;
             $link_text = $node_name if (! defined($link_text));

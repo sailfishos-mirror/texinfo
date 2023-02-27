@@ -6336,15 +6336,18 @@ sub _process_remaining_on_line($$$$)
                  "command \@%s missing a node or external manual argument"),
                                     $closed_command), $source_info);
             } else {
-              my $parsed_ref_node = _parse_node_manual($ref->{'args'}->[0]);
-              if (defined $parsed_ref_node) {
+              my $arg = $ref->{'args'}->[0];
+              my $ref_label_info = _parse_node_manual($arg);
+              if (defined $ref_label_info) {
+                foreach my $label_info (keys(%$ref_label_info)) {
+                  $arg->{'extra'} = {} if (!$arg->{'extra'});
+                  $arg->{'extra'}->{$label_info} = [@{$ref_label_info->{$label_info}}];
+                }
                 if ($closed_command ne 'inforef'
                     and !defined($args[3]) and !defined($args[4])
-                    and !$parsed_ref_node->{'manual_content'}) {
+                    and !$ref_label_info->{'manual_content'}) {
                   push @{$self->{'internal_references'}}, $ref;
                 }
-                $ref->{'extra'} = {} if (!$ref->{'extra'});
-                $ref->{'extra'}->{'node_argument'} = $parsed_ref_node
               }
             }
             if (defined($args[1])) {
@@ -8535,8 +8538,8 @@ no sectioning command between the C<@part> and the node.
 
 =item C<@inforef>
 
-The I<node_argument> entry holds information on the node argument
-label, like the one appearing in the C<@node> I<line_arg> explicit
+The node argument I<brace_command_arg> holds information on
+the label, like the one appearing in the C<@node> I<line_arg> explicit
 directions arguments C<extra> hash labels information.
 
 =item C<row>

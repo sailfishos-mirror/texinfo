@@ -31,7 +31,6 @@ enum extra_type {
     extra_text,
     extra_index_entry,
     extra_misc_args,
-    extra_node_spec,
     extra_string,
     extra_integer,
     extra_def_info,

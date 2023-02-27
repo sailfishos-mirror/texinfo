@@ -5236,15 +5236,16 @@ sub _convert_xref_commands($$$$)
   $book = $args->[4]->{'normal'}
     if ($args->[4] and defined($args->[4]->{'normal'}));
 
+  my $node_arg = $root->{'args'}->[0];
+
   # internal reference
   if ($cmdname ne 'inforef' and $book eq '' and $file eq ''
-      and $root->{'extra'}
-      and $root->{'extra'}->{'node_argument'}
-      and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
-      and !$root->{'extra'}->{'node_argument'}->{'manual_content'}
-      and $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'})) {
+      and $node_arg and $node_arg->{'extra'}
+      and defined($node_arg->{'extra'}->{'normalized'})
+      and !$node_arg->{'extra'}->{'manual_content'}
+      and $self->label_command($node_arg->{'extra'}->{'normalized'})) {
     my $node
-     = $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'});
+     = $self->label_command($node_arg->{'extra'}->{'normalized'});
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $command = $self->command_root_element_command($node);
@@ -5294,7 +5295,6 @@ sub _convert_xref_commands($$$$)
                       ." href=\"$href\">$name</a>" if ($href ne ''
                                                        and !$self->in_string());
 
-    # maybe use {'extra'}->{'node_argument'}?
     my $is_section = ($command->{'cmdname'} ne 'node'
                       and $command->{'cmdname'} ne 'anchor'
                       and $command->{'cmdname'} ne 'float');
@@ -5315,21 +5315,19 @@ sub _convert_xref_commands($$$$)
     # reusing the node_argument parsed node entry to be able to use
     # the $file argument
     my $label_info = {};
-    if ($root->{'extra'} and $root->{'extra'}->{'node_argument'}) {
-      $label_info->{'node_content'}
-        = $root->{'extra'}->{'node_argument'}->{'node_content'}
-          if ($root->{'extra'}->{'node_argument'}->{'node_content'});
-      $label_info->{'normalized'} = $root->{'extra'}->{'node_argument'}->{'normalized'}
-        if (exists($root->{'extra'}->{'node_argument'}->{'normalized'}));
+    if ($node_arg->{'extra'}) {
+      $label_info->{'node_content'} = $node_arg->{'extra'}->{'node_content'}
+        if ($node_arg->{'extra'}->{'node_content'});
+      $label_info->{'normalized'} = $node_arg->{'extra'}->{'normalized'}
+        if (exists($node_arg->{'extra'}->{'normalized'}));
     }
     # file argument takes precedence over the file in the node (file)node entry
     if (defined($file_arg_tree) and $file ne '') {
       $label_info->{'manual_content'} = $file_arg_tree->{'contents'};
-    } elsif ($root->{'extra'}
-             and $root->{'extra'}->{'node_argument'}
-             and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
+    } elsif ($node_arg and $node_arg->{'extra'}
+             and $node_arg->{'extra'}->{'manual_content'}) {
       $label_info->{'manual_content'}
-        = $root->{'extra'}->{'node_argument'}->{'manual_content'};
+        = $node_arg->{'extra'}->{'manual_content'};
       my $file_with_node_tree = {'type' => '_code',
                                   'contents' => [@{$label_info->{'manual_content'}}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');

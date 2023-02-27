@@ -115,13 +115,6 @@ add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
 }
 
 void
-add_extra_node_spec (ELEMENT *e, char *key, NODE_SPEC_EXTRA *value)
-{
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value,
-                           extra_node_spec);
-}
-
-void
 add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value)
 {
   add_associated_info_key (e->extra_info, key, (ELEMENT *) value,

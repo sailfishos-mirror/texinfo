@@ -1178,17 +1178,17 @@ sub _convert($$;$)
       } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
           my $normalized;
-          if ($element->{'extra'}
-              and $element->{'extra'}->{'node_argument'}
-              and $element->{'extra'}->{'node_argument'}->{'node_content'}) {
+          my $node_arg = $element->{'args'}->[0];
+          if ($node_arg and $node_arg->{'extra'}
+              and $node_arg->{'extra'}->{'node_content'}) {
             my $normalized;
-            if (defined($element->{'extra'}->{'node_argument'}->{'normalized'})) {
-              $normalized = $element->{'extra'}->{'node_argument'}->{'normalized'};
+            if (defined($node_arg->{'extra'}->{'normalized'})) {
+              $normalized = $node_arg->{'extra'}->{'normalized'};
             } else {
               $normalized
                = Texinfo::Convert::NodeNameNormalization::normalize_node(
                   {'contents' =>
-                     $element->{'extra'}->{'node_argument'}->{'node_content'}});
+                     $node_arg->{'extra'}->{'node_content'}});
             }
             if ($normalized) {
               push @$attribute, ['label', $normalized];
@@ -1207,11 +1207,11 @@ sub _convert($$;$)
              {'code' => 1,
                Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }
-          if (!defined($manual) and $element->{'extra'}
-              and $element->{'extra'}->{'node_argument'}
-              and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
+          if (!defined($manual) and $node_arg
+              and $node_arg->{'extra'}
+              and $node_arg->{'extra'}->{'manual_content'}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
-                   => $element->{'extra'}->{'node_argument'}->{'manual_content'}},
+                   => $node_arg->{'extra'}->{'manual_content'}},
                {'code' => 1,
                 Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }
