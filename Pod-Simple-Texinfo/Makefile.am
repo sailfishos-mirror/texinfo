@@ -18,6 +18,7 @@ EXTRA_DIST = Changes \
  MANIFEST \
  t/Pod-Simple-Texinfo.t \
  pod2texi.pl \
+ manual_tests \
  $(test_files)
 
 modulesdir = $(pkgdatadir)/Pod-Simple-Texinfo/Pod/Simple/

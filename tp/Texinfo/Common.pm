@@ -1758,6 +1758,8 @@ sub _collect_commands_list_in_tree($$$)
 # command_as_argument
 # associated_section part_associated_section associated_node associated_part
 # @prototypes @columnfractions titlepage quotation @author command
+# caption shortcaption and float.
+# sortas subentry seentry seealso.
 #
 # should point to other elements, or be copied.  And some should be recursed
 # into too.
