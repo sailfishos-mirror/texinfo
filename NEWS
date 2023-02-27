@@ -16,13 +16,14 @@ See the manual for detailed information.
  . @itemx at the beginning of a @table is now an error, not a warning
  . better validity checking of deeply nested commands
  . @set and @clear should only appear at the start of a line
- . --enable-encoding and --disable-encoding do not determine anymore
-   if encoded characters are output instead of entities or commands for
-   HTML, XML, DocBook and LaTeX, instead the OUTPUT_CHARACTERS customization
-   variable value is used.
+ . --enable-encoding and --disable-encoding no longer determine whether
+   encoded characters are output instead of entities or commands for
+   HTML, XML, DocBook and LaTeX; instead, the value of the OUTPUT_CHARACTERS
+   customization variable is used.
  . Add source marks in the tree for all Texinfo source information that
    is not in the final tree (location of macro, values and included files
-   expansion, @if* blocks, DEL comment, @ protecting end of line on @def* lines).
+   expansion, @if* blocks, DEL comment, @ protecting end of line on @def*
+   lines).
  . HTML output:
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.
@@ -30,6 +31,14 @@ See the manual for detailed information.
     . omit colons after index entries by default.  this can still be
       configured with INDEX_ENTRY_COLON.
     . add @example syntax highlighting as a texi2any extension.
+ . Info output:
+    . new variable ASCII_HYPHENS_AND_QUOTES, on by default,
+      outputs ASCII characters for literal quote or hyphen characters
+      in source rather than UTF-8.  this makes it easier to search
+      Info files.
+    . new ASCII_GLYPH variable for using ASCII renditions for glyph
+      commands (like @bullet).
+    . ASCII_PUNCTUATION still includes the effect of these new variables.
  . XML output:
     . menu leading text and menu separator in elements instead of attributes.
 

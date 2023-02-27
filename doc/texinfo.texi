@@ -16797,12 +16797,24 @@ multiple formats, or affect global behavior, or otherwise don't fit
 into the categories of the previous sections.
 
 @vtable @code
+@item ASCII_DASHES_AND_QUOTES
+For Info output, when set, use plain ASCII characters to represent
+quotation marks, hyphens and dashes when these are given in the Texinfo
+source as @samp{-}, @samp{--}, @samp{---}, @samp{`}, @samp{``},
+@samp{'}, and @samp{''}, rather than UTF-8 directional quotation marks,
+en dashes, vel sim.  On by default.
+
+@item ASCII_GLYPH
+For Info output, use ASCII output for glyph commands such as the copyright
+sign (@command{@@copyright@{@}}, becoming @samp{(C)}),
+and the bullet symbol (@command{@@bullet@{@}}, becoming @samp{*}), rather
+than other Unicode sequences.  Off by default.
+
 @item ASCII_PUNCTUATION
-For Info output.  When set, use plain ASCII characters to represent
-quotation marks, rather than the directional quotation marks available
-in UTF-8.  Also use ASCII for a few other constructs; for example, the
-copyright sign (@command{@@copyright@{@}}, becoming @samp{(C)}),
-and the bullet symbol (@command{@@bullet@{@}}, becoming @samp{*}).
+Avoid any unncessary or gratuitious non-ASCII, UTF-8 sequences in the
+output.  Implies both @code{ASCII_DASHES_AND_QUOTES} and @code{ASCII_GLYPH}
+and additionally affects the output of commands such as @code{@@samp} which
+output quotation marks.
 
 @item CHECK_NORMAL_MENU_STRUCTURE
 Warn if the nodes pointers (either explicitly or automatically set)
