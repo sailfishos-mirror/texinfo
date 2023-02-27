@@ -1,5 +1,13 @@
 2023-02-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information)
+	(_enter_menu_entry_node), tp/Texinfo/Structuring.pm
+	(associate_internal_references), tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information, enter_menu_entry_node):
+	put menu_entry_node in internal_references instead of menu_entry.
+
+2023-02-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references),
 	tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type),
 	tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information),

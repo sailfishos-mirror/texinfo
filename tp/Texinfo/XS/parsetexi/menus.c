@@ -26,10 +26,11 @@
 #include "source_marks.h"
 
 /* Save 'menu_entry_node' extra keys. */
-void
+ELEMENT *
 register_extra_menu_entry_information (ELEMENT *current)
 {
   int i;
+  ELEMENT *menu_entry_node = 0;
 
   for (i = 0; i < current->contents.number; i++)
     {
@@ -59,6 +60,7 @@ register_extra_menu_entry_information (ELEMENT *current)
             }
           else
             {
+              menu_entry_node = arg;
               if (parsed_entry_node->node_content)
                 add_extra_contents (arg, "node_content",
                                     parsed_entry_node->node_content);
@@ -69,6 +71,7 @@ register_extra_menu_entry_information (ELEMENT *current)
           free (parsed_entry_node);
         }
     }
+  return menu_entry_node;
 }
 
 /* Process the destination of the menu entry, and start a menu entry 
@@ -77,12 +80,16 @@ ELEMENT *
 enter_menu_entry_node (ELEMENT *current)
 {
   ELEMENT *description, *preformatted;
+  ELEMENT *menu_entry_node;
+
+  current->source_info = current_source_info;
+
+  menu_entry_node = register_extra_menu_entry_information (current);
+  if (menu_entry_node)
+    remember_internal_xref (menu_entry_node);
 
   description = new_element (ET_menu_entry_description);
   add_to_element_contents (current, description);
-  register_extra_menu_entry_information (current);
-  current->source_info = current_source_info;
-  remember_internal_xref (current);
 
   current = description;
   preformatted = new_element (ET_preformatted);

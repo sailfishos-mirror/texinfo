@@ -1490,18 +1490,13 @@ sub associate_internal_references($$$$$)
   return if (!defined($refs));
   foreach my $ref (@$refs) {
     my $node_arg;
-    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry') {
-      foreach my $arg (@{$ref->{'contents'}}) {
-        if ($arg->{'type'} eq 'menu_entry_node') {
-          if ($arg->{'extra'} and $arg->{'extra'}->{'node_content'}) {
-            my $normalized =
-              Texinfo::Convert::NodeNameNormalization::normalize_node(
-                {'contents' => $arg->{'extra'}->{'node_content'} });
-            $arg->{'extra'}->{'normalized'} = $normalized
-              if (defined $normalized and $normalized ne '');
-          }
-          last;
-        }
+    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+      if ($ref->{'extra'} and $ref->{'extra'}->{'node_content'}) {
+        my $normalized =
+          Texinfo::Convert::NodeNameNormalization::normalize_node(
+            {'contents' => $ref->{'extra'}->{'node_content'} });
+        $ref->{'extra'}->{'normalized'} = $normalized
+          if (defined $normalized and $normalized ne '');
       }
       next;
     }

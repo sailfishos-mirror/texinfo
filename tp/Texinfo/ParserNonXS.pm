@@ -4426,6 +4426,7 @@ sub _register_extra_menu_entry_information($$;$)
 {
   my ($self, $current, $source_info) = @_;
 
+  my $menu_entry_node;
   foreach my $arg (@{$current->{'contents'}}) {
     if ($arg->{'type'} eq 'menu_entry_name') {
       if (not $arg->{'contents'} or scalar(@{$arg->{'contents'}}) == 0) {
@@ -4440,6 +4441,7 @@ sub _register_extra_menu_entry_information($$;$)
           $self->_line_error(__("empty node name in menu entry"), $source_info);
         }
       } else {
+        $menu_entry_node = $arg;
         my $parsed_entry_node = _parse_node_manual($arg);
         if (defined($parsed_entry_node)) {
           foreach my $label_info (keys(%$parsed_entry_node)) {
@@ -4454,18 +4456,23 @@ sub _register_extra_menu_entry_information($$;$)
       }
     }
   }
+  return $menu_entry_node;
 }
 
 sub _enter_menu_entry_node($$$)
 {
   my ($self, $current, $source_info) = @_;
 
+  $current->{'source_info'} = $source_info;
+
+  my $menu_entry_node
+    = _register_extra_menu_entry_information($self, $current, $source_info);
+  push @{$self->{'internal_references'}}, $menu_entry_node
+     if (defined($menu_entry_node));
+
   my $description = { 'type' => 'menu_entry_description',
                       'parent' => $current };
   push @{$current->{'contents'}}, $description;
-  _register_extra_menu_entry_information($self, $current, $source_info);
-  $current->{'source_info'} = $source_info;
-  push @{$self->{'internal_references'}}, $current;
 
   $current = $description;
   push @{$current->{'contents'}}, {'type' => 'preformatted',
