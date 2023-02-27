@@ -1,5 +1,20 @@
 2023-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Nuke obsolete XS overrides
+
+	* tp/Texinfo/XS/MiscXS.xs, tp/Texinfo/XS/misc.c
+	(xs_abort_empty_line, xs_merge_text): Remove.
+	* tp/Texinfo/ParserNonXS.pm: Remove commented-out code using these.
+
+	These would only be used in unusual cases when the XS parser
+	couldn't be used but the other XS overrides could still be loaded.
+	It means that there are now only two implementations of these
+	functions rather than three.  The removed implementations had not
+	been changed to match changes in the other two, and it would be
+	laborious to keep these up to date.
+
+2023-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (%defaults, converter_initialize):
 	Rename 'ASCII_PUNCTUATION' as 'ASCII_DASHES_AND_QUOTES' and
 	'NO_GRATUITOUS_UTF8' as 'ASCII_PUNCTUATION'.

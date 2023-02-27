@@ -96,13 +96,6 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    # not loaded because it uses the abort_empty_line XS override
-    # TODO and not up to date with the changes for source marks
-    #Texinfo::XSLoader::override ("Texinfo::Parser::_merge_text",
-    #  "Texinfo::MiscXS::merge_text");
-    # TODO not up to date with the changes for source marks
-    #Texinfo::XSLoader::override ("Texinfo::Parser::_abort_empty_line",
-    #  "Texinfo::MiscXS::abort_empty_line");
     Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
       "Texinfo::MiscXS::parse_texi_regex");
     $module_loaded = 1;

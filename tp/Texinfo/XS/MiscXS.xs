@@ -13,7 +13,7 @@
 
 MODULE = Texinfo::MiscXS  PACKAGE = Texinfo::MiscXS  PREFIX = xs_
 
-#  Copyright 2016-2022 Free Software Foundation, Inc.
+#  Copyright 2016-2023 Free Software Foundation, Inc.
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -29,28 +29,6 @@ MODULE = Texinfo::MiscXS  PACKAGE = Texinfo::MiscXS  PREFIX = xs_
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 
 PROTOTYPES: DISABLE
-
-int
-xs_abort_empty_line (self, current, ...)
-     HV *self
-     HV *current
-PREINIT:
-     SV *additional_text = 0;
-CODE:
-     items -= 2;
-     if (items > 0 && SvOK(ST(2)))
-       {
-         additional_text = ST(2);
-       }
-     RETVAL = xs_abort_empty_line (self, current, additional_text);
-OUTPUT:
-     RETVAL
-
-HV *
-xs_merge_text (self, current, text_in)
-     HV *self
-     HV *current
-     SV *text_in
 
 SV *
 xs_process_text (text_in)
