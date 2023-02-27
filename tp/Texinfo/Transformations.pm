@@ -600,20 +600,19 @@ sub _normalized_entry_associated_internal_node($;$)
   my $entry = shift;
   my $labels = shift;
 
-  my $entry_node = $entry->{'extra'}->{'menu_entry_node_label'};
-  # 'normalized' is added by Texinfo::Structuring::associate_internal_references
-  # so it could be possible not to have 'normalized' set.  In that case, it could
-  # still be determined with NodeNameNormalization::normalize_node.
-  my $normalized_entry_node = $entry_node->{'normalized'};
-  #my $normalized_entry_node
-  #  = Texinfo::Convert::NodeNameNormalization::normalize_node(
-  #                   {'contents' => $entry_node->{'node_content'}});
-  if (! $entry_node->{'manual_content'}
-      and defined($normalized_entry_node)) {
-    if ($labels) {
-      return ($normalized_entry_node, $labels->{$normalized_entry_node});
-    } else {
-      return ($normalized_entry_node, undef);
+  foreach my $arg (@{$entry->{'contents'}}) {
+    if ($arg->{'type'} eq 'menu_entry_node') {
+      if (! $arg->{'extra'}->{'manual_content'}) {
+        my $normalized_entry_node = $arg->{'extra'}->{'normalized'};
+        if (defined($normalized_entry_node)) {
+          if ($labels) {
+            return ($normalized_entry_node, $labels->{$normalized_entry_node});
+          } else {
+            return ($normalized_entry_node, undef);
+          }
+        }
+      }
+      last;
     }
   }
   return (undef, undef);

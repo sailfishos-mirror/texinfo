@@ -151,6 +151,12 @@ $result_trees{'master_menu_fr'} = {
                       'text' => 'chap'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chap'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -172,14 +178,6 @@ $result_trees{'master_menu_fr'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chap'
-                }
-              },
               'source_info' => {
                 'file_name' => 'no_master_menu_fr.texi',
                 'line_nr' => 9,
@@ -263,6 +261,14 @@ $result_trees{'master_menu_fr'} = {
                           'text' => 'section'
                         }
                       ],
+                      'extra' => {
+                        'node_content' => [
+                          {
+                            'text' => 'section'
+                          }
+                        ],
+                        'normalized' => 'section'
+                      },
                       'type' => 'menu_entry_node'
                     },
                     {
@@ -284,14 +290,6 @@ $result_trees{'master_menu_fr'} = {
                       'type' => 'menu_entry_description'
                     }
                   ],
-                  'extra' => {
-                    'menu_entry_node_label' => {
-                      'node_content' => [
-                        {}
-                      ],
-                      'normalized' => 'section'
-                    }
-                  },
                   'type' => 'menu_entry'
                 },
                 {
@@ -462,6 +460,14 @@ $result_trees{'master_menu_fr'} = {
                       'text' => 'section'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {
+                        'text' => 'section'
+                      }
+                    ],
+                    'normalized' => 'section'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -483,14 +489,6 @@ $result_trees{'master_menu_fr'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section'
-                }
-              },
               'source_info' => {
                 'file_name' => 'no_master_menu_fr.texi',
                 'line_nr' => 16,
@@ -620,9 +618,7 @@ $result_trees{'master_menu_fr'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'master_menu_fr'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'master_menu_fr'} = '\\input texinfo.tex
 

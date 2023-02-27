@@ -87,6 +87,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -108,14 +114,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -257,6 +255,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Section'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Section'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -278,14 +282,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Section'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -432,6 +428,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Subsection'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Subsection'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -453,14 +455,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Subsection'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -607,6 +601,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Subsubsection'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Subsubsection'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -628,14 +628,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Subsubsection'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
@@ -655,6 +647,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Lowered subsec'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Lowered-subsec'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -676,14 +674,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Lowered-subsec'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
@@ -909,6 +899,12 @@ $result_trees{'lowered_subsubsection'} = {
                       'text' => 'Lowered subsubsection'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Lowered-subsubsection'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -930,14 +926,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Lowered-subsubsection'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
@@ -1113,12 +1101,12 @@ $result_trees{'lowered_subsubsection'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'lowered_subsubsection'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'lowered_subsubsection'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'lowered_subsubsection'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'lowered_subsubsection'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'lowered_subsubsection'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'lowered_subsubsection'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'lowered_subsubsection'} = '@node Top
 @top

@@ -127,6 +127,12 @@ $result_trees{'no_content_do_contents'} = {
                       'text' => 'chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -148,14 +154,6 @@ $result_trees{'no_content_do_contents'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => 'no_content.texi',
                 'line_nr' => 9,
@@ -316,7 +314,7 @@ $result_trees{'no_content_do_contents'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_content_do_contents'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'no_content_do_contents'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_content_do_contents'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_content_do_contents'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_content_do_contents'} = '\\input texinfo @c -*-texinfo-*-
 

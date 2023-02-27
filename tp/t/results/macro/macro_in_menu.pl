@@ -456,6 +456,12 @@ $result_trees{'macro_in_menu'} = {
                       'text' => 'menu entry'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'menu-entry'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -485,14 +491,6 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'menu-entry'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
@@ -582,6 +580,12 @@ $result_trees{'macro_in_menu'} = {
                       'text' => 'node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -622,14 +626,6 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 30,
@@ -681,6 +677,12 @@ $result_trees{'macro_in_menu'} = {
                       'text' => 'other node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'other-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -702,14 +704,6 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'other-node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -748,6 +742,12 @@ $result_trees{'macro_in_menu'} = {
                       'text' => 'node colon macro'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'node-colon-macro'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -823,14 +823,6 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'node-colon-macro'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
@@ -862,6 +854,12 @@ $result_trees{'macro_in_menu'} = {
                       'text' => 'entry'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'entry'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -908,14 +906,6 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'entry'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
@@ -968,11 +958,11 @@ $result_trees{'macro_in_menu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'macro_in_menu'} = '
 @macro astar

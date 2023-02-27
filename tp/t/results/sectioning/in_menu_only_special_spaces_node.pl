@@ -103,6 +103,12 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                       "text" => "\x{2000}\x{2001}\x{2002}"
                     }
                   ],
+                  "extra" => {
+                    "node_content" => [
+                      {}
+                    ],
+                    "normalized" => "_2002_2003_2002"
+                  },
                   "type" => "menu_entry_node"
                 },
                 {
@@ -123,14 +129,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_node_label" => {
-                  "node_content" => [
-                    {}
-                  ],
-                  "normalized" => "_2002_2003_2002"
-                }
-              },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
                 "line_nr" => 6,
@@ -218,6 +216,12 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                       "text" => "\x{85}\x{a0}\x{1680}"
                     }
                   ],
+                  "extra" => {
+                    "node_content" => [
+                      {}
+                    ],
+                    "normalized" => "_0085_00a0_1680"
+                  },
                   "type" => "menu_entry_node"
                 },
                 {
@@ -238,14 +242,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_node_label" => {
-                  "node_content" => [
-                    {}
-                  ],
-                  "normalized" => "_0085_00a0_1680"
-                }
-              },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
                 "line_nr" => 9,
@@ -265,6 +261,12 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                       "text" => "\x{180e}\x{2003}"
                     }
                   ],
+                  "extra" => {
+                    "node_content" => [
+                      {}
+                    ],
+                    "normalized" => "_180e_2003"
+                  },
                   "type" => "menu_entry_node"
                 },
                 {
@@ -285,14 +287,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_node_label" => {
-                  "node_content" => [
-                    {}
-                  ],
-                  "normalized" => "_180e_2003"
-                }
-              },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
                 "line_nr" => 10,
@@ -312,6 +306,12 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                       "text" => "\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{2028}\x{2029}\x{202f}\x{205f}\x{3000}"
                     }
                   ],
+                  "extra" => {
+                    "node_content" => [
+                      {}
+                    ],
+                    "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
+                  },
                   "type" => "menu_entry_node"
                 },
                 {
@@ -332,14 +332,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_description"
                 }
               ],
-              "extra" => {
-                "menu_entry_node_label" => {
-                  "node_content" => [
-                    {}
-                  ],
-                  "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
-                }
-              },
               "source_info" => {
                 "file_name" => "in_menu_only_special_spaces_node.texi",
                 "line_nr" => 11,
@@ -796,10 +788,10 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"extra"}{"menu_entry_node_label"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"extra"}{"menu_entry_node_label"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"extra"}{"menu_entry_node_label"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"extra"}{"menu_entry_node_label"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[3]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[4]{"contents"}[1]{"contents"}[0];
+$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[5]{"contents"}[1]{"contents"}[0];
 
 $result_texis{'in_menu_only_special_spaces_node'} = '
 @node Top

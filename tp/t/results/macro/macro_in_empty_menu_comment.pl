@@ -122,6 +122,12 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                       'text' => 'Copying Conditions'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Copying-Conditions'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -143,14 +149,6 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Copying-Conditions'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -203,7 +201,7 @@ $result_trees{'macro_in_empty_menu_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_empty_menu_comment'} = '@macro emptystring
 

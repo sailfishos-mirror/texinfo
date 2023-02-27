@@ -67,6 +67,12 @@ $result_trees{'node_up_external_node'} = [
                         'text' => 'chap first'
                       }
                     ],
+                    'extra' => {
+                      'node_content' => [
+                        {}
+                      ],
+                      'normalized' => 'chap-first'
+                    },
                     'type' => 'menu_entry_node'
                   },
                   {
@@ -88,14 +94,6 @@ $result_trees{'node_up_external_node'} = [
                     'type' => 'menu_entry_description'
                   }
                 ],
-                'extra' => {
-                  'menu_entry_node_label' => {
-                    'node_content' => [
-                      {}
-                    ],
-                    'normalized' => 'chap-first'
-                  }
-                },
                 'source_info' => {
                   'file_name' => '',
                   'line_nr' => 4,
@@ -282,7 +280,7 @@ $result_trees{'node_up_external_node'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'node_up_external_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'node_up_external_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'node_up_external_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'node_up_external_node'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'node_up_external_node'}[0]{'extra'}{'unit_command'} = $result_trees{'node_up_external_node'}[0]{'contents'}[1];
 $result_trees{'node_up_external_node'}[1]{'contents'}[0]{'args'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_external_node'}[1]{'contents'}[0]{'args'}[1]{'contents'}[1];
 $result_trees{'node_up_external_node'}[1]{'contents'}[0]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'node_up_external_node'}[1]{'contents'}[0]{'args'}[2]{'contents'}[1];

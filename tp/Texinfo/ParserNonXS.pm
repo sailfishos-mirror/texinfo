@@ -4441,8 +4441,16 @@ sub _register_extra_menu_entry_information($$;$)
         }
       } else {
         my $parsed_entry_node = _parse_node_manual($arg);
-        $current->{'extra'} = {} if (!$current->{'extra'});
-        $current->{'extra'}->{'menu_entry_node_label'} = $parsed_entry_node;
+        if (defined($parsed_entry_node)) {
+          foreach my $label_info (keys(%$parsed_entry_node)) {
+            $arg->{'extra'} = {} if (!$arg->{'extra'});
+            $arg->{'extra'}->{$label_info}
+              = [@{$parsed_entry_node->{$label_info}}];
+          }
+        } else {
+          $self->_bug_message("No label info for menu_entry_node contents",
+                              $source_info, $current);
+        }
       }
     }
   }
@@ -8466,12 +8474,11 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 I<invalid_syntax> is set if there was an error on the C<@macro>
 line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
 
-=item C<menu_entry>
+=item C<menu_entry_node>
 
-The I<menu_entry_node_label> value is a hash with information about the
-node entry label; its keys are the same as those appearing in the
-C<@node> I<line_arg> explicit directions arguments C<extra> hash
-labels information.
+Extra keys with information about the node entry label same as those
+appearing in the C<@node> I<line_arg> explicit directions arguments
+C<extra> hash labels information.
 
 =item C<@multitable>
 

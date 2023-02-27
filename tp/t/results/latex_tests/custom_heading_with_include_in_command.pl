@@ -560,6 +560,12 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                       'text' => 'Section'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Section'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -581,14 +587,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Section'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_file.texi',
                 'line_nr' => 16,
@@ -735,6 +733,12 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                       'text' => 'Subsection'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Subsection'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -756,14 +760,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Subsection'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_file.texi',
                 'line_nr' => 23,
@@ -2163,8 +2159,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'custom_heading_with_include_in_command'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'custom_heading_with_include_in_command'} = '@setchapternewpage odd
 @everyheading @thischapter @emph{@thisfile} @| @| @thispage

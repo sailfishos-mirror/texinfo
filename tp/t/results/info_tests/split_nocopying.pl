@@ -133,6 +133,12 @@ $result_trees{'split_nocopying'} = {
                       'text' => 'Ch1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Ch1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -154,14 +160,6 @@ $result_trees{'split_nocopying'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Ch1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'split_nocopying.texi',
                 'line_nr' => 9,
@@ -322,7 +320,7 @@ $result_trees{'split_nocopying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'split_nocopying'} = '\\input texinfo
 

@@ -139,6 +139,11 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                       'text' => ')'
                     }
                   ],
+                  'extra' => {
+                    'manual_content' => [
+                      {}
+                    ]
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -160,13 +165,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'manual_content' => [
-                    {}
-                  ]
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -229,7 +227,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'direntry_dircategory_after_first_node'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1];
 
 $result_texis{'direntry_dircategory_after_first_node'} = '@node Top
 @top direntry direcategory after first node

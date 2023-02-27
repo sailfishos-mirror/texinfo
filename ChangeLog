@@ -1,3 +1,17 @@
+2023-02-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references),
+	tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type),
+	tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information),
+	tp/Texinfo/Structuring.pm (_check_menu_entry)
+	(set_menus_node_directions, associate_internal_references)
+	(new_node_menu_entry), tp/Texinfo/Transformations.pm
+	(_normalized_entry_associated_internal_node),
+	tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information): put node_content and
+	node_manual information directly in the menu_entry_node element,
+	not in the menu_entry, remove menu_entry_node_label.
+
 2023-02-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Add NO_GRATUITOUS_UTF8 (name could change)

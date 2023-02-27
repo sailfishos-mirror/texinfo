@@ -168,6 +168,12 @@ $result_trees{'double_index_entry'} = {
                       'text' => 'chap other node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chap-other-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -189,14 +195,6 @@ $result_trees{'double_index_entry'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chap-other-node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -408,7 +406,7 @@ $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[1]{'extra'}{'elem
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'double_index_entry'}{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[5];
-$result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[2]{'args'}[3]{'contents'}[0];
 $result_trees{'double_index_entry'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'double_index_entry'}{'contents'}[2];
 $result_trees{'double_index_entry'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_index_entry'}{'contents'}[2]{'contents'}[1];

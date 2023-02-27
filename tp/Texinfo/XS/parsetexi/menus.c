@@ -25,7 +25,7 @@
 #include "labels.h"
 #include "source_marks.h"
 
-/* Save 'menu_entry_node_label' extra keys on the top-level @menu element. */
+/* Save 'menu_entry_node' extra keys. */
 void
 register_extra_menu_entry_information (ELEMENT *current)
 {
@@ -58,8 +58,15 @@ register_extra_menu_entry_information (ELEMENT *current)
                 line_error ("empty node name in menu entry");
             }
           else
-            add_extra_node_spec (current, "menu_entry_node_label",
-                                 parsed_entry_node);
+            {
+              if (parsed_entry_node->node_content)
+                add_extra_contents (arg, "node_content",
+                                    parsed_entry_node->node_content);
+              if (parsed_entry_node->manual_content)
+                add_extra_contents (arg, "manual_content",
+                                    parsed_entry_node->manual_content);
+            }
+          free (parsed_entry_node);
         }
     }
 }

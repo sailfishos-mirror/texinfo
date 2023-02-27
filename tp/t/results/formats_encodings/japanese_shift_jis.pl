@@ -429,6 +429,12 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'Preface'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Preface'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -450,14 +456,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Preface'
-                }
-              },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
                 'line_nr' => 26,
@@ -477,6 +475,12 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'Introduction'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Introduction'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -498,14 +502,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Introduction'
-                }
-              },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
                 'line_nr' => 27,
@@ -754,8 +750,8 @@ $result_trees{'japanese_shift_jis'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'japanese_shift_jis'} = '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 @documentencoding shift_jis

@@ -590,6 +590,12 @@ $result_trees{'sample_utf8'} = {
                       'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -615,14 +621,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 34,
@@ -642,6 +640,12 @@ $result_trees{'sample_utf8'} = {
                       'text' => "Second Chapter AE \x{104}\x{118} ae \x{105}\x{119}"
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -663,14 +667,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 36,
@@ -690,6 +686,12 @@ $result_trees{'sample_utf8'} = {
                       'text' => 'Index node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Index-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -711,14 +713,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Index-node'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 37,
@@ -1377,9 +1371,9 @@ $result_trees{'sample_utf8'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];

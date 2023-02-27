@@ -136,6 +136,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'First node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'First-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -230,14 +236,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'First-node'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 6,
@@ -276,6 +274,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'between node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'between-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -301,14 +305,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'between-node'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 13,
@@ -351,6 +347,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'Second node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Second-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -372,14 +374,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Second-node'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 18,
@@ -423,6 +417,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'Third node unnumbered'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Third-node-unnumbered'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -444,14 +444,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Third-node-unnumbered'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 22,
@@ -471,6 +463,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'Last node no description'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Last-node-no-description'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -492,14 +490,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Last-node-no-description'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 23,
@@ -705,6 +695,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'unnumbered'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -726,14 +722,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 34,
@@ -753,6 +741,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'unnumbered2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -774,14 +768,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 35,
@@ -801,6 +787,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'numbered'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -822,14 +814,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 36,
@@ -991,6 +975,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'unnumbered sub'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1012,14 +1002,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 44,
@@ -1039,6 +1021,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'numbered sub'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1060,14 +1048,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 45,
@@ -1087,6 +1067,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'unnumbered sub2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1108,14 +1094,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 46,
@@ -1135,6 +1113,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'numbered sub2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1156,14 +1140,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 47,
@@ -1586,6 +1562,12 @@ $result_trees{'sectioning_frames'} = {
                       'text' => 'numbered sub3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1607,14 +1589,6 @@ $result_trees{'sectioning_frames'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'sectioning.texi',
                 'line_nr' => 66,
@@ -2228,21 +2202,21 @@ $result_trees{'sectioning_frames'} = {
 };
 $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[6]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[3]{'args'}[2]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[3]{'args'}[3]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_frames'}{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[21]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[21]{'args'}[3]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[22]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[22]{'args'}[1]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[22]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'sectioning_frames'}{'contents'}[22]{'args'}[3]{'contents'}[0];

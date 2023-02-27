@@ -143,6 +143,12 @@ $result_trees{'non_empty_part'} = {
                       'text' => 'chapter node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -164,14 +170,6 @@ $result_trees{'non_empty_part'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter-node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -191,6 +189,12 @@ $result_trees{'non_empty_part'} = {
                       'text' => 'part chapter node'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'part-chapter-node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -212,14 +216,6 @@ $result_trees{'non_empty_part'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'part-chapter-node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -822,8 +818,8 @@ $result_trees{'non_empty_part'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[1];
 $result_trees{'non_empty_part'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[4];
 $result_trees{'non_empty_part'}{'contents'}[9]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[8];

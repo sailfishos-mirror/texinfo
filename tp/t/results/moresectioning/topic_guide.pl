@@ -131,6 +131,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -152,14 +158,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 10,
@@ -179,6 +177,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -200,14 +204,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 11,
@@ -368,6 +364,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'topic1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'topic1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -389,14 +391,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'topic1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 20,
@@ -416,6 +410,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'topic2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'topic2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -437,14 +437,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'topic2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 21,
@@ -464,6 +456,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'topic5'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'topic5'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -485,14 +483,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'topic5'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 22,
@@ -657,6 +647,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -678,14 +674,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 32,
@@ -871,6 +859,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -892,14 +886,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 42,
@@ -1215,6 +1201,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1236,14 +1228,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 61,
@@ -1418,6 +1402,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1439,14 +1429,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 71,
@@ -1466,6 +1448,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'guide2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'guide2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1487,14 +1475,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'guide2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 72,
@@ -1657,6 +1637,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'topic5'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'topic5'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1678,14 +1664,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'topic5'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 81,
@@ -1705,6 +1683,12 @@ $result_trees{'topic_guide'} = {
                       'text' => 'topic4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'topic4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1726,14 +1710,6 @@ $result_trees{'topic_guide'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'topic4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
                 'line_nr' => 82,
@@ -1811,24 +1787,24 @@ $result_trees{'topic_guide'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[5]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[5]{'args'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[6]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[6]{'args'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[6]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[6]{'args'}[2]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[7]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[7]{'args'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[7]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[7]{'args'}[2]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'topic_guide'}{'contents'}[9]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'args'}[2]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'topic_guide'} = '\\input texinfo.tex
 

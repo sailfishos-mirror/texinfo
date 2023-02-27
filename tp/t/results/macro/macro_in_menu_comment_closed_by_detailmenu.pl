@@ -136,6 +136,12 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
                           'text' => 'second'
                         }
                       ],
+                      'extra' => {
+                        'node_content' => [
+                          {}
+                        ],
+                        'normalized' => 'second'
+                      },
                       'type' => 'menu_entry_node'
                     },
                     {
@@ -157,14 +163,6 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
                       'type' => 'menu_entry_description'
                     }
                   ],
-                  'extra' => {
-                    'menu_entry_node_label' => {
-                      'node_content' => [
-                        {}
-                      ],
-                      'normalized' => 'second'
-                    }
-                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
@@ -256,7 +254,7 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_menu_comment_closed_by_detailmenu'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'macro_in_menu_comment_closed_by_detailmenu'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_menu_comment_closed_by_detailmenu'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'macro_in_menu_comment_closed_by_detailmenu'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_menu_comment_closed_by_detailmenu'} = '@macro emptystring
 

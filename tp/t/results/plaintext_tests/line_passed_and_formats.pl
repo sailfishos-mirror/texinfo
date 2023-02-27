@@ -2121,6 +2121,15 @@ $result_trees{'line_passed_and_formats'} = {
                       'text' => 'node'
                     }
                   ],
+                  'extra' => {
+                    'manual_content' => [
+                      {}
+                    ],
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'node'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2142,17 +2151,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'manual_content' => [
-                    {}
-                  ],
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'node'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 135,
@@ -2226,8 +2224,8 @@ $result_trees{'line_passed_and_formats'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'manual_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'line_passed_and_formats'}{'contents'}[1]{'contents'}[50]{'contents'}[0]{'contents'}[1]{'contents'}[3];
 
 $result_texis{'line_passed_and_formats'} = '@node Top
 

@@ -1201,6 +1201,12 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                       'text' => 'Copying and indices'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'Copying-and-indices'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1222,14 +1228,6 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'Copying-and-indices'
-                }
-              },
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
                 'line_nr' => 56,
@@ -1745,7 +1743,7 @@ $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[1];
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[10]{'args'}[0];
-$result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[5]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[4];
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[5]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[5]{'contents'}[3];
 $result_trees{'index_special_region_no_insertcopying'}{'contents'}[5]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_insertcopying'}{'contents'}[4];

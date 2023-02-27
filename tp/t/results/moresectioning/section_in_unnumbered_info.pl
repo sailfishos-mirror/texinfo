@@ -142,6 +142,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -163,14 +169,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 10,
@@ -190,6 +188,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -211,14 +215,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 11,
@@ -238,6 +234,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'chapter 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -259,14 +261,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 12,
@@ -286,6 +280,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'chapter 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -307,14 +307,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 13,
@@ -334,6 +326,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -355,14 +353,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 14,
@@ -509,6 +499,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'section in chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'section-in-chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -530,14 +526,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section-in-chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 21,
@@ -753,6 +741,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'section in unnumbered'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'section-in-unnumbered'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -774,14 +768,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section-in-unnumbered'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 31,
@@ -997,6 +983,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1018,14 +1010,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 41,
@@ -1045,6 +1029,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 2-1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-2_002d1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1066,14 +1056,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-2_002d1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 42,
@@ -1220,6 +1202,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1241,14 +1229,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 49,
@@ -1268,6 +1248,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1289,14 +1275,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 50,
@@ -1316,6 +1294,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub2 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub2-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1337,14 +1321,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub2-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 51,
@@ -1364,6 +1340,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub2 2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub2-2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1385,14 +1367,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub2-2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 52,
@@ -1815,6 +1789,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 2-1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-2_002d1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -1836,14 +1816,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-2_002d1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 71,
@@ -2064,6 +2036,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2085,14 +2063,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 82,
@@ -2112,6 +2082,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'section 3-1'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'section-3_002d1'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2133,14 +2109,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section-3_002d1'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 83,
@@ -2160,6 +2128,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 3-2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-3_002d2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2181,14 +2155,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-3_002d2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 84,
@@ -2208,6 +2174,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'section 3-3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'section-3_002d3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2229,14 +2201,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section-3_002d3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 85,
@@ -2256,6 +2220,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 3-4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-3_002d4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2277,14 +2247,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-3_002d4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 86,
@@ -2431,6 +2393,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2452,14 +2420,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 93,
@@ -2479,6 +2439,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2500,14 +2466,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 94,
@@ -2527,6 +2485,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub2 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub2-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2548,14 +2512,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub2-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 95,
@@ -2575,6 +2531,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub2 3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub2-3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -2596,14 +2558,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub2-3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 96,
@@ -3095,6 +3049,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 3-2'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-3_002d2'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -3116,14 +3076,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-3_002d2'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 118,
@@ -3339,6 +3291,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'subsection 3-3'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'subsection-3_002d3'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -3360,14 +3318,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'subsection-3_002d3'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 128,
@@ -3583,6 +3533,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 3-4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-3_002d4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -3604,14 +3560,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-3_002d4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 138,
@@ -3827,6 +3775,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumberedsec 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumberedsec-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -3848,14 +3802,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumberedsec-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 148,
@@ -4002,6 +3948,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -4023,14 +3975,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 155,
@@ -4050,6 +3994,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -4071,14 +4021,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 156,
@@ -4098,6 +4040,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'unnumbered sub2 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'unnumbered-sub2-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -4119,14 +4067,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'unnumbered-sub2-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 157,
@@ -4146,6 +4086,12 @@ $result_trees{'section_in_unnumbered_info'} = {
                       'text' => 'numbered sub2 4'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'numbered-sub2-4'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -4167,14 +4113,6 @@ $result_trees{'section_in_unnumbered_info'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'numbered-sub2-4'
-                }
-              },
               'source_info' => {
                 'file_name' => 'section_in_unnumbered_text.texi',
                 'line_nr' => 158,
@@ -4511,37 +4449,37 @@ $result_trees{'section_in_unnumbered_info'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[24]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[42]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[42]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[46]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[46]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[50]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[50]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[54]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[54]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[42]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[42]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[46]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[46]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[50]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[50]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[54]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[54]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_in_unnumbered_info'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'section_in_unnumbered_info'} = '
 @node Top

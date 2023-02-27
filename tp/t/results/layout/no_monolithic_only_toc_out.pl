@@ -197,6 +197,12 @@ $result_trees{'no_monolithic_only_toc_out'} = {
                       'text' => 'chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -218,14 +224,6 @@ $result_trees{'no_monolithic_only_toc_out'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
                 'line_nr' => 11,
@@ -458,7 +456,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
 };
 $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[1];
 $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[3];
-$result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_monolithic_only_toc_out'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_monolithic_only_toc_out'} = '\\input texinfo @c -*-texinfo-*-
 

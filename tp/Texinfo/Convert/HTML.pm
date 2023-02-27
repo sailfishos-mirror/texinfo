@@ -6500,9 +6500,8 @@ sub _convert_menu_entry_type($$$)
   my $href = '';
   my $rel = '';
   my $section;
-  my $label_info;
-  $label_info = $element->{'extra'}->{'menu_entry_node_label'}
-     if ($element->{'extra'});
+  my $label_info = $menu_entry_node->{'extra'};
+
   # external node
   my $external_node;
   if ($label_info and $label_info->{'manual_content'}) {
@@ -6523,7 +6522,7 @@ sub _convert_menu_entry_type($$$)
       } else {
         $href = $self->command_href($node, undef, $element);
       }
-      if ($node->{'extra'}->{'isindex'}) {
+      if ($node->{'extra'} and $node->{'extra'}->{'isindex'}) {
         # Mark the target as an index.  See
         # http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions
         $rel = ' rel="index"';

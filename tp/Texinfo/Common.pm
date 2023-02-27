@@ -1768,7 +1768,6 @@ sub _collect_commands_list_in_tree($$$)
 # extra->node_content
 # extra->node_argument
 # extra->explanation_contents
-# extra->menu_entry_node_label
 
 sub _copy_tree($$$);
 sub _copy_tree($$$)
@@ -1803,10 +1802,13 @@ sub _copy_tree($$$)
   if ($current->{'extra'}) {
     $new->{'extra'} = {};
     foreach my $key (keys %{$current->{'extra'}}) {
-      if ($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-          and $key eq 'prototypes') {
+      if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
+           and $key eq 'prototypes')
+          or ($current->{'type'} and $current->{'type'} eq 'menu_entry_node'
+              and ($key eq 'node_content' or $key eq 'node_manual'))) {
         $new->{'extra'}->{$key} = [];
-        $reference_associations->{$current->{'extra'}->{$key}} = $new->{$key};
+        $reference_associations->{$current->{'extra'}->{$key}}
+          = $new->{'extra'}->{$key};
         foreach my $child (@{$current->{'extra'}->{$key}}) {
           push @{$new->{'extra'}->{$key}},
                   _copy_tree($child, $new, $reference_associations);
@@ -1896,18 +1898,17 @@ sub _substitute_references($$$)
               $current->{'extra'}->{$key}, $reference_associations,
               "[$command_or_type]{$key}");
           } else {
-            if ($key eq 'index_entry'
-                or ($current->{'type'}
-                    and $current->{'type'} eq 'menu_entry'
-                    and $key eq 'menu_entry_node_label')) {
+            if ($key eq 'index_entry') {
               $new->{'extra'}->{$key} = {};
               foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
                 if (ref($current->{'extra'}->{$key}->{$type_key}) eq '') {
                   $new->{'extra'}->{$key}->{$type_key}
                     = $current->{'extra'}->{$key}->{$type_key};
-                } elsif ($reference_associations->{$current->{'extra'}->{$key}->{$type_key}}) {
+                } elsif ($reference_associations->{
+                                 $current->{'extra'}->{$key}->{$type_key}}) {
                   $new->{'extra'}->{$key}->{$type_key}
-                    = $reference_associations->{$current->{'extra'}->{$key}->{$type_key}};
+                    = $reference_associations->{
+                                      $current->{'extra'}->{$key}->{$type_key}};
                 } elsif (ref($current->{'extra'}->{$key}->{$type_key}) eq 'ARRAY') {
                   $new->{'extra'}->{$key}->{$type_key}
                     = _substitute_references_in_array(

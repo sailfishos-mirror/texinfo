@@ -74,6 +74,12 @@ $result_trees{'menu_title_before_entries'} = {
                       'text' => 'chap subnode'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chap-subnode'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -95,14 +101,6 @@ $result_trees{'menu_title_before_entries'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chap-subnode'
-                }
-              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -204,7 +202,7 @@ $result_trees{'menu_title_before_entries'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_title_before_entries'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'menu_title_before_entries'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'menu_title_before_entries'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_title_before_entries'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'menu_title_before_entries'} = '@node Top
 

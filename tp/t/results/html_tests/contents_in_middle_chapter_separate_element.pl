@@ -127,6 +127,12 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                       'text' => 'chapter'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'chapter'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -148,14 +154,6 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'chapter'
-                }
-              },
               'source_info' => {
                 'file_name' => 'contents_in_middle_chapter.texi',
                 'line_nr' => 9,
@@ -331,6 +329,12 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                       'text' => 'section'
                     }
                   ],
+                  'extra' => {
+                    'node_content' => [
+                      {}
+                    ],
+                    'normalized' => 'section'
+                  },
                   'type' => 'menu_entry_node'
                 },
                 {
@@ -352,14 +356,6 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                   'type' => 'menu_entry_description'
                 }
               ],
-              'extra' => {
-                'menu_entry_node_label' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'section'
-                }
-              },
               'source_info' => {
                 'file_name' => 'contents_in_middle_chapter.texi',
                 'line_nr' => 19,
@@ -520,8 +516,8 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'extra'}{'menu_entry_node_label'}{'node_content'}[0] = $result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_in_middle_chapter_separate_element'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'contents_in_middle_chapter_separate_element'} = '\\input texinfo @c -*-texinfo-*-
 
