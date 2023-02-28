@@ -2847,27 +2847,6 @@ sub _isolate_last_space
   }
 }
 
-# $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the
-# specification of a node.
-# Returned $parsed_node_manual object is a hash with two fields:
-#
-#     manual_content - Texinfo tree for a manual name extracted from the
-#                      node specification.
-#     node_content - Texinfo tree for the node name on its own
-#
-# retrieve a leading manual name in parentheses, if there is one
-# and modify the $LABEL_CONTENTS_CONTAINER contents to be consistent
-# with $parsed_node_manual.
-sub _parse_node_manual($)
-{
-  my $label_contents_container = shift;
-  my ($parsed_node_manual, $modified_node_content)
-    = Texinfo::Common::parse_node_manual($label_contents_container);
-  $label_contents_container->{'contents'} = $modified_node_content
-     if ($modified_node_content);
-  return $parsed_node_manual;
-}
-
 # relocate $SOURCE_MARKS source marks with position between
 # $BEGIN_POSITION and $END_POSITION to be relative to $BEGIN_POSITION,
 # and move to element $E.
@@ -3469,7 +3448,8 @@ sub _end_line_misc_line($$$)
   } elsif ($command eq 'node') {
     for (my $i = 1; $i < scalar(@{$current->{'args'}}); $i++) {
       my $arg = $current->{'args'}->[$i];
-      my $arg_label_manual_info = _parse_node_manual($arg);
+      my $arg_label_manual_info
+        = Texinfo::Common::parse_node_manual($arg, 1);
       if (defined($arg_label_manual_info)) {
         # 'node_content' 'manual_content'
         foreach my $label_info (keys(%$arg_label_manual_info)) {
@@ -4416,7 +4396,8 @@ sub _register_extra_menu_entry_information($$;$)
         }
       } else {
         $menu_entry_node = $arg;
-        my $parsed_entry_node = _parse_node_manual($arg);
+        my $parsed_entry_node
+          = Texinfo::Common::parse_node_manual($arg, 1);
         if (defined($parsed_entry_node)) {
           foreach my $label_info (keys(%$parsed_entry_node)) {
             $arg->{'extra'} = {} if (!$arg->{'extra'});
@@ -6314,7 +6295,8 @@ sub _process_remaining_on_line($$$$)
                                     $closed_command), $source_info);
             } else {
               my $arg_label = $ref->{'args'}->[0];
-              my $ref_label_info = _parse_node_manual($arg_label);
+              my $ref_label_info
+                = Texinfo::Common::parse_node_manual($arg_label, 1);
               if (defined $ref_label_info) {
                 foreach my $label_info (keys(%$ref_label_info)) {
                   $arg_label->{'extra'} = {} if (!$arg_label->{'extra'});

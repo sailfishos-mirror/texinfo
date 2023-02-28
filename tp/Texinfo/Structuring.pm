@@ -1689,10 +1689,8 @@ sub new_node_menu_entry
     $arg->{'parent'} = $entry;
   }
 
-  my ($parsed_node_manual, $modified_node_content)
-    = Texinfo::Common::parse_node_manual($menu_entry_node);
-  $menu_entry_node->{'contents'} = $modified_node_content
-    if ($modified_node_content);
+  my $parsed_node_manual
+    = Texinfo::Common::parse_node_manual($menu_entry_node, 1);
   if (defined($parsed_node_manual)) {
     foreach my $label_info (keys(%$parsed_node_manual)) {
       $menu_entry_node->{'extra'} = {} if (!$menu_entry_node->{'extra'});

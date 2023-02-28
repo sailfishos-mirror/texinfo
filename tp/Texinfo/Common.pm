@@ -1010,9 +1010,10 @@ sub _count_opened_tree_braces($$)
 #
 # Could be documented, but only if there is evidence that this function
 # is useful in user-defined code.
-sub parse_node_manual($)
+sub parse_node_manual($;$)
 {
   my $label_contents_container = shift;
+  my $modify_node = shift;
 
   return (undef, undef)
      if (!$label_contents_container->{'contents'});
@@ -1089,24 +1090,28 @@ sub parse_node_manual($)
     $result->{'manual_content'} = $manual if ($manual and scalar(@$manual));
   }
 
-  # Return the contents array in which all the elements in 'manual_content'
-  # and 'node_content' have been put.
-  my $new_contents = [];
-  if (defined($result) and defined($result->{'manual_content'})) {
-    @$new_contents = ({ 'text' => '(', 'parent' => $label_contents_container },
-                      @$manual);
-    push @$new_contents, {  'text' => ')',
-                            'parent' => $label_contents_container }
-      if $end_paren;
-    push @$new_contents, { 'text' => $spaces_after,
-                           'parent' => $label_contents_container }
-      if $spaces_after;
-  }
-  if (@contents) {
-    @$new_contents = (@$new_contents, @contents);
+  if ($modify_node) {
+    # contents array in which all the elements in 'manual_content'
+    # and 'node_content' have been put, replacing the argument
+    # element contents.
+    my $new_contents = [];
+    if (defined($result) and defined($result->{'manual_content'})) {
+      @$new_contents = ({ 'text' => '(', 'parent' => $label_contents_container },
+                        @$manual);
+      push @$new_contents, {  'text' => ')',
+                              'parent' => $label_contents_container }
+        if $end_paren;
+      push @$new_contents, { 'text' => $spaces_after,
+                             'parent' => $label_contents_container }
+        if $spaces_after;
+    }
+    if (@contents) {
+      @$new_contents = (@$new_contents, @contents);
+    }
+    $label_contents_container->{'contents'} = $new_contents;
   }
 
-  return $result, $new_contents;
+  return $result;
 }
 
 
