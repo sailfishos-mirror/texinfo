@@ -13,10 +13,6 @@ Before next release
 Bugs
 ====
 
-Add a function to deallocate NODE_SPEC_EXTRA when parse_node_manual
-was called with modify_node = 0, to deallocate manual, content and
-out_of_tree_element(s)
-
 HTML API
 ========
 

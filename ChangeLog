@@ -1,5 +1,16 @@
 2023-02-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(check_register_target_element_label), tp/Texinfo/XS/parsetexi/tree.c
+	(destroy_node_spec): add destroy_node_spec to deallocate out of
+	tree elements coollected in a label manual and node name
+	specification, as well as the manual and node name associated
+	elements.  Use it in check_register_target_element_label.  In the
+	other cases, the manual and node name elements are used in the tree
+	and will be deallocated when the tree is destroyed.
+
+2023-02-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
 	(_end_line_starting_block, _check_register_target_element_label)
 	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/end_line.c

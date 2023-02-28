@@ -393,3 +393,24 @@ args_child_by_index (ELEMENT *e, int index)
 
   return e->args.list[index];
 }
+
+/* should only be used if the nse->manual_content
+   and nse->node_content are not already in the tree,
+   in practice when the node spec was created by
+   parse_node_manual (., 0); */
+void
+destroy_node_spec (NODE_SPEC_EXTRA *nse)
+{
+  if (nse->out_of_tree_elements)
+    {
+      int i;
+      for (i = 0; i < 3; i++)
+        if (nse->out_of_tree_elements[i])
+          destroy_element (nse->out_of_tree_elements[i]);
+    }
+  if (nse->manual_content)
+    destroy_element (nse->manual_content);
+  if (nse->node_content)
+    destroy_element (nse->node_content);
+  free (nse);
+}

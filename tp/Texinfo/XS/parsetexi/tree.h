@@ -23,6 +23,7 @@ ELEMENT *contents_child_by_index (ELEMENT *e, int index);
 ELEMENT *args_child_by_index (ELEMENT *e, int index);
 void destroy_element (ELEMENT *e);
 void destroy_element_and_children (ELEMENT *e);
+void destroy_node_spec (NODE_SPEC_EXTRA *nse);
 
 #define element_contents_number(e) ((e)->contents.number)
 #define element_args_number(e) ((e)->args.number)

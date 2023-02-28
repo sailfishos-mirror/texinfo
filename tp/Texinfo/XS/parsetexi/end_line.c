@@ -816,11 +816,7 @@ check_register_target_element_label (ELEMENT *label_element,
           free (texi);
           destroy_element (label_element_contents);
         }
-      if (label_info->manual_content)
-        destroy_element (label_info->manual_content);
-      if (label_info->node_content)
-        destroy_element (label_info->node_content);
-      free (label_info);
+      destroy_node_spec (label_info);
     }
   register_label (target_element);
 }
