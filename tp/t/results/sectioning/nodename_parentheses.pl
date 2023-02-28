@@ -537,16 +537,7 @@ $result_trees{'nodename_parentheses'} = {
         {
           'contents' => [
             {
-              'text' => '('
-            },
-            {
-              'text' => 'manual'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'node'
+              'text' => '(manual)node'
             }
           ],
           'info' => {
@@ -616,16 +607,7 @@ $result_trees{'nodename_parentheses'} = {
             {
               'contents' => [
                 {
-                  'text' => '('
-                },
-                {
-                  'text' => 'manual'
-                },
-                {
-                  'text' => ')'
-                },
-                {
-                  'text' => 'anchor'
+                  'text' => '(manual)anchor'
                 }
               ],
               'type' => 'brace_command_arg'

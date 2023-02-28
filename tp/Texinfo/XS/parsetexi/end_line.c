@@ -29,18 +29,6 @@
 #include "source_marks.h"
 #include "handle_commands.h"
 
-void
-check_internal_node (NODE_SPEC_EXTRA *nse)
-{
-  if (nse && nse->manual_content
-      && nse->manual_content->contents.number > 0)
-    {
-      char *texi = node_extra_to_texi (nse);
-      line_error ("syntax for an external node used for `%s'", texi);
-      free (texi);
-    }
-}
-
 static int
 is_decimal_number (char *string)
 {
@@ -808,6 +796,35 @@ parse_line_command_args (ELEMENT *line_command)
 #undef ADD_ARG
 }
 
+void
+check_register_target_element_label (ELEMENT *label_element,
+                                     ELEMENT *target_element)
+{
+  if (label_element)
+    {
+      /* check that the label used as an anchor for link target has no
+         external manual part */
+      NODE_SPEC_EXTRA *label_info = parse_node_manual (label_element, 0);
+      if (label_info && label_info->manual_content)
+        {
+          ELEMENT *label_element_contents = new_element (ET_NONE);
+          /* copy contents only to avoid leading/trailing spaces */
+          insert_slice_into_contents (label_element_contents, 0, label_element,
+                                      0, label_element->contents.number);
+          char *texi = convert_to_texinfo (label_element_contents);
+          line_error ("syntax for an external node used for `%s'", texi);
+          free (texi);
+          destroy_element (label_element_contents);
+        }
+      if (label_info->manual_content)
+        destroy_element (label_info->manual_content);
+      if (label_info->node_content)
+        destroy_element (label_info->node_content);
+      free (label_info);
+    }
+  register_label (target_element);
+}
+
 /* NODE->contents is the Texinfo for the specification of a node.  This
    function sets two fields on the returned object:
 
@@ -817,25 +834,43 @@ parse_line_command_args (ELEMENT *line_command)
 
    Objects returned from this function are used as an 'extra' key in
    the element for elements linking to nodes (such as @*ref,
-   menu_entry_node or node direction arguments).
-   They are also used for elements that are targets of links (@node and
+   menu_entry_node or node direction arguments).  In that case
+   modify_node is set to 1 and the node contents are modified in-place to
+   hold the same elements as the returned objects.
+
+   This function is also used for elements that are targets of links (@node and
    @anchor first argument, float second argument) mainly to check that
-   the syntax for an external node is not used. */
+   the syntax for an external node is not used.  In that case modify_node
+   is set to 0 and the node is not modified, and added elements are
+   collected in a thirs field of the returned object,
+     out_of_tree_elements - elements collected in manual_content or
+                            node_content and not in the node
+ */
+
 NODE_SPEC_EXTRA *
-parse_node_manual (ELEMENT *node)
+parse_node_manual (ELEMENT *node, int modify_node)
 {
   NODE_SPEC_EXTRA *result;
-  ELEMENT *new;
+  ELEMENT *node_content = 0;
   int idx = 0; /* index into node->contents */
 
   result = malloc (sizeof (NODE_SPEC_EXTRA));
   result->manual_content = result->node_content = 0;
+  /* if not modifying the tree, and there is a manual name, the elements
+     added for the manual name and for the node content that are based
+     on texts from tree elements are not anywhere in the tree.
+     They are collected in result->out_of_tree_element to be freed later.
+     These elements correspond to the text after the first manual name
+     opening brace and text before and after the closing manual name brace */
+  result->out_of_tree_elements = 0;
 
   /* If the content starts with a '(', try to get a manual name. */
   if (node->contents.number > 0 && node->contents.list[0]->text.end > 0
       && node->contents.list[0]->text.text[0] == '(')
     {
       ELEMENT *manual, *first;
+      ELEMENT *new_first = 0;
+      ELEMENT *opening_brace = 0;
       char *opening_bracket, *closing_bracket;
 
       /* Handle nested parentheses in the manual name, for whatever reason. */
@@ -848,18 +883,27 @@ parse_node_manual (ELEMENT *node)
       first = node->contents.list[0];
       if (first->text.end > 1)
         {
-          memmove (first->text.text, first->text.text + 1, first->text.end);
-          first->text.end--;
-          new = new_element (0);
-          text_append_n (&new->text, "(", 1);
-          insert_into_contents (node, new, 0);
+          if (modify_node)
+            {
+              opening_brace = new_element (0);
+              text_append_n (&opening_brace->text, "(", 1);
+            }
+          new_first = new_element (0);
+          text_append_n (&new_first->text, first->text.text +1, first->text.end -1);
         }
-      idx++;
+      else
+        {
+          /* first element is "(", keep it */
+          idx++;
+        }
 
       for (; idx < node->contents.number; idx++)
         {
           ELEMENT *e = node->contents.list[idx];
           char *p, *q;
+
+          if (idx == 0)
+            e = new_first;
 
           if (e->text.end == 0)
             {
@@ -903,70 +947,118 @@ parse_node_manual (ELEMENT *node)
             add_to_contents_as_array (manual, e);
           else /* end of filename component */
             {
-              /* Split the element in two, putting the part before the ")"
+              /* At this point, we are sure that there is a manual part,
+                 so the pending removal/addition of elements at the beginning
+                 of the manual can proceed (if modify_node). */
+              /* Also, split the element in two, putting the part before the ")"
                  in the manual name, leaving the part afterwards for the
                  node name. */
-              remove_from_contents (node, idx); /* Remove 'e'. */
-
+              if (modify_node)
+                {
+                  if (opening_brace)
+                    {
+                      /* remove the original first element and prepend the
+                         split "(" and text elements */
+                      remove_from_contents (node, 0); /* remove first element */
+                      destroy_element (first);
+                      insert_into_contents (node, new_first, 0);
+                      insert_into_contents (node, opening_brace, 0);
+                      idx++;
+                    }
+                  remove_from_contents (node, idx); /* Remove current element e
+                                                       with closing brace from the tree. */
+                }
+              else
+                {
+                  /* collect elements out of tree */
+                  result->out_of_tree_elements = calloc (3, sizeof (ELEMENT *));
+                  if (new_first)
+                    result->out_of_tree_elements[0] = new_first;
+                }
               p--; /* point at ) */
               if (p > e->text.text)
                 {
                   /* text before ), part of the manual name */
-                  new = new_element (ET_NONE);
-                  text_append_n (&new->text, e->text.text,
+                  ELEMENT *last_manual_element = new_element (ET_NONE);
+                  text_append_n (&last_manual_element->text, e->text.text,
                                  p - e->text.text);
-                  insert_into_contents (node, new, idx++);
-
-                  add_to_contents_as_array (manual, new);
+                  add_to_contents_as_array (manual, last_manual_element);
+                  if (modify_node)
+                    insert_into_contents (node, last_manual_element, idx++);
+                  else
+                    result->out_of_tree_elements[1] = last_manual_element;
                 }
 
-              new = new_element (0);
-              text_append_n (&new->text, ")", 1);
-              insert_into_contents (node, new, idx++);
+              if (modify_node)
+                {
+                  ELEMENT *closing_brace = new_element (0);
+                  text_append_n (&closing_brace->text, ")", 1);
+                  insert_into_contents (node, closing_brace, idx++);
+                }
 
               /* Skip ')' and any following whitespace.
                  Note that we don't manage to skip any multibyte
                  UTF-8 space characters here. */
               p++;
               q = p + strspn (p, whitespace_chars);
-              if (q > p)
+              if (q > p && modify_node)
                 {
-                  new = new_element (0);
-                  text_append_n (&new->text, p, q - p);
-                  insert_into_contents (node, new, idx++);
+                  ELEMENT *spaces_element = new_element (0);
+                  text_append_n (&spaces_element->text, p, q - p);
+                  insert_into_contents (node, spaces_element, idx++);
                 }
 
               p = q;
               if (*p)
                 {
                   /* text after ), part of the node name. */
-                  new = new_element (ET_NONE);
-                  text_append_n (&new->text, p,
+                  ELEMENT *leading_node_content = new_element (ET_NONE);
+                  text_append_n (&leading_node_content->text, p,
                                  e->text.text + e->text.end - p);
-                  insert_into_contents (node, new, idx);
+                  /* start node_content */
+                  node_content = new_element (0);
+                  add_to_contents_as_array (node_content, leading_node_content);
+                  if (modify_node)
+                    insert_into_contents (node, leading_node_content, idx);
+                  else
+                    result->out_of_tree_elements[2] = leading_node_content;
+                  idx++;
                 }
-              destroy_element (e);
+              if (modify_node)
+                destroy_element (e);
               break;
             }
         } /* for */
 
       if (bracket_count == 0)
         result->manual_content = manual;
-      else /* unbalanced */
+      else /* Unbalanced parentheses, consider that there is no manual
+              afterall.  So far the node has not been modified, so the
+              only thing that needs to be done is to remove the manual
+              element and the elements allocated for the beginning of
+              the manual, and start over */
         {
           destroy_element (manual);
+          if (new_first)
+            destroy_element (new_first);
+          if (opening_brace)
+            destroy_element (opening_brace);
           idx = 0; /* Back to the start, and consider the whole thing
                       as a node name. */
         }
     }
 
-  /* If anything left, it is the node name. */
+  /* If anything left, it is part of the node name. */
   if (idx < node->contents.number)
     {
-      new = new_element (0);
-      insert_slice_into_contents (new, 0, node, idx, node->contents.number);
-      result->node_content = new;
+      if (!node_content)
+        node_content = new_element (0);
+      insert_slice_into_contents (node_content, node_content->contents.number,
+                                  node, idx, node->contents.number);
     }
+
+  if (node_content)
+    result->node_content = node_content;
 
   return result;
 }
@@ -1111,20 +1203,13 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_float)
     {
       char *float_type = "";
+      ELEMENT *float_label_element = 0;
       current->source_info = current_source_info;
       if (current->args.number >= 2)
         {
-          NODE_SPEC_EXTRA *float_label;
-          float_label = parse_node_manual (args_child_by_index (current, 1));
-          check_internal_node (float_label);
-
-          register_label (current);
-          if (float_label->manual_content)
-            destroy_element (float_label->manual_content);
-          if (float_label->node_content)
-            destroy_element (float_label->node_content);
-          free (float_label);
+          float_label_element = args_child_by_index (current, 1);
         }
+      check_register_target_element_label (float_label_element, current);
       /* for now done in Texinfo::Convert::NodeNameNormalization, but could be
          good to do in Parser/XS */
       /*
@@ -1816,7 +1901,7 @@ end_line_misc_line (ELEMENT *current)
       for (i = 1; i < current->args.number && i < 4; i++)
         {
           ELEMENT * arg = current->args.list[i];
-          NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg);
+          NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg, 1);
           if (direction_label_info->node_content)
             add_extra_contents (arg, "node_content",
                                 direction_label_info->node_content);
@@ -1827,18 +1912,8 @@ end_line_misc_line (ELEMENT *current)
         }
 
       /* Now take care of the node itself */
-      node_label_manual_info = parse_node_manual (current->args.list[0]);
-      check_internal_node (node_label_manual_info);
+      check_register_target_element_label (current->args.list[0], current);
 
-      if (node_label_manual_info)
-        {
-          register_label (current);
-          if (node_label_manual_info->manual_content)
-            destroy_element (node_label_manual_info->manual_content);
-          if (node_label_manual_info->node_content)
-            destroy_element (node_label_manual_info->node_content);
-        }
-      free (node_label_manual_info);
       if (current_part
           && !lookup_extra (current_part, "part_associated_section"))
         {

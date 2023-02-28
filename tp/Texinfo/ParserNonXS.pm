@@ -3479,10 +3479,8 @@ sub _end_line_misc_line($$$)
         }
       }
     }
-    my $node_label_manual_info = _parse_node_manual($current->{'args'}->[0]);
-    _check_internal_node($self, $node_label_manual_info,
-                         $current, $source_info);
-    Texinfo::Common::register_label($self->{'targets'}, $current);
+    _check_register_target_element_label($self, $current->{'args'}->[0],
+                                         $current, $source_info);
     if ($self->{'current_part'}) {
       my $part = $self->{'current_part'};
       if (not $part->{'extra'}
@@ -3850,17 +3848,15 @@ sub _end_line_starting_block($$$)
   # @float args
   if ($command eq 'float') {
     $current->{'source_info'} = $source_info;
-    my $type = '';
-    my $float_label;
-    if ($current->{'args'} and $current->{'args'}->[1]) {
-      $float_label = _parse_node_manual($current->{'args'}->[1]);
-      _check_internal_node($self, $float_label, $current, $source_info);
-    }
+    my $float_label_element;
+    $float_label_element = $current->{'args'}->[1]
+      if ($current->{'args'} and scalar(@{$current->{'args'}}) > 2);
+    _check_register_target_element_label($self, $float_label_element,
+                                         $current, $source_info);
     # for now done in Texinfo::Convert::NodeNameNormalization, but could be
     # good to do in Parser/XS
     #my $float_type = _parse_float_type($current);
     #push @{$self->{'floats'}->{$float_type}}, $current;
-    Texinfo::Common::register_label($self->{'targets'}, $current);
     if (defined($self->{'current_section'})) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'float_section'} = $self->{'current_section'};
@@ -4360,15 +4356,22 @@ sub _start_empty_line_after_command($$$) {
   return $line;
 }
 
-sub _check_internal_node($$$$)
+sub _check_register_target_element_label($$$$)
 {
-  my ($self, $label_info, $target_element, $source_info) = @_;
+  my ($self, $label_element, $target_element, $source_info) = @_;
 
-  if ($label_info and $label_info->{'manual_content'}) {
-    $self->_line_error(sprintf(__("syntax for an external node used for `%s'"),
-        Texinfo::Convert::Texinfo::target_element_to_texi_label($target_element)),
-                       $source_info);
+  if ($label_element) {
+    my ($label_info, $modified_node_content)
+      = Texinfo::Common::parse_node_manual($label_element);
+    if ($label_info and $label_info->{'manual_content'}) {
+      $self->_line_error(sprintf(__("syntax for an external node used for `%s'"),
+       # use contents to avoid leading/trailing spaces
+       Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                    {'contents' => $label_element->{'contents'}})),
+                         $source_info);
+    }
   }
+  Texinfo::Common::register_label($self->{'targets'}, $target_element);
 }
 
 # Return 1 if an element is all whitespace.
@@ -6278,11 +6281,9 @@ sub _process_remaining_on_line($$$$)
                                $current->{'parent'}->{'cmdname'}),
                                $source_info);
           } else {
-            my $parsed_anchor = _parse_node_manual($current);
-            _check_internal_node($self, $parsed_anchor,
-                                 $current->{'parent'}, $source_info);
-            Texinfo::Common::register_label($self->{'targets'},
-                                            $current->{'parent'});
+            _check_register_target_element_label($self, $current,
+                                                 $current->{'parent'},
+                                                 $source_info);
             # the @anchor element_region information is not used in converters
             if ($self->{'nesting_context'}
                 and $self->{'nesting_context'}->{'regions_stack'}

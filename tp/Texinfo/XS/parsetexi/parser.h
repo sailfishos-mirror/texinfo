@@ -126,14 +126,15 @@ ELEMENT *close_brace_command (ELEMENT *current,
 void close_ignored_block_conditional (ELEMENT *current);
 
 /* In end_line.c */
-NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node);
+NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 ELEMENT *end_line (ELEMENT *current);
 ELEMENT *end_line_def_line (ELEMENT *current);
 ELEMENT *end_line_misc_line (ELEMENT *current);
 ELEMENT *end_line_starting_block (ELEMENT *current);
 ELEMENT *parse_special_misc_command (char *line, enum command_id cmd,
                                      int *has_commment);
-void check_internal_node (NODE_SPEC_EXTRA *nse);
+void check_register_target_element_label (ELEMENT *label_element,
+                                          ELEMENT *target_element);
 
 typedef struct {
     char *type;

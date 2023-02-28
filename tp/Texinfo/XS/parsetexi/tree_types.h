@@ -150,6 +150,7 @@ typedef struct INDEX {
 typedef struct {
     ELEMENT *manual_content;
     ELEMENT *node_content;
+    ELEMENT **out_of_tree_elements;
 } NODE_SPEC_EXTRA;
 
 /* For 'def_parsed_hash'. */

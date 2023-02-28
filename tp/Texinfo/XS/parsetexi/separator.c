@@ -272,15 +272,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                         command_name(current->parent->cmd));
           else
             {
-              NODE_SPEC_EXTRA *parsed_anchor;
-              parsed_anchor = parse_node_manual (current);
-              check_internal_node (parsed_anchor);
-              if (parsed_anchor->manual_content)
-                destroy_element (parsed_anchor->manual_content);
-              if (parsed_anchor->node_content)
-                destroy_element (parsed_anchor->node_content);
-              free (parsed_anchor);
-              register_label (current->parent);
+              check_register_target_element_label (current, current->parent);
               if (nesting_context.regions_stack.top > 0)
                 {
                   add_extra_string_dup (current, "element_region",
@@ -312,7 +304,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
               else
                 {
                   ELEMENT *arg_label = args_child_by_index (ref, 0);
-                  NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg_label);
+                  NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg_label, 1);
 
                   if (ref_label_info && (ref_label_info->manual_content
                                          || ref_label_info->node_content))

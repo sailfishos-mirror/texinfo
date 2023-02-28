@@ -30,6 +30,8 @@ static void convert_to_texinfo_internal (ELEMENT *e, TEXT *result);
 
 #define ADD(x) text_append (result, x)
 
+/* Currently unused, but could be used to implement link_element_to_texi
+   from Texinfo::Convert::Texinfo */
 /* Return value to be freed by caller. */
 char *
 node_extra_to_texi (NODE_SPEC_EXTRA *nse)
