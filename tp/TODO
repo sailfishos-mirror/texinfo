@@ -13,6 +13,11 @@ Before next release
 Bugs
 ====
 
+duplicate item entries in %close_paragraph_commands and other.
+Also inconsistent entries for item and item as item_LINE, would be
+better to modify the perl parser to use item_LINE and item like
+the XS parser.
+
 HTML API
 ========
 
@@ -30,7 +35,7 @@ Missing documentation
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 
-replaced, elided_rawpreformatted, elided_brace_command_arg types.
+elided_rawpreformatted, elided_brace_command_arg types.
 
 extra->'comment_at_end'
 likely in many line commands

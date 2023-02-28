@@ -243,7 +243,7 @@ sub replace_convert_substrings($$;$$)
 
   # FIXME not sure if the added complexity of getting information from parser
   # is worth it.  The current use case, that is allow to specify the state of
-  # clickstyle and kbdinputstyle is relevant (though not implemented in thet XS
+  # clickstyle and kbdinputstyle is relevant (though not implemented in the XS
   # parser, but could be) but not necessarily determining.  Converters and
   # users could easily avoid using @kbd and @click in the translated strings.
   # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used

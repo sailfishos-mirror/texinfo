@@ -61,7 +61,7 @@ static void
 expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = e->cmd;
-  KEY_PAIR *k;
+  KEY_PAIR *k, *arg_line, *k_spc_before_arg;
 
   if (cmd)
     {
@@ -72,34 +72,30 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
         ADD((char *)k->value->text.text);
     }
 
-  // TODO extra spaces
-  k = lookup_info (e, "spaces_before_argument");
-  if (k)
-    ADD((char *)k->value->text.text);
+  k_spc_before_arg = lookup_info (e, "spaces_before_argument");
 
-  // TODO multitable or block command
-
-  if (cmd == CM_macro || cmd == CM_rmacro)
+  arg_line = lookup_info (e, "arg_line");
+  if (arg_line)
     {
-      KEY_PAIR *k;
       char *s = 0;
-      k = lookup_info (e, "arg_line");
-      if (k)
-        s = (char *)k->value;
+
+      if (k_spc_before_arg)
+        ADD((char *)k_spc_before_arg->value->text.text);
+
+      s = (char *)arg_line->value;
       if (s)
         {
           ADD(s);
-          return;
         }
     }
-
-  // TODO node
-
-  if (e->args.number > 0)
+  else if (e->args.number > 0)
     {
       int braces, arg_nr, i;
+      int with_commas = 0;
+
       braces = (e->args.list[0]->type == ET_brace_command_arg
-                || e->args.list[0]->type == ET_brace_command_context);
+                || e->args.list[0]->type == ET_brace_command_context
+                || cmd == CM_value);
       if (braces)
         ADD("{");
 
@@ -109,20 +105,37 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
           ADD((char *)k->value);
         }
 
+      if (k_spc_before_arg)
+        ADD((char *)k_spc_before_arg->value->text.text);
+
+      if ((command_data(cmd).flags & CF_block
+           && ! (command_data(cmd).flags & CF_def
+                 || cmd == CM_multitable))
+          || cmd == CM_node
+          || (command_data(cmd).flags & CF_brace)
+          || (command_data(cmd).flags & CF_INFOENCLOSE))
+        with_commas = 1;
+
       arg_nr = 0;
       for (i = 0; i < e->args.number; i++)
         {
-          if (command_data(cmd).flags & CF_brace)
+          ELEMENT *arg = e->args.list[i];
+          if (arg->type == ET_spaces_inserted
+              || arg->type == ET_bracketed_inserted
+              || arg->type == ET_command_as_argument_inserted)
+            continue;
+
+          if (with_commas)
             {
               if (arg_nr)
                 ADD(",");
               arg_nr++;
             }
-          k = lookup_info (e->args.list[i], "spaces_before_argument");
+          k = lookup_info (arg, "spaces_before_argument");
           if (k)
             ADD((char *)k->value->text.text);
-          convert_to_texinfo_internal (e->args.list[i], result);
-          k = lookup_info (e->args.list[i], "spaces_after_argument");
+          convert_to_texinfo_internal (arg, result);
+          k = lookup_info (arg, "spaces_after_argument");
           if (k)
             ADD((char *)k->value->text.text);
         }
@@ -136,19 +149,28 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
       if (braces)
         ADD("}");
     }
+  else
+    {
+      if (k_spc_before_arg)
+        ADD((char *)k_spc_before_arg->value->text.text);
+    }
 }
 
 static void
 convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
 {
-  if (e->text.end > 0)
+
+  if (e->type == ET_spaces_inserted
+      || e->type == ET_bracketed_inserted
+      || e->type == ET_command_as_argument_inserted)
+    {}
+  else if (e->text.end > 0)
     ADD(e->text.text);
   else
     {
+      KEY_PAIR *k;
       if (e->cmd
-          || e->type == ET_def_line
-          || e->type == ET_menu_entry
-          || e->type == ET_menu_comment)
+          || e->type == ET_def_line)
         {
           expand_cmd_args_to_texi (e, result);
         }
@@ -168,7 +190,17 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
           for (i = 0; i < e->contents.number; i++)
             convert_to_texinfo_internal (e->contents.list[i], result);
         }
-      if (e->type == ET_bracketed)
+
+      k = lookup_info (e, "spaces_after_argument");
+      if (k)
+        ADD((char *)k->value->text.text);
+
+      k = lookup_info (e, "comment_at_end");
+      if (k)
+        convert_to_texinfo_internal ((ELEMENT *)k->value, result);
+
+      if (e->type == ET_bracketed
+          || e->type == ET_bracketed_def_content)
         ADD("}");
     }
 

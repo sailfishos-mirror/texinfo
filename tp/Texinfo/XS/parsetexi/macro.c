@@ -39,7 +39,7 @@ new_macro (char *name, ELEMENT *macro)
 {
   enum command_id new;
   MACRO *m = 0;
-  ELEMENT tmp;
+  ELEMENT *tmp;
 
   /* Check for an existing definition first for us to overwrite. */
   new = lookup_command (name);
@@ -69,9 +69,11 @@ new_macro (char *name, ELEMENT *macro)
   m->macro_name = strdup (name);
   m->element = macro;
 
-  memset (&tmp, 0, sizeof (ELEMENT));
-  tmp.contents = macro->contents;
-  m->macrobody = convert_to_texinfo (&tmp);
+  tmp = new_element (ET_NONE);
+  tmp->contents = macro->contents;
+  m->macrobody = convert_to_texinfo (tmp);
+  tmp->contents.list = 0;
+  destroy_element (tmp);
 }
 
 /* CMD will be either CM_macro or CM_rmacro.  Read the line defining a macro's 

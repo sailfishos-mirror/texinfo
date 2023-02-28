@@ -1263,15 +1263,17 @@ end_line_starting_block (ELEMENT *current)
               if (current->args.number > 0
                   && current->args.list[0]->contents.number > 0)
                 {
-                  ELEMENT tmp;
+                  ELEMENT *tmp = new_element (ET_NONE);
                   char *texi_arg;
 
                   /* expand the contents to avoid surrounding spaces */
-                  memset (&tmp, 0, sizeof (ELEMENT));
-                  tmp.contents = current->args.list[0]->contents;
-                  texi_arg = convert_to_texinfo (&tmp);
+                  tmp->contents = current->args.list[0]->contents;
+                  texi_arg = convert_to_texinfo (tmp);
                   command_error (current, "bad argument to @%s: %s",
                                  command_name(command), texi_arg);
+                  tmp->contents.list = 0;
+                  destroy_element (tmp);
+                  free (texi_arg);
                 }
               else
                 {
@@ -1395,15 +1397,18 @@ end_line_starting_block (ELEMENT *current)
            && current->args.number > 0
            && current->args.list[0]->contents.number > 0)
     {
-      ELEMENT tmp;
+      ELEMENT *tmp = new_element (ET_NONE);
       char *texi_arg;
 
       /* expand the contents to avoid surrounding spaces */
-      memset (&tmp, 0, sizeof (ELEMENT));
-      tmp.contents = current->args.list[0]->contents;
-      texi_arg = convert_to_texinfo (&tmp);
+      tmp->contents = current->args.list[0]->contents;
+      texi_arg = convert_to_texinfo (tmp);
       command_warn (current, "unexpected argument on @%s line: %s",
                      command_name(command), texi_arg);
+      free (texi_arg);
+      /* important to do that in order not to deallocate in the tree */
+      tmp->contents.list = 0;
+      destroy_element (tmp);
     }
 
   if (command_data(command).data == BLOCK_conditional)
@@ -1949,14 +1954,8 @@ end_line_misc_line (ELEMENT *current)
               enter_index_entry (current->parent->cmd,
                                  current);
             }
-          else
-            {
-              // 3273 FIXME possibly check for @def... command
-            }
-
-
+          else if (command_flags(current) & CF_index_entry_command)
           /* Index commands */
-          if (command_flags(current) & CF_index_entry_command)
             {
               enter_index_entry (current->cmd, current);
               current->type = ET_index_entry_command;
