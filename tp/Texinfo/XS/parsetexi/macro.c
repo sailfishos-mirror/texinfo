@@ -69,11 +69,7 @@ new_macro (char *name, ELEMENT *macro)
   m->macro_name = strdup (name);
   m->element = macro;
 
-  tmp = new_element (ET_NONE);
-  tmp->contents = macro->contents;
-  m->macrobody = convert_to_texinfo (tmp);
-  tmp->contents.list = 0;
-  destroy_element (tmp);
+  m->macrobody = convert_contents_to_texinfo (macro);
 }
 
 /* CMD will be either CM_macro or CM_rmacro.  Read the line defining a macro's 

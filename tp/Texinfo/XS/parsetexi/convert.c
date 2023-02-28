@@ -221,6 +221,20 @@ convert_to_texinfo (ELEMENT *e)
   return result.text;
 }
 
+char *
+convert_contents_to_texinfo (ELEMENT *e)
+{
+  ELEMENT *tmp = new_element (ET_NONE);
+  char *result;
+
+  tmp->contents = e->contents;
+  result = convert_to_texinfo (tmp);
+  tmp->contents.list = 0;
+  destroy_element (tmp);
+
+  return result;
+}
+
 /* Very stripped-down version of Texinfo::Convert::Text.
    Convert the contents of E to plain text.  Suitable for specifying a file
    name containing an at sign or braces.  Set *SUPERFLUOUS_ARG if the contents

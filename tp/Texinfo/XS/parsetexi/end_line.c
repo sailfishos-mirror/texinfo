@@ -807,14 +807,10 @@ check_register_target_element_label (ELEMENT *label_element,
       NODE_SPEC_EXTRA *label_info = parse_node_manual (label_element, 0);
       if (label_info && label_info->manual_content)
         {
-          ELEMENT *label_element_contents = new_element (ET_NONE);
-          /* copy contents only to avoid leading/trailing spaces */
-          insert_slice_into_contents (label_element_contents, 0, label_element,
-                                      0, label_element->contents.number);
-          char *texi = convert_to_texinfo (label_element_contents);
+          /* show contents only to avoid leading/trailing spaces */
+          char *texi = convert_contents_to_texinfo (label_element);
           line_error ("syntax for an external node used for `%s'", texi);
           free (texi);
-          destroy_element (label_element_contents);
         }
       destroy_node_spec (label_info);
     }
@@ -1263,16 +1259,12 @@ end_line_starting_block (ELEMENT *current)
               if (current->args.number > 0
                   && current->args.list[0]->contents.number > 0)
                 {
-                  ELEMENT *tmp = new_element (ET_NONE);
                   char *texi_arg;
 
                   /* expand the contents to avoid surrounding spaces */
-                  tmp->contents = current->args.list[0]->contents;
-                  texi_arg = convert_to_texinfo (tmp);
+                  texi_arg = convert_contents_to_texinfo (current->args.list[0]);
                   command_error (current, "bad argument to @%s: %s",
                                  command_name(command), texi_arg);
-                  tmp->contents.list = 0;
-                  destroy_element (tmp);
                   free (texi_arg);
                 }
               else
@@ -1397,18 +1389,13 @@ end_line_starting_block (ELEMENT *current)
            && current->args.number > 0
            && current->args.list[0]->contents.number > 0)
     {
-      ELEMENT *tmp = new_element (ET_NONE);
       char *texi_arg;
 
       /* expand the contents to avoid surrounding spaces */
-      tmp->contents = current->args.list[0]->contents;
-      texi_arg = convert_to_texinfo (tmp);
+      texi_arg = convert_contents_to_texinfo (current->args.list[0]);
       command_warn (current, "unexpected argument on @%s line: %s",
                      command_name(command), texi_arg);
       free (texi_arg);
-      /* important to do that in order not to deallocate in the tree */
-      tmp->contents.list = 0;
-      destroy_element (tmp);
     }
 
   if (command_data(command).data == BLOCK_conditional)
