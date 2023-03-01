@@ -2368,29 +2368,30 @@ sub _next_text($;$)
           . "$top_value\n"
             if ($self->{'DEBUG'});
       }
-    # Don't close STDIN
-    } elsif ($input->{'fh'}
-             and $input->{'input_source_info'}->{'file_name'} ne '-') {
-      if (!close($input->{'fh'})) {
-        # decode for the message, to have character strings in perl
-        # that will be encoded on output to the locale encoding.
-        # Done differently for the file names in source_info
-        # which are byte strings and end up unmodified in output error
-        # messages.
-        my $file_name_encoding;
-        if (defined($input->{'file_name_encoding'})) {
-          $file_name_encoding = $input->{'file_name_encoding'};
-        } else {
-          $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+    } elsif ($input->{'fh'}) {
+      # Don't close STDIN
+      if ($input->{'input_source_info'}->{'file_name'} ne '-') {
+        if (!close($input->{'fh'})) {
+          # decode for the message, to have character strings in perl
+          # that will be encoded on output to the locale encoding.
+          # Done differently for the file names in source_info
+          # which are byte strings and end up unmodified in output error
+          # messages.
+          my $file_name_encoding;
+          if (defined($input->{'file_name_encoding'})) {
+            $file_name_encoding = $input->{'file_name_encoding'};
+          } else {
+            $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+          }
+          my $decoded_file_name = $input->{'input_file_path'};
+          if (defined($file_name_encoding)) {
+            $decoded_file_name = decode($file_name_encoding,
+                                        $input->{'input_file_path'});
+          }
+          $self->{'registrar'}->document_warn($self,
+                               sprintf(__("error on closing %s: %s"),
+                                       $decoded_file_name, $!));
         }
-        my $decoded_file_name = $input->{'input_file_path'};
-        if (defined($file_name_encoding)) {
-          $decoded_file_name = decode($file_name_encoding,
-                                      $input->{'input_file_path'});
-        }
-        $self->{'registrar'}->document_warn($self,
-                             sprintf(__("error on closing %s: %s"),
-                                     $decoded_file_name, $!));
       }
       delete $input->{'fh'};
     }
@@ -6825,7 +6826,14 @@ sub _parse_texi($$$)
   if ($empty_last_input->{'th'} or $empty_last_input->{'fh'}
       or $empty_last_input->{'source_mark'}
       or scalar(@{$self->{'input'}})) {
-    $self->_bug_message("Non empty last input at the end\n");
+    my $msg = '';
+    $msg .= 'th set, ' if ($empty_last_input->{'th'});
+    $msg .= 'fh set, ' if ($empty_last_input->{'fh'});
+    $msg .= 'mark, ' if ($empty_last_input->{'source_mark'});
+    $msg .= scalar(@{$self->{'input'}}).' input, '
+      if (scalar(@{$self->{'input'}}));
+
+    $self->_bug_message("Non empty last input at the end: $msg\n");
     die;
   }
 
