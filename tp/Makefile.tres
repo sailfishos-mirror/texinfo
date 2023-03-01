@@ -62,6 +62,7 @@ test_tap_files_generated_list = \
   t/xml_tests.t
 
 test_files_generated_list = $(test_tap_files_generated_list) \
+  t/results/alias/alias_macro_target_removed.pl \
   t/results/alias/alias_non_existing_command.pl \
   t/results/alias/alias_of_added_index.pl \
   t/results/alias/alias_of_added_index_before_added_index.pl \

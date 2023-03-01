@@ -158,6 +158,19 @@ in lang
 @strong{bb}.
 ',{'test_formats' => ['plaintext']}
 ,],
+['alias_macro_target_removed',
+'@macro mystrong {arg}
+!!\arg\!!
+@end macro
+
+@alias new = mystrong
+
+@new{aa}
+
+@unmacro mystrong
+
+@new{bb}
+'],
 );
 
 run_all('alias', \@test_cases);

@@ -1,5 +1,10 @@
 2023-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/58alias.t: add alias_macro_target_removed
+	to test an alias resolving to a @macro after @unmacro.
+
+2023-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	catch an unknown command that is an unresolved alias earlier.
 

@@ -1815,7 +1815,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* Handle unknown command. */
   if ((!cmd && command)
       /* command marked as unknown, normally a registered user-defined command
-         that was set as @alias-ed but has not been defined since */
+         that was set as @alias-ed but has not been defined since, or
+         that has been removed (with @unmacro) */
       || (command_data(cmd).flags & CF_UNKNOWN)
           /* Alias command that did not resolve to a non alias command.
              This is possible only if the command read was already an alias
