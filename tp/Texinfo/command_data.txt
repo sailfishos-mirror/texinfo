@@ -98,8 +98,7 @@ refill                  nobrace,preamble,deprecated,no_paragraph     NOBRACE_oth
 # special:     no value and macro expansion, all the line is used, and
 #              analysed during parsing (_parse_special_misc_command)
 # lineraw:     no value and macro expansion, the line is kept as-is, not
-#              analysed
-# skipline:    no argument, everything else on the line is skipped
+#              analysed.  Some of the commands have the line as argument.
 # text:        the line is parsed as texinfo, and the argument is converted
 #              to simple text with convert_to_text allowing only a few @-commands
 # line:        the line is parsed as texinfo
@@ -140,12 +139,12 @@ majorheading            line,formatted_line,contain_basic_inline,sectioning_head
 centerchap              line,formatted_line,root,contain_basic_inline,sectioning_heading,deprecated    LINE_line
 
 # end of document, end of block
-bye                     line,preamble                       LINE_skipline
+bye                     line,preamble                       LINE_lineraw
 end                     line,preamble,contain_plain_text    LINE_text
 
 # comments
-c                       line,preamble                   LINE_lineraw
-comment                 line,preamble                   LINE_lineraw
+c                       line,preamble                   LINE_lineraw 1
+comment                 line,preamble                   LINE_lineraw 1
 
 # set, clear, special argument
 set                     line,preamble                   LINE_special
@@ -164,21 +163,21 @@ setfilename             line,close_paragraph,global_unique,preamble,contain_plai
 verbatiminclude         line,formattable_line,close_paragraph,contain_plain_text         LINE_text
 include                 line,preamble,contain_plain_text                                 LINE_text
 
-raisesections           line,preamble                    LINE_skipline
-lowersections           line,preamble                    LINE_skipline
-contents                line,close_paragraph,global,preamble    LINE_skipline
-shortcontents           line,close_paragraph,global,preamble    LINE_skipline
-summarycontents         line,close_paragraph,global,preamble    LINE_skipline
-insertcopying           line,formattable_line,close_paragraph,global      LINE_skipline
+raisesections           line,preamble                    LINE_lineraw
+lowersections           line,preamble                    LINE_lineraw
+contents                line,close_paragraph,global,preamble    LINE_lineraw
+shortcontents           line,close_paragraph,global,preamble    LINE_lineraw
+summarycontents         line,close_paragraph,global,preamble    LINE_lineraw
+insertcopying           line,formattable_line,close_paragraph,global      LINE_lineraw
 
 # more relevant in preamble
 documentencoding        line,global,preamble,contain_plain_text   LINE_text
-novalidate              line,global_unique,preamble               LINE_skipline
+novalidate              line,global_unique,preamble               LINE_lineraw
 # Position with regard with direntry is significant
 dircategory             line,close_paragraph,preamble,contain_basic_inline   LINE_line
 # arg like 200mm,150mm or 11.5in
 pagesizes               line,global_unique,preamble,contain_plain_text      LINE_line
-finalout                line,preamble                            LINE_skipline
+finalout                line,preamble                            LINE_lineraw
 # arg none asis
 # or a number and forbids anything else on the line
 paragraphindent         line,global,preamble,contain_plain_text  LINE_specific  1
@@ -204,12 +203,12 @@ exampleindent           line,global,preamble,contain_plain_text  LINE_specific  
 footnotestyle           line,global_unique,preamble,contain_plain_text    LINE_specific  1
 # arg after|before|none
 urefbreakstyle          line,global,preamble,contain_plain_text  LINE_specific  1
-smallbook               line,global_unique,preamble     LINE_skipline
-afivepaper              line,global_unique,preamble     LINE_skipline
-afourpaper              line,global_unique,preamble     LINE_skipline
-afourlatex              line,global_unique,preamble     LINE_skipline
-afourwide               line,global_unique,preamble     LINE_skipline
-bsixpaper               line,global_unique,preamble     LINE_skipline
+smallbook               line,global_unique,preamble     LINE_lineraw
+afivepaper              line,global_unique,preamble     LINE_lineraw
+afourpaper              line,global_unique,preamble     LINE_lineraw
+afourlatex              line,global_unique,preamble     LINE_lineraw
+afourwide               line,global_unique,preamble     LINE_lineraw
+bsixpaper               line,global_unique,preamble     LINE_lineraw
 # arg off on single double singleafter doubleafter
 # interacts with setchapternewpage
 headings                line,global,preamble,contain_plain_text  LINE_specific  1
@@ -260,7 +259,7 @@ itemx                   line,formatted_line,close_paragraph,contain_basic_inline
 # in index entries
 subentry                line,in_index,contain_basic_inline          LINE_line
 # for printed output.  @vskip 0pt plus 1filll
-vskip                   line,formattable_line                       LINE_lineraw
+vskip                   line,formattable_line                       LINE_lineraw 1
 # one numerical/real arg
 need                    line,formattable_line,close_paragraph,contain_plain_text   LINE_specific  1
 
@@ -273,7 +272,7 @@ subtitle                line,formatted_line,global,contain_basic_inline         
 title                   line,formatted_line,global_unique,contain_basic_inline     LINE_line
 # numerical arg
 sp                      line,formattable_line,close_paragraph,contain_plain_text    LINE_specific  1
-page                    line,formatted_line,close_paragraph        LINE_skipline
+page                    line,formatted_line,close_paragraph        LINE_lineraw
 
 
 ##########################################################

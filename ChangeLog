@@ -1,5 +1,19 @@
 2023-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	Merge LINE_skipline in LINE_lineraw, distinguish with arg number
+
+	* tp/Texinfo/Common.pm (_informative_command_value),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/command_data.awk,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	tp/Texinfo/command_data.txt: merge LINE_lineraw with LINE_skipline,
+	but set the number of arguments to 1 for former lineraw commands and
+	to 0 for former LINE_skipline commands.  Use the number of arguments
+	to distinguish when needed.
+
+2023-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/58alias.t: add alias_macro_target_removed
 	to test an alias resolving to a @macro after @unmacro.
 

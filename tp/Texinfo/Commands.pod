@@ -131,7 +131,8 @@ and C<@abbr>, 5 for C<@image> and C<@ref>.
 Values are not necessarily set for all the commands, as commands are
 also classified by type of command, some type of commands implying a
 number of arguments, and the number of arguments may not be set if it
-corresponds to the default (0 for block commands, 1 for other commands).
+corresponds to the default (0 for block commands, 1 for other commands
+that take arguments).
 
 =item %brace_code_commands
 X<C<%brace_code_commands>>

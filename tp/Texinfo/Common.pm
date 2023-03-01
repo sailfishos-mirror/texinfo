@@ -1207,7 +1207,8 @@ sub _informative_command_value($)
 
   my $cmdname = $element->{'cmdname'};
 
-  if ($Texinfo::Commands::line_commands{$cmdname} eq 'skipline') {
+  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw'
+      and not $Texinfo::Commands::commands_args_number{$cmdname}) {
     return 1;
   } elsif ($element->{'extra'}
            and exists($element->{'extra'}->{'text_arg'})) {

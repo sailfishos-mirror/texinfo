@@ -900,18 +900,6 @@ sub _convert($$;$)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
         }
-      } elsif ($type eq 'skipline') {
-        my $attribute = [];
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and defined($element->{'args'}->[0]->{'text'})) {
-          my $line = $element->{'args'}->[0]->{'text'};
-          chomp($line);
-          $attribute = [['line', $line]]
-             if ($line ne '');
-        }
-        my $result = $self->txi_markup_open_element($cmdname, $attribute)
-                 .$self->txi_markup_close_element($cmdname)."\n";
-        return $result;
       } elsif ($type eq 'special') {
         if ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
@@ -956,7 +944,7 @@ sub _convert($$;$)
         if ($cmdname eq 'c' or $cmdname eq 'comment') {
           return $self->txi_markup_comment(
                          " $cmdname".$element->{'args'}->[0]->{'text'})
-        } else {
+        } elsif ($Texinfo::Commands::commands_args_number{$cmdname}) {
           my $value = '';
           if ($element->{'args'} and $element->{'args'}->[0]
               and defined($element->{'args'}->[0]->{'text'})) {
@@ -966,6 +954,18 @@ sub _convert($$;$)
           chomp ($value);
           return $self->txi_markup_open_element($cmdname).$value
                     .$self->txi_markup_close_element($cmdname)."\n";
+        } else {
+          my $attribute = [];
+          if ($element->{'args'} and $element->{'args'}->[0]
+              and defined($element->{'args'}->[0]->{'text'})) {
+            my $line = $element->{'args'}->[0]->{'text'};
+            chomp($line);
+            $attribute = [['line', $line]]
+               if ($line ne '');
+          }
+          my $result = $self->txi_markup_open_element($cmdname, $attribute)
+                   .$self->txi_markup_close_element($cmdname)."\n";
+          return $result;
         }
       } else {
         print STDERR "BUG: unknown line_command style $type\n"

@@ -131,7 +131,7 @@ print OUT '# @-commands max number of arguments.  Not set for all commands,
 # in general it only matters if > 1, as commands with 0 args
 # are in specific categories, and default handling of commands
 # ignore commas as argument delimiter, which corresponds to commands
-# with 1 argument.  Only used in Parser.
+# with 1 argument.  Mostly used in Parser.
 our %commands_args_number = (
 ';
 foreach my $args_command (sort(keys(%command_args_nr))) {

@@ -1633,7 +1633,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       if (!line)
         {
-          /* TODO: Can this only happen at end of file? */
+          /* End of the file or of a text fragment. */
           goto funexit;
         }
     }

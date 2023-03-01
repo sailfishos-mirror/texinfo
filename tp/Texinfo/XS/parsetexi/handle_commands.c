@@ -316,15 +316,16 @@ handle_line_command (ELEMENT *current, char **line_inout,
         }
     }
 
-  /* Look up information about this command ( skipline text 
-     line lineraw specific ). */
+  /* Look up information about this command
+     ( text line lineraw specific special ). */
   arg_spec = command_data(cmd).data;
 
   /* All the cases using the raw line.
-     TODO: I don't understand what the difference is between these.
-     LINE_skipline is used where the command takes no argument at all. */
-  if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw
-      || arg_spec == LINE_special)
+     With LINE_lineraw, the line is taken as is as argument, and possibly
+                        later ignored for commands without arg.
+     With LINE_special, arguments are determined especially from the
+                        raw line */
+  if (arg_spec == LINE_lineraw || arg_spec == LINE_special)
     {
       ELEMENT *args = 0;
       enum command_id equivalent_cmd = 0;
@@ -377,7 +378,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       misc = new_element (ET_NONE);
       misc->cmd = cmd;
 
-      if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw)
+      if (arg_spec == LINE_lineraw)
         {
           ELEMENT *arg;
           args = new_element (ET_NONE);
@@ -465,7 +466,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   add_to_element_args (misc, misc_arg);
                 }
               /* TODO: Could we have just set misc->args directly as args? */
-              if (args->contents.number > 0 && arg_spec != LINE_skipline)
+              if (args->contents.number > 0
+                  && (arg_spec == LINE_special
+                      /* lineraw with the line as argument */
+                      || command_data (cmd).args_number > 0))
                 add_extra_misc_args (misc, "misc_args", args);
               else
                 destroy_element_and_children (args);

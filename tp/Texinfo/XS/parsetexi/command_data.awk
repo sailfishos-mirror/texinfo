@@ -201,7 +201,7 @@ END {
                 where = match(command_data, /^NOBRACE_/)
               }
             }
-            if (where != 0 || command_data == "BRACE_noarg") {
+            if (where != 0 || command_data == "BRACE_noarg" || command_data == "LINE_lineraw" ) {
               args_nr_data = "0"
             } else {
               args_nr_data = "1"

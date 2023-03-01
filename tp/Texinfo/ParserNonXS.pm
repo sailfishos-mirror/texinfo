@@ -4271,7 +4271,7 @@ sub _end_line($$$)
     $current = _end_line_starting_block($self, $current, $source_info);
 
   # misc command line arguments
-  # Never go here if skipline/noarg/...
+  # Never go here if lineraw/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
   }
@@ -5008,7 +5008,7 @@ sub _process_remaining_on_line($$$$)
       if ($self->{'DEBUG'});
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
-      # end of the file or of a text fragment.
+      # End of the file or of a text fragment.
       print STDERR "NO MORE LINE for empty text\n" if ($self->{'DEBUG'});
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
@@ -5641,13 +5641,12 @@ sub _process_remaining_on_line($$$$)
         }
       }
 
-      # skipline text line lineraw /^\d$/
+      # text line lineraw special specific
       my $arg_spec = $self->{'line_commands'}->{$command};
       my $misc;
 
       # all the cases using the raw line
-      if ($arg_spec eq 'skipline' or $arg_spec eq 'lineraw'
-               or $arg_spec eq 'special') {
+      if ($arg_spec eq 'lineraw' or $arg_spec eq 'special') {
         my $ignored = 0;
         if ($command eq 'insertcopying') {
           my $parent = $current;
@@ -5682,7 +5681,7 @@ sub _process_remaining_on_line($$$$)
                  'parent' => $current};
         my $args = [];
         my $has_comment;
-        if ($arg_spec eq 'lineraw' or $arg_spec eq 'skipline') {
+        if ($arg_spec eq 'lineraw') {
           $args = [ $line ];
         } elsif ($arg_spec eq 'special') {
           ($args, $has_comment)
@@ -5729,7 +5728,11 @@ sub _process_remaining_on_line($$$$)
                 { 'type' => 'misc_arg', 'text' => $arg,
                   'parent' => $current->{'contents'}->[-1] };
             }
-            if (scalar(@$args) and $arg_spec ne 'skipline') {
+            # TODO: Could we have just set misc->args directly as args?
+            if (scalar(@$args)
+                and ($arg_spec eq 'special'
+                     # lineraw with the line as argument
+                     or $commands_args_number{$command})) {
               $misc->{'extra'} = {} if (!$misc->{'extra'});
               $misc->{'extra'}->{'misc_args'} = $args;
             }
@@ -5760,7 +5763,7 @@ sub _process_remaining_on_line($$$$)
         return ($current, $line, $source_info, $GET_A_NEW_LINE);
         # goto funexit;  # used in XS code
       } else {
-        # $arg_spec is text, line or a number
+        # $arg_spec is text, line or specific
         # @item or @itemx in @table
         if ($command eq 'item' or $command eq 'itemx') {
           my $parent;
