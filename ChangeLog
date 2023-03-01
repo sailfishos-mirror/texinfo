@@ -1,5 +1,16 @@
 2023-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	Remove extra misc_args for special and lineraw line commands
+
+	* tp/Texinfo/Common.pm (_informative_command_value),
+	tp/Texinfo/Convert/LaTeX.pm (_convert), tp/Texinfo/ParserNonXS.pm
+	(_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command): do
+	not add args to extra misc_args for special and lineraw line commands,
+	regular args can be used instead.
+
+2023-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	Merge LINE_skipline in LINE_lineraw, distinguish with arg number
 
 	* tp/Texinfo/Common.pm (_informative_command_value),

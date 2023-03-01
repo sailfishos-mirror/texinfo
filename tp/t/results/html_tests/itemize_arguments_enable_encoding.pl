@@ -3892,11 +3892,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result
 '

@@ -1679,13 +1679,7 @@ $result_trees{'accent'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' arg is command -- @dotless{i} is special-cased for HTML
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'contents' => [
@@ -1895,13 +1889,7 @@ $result_trees{'accent'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' arg is command -- @dotless{j}
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'contents' => [

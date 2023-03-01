@@ -21,12 +21,6 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'foo',
-              'some @value'
-            ]
-          },
           'info' => {
             'arg_line' => '  foo   some @value
 '
@@ -82,11 +76,6 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'unmacro',
-          'extra' => {
-            'misc_args' => [
-              'ggg'
-            ]
-          },
           'info' => {
             'arg_line' => '  ggg
 '
@@ -105,11 +94,6 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@arrow'
-            ]
-          },
           'info' => {
             'arg_line' => '  @arrow
 '

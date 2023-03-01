@@ -281,12 +281,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'do-top',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' do-top
 '
@@ -344,13 +338,7 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' -*-texinfo-*-
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'paragraph'

@@ -170,13 +170,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment before first item in enumerate
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               ],
               'type' => 'before_item'
@@ -870,13 +864,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 },
                 {
                   'args' => [

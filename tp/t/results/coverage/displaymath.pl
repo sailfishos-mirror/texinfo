@@ -443,13 +443,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment in displaymath
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => 'a/2

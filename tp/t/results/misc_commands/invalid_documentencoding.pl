@@ -17,13 +17,7 @@ $result_trees{'invalid_documentencoding'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' this one is valid
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'args' => [

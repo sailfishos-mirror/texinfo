@@ -103,13 +103,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' float
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -202,13 +196,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' listoffloats
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'line_arg'

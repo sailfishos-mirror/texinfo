@@ -31,13 +31,7 @@ $result_trees{'multitable_bracketed_prototype_not_closed_space_comment'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'type' => 'bracketed'

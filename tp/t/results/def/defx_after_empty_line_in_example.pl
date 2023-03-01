@@ -139,13 +139,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' c
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         },
                         {
                           'args' => [
@@ -155,13 +149,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'comment',
-                          'extra' => {
-                            'misc_args' => [
-                              ' comment
-'
-                            ]
-                          }
+                          'cmdname' => 'comment'
                         },
                         {
                           'text' => '

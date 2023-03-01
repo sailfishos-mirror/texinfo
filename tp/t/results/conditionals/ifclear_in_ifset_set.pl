@@ -26,12 +26,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'a',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' a
 '
@@ -93,13 +87,7 @@ $result_trees{'ifclear_in_ifset_set'} = {
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' - ok, ignored
-'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       },
                       'spaces_after_argument' => {
                         'text' => ' '
@@ -169,13 +157,7 @@ $result_trees{'ifclear_in_ifset_set'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' WRONG - missing @end ifset.
-'
-            ]
-          }
+          'cmdname' => 'c'
         }
       ],
       'type' => 'before_node_section'

@@ -364,13 +364,7 @@ $result_trees{'node_line_arguments'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  '
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             'spaces_after_argument' => {
               'text' => ' '
@@ -501,13 +495,7 @@ $result_trees{'node_line_arguments'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comma , end
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             'spaces_after_argument' => {
               'text' => ' '

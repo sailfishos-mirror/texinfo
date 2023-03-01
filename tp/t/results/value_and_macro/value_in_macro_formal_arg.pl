@@ -21,12 +21,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'argument',
-              'arg'
-            ]
-          },
           'info' => {
             'arg_line' => ' argument arg 
 '

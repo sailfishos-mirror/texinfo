@@ -776,13 +776,7 @@ $result_trees{'block_commands_in_table'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' comment
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         }
                       ],
                       'type' => 'inter_item'

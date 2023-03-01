@@ -6228,13 +6228,7 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' @printindex fn
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'args' => [
@@ -6244,13 +6238,7 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' @printindex vr
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'text' => '

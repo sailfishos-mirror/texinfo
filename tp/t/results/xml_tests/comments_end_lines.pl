@@ -72,13 +72,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment itemize
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => '  '
@@ -148,13 +142,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -274,13 +262,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' table
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -364,13 +346,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' quot no arg
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -446,13 +422,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -528,13 +498,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -696,13 +660,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -800,13 +758,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => '  '
@@ -891,13 +843,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -973,13 +919,7 @@ $result_trees{'comments_end_lines'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comm
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '

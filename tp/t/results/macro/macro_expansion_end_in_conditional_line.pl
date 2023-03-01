@@ -83,12 +83,6 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'flag',
-              '1'
-            ]
-          },
           'info' => {
             'arg_line' => ' flag 1
 '

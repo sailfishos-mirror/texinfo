@@ -45,13 +45,7 @@ $result_trees{'comments_in_example'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'text' => 'second line '
@@ -64,13 +58,7 @@ $result_trees{'comments_in_example'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'
@@ -155,13 +143,7 @@ $result_trees{'comments_in_example'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'
@@ -246,13 +228,7 @@ $result_trees{'comments_in_example'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'text' => '

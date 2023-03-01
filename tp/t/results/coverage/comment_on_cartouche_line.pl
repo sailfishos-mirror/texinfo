@@ -21,13 +21,7 @@ $result_trees{'comment_on_cartouche_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -125,13 +119,7 @@ $result_trees{'comment_on_cartouche_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '

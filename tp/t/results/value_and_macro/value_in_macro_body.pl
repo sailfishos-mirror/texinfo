@@ -21,12 +21,6 @@ $result_trees{'value_in_macro_body'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'bodyarg',
-              '\\arg\\'
-            ]
-          },
           'info' => {
             'arg_line' => ' bodyarg \\arg\\ 
 '

@@ -300,12 +300,6 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' makeinfo --docbook segfaults
-'
-                ]
-              },
               'source_marks' => [
                 {
                   'counter' => 1,

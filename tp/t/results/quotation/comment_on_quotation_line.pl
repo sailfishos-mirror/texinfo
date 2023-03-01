@@ -29,13 +29,7 @@ $result_trees{'comment_on_quotation_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' quotation 
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'

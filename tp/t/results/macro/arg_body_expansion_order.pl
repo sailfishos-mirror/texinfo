@@ -194,11 +194,6 @@ $result_trees{'arg_body_expansion_order'} = {
             }
           ],
           'cmdname' => 'unmacro',
-          'extra' => {
-            'misc_args' => [
-              'othermacro'
-            ]
-          },
           'info' => {
             'arg_line' => ' othermacro
 '

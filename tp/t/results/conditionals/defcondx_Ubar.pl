@@ -34,13 +34,7 @@ $result_trees{'defcondx_Ubar'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test def*x in a conditional
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -55,13 +49,7 @@ $result_trees{'defcondx_Ubar'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' set this from the command line.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -71,13 +59,7 @@ $result_trees{'defcondx_Ubar'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' set bar
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

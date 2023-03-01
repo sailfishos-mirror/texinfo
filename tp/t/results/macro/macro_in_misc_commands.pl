@@ -311,13 +311,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment @text{}
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -327,13 +321,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment @text{}
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'paragraph'
@@ -3329,13 +3317,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' accepts 10 or 11
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'args' => [
@@ -3463,13 +3445,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' accept false or true
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'args' => [
@@ -4505,13 +4481,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'vskip',
-          'extra' => {
-            'misc_args' => [
-              ' @atext{}
-'
-            ]
-          }
+          'cmdname' => 'vskip'
         },
         {
           'text' => '
@@ -4827,11 +4797,6 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@resultmacro'
-            ]
-          },
           'info' => {
             'arg_line' => ' @resultmacro{}
 '

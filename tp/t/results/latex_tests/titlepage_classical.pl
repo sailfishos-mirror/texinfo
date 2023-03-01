@@ -266,13 +266,7 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' The following two commands start the copyright page.
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'args' => [
@@ -292,13 +286,7 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'vskip',
-                  'extra' => {
-                    'misc_args' => [
-                      ' 0pt plus 1filll
-'
-                    ]
-                  }
+                  'cmdname' => 'vskip'
                 },
                 {
                   'args' => [

@@ -26,13 +26,7 @@ $result_trees{'misc_raw_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment space
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -65,13 +59,7 @@ $result_trees{'misc_raw_comments'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment no space
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   },
                   'type' => 'line_arg'
@@ -145,13 +133,7 @@ $result_trees{'misc_raw_comments'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment after end tex
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => '    '

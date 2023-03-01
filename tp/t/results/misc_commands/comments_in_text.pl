@@ -22,13 +22,7 @@ $result_trees{'comments_in_text'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' lone comment
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'text' => '
@@ -48,13 +42,7 @@ $result_trees{'comments_in_text'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -64,13 +52,7 @@ $result_trees{'comments_in_text'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => 'Text line after the comment followed by a comment '
@@ -83,13 +65,7 @@ $result_trees{'comments_in_text'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' c
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             {
               'text' => 'Text line after the text line followed by the comment.
@@ -116,13 +92,7 @@ $result_trees{'comments_in_text'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'paragraph'

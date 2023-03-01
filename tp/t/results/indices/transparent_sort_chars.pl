@@ -23,12 +23,6 @@ $result_trees{'transparent_sort_chars'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'txiindexhyphenignore',
-                  ''
-                ]
-              },
               'info' => {
                 'arg_line' => ' txiindexhyphenignore
 '

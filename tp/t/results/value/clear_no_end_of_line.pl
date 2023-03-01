@@ -17,11 +17,6 @@ $result_trees{'clear_no_end_of_line'} = {
             }
           ],
           'cmdname' => 'clear',
-          'extra' => {
-            'misc_args' => [
-              'jj'
-            ]
-          },
           'info' => {
             'arg_line' => ' jj'
           }

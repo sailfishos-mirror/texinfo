@@ -26,13 +26,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' setfilename (text)
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => '  '
@@ -73,13 +67,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' definfoenclose (number)
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => '  '
@@ -124,13 +112,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' c (number)
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -198,13 +180,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' pagesizes  (line)
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -251,13 +227,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' everyheading (lineraw)
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -303,13 +273,7 @@ $result_trees{'comments_on_misc_command_line'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' indent (skipspace)
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'contents' => [

@@ -29,13 +29,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' settittle
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'line_arg'
@@ -79,13 +73,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' @node Top
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             'spaces_after_argument' => {
               'text' => '  '
@@ -129,13 +117,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' @top
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             'spaces_after_argument' => {
               'text' => ' '
@@ -181,13 +163,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' @node chap
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             'spaces_after_argument' => {
               'text' => ' '
@@ -232,13 +208,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' @chapter
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             'spaces_after_argument' => {
               'text' => ' '
@@ -271,13 +241,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment frenchspacing
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -325,13 +289,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment microtype
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'line_arg'
@@ -379,13 +337,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' index entry
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -441,13 +393,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' heading
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => '    '
@@ -490,13 +436,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' printindex 
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -583,13 +523,7 @@ $result_trees{'comment_space_command_on_line'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' end
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -655,13 +589,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' listoffloats
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'line_arg'

@@ -21,12 +21,6 @@ $result_trees{'set_form_feed'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'gg',
-              'a\\a\\f\\\\'
-            ]
-          },
           'info' => {
             'arg_line' => ' gg  a\\a\\f\\\\
 '
@@ -44,12 +38,6 @@ $result_trees{'set_form_feed'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'hh',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' hh
 '
@@ -67,12 +55,6 @@ $result_trees{'set_form_feed'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'll',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' ll 
 '

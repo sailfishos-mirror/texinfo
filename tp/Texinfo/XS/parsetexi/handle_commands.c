@@ -465,21 +465,13 @@ handle_line_command (ELEMENT *current, char **line_inout,
                                  args->contents.list[i]->text.end);
                   add_to_element_args (misc, misc_arg);
                 }
-              /* TODO: Could we have just set misc->args directly as args? */
-              if (args->contents.number > 0
-                  && (arg_spec == LINE_special
-                      /* lineraw with the line as argument */
-                      || command_data (cmd).args_number > 0))
-                add_extra_misc_args (misc, "misc_args", args);
-              else
-                destroy_element_and_children (args);
             }
           else
             {
               destroy_element_and_children (misc);
-              destroy_element_and_children (args);
               misc = 0;
             }
+          destroy_element_and_children (args);
         }
 
       if (cmd == CM_raisesections)

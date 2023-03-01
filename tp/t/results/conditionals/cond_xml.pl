@@ -34,13 +34,7 @@ $result_trees{'cond_xml'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test conditions
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

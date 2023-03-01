@@ -17,11 +17,6 @@ $result_trees{'clickstyle'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result
 '
@@ -78,11 +73,6 @@ $result_trees{'clickstyle'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@equiv'
-            ]
-          },
           'info' => {
             'arg_line' => '@equiv
 '

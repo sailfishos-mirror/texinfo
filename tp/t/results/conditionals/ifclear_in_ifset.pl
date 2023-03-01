@@ -102,13 +102,7 @@ $result_trees{'ifclear_in_ifset'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' WRONG - missing @end ifset.
-'
-            ]
-          }
+          'cmdname' => 'c'
         }
       ],
       'type' => 'before_node_section'

@@ -29,13 +29,7 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %**start of header
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'preamble_before_setfilename'
@@ -145,13 +139,7 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %**end of header
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -310,13 +298,7 @@ $result_trees{'sample_utf8'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'vskip',
-                      'extra' => {
-                        'misc_args' => [
-                          ' 0pt plus 1filll
-'
-                        ]
-                      }
+                      'cmdname' => 'vskip'
                     }
                   ],
                   'type' => 'paragraph'
@@ -388,13 +370,7 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' Output the table of the contents at the beginning.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [

@@ -393,13 +393,7 @@ $result_trees{'accent_on_table_line'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               },
               'type' => 'block_line_arg'

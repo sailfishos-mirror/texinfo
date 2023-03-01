@@ -36,13 +36,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'
@@ -189,13 +183,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'
@@ -227,13 +215,7 @@ $result_trees{'nested_example_and_comment'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          '
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'type' => 'preformatted'
@@ -357,13 +339,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'
@@ -395,13 +371,7 @@ $result_trees{'nested_example_and_comment'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          '
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'type' => 'preformatted'
@@ -458,13 +428,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               ],
               'type' => 'preformatted'

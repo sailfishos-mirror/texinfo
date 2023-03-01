@@ -93,13 +93,7 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' comment
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'text' => '
@@ -120,13 +114,7 @@ $result_trees{'no_empty_line_after_section'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' c
-'
-                ]
-              }
+              'cmdname' => 'comment'
             }
           ],
           'type' => 'paragraph'

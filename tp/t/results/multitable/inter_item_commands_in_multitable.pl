@@ -43,13 +43,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment before first item
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'text' => '
@@ -166,13 +160,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                   'type' => 'misc_arg'
                                 }
                               ],
-                              'cmdname' => 'c',
-                              'extra' => {
-                                'misc_args' => [
-                                  ' last comment
-'
-                                ]
-                              }
+                              'cmdname' => 'c'
                             }
                           ],
                           'type' => 'paragraph'
@@ -415,13 +403,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                   'type' => 'misc_arg'
                                 }
                               ],
-                              'cmdname' => 'c',
-                              'extra' => {
-                                'misc_args' => [
-                                  ' comment in multitable
-'
-                                ]
-                              }
+                              'cmdname' => 'c'
                             }
                           ],
                           'type' => 'paragraph'

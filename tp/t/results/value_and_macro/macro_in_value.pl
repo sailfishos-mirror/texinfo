@@ -93,12 +93,6 @@ $result_trees{'macro_in_value'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'flagab',
-              '@ab'
-            ]
-          },
           'info' => {
             'arg_line' => ' flagab @ab
 '

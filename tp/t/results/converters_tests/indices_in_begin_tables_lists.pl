@@ -191,13 +191,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment in itemize
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'args' => [
@@ -567,13 +561,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment in itemize
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [
@@ -728,13 +716,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment before first item in enumerate
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               ],
               'type' => 'before_item'
@@ -1428,13 +1410,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 },
                 {
                   'args' => [
@@ -1627,13 +1603,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment in table
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [
@@ -1822,13 +1792,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' comment between item and itemx
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         }
                       ],
                       'type' => 'inter_item'
@@ -2059,13 +2023,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' and a comment
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         },
                         {
                           'args' => [
@@ -2075,13 +2033,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'comment',
-                          'extra' => {
-                            'misc_args' => [
-                              ' and another comment
-'
-                            ]
-                          }
+                          'cmdname' => 'comment'
                         }
                       ],
                       'type' => 'inter_item'
@@ -2201,13 +2153,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' comment between lines
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         },
                         {
                           'text' => '
@@ -2273,13 +2219,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment at end
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'type' => 'table_definition'
@@ -2415,13 +2355,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment in table
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [
@@ -2769,13 +2703,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' samp comment in table
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [
@@ -3623,13 +3551,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' commant
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [

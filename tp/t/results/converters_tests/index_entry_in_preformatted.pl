@@ -216,13 +216,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' comment
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         },
                         'spaces_after_argument' => {
                           'text' => ' '

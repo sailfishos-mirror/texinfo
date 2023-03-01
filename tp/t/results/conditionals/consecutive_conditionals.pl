@@ -155,12 +155,6 @@ $result_trees{'consecutive_conditionals'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'b',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' b
 '

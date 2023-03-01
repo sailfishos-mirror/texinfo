@@ -34,13 +34,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' this document is setup to detect when the documentlanguage was not
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -50,13 +44,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' set according to command line, but according to document.  This
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -66,13 +54,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' is important to test that in the Parser, as converters initialized with
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -82,13 +64,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' Texinfo::Convert::Converter converter() and with values accessed by
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -98,13 +74,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' get_conf() will use the command line.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -114,13 +84,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' This is tricky to demonstrate, as documentlanguage is not used much
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -130,13 +94,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' in Parser.  It is used in two places to set the documentlanguage extra
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -146,13 +104,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' value, 
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -162,13 +114,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' 1) for the untranslated type, for the prefix of @def* and 
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -178,13 +124,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' 2) for the @def* line commands with added index entries that need to 
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -194,13 +134,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  '    be translated, like \'{name} of {class}\'.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -210,13 +144,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' The untranslated type is in general translated in the converters
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -226,13 +154,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' without using the extra documentlanguage key value, so getting it 
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -242,13 +164,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' wrong does not have any consequence.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -258,13 +174,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' The @def* translated added indices are translated relatively early,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -274,13 +184,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' before the converter, and the extra documentlanguage key is used to
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -290,13 +194,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' get the language, so if the wrong language is set, it will show up
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -306,13 +204,7 @@ $result_trees{'documentlanguage_option'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' in the index generated by @printindex.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

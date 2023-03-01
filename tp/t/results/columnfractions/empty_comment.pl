@@ -25,13 +25,7 @@ $result_trees{'empty_comment'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              '
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         }
                       },
                       'type' => 'line_arg'

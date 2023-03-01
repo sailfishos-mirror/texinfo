@@ -21,13 +21,7 @@ $result_trees{'raw_and_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -61,13 +55,7 @@ $result_trees{'raw_and_comments'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'comment',
-                      'extra' => {
-                        'misc_args' => [
-                          ' other comment
-'
-                        ]
-                      }
+                      'cmdname' => 'comment'
                     },
                     'spaces_after_argument' => {
                       'text' => '  '
@@ -126,13 +114,7 @@ $result_trees{'raw_and_comments'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' in xml comment
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   },
                   'type' => 'block_line_arg'
@@ -166,13 +148,7 @@ $result_trees{'raw_and_comments'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'comment',
-                          'extra' => {
-                            'misc_args' => [
-                              ' end xml comment
-'
-                            ]
-                          }
+                          'cmdname' => 'comment'
                         },
                         'spaces_after_argument' => {
                           'text' => '  '

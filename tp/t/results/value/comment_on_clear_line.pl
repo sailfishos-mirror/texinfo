@@ -21,12 +21,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'x',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' x
 '
@@ -44,12 +38,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'y',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' y
 '
@@ -67,12 +55,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'z',
-              'g'
-            ]
-          },
           'info' => {
             'arg_line' => ' z g
 '
@@ -90,12 +72,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              't',
-              'a vv'
-            ]
-          },
           'info' => {
             'arg_line' => ' t a vv @comment@ggg
 '
@@ -114,11 +90,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'clear',
-          'extra' => {
-            'misc_args' => [
-              'x'
-            ]
-          },
           'info' => {
             'arg_line' => ' x@c
 '
@@ -132,11 +103,6 @@ $result_trees{'comment_on_clear_line'} = {
             }
           ],
           'cmdname' => 'clear',
-          'extra' => {
-            'misc_args' => [
-              'y'
-            ]
-          },
           'info' => {
             'arg_line' => ' y @c
 '

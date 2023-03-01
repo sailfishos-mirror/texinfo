@@ -22,13 +22,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' -*-texinfo-*-
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'paragraph'
@@ -495,12 +489,6 @@ $result_trees{'raiselowersections'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'do-top',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' do-top
 '
@@ -614,13 +602,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' -*-texinfo-*-
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           ],
           'type' => 'paragraph'
@@ -1406,11 +1388,6 @@ $result_trees{'raiselowersections'} = {
             }
           ],
           'cmdname' => 'clear',
-          'extra' => {
-            'misc_args' => [
-              'do-top'
-            ]
-          },
           'info' => {
             'arg_line' => ' do-top
 '

@@ -34,13 +34,7 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test footnotes with nodes only
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

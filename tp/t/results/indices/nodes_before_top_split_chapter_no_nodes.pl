@@ -34,13 +34,7 @@ $result_trees{'nodes_before_top_split_chapter_no_nodes'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test nodes before Top node
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

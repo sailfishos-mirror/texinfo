@@ -33,13 +33,7 @@ $result_trees{'empty_label_with_space_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_before_argument' => {
                   'text' => ' '

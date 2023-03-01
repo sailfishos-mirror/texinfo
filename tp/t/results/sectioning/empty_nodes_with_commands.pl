@@ -29,13 +29,7 @@ $result_trees{'empty_nodes_with_commands'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment
-'
-                ]
-              }
+              'cmdname' => 'c'
             }
           },
           'type' => 'line_arg'

@@ -21,12 +21,6 @@ $result_trees{'set_no_end_of_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'arg',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' arg'
           }

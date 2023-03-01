@@ -308,13 +308,7 @@ macroseven defined
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' @macrofour
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [

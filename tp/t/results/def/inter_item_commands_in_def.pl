@@ -118,13 +118,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment before first deffnx
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'text' => '

@@ -28,13 +28,7 @@ $result_trees{'setfilename'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   },
                   'type' => 'line_arg'
@@ -104,13 +98,7 @@ $result_trees{'setfilename'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     'spaces_after_argument' => {
                       'text' => ' '

@@ -21,12 +21,6 @@ $result_trees{'not_only_characters'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              '-e_\'::;',
-              'hh'
-            ]
-          },
           'info' => {
             'arg_line' => ' -e_\'::; hh
 '

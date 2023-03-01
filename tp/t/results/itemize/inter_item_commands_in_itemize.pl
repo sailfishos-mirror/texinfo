@@ -176,13 +176,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment in itemize
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'args' => [
@@ -552,13 +546,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment in itemize
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [

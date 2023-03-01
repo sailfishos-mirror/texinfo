@@ -33,12 +33,6 @@ $result_trees{'indices_disable_encoding'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'txiindexbackslashignore',
-                  ''
-                ]
-              },
               'info' => {
                 'arg_line' => ' txiindexbackslashignore
 '
@@ -927,11 +921,6 @@ $result_trees{'indices_disable_encoding'} = {
             }
           ],
           'cmdname' => 'clear',
-          'extra' => {
-            'misc_args' => [
-              'txiindexbackslashignore'
-            ]
-          },
           'info' => {
             'arg_line' => ' txiindexbackslashignore
 '
@@ -977,13 +966,7 @@ $result_trees{'indices_disable_encoding'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '

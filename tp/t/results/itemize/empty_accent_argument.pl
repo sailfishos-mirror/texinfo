@@ -31,13 +31,7 @@ $result_trees{'empty_accent_argument'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               },
               'type' => 'block_line_arg'

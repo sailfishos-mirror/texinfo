@@ -135,13 +135,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                       'type' => 'misc_arg'
                                     }
                                   ],
-                                  'cmdname' => 'c',
-                                  'extra' => {
-                                    'misc_args' => [
-                                      ' and a comment
-'
-                                    ]
-                                  }
+                                  'cmdname' => 'c'
                                 },
                                 {
                                   'args' => [
@@ -151,13 +145,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                       'type' => 'misc_arg'
                                     }
                                   ],
-                                  'cmdname' => 'comment',
-                                  'extra' => {
-                                    'misc_args' => [
-                                      ' and another comment
-'
-                                    ]
-                                  }
+                                  'cmdname' => 'comment'
                                 }
                               ],
                               'type' => 'preformatted'

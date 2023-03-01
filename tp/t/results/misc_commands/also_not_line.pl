@@ -288,13 +288,7 @@ $result_trees{'also_not_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'vskip',
-              'extra' => {
-                'misc_args' => [
-                  ' 
-'
-                ]
-              }
+              'cmdname' => 'vskip'
             }
           ],
           'type' => 'paragraph'

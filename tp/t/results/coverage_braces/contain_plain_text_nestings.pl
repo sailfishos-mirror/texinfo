@@ -358,13 +358,7 @@ $result_trees{'contain_plain_text_nestings'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' no warning for @ref in @w
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'contents' => [

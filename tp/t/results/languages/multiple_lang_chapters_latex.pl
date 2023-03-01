@@ -69,12 +69,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                 }
               ],
               'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' @node Top is ignored in TeX and LaTeX, so switch here
-'
-                ]
-              },
               'source_marks' => [
                 {
                   'counter' => 1,

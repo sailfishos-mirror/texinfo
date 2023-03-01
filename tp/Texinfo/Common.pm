@@ -1208,8 +1208,13 @@ sub _informative_command_value($)
   my $cmdname = $element->{'cmdname'};
 
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw'
-      and not $Texinfo::Commands::commands_args_number{$cmdname}) {
-    return 1;
+      or $Texinfo::Commands::line_commands{$cmdname} eq 'special') {
+    if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw'
+        and not $Texinfo::Commands::commands_args_number{$cmdname}) {
+      return 1;
+    } elsif ($element->{'args'}) {
+      return $element->{'args'}->[0]->{'text'};
+    }
   } elsif ($element->{'extra'}
            and exists($element->{'extra'}->{'text_arg'})) {
     return $element->{'extra'}->{'text_arg'};
@@ -1239,6 +1244,7 @@ sub set_informative_command_value($$)
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   my $value = _informative_command_value($element);
+
   if (defined($value)) {
     return $self->set_conf($cmdname, $value);
   }

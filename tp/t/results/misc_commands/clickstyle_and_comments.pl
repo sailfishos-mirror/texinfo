@@ -17,11 +17,6 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@comment'
-            ]
-          },
           'info' => {
             'arg_line' => '@comment a
 '
@@ -40,11 +35,6 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@comment'
-            ]
-          },
           'info' => {
             'arg_line' => ' @comment b
 '
@@ -87,11 +77,6 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result@comment e
 '
@@ -110,11 +95,6 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result   @comment f
 '
@@ -133,11 +113,6 @@ $result_trees{'clickstyle_and_comments'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result on the same line @comment g
 '

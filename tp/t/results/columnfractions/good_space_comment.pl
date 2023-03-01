@@ -30,13 +30,7 @@ $result_trees{'good_space_comment'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' space comment
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         },
                         'spaces_after_argument' => {
                           'text' => '  '

@@ -39,13 +39,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment itemize
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [
@@ -118,13 +112,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment on enumerate line
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -142,13 +130,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment enumerate
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [
@@ -249,13 +231,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment table
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [
@@ -344,13 +320,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment on vtable line
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -482,13 +452,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment multitable
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'contents' => [

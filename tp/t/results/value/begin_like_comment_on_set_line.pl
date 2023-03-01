@@ -28,12 +28,6 @@ $result_trees{'begin_like_comment_on_set_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'y',
-              'some thing @commentary is it'
-            ]
-          },
           'info' => {
             'arg_line' => ' y some thing @commentary is it
 '

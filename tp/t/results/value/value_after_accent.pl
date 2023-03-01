@@ -21,12 +21,6 @@ $result_trees{'value_after_accent'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'a_letter',
-              'a'
-            ]
-          },
           'info' => {
             'arg_line' => ' a_letter a
 '

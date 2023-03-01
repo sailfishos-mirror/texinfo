@@ -749,11 +749,6 @@ $result_trees{'glossary'} = {
                 }
               ],
               'cmdname' => 'unmacro',
-              'extra' => {
-                'misc_args' => [
-                  'expandglossary'
-                ]
-              },
               'info' => {
                 'arg_line' => ' expandglossary
 '
@@ -876,11 +871,6 @@ $result_trees{'glossary'} = {
                 }
               ],
               'cmdname' => 'unmacro',
-              'extra' => {
-                'misc_args' => [
-                  'glossarytext'
-                ]
-              },
               'info' => {
                 'arg_line' => ' glossarytext
 '
@@ -1194,11 +1184,6 @@ $result_trees{'glossary'} = {
                 }
               ],
               'cmdname' => 'unmacro',
-              'extra' => {
-                'misc_args' => [
-                  'expandglossary'
-                ]
-              },
               'info' => {
                 'arg_line' => ' expandglossary
 '
@@ -1321,11 +1306,6 @@ $result_trees{'glossary'} = {
                 }
               ],
               'cmdname' => 'unmacro',
-              'extra' => {
-                'misc_args' => [
-                  'glossarytext'
-                ]
-              },
               'info' => {
                 'arg_line' => ' glossarytext
 '

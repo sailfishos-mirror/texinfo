@@ -147,13 +147,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' no space comment
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -222,13 +216,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' space comment
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               },
               'type' => 'block_line_arg'
@@ -302,13 +290,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      '
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'

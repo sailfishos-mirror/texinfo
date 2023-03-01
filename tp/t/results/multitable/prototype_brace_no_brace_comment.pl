@@ -34,13 +34,7 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'comment',
-                  'extra' => {
-                    'misc_args' => [
-                      ' cc
-'
-                    ]
-                  }
+                  'cmdname' => 'comment'
                 }
               },
               'type' => 'block_line_arg'

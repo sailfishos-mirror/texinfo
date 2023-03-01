@@ -3941,10 +3941,10 @@ sub _convert($$)
         return $result;
       }
     } elsif ($cmdname eq 'vskip') {
-      if ($element->{'extra'}->{'misc_args'}->[0]) {
+      if ($element->{'args'}) {
         # no need for space in front and end of line they are in the
         # argument
-        $result .= "\\vskip$element->{'extra'}->{'misc_args'}->[0]";
+        $result .= "\\vskip$element->{'args'}->[0]->{'text'}";
       }
       return $result;
     } elsif ($cmdname eq 'contents') {

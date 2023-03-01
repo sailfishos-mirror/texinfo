@@ -21,12 +21,6 @@ $result_trees{'value_in_invalid_documentencoding'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'badvalue',
-              'bad'
-            ]
-          },
           'info' => {
             'arg_line' => ' badvalue bad
 '

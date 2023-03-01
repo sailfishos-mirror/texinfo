@@ -26,12 +26,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'notset',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' notset
 '

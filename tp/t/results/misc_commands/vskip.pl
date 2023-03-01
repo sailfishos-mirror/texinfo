@@ -17,13 +17,7 @@ $result_trees{'vskip'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'vskip',
-          'extra' => {
-            'misc_args' => [
-              ' 0pt plus 1filll
-'
-            ]
-          }
+          'cmdname' => 'vskip'
         }
       ],
       'type' => 'before_node_section'

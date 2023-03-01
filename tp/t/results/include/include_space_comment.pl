@@ -29,12 +29,7 @@ $result_trees{'include_space_comment'} = {
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' comment'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       },
                       'spaces_after_argument' => {
                         'text' => ' '

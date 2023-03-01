@@ -21,12 +21,6 @@ $result_trees{'value_after_brace_command'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'bracedletter',
-              '{a}'
-            ]
-          },
           'info' => {
             'arg_line' => ' bracedletter {a}
 '
@@ -44,12 +38,6 @@ $result_trees{'value_after_brace_command'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'unknowncmd',
-              '@unknown'
-            ]
-          },
           'info' => {
             'arg_line' => ' unknowncmd @unknown
 '

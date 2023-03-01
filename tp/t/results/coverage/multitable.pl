@@ -173,13 +173,7 @@ $result_trees{'multitable'} = {
                                   'type' => 'misc_arg'
                                 }
                               ],
-                              'cmdname' => 'c',
-                              'extra' => {
-                                'misc_args' => [
-                                  ' comment in multitable
-'
-                                ]
-                              }
+                              'cmdname' => 'c'
                             }
                           ],
                           'type' => 'paragraph'

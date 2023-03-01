@@ -93,13 +93,7 @@ $result_trees{'redirection_same_labels'} = [
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' * @"i::
-'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       },
                       {
                         'args' => [
@@ -109,13 +103,7 @@ $result_trees{'redirection_same_labels'} = [
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' * @~{@dotless{i}}::
-'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       },
                       {
                         'args' => [
@@ -125,13 +113,7 @@ $result_trees{'redirection_same_labels'} = [
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' * @^i::
-'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       }
                     ],
                     'type' => 'preformatted'

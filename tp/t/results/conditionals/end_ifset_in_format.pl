@@ -26,12 +26,6 @@ $result_trees{'end_ifset_in_format'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'notset',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' notset
 '

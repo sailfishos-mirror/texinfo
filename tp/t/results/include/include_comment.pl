@@ -29,12 +29,7 @@ $result_trees{'include_comment'} = {
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            ' comment'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       }
                     },
                     'type' => 'line_arg'

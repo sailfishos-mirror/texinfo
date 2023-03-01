@@ -21,12 +21,6 @@ $result_trees{'value_node_directions'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'a--foo',
-              'bar'
-            ]
-          },
           'info' => {
             'arg_line' => ' a--foo bar
 '

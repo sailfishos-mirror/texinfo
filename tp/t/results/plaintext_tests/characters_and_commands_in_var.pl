@@ -121,13 +121,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' ]
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'text' => 'vvar'

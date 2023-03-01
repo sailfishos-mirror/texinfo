@@ -2504,6 +2504,8 @@ sub _noticed_line_warn($$$)
 
 my %kept_line_commands;
 
+# TODO add the possibility to customize to add more commands to
+# @informative_global_commands?
 my @informative_global_commands = ('documentlanguage', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
 

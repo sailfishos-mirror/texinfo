@@ -5704,6 +5704,7 @@ sub _process_remaining_on_line($$$$)
           } else {
             $arg = 'off';
           }
+          # note that those commands are line 'specific' type.
           $command = $set_flag_command_equivalent{$args->[0]};
           $misc = {'cmdname' => $command,
                    'parent' => $current,
@@ -5723,18 +5724,13 @@ sub _process_remaining_on_line($$$$)
         } else {
           if (!$ignored) {
             push @{$current->{'contents'}}, $misc;
-            foreach my $arg (@$args) {
-              push @{$misc->{'args'}},
-                { 'type' => 'misc_arg', 'text' => $arg,
-                  'parent' => $current->{'contents'}->[-1] };
-            }
-            # TODO: Could we have just set misc->args directly as args?
-            if (scalar(@$args)
-                and ($arg_spec eq 'special'
-                     # lineraw with the line as argument
-                     or $commands_args_number{$command})) {
-              $misc->{'extra'} = {} if (!$misc->{'extra'});
-              $misc->{'extra'}->{'misc_args'} = $args;
+            if (scalar(@$args)) {
+              $misc->{'args'} = [];
+              foreach my $arg (@$args) {
+                push @{$misc->{'args'}},
+                  { 'type' => 'misc_arg', 'text' => $arg,
+                    'parent' => $current->{'contents'}->[-1] };
+              }
             }
           } else {
             $misc = undef;
@@ -8314,8 +8310,6 @@ not empty, for @-commands elements that have an associated index entry.
 An array holding strings, the arguments of @-commands taking simple
 textual arguments as arguments, like C<@everyheadingmarks>,
 C<@frenchspacing>, C<@alias>, C<@synindex>, C<@columnfractions>.
-Also filled for C<@set>, C<@clickstyle>, C<@unmacro> or C<@comment>
-arguments.
 
 =item missing_argument
 

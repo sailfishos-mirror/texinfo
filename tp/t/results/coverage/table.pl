@@ -201,13 +201,7 @@ $result_trees{'table'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' samp
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 }
               },
               'type' => 'block_line_arg'
@@ -225,13 +219,7 @@ $result_trees{'table'} = {
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' after vtable
-'
-                    ]
-                  }
+                  'cmdname' => 'c'
                 },
                 {
                   'args' => [
@@ -330,13 +318,7 @@ $result_trees{'table'} = {
                               'type' => 'misc_arg'
                             }
                           ],
-                          'cmdname' => 'c',
-                          'extra' => {
-                            'misc_args' => [
-                              ' after item
-'
-                            ]
-                          }
+                          'cmdname' => 'c'
                         }
                       ],
                       'type' => 'inter_item'
@@ -396,13 +378,7 @@ $result_trees{'table'} = {
                                   'type' => 'misc_arg'
                                 }
                               ],
-                              'cmdname' => 'comment',
-                              'extra' => {
-                                'misc_args' => [
-                                  ' comment in itemx line
-'
-                                ]
-                              }
+                              'cmdname' => 'comment'
                             },
                             'spaces_after_argument' => {
                               'text' => ' '

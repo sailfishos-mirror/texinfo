@@ -21,12 +21,6 @@ $result_trees{'comment_on_ifset_line'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'x',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' x
 '
@@ -53,13 +47,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'misc_arg'
                           }
                         ],
-                        'cmdname' => 'c',
-                        'extra' => {
-                          'misc_args' => [
-                            '
-'
-                          ]
-                        }
+                        'cmdname' => 'c'
                       }
                     },
                     'type' => 'block_line_arg'
@@ -147,13 +135,7 @@ $result_trees{'comment_on_ifset_line'} = {
                                 'type' => 'misc_arg'
                               }
                             ],
-                            'cmdname' => 'c',
-                            'extra' => {
-                              'misc_args' => [
-                                ' comm
-'
-                              ]
-                            }
+                            'cmdname' => 'c'
                           }
                         },
                         'type' => 'block_line_arg'
@@ -238,13 +220,7 @@ $result_trees{'comment_on_ifset_line'} = {
                                 'type' => 'misc_arg'
                               }
                             ],
-                            'cmdname' => 'c',
-                            'extra' => {
-                              'misc_args' => [
-                                '@ggg
-'
-                              ]
-                            }
+                            'cmdname' => 'c'
                           }
                         },
                         'type' => 'block_line_arg'
@@ -329,13 +305,7 @@ $result_trees{'comment_on_ifset_line'} = {
                                 'type' => 'misc_arg'
                               }
                             ],
-                            'cmdname' => 'c',
-                            'extra' => {
-                              'misc_args' => [
-                                '
-'
-                              ]
-                            }
+                            'cmdname' => 'c'
                           },
                           'spaces_after_argument' => {
                             'text' => ' '
@@ -423,13 +393,7 @@ $result_trees{'comment_on_ifset_line'} = {
                                 'type' => 'misc_arg'
                               }
                             ],
-                            'cmdname' => 'c',
-                            'extra' => {
-                              'misc_args' => [
-                                ' comm
-'
-                              ]
-                            }
+                            'cmdname' => 'c'
                           },
                           'spaces_after_argument' => {
                             'text' => ' '
@@ -517,13 +481,7 @@ $result_trees{'comment_on_ifset_line'} = {
                                 'type' => 'misc_arg'
                               }
                             ],
-                            'cmdname' => 'c',
-                            'extra' => {
-                              'misc_args' => [
-                                '@ggg
-'
-                              ]
-                            }
+                            'cmdname' => 'c'
                           },
                           'spaces_after_argument' => {
                             'text' => ' '

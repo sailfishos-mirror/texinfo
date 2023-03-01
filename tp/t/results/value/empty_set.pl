@@ -21,12 +21,6 @@ $result_trees{'empty_set'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'myspace',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' myspace
 '

@@ -26,12 +26,6 @@ $result_trees{'macro_in_ifset_set'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'a',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' a
 '
@@ -149,11 +143,6 @@ $result_trees{'macro_in_ifset_set'} = {
             }
           ],
           'cmdname' => 'unmacro',
-          'extra' => {
-            'misc_args' => [
-              'truc'
-            ]
-          },
           'info' => {
             'arg_line' => ' truc
 '

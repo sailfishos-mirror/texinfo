@@ -23,13 +23,7 @@ $result_trees{'comment_between_text'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' comment
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => 'end para'

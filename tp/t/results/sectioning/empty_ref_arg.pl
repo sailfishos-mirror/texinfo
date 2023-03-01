@@ -206,13 +206,7 @@ $result_trees{'empty_ref_arg'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' aaa
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'text' => ' '
@@ -232,13 +226,7 @@ $result_trees{'empty_ref_arg'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' ggg
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'info' => {
@@ -258,13 +246,7 @@ $result_trees{'empty_ref_arg'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' fff
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [
@@ -274,13 +256,7 @@ $result_trees{'empty_ref_arg'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          '
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'info' => {

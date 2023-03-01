@@ -17,11 +17,6 @@ $result_trees{'clickstyle_no_end_of_line'} = {
             }
           ],
           'cmdname' => 'clickstyle',
-          'extra' => {
-            'misc_args' => [
-              '@result'
-            ]
-          },
           'info' => {
             'arg_line' => ' @result'
           },

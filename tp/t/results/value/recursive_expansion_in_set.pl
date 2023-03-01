@@ -21,12 +21,6 @@ $result_trees{'recursive_expansion_in_set'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'V',
-              '@value{V}'
-            ]
-          },
           'info' => {
             'arg_line' => ' V @value{V}
 '

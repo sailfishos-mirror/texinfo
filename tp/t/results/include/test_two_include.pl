@@ -67,12 +67,6 @@ $result_trees{'test_two_include'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'UPDATED',
-                  '28 March 2002'
-                ]
-              },
               'info' => {
                 'arg_line' => ' UPDATED 28 March 2002
 '
@@ -90,12 +84,6 @@ $result_trees{'test_two_include'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'UPDATED-MONTH',
-                  'March 2002'
-                ]
-              },
               'info' => {
                 'arg_line' => ' UPDATED-MONTH March 2002
 '
@@ -113,12 +101,6 @@ $result_trees{'test_two_include'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'EDITION',
-                  '4.2'
-                ]
-              },
               'info' => {
                 'arg_line' => ' EDITION 4.2
 '
@@ -136,12 +118,6 @@ $result_trees{'test_two_include'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'VERSION',
-                  '4.2'
-                ]
-              },
               'info' => {
                 'arg_line' => ' VERSION 4.2
 '
@@ -167,12 +143,6 @@ $result_trees{'test_two_include'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'VERSION_DATE',
-              'October 2002'
-            ]
-          },
           'info' => {
             'arg_line' => ' VERSION_DATE October 2002
 '
@@ -190,12 +160,6 @@ $result_trees{'test_two_include'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'SHORT_VERSION',
-              '2-0'
-            ]
-          },
           'info' => {
             'arg_line' => ' SHORT_VERSION 2-0
 '
@@ -213,12 +177,6 @@ $result_trees{'test_two_include'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'RPM_VERSION',
-              '2.0.4'
-            ]
-          },
           'info' => {
             'arg_line' => ' RPM_VERSION 2.0.4
 '

@@ -672,13 +672,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' note this chapter is not associated to a node
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             'spaces_after_argument' => {
               'text' => '  '
@@ -702,13 +696,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' @insertcopying
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'text' => '
@@ -1590,13 +1578,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' @insertcopying
-'
-            ]
-          }
+          'cmdname' => 'c'
         },
         {
           'text' => '

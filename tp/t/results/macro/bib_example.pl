@@ -29,13 +29,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Copyright (C) 2004  Aaron S. Hawley
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -50,13 +44,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -66,13 +54,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Keywords: docs, texinfo, extensions, bib
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -87,13 +69,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % This file is free software; you can redistribute it and/or modify
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -103,13 +79,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % it under the terms of the GNU General Public License as published by
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -119,13 +89,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % the Free Software Foundation; either version 2, or (at your option)
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -135,13 +99,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % any later version.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -156,13 +114,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % This file is distributed in the hope that it will be useful,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -172,13 +124,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -188,13 +134,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -204,13 +144,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % GNU General Public License for more details.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -225,13 +159,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % You should have received a copy of the GNU General Public License
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -241,13 +169,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % along with texi2html; see the file COPYING.  If not, write to
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -257,13 +179,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -273,13 +189,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Boston, MA 02111-1307, USA.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -294,13 +204,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' %**start of header
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             {
               'args' => [
@@ -384,13 +288,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' \\input texinfo   @c -*-texinfo-*-
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -400,13 +298,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% my-bib-macros.texi --- Texinfo macros providing a crude
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -416,13 +308,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% bibliography and citation capability.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -437,13 +323,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Copyright (C) 2004  Aaron S. Hawley
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -458,13 +338,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -474,13 +348,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Keywords: docs, texinfo, extensions, bib
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -495,13 +363,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % This file is free software; you can redistribute it and/or modify
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -511,13 +373,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % it under the terms of the GNU General Public License as published by
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -527,13 +383,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % the Free Software Foundation; either version 2, or (at your option)
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -543,13 +393,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % any later version.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -564,13 +408,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % This file is distributed in the hope that it will be useful,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -580,13 +418,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -596,13 +428,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -612,13 +438,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % GNU General Public License for more details.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -633,13 +453,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % You should have received a copy of the GNU General Public License
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -649,13 +463,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % along with texi2html; see the file COPYING.  If not, write to
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -665,13 +473,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -681,13 +483,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Boston, MA 02111-1307, USA.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -702,13 +498,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Commentary:
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -723,13 +513,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%% Introduction
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -744,13 +528,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -760,13 +538,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% section of a Texinfo document, using Texinfo\'s
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -776,13 +548,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% macro system.  Although not as terse a way to cite systems as is
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -792,13 +558,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% found in document systems like TeX, the format is simpler and
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -808,13 +568,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% the rendering  is easier for non-academic readers.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -829,13 +583,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -850,13 +598,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%% Usage
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -871,13 +613,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% References to cited works can be put in any section of a document.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -887,13 +623,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% The cited works must be put in either a Texinfo table (for
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -903,13 +633,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% instance with ``@table @asis ... @end table\'\') or within a
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -919,13 +643,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -935,13 +653,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -951,13 +663,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -967,13 +673,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -988,13 +688,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% The beginning of a document must include (using the @include
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1004,13 +698,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% command) the file my-bib-macros.texi, which should be made
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1020,13 +708,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% available in the current directory of the parent file.  A single
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1036,13 +718,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% call should be made to choose to use a list or a table.  The
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1052,13 +728,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% command to chose is called @mybibuselist{NODE}, where NODE is
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1068,13 +738,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% the node containing the location where the references are listed.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1089,13 +753,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1110,13 +768,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%% Example
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1131,13 +783,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% \\input texinfo   @c -*-texinfo-*-
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1147,13 +793,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @comment %**start of header
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1163,13 +803,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @setfilename my-file-with-bib.info
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1179,13 +813,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @settitle Texinfo with a Bibliography and References
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1195,13 +823,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1211,13 +833,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @include my-bib-macros.texi
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1227,13 +843,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibuselist{References}
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1243,13 +853,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1259,13 +863,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @comment %**end of header
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1275,13 +873,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1291,13 +883,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @node Top
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1307,13 +893,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @top Top
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1323,13 +903,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1339,13 +913,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @menu
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1355,13 +923,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% * Introduction::
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1371,13 +933,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% * @mybibnode{}::
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1387,13 +943,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1403,13 +953,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @end menu
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1419,13 +963,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1435,13 +973,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @node Introduction
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1451,13 +983,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @chapter Introduction
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1467,13 +993,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1483,13 +1003,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% The ability of a documentation format to make cross references to a
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1499,13 +1013,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1515,13 +1023,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% currently supported in Texinfo.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1531,13 +1033,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1547,13 +1043,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @node @mybibnode{}
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1563,13 +1053,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @chapter References
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1579,13 +1063,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1595,13 +1073,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @itemize @asis
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1611,13 +1083,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1627,13 +1093,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1643,13 +1103,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1659,13 +1113,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Massachusetts, 1994.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1675,13 +1123,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1691,13 +1133,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @end itemize
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1707,13 +1143,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1723,13 +1153,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @bye
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1744,13 +1168,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1765,13 +1183,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% This example produces (in Info):
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -1786,13 +1198,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       1 Introduction
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1802,13 +1208,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       **************
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1818,13 +1218,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1834,13 +1228,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       The ability of a documentation format to make cross
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1850,13 +1238,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       references to a bibliography, a feature of LaTeX (See item
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1866,13 +1248,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1882,13 +1258,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       supported in Texinfo.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1898,13 +1268,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1914,13 +1278,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1930,13 +1288,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       2 References
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1946,13 +1298,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       ************
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1962,13 +1308,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1978,13 +1318,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -1994,13 +1328,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2010,13 +1338,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       Massachusetts, 1994.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2031,13 +1353,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% and (in printed output):
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2052,13 +1368,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       1 Introduction
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2068,13 +1378,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       **************
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2084,13 +1388,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2100,13 +1398,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       The ability of a documentation format to make cross
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2116,13 +1408,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       references to a bibliography, a feature of LaTeX (See item
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2132,13 +1418,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2148,13 +1428,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       currently supported in Texinfo.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2164,13 +1438,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2180,13 +1448,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2196,13 +1458,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       2 References
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2212,13 +1468,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       ************
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2228,13 +1478,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2244,13 +1488,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2260,13 +1498,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2276,13 +1508,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%       Massachusetts, 1994.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2297,13 +1523,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2318,13 +1538,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %%% Notes
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2339,13 +1553,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% The pointers to references will be functional in hypertext
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2355,13 +1563,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% documentation (info, HTML, XML and others) and properly rendered
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2371,13 +1573,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% in print documents, because they are implemented with Texinfo\'s
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2387,13 +1583,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% cross referencing capabilities (using @anchor and @ref).  Failures
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2403,13 +1593,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% by an author to make proper references with ``my-bib-macros\'\' in
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2419,13 +1603,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% their document will give cross referencing errors by Texinfo
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2435,13 +1613,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% conversion tools.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2456,13 +1628,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Only one ``Reference\'\' section is allowed per document.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2477,13 +1643,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% An improvement of this system would create cross references
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2493,13 +1653,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% (with @xref) at each cited work to all the originating cross
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2509,13 +1663,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% refererences.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2530,13 +1678,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2551,13 +1693,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% Code:
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2572,13 +1708,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' % Configuration Options
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2593,13 +1723,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibsetrefnode : Defines the name of the node to contain
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2609,13 +1733,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% references.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2696,13 +1814,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibnode{} : Macro to be placed at node containing references
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2712,13 +1824,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% and calls to @mybibcite{}
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2795,13 +1901,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibusetable : Whether each @mybibitem will be put in a
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2811,13 +1911,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% table.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -2918,13 +2012,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibuselist : Whether each @mybibitem will be put in a
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -2934,13 +2022,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% list.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -3046,13 +2128,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibcite{REF} : Cites the cross reference REF.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -3238,13 +2314,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '
@@ -3391,12 +2461,6 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %% my-bib-macros.texi ends here
-'
-                ]
-              },
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -3438,12 +2502,6 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'mybiblist',
-                  'true'
-                ]
-              },
               'info' => {
                 'arg_line' => ' mybiblist true
 '
@@ -3566,12 +2624,6 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'mybibrefnode',
-                  'References'
-                ]
-              },
               'info' => {
                 'arg_line' => ' mybibrefnode References
 '
@@ -3590,13 +2642,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'comment',
-              'extra' => {
-                'misc_args' => [
-                  ' %**end of header
-'
-                ]
-              }
+              'cmdname' => 'comment'
             },
             {
               'text' => '
@@ -4058,12 +3104,6 @@ $result_trees{'bib_example'} = {
                 }
               ],
               'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' %**else if
-'
-                ]
-              },
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -4716,12 +3756,6 @@ $result_trees{'bib_example'} = {
                         }
                       ],
                       'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' %**else if
-'
-                        ]
-                      },
                       'source_marks' => [
                         {
                           'counter' => 5,

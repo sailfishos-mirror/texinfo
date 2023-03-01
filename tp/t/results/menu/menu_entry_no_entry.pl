@@ -46,13 +46,7 @@ $result_trees{'menu_entry_no_entry'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' c
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'text' => '* a2c:  '
@@ -65,13 +59,7 @@ $result_trees{'menu_entry_no_entry'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' c
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'text' => '* a4'
@@ -130,13 +118,7 @@ $result_trees{'menu_entry_no_entry'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' c
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     }
                   ],
                   'type' => 'preformatted'

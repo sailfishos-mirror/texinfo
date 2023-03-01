@@ -34,13 +34,7 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' test conditions
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'text' => '

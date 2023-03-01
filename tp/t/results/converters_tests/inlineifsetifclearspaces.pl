@@ -142,12 +142,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
             }
           ],
           'cmdname' => 'set',
-          'extra' => {
-            'misc_args' => [
-              'aaa',
-              ''
-            ]
-          },
           'info' => {
             'arg_line' => ' aaa
 '

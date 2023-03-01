@@ -46,13 +46,7 @@ $result_trees{'comment_and_itemx_before_item'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' comment
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'args' => [

@@ -34,13 +34,7 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' this tests both the del comment and a file without
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'args' => [
@@ -50,13 +44,7 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' element.
-'
-                ]
-              }
+              'cmdname' => 'c'
             },
             {
               'source_marks' => [

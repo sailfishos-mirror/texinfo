@@ -23,12 +23,6 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                 }
               ],
               'cmdname' => 'set',
-              'extra' => {
-                'misc_args' => [
-                  'txiindexhyphenignore',
-                  ''
-                ]
-              },
               'info' => {
                 'arg_line' => ' txiindexhyphenignore
 '

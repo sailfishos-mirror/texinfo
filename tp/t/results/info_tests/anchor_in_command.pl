@@ -89,13 +89,7 @@ $result_trees{'anchor_in_command'} = {
                           'type' => 'misc_arg'
                         }
                       ],
-                      'cmdname' => 'c',
-                      'extra' => {
-                        'misc_args' => [
-                          ' emph @emph{emph2 @anchor{anchor in emph} }}.
-'
-                        ]
-                      }
+                      'cmdname' => 'c'
                     },
                     {
                       'text' => 'emph '
