@@ -2197,6 +2197,20 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         {
           current = handle_brace_command (current, &line, cmd);
         }
+      else
+        {
+          /* this can only happen if cmd is a user defined alias
+             as all the other types of command are either expanded
+             (user-defined macro) or are one of the types handled just above
+             (including user-defined index and definfoenclose commands).
+             This cmd is not resolved into a non alias command because
+             the command read was already an alias resolving to cmd
+             and not to a non alias command because there was an error at
+             the time of alias definition (because the alias was defined
+             recursively).
+           */
+          line_error ("unknown command `%s'", command_name(cmd));
+        }
     }
   /* "Separator" character */
   else if (*line != '\0' && strchr ("{}@,:\t.\f", *line))

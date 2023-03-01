@@ -5040,12 +5040,9 @@ sub _process_remaining_on_line($$$$)
     $at_command_length = length($at_command) + 1;
     $command = $at_command;
 
-    my $alias_command;
     if (exists($self->{'aliases'}->{$command})) {
-      $alias_command = $command;
       $command = $self->{'aliases'}->{$command};
     }
-
 
     # handle user defined macros before anything else since
     # their expansion may lead to changes in the line
@@ -6980,15 +6977,19 @@ sub _parse_line_command_args($$$)
                            __("environment command %s as argument to \@%s"),
                            $existing_command, $command), $source_info);
       }
-      if ($self->{'aliases'}->{$existing_command}) {
-        $self->_line_warn(sprintf(
-                           __("recursive alias definition as %s is ignored"),
-                           $existing_command), $source_info);
-      } else {
-        $self->{'aliases'}->{$new_command} = $existing_command;
-        # could be cleaner to unset macro and definfoenclosed, but
-        # not needed in practice as alias are substituted the earliest.
+
+      if (exists($self->{'aliases'}->{$existing_command})) {
+        if ($self->{'aliases'}->{$existing_command} ne $new_command) {
+          $existing_command = $self->{'aliases'}->{$existing_command};
+        } else {
+          $self->_line_warn(sprintf(
+                __("recursive alias definition of %s through %s ignored"),
+                      $new_command, $existing_command), $source_info);
+        }
       }
+      $self->{'aliases'}->{$new_command} = $existing_command;
+      # could be cleaner to unset macro and definfoenclosed, but
+      # not needed in practice as alias are substituted the earliest.
     } else {
       $self->_line_error(sprintf(
                           __("bad argument to \@%s"), $command), $source_info);

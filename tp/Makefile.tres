@@ -72,7 +72,11 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/alias/alias_table_command.pl \
   t/results/alias/bad_line.pl \
   t/results/alias/block_command_alias.pl \
+  t/results/alias/recursive_alias.pl \
   t/results/alias/simple.pl \
+  t/results/alias/texinfo_command_alias.pl \
+  t/results/alias/texinfo_command_alias_indirect.pl \
+  t/results/alias/texinfo_command_alias_indirect_before.pl \
   t/results/columnfractions/empty.pl \
   t/results/columnfractions/empty_comment.pl \
   t/results/columnfractions/good.pl \

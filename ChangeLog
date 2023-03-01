@@ -1,4 +1,17 @@
-2023-02-29  Patrice Dumas  <pertusus@free.fr>
+2023-03-01  Patrice Dumas  <pertusus@free.fr>
+
+	An alias referring to another alias at definition time is resolved
+
+	* NEWS, tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): resolve
+	an alias referring to another alias, at @alias defintion time.
+
+	* tp/Makefile.tres, tp/t/58alias.t: add texinfo_command_alias,
+	texinfo_command_alias_indirect, texinfo_command_alias_indirect_before
+	and recursive_alias tests.
+
+2023-03-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
 	(_parse_line_command_args): unset previous alias when a macro is

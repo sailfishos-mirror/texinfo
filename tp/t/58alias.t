@@ -49,8 +49,6 @@ in lang
 
 @new{tt}
 '],
-# to show that the XS parser requires the command to exist when
-# the alias is defined
 ['alias_of_macro_before_macro',
 '@alias new = mymacro
 
@@ -107,6 +105,59 @@ in lang
 @printindex sli
 ',{'test_formats' => ['plaintext'],
 },],
+['texinfo_command_alias',
+'@macro mystrong {arg}
+!!\arg\!!
+@end macro
+
+@alias strong = mystrong
+
+@strong{aa}
+
+@definfoenclose mystrong,;,:
+
+@strong{bb}
+
+',{'test_formats' => ['plaintext']},
+],
+['texinfo_command_alias_indirect',
+'@macro mystrong {arg}
+!!\arg\!!
+@end macro
+
+@alias strong = mystrong
+
+@alias new = strong
+
+@new{aa}
+',{'test_formats' => ['plaintext']},
+],
+# the alias to the texinfo command is done while
+# it is not already aliased itself.
+['texinfo_command_alias_indirect_before',
+'@macro mystrong {arg}
+!!\arg\!!
+@end macro
+
+@alias new = strong
+
+@alias strong = mystrong
+
+@new{aa}
+',{'test_formats' => ['plaintext']},
+],
+['recursive_alias',
+'@alias new = strong
+
+@alias other = new
+
+@alias strong = other
+
+@other{aa}.
+
+@strong{bb}.
+',{'test_formats' => ['plaintext']}
+,],
 );
 
 run_all('alias', \@test_cases);
