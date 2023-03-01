@@ -1816,7 +1816,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if ((!cmd && command)
       /* command marked as unknown, normally a registered user-defined command
          that was set as @alias-ed but has not been defined since */
-      || (command_data(cmd).flags & CF_UNKNOWN))
+      || (command_data(cmd).flags & CF_UNKNOWN)
+          /* Alias command that did not resolve to a non alias command.
+             This is possible only if the command read was already an alias
+             resolving to cmd and not to a non alias command.  In turn,
+             this is possible if there was an error at the time of alias
+             definition (because the alias was defined recursively).
+           */
+      || (command_data(cmd).flags & CF_ALIAS))
     {
       ELEMENT *paragraph;
       char *unknown_cmd;
@@ -2196,20 +2203,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       else if (command_data(cmd).flags & (CF_brace | CF_accent))
         {
           current = handle_brace_command (current, &line, cmd);
-        }
-      else
-        {
-          /* this can only happen if cmd is a user defined alias
-             as all the other types of command are either expanded
-             (user-defined macro) or are one of the types handled just above
-             (including user-defined index and definfoenclose commands).
-             This cmd is not resolved into a non alias command because
-             the command read was already an alias resolving to cmd
-             and not to a non alias command because there was an error at
-             the time of alias definition (because the alias was defined
-             recursively).
-           */
-          line_error ("unknown command `%s'", command_name(cmd));
         }
     }
   /* "Separator" character */
