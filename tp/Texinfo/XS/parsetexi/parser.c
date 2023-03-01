@@ -1813,13 +1813,27 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     }
 
   /* Handle unknown command. */
-  if (!cmd && command)
+  if ((!cmd && command)
+      /* command marked as unknown, normally a registered user-defined command
+         that was set as @alias-ed but has not been defined since */
+      || (command_data(cmd).flags & CF_UNKNOWN))
     {
       ELEMENT *paragraph;
+      char *unknown_cmd;
 
-      line_error ("unknown command `%s'", command);
-      debug ("COMMAND (UNKNOWN) %s", command);
-      free (command);
+      if (cmd)
+        {
+          unknown_cmd = command_name (cmd);
+          debug ("COMMAND (REGISTERED UNKNOWN) %d %s", cmd, unknown_cmd);
+        }
+      else
+        {
+          unknown_cmd = command;
+          debug ("COMMAND (UNKNOWN) %s", command);
+        }
+      line_error ("unknown command `%s'", unknown_cmd);
+      if (!cmd)
+        free (command);
       abort_empty_line (&current, 0);
       paragraph = begin_paragraph (current);
       if (paragraph)

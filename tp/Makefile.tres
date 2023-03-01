@@ -62,6 +62,13 @@ test_tap_files_generated_list = \
   t/xml_tests.t
 
 test_files_generated_list = $(test_tap_files_generated_list) \
+  t/results/alias/alias_non_existing_command.pl \
+  t/results/alias/alias_of_added_index.pl \
+  t/results/alias/alias_of_added_index_before_added_index.pl \
+  t/results/alias/alias_of_definfoenclose.pl \
+  t/results/alias/alias_of_definfoenclose_before_definfoenclose.pl \
+  t/results/alias/alias_of_macro.pl \
+  t/results/alias/alias_of_macro_before_macro.pl \
   t/results/alias/alias_table_command.pl \
   t/results/alias/bad_line.pl \
   t/results/alias/block_command_alias.pl \
@@ -1194,6 +1201,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/complex_argument.pl \
   t/results/macro/cpp_directives_after_macros.pl \
   t/results/macro/cpp_directives_in_macro.pl \
+  t/results/macro/definfoenclose_replaced_by_macro.pl \
   t/results/macro/double_macro_definition.pl \
   t/results/macro/double_recursive_macro_call.pl \
   t/results/macro/empty_end.pl \
@@ -1215,6 +1223,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/leading_spaces_no_ignore.pl \
   t/results/macro/line_after_recursive_call.pl \
   t/results/macro/macro_after_paragraph.pl \
+  t/results/macro/macro_alias_definfoenclose_defindex.pl \
   t/results/macro/macro_before_specific_line_command_args.pl \
   t/results/macro/macro_call_empty_middle_arg.pl \
   t/results/macro/macro_call_empty_two_arg.pl \
@@ -1266,6 +1275,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_no_argument.pl \
   t/results/macro/macro_not_closed.pl \
   t/results/macro/macro_one_arg_end_of_file.pl \
+  t/results/macro/macro_replaced_by_definfoenclose.pl \
   t/results/macro/macro_with_error_at_end_line_after_macro.pl \
   t/results/macro/macro_zero.pl \
   t/results/macro/nested_macro_call.pl \

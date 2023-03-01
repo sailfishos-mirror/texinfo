@@ -340,22 +340,42 @@ parse_line_command_args (ELEMENT *line_command)
 
         existing_cmd = lookup_command (existing);
         if (!existing_cmd)
-          break; /* TODO: Error message */
+          {
+            /* supposedly existing command not defined.  Pre-register a
+               user-defined command */
+            enum command_id registered_cmd = add_texinfo_command (existing);
+            existing_cmd = registered_cmd;
+            registered_cmd &= ~USER_COMMAND_BIT;
+            user_defined_command_data[registered_cmd].flags |= CF_REGISTERED;
+            user_defined_command_data[registered_cmd].flags |= CF_UNKNOWN;
+          }
         else
           {
             if (command_data(existing_cmd).flags & CF_block)
               line_warn ("environment command %s as argument to @alias",
                          command_name(existing_cmd));
+
+            if (command_data(existing_cmd).flags & CF_ALIAS)
+              {
+                line_warn ("recursive alias definition as %s is ignored",
+                           command_name(existing_cmd));
+                free (new); free (existing);
+                break;
+              }
+
+            if (existing_cmd & USER_COMMAND_BIT)
+              {
+                enum command_id user_data_cmd = existing_cmd & ~USER_COMMAND_BIT;
+                user_defined_command_data[user_data_cmd].flags |= CF_REGISTERED;
+              }
           }
 
         /* Remember the alias. */
         new_cmd = add_texinfo_command (new);
         new_cmd &= ~USER_COMMAND_BIT;
         user_defined_command_data[new_cmd].flags |= CF_ALIAS;
-
         user_defined_command_data[new_cmd].data = existing_cmd;
-        user_defined_command_data[new_cmd].args_number
-                  = command_data(existing_cmd).args_number;
+
         /* Note the data field is an int, existing_cmd is
            enum command_id, so would have problems if enum command_id
            were wider than an int. */
@@ -499,9 +519,6 @@ parse_line_command_args (ELEMENT *line_command)
           for (ptr = forbidden_index_names; *ptr; ptr++)
             if (!strcmp (name, *ptr))
               goto defindex_reserved;
-
-          if (index_by_name (name))
-            { free (name); break; }
         }
 
         add_index (name, cmd == CM_defcodeindex ? 1 : 0);

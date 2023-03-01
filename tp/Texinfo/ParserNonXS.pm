@@ -4864,6 +4864,9 @@ sub _process_remaining_on_line($$$$)
                 'element' => $current,
                 'macrobody' => $macrobody
               };
+              delete $self->{'aliases'}->{$name};
+              # could be cleaner to delete definfoenclose'd too, but macros
+              # are expanded earlier
             }
           }
         }
@@ -6972,15 +6975,23 @@ sub _parse_line_command_args($$$)
       my $new_command = $1;
       my $existing_command = $3;
       $args = [$1, $3];
-      $self->{'aliases'}->{$new_command} = $existing_command;
       if (exists($block_commands{$existing_command})) {
         $self->_line_warn(sprintf(
-                             __("environment command %s as argument to \@%s"),
-                             $existing_command, $command), $source_info);
+                           __("environment command %s as argument to \@%s"),
+                           $existing_command, $command), $source_info);
+      }
+      if ($self->{'aliases'}->{$existing_command}) {
+        $self->_line_warn(sprintf(
+                           __("recursive alias definition as %s is ignored"),
+                           $existing_command), $source_info);
+      } else {
+        $self->{'aliases'}->{$new_command} = $existing_command;
+        # could be cleaner to unset macro and definfoenclosed, but
+        # not needed in practice as alias are substituted the earliest.
       }
     } else {
       $self->_line_error(sprintf(
-                             __("bad argument to \@%s"), $command), $source_info);
+                          __("bad argument to \@%s"), $command), $source_info);
     }
 
   } elsif ($command eq 'definfoenclose') {
@@ -6992,13 +7003,21 @@ sub _parse_line_command_args($$$)
       $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
       print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
                if ($self->{'DEBUG'});
-      # consistent with XS parser, not actually used anywhere.
+      delete $self->{'macros'}->{$cmd_name};
+      delete $self->{'aliases'}->{$cmd_name};
+      # unset @def*index effect
+      delete $self->{'line_commands'}->{$cmd_name};
+      delete $self->{'close_paragraph_commands'}->{$cmd_name};
+      delete $self->{'no_paragraph_commands'}->{$cmd_name};
+      delete $self->{'basic_inline_commands'}->{$cmd_name};
+      delete $self->{'command_index'}->{$cmd_name};
+      # consistent with XS parser, value not actually used anywhere.
       $self->{'brace_commands'}->{$cmd_name} = 'style_other';
       # this allows to obtain the same result as the XS parser which checks
       # dynamically the brace_commands type
       $self->{'valid_nestings'}->{$cmd_name} = \%in_full_text_commands;
       # note that a built-in command previously in a hash classifying the
-      # @-command will remain there, possibly having specific effects.
+      # @-command otherwise will remain there, possibly having specific effects.
     } else {
       $self->_line_error(sprintf(__("bad argument to \@%s"), $command),
                          $source_info);
@@ -7037,18 +7056,27 @@ sub _parse_line_command_args($$$)
         my $in_code = 0;
         $in_code = 1 if ($command eq 'defcodeindex');
         $args = [$name];
-        $self->{'index_names'}->{$name} = {'in_code' => $in_code};
+        if (!exists($self->{'index_names'}->{$name})) {
+          $self->{'index_names'}->{$name} = {'in_code' => $in_code};
+        }
         if (!exists($self->{'index_names'}->{$name}->{'name'})) {
           $self->{'index_names'}->{$name}->{'name'} = $name;
         }
         if (!exists($self->{'index_names'}->{$name}->{'contained_indices'})) {
           $self->{'index_names'}->{$name}->{'contained_indices'} = {$name => 1};
         }
-        $self->{'line_commands'}->{$name.'index'} = 'line';
-        $self->{'close_paragraph_commands'}->{$name.'index'} = 1;
-        $self->{'no_paragraph_commands'}->{$name.'index'} = 1;
-        $self->{'basic_inline_commands'}->{$name.'index'} = 1;
-        $self->{'command_index'}->{$name.'index'} = $name;
+        my $index_cmdname = $name.'index';
+        delete $self->{'macros'}->{$index_cmdname};
+        delete $self->{'aliases'}->{$index_cmdname};
+        # unset definfoenclose effect
+        delete $self->{'definfoenclose'}->{$index_cmdname};
+        delete $self->{'brace_commands'}->{$index_cmdname};
+        delete $self->{'valid_nestings'}->{$index_cmdname};
+        $self->{'line_commands'}->{$index_cmdname} = 'line';
+        $self->{'close_paragraph_commands'}->{$index_cmdname} = 1;
+        $self->{'no_paragraph_commands'}->{$index_cmdname} = 1;
+        $self->{'basic_inline_commands'}->{$index_cmdname} = 1;
+        $self->{'command_index'}->{$index_cmdname} = $name;
       }
     } else {
       $self->_line_error(sprintf(

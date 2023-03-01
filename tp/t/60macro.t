@@ -909,8 +909,8 @@ Defined
 @beginendcond{}set
 '],
 
-# the use of @unmacro dates from the time when macros needed
-# to be undefined before being redefined.  Left as test.
+# use @unmacro to silence a warning emitted when a @macro
+# is redefined.
 # texi2dvi breaks.
 ['arg_body_expansion_order',
 '
@@ -1353,6 +1353,80 @@ X\arg\X
 @mymacro
 @include inc_file.texi
 '],
+['macro_replaced_by_definfoenclose',
+'@macro phoo {arg}
+||\arg\||
+@end macro
+
+@definfoenclose phoo,;,:
+
+@phoo{aa}
+', {'test_formats' => ['plaintext'],}],
+['definfoenclose_replaced_by_macro',
+'@definfoenclose phoo,;,:
+
+@macro phoo {arg}
+||\arg\||
+@end macro
+
+@phoo{aa}
+', {'test_formats' => ['plaintext'],}],
+['macro_alias_definfoenclose_defindex',
+'@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@macro phooindex {arg}
+||\arg\||
+@end macro
+@phooindex{maa}
+
+@definfoenclose phooindex,;,:
+@phooindex{dbb}
+
+@alias phooindex = strong
+@phooindex{acc}
+
+@defindex phoo
+@phooindex idd
+
+@definfoenclose phooindex,;,:
+@phooindex{dee}
+
+@macro phooindex {arg}
+!!\arg\!!
+@end macro
+@phooindex mff
+
+@defindex phoo
+@phooindex igg
+
+@macro phooindex {arg}
+!!\arg\!!
+@end macro
+@phooindex mhh
+
+@alias phooindex = strong
+@phooindex{aii}
+
+@definfoenclose phoo,;,:
+@phoo{djj}
+
+@defindex phoo
+@phooindex ikk
+
+@alias phooindex = strong
+@phooindex{all}
+
+@macro phoo {arg}
+%%\arg\%%
+@end macro
+@phoo{mmm}
+
+@printindex phoo
+', {'test_formats' => ['plaintext'],}],
 # shows that cpp directives are ignored in macros
 ['cpp_directives_in_macro',
   undef, {'test_file' => 'cpp_directives_in_macro.texi',},

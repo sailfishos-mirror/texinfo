@@ -91,6 +91,28 @@ lookup_command (char *cmdname)
 enum command_id
 add_texinfo_command (char *name)
 {
+  enum command_id existing_cmd = lookup_command (name);
+
+  if (existing_cmd & USER_COMMAND_BIT)
+    {
+      enum command_id user_data_cmd = existing_cmd & ~USER_COMMAND_BIT;
+      /* FIXME it is consistent with silent replacement of macro
+         by another user-defined command to remove the information
+         on a previously defined macro, but it may not be right. */
+      if (user_defined_command_data[user_data_cmd].flags & CF_MACRO)
+        {
+          MACRO *m = lookup_macro (existing_cmd);
+          unset_macro_record (m);
+        }
+      if (user_defined_command_data[user_data_cmd].flags & CF_REGISTERED)
+        user_defined_command_data[user_data_cmd].flags = (0 & CF_REGISTERED);
+      else
+        user_defined_command_data[user_data_cmd].flags = 0;
+      user_defined_command_data[user_data_cmd].data = 0;
+      user_defined_command_data[user_data_cmd].args_number = 0;
+      return existing_cmd;
+    }
+
   if (user_defined_number == user_defined_space)
     {
       user_defined_command_data
@@ -113,8 +135,19 @@ void
 remove_texinfo_command (enum command_id cmd)
 {
   cmd &= ~USER_COMMAND_BIT;
-  free (user_defined_command_data[cmd].cmdname);
-  user_defined_command_data[cmd].cmdname = strdup ("");
+  /* only pretend to remove if REGISTERED, but reset */
+  if (user_defined_command_data[cmd].flags & CF_REGISTERED)
+    {
+      user_defined_command_data[cmd].data = 0;
+      user_defined_command_data[cmd].flags = (0 | CF_REGISTERED | CF_UNKNOWN);
+      user_defined_command_data[cmd].args_number = 0;
+    }
+  else
+    {
+      /* FIXME the cmd is never reused */
+      free (user_defined_command_data[cmd].cmdname);
+      user_defined_command_data[cmd].cmdname = strdup ("");
+    }
 }
 
 void

@@ -71,7 +71,7 @@ add_index_command (char *cmdname, INDEX *idx)
 {
   enum command_id new = add_texinfo_command (cmdname);
   user_defined_command_data[new & ~USER_COMMAND_BIT].flags
-    = CF_line | CF_index_entry_command | CF_contain_basic_inline
+    |= CF_line | CF_index_entry_command | CF_contain_basic_inline
       | CF_close_paragraph | CF_no_paragraph;
   user_defined_command_data[new & ~USER_COMMAND_BIT].data = LINE_line;
   associate_command_to_index (new, idx);
@@ -116,10 +116,11 @@ index_by_name (char *name)
 void
 add_index (char *name, int in_code)
 {
-  INDEX *idx;
+  INDEX *idx = index_by_name (name);
   char *cmdname;
 
-  idx = add_index_internal (name, in_code);
+  if (!idx)
+    idx = add_index_internal (name, in_code);
 
   /* For example, "rq" -> "rqindex". */
   xasprintf (&cmdname, "%s%s", name, "index");

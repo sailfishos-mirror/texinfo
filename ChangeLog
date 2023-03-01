@@ -1,3 +1,49 @@
+2023-02-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_parse_line_command_args): unset previous alias when a macro is
+	defined, unset macro, alias and definfoenclose when a @def*index
+	command is defined and unset alias, macro and @def*index when a
+	@definfoenclose command is defined.
+
+	* tp/Texinfo/XS/parsetexi/commands.c (add_texinfo_command),
+	tp/Texinfo/XS/parsetexi/macro.c (delete_macro, unset_macro_record):
+	when adding a user-defined command, reuse the existing command but
+	reset it, unsetting the macro record with the new function
+	unset_macro_record based on part of delete_macro.
+
+	* tp/Texinfo/XS/parsetexi/commands.c (add_texinfo_command)
+	(remove_texinfo_command), tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/indices.c (add_index_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	pre-register @alias existing command if it does not actually exist,
+	using the new flag CF_REGISTERED.  If the command is not defined, also
+	set CF_UNKNOWN.  Keep CF_REGISTERED when redefining the command.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/indices.c (index_by_name): do not
+	destroy an index if it is re-defined.  Reset the associated index
+	command.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): warn if
+	an alias refers to another alias and do not set it.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (lookup_macro_and_slot, new_macro):
+	try to reuse empty macro_list slots instead of always adding a new
+	macro.
+
+	* tp/Makefile.tres (test_files_generated_list), tp/t/58alias.t,
+	tp/t/60macro.t: add alias.t tests alias_non_existing_command,
+	alias_of_macro, alias_of_macro_before_macro, alias_of_definfoenclose,
+	alias_of_definfoenclose_before_definfoenclose, alias_of_added_index,
+	alias_of_added_index_before_added_index to test for pre-registering of
+	@alias referred to commands.  Add macro.t tests
+	macro_replaced_by_definfoenclose, definfoenclose_replaced_by_macro,
+	macro_alias_definfoenclose_defindex.
+
 2023-02-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/convert.c (convert_contents_to_texinfo),

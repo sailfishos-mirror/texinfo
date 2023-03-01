@@ -35,6 +35,78 @@ Should be verb: @o-theralias{!verb!}
 in lang
 @end lang
 '],
+['alias_non_existing_command',
+'@alias myalias = userdefined
+
+@myalias{hh}.
+',],
+['alias_of_macro',
+'@macro mymacro {thearg}
+||\\thearg||
+@end macro
+
+@alias new = mymacro
+
+@new{tt}
+'],
+# to show that the XS parser requires the command to exist when
+# the alias is defined
+['alias_of_macro_before_macro',
+'@alias new = mymacro
+
+@macro mymacro {thearg}
+||\\thearg||
+@end macro
+
+@new{tt}
+',],
+['alias_of_definfoenclose',
+'@definfoenclose phoo,;,:
+
+@alias new = phoo
+
+@new{aa}
+',{'test_formats' => ['plaintext']},],
+['alias_of_definfoenclose_before_definfoenclose',
+'@alias new = phoo
+
+@definfoenclose phoo,;,:
+
+@new{aa}
+',{'test_formats' => ['plaintext'],
+},],
+['alias_of_added_index',
+'@defindex sli
+
+@alias new = sliindex
+
+@node Top
+@top top
+
+@new entry
+
+@node chap
+@chapter Chapter
+
+@printindex sli
+',{'test_formats' => ['plaintext'],
+},],
+['alias_of_added_index_before_added_index',
+'@alias new = sliindex
+
+@defindex sli
+
+@node Top
+@top top
+
+@new entry
+
+@node chap
+@chapter Chapter
+
+@printindex sli
+',{'test_formats' => ['plaintext'],
+},],
 );
 
 run_all('alias', \@test_cases);

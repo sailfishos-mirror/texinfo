@@ -34,30 +34,55 @@ static size_t macro_space;
 
 /* Macro definition. */
 
+MACRO *
+lookup_macro_and_slot (enum command_id cmd, size_t *free_slot)
+{
+  int i;
+  if (free_slot)
+    *free_slot = 0;
+
+  for (i = 0; i < macro_number; i++)
+    {
+      if (macro_list[i].cmd == cmd)
+        return &macro_list[i];
+      if (free_slot && !*free_slot && macro_list[i].cmd == 0)
+        *free_slot = i;
+    }
+  return 0;
+}
+
 void
 new_macro (char *name, ELEMENT *macro)
 {
   enum command_id new;
   MACRO *m = 0;
+  size_t free_slot = 0;
   ELEMENT *tmp;
 
   /* Check for an existing definition first for us to overwrite. */
   new = lookup_command (name);
   if (new)
-    m = lookup_macro (new);
+    m = lookup_macro_and_slot (new, &free_slot);
   if (!m)
     {
-      if (macro_number == macro_space)
+      size_t macro_index;
+      if (free_slot)
+        macro_index = free_slot;
+      else
         {
-          macro_list = realloc (macro_list,
-                                (macro_space += 5) * sizeof (MACRO));
-          if (!macro_list)
-            fatal ("realloc failed");
+          if (macro_number == macro_space)
+            {
+              macro_list = realloc (macro_list,
+                              (macro_space += 5) * sizeof (MACRO));
+              if (!macro_list)
+                fatal ("realloc failed");
+            }
+          macro_index = macro_number;
+          macro_number++;
         }
       new = add_texinfo_command (name);
-      m = &macro_list[macro_number];
+      m = &macro_list[macro_index];
       m->cmd = new;
-      macro_number++;
       new &= ~USER_COMMAND_BIT;
       user_defined_command_data[new].flags |= CF_MACRO;
     }
@@ -482,6 +507,20 @@ lookup_macro (enum command_id cmd)
 }
 
 void
+unset_macro_record (MACRO *m)
+{
+  if (!m)
+    return;
+
+  m->cmd = 0;
+  free (m->macro_name);
+  m->macro_name = strdup ("");
+  free (m->macrobody);
+  m->macrobody = 0;
+  m->element = 0;
+}
+
+void
 delete_macro (char *name)
 {
   enum command_id cmd;
@@ -490,14 +529,7 @@ delete_macro (char *name)
   if (!cmd)
     return;
   m = lookup_macro (cmd);
-  if (!m)
-    return;
-  m->cmd = 0;
-  free (m->macro_name);
-  m->macro_name = strdup ("");
-  free (m->macrobody);
-  m->macrobody = 0;
-  m->element = 0;
+  unset_macro_record (m);
   remove_texinfo_command (cmd);
 }
 
@@ -542,7 +574,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     arguments_container->type = ET_rmacro_call;
   add_extra_string_dup (arguments_container, "name", command_name(cmd));
 
-  macro_record = lookup_macro (cmd);
   /* Get number of args. - 1 for the macro name. */
   args_number = macro->args.number - 1;
 

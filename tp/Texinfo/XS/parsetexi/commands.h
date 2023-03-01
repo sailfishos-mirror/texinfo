@@ -87,11 +87,14 @@ void wipe_user_commands (void);
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
 #define CF_no_paragraph			0x01000000
-/* unused                               0x02000000 */
+/* a user-defined command that is referenced to by another command,
+   which should keep its place in the user_defined_command_data table */
+#define CF_REGISTERED		        0x02000000
 #define CF_nobrace			0x04000000
 /* blockitem commands have a possible content before an item */
 #define CF_blockitem			0x08000000
-/* unused                               0x10000000 */
+/* used for REGISTERED commands before they have been set to something */
+#define CF_UNKNOWN		        0x10000000
 #define CF_MACRO 			0x20000000
 #define CF_index_entry_command  	0x40000000
 /* command that affect the document as a whole and should appear only once */
