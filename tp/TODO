@@ -18,6 +18,13 @@ Also inconsistent entries for item and item as item_LINE, would be
 better to modify the perl parser to use item_LINE and item like
 the XS parser.
 
+source marks in parse_node_manual
+
+Add source marks for alias. Not easy, as command elements are added in many
+places in the code.
+
+
+
 HTML API
 ========
 
@@ -97,9 +104,6 @@ the context command stack.
 
  @end defun
 
-
-Add source marks for alias. Not easy, as command elements are added in many
-places in the code.
 
 
 In HTML, some @-commands do not have an element with a class associated, or the

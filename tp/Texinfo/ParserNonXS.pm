@@ -5343,10 +5343,11 @@ sub _process_remaining_on_line($$$$)
            and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
     print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
     my $separator = $current->{'contents'}->[-1]->{'text'};
-    # separator is ::, we concatenate and let the while restart
-    # in order to collect spaces below
+    # Separator is ::.
     if ($separator eq ':' and $line =~ s/^(:)//) {
       $current->{'contents'}->[-1]->{'text'} .= $1;
+      # Whitespace following the :: is subsequently appended to
+      # the separator.
     # a . not followed by a space.  Not a separator.
     } elsif ($separator eq '.' and $line =~ /^\S/) {
       my $popped_element = _pop_element_from_contents($self, $current);
@@ -5358,22 +5359,24 @@ sub _process_remaining_on_line($$$$)
       # of the separator. Right now it is part of the description,
       # since it is catched (in the next while) as one of the case below
       $current->{'contents'}->[-1]->{'text'} .= $1;
-    # now handle the menu part that was closed
+    # :: after a menu entry name => change to a menu entry node
     } elsif ($separator =~ /^::/) {
-      print STDERR "MENU NODE no name $separator\n" if ($self->{'DEBUG'});
-      # it was previously registered as menu_entry_name, it is
-      # changed to node
+      print STDERR "MENU NODE done (change from menu entry name) $separator\n"
+          if ($self->{'DEBUG'});
+      # Change from menu_entry_name (i.e. a label)
+      # to a menu entry node
       $current->{'contents'}->[-2]->{'type'} = 'menu_entry_node';
       $current = _enter_menu_entry_node($self, $current, $source_info);
-    # end of the menu entry name
+    # a :, but not ::, after a menu entry name => end of menu entry name
     } elsif ($separator =~ /^:/) {
-      print STDERR "MENU ENTRY $separator\n" if ($self->{'DEBUG'});
+      print STDERR "MENU ENTRY done $separator\n" if ($self->{'DEBUG'});
       push @{$current->{'contents'}}, { 'type' => 'menu_entry_node',
                                         'parent' => $current };
       $current = $current->{'contents'}->[-1];
-    # anything else is the end of the menu node following a menu_entry_name
+    # anything else corresponds to a separator that does not contain
+    # : and is after a menu node (itself following a menu_entry_name)
     } else {
-      print STDERR "MENU NODE $separator\n" if ($self->{'DEBUG'});
+      print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
       $current = _enter_menu_entry_node($self, $current, $source_info);
     }
   # Any other @-command.
@@ -6964,7 +6967,7 @@ sub _parse_line_command_args($$$)
     return undef;
   }
 
-  if (@{$arg->{'contents'}} > 1
+  if (scalar(@{$arg->{'contents'}}) > 1
          or (!defined($arg->{'contents'}->[0]->{'text'}))) {
     $self->_line_error(sprintf(__("superfluous argument to \@%s"),
        $command), $source_info);

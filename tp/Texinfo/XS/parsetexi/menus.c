@@ -74,7 +74,7 @@ register_extra_menu_entry_information (ELEMENT *current)
   return menu_entry_node;
 }
 
-/* Process the destination of the menu entry, and start a menu entry 
+/* Process the destination of the menu entry, and start a menu entry
    description.  */
 ELEMENT *
 enter_menu_entry_node (ELEMENT *current)
@@ -98,7 +98,7 @@ enter_menu_entry_node (ELEMENT *current)
   return current;
 }
 
-/* Called from 'process_remaining_on_line' in parser.c.  Return 1 if we find 
+/* Called from 'process_remaining_on_line' in parser.c.  Return 1 if we find
    menu syntax to process, otherwise return 0. */
 int
 handle_menu (ELEMENT **current_inout, char **line_inout)
@@ -186,8 +186,10 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       debug ("ABORT MENU STAR");
       last_contents_child(current)->type = ET_NONE;
     }
-  /* After a separator in a menu (which would have been added in
-     handle_separator in separator.c). */
+  /* After a separator in a menu, which would have been added in
+     handle_separator in separator.c:
+       , tab or . after ET_menu_entry_node
+       : after ET_menu_entry_name */
   else if (current->contents.number > 0
            && last_contents_child (current)->type == ET_menu_entry_separator)
     {
@@ -213,7 +215,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           merge_text (current, last_child->text.text, last_child);
           destroy_element (last_child);
         }
-      /* here we collect spaces following separators. */
+      /* here we collect spaces following separators². */
       else if (strchr (whitespace_chars_except_newline, *line))
         {
           int n;
@@ -222,30 +224,34 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           text_append_n (&last_child->text, line, n);
           line += n;
         }
+      /* :: after a menu entry name => change to a menu entry node */
       else if (!strncmp (separator, "::", 2))
         {
           ELEMENT *entry_name;
 
-          debug ("MENU NODE no entry %s", separator);
+          debug ("MENU NODE done (change from menu entry name) %s", separator);
           entry_name = contents_child_by_index (current, -2);
 
-          /* Change it from ET_menu_entry_name (i.e. the label). */
+          /* Change from menu_entry_name (i.e. a label)
+             to a menu entry node */
           entry_name->type = ET_menu_entry_node;
           current = enter_menu_entry_node (current);
         }
-      /* End of the label.  Begin the element for the destination. */
+      /* a :, but not ::, after a menu entry name => end of menu entry name */
       else if (*separator == ':')
         {
           ELEMENT *entry_node;
 
-          debug ("MENU ENTRY %s", separator);
+          debug ("MENU ENTRY done %s", separator);
           entry_node = new_element (ET_menu_entry_node);
           add_to_element_contents (current, entry_node);
           current = entry_node;
         }
       else
+      /* anything else corresponds to a separator that does not contain
+         : and is after a menu node (itself following a menu_entry_name) */
         {
-          debug ("MENU NODE");
+          debug ("MENU NODE done %s", separator);
           current = enter_menu_entry_node (current);
         }
     }
