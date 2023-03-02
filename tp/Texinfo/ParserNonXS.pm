@@ -4490,12 +4490,13 @@ sub _parse_texi_regex {
 
   # REMACRO
   my ($at_command, $open_brace, $asterisk, $single_letter_command,
-      $separator_match, $misc_text)
+      $separator_match, $menu_separator, $misc_text)
     = ($line =~ /^\@([[:alnum:]][[:alnum:]-]*)
                 |^(\{)
                 |^(\*)
                 |^\@(["'~\@&\}\{,\.!\? \t\n\*\-\^`=:\|\/\\])
-                |^([{}@,:\t.\f])
+                |^([{}@,\f])
+                |^([:\t.])
                 |^([^{}@,:\t.\n\f]+)
                 /x);
 
@@ -4503,10 +4504,12 @@ sub _parse_texi_regex {
     $separator_match = $open_brace;
   } elsif ($asterisk) {
     ($misc_text) = ($line =~ /^([^{}@,:\t.\n\f]+)/);
+  } elsif ($separator_match and $separator_match eq ',') {
+    $menu_separator = $separator_match;
   }
 
   return ($at_command, $open_brace, $asterisk, $single_letter_command,
-    $separator_match, $misc_text);
+    $separator_match, $menu_separator, $misc_text);
 }
 
 sub _check_line_directive {
@@ -5029,7 +5032,7 @@ sub _process_remaining_on_line($$$$)
   my $at_command_length;
   my @line_parsing = _parse_texi_regex($line);
   my ($at_command, $open_brace, $asterisk, $single_letter_command,
-      $separator_match, $misc_text) = @line_parsing;
+      $separator_match, $menu_separator, $misc_text) = @line_parsing;
   print STDERR "PARSED: "
     .join(', ',map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
@@ -5128,9 +5131,13 @@ sub _process_remaining_on_line($$$$)
   # argument (an opening brace, or a character after spaces for
   # accent commands) was not found and there is already a new command.
   #
-  # It would have been nice to allow for comments, but there is no
-  # container in the tree to put them when after command and before brace
-  # or argument for accent commands.
+  # NOTE the last element in the current command contents is an element that
+  # is transiently in the tree, and is put in the info hash by
+  # _gather_spaces_after_cmd_before_arg.  It could therefore be possible
+  # to accept an @comment here and put it in this element.  It would not
+  # necessarily be a good idea, as it would mean having an element
+  # in the info hash that holds something more complex than text and source
+  # marks.
   if ($command
       and $current->{'cmdname'}
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
@@ -5244,20 +5251,23 @@ sub _process_remaining_on_line($$$$)
     # may possibly be empty in some specific case, without end of line.
     } elsif ($accent_commands{$current->{'cmdname'}}
              and $line =~ s/^([^@])//) {
-      print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"
+      my $arg_char = $1;
+      print STDERR "ACCENT following_arg $arg_char \@$current->{'cmdname'}\n"
         if ($self->{'DEBUG'});
       if ($current->{'contents'}) {
         _gather_spaces_after_cmd_before_arg($self, $current);
       }
       my $following_arg = {'type' => 'following_arg',
                            'parent' => $current};
-      $following_arg->{'contents'} = [{ 'text' => $1,
-                                       'parent' => $following_arg } ];
       $current->{'args'} = [ $following_arg ];
-      if ($current->{'cmdname'} eq 'dotless' and $1 ne 'i' and $1 ne 'j') {
+      my $accent_arg = { 'text' => $arg_char, 'parent' => $following_arg };
+      $following_arg->{'contents'} = [ $accent_arg ];
+
+      if ($current->{'cmdname'} eq 'dotless'
+          and $arg_char ne 'i' and $arg_char ne 'j') {
         $self->_line_error(sprintf(
-           __("%c%s expects `i' or `j' as argument, not `%s'"),
-                                   ord('@'), $current->{'cmdname'}, $1),
+                  __("\@dotless expects `i' or `j' as argument, not `%s'"),
+                                   $arg_char),
                            $source_info);
       }
       $current = $current->{'parent'};
@@ -5276,7 +5286,7 @@ sub _process_remaining_on_line($$$$)
             and ($current->{'parent'}->{'type'} eq 'menu_comment'
                  or $current->{'parent'}->{'type'} eq 'menu_entry_description')
             and $asterisk
-            and @{$current->{'contents'}}
+            and $current->{'contents'}
             and $current->{'contents'}->[-1]->{'type'}
             and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
             and $current->{'contents'}->[-1]->{'text'} eq '') {
@@ -5298,7 +5308,8 @@ sub _process_remaining_on_line($$$$)
       # this is the menu star collected previously
       my $menu_star_element = _pop_element_from_contents($self, $current);
       $line =~ s/^(\s+)//;
-      my $leading_text = '*' . $1;
+      my $star_leading_spaces = '*' . $1;
+
       if ($current->{'type'} eq 'preformatted'
           and $current->{'parent'}->{'type'}
           and $current->{'parent'}->{'type'} eq 'menu_comment') {
@@ -5324,18 +5335,21 @@ sub _process_remaining_on_line($$$$)
         # close menu_entry (which cannot actually be empty).
         $current = _close_container($self, $current);
       }
-      push @{$current->{'contents'}}, { 'type' => 'menu_entry',
-                                        'parent' => $current,
-                                      };
-      $current = $current->{'contents'}->[-1];
-      $current->{'contents'} = [ { 'type' => 'menu_entry_leading_text',
-                                   'text' => $leading_text,
-                                   'parent' => $current },
-                                 { 'type' => 'menu_entry_name',
-                                   'parent' => $current } ];
+
+      my $menu_entry = { 'type' => 'menu_entry',
+                         'parent' => $current,
+                       };
+      my $leading_text = { 'type' => 'menu_entry_leading_text',
+                           'text' => $star_leading_spaces,
+                           'parent' => $menu_entry };
       # transfer source marks from removed menu star to leading text
-      _transfer_source_marks($menu_star_element, $current->{'contents'}->[0]);
-      $current = $current->{'contents'}->[-1];
+      _transfer_source_marks($menu_star_element, $leading_text);
+      my $entry_name = { 'type' => 'menu_entry_name',
+                         'parent' => $menu_entry };
+      push @{$current->{'contents'}}, $menu_entry;
+      push @{$menu_entry->{'contents'}}, $leading_text;
+      push @{$menu_entry->{'contents'}}, $entry_name;
+      $current = $entry_name;
     }
   # after a separator in menu
   } elsif ($current->{'contents'} and @{$current->{'contents'}}
@@ -5379,6 +5393,19 @@ sub _process_remaining_on_line($$$$)
       print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
       $current = _enter_menu_entry_node($self, $current, $source_info);
     }
+  # After a separator in a menu, end of menu entry node or menu
+  # entry name (. must be followed by a space to stop the node).
+  } elsif ($menu_separator
+           # if menu separator is not ':', it is [,\t.]
+           and (($menu_separator ne ':' and $current->{'type'}
+                 and $current->{'type'} eq 'menu_entry_node')
+                or ($menu_separator eq ':' and $current->{'type'}
+                    and $current->{'type'} eq 'menu_entry_name'))) {
+    substr ($line, 0, 1) = '';
+    $current = $current->{'parent'};
+    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
+                                      'text' => $menu_separator,
+                                      'parent' => $current };
   # Any other @-command.
   } elsif ($command) {
     if (!$at_command) {
@@ -6638,16 +6665,6 @@ sub _process_remaining_on_line($$$$)
              and $current->{'parent'}->{'cmdname'}
              and $current->{'parent'}->{'cmdname'} eq 'node') {
       $self->_line_warn(__("superfluous arguments for node"), $source_info);
-    # After a separator in a menu, end of menu node
-    # (. must be followed by a space to stop the node).
-    } elsif (($separator =~ /[,\t.]/ and $current->{'type'}
-           and $current->{'type'} eq 'menu_entry_node')
-           or ($separator eq ':' and $current->{'type'}
-             and $current->{'type'} eq 'menu_entry_name')) {
-      $current = $current->{'parent'};
-      push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
-                                        'text' => $separator,
-                                        'parent' => $current };
     } elsif ($separator eq "\f" and $current->{'type'}
              and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
@@ -6661,6 +6678,10 @@ sub _process_remaining_on_line($$$$)
     } else {
       $current = _merge_text($self, $current, $separator);
     }
+  # need to be after as , is in common with separators
+  } elsif ($menu_separator) {
+    substr ($line, 0, 1) = '';
+    $current = _merge_text($self, $current, $menu_separator);
   # Misc text except end of line
   } elsif (defined $misc_text) {
     print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});

@@ -289,6 +289,7 @@ void xs_parse_texi_regex (SV *text_in,
                           char **asterisk,
                           char **single_letter_command,
                           char **separator_match,
+                          char **menu_separator,
                           char **new_text)
 {
   char *text;
@@ -301,7 +302,7 @@ void xs_parse_texi_regex (SV *text_in,
   text = SvPV_nolen (text_in);
 
   *at_command = *open_brace = *asterisk = *single_letter_command
-          = *separator_match = *new_text = 0;
+          = *separator_match = *menu_separator = *new_text = 0;
 
   if (*text == '@' && isalnum(text[1]))
     {
@@ -338,10 +339,20 @@ void xs_parse_texi_regex (SV *text_in,
           a[1] = '\0';
         }
 
-      else if (strchr ("{}@,:\t.\f", *text))
+      else if (strchr ("{}@,\f", *text))
         {
           static char a[2];
           *separator_match = a;
+          if (*text == ',')
+            *menu_separator = a;
+          a[0] = *text;
+          a[1] = '\0';
+        }
+
+      else if (strchr (":\t.", *text))
+        {
+          static char a[2];
+          *menu_separator = a;
           a[0] = *text;
           a[1] = '\0';
         }

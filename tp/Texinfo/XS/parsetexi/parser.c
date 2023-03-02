@@ -2207,7 +2207,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
     }
   /* "Separator" character */
-  else if (*line != '\0' && strchr ("{}@,:\t.\f", *line))
+  else if (*line != '\0' && strchr ("{}@,\f", *line))
     {
       char separator = *line++;
       debug ("SEPARATOR: %c", separator);
@@ -2215,6 +2215,15 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         line_error ("unexpected @");
       else
         current = handle_separator (current, separator, &line);
+    }
+  else if (*line != '\0' && strchr (":\t.", *line))
+    {
+      /* merge menu separator (other than comma, done with other separators) */
+      char separator = *line++;
+      char t[2];
+      t[0] = separator;
+      t[1] = '\0';
+      current = merge_text (current, t, 0);
     }
   /* "Misc text except end of line." */
   else if (*line && *line != '\n')

@@ -108,10 +108,12 @@ xs_parse_texi_regex (text)
      char *asterisk;
      char *single_letter_command;
      char *separator_match;
+     char *menu_separator;
      char *new_text;
   PPCODE:
      xs_parse_texi_regex(text, &at_command, &open_brace, &asterisk, 
-                         &single_letter_command, &separator_match, &new_text);
+                         &single_letter_command, &separator_match,
+                         &menu_separator, &new_text);
      EXTEND(SP,6);
      PUSHs(sv_newmortal());
      sv_setpv((SV*)ST(0), at_command);
@@ -129,8 +131,11 @@ xs_parse_texi_regex (text)
      sv_setpv((SV*)ST(4), separator_match);
      SvUTF8_on(ST(4));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(5), new_text);
+     sv_setpv((SV*)ST(5), menu_separator);
      SvUTF8_on(ST(5));
+     PUSHs(sv_newmortal());
+     sv_setpv((SV*)ST(6), new_text);
+     SvUTF8_on(ST(6));
 
 SV *
 xs_default_format_protect_text (self, text_in)

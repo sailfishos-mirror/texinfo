@@ -766,24 +766,6 @@ handle_separator (ELEMENT *current, char separator, char **line_inout)
     {
       line_warn ("superfluous arguments for node");
     }
-  /* After a separator in a menu, end of menu node
-     (. must be followed by a space to stop the node). */
-  else if ((separator == ','
-            || separator == '\t'
-            || separator == '.')
-           && current->type == ET_menu_entry_node
-           || separator == ':' && current->type == ET_menu_entry_name)
-    {
-      ELEMENT *e;
-      
-      current = current->parent;
-      e = new_element (ET_menu_entry_separator);
-      text_append_n (&e->text, &separator, 1);
-      add_to_element_contents (current, e);
-
-      /* Note in 'handle_menu' in menus.c, if a '.' is not followed by
-         whitespace, we revert was was done here. */
-    }
   else if (separator == '\f' && current->type == ET_paragraph)
     {
       ELEMENT *e;
