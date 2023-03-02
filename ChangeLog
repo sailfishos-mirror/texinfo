@@ -1,5 +1,10 @@
 2023-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): call Texinfo::Parser->import() after
+	loading the NonXS parser.
+
+2023-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/menus.c (handle_menu): start a node entry
 	only if the * is at the beginning of a line, as for the perl parser.
 

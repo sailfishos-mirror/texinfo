@@ -224,7 +224,7 @@ sub init {
   
   return $module;
   
-FALLBACK:
+ FALLBACK:
   if ($TEXINFO_XS eq 'required') {
     die "unset the TEXINFO_XS environment variable to use the "
        ."pure Perl modules\n";
@@ -239,7 +239,7 @@ FALLBACK:
 
   # Fall back to using the Perl code.
   # Use eval here to interpret :: properly in module name.
-  eval "require $fallback_module";
+  eval "require $fallback_module; Texinfo::Parser->import();";
   if ($@) {
     warn();
     die "Error loading $fallback_module\n";
