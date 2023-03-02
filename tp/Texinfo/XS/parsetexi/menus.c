@@ -113,7 +113,8 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       && (current->parent->type == ET_menu_comment
           || current->parent->type == ET_menu_entry_description)
       && current->contents.number > 0
-      && last_contents_child(current)->type == ET_empty_line)
+      && last_contents_child(current)->type == ET_empty_line
+      && last_contents_child(current)->text.end == 0)
     {
       ELEMENT *star;
 

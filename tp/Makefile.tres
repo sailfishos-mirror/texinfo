@@ -1321,6 +1321,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/formats_in_menu.pl \
   t/results/menu/inlineraw_in_menu_description.pl \
   t/results/menu/invalid_info_menu_entry.pl \
+  t/results/menu/leading_space_before_menu_star.pl \
   t/results/menu/menu_entry_name.pl \
   t/results/menu/menu_entry_name_comment.pl \
   t/results/menu/menu_entry_no_entry.pl \

@@ -1,5 +1,12 @@
 2023-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/menus.c (handle_menu): start a node entry
+	only if the * is at the beginning of a line, as for the perl parser.
+
+	* tp/Makefile.tres, tp/t/10menu.t: add leading_space_before_menu_star test.
+
+2023-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/menus.c (handle_menu): synchronize and improve
 	comments and debug messages.  No change in code.

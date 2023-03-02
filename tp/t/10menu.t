@@ -69,6 +69,13 @@ Horizontal space
 * a: (f)b3.c. d
 @end menu
 '],
+['leading_space_before_menu_star',
+'@node a node
+
+@menu
+ * a node::
+@end menu
+'],
 ['menu_entry_name_comment',
 '@menu
 * a: (f)b@c c
