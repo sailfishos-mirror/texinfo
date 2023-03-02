@@ -1,5 +1,12 @@
 2023-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/menus.c (handle_menu): move code that sets up
+	a menu separator before code that handles a menu separator for
+	improved readability.
+
+2023-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi_regex)
 	(_process_remaining_on_line), tp/Texinfo/XS/MiscXS.xs
 	(xs_parse_texi_regex), tp/Texinfo/XS/parsetexi/menus.c (handle_menu),

@@ -5351,6 +5351,19 @@ sub _process_remaining_on_line($$$$)
       push @{$menu_entry->{'contents'}}, $entry_name;
       $current = $entry_name;
     }
+  # After a separator in a menu, end of menu entry node or menu
+  # entry name (. must be followed by a space to stop the node).
+  } elsif ($menu_separator
+           # if menu separator is not ':', it is [,\t.]
+           and (($menu_separator ne ':' and $current->{'type'}
+                 and $current->{'type'} eq 'menu_entry_node')
+                or ($menu_separator eq ':' and $current->{'type'}
+                    and $current->{'type'} eq 'menu_entry_name'))) {
+    substr ($line, 0, 1) = '';
+    $current = $current->{'parent'};
+    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
+                                      'text' => $menu_separator,
+                                      'parent' => $current };
   # after a separator in menu
   } elsif ($current->{'contents'} and @{$current->{'contents'}}
            and $current->{'contents'}->[-1]->{'type'}
@@ -5393,19 +5406,6 @@ sub _process_remaining_on_line($$$$)
       print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
       $current = _enter_menu_entry_node($self, $current, $source_info);
     }
-  # After a separator in a menu, end of menu entry node or menu
-  # entry name (. must be followed by a space to stop the node).
-  } elsif ($menu_separator
-           # if menu separator is not ':', it is [,\t.]
-           and (($menu_separator ne ':' and $current->{'type'}
-                 and $current->{'type'} eq 'menu_entry_node')
-                or ($menu_separator eq ':' and $current->{'type'}
-                    and $current->{'type'} eq 'menu_entry_name'))) {
-    substr ($line, 0, 1) = '';
-    $current = $current->{'parent'};
-    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
-                                      'text' => $menu_separator,
-                                      'parent' => $current };
   # Any other @-command.
   } elsif ($command) {
     if (!$at_command) {

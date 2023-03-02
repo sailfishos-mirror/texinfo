@@ -187,9 +187,27 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       debug ("ABORT MENU STAR");
       last_contents_child(current)->type = ET_NONE;
     }
-  /* After a separator in a menu, which would have been added in code below
-       , tab or . after ET_menu_entry_node
-       : after ET_menu_entry_name */
+  /* After a separator in a menu, end of menu entry node or menu entry name
+   (. must be followed by a space to stop the node). */
+  else if (*line != '\0'
+           && ((*line == ':' && current->type == ET_menu_entry_name)
+               || (strchr (",\t.", *line)
+                   && current->type == ET_menu_entry_node)))
+    {
+      ELEMENT *e;
+      char menu_separator = *line;
+      line++;
+
+      debug ("MENU SEPARATOR %c\n", menu_separator);
+      current = current->parent;
+      e = new_element (ET_menu_entry_separator);
+      text_append_n (&e->text, &menu_separator, 1);
+      add_to_element_contents (current, e);
+
+      /* Note, if a '.' is not followed by whitespace, we revert was was
+         done here below. */
+    }
+  /* After a separator in a menu */
   else if (current->contents.number > 0
            && last_contents_child (current)->type == ET_menu_entry_separator)
     {
@@ -215,7 +233,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           merge_text (current, last_child->text.text, last_child);
           destroy_element (last_child);
         }
-      /* here we collect spaces following separators². */
+      /* here we collect spaces following separators. */
       else if (strchr (whitespace_chars_except_newline, *line))
         {
           int n;
@@ -254,26 +272,6 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
           debug ("MENU NODE done %s", separator);
           current = enter_menu_entry_node (current);
         }
-    }
-  /* After a separator in a menu, end of menu node
-   (. must be followed by a space to stop the node). */
-  else if (*line != '\0'
-           && ((*line == ':' && current->type == ET_menu_entry_name)
-               || (strchr (",\t.", *line)
-                   && current->type == ET_menu_entry_node)))
-    {
-      ELEMENT *e;
-      char menu_separator = *line;
-      line++;
-
-      debug ("MENU SEPARATOR %c\n", menu_separator);
-      current = current->parent;
-      e = new_element (ET_menu_entry_separator);
-      text_append_n (&e->text, &menu_separator, 1);
-      add_to_element_contents (current, e);
-
-      /* Note, if a '.' is not followed by whitespace, we revert was was done here
-         in code above. */
     }
   else
     retval = 0;
