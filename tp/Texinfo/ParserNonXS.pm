@@ -4795,6 +4795,159 @@ sub _handle_macro($$$$$)
   return ($error, $line, $source_info);
 }
 
+# to have similar code with the XS parser, the only returned information
+# is whether some processing was done.  The line and current element are
+# passed by reference. For the current element this is achieved by putting
+# the element in an array reference which is passed to the function.
+sub _handle_menu ($$$$$$)
+{
+  my $self = shift;
+  my $current_array_ref = shift;
+  my $line_ref = shift;
+  my $source_info = shift;
+  my $asterisk = shift;
+  my $menu_separator = shift;
+
+  my $current = $current_array_ref->[0];
+
+  my $retval = 1;
+
+  # maybe a menu entry beginning: a * at the beginning of a menu line
+  if ($current->{'type'}
+      and $current->{'type'} eq 'preformatted'
+      and $current->{'parent'}->{'type'}
+      and ($current->{'parent'}->{'type'} eq 'menu_comment'
+           or $current->{'parent'}->{'type'} eq 'menu_entry_description')
+      and $asterisk
+      and $current->{'contents'}
+      and $current->{'contents'}->[-1]->{'type'}
+      and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
+      and $current->{'contents'}->[-1]->{'text'} eq '') {
+    print STDERR "MENU STAR\n" if ($self->{'DEBUG'});
+    _abort_empty_line($self, $current);
+    $$line_ref =~ s/^\*//;
+    push @{$current->{'contents'}}, { 'parent' => $current,
+                                      'type' => 'internal_menu_star',
+                                      'text' => '*' };
+  # a space after a * at the beginning of a menu line
+  } elsif ($current->{'contents'} and @{$current->{'contents'}}
+           and $current->{'contents'}->[-1]->{'type'}
+           and $current->{'contents'}->[-1]->{'type'} eq 'internal_menu_star') {
+    if ($$line_ref !~ /^\s+/) {
+      print STDERR "ABORT MENU STAR ($$line_ref)\n" if ($self->{'DEBUG'});
+      delete $current->{'contents'}->[-1]->{'type'};
+    } else {
+      print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
+      # this is the menu star collected previously
+      my $menu_star_element = _pop_element_from_contents($self, $current);
+      $$line_ref =~ s/^(\s+)//;
+      my $star_leading_spaces = '*' . $1;
+
+      if ($current->{'type'} eq 'preformatted'
+          and $current->{'parent'}->{'type'}
+          and $current->{'parent'}->{'type'} eq 'menu_comment') {
+        # close preformatted
+        $current = _close_container($self, $current);
+        # close menu_comment
+        $current = _close_container($self, $current);
+      } else {
+        # if in the preceding menu entry description, first parent is preformatted,
+        # second is the description, third is the menu_entry
+        if ($current->{'type'} ne 'preformatted'
+            or $current->{'parent'}->{'type'} ne 'menu_entry_description'
+            or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
+            or (not $block_commands{$current->{'parent'}->{'parent'}->{'parent'}
+                                                  ->{'cmdname'}} eq 'menu')) {
+          $self->_bug_message("Not in menu comment nor description",
+                               $source_info, $current);
+        }
+        # close preformatted
+        $current = _close_container($self, $current);
+        # close menu_description
+        $current = _close_container($self, $current);
+        # close menu_entry (which cannot actually be empty).
+        $current = _close_container($self, $current);
+      }
+
+      my $menu_entry = { 'type' => 'menu_entry',
+                         'parent' => $current,
+                       };
+      my $leading_text = { 'type' => 'menu_entry_leading_text',
+                           'text' => $star_leading_spaces,
+                           'parent' => $menu_entry };
+      # transfer source marks from removed menu star to leading text
+      _transfer_source_marks($menu_star_element, $leading_text);
+      my $entry_name = { 'type' => 'menu_entry_name',
+                         'parent' => $menu_entry };
+      push @{$current->{'contents'}}, $menu_entry;
+      push @{$menu_entry->{'contents'}}, $leading_text;
+      push @{$menu_entry->{'contents'}}, $entry_name;
+      $current = $entry_name;
+    }
+  # After a separator in a menu, end of menu entry node or menu
+  # entry name (. must be followed by a space to stop the node).
+  } elsif ($menu_separator
+           # if menu separator is not ':', it is [,\t.]
+           and (($menu_separator ne ':' and $current->{'type'}
+                 and $current->{'type'} eq 'menu_entry_node')
+                or ($menu_separator eq ':' and $current->{'type'}
+                    and $current->{'type'} eq 'menu_entry_name'))) {
+    substr ($$line_ref, 0, 1) = '';
+    $current = $current->{'parent'};
+    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
+                                      'text' => $menu_separator,
+                                      'parent' => $current };
+  # after a separator in menu
+  } elsif ($current->{'contents'} and @{$current->{'contents'}}
+           and $current->{'contents'}->[-1]->{'type'}
+           and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
+    print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
+    my $separator = $current->{'contents'}->[-1]->{'text'};
+    # Separator is ::.
+    if ($separator eq ':' and $$line_ref =~ s/^(:)//) {
+      $current->{'contents'}->[-1]->{'text'} .= $1;
+      # Whitespace following the :: is subsequently appended to
+      # the separator.
+    # a . not followed by a space.  Not a separator.
+    } elsif ($separator eq '.' and $$line_ref =~ /^\S/) {
+      my $popped_element = _pop_element_from_contents($self, $current);
+      $current = $current->{'contents'}->[-1];
+      $current = _merge_text($self, $current, $separator, $popped_element);
+    # here we collect spaces following separators.
+    } elsif ($$line_ref =~ s/^([^\S\r\n]+)//) {
+      # NOTE a trailing end of line could be considered to be part
+      # of the separator. Right now it is part of the description,
+      # since it is catched (in the next while) as one of the case below
+      $current->{'contents'}->[-1]->{'text'} .= $1;
+    # :: after a menu entry name => change to a menu entry node
+    } elsif ($separator =~ /^::/) {
+      print STDERR "MENU NODE done (change from menu entry name) $separator\n"
+          if ($self->{'DEBUG'});
+      # Change from menu_entry_name (i.e. a label)
+      # to a menu entry node
+      $current->{'contents'}->[-2]->{'type'} = 'menu_entry_node';
+      $current = _enter_menu_entry_node($self, $current, $source_info);
+    # a :, but not ::, after a menu entry name => end of menu entry name
+    } elsif ($separator =~ /^:/) {
+      print STDERR "MENU ENTRY done $separator\n" if ($self->{'DEBUG'});
+      push @{$current->{'contents'}}, { 'type' => 'menu_entry_node',
+                                        'parent' => $current };
+      $current = $current->{'contents'}->[-1];
+    # anything else corresponds to a separator that does not contain
+    # : and is after a menu node (itself following a menu_entry_name)
+    } else {
+      print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
+      $current = _enter_menu_entry_node($self, $current, $source_info);
+    }
+  } else {
+    $retval = 0;
+  }
+
+  $current_array_ref->[0] = $current;
+
+  return $retval;
+}
+
 my $STILL_MORE_TO_PROCESS = 0;
 my $GET_A_NEW_LINE = 1;
 my $FINISHED_TOTALLY = -1;
@@ -5166,6 +5319,10 @@ sub _process_remaining_on_line($$$$)
     # goto funexit;  # used in XS code
   }
 
+  # this is used to pass $current to a function that can modify
+  # it by replacing the array content.
+  my @current_array_for_ref = ($current);
+
   # this situation arises when after the $current->{'cmdname'}
   # Brace commands not followed immediately by a brace
   # opening.  In particular cases that may lead to "command closing"
@@ -5279,133 +5436,9 @@ sub _process_remaining_on_line($$$$)
       }
       $current = $current->{'parent'};
     }
-  # maybe a menu entry beginning: a * at the beginning of a menu line
-  } elsif ($current->{'type'}
-            and $current->{'type'} eq 'preformatted'
-            and $current->{'parent'}->{'type'}
-            and ($current->{'parent'}->{'type'} eq 'menu_comment'
-                 or $current->{'parent'}->{'type'} eq 'menu_entry_description')
-            and $asterisk
-            and $current->{'contents'}
-            and $current->{'contents'}->[-1]->{'type'}
-            and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
-            and $current->{'contents'}->[-1]->{'text'} eq '') {
-    print STDERR "MENU STAR\n" if ($self->{'DEBUG'});
-    _abort_empty_line($self, $current);
-    $line =~ s/^\*//;
-    push @{$current->{'contents'}}, { 'parent' => $current,
-                                      'type' => 'internal_menu_star',
-                                      'text' => '*' };
-  # a space after a * at the beginning of a menu line
-  } elsif ($current->{'contents'} and @{$current->{'contents'}}
-           and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'internal_menu_star') {
-    if ($line !~ /^\s+/) {
-      print STDERR "ABORT MENU STAR ($line)\n" if ($self->{'DEBUG'});
-      delete $current->{'contents'}->[-1]->{'type'};
-    } else {
-      print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
-      # this is the menu star collected previously
-      my $menu_star_element = _pop_element_from_contents($self, $current);
-      $line =~ s/^(\s+)//;
-      my $star_leading_spaces = '*' . $1;
-
-      if ($current->{'type'} eq 'preformatted'
-          and $current->{'parent'}->{'type'}
-          and $current->{'parent'}->{'type'} eq 'menu_comment') {
-        # close preformatted
-        $current = _close_container($self, $current);
-        # close menu_comment
-        $current = _close_container($self, $current);
-      } else {
-        # if in the preceding menu entry description, first parent is preformatted,
-        # second is the description, third is the menu_entry
-        if ($current->{'type'} ne 'preformatted'
-            or $current->{'parent'}->{'type'} ne 'menu_entry_description'
-            or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
-            or (not $block_commands{$current->{'parent'}->{'parent'}->{'parent'}
-                                                  ->{'cmdname'}} eq 'menu')) {
-          $self->_bug_message("Not in menu comment nor description",
-                               $source_info, $current);
-        }
-        # close preformatted
-        $current = _close_container($self, $current);
-        # close menu_description
-        $current = _close_container($self, $current);
-        # close menu_entry (which cannot actually be empty).
-        $current = _close_container($self, $current);
-      }
-
-      my $menu_entry = { 'type' => 'menu_entry',
-                         'parent' => $current,
-                       };
-      my $leading_text = { 'type' => 'menu_entry_leading_text',
-                           'text' => $star_leading_spaces,
-                           'parent' => $menu_entry };
-      # transfer source marks from removed menu star to leading text
-      _transfer_source_marks($menu_star_element, $leading_text);
-      my $entry_name = { 'type' => 'menu_entry_name',
-                         'parent' => $menu_entry };
-      push @{$current->{'contents'}}, $menu_entry;
-      push @{$menu_entry->{'contents'}}, $leading_text;
-      push @{$menu_entry->{'contents'}}, $entry_name;
-      $current = $entry_name;
-    }
-  # After a separator in a menu, end of menu entry node or menu
-  # entry name (. must be followed by a space to stop the node).
-  } elsif ($menu_separator
-           # if menu separator is not ':', it is [,\t.]
-           and (($menu_separator ne ':' and $current->{'type'}
-                 and $current->{'type'} eq 'menu_entry_node')
-                or ($menu_separator eq ':' and $current->{'type'}
-                    and $current->{'type'} eq 'menu_entry_name'))) {
-    substr ($line, 0, 1) = '';
-    $current = $current->{'parent'};
-    push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
-                                      'text' => $menu_separator,
-                                      'parent' => $current };
-  # after a separator in menu
-  } elsif ($current->{'contents'} and @{$current->{'contents'}}
-           and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
-    print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
-    my $separator = $current->{'contents'}->[-1]->{'text'};
-    # Separator is ::.
-    if ($separator eq ':' and $line =~ s/^(:)//) {
-      $current->{'contents'}->[-1]->{'text'} .= $1;
-      # Whitespace following the :: is subsequently appended to
-      # the separator.
-    # a . not followed by a space.  Not a separator.
-    } elsif ($separator eq '.' and $line =~ /^\S/) {
-      my $popped_element = _pop_element_from_contents($self, $current);
-      $current = $current->{'contents'}->[-1];
-      $current = _merge_text($self, $current, $separator, $popped_element);
-    # here we collect spaces following separators.
-    } elsif ($line =~ s/^([^\S\r\n]+)//) {
-      # NOTE a trailing end of line could be considered to be part
-      # of the separator. Right now it is part of the description,
-      # since it is catched (in the next while) as one of the case below
-      $current->{'contents'}->[-1]->{'text'} .= $1;
-    # :: after a menu entry name => change to a menu entry node
-    } elsif ($separator =~ /^::/) {
-      print STDERR "MENU NODE done (change from menu entry name) $separator\n"
-          if ($self->{'DEBUG'});
-      # Change from menu_entry_name (i.e. a label)
-      # to a menu entry node
-      $current->{'contents'}->[-2]->{'type'} = 'menu_entry_node';
-      $current = _enter_menu_entry_node($self, $current, $source_info);
-    # a :, but not ::, after a menu entry name => end of menu entry name
-    } elsif ($separator =~ /^:/) {
-      print STDERR "MENU ENTRY done $separator\n" if ($self->{'DEBUG'});
-      push @{$current->{'contents'}}, { 'type' => 'menu_entry_node',
-                                        'parent' => $current };
-      $current = $current->{'contents'}->[-1];
-    # anything else corresponds to a separator that does not contain
-    # : and is after a menu node (itself following a menu_entry_name)
-    } else {
-      print STDERR "MENU NODE done $separator\n" if ($self->{'DEBUG'});
-      $current = _enter_menu_entry_node($self, $current, $source_info);
-    }
+  } elsif (_handle_menu($self, \@current_array_for_ref, \$line, $source_info,
+                        $asterisk, $menu_separator)) {
+    $current = $current_array_for_ref[0];
   # Any other @-command.
   } elsif ($command) {
     if (!$at_command) {
