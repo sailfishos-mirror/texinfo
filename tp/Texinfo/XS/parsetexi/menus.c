@@ -101,7 +101,7 @@ enter_menu_entry_node (ELEMENT *current)
 /* Called from 'process_remaining_on_line' in parser.c.  Return 1 if we find
    menu syntax to process, otherwise return 0. */
 int
-handle_menu (ELEMENT **current_inout, char **line_inout)
+handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
 {
   ELEMENT *current = *current_inout;
   char *line = *line_inout;
@@ -280,4 +280,140 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
   *line_inout = line;
 
   return retval;
+}
+
+ELEMENT *
+end_line_menu_entry (ELEMENT *current)
+{
+  ELEMENT *end_comment = 0;
+  int empty_menu_entry_node = 0;
+
+  if (current->type == ET_menu_entry_node)
+    {
+      ELEMENT *last = last_contents_child (current);
+
+      if (current->contents.number > 0
+          && (last->cmd == CM_c || last->cmd == CM_comment))
+        {
+          end_comment = pop_element_from_contents (current);
+        }
+
+      /* If contents empty or is all whitespace. */
+      if (current->contents.number == 0
+          || (current->contents.number == 1
+              && last->text.end > 0
+              && !last->text.text[strspn (last->text.text,
+                                          whitespace_chars)]))
+        {
+          empty_menu_entry_node = 1;
+          if (end_comment)
+            add_to_element_contents (current, end_comment);
+        }
+    }
+  /* Abort the menu entry if there is no destination node given. */
+  if (empty_menu_entry_node || current->type == ET_menu_entry_name)
+    {
+      ELEMENT *menu, *menu_entry, *description_or_menu_comment = 0;
+      debug ("FINALLY NOT MENU ENTRY");
+      menu = current->parent->parent;
+      menu_entry = pop_element_from_contents (menu);
+      if (menu->contents.number > 0
+          && last_contents_child(menu)->type == ET_menu_entry)
+        {
+          ELEMENT *entry, *description = 0;
+          int j;
+
+          entry = last_contents_child(menu);
+          for (j = entry->contents.number - 1; j >= 0; j--)
+            {
+              ELEMENT *e = contents_child_by_index (entry, j);
+              if (e->type == ET_menu_entry_description)
+                {
+                  description = e;
+                  break;
+                }
+            }
+          if (description)
+            description_or_menu_comment = description;
+          else
+            {
+              ELEMENT *e;
+              /* "Normally this cannot happen." */
+              bug ("no description in menu entry");
+              e = new_element (ET_menu_entry_description);
+              add_to_element_contents (entry, e);
+              description_or_menu_comment = e;
+            }
+        }
+      else if (menu->contents.number > 0
+               && last_contents_child(menu)->type == ET_menu_comment)
+        {
+          description_or_menu_comment = last_contents_child(menu);
+        }
+      if (description_or_menu_comment)
+        {
+          current = description_or_menu_comment;
+          if (current->contents.number > 0
+              && last_contents_child(current)->type == ET_preformatted)
+            current = last_contents_child(current);
+          else
+            {
+              ELEMENT *e;
+              /* This should not happen */
+              bug ("description or menu comment not in preformatted");
+              e = new_element (ET_preformatted);
+              add_to_element_contents (current, e);
+              current = e;
+            }
+        }
+      else
+        {
+          ELEMENT *e;
+          e = new_element (ET_menu_comment);
+          add_to_element_contents (menu, e);
+          current = e;
+          e = new_element (ET_preformatted);
+          add_to_element_contents (current, e);
+          current = e;
+          debug ("THEN MENU_COMMENT OPEN");
+        }
+      {
+      int i, j;
+      for (i = 0; i < menu_entry->contents.number; i++)
+        {
+          ELEMENT *arg = contents_child_by_index(menu_entry, i);
+          if (arg->text.end > 0)
+            current = merge_text (current, arg->text.text, arg);
+          else
+            {
+              ELEMENT *e;
+              for (j = 0; j < arg->contents.number; j++)
+                {
+                  e = contents_child_by_index (arg, j);
+                  if (e->text.end > 0)
+                    {
+                      current = merge_text (current, e->text.text, e);
+                      destroy_element (e);
+                    }
+                  else
+                    {
+                      add_to_element_contents (current, e);
+                    }
+                }
+            }
+          destroy_element (arg);
+        }
+      destroy_element (menu_entry);
+      }
+    }
+  else
+    {
+      debug ("MENU ENTRY END LINE");
+      current = current->parent;
+      current = enter_menu_entry_node (current);
+      if (end_comment)
+        add_to_element_contents (current, end_comment);
+    }
+
+  return current;
 }

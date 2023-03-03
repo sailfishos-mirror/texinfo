@@ -4093,6 +4093,122 @@ sub _end_line_starting_block($$$)
   return $current;
 }
 
+sub _end_line_menu_entry ($$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $source_info = shift;
+
+  my $empty_menu_entry_node = 0;
+  my $end_comment;
+  if ($current->{'type'} eq 'menu_entry_node') {
+    if (@{$current->{'contents'}}
+        and $current->{'contents'}->[-1]->{'cmdname'}
+        and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
+          or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
+      $end_comment = _pop_element_from_contents($self, $current);
+    }
+    if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
+         # empty if only the end of line or spaces, including non ascii spaces
+         or (@{$current->{'contents'}} == 1
+             and defined($current->{'contents'}->[-1]->{'text'})
+             and $current->{'contents'}->[-1]->{'text'} !~ /\S/)) {
+      $empty_menu_entry_node = 1;
+      push @{$current->{'contents'}}, $end_comment if ($end_comment);
+    }
+  }
+  # we abort the menu entry if there is no node name
+  if ($empty_menu_entry_node or $current->{'type'} eq 'menu_entry_name') {
+    my $description_or_menu_comment;
+    my $menu_type_reopened = 'menu_description';
+    print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'DEBUG'});
+    my $menu = $current->{'parent'}->{'parent'};
+    my $menu_entry = _pop_element_from_contents($self, $menu);
+    if ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
+        and $menu->{'contents'}->[-1]->{'type'}
+        and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
+      my $entry = $menu->{'contents'}->[-1];
+      my $description;
+      foreach my $entry_element (reverse(@{$entry->{'contents'}})) {
+        if ($entry_element->{'type'} eq 'menu_entry_description') {
+          $description = $entry_element;
+          last;
+        }
+      }
+      if ($description) {
+        $description_or_menu_comment = $description;
+      } else {
+        # Normally this cannot happen
+        $self->_bug_message("no description in menu_entry",
+                             $source_info, $current);
+        push @{$entry->{'contents'}}, {'type' => 'menu_entry_description',
+                                   'parent' => $entry, };
+        $description_or_menu_comment = $entry->{'contents'}->[-1];
+      }
+    } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
+             and $menu->{'contents'}->[-1]->{'type'}
+             and $menu->{'contents'}->[-1]->{'type'} eq 'menu_comment') {
+      $description_or_menu_comment = $menu->{'contents'}->[-1];
+      $menu_type_reopened = 'menu_comment';
+    }
+    if ($description_or_menu_comment) {
+      $current = $description_or_menu_comment;
+      if ($current->{'contents'}->[-1]
+          and $current->{'contents'}->[-1]->{'type'}
+          and $current->{'contents'}->[-1]->{'type'} eq 'preformatted') {
+        $current = $current->{'contents'}->[-1];
+      } else {
+        # this should not happen
+        $self->_bug_message("description or menu comment not in preformatted",
+                            $source_info, $current);
+        push @{$current->{'contents'}}, {'type' => 'preformatted',
+                                  'parent' => $current, };
+        $current = $current->{'contents'}->[-1];
+      }
+    } else {
+      push @{$menu->{'contents'}}, {'type' => 'menu_comment',
+                                  'parent' => $menu,
+                                  'contents' => [] };
+      $current = $menu->{'contents'}->[-1];
+      push @{$current->{'contents'}}, {'type' => 'preformatted',
+                                'parent' => $current, };
+      $current = $current->{'contents'}->[-1];
+      print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
+    }
+    # source marks tested in t/*macro.t macro_in_menu_comment_like_entry
+    while (@{$menu_entry->{'contents'}}) {
+      my $arg = shift @{$menu_entry->{'contents'}};
+      if (defined($arg->{'text'})) {
+        $current = _merge_text($self, $current, $arg->{'text'}, $arg);
+      } elsif ($arg->{'contents'}) {
+        while (@{$arg->{'contents'}}) {
+          my $content = shift @{$arg->{'contents'}};
+          if (defined($content->{'text'})) {
+            $current = _merge_text($self, $current, $content->{'text'},
+                                   $content);
+            $content = undef;
+          } else {
+            $content->{'parent'} = $current;
+            push @{$current->{'contents'}}, $content;
+          }
+        }
+      }
+      $arg = undef;
+    }
+    # MENU_COMMENT open
+    $menu_entry = undef;
+  } else {
+    print STDERR "MENU ENTRY END LINE\n" if ($self->{'DEBUG'});
+    $current = $current->{'parent'};
+    $current = _enter_menu_entry_node($self, $current, $source_info);
+    if (defined($end_comment)) {
+      $end_comment->{'parent'} = $current;
+      push @{$current->{'contents'}}, $end_comment;
+    }
+  }
+  return $current;
+}
+
 # close constructs and do stuff at end of line (or end of the document)
 sub _end_line($$$);
 sub _end_line($$$)
@@ -4159,113 +4275,7 @@ sub _end_line($$$)
   } elsif ($current->{'type'}
     and ($current->{'type'} eq 'menu_entry_name'
      or $current->{'type'} eq 'menu_entry_node')) {
-    my $empty_menu_entry_node = 0;
-    my $end_comment;
-    if ($current->{'type'} eq 'menu_entry_node') {
-      if (@{$current->{'contents'}}
-          and $current->{'contents'}->[-1]->{'cmdname'}
-          and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
-            or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-        $end_comment = _pop_element_from_contents($self, $current);
-      }
-      if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
-           # empty if only the end of line or spaces, including non ascii spaces
-           or (@{$current->{'contents'}} == 1
-               and defined($current->{'contents'}->[-1]->{'text'})
-               and $current->{'contents'}->[-1]->{'text'} !~ /\S/)) {
-        $empty_menu_entry_node = 1;
-        push @{$current->{'contents'}}, $end_comment if ($end_comment);
-      }
-    }
-    # we abort the menu entry if there is no node name
-    if ($empty_menu_entry_node or $current->{'type'} eq 'menu_entry_name') {
-      my $description_or_menu_comment;
-      my $menu_type_reopened = 'menu_description';
-      print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'DEBUG'});
-      my $menu = $current->{'parent'}->{'parent'};
-      my $menu_entry = _pop_element_from_contents($self, $menu);
-      if ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
-          and $menu->{'contents'}->[-1]->{'type'}
-          and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
-        my $entry = $menu->{'contents'}->[-1];
-        my $description;
-        foreach my $entry_element (reverse(@{$entry->{'contents'}})) {
-          if ($entry_element->{'type'} eq 'menu_entry_description') {
-            $description = $entry_element;
-            last;
-          }
-        }
-        if ($description) {
-          $description_or_menu_comment = $description;
-        } else {
-          # Normally this cannot happen
-          $self->_bug_message("no description in menu_entry",
-                               $source_info, $current);
-          push @{$entry->{'contents'}}, {'type' => 'menu_entry_description',
-                                     'parent' => $entry, };
-          $description_or_menu_comment = $entry->{'contents'}->[-1];
-        }
-      } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
-               and $menu->{'contents'}->[-1]->{'type'}
-               and $menu->{'contents'}->[-1]->{'type'} eq 'menu_comment') {
-        $description_or_menu_comment = $menu->{'contents'}->[-1];
-        $menu_type_reopened = 'menu_comment';
-      }
-      if ($description_or_menu_comment) {
-        $current = $description_or_menu_comment;
-        if ($current->{'contents'}->[-1]
-            and $current->{'contents'}->[-1]->{'type'}
-            and $current->{'contents'}->[-1]->{'type'} eq 'preformatted') {
-          $current = $current->{'contents'}->[-1];
-        } else {
-          # this should not happen
-          $self->_bug_message("description or menu comment not in preformatted",
-                              $source_info, $current);
-          push @{$current->{'contents'}}, {'type' => 'preformatted',
-                                    'parent' => $current, };
-          $current = $current->{'contents'}->[-1];
-        }
-      } else {
-        push @{$menu->{'contents'}}, {'type' => 'menu_comment',
-                                    'parent' => $menu,
-                                    'contents' => [] };
-        $current = $menu->{'contents'}->[-1];
-        push @{$current->{'contents'}}, {'type' => 'preformatted',
-                                  'parent' => $current, };
-        $current = $current->{'contents'}->[-1];
-        print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
-      }
-      # source marks tested in t/*macro.t macro_in_menu_comment_like_entry
-      while (@{$menu_entry->{'contents'}}) {
-        my $arg = shift @{$menu_entry->{'contents'}};
-        if (defined($arg->{'text'})) {
-          $current = _merge_text($self, $current, $arg->{'text'}, $arg);
-        } elsif ($arg->{'contents'}) {
-          while (@{$arg->{'contents'}}) {
-            my $content = shift @{$arg->{'contents'}};
-            if (defined($content->{'text'})) {
-              $current = _merge_text($self, $current, $content->{'text'},
-                                     $content);
-              $content = undef;
-            } else {
-              $content->{'parent'} = $current;
-              push @{$current->{'contents'}}, $content;
-            }
-          }
-        }
-        $arg = undef;
-      }
-      # MENU_COMMENT open
-      $menu_entry = undef;
-    } else {
-      print STDERR "MENU ENTRY END LINE\n" if ($self->{'DEBUG'});
-      $current = $current->{'parent'};
-      $current = _enter_menu_entry_node($self, $current, $source_info);
-      if (defined($end_comment)) {
-        $end_comment->{'parent'} = $current;
-        push @{$current->{'contents'}}, $end_comment;
-      }
-    }
+    $current = _end_line_menu_entry($self, $current, $source_info);
   # block command lines
   } elsif ($current->{'type'}
             and $current->{'type'} eq 'block_line_arg') {
@@ -4799,7 +4809,7 @@ sub _handle_macro($$$$$)
 # is whether some processing was done.  The line and current element are
 # passed by reference. For the current element this is achieved by putting
 # the element in an array reference which is passed to the function.
-sub _handle_menu ($$$$$$)
+sub _handle_menu_entry_separators($$$$$$)
 {
   my $self = shift;
   my $current_array_ref = shift;
@@ -5436,8 +5446,8 @@ sub _process_remaining_on_line($$$$)
       }
       $current = $current->{'parent'};
     }
-  } elsif (_handle_menu($self, \@current_array_for_ref, \$line, $source_info,
-                        $asterisk, $menu_separator)) {
+  } elsif (_handle_menu_entry_separators($self, \@current_array_for_ref,
+                        \$line, $source_info, $asterisk, $menu_separator)) {
     $current = $current_array_for_ref[0];
   # Any other @-command.
   } elsif ($command) {

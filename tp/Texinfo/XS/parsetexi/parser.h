@@ -245,6 +245,6 @@ KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
 KEY_PAIR *lookup_info (ELEMENT *e, char *key);
 
 /* In menus.c */
-int handle_menu (ELEMENT **current_inout, char **line_inout);
-ELEMENT *enter_menu_entry_node (ELEMENT *current);
+int handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout);
+ELEMENT *end_line_menu_entry (ELEMENT *current);
 #endif

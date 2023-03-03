@@ -1976,9 +1976,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           current = current->parent;
         }
     }
-  else if (handle_menu (&current, &line))
+  else if (handle_menu_entry_separators (&current, &line))
     {
-      ; /* Nothing - everything was done in handle_menu. */
+      ; /* Nothing - everything was done in handle_menu_entry_separators. */
     }
   /* Any other @-command. */
   else if (cmd)
