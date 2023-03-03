@@ -290,9 +290,11 @@ handle_other_command (ELEMENT *current, char **line_inout,
 
 /* STATUS is set to GET_A_NEW_LINE if we should get a new line after this,
    to FINISHED_TOTALLY if we should stop processing completely. */
+/* data_cmd (used for the information on the command) and cmd (for the command name)
+   is different only for @item */
 ELEMENT *
 handle_line_command (ELEMENT *current, char **line_inout,
-                     enum command_id cmd, int *status)
+                     enum command_id cmd, enum command_id data_cmd, int *status)
 {
   ELEMENT *misc = 0;
   char *line = *line_inout;
@@ -301,7 +303,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
   *status = STILL_MORE_TO_PROCESS;
 
   /* Root commands (like @node) and @bye */
-  if (command_data(cmd).flags & CF_root || cmd == CM_bye)
+  if (command_data(data_cmd).flags & CF_root || cmd == CM_bye)
     {
       ELEMENT *closed_elt; /* Not used */
       current = close_commands (current, 0, &closed_elt, cmd);
@@ -318,7 +320,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
   /* Look up information about this command
      ( text line lineraw specific special ). */
-  arg_spec = command_data(cmd).data;
+  arg_spec = command_data(data_cmd).data;
 
   /* All the cases using the raw line.
      With LINE_lineraw, the line is taken as is as argument, and possibly
@@ -507,7 +509,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
       /* text, line, or a number.
          (This includes handling of "@end", which is LINE_text.) */
-      if (cmd == CM_item_LINE || cmd == CM_itemx)
+      if (cmd == CM_item || cmd == CM_itemx)
         {
           ELEMENT *parent;
           if ((parent = item_line_parent (current)))
@@ -519,11 +521,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
           else
             {
               line_error ("@%s outside of table or list",
-                          cmd == CM_item_LINE ? "item" : "itemx");
+                          command_name(cmd));
               current = begin_preformatted (current);
             }
           misc = new_element (ET_NONE);
-          misc->cmd = (cmd == CM_item_LINE) ? CM_item : CM_itemx;
+          misc->cmd = cmd;
           misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
         }
@@ -568,7 +570,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           add_to_element_contents (current, misc);
 
-          if (command_data(cmd).flags & CF_sectioning_heading)
+          if (command_data(data_cmd).flags & CF_sectioning_heading)
             {
               if (global_info.sections_level)
                 {
@@ -578,7 +580,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
             }
 
           /* @def*x */
-          if (command_data(cmd).flags & CF_def)
+          if (command_data(data_cmd).flags & CF_def)
             {
               enum command_id base_command;
               int after_paragraph;
@@ -647,9 +649,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
       arg = new_element (ET_line_arg);
       add_to_element_args (current, arg);
 
-      if (command_data(cmd).flags & CF_contain_basic_inline)
-        push_command (&nesting_context.basic_inline_stack_on_line,
-                      cmd == CM_item_LINE ? CM_item : cmd);
+      if (command_data(data_cmd).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack_on_line, cmd);
 
       /* LINE_specific commands arguments are handled in a specific way.
          The only other line commands that have more than one argument is

@@ -7,7 +7,7 @@
 ELEMENT *handle_other_command (ELEMENT *current, char **line_inout,
                      enum command_id cmd_id, int *status);
 ELEMENT *handle_line_command (ELEMENT *current, char **line_inout,
-                     enum command_id cmd_id, int *status);
+         enum command_id cmd_id, enum command_id data_cmd, int *status);
 ELEMENT *handle_block_command (ELEMENT *current, char **line_inout,
                       enum command_id cmd_id, int *new_line);
 ELEMENT *handle_brace_command (ELEMENT *current, char **line_inout,

@@ -145,15 +145,6 @@ $result_texts{'enumerate_in_style_command'} = '
 
 $result_errors{'enumerate_in_style_command'} = [
   {
-    'error_line' => 'warning: @enumerate should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 2,
-    'macro' => '',
-    'text' => '@enumerate should not appear in @code',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@code missing closing brace
 ',
     'file_name' => '',

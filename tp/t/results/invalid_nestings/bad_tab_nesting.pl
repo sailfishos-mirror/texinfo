@@ -205,15 +205,6 @@ bidule
 
 $result_errors{'bad_tab_nesting'} = [
   {
-    'error_line' => 'warning: @tab should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 3,
-    'macro' => '',
-    'text' => '@tab should not appear in @code',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@code missing closing brace
 ',
     'file_name' => '',

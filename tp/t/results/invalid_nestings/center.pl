@@ -1518,15 +1518,6 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @center should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 15,
-    'macro' => '',
-    'text' => '@center should not appear in @code',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
@@ -1534,6 +1525,15 @@ $result_errors{'center'} = [
     'macro' => '',
     'text' => '@code missing closing brace',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @center should not appear in @center
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@center should not appear in @center',
+    'type' => 'warning'
   },
   {
     'error_line' => 'misplaced }
@@ -1551,15 +1551,6 @@ $result_errors{'center'} = [
     'line_nr' => 19,
     'macro' => '',
     'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 19,
-    'macro' => '',
-    'text' => '@center should not appear in @code',
     'type' => 'warning'
   },
   {
@@ -1653,15 +1644,6 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @center should not appear in @samp
-',
-    'file_name' => '',
-    'line_nr' => 33,
-    'macro' => '',
-    'text' => '@center should not appear in @samp',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
@@ -1669,6 +1651,15 @@ $result_errors{'center'} = [
     'macro' => '',
     'text' => '@samp missing closing brace',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @center should not appear in @center
+',
+    'file_name' => '',
+    'line_nr' => 33,
+    'macro' => '',
+    'text' => '@center should not appear in @center',
+    'type' => 'warning'
   },
   {
     'error_line' => 'misplaced }
@@ -1689,15 +1680,6 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @center should not appear in @samp
-',
-    'file_name' => '',
-    'line_nr' => 35,
-    'macro' => '',
-    'text' => '@center should not appear in @samp',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
@@ -1705,6 +1687,15 @@ $result_errors{'center'} = [
     'macro' => '',
     'text' => '@samp missing closing brace',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @center should not appear in @center
+',
+    'file_name' => '',
+    'line_nr' => 35,
+    'macro' => '',
+    'text' => '@center should not appear in @center',
+    'type' => 'warning'
   },
   {
     'error_line' => 'misplaced }

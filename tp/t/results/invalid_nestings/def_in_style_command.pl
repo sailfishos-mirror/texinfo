@@ -192,15 +192,6 @@ text
 
 $result_errors{'def_in_style_command'} = [
   {
-    'error_line' => 'warning: @defun should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 2,
-    'macro' => '',
-    'text' => '@defun should not appear in @code',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@code missing closing brace
 ',
     'file_name' => '',

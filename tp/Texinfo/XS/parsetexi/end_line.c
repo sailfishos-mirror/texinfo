@@ -1550,7 +1550,7 @@ end_line_misc_line (ELEMENT *current)
 
   cmd = current->parent->cmd;
   if (!cmd)
-    fatal ("command name unknown for @end");
+    fatal ("command name unknown for line command end");
 
   if ((command_data(cmd).flags & CF_contain_basic_inline)
       || cmd == CM_item) /* CM_item_LINE on stack */

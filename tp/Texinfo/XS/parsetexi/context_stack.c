@@ -66,7 +66,7 @@ enum command_id
 top_command (COMMAND_STACK *stack)
 {
   if (stack->top == 0)
-    fatal ("command stack empty");
+    fatal ("command stack empty for top");
 
   return stack->stack[stack->top - 1];
 }

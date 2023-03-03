@@ -1284,7 +1284,6 @@ check_valid_nesting_context (enum command_id cmd)
         command_name(cmd),
         command_name(invalid_context));
     }
-
 }
 
 /* *LINEP is a pointer into the line being processed.  It is advanced past any
@@ -1799,9 +1798,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
      argument (an opening brace, or a character after spaces for
      accent commands) was not found and there is already a new command.
 
-     It would have been nice to allow for comments, but there is no
-     container in the tree to put them when after command and before brace
-     or argument for accent commands. */
+     NOTE the last element in the current command contents is an element that
+     is transiently in the tree, and is put in the info hash by
+     gather_spaces_after_cmd_before_arg.  It could therefore be possible
+     to accept an @comment here and put it in this element.  It would not
+     necessarily be a good idea, as it would mean having an element
+     in the info hash that holds something more complex than text and source
+     marks.
+   */
 
   if (command_flags(current) & CF_brace && (cmd || command))
     {
@@ -1984,9 +1988,12 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (cmd)
     {
       int def_line_continuation;
+      /* command used for gathering data on the command.  For @item command */
+      enum command_id data_cmd = cmd;
+
+      debug ("COMMAND %s", command_name(cmd));
 
       line = line_after_command;
-      debug ("COMMAND %s", command_name(cmd));
 
       /* @value not expanded (expansion is done above), and @txiinternalvalue */
       if ((cmd == CM_value) || (cmd == CM_txiinternalvalue))
@@ -2090,7 +2097,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       def_line_continuation = (current_context() == ct_def
                                && cmd == CM_NEWLINE);
-      /* warn on not appearing at line beginning */
+      /* warn on not appearing at line beginning.  Need to do before closing
+         paragraph as it also closes the empty line */
       if (!def_line_continuation
           && !abort_empty_line (&current, NULL)
           && ((cmd == CM_node || cmd == CM_bye)
@@ -2106,8 +2114,23 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                      command_name(cmd));
         }
 
+      if (cmd)
+        {
+          if (command_data(cmd).flags & CF_close_paragraph)
+            current = end_paragraph (current, 0, 0);
+          if (close_preformatted_command (cmd))
+            current = end_preformatted (current, 0, 0);
+        }
+
+      /* cannot check parent before closing paragraph/preformatted */
+      if (cmd == CM_item && item_line_parent (current))
+        data_cmd = CM_item_LINE;
+
       if (current->parent)
         {
+          /* NOTE the command name appears in the functions, so it is
+             better to use cmd and not data_cmd.  This means that all
+             the checks are done with @item as NOBRACE_skipspace */
           check_valid_nesting (current, cmd);
           check_valid_nesting_context (cmd);
         }
@@ -2119,23 +2142,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           register_source_mark (current, line_continuation_source_mark);
           retval = GET_A_NEW_LINE;
           goto funexit;
-        }
-
-      /* check command doesn't start a paragraph */
-      if (!(command_data(cmd).flags & CF_no_paragraph))
-        {
-          ELEMENT *paragraph;
-          paragraph = begin_paragraph (current);
-          if (paragraph)
-            current = paragraph;
-        }
-
-      if (cmd)
-        {
-          if (command_data(cmd).flags & CF_close_paragraph)
-            current = end_paragraph (current, 0, 0);
-          if (close_preformatted_command (cmd))
-            current = end_preformatted (current, 0, 0);
         }
 
       if ((cmd == CM_sortas
@@ -2164,12 +2170,17 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             }
         }
 
-      if (cmd == CM_item && item_line_parent (current))
-        cmd = CM_item_LINE;
-      /* We could possibly have done this before check_valid_nesting. */
+      /* check command doesn't start a paragraph */
+      if (!(command_data(data_cmd).flags & CF_no_paragraph))
+        {
+          ELEMENT *paragraph;
+          paragraph = begin_paragraph (current);
+          if (paragraph)
+            current = paragraph;
+        }
 
       /* No-brace command */
-      if (command_data(cmd).flags & CF_nobrace)
+      if (command_data(data_cmd).flags & CF_nobrace)
         {
           int status;
           current = handle_other_command (current, &line, cmd, &status);
@@ -2179,17 +2190,17 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               goto funexit;
             }
         }
-      else if (command_data(cmd).flags & CF_line)
+      else if (command_data(data_cmd).flags & CF_line)
         {
           int status;
-          current = handle_line_command (current, &line, cmd, &status);
+          current = handle_line_command (current, &line, cmd, data_cmd, &status);
           if (status == GET_A_NEW_LINE || status == FINISHED_TOTALLY)
             {
               retval = status;
               goto funexit;
             }
         }
-      else if (command_data(cmd).flags & CF_block)
+      else if (command_data(data_cmd).flags & CF_block)
         {
           int new_line = 0;
           current = handle_block_command (current, &line, cmd, &new_line);
@@ -2201,7 +2212,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               goto funexit;
             }
         }
-      else if (command_data(cmd).flags & (CF_brace | CF_accent))
+      else if (command_data(data_cmd).flags & (CF_brace | CF_accent))
         {
           current = handle_brace_command (current, &line, cmd);
         }

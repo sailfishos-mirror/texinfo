@@ -241,15 +241,6 @@ $result_menus{'menu_in_style_command'} = {
 
 $result_errors{'menu_in_style_command'} = [
   {
-    'error_line' => 'warning: @menu should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@menu should not appear in @code',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@code missing closing brace
 ',
     'file_name' => '',

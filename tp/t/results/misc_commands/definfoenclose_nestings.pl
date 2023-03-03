@@ -265,15 +265,6 @@ $result_errors{'definfoenclose_nestings'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @center should not appear in @phoo
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@center should not appear in @phoo',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@phoo missing closing brace
 ',
     'file_name' => '',

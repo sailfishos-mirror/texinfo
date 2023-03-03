@@ -297,15 +297,6 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @table should not appear anywhere inside @errormsg
-',
-    'file_name' => '',
-    'line_nr' => 6,
-    'macro' => '',
-    'text' => '@table should not appear anywhere inside @errormsg',
-    'type' => 'warning'
-  },
-  {
     'error_line' => '@errormsg missing closing brace
 ',
     'file_name' => '',

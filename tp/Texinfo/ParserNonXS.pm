@@ -6138,6 +6138,13 @@ sub _process_remaining_on_line($$$$)
                   $command), $source_info);
     }
 
+    if ($self->{'close_paragraph_commands'}->{$command}) {
+      $current = _end_paragraph($self, $current, $source_info);
+    }
+    if ($self->{'close_preformatted_commands'}->{$command}) {
+      $current = _end_preformatted($self, $current, $source_info);
+    }
+
     _check_valid_nesting ($self, $current, $command, $source_info);
     _check_valid_nesting_context ($self, $command, $source_info);
 
@@ -6147,18 +6154,6 @@ sub _process_remaining_on_line($$$$)
       _register_source_mark($self, $current, $line_continuation_source_mark);
       return ($current, $line, $source_info, $GET_A_NEW_LINE);
       # goto funexit;  # used in XS code
-    }
-
-    unless ($self->{'no_paragraph_commands'}->{$command}) {
-      my $paragraph = _begin_paragraph($self, $current, $source_info);
-      $current = $paragraph if ($paragraph);
-    }
-
-    if ($self->{'close_paragraph_commands'}->{$command}) {
-      $current = _end_paragraph($self, $current, $source_info);
-    }
-    if ($self->{'close_preformatted_commands'}->{$command}) {
-      $current = _end_preformatted($self, $current, $source_info);
     }
 
     if ($in_index_commands{$command}
@@ -6179,6 +6174,11 @@ sub _process_remaining_on_line($$$$)
         _isolate_trailing_space($current,
                                 'internal_spaces_before_brace_in_index');
       }
+    }
+
+    unless ($self->{'no_paragraph_commands'}->{$command}) {
+      my $paragraph = _begin_paragraph($self, $current, $source_info);
+      $current = $paragraph if ($paragraph);
     }
 
     if (defined($nobrace_commands{$command})
