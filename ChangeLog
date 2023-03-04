@@ -1,3 +1,13 @@
+2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@linemacro, adapted from @macro implementation
+
+	(\linemacro): New macro, to implement @linemacro command.
+	(\linegetargs, \linegetparamlist, \parselinemacrobody, \linemacrodef):
+	New macros that are part of the implementation.
+
+	This is mainly intended for use with @defblock/@defline.
+
 2023-03-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
