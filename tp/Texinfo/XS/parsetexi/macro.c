@@ -546,8 +546,10 @@ wipe_macros (void)
   macro_number = 0;
 }
 
-/* Handle macro expansion.  CMD is the macro command. */
-int
+/* Handle macro expansion.  CMD is the macro command.
+   The returned element is an out of tree element holding the call
+   arguments also associated to the macro expansion source mark */
+ELEMENT *
 handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 {
   char *line, *p;
@@ -714,8 +716,13 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
  funexit:
 
+  if (error)
+    {
+      destroy_element_and_children (arguments_container);
+      arguments_container = 0;
+    }
   *line_inout = line;
-  return error;
+  return arguments_container;
 }
 
 

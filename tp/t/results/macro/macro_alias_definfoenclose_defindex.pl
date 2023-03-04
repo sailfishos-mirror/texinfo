@@ -364,6 +364,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               ],
               'cmdname' => 'strong',
+              'info' => {
+                'alias_of' => 'phooindex'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
@@ -882,6 +885,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               ],
               'cmdname' => 'strong',
+              'info' => {
+                'alias_of' => 'phooindex'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
@@ -1100,6 +1106,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 }
               ],
               'cmdname' => 'strong',
+              'info' => {
+                'alias_of' => 'phooindex'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 47,

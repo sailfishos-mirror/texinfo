@@ -128,6 +128,9 @@ $result_trees{'alias_of_macro_before_macro'} = {
                 'extra' => {
                   'name' => 'mymacro'
                 },
+                'info' => {
+                  'alias_of' => 'new'
+                },
                 'type' => 'macro_call'
               },
               'position' => 1,

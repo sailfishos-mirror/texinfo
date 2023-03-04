@@ -10,6 +10,24 @@
 
 2023-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	Add alias_of info key for an alias used for an @-command element
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro, _handle_other_command)
+	(_handle_line_command, _handle_block_command)
+	(_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)
+	(handle_line_command, handle_block_command, handle_brace_command),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	handle_macro returns the element containing the macro expansion
+	argument, or 0 if there was an error instead of returning an error
+	status.
+	Return command element and change command element variable name
+	in handle_*_command functions.
+	Add alias information in command element in alias_of info key.
+
+2023-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command): use
 	data command information and arg_spec more, where it makes sense even

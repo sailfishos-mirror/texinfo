@@ -1299,6 +1299,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
+  enum command_id from_alias = CM_NONE;
 
   enum command_id cmd = CM_NONE;
   /* remains set only if command is unknown, otherwise cmd is used */
@@ -1674,7 +1675,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             }
         }
       if (cmd && (command_data(cmd).flags & CF_ALIAS))
-        cmd = command_data(cmd).data;
+        {
+          from_alias = cmd;
+          cmd = command_data(cmd).data;
+        }
     }
 
   /* Handle user-defined macros before anything else because their expansion
@@ -1682,11 +1686,11 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if (cmd && (command_data(cmd).flags & CF_MACRO))
     {
       static char *allocated_line;
-      int expansion_error;
+      ELEMENT *macro_call_element;
 
       line = line_after_command;
-      expansion_error = handle_macro (current, &line, cmd);
-      if (!expansion_error)
+      macro_call_element = handle_macro (current, &line, cmd);
+      if (macro_call_element)
         {
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
@@ -1697,6 +1701,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           free (allocated_line);
           allocated_line = next_text (current);
           line = allocated_line;
+
+          if (from_alias != CM_NONE)
+            add_info_string_dup (macro_call_element, "alias_of",
+                                 command_name (from_alias));
         }
       retval = STILL_MORE_TO_PROCESS;
       goto funexit;
@@ -1990,6 +1998,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       int def_line_continuation;
       /* command used for gathering data on the command.  For @item command */
       enum command_id data_cmd = cmd;
+      ELEMENT *command_element;
 
       debug ("COMMAND %s", command_name(cmd));
 
@@ -2183,38 +2192,43 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (command_data(data_cmd).flags & CF_nobrace)
         {
           int status;
-          current = handle_other_command (current, &line, cmd, &status);
+          current = handle_other_command (current, &line, cmd, &status,
+                                          &command_element);
           if (status == GET_A_NEW_LINE || status == FINISHED_TOTALLY)
             {
               retval = status;
-              goto funexit;
             }
         }
       else if (command_data(data_cmd).flags & CF_line)
         {
           int status;
-          current = handle_line_command (current, &line, cmd, data_cmd, &status);
+          current = handle_line_command (current, &line, cmd, data_cmd, &status,
+                                         &command_element);
           if (status == GET_A_NEW_LINE || status == FINISHED_TOTALLY)
             {
               retval = status;
-              goto funexit;
             }
         }
       else if (command_data(data_cmd).flags & CF_block)
         {
           int new_line = 0;
-          current = handle_block_command (current, &line, cmd, &new_line);
+          current = handle_block_command (current, &line, cmd, &new_line,
+                                          &command_element);
           if (new_line)
             {
               /* For @macro, to get a new line.  This is done instead of
                  doing the EMPTY TEXT code on the next time round. */
               retval = GET_A_NEW_LINE;
-              goto funexit;
             }
         }
       else if (command_data(data_cmd).flags & (CF_brace | CF_accent))
         {
-          current = handle_brace_command (current, &line, cmd);
+          current = handle_brace_command (current, &line, cmd, &command_element);
+        }
+      if (from_alias != CM_NONE && command_element)
+        {
+          add_info_string_dup (command_element, "alias_of",
+                               command_name (from_alias));
         }
     }
   /* "Separator" character */

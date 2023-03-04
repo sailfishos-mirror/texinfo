@@ -15,10 +15,6 @@ Bugs
 
 source marks in parse_node_manual
 
-Add source marks for alias. Not easy, as command elements are added in many
-places in the code.
-
-
 
 HTML API
 ========

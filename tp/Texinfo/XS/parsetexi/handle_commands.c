@@ -97,9 +97,10 @@ in_paragraph (ELEMENT *current)
 /* symbol skipspace other */
 ELEMENT *
 handle_other_command (ELEMENT *current, char **line_inout,
-                     enum command_id cmd, int *status)
+                     enum command_id cmd, int *status,
+                     ELEMENT **command_element)
 {
-  ELEMENT *misc = 0;
+  ELEMENT *command_e = 0;
   char *line = *line_inout;
   int arg_spec;
 
@@ -108,9 +109,9 @@ handle_other_command (ELEMENT *current, char **line_inout,
   arg_spec = command_data(cmd).data;
   if (arg_spec != NOBRACE_skipspace)
     {
-      misc = new_element (ET_NONE);
-      misc->cmd = cmd;
-      add_to_element_contents (current, misc);
+      command_e = new_element (ET_NONE);
+      command_e->cmd = cmd;
+      add_to_element_contents (current, command_e);
       if (command_data(cmd).flags & CF_in_heading_spec
           && !(command_data(current_context_command()).flags & CF_heading_spec))
         {
@@ -132,7 +133,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
         }
       else  /* NOBRACE_other */
         {
-          register_global_command (misc);
+          register_global_command (command_e);
           if (close_preformatted_command(cmd))
             current = begin_preformatted (current);
         }
@@ -152,14 +153,14 @@ handle_other_command (ELEMENT *current, char **line_inout,
                 {
                   debug ("ITEM CONTAINER");
                   counter_inc (&count_items);
-                  misc = new_element (ET_NONE);
-                  misc->cmd = CM_item;
+                  command_e = new_element (ET_NONE);
+                  command_e->cmd = CM_item;
 
-                  add_extra_integer (misc, "item_number",
+                  add_extra_integer (command_e, "item_number",
                                      counter_value (&count_items, parent));
 
-                  add_to_element_contents (parent, misc);
-                  current = misc;
+                  add_to_element_contents (parent, command_e);
+                  current = command_e;
                 }
               else
                 {
@@ -218,10 +219,10 @@ handle_other_command (ELEMENT *current, char **line_inout,
                   else
                     {
                       counter_inc (&count_cells);
-                      misc = new_element (ET_NONE);
-                      misc->cmd = cmd;
-                      add_to_element_contents (row, misc);
-                      current = misc;
+                      command_e = new_element (ET_NONE);
+                      command_e->cmd = cmd;
+                      add_to_element_contents (row, command_e);
+                      current = command_e;
                       debug ("TAB");
 
                       add_extra_integer (current, "cell_number",
@@ -241,10 +242,10 @@ handle_other_command (ELEMENT *current, char **line_inout,
                   add_extra_integer (row, "row_number",
                                      parent->contents.number - 1);
 
-                  misc = new_element (ET_NONE);
-                  misc->cmd = cmd;
-                  add_to_element_contents (row, misc);
-                  current = misc;
+                  command_e = new_element (ET_NONE);
+                  command_e->cmd = cmd;
+                  add_to_element_contents (row, command_e);
+                  current = command_e;
 
                   if (counter_value (&count_cells, parent) != -1)
                     counter_pop (&count_cells);
@@ -265,15 +266,15 @@ handle_other_command (ELEMENT *current, char **line_inout,
                           command_name(cmd));
               current = begin_preformatted (current);
             }
-          if (misc)
-            misc->source_info = current_source_info;
+          if (command_e)
+            command_e->source_info = current_source_info;
         }
       else
         {
-          misc = new_element (ET_NONE);
-          misc->cmd = cmd;
-          misc->source_info = current_source_info;
-          add_to_element_contents (current, misc);
+          command_e = new_element (ET_NONE);
+          command_e->cmd = cmd;
+          command_e->source_info = current_source_info;
+          add_to_element_contents (current, command_e);
           if ((cmd == CM_indent || cmd == CM_noindent)
                && in_paragraph (current))
             {
@@ -285,6 +286,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
     }
 
   *line_inout = line;
+  *command_element = command_e;
   return current;
 }
 
@@ -294,9 +296,10 @@ handle_other_command (ELEMENT *current, char **line_inout,
    is different for the only multicategory command, @item */
 ELEMENT *
 handle_line_command (ELEMENT *current, char **line_inout,
-                     enum command_id cmd, enum command_id data_cmd, int *status)
+                     enum command_id cmd, enum command_id data_cmd, int *status,
+                     ELEMENT **command_element)
 {
-  ELEMENT *misc = 0;
+  ELEMENT *command_e = 0;
   char *line = *line_inout;
   int arg_spec;
 
@@ -377,8 +380,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
             }
         }
 
-      misc = new_element (ET_NONE);
-      misc->cmd = cmd;
+      command_e = new_element (ET_NONE);
+      command_e->cmd = cmd;
 
       if (arg_spec == LINE_lineraw)
         {
@@ -391,7 +394,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       else /* arg_spec == LINE_special */
         {
           args = parse_special_misc_command (line, cmd, &has_comment);
-          add_info_string_dup (misc, "arg_line", line);
+          add_info_string_dup (command_e, "arg_line", line);
         }
 
       /* Handle @set txicodequoteundirected as an
@@ -431,16 +434,16 @@ handle_line_command (ELEMENT *current, char **line_inout,
           text_append (&e->text, arg);
           add_to_element_contents (args, e);
 
-          destroy_element_and_children (misc);
-          misc = new_element (ET_NONE);
-          misc->cmd = equivalent_cmd;
-          misc->source_info = current_source_info;
+          destroy_element_and_children (command_e);
+          command_e = new_element (ET_NONE);
+          command_e->cmd = equivalent_cmd;
+          command_e->source_info = current_source_info;
 
           line_args = new_element (ET_line_arg);
-          add_to_element_args (misc, line_args);
-          add_extra_misc_args (misc, "misc_args", args);
+          add_to_element_args (command_e, line_args);
+          add_extra_misc_args (command_e, "misc_args", args);
           text_append (&spaces_before->text, " ");
-          add_info_element_oot (misc, "spaces_before_argument", spaces_before);
+          add_info_element_oot (command_e, "spaces_before_argument", spaces_before);
 
           text_append (&spaces_after->text, "\n");
           add_info_element_oot (line_args, "spaces_after_argument",
@@ -450,14 +453,14 @@ handle_line_command (ELEMENT *current, char **line_inout,
           text_append (&e->text, arg);
           add_to_element_contents (line_args, e);
 
-          add_to_element_contents (current, misc);
+          add_to_element_contents (current, command_e);
         }
       else
         {
           int i;
           if (!ignored)
             {
-              add_to_element_contents (current, misc);
+              add_to_element_contents (current, command_e);
 
               for (i = 0; i < args->contents.number; i++)
                 {
@@ -465,13 +468,13 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   text_append_n (&misc_arg->text, 
                                  args->contents.list[i]->text.text,
                                  args->contents.list[i]->text.end);
-                  add_to_element_args (misc, misc_arg);
+                  add_to_element_args (command_e, misc_arg);
                 }
             }
           else
             {
-              destroy_element_and_children (misc);
-              misc = 0;
+              destroy_element_and_children (command_e);
+              command_e = 0;
             }
           destroy_element_and_children (args);
         }
@@ -485,8 +488,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
           global_info.sections_level--;
         }
 
-      if (misc) 
-        register_global_command (misc);
+      if (command_e)
+        register_global_command (command_e);
 
       if (arg_spec != LINE_special || !has_comment)
         current = end_line (current);
@@ -524,17 +527,17 @@ handle_line_command (ELEMENT *current, char **line_inout,
                           command_name(cmd));
               current = begin_preformatted (current);
             }
-          misc = new_element (ET_NONE);
-          misc->cmd = cmd;
-          misc->source_info = current_source_info;
-          add_to_element_contents (current, misc);
+          command_e = new_element (ET_NONE);
+          command_e->cmd = cmd;
+          command_e->source_info = current_source_info;
+          add_to_element_contents (current, command_e);
         }
       else
         {
           /* Add to contents */
-          misc = new_element (ET_NONE);
-          misc->cmd = cmd;
-          misc->source_info = current_source_info;
+          command_e = new_element (ET_NONE);
+          command_e->cmd = cmd;
+          command_e->source_info = current_source_info;
 
           if (cmd == CM_subentry)
             {
@@ -547,7 +550,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   line_warn ("@subentry should only occur in an index entry");
                 }
 
-              add_extra_element (parent, "subentry", misc);
+              add_extra_element (parent, "subentry", command_e);
 
               if (parent->cmd == CM_subentry)
                 {
@@ -555,7 +558,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   if (k && k->value)
                     level = (long) k->value + 1;
                 }
-              add_extra_integer (misc, "level", level);
+              add_extra_integer (command_e, "level", level);
               if (level > 2)
                 {
                   line_error
@@ -568,13 +571,13 @@ handle_line_command (ELEMENT *current, char **line_inout,
               current = end_line (current);
             }
 
-          add_to_element_contents (current, misc);
+          add_to_element_contents (current, command_e);
 
           if (command_data(data_cmd).flags & CF_sectioning_heading)
             {
               if (global_info.sections_level)
                 {
-                  add_extra_integer (misc, "sections_level",
+                  add_extra_integer (command_e, "sections_level",
                                      global_info.sections_level);
                 }
             }
@@ -589,9 +592,9 @@ handle_line_command (ELEMENT *current, char **line_inout,
               if (cmd == CM_defline)
                 {
                   base_command = cmd;
-                  add_extra_string_dup (misc, "original_def_cmdname",
+                  add_extra_string_dup (command_e, "original_def_cmdname",
                                         command_name(cmd));
-                  add_extra_string_dup (misc, "def_command",
+                  add_extra_string_dup (command_e, "def_command",
                                         command_name(cmd));
                 }
               else
@@ -603,7 +606,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   int base_len;
 
                   base_name = command_name(cmd);
-                  add_extra_string_dup (misc, "original_def_cmdname", base_name);
+                  add_extra_string_dup (command_e, "original_def_cmdname",
+                                        base_name);
                   base_name = strdup (base_name);
                   base_len = strlen (base_name);
                   if (base_name[base_len - 1] != 'x')
@@ -612,22 +616,22 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   base_command = lookup_command (base_name);
                   if (base_command == CM_NONE)
                     fatal ("no def base command");
-                  add_extra_string (misc, "def_command", base_name);
+                  add_extra_string (command_e, "def_command", base_name);
                 }
 
               after_paragraph = check_no_text (current);
               push_context (ct_def, cmd);
-              misc->type = ET_def_line;
+              command_e->type = ET_def_line;
 
               /* Check txidefnamenospace flag */
               val = fetch_value ("txidefnamenospace");
               if (val)
-                add_extra_integer (misc, "omit_def_name_space", 1);
+                add_extra_integer (command_e, "omit_def_name_space", 1);
 
               if (current->cmd == base_command)
                 {
                   ELEMENT *e = pop_element_from_contents (current);
-                  /* e should be the same as misc */
+                  /* e should be the same as command_e */
                   /* Gather an "inter_def_item" element. */
                   gather_def_item (current, cmd);
                   add_to_element_contents (current, e);
@@ -639,12 +643,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   line_error ("must be after `@%s' to use `@%s'",
                                command_name(base_command),
                                command_name(cmd));
-                  add_extra_integer (misc, "not_after_command", 1);
+                  add_extra_integer (command_e, "not_after_command", 1);
                 }
             }
         }
 
-      /* change 'current' to its last child.  This is ELEMENT *misc above.  */
+      /* change 'current' to its last child.  This is command_e.  */
       current = last_contents_child (current);
       arg = new_element (ET_line_arg);
       add_to_element_args (current, arg);
@@ -708,16 +712,17 @@ handle_line_command (ELEMENT *current, char **line_inout,
          case while we read the argument on this line. */
       if (!(command_data(data_cmd).flags & CF_def))
         push_context (ct_line, cmd);
-      start_empty_line_after_command (current, &line, misc);
+      start_empty_line_after_command (current, &line, command_e);
     }
 
-  if (misc)
-    register_global_command (misc);
+  if (command_e)
+    register_global_command (command_e);
   if (cmd == CM_dircategory)
-    add_to_contents_as_array (&global_info.dircategory_direntry, misc);
+    add_to_contents_as_array (&global_info.dircategory_direntry, command_e);
 
 funexit:
   *line_inout = line;
+  *command_element = command_e;
   return current;
 }
 
@@ -773,22 +778,23 @@ format_expanded_p (char *format)
 }
 
 /* A command name has been read that starts a multiline block, which should
-   end in @end <command name>.  The block will be processed until 
+   end in @end <command name>.  The block will be processed until
    "end_line_misc_line" in end_line.c processes the @end command. */
 ELEMENT *
 handle_block_command (ELEMENT *current, char **line_inout,
-                      enum command_id cmd, int *get_new_line)
+                      enum command_id cmd, int *get_new_line,
+                      ELEMENT **command_element)
 {
   char *line = *line_inout;
   unsigned long flags = command_data(cmd).flags;
+  ELEMENT *block = 0;
 
   /* New macro being defined. */
   if (cmd == CM_macro || cmd == CM_rmacro)
     {
-      ELEMENT *macro;
-      macro = parse_macro_command_line (cmd, &line, current);
-      add_to_element_contents (current, macro);
-      current = macro;
+      block = parse_macro_command_line (cmd, &line, current);
+      add_to_element_contents (current, block);
+      current = block;
 
       /* A new line should be read immediately after this.  */
       line = strchr (line, '\0');
@@ -797,7 +803,6 @@ handle_block_command (ELEMENT *current, char **line_inout,
     }
   else
     {
-      ELEMENT *block = 0;
       ELEMENT *bla;   /* block line arg element */
       if (command_data(cmd).data == BLOCK_menu
           && (current->type == ET_menu_comment
@@ -921,24 +926,26 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
 funexit:
   *line_inout = line;
+  *command_element = block;
   return current;
 }
 
 ELEMENT *
-handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd)
+handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
+                      ELEMENT **command_element)
 {
   char *line = *line_inout;
-  ELEMENT *e;
+  ELEMENT *command_e;
 
-  e = new_element (ET_NONE);
-  e->cmd = cmd;
+  command_e = new_element (ET_NONE);
+  command_e->cmd = cmd;
 
   /* The line number information is only ever used for brace commands
      if the command is given with braces, but it's easier just to always
      store the information. */
-  e->source_info = current_source_info;
+  command_e->source_info = current_source_info;
 
-  add_to_element_contents (current, e);
+  add_to_element_contents (current, command_e);
 
   if (cmd == CM_sortas)
     {
@@ -950,17 +957,17 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd)
         }
     }
 
-  current = e;
+  current = command_e;
 
   if (cmd == CM_click)
     {
-      add_extra_string_dup (e, "clickstyle", global_clickstyle);
+      add_extra_string_dup (command_e, "clickstyle", global_clickstyle);
     }
   else if (cmd == CM_kbd)
     {
       if (kbd_formatted_as_code(current))
         {
-          add_extra_integer (e, "code", 1);
+          add_extra_integer (command_e, "code", 1);
         }
     }
   else if (command_data(cmd).flags & CF_INFOENCLOSE)
@@ -968,12 +975,13 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd)
       INFO_ENCLOSE *ie = lookup_infoenclose (cmd);
       if (ie)
         {
-          add_extra_string_dup (e, "begin", ie->begin);
-          add_extra_string_dup (e, "end", ie->end);
+          add_extra_string_dup (command_e, "begin", ie->begin);
+          add_extra_string_dup (command_e, "end", ie->end);
         }
-      e->type = ET_definfoenclose_command;
+      command_e->type = ET_definfoenclose_command;
     }
 
   *line_inout = line;
+  *command_element = command_e;
   return current;
 }

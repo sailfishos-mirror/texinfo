@@ -169,6 +169,9 @@ $result_trees{'texinfo_command_alias_indirect_before'} = {
                 }
               ],
               'cmdname' => 'strong',
+              'info' => {
+                'alias_of' => 'new'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,

@@ -128,6 +128,9 @@ $result_trees{'alias_macro_target_removed'} = {
                 'extra' => {
                   'name' => 'mystrong'
                 },
+                'info' => {
+                  'alias_of' => 'new'
+                },
                 'type' => 'macro_call'
               },
               'position' => 1,

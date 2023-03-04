@@ -168,6 +168,9 @@ $result_trees{'texinfo_command_alias_indirect'} = {
                 'extra' => {
                   'name' => 'mystrong'
                 },
+                'info' => {
+                  'alias_of' => 'new'
+                },
                 'type' => 'macro_call'
               },
               'position' => 1,

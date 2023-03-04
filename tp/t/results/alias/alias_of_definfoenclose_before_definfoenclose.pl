@@ -108,6 +108,9 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
                 'begin' => ';',
                 'end' => ':'
               },
+              'info' => {
+                'alias_of' => 'new'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,

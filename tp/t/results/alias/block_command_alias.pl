@@ -105,6 +105,9 @@ $result_trees{'block_command_alias'} = {
               'type' => 'preformatted'
             }
           ],
+          'info' => {
+            'alias_of' => 'lang'
+          },
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,

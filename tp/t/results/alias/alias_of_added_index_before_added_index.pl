@@ -175,6 +175,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
             }
           },
           'info' => {
+            'alias_of' => 'new',
             'spaces_before_argument' => {
               'text' => ' '
             }

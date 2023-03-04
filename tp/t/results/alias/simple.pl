@@ -115,6 +115,9 @@ $result_trees{'simple'} = {
                 }
               ],
               'cmdname' => 'code',
+              'info' => {
+                'alias_of' => 'myalias'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -152,6 +155,7 @@ $result_trees{'simple'} = {
               ],
               'cmdname' => 'verb',
               'info' => {
+                'alias_of' => 'o-theralias',
                 'delimiter' => '!'
               },
               'source_info' => {

@@ -4702,8 +4702,6 @@ sub _handle_macro($$$$$)
   my $source_info = shift;
   my $command = shift;
 
-  my $error = 0;
-
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
   my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
   my $arguments_container = {'type' => $expanded_macro->{'cmdname'}.'_call',
@@ -4763,9 +4761,8 @@ sub _handle_macro($$$$$)
     $self->_line_warn(sprintf(__(
   "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value %d)"),
                           $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-    $error = 1;
     # goto funexit in XS parser
-    return ($error, $line, $source_info);
+    return (undef, $line, $source_info);
   }
 
   if ($expanded_macro->{'cmdname'} eq 'macro') {
@@ -4774,9 +4771,8 @@ sub _handle_macro($$$$$)
         $self->_line_error(sprintf(__(
        "recursive call of macro %s is not allowed; use \@rmacro if needed"),
                                    $command), $source_info);
-        $error = 1;
         # goto funexit in XS parser
-        return ($error, $line, $source_info);
+        return (undef, $line, $source_info);
       }
     }
   }
@@ -4810,7 +4806,7 @@ sub _handle_macro($$$$$)
   # was no macro expansion error
   $line = '';
  #funexit:
-  return ($error, $line, $source_info);
+  return ($arguments_container, $line, $source_info);
 }
 
 # to have similar code with the XS parser, the only returned information
@@ -4987,11 +4983,11 @@ sub _handle_other_command($$$$$)
 
   # symbol skipspace other
   my $arg_spec = $nobrace_commands{$command};
-  my $misc;
+  my $command_e;
 
   if ($arg_spec ne 'skipspace') {
-    $misc = {'cmdname' => $command, 'parent' => $current};
-    push @{$current->{'contents'}}, $misc;
+    $command_e = {'cmdname' => $command, 'parent' => $current};
+    push @{$current->{'contents'}}, $command_e;
 
     if ($in_heading_spec_commands{$command}) {
       # TODO use a more generic system for check of @-command nesting
@@ -5016,7 +5012,7 @@ sub _handle_other_command($$$$$)
         $retval = $GET_A_NEW_LINE;
       }
     } else { # other
-      _register_global_command($self, $misc, $source_info);
+      _register_global_command($self, $command_e, $source_info);
       $current = _begin_preformatted($self, $current)
         if ($close_preformatted_commands{$command});
     }
@@ -5029,10 +5025,10 @@ sub _handle_other_command($$$$$)
         if ($command eq 'item') {
           print STDERR "ITEM_CONTAINER\n" if ($self->{'DEBUG'});
           $parent->{'items_count'}++;
-          $misc = { 'cmdname' => $command, 'parent' => $parent,
-                    'extra' =>
-                      {'item_number' => $parent->{'items_count'}} };
-          push @{$parent->{'contents'}}, $misc;
+          $command_e = { 'cmdname' => $command, 'parent' => $parent,
+                         'extra' =>
+                          {'item_number' => $parent->{'items_count'}} };
+          push @{$parent->{'contents'}}, $command_e;
           $current = $parent->{'contents'}->[-1];
         } else {
           $self->_line_error(sprintf(__(
@@ -5064,12 +5060,12 @@ sub _handle_other_command($$$$$)
                    $parent->{'extra'}->{'max_columns'}), $source_info);
           } else {
             $row->{'cells_count'}++;
-            $misc = { 'cmdname' => $command,
-                      'parent' => $row,
-                      'contents' => [],
-                      'extra' =>
-                  {'cell_number' => $row->{'cells_count'}} };
-            push @{$row->{'contents'}}, $misc;
+            $command_e = { 'cmdname' => $command,
+                           'parent' => $row,
+                           'contents' => [],
+                           'extra' =>
+                              {'cell_number' => $row->{'cells_count'}} };
+            push @{$row->{'contents'}}, $command_e;
             $current = $row->{'contents'}->[-1];
             print STDERR "TAB\n" if ($self->{'DEBUG'});
           }
@@ -5081,11 +5077,11 @@ sub _handle_other_command($$$$$)
                       'extra' => {'row_number' => $parent->{'rows_count'} },
                       'parent' => $parent };
           push @{$parent->{'contents'}}, $row;
-          $misc =  { 'cmdname' => $command,
-                     'parent' => $row,
-                     'contents' => [],
-                     'extra' => {'cell_number' => 1}};
-          push @{$row->{'contents'}}, $misc;
+          $command_e = { 'cmdname' => $command,
+                         'parent' => $row,
+                         'contents' => [],
+                         'extra' => {'cell_number' => 1}};
+          push @{$row->{'contents'}}, $command_e;
           $current = $row->{'contents'}->[-1];
         }
         $current = _begin_preformatted($self, $current);
@@ -5098,11 +5094,11 @@ sub _handle_other_command($$$$$)
            "\@%s outside of table or list"), $command), $source_info);
         $current = _begin_preformatted($self, $current);
       }
-      $misc->{'source_info'} = $source_info if (defined($misc));
+      $command_e->{'source_info'} = $source_info if (defined($command_e));
     } else {
-      $misc = { 'cmdname' => $command, 'parent' => $current,
-          'source_info' => $source_info };
-      push @{$current->{'contents'}}, $misc;
+      $command_e = { 'cmdname' => $command, 'parent' => $current,
+                     'source_info' => $source_info };
+      push @{$current->{'contents'}}, $command_e;
       if (($command eq 'indent' or $command eq 'noindent')
            and _in_paragraph($self, $current)) {
         $self->_line_warn(sprintf(__("\@%s is useless inside of a paragraph"),
@@ -5112,7 +5108,7 @@ sub _handle_other_command($$$$$)
     }
     $line = _start_empty_line_after_command($line, $current, undef);
   }
-  return ($current, $line, $retval);
+  return ($current, $line, $retval, $command_e);
 }
 
 sub _handle_line_command($$$$$$)
@@ -5158,7 +5154,8 @@ sub _handle_line_command($$$$$$)
 
   # text line lineraw special specific
   my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
-  my $misc;
+
+  my $command_e;
 
   # all the cases using the raw line
   if ($arg_spec eq 'lineraw' or $arg_spec eq 'special') {
@@ -5192,8 +5189,8 @@ sub _handle_line_command($$$$$$)
                  = _new_line($self, $current);
       $line .= $new_line if (defined($new_line));
     }
-    $misc = {'cmdname' => $command,
-             'parent' => $current};
+    $command_e = {'cmdname' => $command,
+                  'parent' => $current};
     my $args = [];
     my $has_comment;
     if ($arg_spec eq 'lineraw') {
@@ -5201,7 +5198,7 @@ sub _handle_line_command($$$$$$)
     } elsif ($arg_spec eq 'special') {
       ($args, $has_comment)
        = _parse_special_misc_command($self, $line, $command, $source_info);
-      $misc->{'info'} = {'arg_line' => $line};
+      $command_e->{'info'} = {'arg_line' => $line};
       # FIXME add a check on @clickstyle argument at that point?
     }
 
@@ -5221,34 +5218,34 @@ sub _handle_line_command($$$$$$)
       }
       # note that those commands are line 'specific' type.
       $command = $set_flag_command_equivalent{$args->[0]};
-      $misc = {'cmdname' => $command,
-               'parent' => $current,
-               'source_info' => $source_info,
-               'extra' => {'misc_args' => [$arg],},
-               'info' => {'spaces_before_argument' => {'text' => ' '}}};
+      $command_e = {'cmdname' => $command,
+                    'parent' => $current,
+                    'source_info' => $source_info,
+                    'extra' => {'misc_args' => [$arg],},
+                    'info' => {'spaces_before_argument' => {'text' => ' '}}};
       my $misc_line_args = {'type' => 'line_arg',
-             'parent' => $misc,
-             'info' => {'spaces_after_argument'
-                          => {'text' => "\n",}}};
-      $misc->{'args'} = [$misc_line_args];
+                            'parent' => $command_e,
+                            'info' => {'spaces_after_argument'
+                                   => {'text' => "\n",}}};
+      $command_e->{'args'} = [$misc_line_args];
       $misc_line_args->{'contents'} = [
         { 'text' => $arg,
           'parent' => $misc_line_args, },
       ];
-      push @{$current->{'contents'}}, $misc;
+      push @{$current->{'contents'}}, $command_e;
     } else {
       if (!$ignored) {
-        push @{$current->{'contents'}}, $misc;
+        push @{$current->{'contents'}}, $command_e;
         if (scalar(@$args)) {
-          $misc->{'args'} = [];
+          $command_e->{'args'} = [];
           foreach my $arg (@$args) {
-            push @{$misc->{'args'}},
+            push @{$command_e->{'args'}},
               { 'type' => 'misc_arg', 'text' => $arg,
                 'parent' => $current->{'contents'}->[-1] };
           }
         }
       } else {
-        $misc = undef;
+        $command_e = undef;
       }
     }
     if ($command eq 'raisesections') {
@@ -5256,8 +5253,8 @@ sub _handle_line_command($$$$$$)
     } elsif ($command eq 'lowersections') {
       $self->{'sections_level'}--;
     }
-    _register_global_command($self, $misc, $source_info)
-      if $misc;
+    _register_global_command($self, $command_e, $source_info)
+      if $command_e;
     # the end of line is ignored for special commands
     if ($arg_spec ne 'special' or !$has_comment) {
       $current = _end_line($self, $current, $source_info);
@@ -5287,11 +5284,11 @@ sub _handle_line_command($$$$$$)
            "\@%s outside of table or list"), $command), $source_info);
         $current = _begin_preformatted($self, $current);
       }
-      $misc = { 'cmdname' => $command, 'parent' => $current };
-      push @{$current->{'contents'}}, $misc;
-      $misc->{'source_info'} = $source_info;
+      $command_e = { 'cmdname' => $command, 'parent' => $current };
+      push @{$current->{'contents'}}, $command_e;
+      $command_e->{'source_info'} = $source_info;
     } else {
-      $misc = { 'cmdname' => $command, 'source_info' => $source_info };
+      $command_e = { 'cmdname' => $command, 'source_info' => $source_info };
       if ($command eq 'subentry') {
         my $parent = $current->{'parent'};
         if (!_is_index_element($self, $parent)) {
@@ -5300,12 +5297,12 @@ sub _handle_line_command($$$$$$)
                     $command), $source_info);
         }
         $parent->{'extra'} = {} if (!defined($parent->{'extra'}));
-        $parent->{'extra'}->{'subentry'} = $misc;
+        $parent->{'extra'}->{'subentry'} = $command_e;
         my $subentry_level = 1;
         if ($parent->{'cmdname'} eq 'subentry') {
           $subentry_level = $parent->{'extra'}->{'level'} + 1;
         }
-        $misc->{'extra'} = {'level' => $subentry_level};
+        $command_e->{'extra'} = {'level' => $subentry_level};
         if ($subentry_level > 2) {
           $self->_line_error(__(
       "no more than two levels of index subentry are allowed"),
@@ -5317,11 +5314,12 @@ sub _handle_line_command($$$$$$)
         $current = _end_line($self, $current, $source_info);
       } elsif ($sectioning_heading_commands{$data_cmdname}) {
         if ($self->{'sections_level'}) {
-          $misc->{'extra'} = {'sections_level' => $self->{'sections_level'}};
+          $command_e->{'extra'}
+            = {'sections_level' => $self->{'sections_level'}};
         }
       }
-      push @{$current->{'contents'}}, $misc;
-      $misc->{'parent'} = $current;
+      push @{$current->{'contents'}}, $command_e;
+      $command_e->{'parent'} = $current;
       # def*x
       if ($def_commands{$data_cmdname}) {
         my $base_command = $command;
@@ -5340,10 +5338,10 @@ sub _handle_line_command($$$$$$)
         }
         if ($current->{'cmdname'}
             and $current->{'cmdname'} eq $base_command) {
-          # popped element should be the same as $misc
+          # popped element should be the same as $command_e
           _pop_element_from_contents($self, $current);
           _gather_def_item($self, $current, $command);
-          push @{$current->{'contents'}}, $misc;
+          push @{$current->{'contents'}}, $command_e;
         }
         if (!$current->{'cmdname'}
              or ($current->{'cmdname'} ne $base_command
@@ -5417,14 +5415,14 @@ sub _handle_line_command($$$$$$)
     $current = $current->{'args'}->[-1];
     $self->_push_context('ct_line', $command)
       unless ($def_commands{$data_cmdname});
-    $line = _start_empty_line_after_command($line, $current, $misc);
+    $line = _start_empty_line_after_command($line, $current, $command_e);
   }
-  _register_global_command($self, $misc, $source_info)
-    if $misc;
+  _register_global_command($self, $command_e, $source_info)
+    if $command_e;
   if ($command eq 'dircategory') {
-    push @{$self->{'info'}->{'dircategory_direntry'}}, $misc;
+    push @{$self->{'info'}->{'dircategory_direntry'}}, $command_e;
   }
-  return ($current, $line, $retval);
+  return ($current, $line, $retval, $command_e);
 }
 
 sub _handle_block_command($$$$$)
@@ -5437,15 +5435,16 @@ sub _handle_block_command($$$$$)
 
   my $retval = $STILL_MORE_TO_PROCESS;
 
+  my $block;
+
   if ($command eq 'macro' or $command eq 'rmacro') {
-    my $macro = _parse_macro_command_line($self, $command, $line,
-                                          $current, $source_info);
-    push @{$current->{'contents'}}, $macro;
+    $block = _parse_macro_command_line($self, $command, $line,
+                                       $current, $source_info);
+    push @{$current->{'contents'}}, $block;
     $current = $current->{'contents'}->[-1];
     return ($current, $line, $GET_A_NEW_LINE);
     # goto funexit;  # used in XS code
   } else {
-    my $block;
     # a menu command closes a menu_comment, but not the other
     # block commands. This won't catch menu commands buried in
     # other formats (that are incorrect anyway).
@@ -5561,7 +5560,7 @@ sub _handle_block_command($$$$$)
     _register_global_command($self, $block, $source_info);
     $line = _start_empty_line_after_command($line, $current, $block);
   }
-  return ($current, $line, $retval);
+  return ($current, $line, $retval, $block);
 }
 
 sub _handle_brace_command($$$$)
@@ -5573,34 +5572,34 @@ sub _handle_brace_command($$$$)
 
   print STDERR "OPEN BRACE \@$command\n"
      if ($self->{'DEBUG'});
-  push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                    'parent' => $current,
-                                    };
-  $current->{'contents'}->[-1]->{'source_info'} = $source_info;
+
+  my $command_e = { 'cmdname' => $command, 'parent' => $current,};
+  $command_e->{'source_info'} = $source_info;
+  push @{$current->{'contents'}}, $command_e;
   if ($in_index_commands{$command}
       and !_is_index_element($self, $current->{'parent'})) {
     $self->_line_warn(
       sprintf(__("\@%s should only appear in an index entry"),
               $command), $source_info);
   }
-  $current = $current->{'contents'}->[-1];
+  $current = $command_e;
   if ($command eq 'click') {
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
+    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+    $command_e->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
   } elsif ($command eq 'kbd'
            and _kbd_formatted_as_code($self, $current)) {
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'code'} = 1;
+    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+    $command_e->{'extra'}->{'code'} = 1;
   }
   if ($self->{'definfoenclose'}->{$command}) {
-    $current->{'type'} = 'definfoenclose_command';
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'begin'}
+    $command_e->{'type'} = 'definfoenclose_command';
+    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+    $command_e->{'extra'}->{'begin'}
       = $self->{'definfoenclose'}->{$command}->[0];
-    $current->{'extra'}->{'end'}
+    $command_e->{'extra'}->{'end'}
       = $self->{'definfoenclose'}->{$command}->[1];
   }
-  return $current;
+  return ($current, $command_e);
 }
 
 sub _process_remaining_on_line($$$$)
@@ -5838,6 +5837,7 @@ sub _process_remaining_on_line($$$$)
        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
 
   my $command;
+  my $from_alias;
   if ($single_letter_command) {
     $command = $single_letter_command;
   } elsif ($at_command) {
@@ -5845,7 +5845,8 @@ sub _process_remaining_on_line($$$$)
     $command = $at_command;
 
     if (exists($self->{'aliases'}->{$command})) {
-      $command = $self->{'aliases'}->{$command};
+      $from_alias = $command;
+      $command = $self->{'aliases'}->{$from_alias};
     }
 
     # handle user defined macros before anything else since
@@ -5853,15 +5854,21 @@ sub _process_remaining_on_line($$$$)
     if ($self->{'macros'}->{$command}) {
       substr($line, 0, $at_command_length) = '';
 
-      my $expansion_error;
-      ($expansion_error, $line, $source_info)
+      my $argument_container;
+      ($argument_container, $line, $source_info)
         = _handle_macro($self, $current, $line, $source_info, $command);
-      if (!$expansion_error) {
+      if ($argument_container) {
         # directly get the following input (macro expansion text) instead
         # of going through the next call of process_remaining_on_line and
         # the processing of empty text.  No difference in output, more
         # efficient.
         ($line, $source_info) = _next_text($self, $current);
+
+        if ($from_alias) {
+          $argument_container->{'info'} = {}
+             if (!$argument_container->{'info'});
+          $argument_container->{'info'}->{'alias_of'} = $from_alias;
+        }
       }
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
@@ -6198,23 +6205,30 @@ sub _process_remaining_on_line($$$$)
       $current = $paragraph if ($paragraph);
     }
 
+    my $command_element;
+
     if (defined($nobrace_commands{$data_cmdname})) {
-      ($current, $line, $retval)
+      ($current, $line, $retval, $command_element)
         = _handle_other_command($self, $current, $command, $line, $source_info);
       # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
     # line commands
     } elsif (defined($self->{'line_commands'}->{$data_cmdname})) {
-      ($current, $line, $retval)
+      ($current, $line, $retval, $command_element)
        = _handle_line_command($self, $current, $command, $data_cmdname, $line,
                               $source_info);
       # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
     # @-command with matching @end opening
     } elsif (exists($block_commands{$data_cmdname})) {
-      ($current, $line, $retval)
+      ($current, $line, $retval, $command_element)
        = _handle_block_command($self, $current, $command, $line, $source_info);
       # in the XS parser return here if GET_A_NEW_LINE
     } elsif (defined($self->{'brace_commands'}->{$data_cmdname})) {
-      $current = _handle_brace_command($self, $current, $command, $source_info);
+      ($current, $command_element)
+        = _handle_brace_command($self, $current, $command, $source_info);
+    }
+    if ($from_alias and $command_element) {
+      $command_element->{'info'} = {} if (!$command_element->{'info'});
+      $command_element->{'info'}->{'alias_of'} = $from_alias;
     }
   } elsif ($separator_match) {
     my $separator = $separator_match;

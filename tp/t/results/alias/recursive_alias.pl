@@ -143,6 +143,9 @@ $result_trees{'recursive_alias'} = {
                 }
               ],
               'cmdname' => 'strong',
+              'info' => {
+                'alias_of' => 'other'
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,

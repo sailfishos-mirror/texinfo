@@ -128,6 +128,9 @@ $result_trees{'texinfo_command_alias'} = {
                 'extra' => {
                   'name' => 'mystrong'
                 },
+                'info' => {
+                  'alias_of' => 'strong'
+                },
                 'type' => 'macro_call'
               },
               'position' => 1,
@@ -219,6 +222,9 @@ $result_trees{'texinfo_command_alias'} = {
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
+              },
+              'info' => {
+                'alias_of' => 'strong'
               },
               'source_info' => {
                 'file_name' => '',
