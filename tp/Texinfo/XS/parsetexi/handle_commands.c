@@ -292,12 +292,12 @@ handle_other_command (ELEMENT *current, char **line_inout,
 
 /* STATUS is set to GET_A_NEW_LINE if we should get a new line after this,
    to FINISHED_TOTALLY if we should stop processing completely. */
-/* data_cmd (used for the information on the command) and cmd (for the command name)
-   is different for the only multicategory command, @item */
+/* data_cmd (used for the information on the command) and cmd (for the
+   command name) is different for the only multicategory command, @item */
 ELEMENT *
 handle_line_command (ELEMENT *current, char **line_inout,
-                     enum command_id cmd, enum command_id data_cmd, int *status,
-                     ELEMENT **command_element)
+                     enum command_id cmd, enum command_id data_cmd,
+                     int *status, ELEMENT **command_element)
 {
   ELEMENT *command_e = 0;
   char *line = *line_inout;
@@ -587,6 +587,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
             {
               enum command_id base_command;
               int after_paragraph;
+              int appropriate_command;
+              enum command_id cmdname;
               char *val;
 
               if (cmd == CM_defline)
@@ -619,7 +621,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   add_extra_string (command_e, "def_command", base_name);
                 }
 
-              after_paragraph = check_no_text (current);
+              cmdname = current->cmd;
+              if (cmdname != CM_defblock)
+                after_paragraph = check_no_text (current);
+              else
+                after_paragraph = 0;
               push_context (ct_def, cmd);
               command_e->type = ET_def_line;
 
@@ -628,7 +634,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
               if (val)
                 add_extra_integer (command_e, "omit_def_name_space", 1);
 
-              if (current->cmd == base_command)
+              if (cmdname == base_command || cmdname == CM_defblock)
+                appropriate_command = 1;
+              else
+                appropriate_command = 0;
+
+              if (appropriate_command)
                 {
                   ELEMENT *e = pop_element_from_contents (current);
                   /* e should be the same as command_e */
@@ -636,8 +647,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   gather_def_item (current, cmd);
                   add_to_element_contents (current, e);
                 }
-              if (current->cmd != base_command && current->cmd != CM_defblock
-                  || after_paragraph)
+              if (!appropriate_command || after_paragraph)
                 {
                   /* error - deffnx not after deffn */
                   line_error ("must be after `@%s' to use `@%s'",

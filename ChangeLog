@@ -2,6 +2,18 @@
 
 	Multiple @defline in @defblock in texi2any
 
+	* tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command) <def command>: Allow for @defline
+	occurring part way through a @defblock.
+	* tp/Texinfo/XS/parsetexi/def.c (gather_def_item)
+	Check for empty contents in block, and for items before a
+	@defline, gather an element of type 'def_item' rather than
+	'inter_def_item'.
+
+2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Multiple @defline in @defblock in texi2any
+
 	* tp/Texinfo/ParserNonXS.pm
 	(_handle_line_command) <def command>: Allow for @defline occurring
 	part way through a @defblock.

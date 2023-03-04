@@ -30,7 +30,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   ELEMENT *def_item;
   int contents_count, i;
 
-  if (next_command)
+  if (next_command && next_command != CM_defline)
     type = ET_inter_def_item; /* Between @def*x and @def*. */
   else
     type = ET_def_item;
@@ -45,11 +45,13 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   if (command_data(current->cmd).flags & CF_line)
     return;
 
-  def_item = new_element (type);
+  contents_count = current->contents.number;
+  if (contents_count == 0)
+    return;
 
   /* Starting from the end, collect everything that is not a ET_def_line and
      put it into the ET_def_item. */
-  contents_count = current->contents.number;
+  def_item = new_element (type);
   for (i = 0; i < contents_count; i++)
     {
       ELEMENT *last_child, *item_content;
