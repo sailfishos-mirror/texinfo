@@ -5416,7 +5416,7 @@ sub _handle_line_command($$$$$$)
 
     $current = $current->{'args'}->[-1];
     $self->_push_context('ct_line', $command)
-      unless ($def_commands{$command});
+      unless ($def_commands{$data_cmdname});
     $line = _start_empty_line_after_command($line, $current, $misc);
   }
   _register_global_command($self, $misc, $source_info)

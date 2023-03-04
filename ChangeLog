@@ -1,5 +1,12 @@
 2023-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command): use
+	data command information and arg_spec more, where it makes sense even
+	if there cannot be @item there.
+
+2023-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
 	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line, _handle_line_command),
 	tp/maintain/regenerate_commands_perl_info.pl: in end_line_misc_line,

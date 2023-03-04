@@ -291,7 +291,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
 /* STATUS is set to GET_A_NEW_LINE if we should get a new line after this,
    to FINISHED_TOTALLY if we should stop processing completely. */
 /* data_cmd (used for the information on the command) and cmd (for the command name)
-   is different only for @item */
+   is different for the only multicategory command, @item */
 ELEMENT *
 handle_line_command (ELEMENT *current, char **line_inout,
                      enum command_id cmd, enum command_id data_cmd, int *status)
@@ -507,7 +507,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
     {
       ELEMENT *arg;
 
-      /* text, line, or a number.
+      /* text, line, or specific.
          (This includes handling of "@end", which is LINE_text.) */
       if (cmd == CM_item || cmd == CM_itemx)
         {
@@ -655,12 +655,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
       /* LINE_specific commands arguments are handled in a specific way.
          The only other line commands that have more than one argument is
          node, so the following condition only applies to node */
-      if (command_data (current->cmd).data != LINE_specific
-          && command_data (current->cmd).args_number > 1)
+      if (arg_spec != LINE_specific
+          && command_data (data_cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         current,
-                        command_data (current->cmd).args_number - 1);
+                        command_data (data_cmd).args_number - 1);
         }
       if (cmd == CM_author)
         {
@@ -706,7 +706,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
       /* add 'line' to context_stack.  This will be the
          case while we read the argument on this line. */
-      if (!(command_data(cmd).flags & CF_def))
+      if (!(command_data(data_cmd).flags & CF_def))
         push_context (ct_line, cmd);
       start_empty_line_after_command (current, &line, misc);
     }
