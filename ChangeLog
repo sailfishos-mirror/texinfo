@@ -1,5 +1,21 @@
 2023-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/ParserNonXS.pm (_end_line_misc_line, _handle_line_command),
+	tp/maintain/regenerate_commands_perl_info.pl: in end_line_misc_line,
+	use item_LINE to get the command data information associated to
+	@item.
+	Keep item_LINE in the perl commands information as in the XS parser,
+	modify _handle_line_command and _end_line_misc_line accordingly, also
+	to be more in line with the XS parser code.
+	For some selected flags that are of interest for converters but not
+	for the parsers, duplicate the multi category, ie item_LINE
+	information for the main command, here item.  In the converters,
+	item_LINE is not present and the tree allows to knwo in advance which
+	type of item command is processed.
+
+2023-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line), 
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):

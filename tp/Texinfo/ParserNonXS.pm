@@ -3296,9 +3296,14 @@ sub _end_line_misc_line($$$)
   my $source_info = shift;
 
   my $command = $current->{'parent'}->{'cmdname'};
+  my $data_cmdname = $command;
+
+  # we are in a command line context, so the @item command information is
+  # associated to CM_item_LINE
+  $data_cmdname = 'item_LINE' if ($command eq 'item');
 
   if ($self->{'basic_inline_commands'}
-      and $self->{'basic_inline_commands'}->{$command}) {
+      and $self->{'basic_inline_commands'}->{$data_cmdname}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
   _isolate_last_space($self, $current);
@@ -3316,16 +3321,19 @@ sub _end_line_misc_line($$$)
   my $end_command;
   my $included_file;
   my $include_source_mark;
-  print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
+
+  my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
+
+  print STDERR "MISC END \@$command: $arg_spec\n"
      if ($self->{'DEBUG'});
 
-  if ($self->{'line_commands'}->{$command} eq 'specific') {
+  if ($arg_spec eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);
     if (defined($args)) {
       $current->{'extra'} = {} if (!defined($current->{'extra'}));
       $current->{'extra'}->{'misc_args'} = $args;
     }
-  } elsif ($self->{'line_commands'}->{$command} eq 'text') {
+  } elsif ($arg_spec eq 'text') {
     my ($text, $superfluous_arg)
       = _convert_to_text($current->{'args'}->[0]);
 
@@ -3605,7 +3613,7 @@ sub _end_line_misc_line($$$)
         if (!defined($current->{'parent'}->{'extra'}));
       $current->{'parent'}->{'extra'}->{'columnfractions'} = $misc_cmd;
     }
-  } elsif ($root_commands{$command}) {
+  } elsif ($root_commands{$data_cmdname}) {
     $current = $current->{'contents'}->[-1];
     delete $current->{'remaining_args'};
 
@@ -5107,17 +5115,18 @@ sub _handle_other_command($$$$$)
   return ($current, $line, $retval);
 }
 
-sub _handle_line_command($$$$$)
+sub _handle_line_command($$$$$$)
 {
   my $self = shift;
   my $current = shift;
   my $command = shift;
+  my $data_cmdname = shift;
   my $line = shift;
   my $source_info = shift;
 
   my $retval = $STILL_MORE_TO_PROCESS;
 
-  if ($root_commands{$command} or $command eq 'bye') {
+  if ($root_commands{$data_cmdname} or $command eq 'bye') {
     $current = _close_commands($self, $current, $source_info, undef,
                                $command);
     # if the root command happens in a Texinfo fragment going through
@@ -5148,7 +5157,7 @@ sub _handle_line_command($$$$$)
   }
 
   # text line lineraw special specific
-  my $arg_spec = $self->{'line_commands'}->{$command};
+  my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
   my $misc;
 
   # all the cases using the raw line
@@ -5306,7 +5315,7 @@ sub _handle_line_command($$$$$)
         # command.  This means that spaces are preserved properly
         # when converting back to Texinfo.
         $current = _end_line($self, $current, $source_info);
-      } elsif ($sectioning_heading_commands{$command}) {
+      } elsif ($sectioning_heading_commands{$data_cmdname}) {
         if ($self->{'sections_level'}) {
           $misc->{'extra'} = {'sections_level' => $self->{'sections_level'}};
         }
@@ -5314,7 +5323,7 @@ sub _handle_line_command($$$$$)
       push @{$current->{'contents'}}, $misc;
       $misc->{'parent'} = $current;
       # def*x
-      if ($def_commands{$command}) {
+      if ($def_commands{$data_cmdname}) {
         my $base_command = $command;
         $base_command =~ s/x$//;
         # check that the def*x is first after @def*, no paragraph
@@ -5351,7 +5360,7 @@ sub _handle_line_command($$$$$)
     $current->{'args'} = [{ 'type' => 'line_arg',
                             'parent' => $current }];
     if ($self->{'basic_inline_commands'}
-        and $self->{'basic_inline_commands'}->{$command}) {
+        and $self->{'basic_inline_commands'}->{$data_cmdname}) {
       push @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}},
            $command;
     }
@@ -5359,7 +5368,7 @@ sub _handle_line_command($$$$$)
     # 'specific' commands arguments are handled in a specific way.
     # The only other line commands that have more than one argument is
     # node, so the following condition only applies to node
-    if ($self->{'line_commands'}->{$command} ne 'specific'
+    if ($arg_spec ne 'specific'
         and $commands_args_number{$command}
         and $commands_args_number{$command} > 1) {
       $current->{'remaining_args'} = $commands_args_number{$command} - 1;
@@ -6130,6 +6139,8 @@ sub _process_remaining_on_line($$$$)
     my $def_line_continuation
       = ($self->_top_context() eq 'ct_def' and $command eq "\n");
 
+    # warn on not appearing at line beginning.  Need to do before closing
+    # paragraph as it also closes the empty line
     if (not $def_line_continuation
            and not _abort_empty_line($self, $current)
            and $begin_line_commands{$command}) {
@@ -6144,6 +6155,12 @@ sub _process_remaining_on_line($$$$)
     if ($self->{'close_preformatted_commands'}->{$command}) {
       $current = _end_preformatted($self, $current, $source_info);
     }
+
+    # command used for gathering data on the command.  For @item command
+    my $data_cmdname = $command;
+    # cannot check parent before closing paragraph/preformatted
+    $data_cmdname = 'item_LINE'
+      if ($command eq 'item' and _item_line_parent($current));
 
     _check_valid_nesting ($self, $current, $command, $source_info);
     _check_valid_nesting_context ($self, $command, $source_info);
@@ -6176,27 +6193,27 @@ sub _process_remaining_on_line($$$$)
       }
     }
 
-    unless ($self->{'no_paragraph_commands'}->{$command}) {
+    unless ($self->{'no_paragraph_commands'}->{$data_cmdname}) {
       my $paragraph = _begin_paragraph($self, $current, $source_info);
       $current = $paragraph if ($paragraph);
     }
 
-    if (defined($nobrace_commands{$command})
-        and ($command ne 'item' or !_item_line_parent($current))) {
+    if (defined($nobrace_commands{$data_cmdname})) {
       ($current, $line, $retval)
-         = _handle_other_command($self, $current, $command, $line, $source_info);
+        = _handle_other_command($self, $current, $command, $line, $source_info);
       # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
     # line commands
-    } elsif (defined($self->{'line_commands'}->{$command})) {
+    } elsif (defined($self->{'line_commands'}->{$data_cmdname})) {
       ($current, $line, $retval)
-       = _handle_line_command($self, $current, $command, $line, $source_info);
+       = _handle_line_command($self, $current, $command, $data_cmdname, $line,
+                              $source_info);
       # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
     # @-command with matching @end opening
-    } elsif (exists($block_commands{$command})) {
+    } elsif (exists($block_commands{$data_cmdname})) {
       ($current, $line, $retval)
        = _handle_block_command($self, $current, $command, $line, $source_info);
       # in the XS parser return here if GET_A_NEW_LINE
-    } elsif (defined($self->{'brace_commands'}->{$command})) {
+    } elsif (defined($self->{'brace_commands'}->{$data_cmdname})) {
       $current = _handle_brace_command($self, $current, $command, $source_info);
     }
   } elsif ($separator_match) {
@@ -6828,6 +6845,8 @@ sub _parse_texi($$$)
       print STDERR "NEXT_LINE NO MORE\n" if ($self->{'DEBUG'});
       last;
     }
+#print STDERR "@{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}}|$line"
+#if ($self->{'nesting_context'} and $self->{'nesting_context'}->{'basic_inline_stack_on_line'});
 
     if ($self->{'DEBUG'}) {
       my $source_info_text = '';
@@ -8622,7 +8641,7 @@ I<columnfractions> key is associated with the element for the
 
 =item C<@node>
 
-Explicit directions labels information are in the I<line_arg>
+Explicit directions labels information is in the I<line_arg>
 arguments C<extra> node direction C<@node> arguments.  They consist
 in a hash with the I<node_content> key for an array holding the
 corresponding content, a I<manual_content> key if there is an

@@ -1541,19 +1541,24 @@ ELEMENT *
 end_line_misc_line (ELEMENT *current)
 {
   enum command_id cmd;
-  int arg_type;
+  enum command_id data_cmd;
+  int arg_spec;
   ELEMENT *misc_cmd;
   char *end_command = 0;
   enum command_id end_id = CM_NONE;
   int included_file = 0;
   SOURCE_MARK *include_source_mark;
 
-  cmd = current->parent->cmd;
+  data_cmd = cmd = current->parent->cmd;
+  /* we are in a command line context, so the @item command information is
+     associated to CM_item_LINE */
+  if (cmd == CM_item)
+    data_cmd = CM_item_LINE;
+
   if (!cmd)
     fatal ("command name unknown for line command end");
 
-  if ((command_data(cmd).flags & CF_contain_basic_inline)
-      || cmd == CM_item) /* CM_item_LINE on stack */
+  if (command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
   isolate_last_space (current);
 
@@ -1563,20 +1568,20 @@ end_line_misc_line (ELEMENT *current)
   current = current->parent;
   misc_cmd = current;
 
-  arg_type = command_data(cmd).data;
+  arg_spec = command_data(data_cmd).data;
    
   debug ("MISC END %s", command_name(cmd));
 
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
-  if (arg_type == LINE_specific)
+  if (arg_spec == LINE_specific)
     {
       ELEMENT *args = parse_line_command_args (current);
       if (args)
         add_extra_misc_args (current, "misc_args", args);
     }
-  else if (arg_type == LINE_text)
+  else if (arg_spec == LINE_text)
     {
       char *text = 0;
       int superfluous_arg = 0;
@@ -2079,7 +2084,7 @@ end_line_misc_line (ELEMENT *current)
           add_extra_element (current->parent, "columnfractions", misc_cmd);
         }
     }
-  else if (command_data(cmd).flags & CF_root)
+  else if (command_data(data_cmd).flags & CF_root)
     {
       current = last_contents_child (current);
       if (cmd == CM_node)

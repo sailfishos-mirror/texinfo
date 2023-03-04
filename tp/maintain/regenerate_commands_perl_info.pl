@@ -40,6 +40,8 @@ my %command_categories;
 my %flags_hashes;
 my %command_args_nr;
 
+my %multi_category_commands;
+
 while (<>) {
   if (not (/^#/ or /^ *$/)) {
     my ($command, $flags, $data, $args_nr) = split;
@@ -61,6 +63,10 @@ while (<>) {
         die "$command: ".join('|',@flags).": $category: not in flags\n";
       }
     } else {
+      # note that this depends on the order in the file, a category can
+      # only be detected in the flags if it was already seen as data for
+      # another command, so commands without data should be last in their
+      # category in the input file.
       my @categories = grep {exists($command_categories{$_})} @flags;
       if (scalar(@categories) == 0) {
         die "$command: ".join('|',@flags).": cannot find a category ("
@@ -71,9 +77,11 @@ while (<>) {
       }
       $category = $categories[0];
     }
-    # remove _LINE in item_LINE
+    # handle commands in multiple categories, for now @item
     my $uc_category = uc($category);
-    $command =~ s/_$uc_category$//;
+    if ($command =~ /^(.*)_$uc_category$/) {
+      $multi_category_commands{$command} = $1;
+    }
 
     if (defined($args_nr) and $args_nr ne '') {
       $command_args_nr{$command} = $args_nr;
@@ -116,12 +124,30 @@ foreach my $category (sort(keys(%command_categories))) {
 print OUT "\n";
 print OUT "# flag hashes\n";
 
+# for those flags, the information of multi category commands is
+# duplicated.  So, for example, item_LINE has the formatted_line flag
+# associated, it will be associated to item.
+#
+# In general, the hash here should be in the excluded flags in
+# Texinfo/XS/parsetexi/command_data.awk
+my %converter_flag = (
+  'formatted_line' => 1,
+  'formattable_line' => 1,
+);
+
 foreach my $hash_flag (sort(keys(%flags_hashes))) {
-  # happens for 'txiinternalvalue' which is also brace
+  # happens for 'txiinternalvalue', which is in internal category but also
+  # has the brace flag set.  This information cannot be kept, this command
+  # will not appear in brace commands.
   next if ($command_categories{$hash_flag});
   print OUT "our %${hash_flag}_commands = (\n";
   foreach my $command (sort(@{$flags_hashes{$hash_flag}})) {
     print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => 1,\n";
+    if ($multi_category_commands{$command}
+        and $converter_flag{$hash_flag}) {
+      print OUT '  '.sprintf('%-25s', '"'.$multi_category_commands{$command}
+                                                             .'"')." => 1,\n";
+    }
   }
   print OUT ");\n\n";
 }
