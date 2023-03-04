@@ -12141,9 +12141,6 @@ Description of mac.
 @@end defblock
 @end example
 
-@iftex
-@c doesn't work with texi2any yet
-
 @noindent This produces the output:
 
 @defblock
@@ -12152,8 +12149,6 @@ Description of foo.
 @defline Macro mac (arg1, arg2)
 Description of mac.
 @end defblock
-
-@end iftex
 
 The syntax of @code{@@defline} is similar to that of @code{@@deffn}.
 The first argument gives a category for the definition.  Follow this
