@@ -12120,6 +12120,67 @@ The commands with information on return values are affected by the
 in Typed Languages}).
 
 
+@node Generic Definition Commands
+@section Generic Definition Commands
+
+Texinfo provides commands for definitions that do not produce automatic
+index entries.
+
+@findex defblock
+@findex defline
+You create a generic definition environment with @samp{@@defblock}
+paired with @samp{@@end defblock}.  Within this environment, use a
+@code{@@defline} line for each symbol you document.  For example:
+
+@example
+@@defblock
+@@defline Builtin foo (bar)
+Description of foo.
+@@defline Macro mac (arg1, arg2)
+Description of mac.
+@@end defblock
+@end example
+
+@iftex
+@c doesn't work with texi2any yet
+
+@noindent This produces the output:
+
+@defblock
+@defline Builtin foo (bar)
+Description of foo.
+@defline Macro mac (arg1, arg2)
+Description of mac.
+@end defblock
+
+@end iftex
+
+The syntax of @code{@@defline} is similar to that of @code{@@deffn}.
+The first argument gives a category for the definition.  Follow this
+with the symbol name, followed by any parameters.  You should surround
+any arguments containing spaces with braces.
+
+To share the same description for multiple symbols, you can put several
+@code{@@defline} lines together.  For example:
+
+@example
+@@defblock
+@@defline Function set-var (value)
+@@defline @{Settable Variable@} var
+Description of set-var and var.
+@@end defblock
+@end example
+
+@noindent This produces the output:
+
+@defblock
+@defline Function set-var (value)
+@defline {Settable Variable} var
+Description of set-var and var.
+@end defblock
+
+
+
 @node Def Cmd Conventions
 @section Conventions for Writing Definitions
 @cindex Definition conventions

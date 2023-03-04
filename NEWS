@@ -10,6 +10,9 @@ See the manual for detailed information.
 ------------------------------------------------------------------------------
 
 * Language
+ . new generic definition commands, @defblock and @defline, that do not
+   automatically create index entries
+ . index commands end paragraphs
  . @cartouche takes an argument to specify the cartouche title
 
 * texi2any
