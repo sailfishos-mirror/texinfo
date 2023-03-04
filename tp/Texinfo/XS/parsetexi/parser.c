@@ -308,14 +308,16 @@ register_global_command (ELEMENT *current)
           add_to_contents_as_array (&global_info.floats, current);
           break;
 
+        /* global in command_data.txt */
+        GLOBAL_CASE(author);
+        GLOBAL_CASE(detailmenu);
         GLOBAL_CASE(hyphenation);
         GLOBAL_CASE(insertcopying);
+        GLOBAL_CASE(listoffloats);
+        GLOBAL_CASE(part);
         GLOBAL_CASE(printindex);
         GLOBAL_CASE(subtitle);
         GLOBAL_CASE(titlefont);
-        GLOBAL_CASE(listoffloats);
-        GLOBAL_CASE(detailmenu);
-        GLOBAL_CASE(part);
 
         /* from Common.pm %document_settable_multiple_at_commands */
         GLOBAL_CASE(allowcodebreaks);
@@ -341,7 +343,6 @@ register_global_command (ELEMENT *current)
           /* do nothing; just silence -Wswitch about lots of un-covered cases */
           break;
         }
-      /* TODO: Check if all of these are necessary. */
       return 1;
     }
   else if ((command_data(cmd).flags & CF_global_unique))
@@ -435,13 +436,14 @@ wipe_global_info (void)
 #define GLOBAL_CASE(cmx) \
   free (global_info.cmx.contents.list)
 
+  GLOBAL_CASE(author);
+  GLOBAL_CASE(detailmenu);
   GLOBAL_CASE(hyphenation);
   GLOBAL_CASE(insertcopying);
   GLOBAL_CASE(printindex);
   GLOBAL_CASE(subtitle);
   GLOBAL_CASE(titlefont);
   GLOBAL_CASE(listoffloats);
-  GLOBAL_CASE(detailmenu);
   GLOBAL_CASE(part);
   GLOBAL_CASE(floats);
   GLOBAL_CASE(allowcodebreaks);
@@ -1689,6 +1691,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       macro_call_element = handle_macro (current, &line, cmd);
       if (macro_call_element)
         {
+          if (from_alias != CM_NONE)
+            add_info_string_dup (macro_call_element, "alias_of",
+                                 command_name (from_alias));
+
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
              the processing of empty text.  No difference in output, more
@@ -1698,12 +1704,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           free (allocated_line);
           allocated_line = next_text (current);
           line = allocated_line;
-
-          if (from_alias != CM_NONE)
-            add_info_string_dup (macro_call_element, "alias_of",
-                                 command_name (from_alias));
         }
-      retval = STILL_MORE_TO_PROCESS;
       goto funexit;
     }
   /* expand value if it actually expands and changes the line.  It is
@@ -1769,7 +1770,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       /* Move 'line' to end of string so next input to
                          be processed is taken from input stack. */
                       line = remaining_line + strlen (remaining_line);
-                      retval = STILL_MORE_TO_PROCESS;
                     }
                   if (value)
                     {
@@ -1857,7 +1857,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         current = paragraph;
 
       line = line_after_command;
-      retval = STILL_MORE_TO_PROCESS;
       goto funexit;
     }
 
@@ -1993,7 +1992,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (cmd)
     {
       int def_line_continuation;
-      /* command used for gathering data on the command.  For @item command */
+      /* command used to get command data.  Needed for the multicategory
+         @item command. */
       enum command_id data_cmd = cmd;
       ELEMENT *command_element;
 
@@ -2045,13 +2045,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       add_to_element_contents (current, value_elt);
 
                       line++; /* past '}' */
-                      retval = STILL_MORE_TO_PROCESS;
                     }
                    /* expansion of value already done above
                   else
-                    {
-                      value is set
-                    }
+                    value is set
                     */
                   free (flag);
                   goto funexit;
@@ -2068,7 +2065,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   add_to_element_contents (current, txiinternalvalue_elt);
 
                   line++; /* past '}' */
-                  retval = STILL_MORE_TO_PROCESS;
 
                   free (flag);
                   goto funexit;
@@ -2078,7 +2074,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             {
           value_invalid:
               line_error ("bad syntax for @%s", command_name(cmd));
-              retval = STILL_MORE_TO_PROCESS;
               goto funexit;
             }
         }
@@ -2263,7 +2258,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         *line = saved;
       }
 
-      retval = STILL_MORE_TO_PROCESS;
       goto funexit;
     }
   else /*  End of line */

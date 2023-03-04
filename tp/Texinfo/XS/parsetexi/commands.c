@@ -98,7 +98,9 @@ add_texinfo_command (char *name)
       enum command_id user_data_cmd = existing_cmd & ~USER_COMMAND_BIT;
       /* FIXME it is consistent with silent replacement of macro
          by another user-defined command to remove the information
-         on a previously defined macro, but it may not be right. */
+         on a previously defined macro, but it may not be right, or
+         at least there could be a warning as there is a warning when
+         a macro is redefined. */
       if (user_defined_command_data[user_data_cmd].flags & CF_MACRO)
         {
           MACRO *m = lookup_macro (existing_cmd);

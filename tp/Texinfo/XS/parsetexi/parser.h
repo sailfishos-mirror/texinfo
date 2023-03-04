@@ -71,16 +71,17 @@ typedef struct GLOBAL_INFO {
     ELEMENT *smallbook;
 
     /* Arrays of elements */
+    ELEMENT author;
+    ELEMENT detailmenu;
+    ELEMENT floats;
     ELEMENT footnotes;
     ELEMENT hyphenation;
     ELEMENT insertcopying;
+    ELEMENT listoffloats;
+    ELEMENT part;
     ELEMENT printindex;
     ELEMENT subtitle;
     ELEMENT titlefont;
-    ELEMENT listoffloats;
-    ELEMENT detailmenu;
-    ELEMENT part;
-    ELEMENT floats;
 
     ELEMENT allowcodebreaks;
     ELEMENT clickstyle;

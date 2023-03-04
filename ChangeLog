@@ -1,3 +1,17 @@
+2023-03-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/parser.h (GLOBAL_INFO),
+	tp/Texinfo/XS/parsetexi/parser.c (register_global_command)
+	(wipe_global_info), tp/Texinfo/XS/parsetexi/api.c
+	(build_global_info2): add author to global info, to be consistent with
+	global in command_data.txt.
+	Remove a useless TODO.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): minor
+	changes: change order of code, remove useless retval set, changein
+	comments, more similar codes in XS and perl parsers.
+
 2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Multiple @defline in @defblock in texi2any

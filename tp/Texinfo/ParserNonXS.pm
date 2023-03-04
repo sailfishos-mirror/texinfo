@@ -5814,17 +5814,20 @@ sub _process_remaining_on_line($$$$)
       ($argument_container, $line, $source_info)
         = _handle_macro($self, $current, $line, $source_info, $command);
       if ($argument_container) {
-        # directly get the following input (macro expansion text) instead
-        # of going through the next call of process_remaining_on_line and
-        # the processing of empty text.  No difference in output, more
-        # efficient.
-        ($line, $source_info) = _next_text($self, $current);
 
         if ($from_alias) {
           $argument_container->{'info'} = {}
              if (!$argument_container->{'info'});
           $argument_container->{'info'}->{'alias_of'} = $from_alias;
         }
+
+        # directly get the following input (macro expansion text) instead
+        # of going through the next call of process_remaining_on_line and
+        # the processing of empty text.  No difference in output, more
+        # efficient.
+
+        ($line, $source_info) = _next_text($self, $current);
+
       }
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
@@ -6119,7 +6122,8 @@ sub _process_remaining_on_line($$$$)
       $current = _end_preformatted($self, $current, $source_info);
     }
 
-    # command used for gathering data on the command.  For @item command
+    # command used to get command data.  Needed for the multicategory
+    # @item command
     my $data_cmdname = $command;
     # cannot check parent before closing paragraph/preformatted
     $data_cmdname = 'item_LINE'
@@ -6166,22 +6170,23 @@ sub _process_remaining_on_line($$$$)
     if (defined($nobrace_commands{$data_cmdname})) {
       ($current, $line, $retval, $command_element)
         = _handle_other_command($self, $current, $command, $line, $source_info);
-      # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
-    # line commands
+
     } elsif (defined($self->{'line_commands'}->{$data_cmdname})) {
+      # line commands
       ($current, $line, $retval, $command_element)
        = _handle_line_command($self, $current, $command, $data_cmdname, $line,
                               $source_info);
-      # in the XS parser return here if GET_A_NEW_LINE or FINISHED_TOTALLY
-    # @-command with matching @end opening
+
     } elsif (exists($block_commands{$data_cmdname})) {
+      # @-command with matching @end opening
       ($current, $line, $retval, $command_element)
        = _handle_block_command($self, $current, $command, $line, $source_info);
-      # in the XS parser return here if GET_A_NEW_LINE
+
     } elsif (defined($self->{'brace_commands'}->{$data_cmdname})) {
       ($current, $command_element)
         = _handle_brace_command($self, $current, $command, $source_info);
     }
+
     if ($from_alias and $command_element) {
       $command_element->{'info'} = {} if (!$command_element->{'info'});
       $command_element->{'info'}->{'alias_of'} = $from_alias;
@@ -6790,8 +6795,7 @@ sub _process_remaining_on_line($$$$)
       die;
     }
     $current = _end_line($self, $current, $source_info);
-    return ($current, $line, $source_info, $GET_A_NEW_LINE);
-    # goto funexit;  # used in XS code
+    $retval = $GET_A_NEW_LINE;
   }
 
  funexit:
