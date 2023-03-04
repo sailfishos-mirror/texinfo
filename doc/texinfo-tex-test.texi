@@ -531,6 +531,19 @@ And multiple paragraphs.
 Like an argument to @b{@@footnote}.
 }
 
+@section Bugs
+
+Here an extra space appears in the output:
+
+@macro Twoarg {arg,argtwo}
+@example
+@result{}\arg\@result{}
+@end example
+@end macro
+
+@Twoarg{bbbbb, 22222222222}
+
+
 
 
 @chapter Line macros

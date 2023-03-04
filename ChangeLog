@@ -1,5 +1,10 @@
 2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Macros): Add example that doesn't
+	work properly.
+
+2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Line macros): New section.
 
 2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
