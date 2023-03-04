@@ -533,6 +533,64 @@ Like an argument to @b{@@footnote}.
 
 
 
+@chapter Line macros
+
+No args
+
+@linemacro noarg
+@example
+@expansion{} this is the expansion
+@end example
+@end linemacro
+
+@noarg
+
+
+One arg
+
+@linemacro onearg arg
+@result{}\arg\@result{}
+@end linemacro
+ 
+@onearg aaaaa
+
+Two args
+
+@linemacro twoargs one two
+foo @samp{\one\} `\two\' bar
+@end linemacro
+
+@twoargs AA BB
+
+With empty second arg:
+
+@linemacro twoargs one two
+foo @samp{\one\} `\two\' bar
+@end linemacro
+
+@twoargs AA
+
+@heading With @code{@@defblock}
+
+@defcodeindex BI
+@linemacro defbuiltin symbol rest
+@BIindex \symbol\
+@defline Builtin \symbol\ \rest\
+@end linemacro
+
+@defblock
+@defbuiltin One (more)
+hallo
+@defbuiltin Nothing
+hallo agin
+@end defblock
+
+@printindex BI
+
+
+
+
+
 
 @part Another part@*Note no headline on this page
 

@@ -1,5 +1,9 @@
 2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Line macros): New section.
+
+2023-03-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@linemacro, adapted from @macro implementation
 
 	(\linemacro): New macro, to implement @linemacro command.
