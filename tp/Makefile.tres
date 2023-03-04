@@ -1234,6 +1234,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_call_empty_two_arg.pl \
   t/results/macro/macro_call_in_ignored_inlinefmtifelse.pl \
   t/results/macro/macro_call_in_inlinefmtifelse_format.pl \
+  t/results/macro/macro_call_in_node_manual.pl \
   t/results/macro/macro_end_call_in_ignored_inlinefmt.pl \
   t/results/macro/macro_end_call_in_ignored_inlinefmtifelse.pl \
   t/results/macro/macro_end_call_in_ignored_inlinefmtifelse_else.pl \

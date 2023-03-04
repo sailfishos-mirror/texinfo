@@ -1018,33 +1018,42 @@ sub parse_node_manual($;$)
   return (undef, undef)
      if (!$label_contents_container->{'contents'});
 
-  # the elements are not modified, when modifications are needed new elements
-  # are setup.
-  my @contents = @{$label_contents_container->{'contents'}};
+  my $contents = $label_contents_container->{'contents'};
+
+  my $idx = 0;
 
   my $manual;
   my $result;
-  my ($end_paren, $spaces_after);
+  my $node_content = [];
 
   # FIXME replace source marks
-  if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
+  if ($contents->[0] and $contents->[0]->{'text'}
+      and $contents->[0]->{'text'} =~ /^\(/) {
+    my ($new_first, $opening_brace);
     $manual = [];
-    # remove the leading ( from @contents, it is not in manual_content.
-    my $braces_count = 1;
-    if ($contents[0]->{'text'} ne '(') {
-      my $first_element = shift @contents;
-      my $brace_text = $first_element->{'text'};
+    my $braces_count = 1; # Number of ( seen minus number of ) seen.
+    # the leading ( from @$contents is not in manual.
+    # If the first contents element is "(" followed by more text, split
+    # the leading "(" into its own element.
+    my $first = $contents->[0];
+    if ($first->{'text'} ne '(') {
+      if ($modify_node) {
+        $opening_brace = {'text' => '(', 'parent' => $label_contents_container};
+      }
+      my $brace_text = $first->{'text'};
       $brace_text =~ s/^\(//;
-      my $new_element = { 'text' => $brace_text,
-                          'parent' => $first_element->{'parent'} };
-      $new_element->{'type'} = $first_element->{'type'}
-         if defined($first_element->{'type'});
-      unshift @contents, $new_element;
+      $new_first = { 'text' => $brace_text};
     } else {
-      shift @contents;
+      # first element is "(", it is not part of the manual, keep it
+      $idx++;
     }
-    while (@contents) {
-      my $content = shift @contents;
+    for (; $idx < scalar(@$contents); $idx++) {
+      my $content;
+      if ($idx == 0) {
+        $content = $new_first;
+      } else {
+        $content = $contents->[$idx];
+      }
       if (!defined($content->{'text'}) or $content->{'text'} !~ /\)/) {
         push @$manual, $content;
         $braces_count = _count_opened_tree_braces($content, $braces_count);
@@ -1057,16 +1066,60 @@ sub parse_node_manual($;$)
         ($before, $after, $braces_count) = _find_end_brace($content->{'text'},
                                                               $braces_count);
         if ($braces_count == 0) {
+          # At this point, we are sure that there is a manual part,
+          # so the pending removal/addition of elements at the beginning
+          # of the manual can proceed (if modify_node).
+          if ($modify_node) {
+            if ($opening_brace) {
+              # remove the original first element and prepend the
+              # split "(" and text elements
+              shift @$contents;
+              $new_first ->{'parent'} = $label_contents_container;
+              unshift @$contents, $new_first;
+              unshift @$contents, $opening_brace;
+              $idx++;
+            }
+            # Remove current element $content with closing brace from the tree.
+            splice(@$contents, $idx, 1);
+          }
+
           # remove the closing ), it is not in manual_content
           $before =~ s/(\))$//;
-          $end_paren = $1;
-          push @$manual, { 'text' => $before, 'parent' => $content->{'parent'} }
-            if ($before ne '');
+          my $end_paren = $1;
+          if ($before ne '') {
+            # text before ), part of the manual name
+            my $last_manual_element = { 'text' => $before };
+            push @$manual, $last_manual_element;
+            if ($modify_node) {
+              $last_manual_element->{'parent'} = $content->{'parent'};
+              splice(@$contents, $idx, 0, $last_manual_element);
+              $idx++;
+            }
+          }
+          if ($modify_node) {
+            my $closing_brace = {'text' => ')',
+                                 'parent' => $content->{'parent'}};
+            splice(@$contents, $idx, 0, $closing_brace);
+            $idx++;
+          }
           $after =~ s/^(\s*)//;
-          $spaces_after = $1;
-          # put back everything appearing after the )
-          unshift @contents,  { 'text' => $after, 'parent' => $content->{'parent'} }
-            if ($after ne '');
+          my $spaces_after = $1;
+          if ($spaces_after and $modify_node) {
+            my $spaces_element = {'text' => $spaces_after,
+                                  'parent' => $content->{'parent'}};
+            splice(@$contents, $idx, 0, $spaces_element);
+            $idx++;
+          }
+          if ($after ne '') {
+            # text after ), part of the node name.
+            my $leading_node_content = {'text' => $after};
+            push @$node_content, $leading_node_content;
+            if ($modify_node) {
+              $leading_node_content->{'parent'} = $content->{'parent'};
+              splice(@$contents, $idx, 0, $leading_node_content);
+            }
+            $idx++;
+          }
           last;
         } else {
           push @$manual, $content;
@@ -1074,41 +1127,22 @@ sub parse_node_manual($;$)
       }
     }
     if ($braces_count != 0) {
-      # unclosed brace, reset @contents
-      @contents = @{$label_contents_container->{'contents'}};
+      # unclosed brace, reset
       $manual = undef;
+      $idx = 0;
+    } else {
+      $result = {};
+      $result->{'manual_content'} = $manual;
     }
-  }
-  my $node_content;
-  if (scalar(@contents) > 0) {
-    $node_content = \@contents;
   }
 
-  if (($manual and scalar(@$manual)) or $node_content) {
-    $result = {};
-    $result->{'node_content'} = $node_content if ($node_content);
-    $result->{'manual_content'} = $manual if ($manual and scalar(@$manual));
+  if ($idx < scalar(@$contents)) {
+    push(@$node_content, @$contents[$idx .. scalar(@$contents)-1]);
   }
 
-  if ($modify_node) {
-    # contents array in which all the elements in 'manual_content'
-    # and 'node_content' have been put, replacing the argument
-    # element contents.
-    my $new_contents = [];
-    if (defined($result) and defined($result->{'manual_content'})) {
-      @$new_contents = ({ 'text' => '(', 'parent' => $label_contents_container },
-                        @$manual);
-      push @$new_contents, {  'text' => ')',
-                              'parent' => $label_contents_container }
-        if $end_paren;
-      push @$new_contents, { 'text' => $spaces_after,
-                             'parent' => $label_contents_container }
-        if $spaces_after;
-    }
-    if (@contents) {
-      @$new_contents = (@$new_contents, @contents);
-    }
-    $label_contents_container->{'contents'} = $new_contents;
+  if (scalar(@$node_content)) {
+    $result = {} if (!$result);
+    $result->{'node_content'} = $node_content;
   }
 
   return $result;

@@ -615,6 +615,42 @@ Toto @inlineifclear{fl@clearargendignored{}}. After.
 
 Again with space @inlineifclear{fl@clearargendignored{} }. After.
 '],
+['macro_call_in_node_manual',
+'@macro openbrace
+(
+@end macro
+
+@macro openbracetext
+(begin
+@end macro
+
+@macro manualnameend
+last
+@end macro
+
+@macro manualnameendbrace
+last)
+@end macro
+
+@macro manualnameendbracespace
+last)   
+@end macro
+
+@macro manualnameendbracespacetext
+last)  mynode
+@end macro
+
+@menu
+* @openbrace{}a_man)::
+* @openbracetext{})::
+* @openbracetext{})the node::
+* @openbracetext{}@manualnameend{})::
+* (nom@manualnameendbrace{} distant::
+* @openbracetext{}@code{in code}@manualnameendbrace{}::
+* (nom@manualnameendbracespace{} thenode::
+* (nom@manualnameendbracespacetext{}and after::
+@end menu
+'],
 ['nested_macro_call',
 '@macro machin{}
 (machin)

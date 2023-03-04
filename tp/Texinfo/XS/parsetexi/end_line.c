@@ -907,11 +907,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
       for (; idx < node->contents.number; idx++)
         {
-          ELEMENT *e = node->contents.list[idx];
+          ELEMENT *e;
           char *p, *q;
 
           if (idx == 0)
             e = new_first;
+          else
+            e = node->contents.list[idx];
 
           if (e->text.end == 0)
             {
