@@ -1789,7 +1789,7 @@ sub _gather_def_item($$;$)
 
   my $type;
   # means that we are between a @def*x and a @def
-  if ($next_command) {
+  if ($next_command and $next_command ne 'defline') {
     $type = 'inter_def_item';
   } else {
     $type = 'def_item';
@@ -1799,12 +1799,18 @@ sub _gather_def_item($$;$)
   # @deffnx a b @section
   # but otherwise the end of line will lead to the command closing
   return if (!$current->{'cmdname'} or $current->{'cmdname'} =~ /x$/);
+
+  # For @defline at the beginning of @defblock.
+  return if !defined($current->{'contents'});
+
+  my $contents_count = scalar(@{$current->{'contents'}});
+  return if $contents_count == 0;
+
   my $def_item = {'type' => $type,
                   'parent' => $current,
                   'contents' => []};
   # remove everything that is not a def_line to put it in the def_item,
   # starting from the end.
-  my $contents_count = scalar(@{$current->{'contents'}});
   for (my $i = 0; $i < $contents_count; $i++) {
     if ($current->{'contents'}->[-1]->{'type'}
         and $current->{'contents'}->[-1]->{'type'} eq 'def_line') {
@@ -5269,9 +5275,12 @@ sub _handle_line_command($$$$$$)
       if ($def_commands{$data_cmdname}) {
         my $base_command = $command;
         $base_command =~ s/x$//;
+        my $cmdname = $current->{'cmdname'};
+
         # check that the def*x is first after @def*, no paragraph
         # in-between.
-        my $after_paragraph = _check_no_text($current);
+        my $after_paragraph;
+        $after_paragraph = _check_no_text($current) if $cmdname ne 'defblock';
         $self->_push_context('ct_def', $command);
         $current->{'contents'}->[-1]->{'type'} = 'def_line';
         $current->{'contents'}->[-1]->{'extra'}
@@ -5281,17 +5290,19 @@ sub _handle_line_command($$$$$$)
           $current->{'contents'}->[-1]{'extra'}
                               ->{'omit_def_name_space'} = 1;
         }
+        my $appropriate_command = 0;
         if ($current->{'cmdname'}
-            and $current->{'cmdname'} eq $base_command) {
+            and ($current->{'cmdname'} eq $base_command
+                   or $current->{'cmdname'} eq 'defblock')) {
+          $appropriate_command = 1;
+        }
+        if ($appropriate_command) {
           # popped element should be the same as $command_e
           _pop_element_from_contents($self, $current);
           _gather_def_item($self, $current, $command);
           push @{$current->{'contents'}}, $command_e;
         }
-        if (!$current->{'cmdname'}
-             or ($current->{'cmdname'} ne $base_command
-                   and $current->{'cmdname'} ne 'defblock')
-             or $after_paragraph) {
+        if (!$appropriate_command or $after_paragraph) {
           $self->_line_error(sprintf(__(
                                "must be after `\@%s' to use `\@%s'"),
                                   $base_command, $command), $source_info);
@@ -8222,8 +8233,8 @@ Contains several elements that together are a single unit on a @def* line.
 =item inter_def_item
 
 The I<def_line> type is either associated with a container within a
-definition command, or is the type of a definition command with a x
-form, like C<@deffnx>.  It holds the definition line arguments.
+definition command, or is the type of a definition command with a x form,
+like C<@deffnx>, or C<@defline>.  It holds the definition line arguments.
 The container with type I<def_item> holds the definition text content.
 Content appearing before a definition command with a x form is in
 an I<inter_def_item> container.
