@@ -991,6 +991,56 @@ sub _count_opened_tree_braces($$)
   return $braces_count;
 }
 
+# relocate $SOURCE_MARKS source marks with position between
+# $BEGIN_POSITION and $BEGIN_POSITION + $ADDED_LEN to be relative to
+# $BEGIN_POSITION, and move to element $E.
+# return $BEGIN_POSITION + $ADDED_LEN if there were source marks
+sub relocate_source_marks($$$$)
+{
+  my $source_marks = shift;
+
+  return undef if (!$source_marks);
+
+  my $e = shift;
+  my $begin_position = shift;
+  my $added_len = shift;
+
+  my $end_position = $begin_position + $added_len;
+
+  my @indices_to_remove;
+  # collect source marks to remove starting from the beginning to keep
+  # the correct order in the $e element.  Order indices to remove
+  # in the reverse order to start from the last in order not to change
+  # the array order when the entry is splice'd away.
+  for (my $i = 0; $i < scalar(@$source_marks); $i++) {
+    my $source_mark = $source_marks->[$i];
+    if (($begin_position == 0
+         and (!defined($source_marks->[$i]->{'position'})
+              # this should never happen
+              or $source_marks->[$i]->{'position'} == 0))
+        or ($source_marks->[$i]->{'position'} > $begin_position
+            and $source_marks->[$i]->{'position'} <= $end_position)) {
+      unshift @indices_to_remove, $i;
+      if ($source_mark->{'position'}) {
+        $source_mark->{'position'}
+           = $source_mark->{'position'} - $begin_position;
+      } elsif ($begin_position) {
+        warn "BUG: no $source_mark->{'position'} but $begin_position\n";
+      }
+      $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
+      push @{$e->{'source_marks'}}, $source_mark;
+    } elsif ($source_marks->[$i]->{'position'} > $end_position) {
+      # only correct if positions are always monotonically increasing
+      # but should be the case for now
+      last;
+    }
+  }
+  foreach my $i (@indices_to_remove) {
+    splice (@$source_marks, $i, 1);
+  }
+  return $end_position;
+}
+
 # retrieve a leading manual name in parentheses, if there is one.
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
 # of a node.  It is relevant in any situation when a label is expected,
@@ -1026,7 +1076,6 @@ sub parse_node_manual($;$)
   my $result;
   my $node_content = [];
 
-  # FIXME replace source marks
   if ($contents->[0] and $contents->[0]->{'text'}
       and $contents->[0]->{'text'} =~ /^\(/) {
     my ($new_first, $opening_brace);
@@ -1066,6 +1115,8 @@ sub parse_node_manual($;$)
         ($before, $after, $braces_count) = _find_end_brace($content->{'text'},
                                                               $braces_count);
         if ($braces_count == 0) {
+          my @remaining_source_marks;
+          my $current_position = 0;
           # At this point, we are sure that there is a manual part,
           # so the pending removal/addition of elements at the beginning
           # of the manual can proceed (if modify_node).
@@ -1078,6 +1129,13 @@ sub parse_node_manual($;$)
               unshift @$contents, $new_first;
               unshift @$contents, $opening_brace;
               $idx++;
+              if ($first->{'source_marks'}) {
+                my $current_position = relocate_source_marks(
+                                   $first->{'source_marks'}, $opening_brace,
+                                   0, length($opening_brace->{'text'}));
+                relocate_source_marks($first->{'source_marks'}, $new_first,
+                              $current_position, length($new_first->{'text'}));
+              }
             }
             # Remove current element $content with closing brace from the tree.
             splice(@$contents, $idx, 1);
@@ -1094,6 +1152,9 @@ sub parse_node_manual($;$)
               $last_manual_element->{'parent'} = $content->{'parent'};
               splice(@$contents, $idx, 0, $last_manual_element);
               $idx++;
+              $current_position = relocate_source_marks(
+                         $content->{'source_marks'}, $last_manual_element,
+                         $current_position, length($before));
             }
           }
           if ($modify_node) {
@@ -1101,6 +1162,9 @@ sub parse_node_manual($;$)
                                  'parent' => $content->{'parent'}};
             splice(@$contents, $idx, 0, $closing_brace);
             $idx++;
+            $current_position = relocate_source_marks(
+                         $content->{'source_marks'}, $closing_brace,
+                         $current_position, length($closing_brace->{'text'}));
           }
           $after =~ s/^(\s*)//;
           my $spaces_after = $1;
@@ -1109,6 +1173,9 @@ sub parse_node_manual($;$)
                                   'parent' => $content->{'parent'}};
             splice(@$contents, $idx, 0, $spaces_element);
             $idx++;
+            $current_position = relocate_source_marks(
+                         $content->{'source_marks'}, $spaces_element,
+                         $current_position, length($spaces_after));
           }
           if ($after ne '') {
             # text after ), part of the node name.
@@ -1117,6 +1184,9 @@ sub parse_node_manual($;$)
             if ($modify_node) {
               $leading_node_content->{'parent'} = $content->{'parent'};
               splice(@$contents, $idx, 0, $leading_node_content);
+              $current_position = relocate_source_marks(
+                           $content->{'source_marks'}, $leading_node_content,
+                           $current_position, length($after));
             }
             $idx++;
           }

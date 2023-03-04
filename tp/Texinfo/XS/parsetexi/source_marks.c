@@ -189,19 +189,25 @@ remove_from_source_mark_list (SOURCE_MARK_LIST *list, int where)
 }
 
 /* relocate SOURCE_MARKS source marks with position between
-   BEGIN_POSITION and END_POSITION to be relative to BEGIN_POSITION,
-   and move to element E. */
-void
+   BEGIN_POSITION and BEGIN_POSITION + LEN to be relative to BEGIN_POSITION,
+   and move to element E.
+   Returns BEGIN_POSITION + LEN if there were source marks.
+*/
+size_t
 relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
-                       size_t begin_position, size_t end_position)
+                       size_t begin_position, size_t len)
 {
   int i = 0;
   int j;
   int list_number = source_mark_list->number;
   int *indices_to_remove;
+  size_t end_position;
 
   if (list_number == 0)
-    return;
+    return 0;
+
+  end_position = begin_position + len;
+
   indices_to_remove = malloc (sizeof(int) * list_number);
   memset (indices_to_remove, 0, sizeof(int) * list_number);
 
@@ -229,4 +235,5 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
       if (indices_to_remove[j] == 1)
         remove_from_source_mark_list (source_mark_list, j);
     }
+  return end_position;
 }

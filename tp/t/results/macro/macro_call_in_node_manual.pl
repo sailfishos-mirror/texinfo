@@ -404,6 +404,30 @@ $result_trees{'macro_call_in_node_manual'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'openbrace'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 1,
+                          'position' => 1,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => '('
                     },
                     {
@@ -455,9 +479,35 @@ $result_trees{'macro_call_in_node_manual'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'openbracetext'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 2,
+                          'position' => 5,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'begin'
                     },
                     {
@@ -506,9 +556,35 @@ $result_trees{'macro_call_in_node_manual'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'openbracetext'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 3,
+                          'position' => 5,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'begin'
                     },
                     {
@@ -564,9 +640,58 @@ $result_trees{'macro_call_in_node_manual'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'openbracetext'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
+                          'position' => 5,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        },
+                        {
+                          'counter' => 5,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'manualnameend'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 5,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        },
+                        {
+                          'counter' => 5,
+                          'position' => 9,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'beginlast'
                     },
                     {
@@ -618,9 +743,36 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 6,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'manualnameendbrace'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 3,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'nomlast'
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 6,
+                          'position' => 1,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ')'
                     },
                     {
@@ -676,9 +828,35 @@ $result_trees{'macro_call_in_node_manual'} = {
                 {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 7,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'openbracetext'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 7,
+                          'position' => 5,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'begin'
                     },
                     {
@@ -721,6 +899,14 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => 'last'
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 8,
+                          'position' => 1,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => ')'
                     }
                   ],
@@ -771,12 +957,39 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 9,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'manualnameendbracespace'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 3,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'nomlast'
                     },
                     {
                       'text' => ')'
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 9,
+                          'position' => 3,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => '    '
                     },
                     {
@@ -832,6 +1045,25 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => '('
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 10,
+                          'element' => {
+                            'args' => [
+                              {
+                                'type' => 'brace_command_arg'
+                              }
+                            ],
+                            'extra' => {
+                              'name' => 'manualnameendbracespacetext'
+                            },
+                            'type' => 'macro_call'
+                          },
+                          'position' => 3,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'nomlast'
                     },
                     {
@@ -841,6 +1073,14 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => '  '
                     },
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 10,
+                          'position' => 6,
+                          'sourcemark_type' => 'macro_expansion',
+                          'status' => 'end'
+                        }
+                      ],
                       'text' => 'mynodeand after'
                     }
                   ],

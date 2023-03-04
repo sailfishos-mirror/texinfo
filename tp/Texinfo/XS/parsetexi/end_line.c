@@ -957,6 +957,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
             add_to_contents_as_array (manual, e);
           else /* end of filename component */
             {
+              size_t current_position = 0;
               /* At this point, we are sure that there is a manual part,
                  so the pending removal/addition of elements at the beginning
                  of the manual can proceed (if modify_node). */
@@ -970,10 +971,20 @@ parse_node_manual (ELEMENT *node, int modify_node)
                       /* remove the original first element and prepend the
                          split "(" and text elements */
                       remove_from_contents (node, 0); /* remove first element */
-                      destroy_element (first);
                       insert_into_contents (node, new_first, 0);
                       insert_into_contents (node, opening_brace, 0);
                       idx++;
+                      if (first->source_mark_list.number > 0)
+                        {
+                          size_t current_position
+                            = relocate_source_marks (&(first->source_mark_list),
+                                                     opening_brace, 0,
+                                   count_convert_u8 (opening_brace->text.text));
+                          relocate_source_marks (&(first->source_mark_list),
+                                                 new_first, current_position,
+                                       count_convert_u8 (new_first->text.text));
+                        }
+                      destroy_element (first);
                     }
                   remove_from_contents (node, idx); /* Remove current element e
                                                        with closing brace from the tree. */
@@ -994,7 +1005,14 @@ parse_node_manual (ELEMENT *node, int modify_node)
                                  p - e->text.text);
                   add_to_contents_as_array (manual, last_manual_element);
                   if (modify_node)
-                    insert_into_contents (node, last_manual_element, idx++);
+                    {
+                      insert_into_contents (node, last_manual_element, idx++);
+                      current_position
+                        = relocate_source_marks (&(e->source_mark_list),
+                                                 last_manual_element,
+                                                 current_position,
+                            count_convert_u8 (last_manual_element->text.text));
+                    }
                   else
                     result->out_of_tree_elements[1] = last_manual_element;
                 }
@@ -1004,6 +1022,11 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   ELEMENT *closing_brace = new_element (0);
                   text_append_n (&closing_brace->text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
+                  current_position
+                    = relocate_source_marks (&(e->source_mark_list),
+                                             closing_brace,
+                                             current_position,
+                        count_convert_u8 (closing_brace->text.text));
                 }
 
               /* Skip ')' and any following whitespace.
@@ -1016,6 +1039,11 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   ELEMENT *spaces_element = new_element (0);
                   text_append_n (&spaces_element->text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
+                  current_position
+                    = relocate_source_marks (&(e->source_mark_list),
+                                             spaces_element,
+                                             current_position,
+                        count_convert_u8 (spaces_element->text.text));
                 }
 
               p = q;
@@ -1029,7 +1057,14 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   node_content = new_element (0);
                   add_to_contents_as_array (node_content, leading_node_content);
                   if (modify_node)
-                    insert_into_contents (node, leading_node_content, idx);
+                    {
+                      insert_into_contents (node, leading_node_content, idx);
+                      current_position
+                        = relocate_source_marks (&(e->source_mark_list),
+                                                 leading_node_content,
+                                                 current_position,
+                            count_convert_u8 (leading_node_content->text.text));
+                    }
                   else
                     result->out_of_tree_elements[2] = leading_node_content;
                   idx++;

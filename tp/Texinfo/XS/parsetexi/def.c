@@ -162,7 +162,6 @@ split_delimiters (ELEMENT *current, int starting_idx)
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       size_t current_position = 0;
-      size_t previous_position = 0;
       uint8_t *u8_text = 0;
       uint8_t *u8_p;
 
@@ -188,16 +187,14 @@ split_delimiters (ELEMENT *current, int starting_idx)
                 {
                   u8_len = u8_mbsnlen (u8_p, 1);
                   u8_p += u8_len;
-                  current_position += u8_len;
                 }
-              relocate_source_marks (&(e->source_mark_list), new,
-                                     previous_position, current_position);
+              current_position = relocate_source_marks (&(e->source_mark_list), new,
+                                                 current_position, u8_len);
 
               insert_into_contents (current, new, i++);
               add_extra_string_dup (new, "def_role", "delimiter");
               if (!*++p)
                 break;
-              previous_position = current_position;
               continue;
             }
 
@@ -209,15 +206,13 @@ split_delimiters (ELEMENT *current, int starting_idx)
             {
               u8_len = u8_mbsnlen (u8_p, len);
               u8_p += u8_len;
-              current_position += u8_len;
             }
-          relocate_source_marks (&(e->source_mark_list), new,
-                                 previous_position, current_position);
+          current_position = relocate_source_marks (&(e->source_mark_list), new,
+                                          current_position, u8_len);
 
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;
-          previous_position = current_position;
         }
       destroy_element (remove_from_contents (current, i--));
     }
@@ -239,7 +234,6 @@ split_def_args (ELEMENT *current, int starting_idx)
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       size_t current_position = 0;
-      size_t previous_position = 0;
       uint8_t *u8_text = 0;
       uint8_t *u8_p;
 
@@ -278,16 +272,14 @@ split_def_args (ELEMENT *current, int starting_idx)
             {
               u8_len = u8_mbsnlen (u8_p, len);
               u8_p += u8_len;
-              current_position += u8_len;
             }
 
-          relocate_source_marks (&(e->source_mark_list), new,
-                                 previous_position, current_position);
+          current_position = relocate_source_marks (&(e->source_mark_list), new,
+                                current_position, u8_len);
           text_append_n (&new->text, p, len);
           insert_into_contents (current, new, i++);
           if (!*(p += len))
             break;
-          previous_position = current_position;
         }
       destroy_element (remove_from_contents (current, i--));
       free (u8_text);
