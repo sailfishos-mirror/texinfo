@@ -196,13 +196,9 @@ $result_trees{'cpp_directives_after_macros'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'source_marks' => [
@@ -249,13 +245,9 @@ $result_trees{'cpp_directives_after_macros'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'

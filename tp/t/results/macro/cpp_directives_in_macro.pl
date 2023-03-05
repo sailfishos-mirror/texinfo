@@ -138,23 +138,14 @@ $result_trees{'cpp_directives_in_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
+          'source_marks' => [
             {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '
-'
+              'counter' => 1,
+              'position' => 1,
+              'sourcemark_type' => 'macro_expansion',
+              'status' => 'end'
             }
           ],
-          'type' => 'paragraph'
-        },
-        {
           'text' => '
 ',
           'type' => 'empty_line'
@@ -165,13 +156,14 @@ $result_trees{'cpp_directives_in_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '

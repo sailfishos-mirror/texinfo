@@ -2,6 +2,12 @@
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): do not
+	start a paragraph for an unknown @-command.
+
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): do not
 	throw away the current line in an ignored rawpreformatted.
 
 	* tp/Makefile.tres, tp/t/16raw.t: add second_level_lone_braces_in_html

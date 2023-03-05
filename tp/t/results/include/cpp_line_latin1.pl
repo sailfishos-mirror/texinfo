@@ -160,13 +160,9 @@ $result_trees{'cpp_line_latin1'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '

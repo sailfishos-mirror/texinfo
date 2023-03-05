@@ -825,9 +825,13 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
+          'text' => ' ',
+          'type' => 'spaces_before_paragraph'
+        },
+        {
           'contents' => [
             {
-              'text' => ' newidx entry
+              'text' => 'newidx entry
 '
             }
           ],
@@ -1196,7 +1200,7 @@ anchor in html.
 
 anchor in tex.
 
- newidx entry
+newidx entry
 
 
 
@@ -1540,7 +1544,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 <p>&lsquo;anchor in tex&rsquo;.
 </p><a class="index-entry-id" id="index-fentry2"></a>
 
-<p> newidx entry
+<p>newidx entry
 </p>
 <div class="printindex fn-printindex">
 <table class="fn-entries-printindex" border="0">
@@ -1649,7 +1653,7 @@ Some \\arg\\.
 <para><ref label="anchor-in-tex"><xrefnodename>anchor in tex</xrefnodename></ref>.
 </para><findex index="fn" spaces=" "><indexterm index="fn" number="1">fentry2</indexterm></findex>
 
-<para> newidx entry
+ <para>newidx entry
 </para>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <printindex spaces=" " value="fn" line="fn"></printindex>
@@ -1688,7 +1692,7 @@ $result_converted{'docbook'}->{'at_commands_in_raw'} = '<chapter label="1" id="c
 <para><link linkend="anchor-in-tex">anchor in tex</link>.
 </para><indexterm role="fn"><primary>fentry2</primary></indexterm>
 
-<para> newidx entry
+<para>newidx entry
 </para>
 <index role="cp"></index>
 <index role="fn"></index>

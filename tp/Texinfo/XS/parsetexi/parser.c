@@ -1851,10 +1851,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       line_error ("unknown command `%s'", unknown_cmd);
       if (!cmd)
         free (command);
-      abort_empty_line (&current, 0);
-      paragraph = begin_paragraph (current);
-      if (paragraph)
-        current = paragraph;
 
       line = line_after_command;
       goto funexit;

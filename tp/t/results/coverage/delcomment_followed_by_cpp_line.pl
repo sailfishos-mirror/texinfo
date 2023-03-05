@@ -78,13 +78,9 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '
@@ -119,13 +115,9 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '
@@ -160,13 +152,9 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
           'type' => 'empty_line'
         },
         {
-          'contents' => [
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '

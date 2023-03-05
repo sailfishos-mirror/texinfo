@@ -203,9 +203,13 @@ $result_trees{'pagetype'} = {
           'type' => 'empty_line'
         },
         {
+          'text' => ' ',
+          'type' => 'spaces_before_paragraph'
+        },
+        {
           'contents' => [
             {
-              'text' => ' In smallbook
+              'text' => 'In smallbook
 '
             }
           ],
@@ -355,7 +359,7 @@ section top
 *********
 
 
- In smallbook
+In smallbook
 
 In smallbook
 

@@ -10,9 +10,13 @@ $result_trees{'unknown_then_known_index_entry'} = {
     {
       'contents' => [
         {
+          'text' => ' ',
+          'type' => 'spaces_before_paragraph'
+        },
+        {
           'contents' => [
             {
-              'text' => ' someindex entry.
+              'text' => 'someindex entry.
 '
             },
             {
@@ -96,7 +100,7 @@ $result_trees{'unknown_then_known_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[1];
+$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[2];
 
 $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.
 @defindex some
@@ -104,7 +108,7 @@ $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.
 ';
 
 
-$result_texts{'unknown_then_known_index_entry'} = ' someindex entry.
+$result_texts{'unknown_then_known_index_entry'} = 'someindex entry.
 ';
 
 $result_errors{'unknown_then_known_index_entry'} = [

@@ -5929,9 +5929,6 @@ sub _process_remaining_on_line($$$$)
     $self->_line_error(sprintf(__("unknown command `%s'"),
                                   $command), $source_info);
     substr($line, 0, $at_command_length) = '';
-    _abort_empty_line($self, $current);
-    my $paragraph = _begin_paragraph($self, $current, $source_info);
-    $current = $paragraph if ($paragraph);
     return ($current, $line, $source_info, $retval);
     # goto funexit;  # used in XS code
   }
