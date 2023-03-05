@@ -326,15 +326,16 @@ handle_line_command (ELEMENT *current, char **line_inout,
   arg_spec = command_data(data_cmd).data;
 
   /* All the cases using the raw line.
-     With LINE_lineraw, the line is taken as is as argument, and possibly
-                        later ignored for commands without arg.
-     With LINE_special, arguments are determined especially from the
-                        raw line */
-  if (arg_spec == LINE_lineraw || arg_spec == LINE_special)
+     For some commands, the arguments are determined especially from the
+     raw line, for other the line is taken as is as argument, and possibly
+     later ignored for commands without arg.
+   */
+  if (arg_spec == LINE_lineraw)
     {
       ELEMENT *args = 0;
       enum command_id equivalent_cmd = 0;
       int has_comment = 0;
+      int special_arg = 0;
       int ignored = 0;
 
       if (cmd == CM_insertcopying)
@@ -383,19 +384,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
       command_e = new_element (ET_NONE);
       command_e->cmd = cmd;
 
-      if (arg_spec == LINE_lineraw)
-        {
-          ELEMENT *arg;
-          args = new_element (ET_NONE);
-          arg = new_element (ET_NONE);
-          add_to_element_contents (args, arg);
-          text_append (&arg->text, line);
-        }
-      else /* arg_spec == LINE_special */
-        {
-          args = parse_special_misc_command (line, cmd, &has_comment);
-          add_info_string_dup (command_e, "arg_line", line);
-        }
+      args = parse_rawline_command (line, cmd,
+                                    &has_comment, &special_arg);
+      if (special_arg)
+        add_info_string_dup (command_e, "arg_line", line);
 
       /* Handle @set txicodequoteundirected as an
          alternative to @codequoteundirected. */

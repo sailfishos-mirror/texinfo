@@ -1,5 +1,20 @@
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	Merge special command line data type into lineraw
+
+	* tp/Texinfo/Common.pm (_informative_command_value),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm(_handle_line_command)
+	(_parse_rawline_command), tp/Texinfo/XS/parsetexi/end_line.c
+	(parse_rawline_command), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command), tp/Texinfo/command_data.txt: merge LINE_special
+	commands in LINE_lineraw, with arguments.  Rename
+	parse_special_misc_command as parse_rawline_command and have the
+	function return the information on whether the command had special
+	args.
+
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/02coverage.t, tp/Makefile.am (test_files), tp/Makefile.tres:
 	add delcomment_on_comment with a DEL comment on a @comment line.
 

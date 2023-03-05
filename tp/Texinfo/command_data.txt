@@ -95,16 +95,15 @@ refill                  nobrace,preamble,deprecated,no_paragraph     NOBRACE_oth
 # file is processed
 #
 # The values signification is:
-# special:     no value and macro expansion, all the line is used, and
-#              analysed during parsing (_parse_special_misc_command)
-# lineraw:     no value and macro expansion, the line is kept as-is, not
-#              analysed.  Some of the commands have the line as argument.
-# text:        the line is parsed as texinfo, and the argument is converted
-#              to simple text with convert_to_text allowing only a few @-commands
-# line:        the line is parsed as texinfo
-# specific:    the line is parsed as texinfo and the result should be plain
-#              text maybe followed by a comment; the result is analysed
-#              during parsing (parse_line_command_args).
+# lineraw:    no value and macro expansion, the line is kept as-is.
+#             Some have the line as argument, some have the line especially
+#             analysed during parsing (parse_rawline_command)
+# text:       the line is parsed as texinfo, and the argument is converted
+#             to simple text with convert_to_text allowing only a few @-commands
+# line:       the line is parsed as texinfo
+# specific:   the line is parsed as texinfo and the result should be plain
+#             text maybe followed by a comment; the result is analysed
+#             during parsing (parse_line_command_args).
 #
 # Beware that @item may be a 'line' command or a 'nobrace' command
 # depending on the context.
@@ -146,10 +145,12 @@ end                     line,preamble,contain_plain_text    LINE_text
 c                       line,preamble                   LINE_lineraw 1
 comment                 line,preamble                   LINE_lineraw 1
 
-# set, clear, special argument
-set                     line,preamble                   LINE_special
-clear                   line,preamble                   LINE_special
-unmacro                 line,preamble                   LINE_special
+# set, clear, argument especially parsed
+set                     line,preamble                   LINE_lineraw 2
+clear                   line,preamble                   LINE_lineraw 1
+unmacro                 line,preamble                   LINE_lineraw 1
+# arg should be an @-command
+clickstyle              line,global,preamble            LINE_lineraw 1
 
 # special
 definfoenclose          line,preamble,contain_plain_text,deprecated    LINE_specific  3
@@ -235,8 +236,6 @@ defcodeindex            line,preamble,contain_plain_text         LINE_specific  
 # language code arg
 documentlanguage        line,global,preamble,contain_plain_text  LINE_text
 
-# arg should be an @-command
-clickstyle              line,global,preamble            LINE_special
 # arg code example distinct
 kbdinputstyle           line,global,preamble,contain_plain_text  LINE_specific  1
 

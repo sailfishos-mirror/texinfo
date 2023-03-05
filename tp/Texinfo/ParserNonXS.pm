@@ -5109,7 +5109,7 @@ sub _handle_line_command($$$$$$)
   my $command_e;
 
   # all the cases using the raw line
-  if ($arg_spec eq 'lineraw' or $arg_spec eq 'special') {
+  if ($arg_spec eq 'lineraw') {
     my $ignored = 0;
     if ($command eq 'insertcopying') {
       my $parent = $current;
@@ -5142,16 +5142,12 @@ sub _handle_line_command($$$$$$)
     }
     $command_e = {'cmdname' => $command,
                   'parent' => $current};
-    my $args = [];
-    my $has_comment;
-    if ($arg_spec eq 'lineraw') {
-      $args = [ $line ];
-    } elsif ($arg_spec eq 'special') {
-      ($args, $has_comment)
-       = _parse_special_misc_command($self, $line, $command, $source_info);
-      $command_e->{'info'} = {'arg_line' => $line};
-      # FIXME add a check on @clickstyle argument at that point?
-    }
+
+    my ($args, $has_comment, $special_arg)
+      = _parse_rawline_command($self, $line, $command, $source_info);
+    $command_e->{'info'} = {'arg_line' => $line}
+      if ($special_arg);
+    # FIXME add a check on @clickstyle argument at that point?
 
     # if using the @set txi* instead of a proper @-command, replace
     # by the tree obtained with the @-command.  Even though
@@ -6965,15 +6961,17 @@ sub _parse_texi($$$)
   return $root;
 }
 
-# parse special line @-commands, unmacro, set, clear, clickstyle.
-# Also remove spaces or ignore text, as specified in the line_commands hash.
-sub _parse_special_misc_command($$$$)
+# parse special rawline @-commands, unmacro, set, clear, clickstyle
+# and simply set the line as argument for other commands.
+sub _parse_rawline_command($$$$)
 {
   my ($self, $line, $command, $source_info) = @_;
 
   my $args = [];
 
+  my $special_arg = 1;
   my $has_comment = 0;
+
   if ($command eq 'set') {
     # REVALUE
     if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(comment|c)((\@|\s+).*)?|\s+(.*?))?\s*$/) {
@@ -7042,9 +7040,10 @@ sub _parse_special_misc_command($$$$)
                                  $command, $line), $source_info);
     }
   } else {
-    die $self->_bug_message("Unknown special command $command", $source_info);
+    $args = [ $line ];
+    $special_arg = 0;
   }
-  return ($args, $has_comment);
+  return ($args, $has_comment, $special_arg);
 }
 
 # at the end of an @-command line with arguments, parse the resulting

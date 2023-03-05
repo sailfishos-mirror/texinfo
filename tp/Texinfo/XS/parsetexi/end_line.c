@@ -124,9 +124,10 @@ skip_to_comment_if_comment_or_spaces (char *after_argument,
   return r;
 }
 
-/* Process argument to special line command. */
+/* Process argument to raw line command. */
 ELEMENT *
-parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
+parse_rawline_command (char *line, enum command_id cmd,
+                       int *has_comment, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
   ELEMENT *E = new_element (ET_NONE); \
@@ -137,6 +138,8 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
   ELEMENT *args = new_element (ET_NONE);
   char *p = 0, *q = 0, *r = 0;
   char *value = 0, *remaining = 0;;
+
+  *special_arg = 1;
 
   switch (cmd)
     {
@@ -265,7 +268,8 @@ parse_special_misc_command (char *line, enum command_id cmd, int *has_comment)
       free (value);
       break;
     default:
-      fatal ("unknown special line command");
+      *special_arg = 0;
+      ADD_ARG (line, strlen(line));
     }
 
   return args;

@@ -900,8 +900,11 @@ sub _convert($$;$)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
         }
-      } elsif ($type eq 'special') {
-        if ($cmdname eq 'clear' or $cmdname eq 'set') {
+      } elsif ($type eq 'lineraw') {
+        if ($cmdname eq 'c' or $cmdname eq 'comment') {
+          return $self->txi_markup_comment(
+                         " $cmdname".$element->{'args'}->[0]->{'text'})
+        } elsif ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
           if ($element->{'args'} and $element->{'args'}->[0]
               and defined($element->{'args'}->[0]->{'text'})) {
@@ -930,7 +933,7 @@ sub _convert($$;$)
           };
           return $self->txi_markup_open_element($cmdname, $attribute)
                          .$value.$self->txi_markup_close_element($cmdname)."\n";
-        } else {
+        } elsif ($cmdname eq 'unmacro') {
           # should only be unmacro
           my $attribute = [$self->_arg_line($element)];
           if ($element->{'args'} and $element->{'args'}->[0]
@@ -939,11 +942,6 @@ sub _convert($$;$)
           }
           return $self->txi_markup_open_element($cmdname, $attribute)
                     .$self->txi_markup_close_element($cmdname)."\n";
-        }
-      } elsif ($type eq 'lineraw') {
-        if ($cmdname eq 'c' or $cmdname eq 'comment') {
-          return $self->txi_markup_comment(
-                         " $cmdname".$element->{'args'}->[0]->{'text'})
         } elsif ($Texinfo::Commands::commands_args_number{$cmdname}) {
           my $value = '';
           if ($element->{'args'} and $element->{'args'}->[0]

@@ -1311,13 +1311,11 @@ sub _informative_command_value($)
 
   my $cmdname = $element->{'cmdname'};
 
-  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw'
-      or $Texinfo::Commands::line_commands{$cmdname} eq 'special') {
-    if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw'
-        and not $Texinfo::Commands::commands_args_number{$cmdname}) {
+  if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
+    if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
       return 1;
     } elsif ($element->{'args'}) {
-      return $element->{'args'}->[0]->{'text'};
+      return join(' ', map {$_->{'text'}} @{$element->{'args'}});
     }
   } elsif ($element->{'extra'}
            and exists($element->{'extra'}->{'text_arg'})) {

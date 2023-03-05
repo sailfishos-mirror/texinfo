@@ -106,11 +106,10 @@ void wipe_user_commands (void);
  */
 
 /* Types of line command (has CF_line flag).  Values for COMMAND.data. */
-#define LINE_special -1
-#define LINE_lineraw -2
-#define LINE_specific -4
-#define LINE_text -6
-#define LINE_line -7
+#define LINE_lineraw -1
+#define LINE_specific -2
+#define LINE_text -3
+#define LINE_line -4
 
 /* Types of command without brace nor argument on line (has CF_nobrace flag). */
 #define NOBRACE_symbol 0
