@@ -6752,7 +6752,7 @@ sub _process_remaining_on_line($$$$)
                           'text' => '', 'parent' => $current,
                           'extra' => {'spaces_associated_command' => $current}
                          };
-      push @{$current->{'contents'}}, $space_before_arg;
+      push @{$current->{'contents'}}, $space_before;
     } elsif ($separator eq ',' and $current->{'type'}
              and $current->{'type'} eq 'line_arg'
              and $current->{'parent'}->{'cmdname'}
