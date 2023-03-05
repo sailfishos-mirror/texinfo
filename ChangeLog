@@ -1,5 +1,10 @@
 2023-03-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_line_command) <def commands>
+	Avoid a variable being undefined.
+
+2023-03-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/19def.t (defline_no_params, adjacent_defline, multiple_defline)
 	(defblock_no_defline): New tests.
 

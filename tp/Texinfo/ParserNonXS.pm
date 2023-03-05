@@ -5275,6 +5275,7 @@ sub _handle_line_command($$$$$$)
         my $base_command = $command;
         $base_command =~ s/x$//;
         my $cmdname = $current->{'cmdname'};
+        $cmdname = '' if !defined($cmdname);
 
         # check that the def*x is first after @def*, no paragraph
         # in-between.
@@ -5290,9 +5291,7 @@ sub _handle_line_command($$$$$$)
                               ->{'omit_def_name_space'} = 1;
         }
         my $appropriate_command = 0;
-        if ($current->{'cmdname'}
-            and ($current->{'cmdname'} eq $base_command
-                   or $current->{'cmdname'} eq 'defblock')) {
+        if ($cmdname eq $base_command or $cmdname eq 'defblock') {
           $appropriate_command = 1;
         }
         if ($appropriate_command) {
