@@ -5206,10 +5206,13 @@ sub _handle_line_command($$$$$$)
     }
     _register_global_command($self, $command_e, $source_info)
       if $command_e;
-    # the end of line is ignored for special commands
-    if ($arg_spec ne 'special' or !$has_comment) {
-      $current = _end_line($self, $current, $source_info);
-    }
+
+    # This does nothing for the command being processed, as there is
+    # no line context setup nor line_args, it closes the line or block
+    # line @-commands the raw line command is on.  For c/comment
+    # this corresponds to legitimate constructs, not for other raw
+    # line commands.
+    $current = _end_line($self, $current, $source_info);
 
     if ($command eq 'bye') {
       return ($current, $line, $FINISHED_TOTALLY);

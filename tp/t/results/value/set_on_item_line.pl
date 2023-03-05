@@ -58,17 +58,8 @@ $result_trees{'set_on_item_line'} = {
                                 'arg_line' => ' ca b@c
 '
                               }
-                            },
-                            {
-                              'text' => 'item text'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
                           'type' => 'line_arg'
                         }
                       ],
@@ -91,6 +82,10 @@ $result_trees{'set_on_item_line'} = {
                   'contents' => [
                     {
                       'contents' => [
+                        {
+                          'text' => 'item text
+'
+                        },
                         {
                           'text' => 'in item
 '
@@ -131,17 +126,8 @@ $result_trees{'set_on_item_line'} = {
                                 'arg_line' => ' cj@c
 '
                               }
-                            },
-                            {
-                              'text' => 'line'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
                           'type' => 'line_arg'
                         }
                       ],
@@ -159,6 +145,20 @@ $result_trees{'set_on_item_line'} = {
                     }
                   ],
                   'type' => 'table_term'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'line
+'
+                        }
+                      ],
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
@@ -545,9 +545,11 @@ line
 ';
 
 
-$result_texts{'set_on_item_line'} = 'item text
+$result_texts{'set_on_item_line'} = '
+item text
 in item
-cjj line
+cjj 
+line
 cvvv 
 
 

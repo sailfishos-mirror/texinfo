@@ -227,11 +227,37 @@ $result_trees{'set_in_item_missing_line'} = {
                                 'arg_line' => ' cn@c
 '
                               }
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'ignorable_spaces_after_command'
-                            },
+                            }
+                          ],
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 7,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'type' => 'table_term'
+                }
+              ],
+              'type' => 'table_entry'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
                             {
                               'text' => 'jj'
                             }
@@ -253,7 +279,7 @@ $result_trees{'set_in_item_missing_line'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
+                        'line_nr' => 8,
                         'macro' => ''
                       }
                     }
@@ -326,7 +352,7 @@ $result_texis{'set_in_item_missing_line'} = '@table @code
 
 @table @code
 @item cxx @set cn@c
- jj
+@item jj
 @end table
 ';
 
@@ -334,7 +360,8 @@ $result_texis{'set_in_item_missing_line'} = '@table @code
 $result_texts{'set_in_item_missing_line'} = 'xx 
 jj
 
-cxx jj
+cxx 
+jj
 ';
 
 $result_errors{'set_in_item_missing_line'} = [
@@ -355,33 +382,6 @@ $result_errors{'set_in_item_missing_line'} = [
     'macro' => '',
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item should not appear in @item
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@item should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item should not appear on @item line
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@item should not appear on @item line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'file_name' => '',
-    'line_nr' => 8,
-    'macro' => '',
-    'text' => '@item outside of table or list',
-    'type' => 'error'
   }
 ];
 

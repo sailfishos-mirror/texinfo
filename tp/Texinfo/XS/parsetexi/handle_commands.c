@@ -491,8 +491,13 @@ handle_line_command (ELEMENT *current, char **line_inout,
       if (command_e)
         register_global_command (command_e);
 
-      if (arg_spec != LINE_special || !has_comment)
-        current = end_line (current);
+      /* This does nothing for the command being processed, as there is
+         no line context setup nor line_args, but it closes a line or block
+         line @-commands the raw line command is on.  For c/comment
+         this corresponds to legitimate constructs, not for other raw line
+         commands.
+       */
+      current = end_line (current);
 
       if (cmd == CM_bye)
         {
