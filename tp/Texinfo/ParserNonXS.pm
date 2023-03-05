@@ -6330,8 +6330,8 @@ sub _process_remaining_on_line($$$$)
       # lone braces accepted right in a rawpreformatted
       } elsif ($current->{'type'}
                and $current->{'type'} eq 'rawpreformatted') {
-        # FIXME can this really happen?  check if _abort_empty_line is needed
-        # if yes.
+        # this can happen in an expanded rawpreformatted
+        _abort_empty_line($self, $current);
         push @{$current->{'contents'}}, {'text' => '{',
                                          'parent' => $current };
       # matching braces accepted in a rawpreformatted or math or ignored

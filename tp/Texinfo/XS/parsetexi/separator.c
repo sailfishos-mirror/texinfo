@@ -188,6 +188,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
   else if (current->type == ET_rawpreformatted)
     {
       ELEMENT *e = new_element (ET_NONE);
+      abort_empty_line (&current, NULL);
       text_append (&e->text, "{");
       add_to_element_contents (current, e);
     }

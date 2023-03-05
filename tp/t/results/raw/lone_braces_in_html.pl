@@ -93,10 +93,6 @@ $result_trees{'lone_braces_in_html'} = {
             {
               'contents' => [
                 {
-                  'text' => '',
-                  'type' => 'empty_line'
-                },
-                {
                   'text' => '{
 '
                 }
