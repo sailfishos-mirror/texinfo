@@ -1,3 +1,8 @@
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line): minor
+	change, remove a useless variable, code more similar to XS parser.
+
 2023-03-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/parser.h (GLOBAL_INFO),

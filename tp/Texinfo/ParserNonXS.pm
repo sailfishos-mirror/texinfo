@@ -6748,12 +6748,11 @@ sub _process_remaining_on_line($$$$)
       $current = $new_arg;
       # internal_spaces_before_argument is a transient internal type,
       # which should end up in info spaces_before_argument.
-      push @{$current->{'contents'}},
-             {'type' => 'internal_spaces_before_argument',
-              'text' => '',
-              'parent' => $current,
-              'extra' => {'spaces_associated_command' => $current}
-            };
+      my $space_before = {'type' => 'internal_spaces_before_argument',
+                          'text' => '', 'parent' => $current,
+                          'extra' => {'spaces_associated_command' => $current}
+                         };
+      push @{$current->{'contents'}}, $space_before_arg;
     } elsif ($separator eq ',' and $current->{'type'}
              and $current->{'type'} eq 'line_arg'
              and $current->{'parent'}->{'cmdname'}
@@ -6763,12 +6762,12 @@ sub _process_remaining_on_line($$$$)
              and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
       $current = _end_paragraph($self, $current, $source_info);
-      push @{$current->{'contents'}}, {'text' => $separator,
-                                       'type' => 'empty_line',
-                                        'parent' => $current };
-      push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                        'text' => '',
-                                        'parent' => $current };
+      my $line_feed = {'type' => 'empty_line', 'text' => $separator,
+                       'parent' => $current };
+      push @{$current->{'contents'}}, $line_feed;
+      my $empty_line = { 'type' => 'empty_line', 'text' => '',
+                         'parent' => $current };
+      push @{$current->{'contents'}}, $empty_line;
     } else {
       $current = _merge_text($self, $current, $separator);
     }
@@ -6779,9 +6778,8 @@ sub _process_remaining_on_line($$$$)
   # Misc text except end of line
   } elsif (defined $misc_text) {
     print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
-    my $new_text = $misc_text;
     substr ($line, 0, length ($misc_text)) = '';
-    $current = _merge_text($self, $current, $new_text);
+    $current = _merge_text($self, $current, $misc_text);
   # end of line
   } else {
     print STDERR "END LINE: "
