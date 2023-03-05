@@ -1,5 +1,10 @@
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/02coverage.t, tp/Makefile.am (test_files), tp/Makefile.tres:
+	add delcomment_on_comment with a DEL comment on a @comment line.
+
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_line_command),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
 	always close a line or block line command a raw line command is on.

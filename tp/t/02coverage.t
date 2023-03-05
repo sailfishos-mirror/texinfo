@@ -1010,6 +1010,9 @@ before first multitable
 ['delcomment_followed_by_cpp_line',
 undef, {'test_file' => 'delcomment_followed_by_cpp_line.texi'}
 ],
+['delcomment_on_comment', undef,
+{'test_file' => 'delcomment_on_comment.texi'},
+],
 );
 
 my %docbooc_doc_tests = (

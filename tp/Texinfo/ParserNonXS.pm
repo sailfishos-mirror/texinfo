@@ -5208,7 +5208,7 @@ sub _handle_line_command($$$$$$)
       if $command_e;
 
     # This does nothing for the command being processed, as there is
-    # no line context setup nor line_args, it closes the line or block
+    # no line context setup nor line_args, but it closes a line or block
     # line @-commands the raw line command is on.  For c/comment
     # this corresponds to legitimate constructs, not for other raw
     # line commands.

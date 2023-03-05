@@ -304,6 +304,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/def.pl \
   t/results/coverage/delcomment.pl \
   t/results/coverage/delcomment_followed_by_cpp_line.pl \
+  t/results/coverage/delcomment_on_comment.pl \
   t/results/coverage/displaymath.pl \
   t/results/coverage/empty_w.pl \
   t/results/coverage/end_bad_end_argument_and_superfluous_arg.pl \
