@@ -1,5 +1,16 @@
 2023-03-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Warning for \, in macro arg
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments),
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments):
+	Issue a warning if \, is used in a macro argument, recommending
+	@comma{} instead.
+
+	\, doesn't work with texinfo.tex so it is better to warn about it.
+
+2023-03-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_line_command) <def commands>
 	Avoid a variable being undefined.
 

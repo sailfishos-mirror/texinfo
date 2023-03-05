@@ -980,6 +980,15 @@ aaa
 
 $result_errors{'complex_argument'} = [
   {
+    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
+',
+    'file_name' => '',
+    'line_nr' => 35,
+    'macro' => '',
+    'text' => 'use @comma{} instead of \\, in macro arg',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @headings: doubleafter 1 (possibly involving @macrofour)
 ',
     'file_name' => '',

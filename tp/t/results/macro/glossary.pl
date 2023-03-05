@@ -1821,6 +1821,15 @@ $result_menus{'glossary'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $
 
 $result_errors{'glossary'} = [
   {
+    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
+',
+    'file_name' => 'glossary.texi',
+    'line_nr' => 42,
+    'macro' => '',
+    'text' => 'use @comma{} instead of \\, in macro arg',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @ifhtml should only appear at the beginning of a line (possibly involving @gentry)
 ',
     'file_name' => 'glossary.texi',

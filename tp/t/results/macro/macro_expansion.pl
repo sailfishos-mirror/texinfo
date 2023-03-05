@@ -925,6 +925,15 @@ $result_errors{'macro_expansion'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => 'use @comma{} instead of \\, in macro arg',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',

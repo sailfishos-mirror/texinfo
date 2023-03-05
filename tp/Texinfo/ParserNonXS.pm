@@ -2513,6 +2513,11 @@ sub _expand_macro_arguments($$$$$)
             $argument_content->{'text'} .= '\\';
           }
           $argument_content->{'text'} .= $protected_char;
+          if ($protected_char eq ',') {
+            $self->_line_warn(sprintf(
+                __("use %s instead of %s in macro arg"), '@comma{}', '\\,'),
+              $source_info);
+          }
           print STDERR "MACRO ARG: $separator: $protected_char\n"
             if ($self->{'DEBUG'});
         } else {
