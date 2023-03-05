@@ -1,3 +1,8 @@
+2023-03-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/t/19def.t (defline_no_params, adjacent_defline, multiple_defline)
+	(defblock_no_defline): New tests.
+
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): move

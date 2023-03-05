@@ -420,6 +420,41 @@ my @test_info = (
 '],
 );
 
+my @test_defblock = (
+['defline_no_params',
+'@defblock
+@defline Builtin truc
+Description of truc
+@end defblock
+'],
+['adjacent_defline',
+'@defblock
+@defline Funoid foo (bar)
+@defline Funnyoid foo2 (bar2, baz2)
+description
+@end defblock
+'],
+['multiple_defline',
+'@defblock
+@defline Funoid foo (bar)
+description1 description1 description1 description1 description1
+description1 description1 description1 description1 description1
+@defline Funnyoid foo2 (bar2, baz2)
+description2 description2 description2 description2 description2
+description2 description2 description2 description2 description2
+@end defblock
+'],
+['defblock_no_defline',
+'@defblock
+misc text inside
+@end defblock
+'],
+);
+
+foreach my $test (@test_defblock) {
+  $test->[2]->{'test_formats'} = ['plaintext', 'html', 'latex', 'docbook'];
+}
+
 my @test_invalid = (
 ['no_category_or_no_name',
 '@deffn
@@ -614,4 +649,5 @@ foreach my $test (@test_info) {
   $test->[2]->{'test_formats'} = ['info', 'html', 'xml'];
 }
 
-run_all('def', [@test_cases, @test_info, @test_invalid, @test_printindex]);
+run_all('def', [@test_cases, @test_info, @test_defblock,
+                @test_invalid, @test_printindex]);

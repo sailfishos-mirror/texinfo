@@ -408,6 +408,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/uref_with_commands_characters.pl \
   t/results/coverage_braces/verb_in_xref.pl \
   t/results/coverage_braces/w_end_sentence.pl \
+  t/results/def/adjacent_defline.pl \
   t/results/def/all_commands.pl \
   t/results/def/all_commands_delimiters.pl \
   t/results/def/all_commands_delimiters_printindex.pl \
@@ -416,6 +417,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/ampchar.pl \
   t/results/def/code_in_def.pl \
   t/results/def/def_defx_mismatch.pl \
+  t/results/def/defblock_no_defline.pl \
+  t/results/def/defline_no_params.pl \
   t/results/def/defx_after_comment.pl \
   t/results/def/defx_after_comment_in_example.pl \
   t/results/def/defx_after_empty_line.pl \
@@ -438,6 +441,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/inter_item_commands_in_def.pl \
   t/results/def/inter_item_commands_in_def_in_example.pl \
   t/results/def/leading_space_in_def_arg.pl \
+  t/results/def/multiple_defline.pl \
   t/results/def/no_category_or_no_name.pl \
   t/results/def/not_closed.pl \
   t/results/def/omit_def_space.pl \
