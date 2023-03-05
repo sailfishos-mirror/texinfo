@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "parser.h"
+#include "def.h"
 #include "debug.h"
 #include "source_marks.h"
 

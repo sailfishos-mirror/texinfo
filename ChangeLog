@@ -1,5 +1,19 @@
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): move
+	end_line_def_line definition up in the file to be before the functions
+	using it.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/labels.c
+	(check_register_target_element_label, parse_node_manual): move
+	parse_node_manual and check_register_target_element_label to labels.c.
+
+	* tp/Texinfo/XS/parsetexi/parser.h: do not include "def.h", let the
+	files using functions from def.c include it directly.
+	Do not define end_line_def_line which is only used within end_line.c.
+
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c,
 	tp/Texinfo/XS/parsetexi/handle_commands.c (skip_to_comment):
 	(skip_to_comment_if_comment_or_spaces, parse_rawline_command): move

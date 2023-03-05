@@ -20,8 +20,13 @@
 
 extern ELEMENT **target_elements_list;
 extern size_t labels_number;
-void register_label (ELEMENT *current);
 void reset_labels (void);
+void check_register_target_element_label (ELEMENT *label_element,
+                                          ELEMENT *target_element);
+
+
+
+NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 extern ELEMENT **internal_xref_list;
