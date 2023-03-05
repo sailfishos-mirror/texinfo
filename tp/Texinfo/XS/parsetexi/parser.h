@@ -132,8 +132,6 @@ ELEMENT *end_line (ELEMENT *current);
 ELEMENT *end_line_def_line (ELEMENT *current);
 ELEMENT *end_line_misc_line (ELEMENT *current);
 ELEMENT *end_line_starting_block (ELEMENT *current);
-ELEMENT *parse_rawline_command (char *line, enum command_id cmd,
-                                int *has_commment, int *special_arg);
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
 

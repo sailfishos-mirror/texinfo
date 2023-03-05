@@ -17,6 +17,7 @@
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "parser.h"
 #include "debug.h"
@@ -92,6 +93,214 @@ in_paragraph (ELEMENT *current)
     return 1;
   else
     return 0;
+}
+
+/* Return end of argument before comment and whitespace. */
+char *
+skip_to_comment (char *q, int *has_comment)
+{
+  char *q1;
+
+  while (1)
+    {
+      q1 = strstr (q, "@c");
+      if (!q1)
+        {
+          q = q + strlen (q);
+          break;
+        }
+
+      /* q is advanced to after @c/@comment, whether there is indeed
+         a comment or not.  In case there is no @c/@comment, this allows
+         to advance on the line and loop to search again for @c/@comment */
+      q = read_comment (q1, has_comment);
+      if (*has_comment)
+        {
+          /* replace q at the start of the comment */
+          q = q1;
+          break;
+        }
+    }
+
+  /* q is now either at the end of the string, or at the start of a comment.
+     Find the start of any trailing whitespace. */
+  while (strchr (whitespace_chars, q[-1]))
+    q--;
+
+  return q;
+}
+
+/* Return end of argument before comment and whitespace if the
+   line is followed either by whitespaces or a comment. */
+char *
+skip_to_comment_if_comment_or_spaces (char *after_argument,
+                                 int *has_comment)
+{
+  char *r = skip_to_comment (after_argument, has_comment);
+
+  if (!strchr (whitespace_chars, *after_argument)
+      && *after_argument != '@')
+    return 0;
+
+  if (*after_argument == '@')
+    {
+      /* Check for a comment, e.g. "@set flag@c comment" */
+      if (after_argument != r)
+        return 0;
+    }
+  return r;
+}
+
+/* Process argument to raw line command. */
+ELEMENT *
+parse_rawline_command (char *line, enum command_id cmd,
+                       int *has_comment, int *special_arg)
+{
+#define ADD_ARG(string, len) do { \
+  ELEMENT *E = new_element (ET_NONE); \
+  text_append_n (&E->text, string, len); \
+  add_to_element_contents (args, E); \
+} while (0)
+
+  ELEMENT *args = new_element (ET_NONE);
+  char *p = 0, *q = 0, *r = 0;
+  char *value = 0, *remaining = 0;;
+
+  *special_arg = 1;
+
+  switch (cmd)
+    {
+    case CM_set:
+      {
+      p = line;
+      p += strspn (p, whitespace_chars);
+      if (!*p)
+        goto set_no_name;
+      if (!isalnum (*p) && *p != '-' && *p != '_')
+        goto set_invalid;
+      q = strpbrk (p,
+                   " \t\f\r\n"       /* whitespace */
+                   "{\\}~^+\"<>|@"); /* other bytes that aren't allowed */
+      if (q)
+        {
+        /* see also read_flag_name function in end_line.c */
+          r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+          if (!r)
+            goto set_invalid;
+        }
+      else /* very specific case of end of text fragment after name
+              without anything following the name, in particular
+              without new line */
+        q = p + strlen(p);
+
+      ADD_ARG(p, q - p); /* name */
+
+      p = q + strspn (q, whitespace_chars);
+      /* Actually, whitespace characters except form feed. */
+
+      if (r >= p)
+        ADD_ARG(p, r - p); /* value */
+      else
+        ADD_ARG("", 0);
+
+      store_value (args->contents.list[0]->text.text,
+                   args->contents.list[1]->text.text);
+
+      break;
+    set_no_name:
+      line_error ("@set requires a name");
+      break;
+    set_invalid:
+      line_error ("bad name for @set");
+      break;
+      }
+    case CM_clear:
+      {
+      char *flag = 0;
+      p = line;
+      p += strspn (p, whitespace_chars);
+      if (!*p)
+        goto clear_no_name;
+      q = p;
+      flag = read_flag_name (&q);
+      if (!flag)
+        goto clear_invalid;
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
+        goto clear_invalid; /* Trailing argument. */
+
+      ADD_ARG (p, q - p);
+      clear_value (flag);
+      free (flag);
+
+      break;
+    clear_no_name:
+      line_error ("@clear requires a name");
+      break;
+    clear_invalid:
+      free (flag);
+      line_error ("bad name for @clear");
+      break;
+      }
+    case CM_unmacro:
+      p = line;
+      p += strspn (p, whitespace_chars);
+      if (!*p)
+        goto unmacro_noname;
+      q = p;
+      value = read_command_name (&q);
+      if (!value)
+        goto unmacro_badname;
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
+        goto clear_invalid; /* Trailing argument. */
+      delete_macro (value);
+      ADD_ARG(value, q - p);
+      debug ("UNMACRO %s", value);
+      free (value);
+      break;
+    unmacro_noname:
+      line_error ("@unmacro requires a name");
+      break;
+    unmacro_badname:
+      line_error ("bad name for @unmacro");
+      break;
+    case CM_clickstyle:
+      p = line;
+      p += strspn (p, whitespace_chars);
+      if (*p++ != '@')
+        goto clickstyle_invalid;
+      q = p;
+      value = read_command_name (&q);
+      if (!value)
+        goto clickstyle_invalid;
+      ADD_ARG (p - 1, q - p + 1);
+      free (global_clickstyle); global_clickstyle = value;
+      /* if strlen is not used to guard against checking after the end of q,
+         for some reason, valgrind does not find that the *(q+1) could be
+         unallocated */
+      if (strlen (q) >= 2 && !memcmp (q, "{}", 2))
+        q += 2;
+      r = skip_to_comment_if_comment_or_spaces (q, has_comment);
+      if (!r || r != q)
+        {
+          q += strspn (q, whitespace_chars);
+          line_warn ("remaining argument on @%s line: %s",
+                     command_name(cmd), q);
+        }
+      break;
+    clickstyle_invalid:
+      line_error ("@clickstyle should only accept an @-command as argument, "
+                   "not `%s'", line);
+      free (value);
+      break;
+    default:
+      *special_arg = 0;
+      ADD_ARG (line, strlen(line));
+    }
+
+  return args;
+#undef ADD_ARG
 }
 
 /* symbol skipspace other */

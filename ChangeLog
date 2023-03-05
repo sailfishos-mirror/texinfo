@@ -1,5 +1,13 @@
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (skip_to_comment):
+	(skip_to_comment_if_comment_or_spaces, parse_rawline_command): move
+	parse_rawline_command, skip_to_comment and
+	skip_to_comment_if_comment_or_spaces to handle_commands.c.
+
+2023-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	Merge special command line data type into lineraw
 
 	* tp/Texinfo/Common.pm (_informative_command_value),

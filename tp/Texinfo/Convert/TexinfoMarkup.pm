@@ -934,7 +934,6 @@ sub _convert($$;$)
           return $self->txi_markup_open_element($cmdname, $attribute)
                          .$value.$self->txi_markup_close_element($cmdname)."\n";
         } elsif ($cmdname eq 'unmacro') {
-          # should only be unmacro
           my $attribute = [$self->_arg_line($element)];
           if ($element->{'args'} and $element->{'args'}->[0]
               and defined($element->{'args'}->[0]->{'text'})) {
