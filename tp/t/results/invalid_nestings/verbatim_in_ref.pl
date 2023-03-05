@@ -127,7 +127,7 @@ $result_trees{'verbatim_in_ref'} = {
         {
           'text' => '
 ',
-          'type' => 'spaces_before_paragraph'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -168,6 +168,7 @@ verbat text
 
 $result_texts{'verbatim_in_ref'} = '
 firstverbat text
+
 .';
 
 $result_nodes{'verbatim_in_ref'} = {

@@ -37,7 +37,8 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
             {
               'contents' => [
                 {
-                  'text' => ' '
+                  'text' => ' ',
+                  'type' => 'spaces_before_paragraph'
                 },
                 {
                   'contents' => [
@@ -122,7 +123,7 @@ Item line
 ';
 
 
-$result_texts{'invalid_command_and_brace_in_table'} = ' ,, title
+$result_texts{'invalid_command_and_brace_in_table'} = ',, title
 long title
 Item line
 ';

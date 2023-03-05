@@ -22,7 +22,7 @@ $result_trees{'node_empty_direction'} = {
         },
         {
           'info' => {
-            'spaces_after_argument' => {
+            'spaces_before_argument' => {
               'text' => ' '
             }
           },

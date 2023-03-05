@@ -2416,6 +2416,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
             goto finished_totally;
           if (!line)
             {
+              abort_empty_line (&current, NULL);
               current = end_line (current);
               break;
             }

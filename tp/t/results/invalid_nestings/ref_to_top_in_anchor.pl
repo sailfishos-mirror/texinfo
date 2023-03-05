@@ -73,10 +73,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
             'line_nr' => 2,
             'macro' => ''
           }
-        },
-        {
-          'text' => '',
-          'type' => 'spaces_after_close_brace'
         }
       ],
       'extra' => {

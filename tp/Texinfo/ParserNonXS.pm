@@ -2045,6 +2045,7 @@ sub _close_current($$$;$$)
   } elsif ($current->{'type'}) {
     print STDERR "CLOSING type $current->{'type'}\n" if ($self->{'DEBUG'});
     if ($current->{'type'} eq 'bracketed') {
+      # unclosed bracketed
       $self->_command_error($current, $source_info, __("misplaced {"));
       if ($current->{'contents'}
           and $current->{'contents'}->[0]->{'type'}
@@ -6204,7 +6205,6 @@ sub _process_remaining_on_line($$$$)
       $self->_line_error(__("unexpected \@"), $source_info);
     } elsif ($separator eq '{') {
       # handle_open_brace in XS parser
-      _abort_empty_line($self, $current);
       if ($current->{'cmdname'}
            and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
         my $command = $current->{'cmdname'};
@@ -6309,6 +6309,7 @@ sub _process_remaining_on_line($$$$)
                       and $current->{'parent'}->{'cmdname'} eq 'multitable')
                      or ($current->{'parent'}->{'type'}
                          and $current->{'parent'}->{'type'} eq 'def_line'))) {
+        _abort_empty_line($self, $current);
         push @{$current->{'contents'}},
              { 'type' => 'bracketed',
                'parent' => $current };
@@ -6329,6 +6330,8 @@ sub _process_remaining_on_line($$$$)
       # lone braces accepted right in a rawpreformatted
       } elsif ($current->{'type'}
                and $current->{'type'} eq 'rawpreformatted') {
+        # FIXME can this really happen?  check if _abort_empty_line is needed
+        # if yes.
         push @{$current->{'contents'}}, {'text' => '{',
                                          'parent' => $current };
       # matching braces accepted in a rawpreformatted or math or ignored
@@ -6336,6 +6339,7 @@ sub _process_remaining_on_line($$$$)
       } elsif ($self->_top_context() eq 'ct_math'
                or $self->_top_context() eq 'ct_rawpreformatted'
                or $self->_top_context() eq 'ct_inlineraw') {
+        _abort_empty_line($self, $current);
         push @{$current->{'contents'}},
              { 'type' => 'bracketed',
                'parent' => $current, 'source_info' => $source_info };
@@ -6348,22 +6352,24 @@ sub _process_remaining_on_line($$$$)
 
     } elsif ($separator eq '}') {
       # handle_close_brace in XS parser
-      _abort_empty_line($self, $current);
 
       # For footnote and caption closing, when there is a paragraph inside.
       # This makes the brace command the parent element.
       if ($current->{'parent'} and $current->{'parent'}->{'type'}
             and $current->{'parent'}->{'type'} eq 'brace_command_context') {
+         _abort_empty_line($self, $current);
          $current = _end_paragraph($self, $current, $source_info);
       }
 
       if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
         # Used in @math
+        _abort_empty_line($self, $current);
         $current = $current->{'parent'};
       } elsif ($current->{'parent'}
           and $current->{'parent'}->{'cmdname'}
           and exists($self->{'brace_commands'}
                                      ->{$current->{'parent'}->{'cmdname'}})) {
+        _abort_empty_line($self, $current);
         # first is the arg.
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
             and $brace_commands{$current->{'parent'}{'cmdname'}} eq 'arguments'
@@ -6587,6 +6593,9 @@ sub _process_remaining_on_line($$$$)
       # lone braces accepted right in a rawpreformatted
       } elsif ($current->{'type'}
                and $current->{'type'} eq 'rawpreformatted') {
+        # empty line can happen in expanded rawpreformatted.
+        # FIXME should it?
+        _abort_empty_line($self, $current);
         push @{$current->{'contents'}}, {'text' => '}',
                                          'parent' => $current };
 
@@ -6889,6 +6898,7 @@ sub _parse_texi($$$)
       if (! defined($line)) {
         print STDERR "END LINE in line loop STILL_MORE_TO_PROCESS\n"
                                                  if ($self->{'DEBUG'});
+        _abort_empty_line($self, $current);
         $current = _end_line($self, $current, $source_info);
         # It may happen that there was an @include file on the line, it
         # was pushed to input in _end_line, its contents will be picked up at

@@ -164,7 +164,8 @@ $result_trees{'table_in_code'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'

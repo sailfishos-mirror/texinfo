@@ -97,7 +97,8 @@ $result_trees{'cartouche_in_style_command'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'

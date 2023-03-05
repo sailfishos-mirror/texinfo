@@ -1112,13 +1112,14 @@ $result_trees{'cpp_lines'} = {
             {
               'text' => 'etext4
 '
-            },
-            {
-              'text' => '
-'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '

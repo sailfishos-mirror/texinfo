@@ -339,7 +339,8 @@ $result_trees{'center'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '
@@ -420,7 +421,8 @@ $result_trees{'center'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         },
         {
           'text' => '

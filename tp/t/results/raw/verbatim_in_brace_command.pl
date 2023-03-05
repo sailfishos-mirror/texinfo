@@ -93,7 +93,8 @@ $result_trees{'verbatim_in_brace_command'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'

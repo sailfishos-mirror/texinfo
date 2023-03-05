@@ -191,13 +191,14 @@ $result_trees{'spaces_after_braced_command'} = {
             {
               'text' => '
 '
-            },
-            {
-              'text' => '
-'
             }
           ],
           'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'
@@ -326,6 +327,7 @@ $result_converted{'plaintext'}->{'spaces_after_braced_command'} = '‘b’
    b <a>
 
    TeX
+
 ';
 
 
@@ -339,8 +341,8 @@ $result_converted{'html_text'}->{'spaces_after_braced_command'} = '<p><code clas
 </a>
 </p>
 <p>TeX
-
-</p>';
+</p>
+';
 
 
 $result_converted{'xml'}->{'spaces_after_braced_command'} = '<para><code spacesaftercmd=" ">b</code>
@@ -353,8 +355,8 @@ $result_converted{'xml'}->{'spaces_after_braced_command'} = '<para><code spacesa
  </emailname></email>
 </para>
 <para>&tex;
-
-</para>';
+</para>
+';
 
 
 $result_converted{'latex_text'}->{'spaces_after_braced_command'} = '\\texttt{b}
@@ -381,7 +383,7 @@ $result_converted{'docbook'}->{'spaces_after_braced_command'} = '<para><literal>
 </ulink>
 </para>
 <para>&tex;
-
-</para>';
+</para>
+';
 
 1;

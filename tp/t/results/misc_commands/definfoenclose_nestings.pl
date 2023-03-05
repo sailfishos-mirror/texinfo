@@ -214,7 +214,8 @@ $result_trees{'definfoenclose_nestings'} = {
         },
         {
           'text' => '
-'
+',
+          'type' => 'empty_line'
         }
       ],
       'type' => 'before_node_section'

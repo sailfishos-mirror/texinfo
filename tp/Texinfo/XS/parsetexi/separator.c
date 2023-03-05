@@ -30,7 +30,6 @@ handle_open_brace (ELEMENT *current, char **line_inout)
 {
   char *line = *line_inout;
 
-  abort_empty_line (&current, NULL);
   if (command_flags(current) & CF_brace)
     {
       enum command_id command;
@@ -170,6 +169,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
            || current->parent->type == ET_def_line))
     {
       ELEMENT *b, *e;
+      abort_empty_line (&current, NULL);
       b = new_element (ET_bracketed);
       add_to_element_contents (current, b);
       current = b;
@@ -196,6 +196,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
            || current_context() == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_bracketed);
+      abort_empty_line (&current, NULL);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
       current = b;
@@ -234,22 +235,26 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 {
   char *line = *line_inout;
 
-  abort_empty_line (&current, NULL);
-
   /* For footnote and caption closing, when there is a paragraph inside.
      This makes the brace command the parent element. */
   if (current->parent && current->parent->type == ET_brace_command_context)
-    current = end_paragraph (current, 0, 0);
+    {
+      abort_empty_line (&current, NULL);
+      current = end_paragraph (current, 0, 0);
+    }
 
   if (current->type == ET_bracketed)
     {
       /* Used in @math */
+      abort_empty_line (&current, NULL);
       current = current->parent;
       goto funexit;
     }
   else if (command_flags(current->parent) & CF_brace)
     {
       enum command_id closed_command;
+
+      abort_empty_line (&current, NULL);
 
       /* determine if trailing spaces are ignored */
       if (command_data(current->parent->cmd).data == BRACE_arguments)
@@ -520,6 +525,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
     {
       /* lone right braces are accepted in a rawpreformatted */
       ELEMENT *e = new_element (ET_NONE);
+      abort_empty_line (&current, NULL);
       text_append_n (&e->text, "}", 1);
       add_to_element_contents (current, e);
       goto funexit;
