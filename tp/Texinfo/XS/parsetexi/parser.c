@@ -1578,7 +1578,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       line_dummy = line;
       while (1)
         {
-          line = new_line (e);
           if (!line)
             {
               /* unclosed block */
@@ -1597,6 +1596,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   add_to_element_contents (e, raw_text);
                 }
             }
+          line = new_line (e);
         }
 
       /* start a new line for the @end line, this is normally done

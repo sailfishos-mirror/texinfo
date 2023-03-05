@@ -24,6 +24,13 @@ $result_trees{'false_format_not_closed'} = {
           'cmdname' => 'html',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'blah blah
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             }
           ],
@@ -41,6 +48,7 @@ $result_trees{'false_format_not_closed'} = {
 };
 
 $result_texis{'false_format_not_closed'} = '@html
+blah blah
 ';
 
 

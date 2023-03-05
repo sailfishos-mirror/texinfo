@@ -56,6 +56,13 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
+                  'contents' => [
+                    {
+                      'text' => 'This is html text.
+',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_rawpreformatted'
                 },
                 {
@@ -528,6 +535,13 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'This is tex text.
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -759,6 +773,7 @@ $result_texis{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = '\\input texinfo
 @c test conditions
 
 @html
+This is html text.
 @end html
 
 
@@ -775,6 +790,7 @@ This is ifnotinfo text.
 
 
 @tex
+This is tex text.
 @end tex
 
 

@@ -384,6 +384,11 @@ $result_trees{'at_commands_in_raw'} = {
             {
               'contents' => [
                 {
+                  'text' => '@kbdinputstyle code
+',
+                  'type' => 'raw'
+                },
+                {
                   'text' => 'in tex@footnote{footnote in tex}
 ',
                   'type' => 'raw'
@@ -1094,6 +1099,7 @@ Other macro
 @kbd{in kbd before tex}@footnote{second footnote}.
 
 @tex
+@kbdinputstyle code
 in tex@footnote{footnote in tex}
 @anchor{anchor in tex}
 @cindex entry
@@ -1587,6 +1593,7 @@ Other macro
 <para><kbd>in kbd before tex</kbd><footnote><para>second footnote</para></footnote>.
 </para>
 <tex endspaces=" ">
+@kbdinputstyle code
 in tex@footnote{footnote in tex}
 @anchor{anchor in tex}
 @cindex entry

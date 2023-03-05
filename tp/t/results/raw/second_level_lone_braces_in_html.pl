@@ -5,147 +5,10 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'space_before_end'} = {
+$result_trees{'second_level_lone_braces_in_html'} = {
   'contents' => [
     {
       'contents' => [
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'tex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in tex
-'
-                },
-                {
-                  'text' => '    '
-                }
-              ],
-              'type' => 'rawpreformatted'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'tex'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'verbatim',
-          'contents' => [
-            {
-              'text' => 'in verbatim
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '    ',
-              'type' => 'raw'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'verbatim'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'verbatim'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
         {
           'args' => [
             {
@@ -163,15 +26,43 @@ $result_trees{'space_before_end'} = {
             {
               'contents' => [
                 {
-                  'text' => 'in html
-',
-                  'type' => 'raw'
+                  'text' => '{a'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => '
+'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 2,
+                            'macro' => ''
+                          },
+                          'type' => 'bracketed'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => '
+'
                 }
               ],
-              'type' => 'elided_rawpreformatted'
-            },
-            {
-              'text' => '   '
+              'type' => 'rawpreformatted'
             },
             {
               'args' => [
@@ -201,14 +92,120 @@ $result_trees{'space_before_end'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 4,
                 'macro' => ''
               }
             }
           ],
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 1,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'html',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => '{b'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '
+'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'c d'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 8,
+                            'macro' => ''
+                          },
+                          'type' => 'bracketed'
+                        },
+                        {
+                          'text' => '
+'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 7,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => '
+'
+                }
+              ],
+              'type' => 'rawpreformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'html'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'html'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              }
+            }
+          ],
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 6,
             'macro' => ''
           }
         }
@@ -219,60 +216,47 @@ $result_trees{'space_before_end'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'space_before_end'} = '@tex
-in tex
-    @end  tex
-
-@verbatim
-in verbatim
-    @end  verbatim
+$result_texis{'second_level_lone_braces_in_html'} = '@html
+{a@code{{
+}}
+@end html
 
 @html
-in html
-   @end html
+{b@code{
+{c d}
+}
+@end html
 ';
 
 
-$result_texts{'space_before_end'} = 'in tex
-    
-in verbatim
-    
-';
+$result_texts{'second_level_lone_braces_in_html'} = '{a{
+}
 
-$result_errors{'space_before_end'} = [
-  {
-    'error_line' => 'warning: @end verbatim should only appear at the beginning of a line
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => '@end verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
-
-
-$result_floats{'space_before_end'} = {};
-
-
-
-$result_converted{'plaintext'}->{'space_before_end'} = 'in verbatim
-    
+{b
+{c d}
 
 ';
 
+$result_errors{'second_level_lone_braces_in_html'} = [];
 
-$result_converted{'xml'}->{'space_before_end'} = '<tex endspaces="  ">
-in tex
-    </tex>
 
-<verbatim xml:space="preserve" endspaces="  ">
-in verbatim
-    </verbatim>
+$result_floats{'second_level_lone_braces_in_html'} = {};
+
+
+
+$result_converted{'plaintext'}->{'second_level_lone_braces_in_html'} = '';
+
+
+$result_converted{'xml'}->{'second_level_lone_braces_in_html'} = '<html endspaces=" ">
+{a<code>{
+}</code>
+</html>
 
 <html endspaces=" ">
-in html
-   </html>
+{b<code>
+{c d}
+</code>
+</html>
 ';
 
 1;

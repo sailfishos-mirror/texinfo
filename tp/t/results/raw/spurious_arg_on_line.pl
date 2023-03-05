@@ -184,6 +184,13 @@ $result_trees{'spurious_arg_on_line'} = {
           'cmdname' => 'html',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'in html
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -247,6 +254,7 @@ in verbatim
 @end verbatim
 
 @html argh
+in html
 @end html
 ';
 
@@ -308,6 +316,7 @@ in verbatim
 </verbatim>
 
 <html spaces=" " endspaces=" ">
+in html
 </html>
 ';
 

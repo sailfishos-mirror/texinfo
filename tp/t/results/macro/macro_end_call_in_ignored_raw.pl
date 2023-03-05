@@ -115,11 +115,13 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
+                      'position' => 3,
                       'sourcemark_type' => 'macro_expansion',
                       'status' => 'end'
                     }
                   ],
-                  'text' => ''
+                  'text' => 'inT',
+                  'type' => 'raw'
                 },
                 {
                   'text' => '
@@ -181,7 +183,7 @@ inT
 @end macro
 
 @tex
-
+inT
 @end tex
 ';
 

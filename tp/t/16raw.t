@@ -131,6 +131,34 @@ $$
 ',
 {'EXPANDED_FORMATS' => ['html']}
 ],
+['second_level_lone_braces_in_html',
+'@html
+{a@code{{
+}}
+@end html
+
+@html
+{b@code{
+{c d}
+}
+@end html
+',
+{'EXPANDED_FORMATS' => ['html']}
+],
+['second_level_lone_braces_in_html_not_expanded',
+'@html
+{a@code{{
+}}
+@end html
+
+@html
+{b@code{
+{c d}
+}
+@end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
 ['verbatim_and_verbatiminclude',
 '@verbatim
 In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb

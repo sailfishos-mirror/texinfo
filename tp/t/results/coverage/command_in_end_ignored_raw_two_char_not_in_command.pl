@@ -26,6 +26,11 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
             {
               'contents' => [
                 {
+                  'text' => 'In html
+',
+                  'type' => 'raw'
+                },
+                {
                   'text' => '@end ht@asis{ml}
 ',
                   'type' => 'raw'
@@ -48,6 +53,7 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
 };
 
 $result_texis{'command_in_end_ignored_raw_two_char_not_in_command'} = '@html
+In html
 @end ht@asis{ml}
 ';
 

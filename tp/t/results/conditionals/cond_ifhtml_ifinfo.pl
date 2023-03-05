@@ -534,6 +534,13 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'This is tex text.
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -782,6 +789,7 @@ This is ifinfo text.
 
 
 @tex
+This is tex text.
 @end tex
 
 

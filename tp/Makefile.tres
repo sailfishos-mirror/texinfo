@@ -1644,6 +1644,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/raw/raw_in_para.pl \
   t/results/raw/raw_in_style.pl \
   t/results/raw/raw_not_closed.pl \
+  t/results/raw/second_level_lone_braces_in_html.pl \
+  t/results/raw/second_level_lone_braces_in_html_not_expanded.pl \
   t/results/raw/space_before_end.pl \
   t/results/raw/spurious_arg_on_line.pl \
   t/results/raw/tex_not_closed.pl \

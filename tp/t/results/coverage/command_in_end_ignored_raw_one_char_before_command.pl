@@ -26,6 +26,11 @@ $result_trees{'command_in_end_ignored_raw_one_char_before_command'} = {
             {
               'contents' => [
                 {
+                  'text' => 'In html
+',
+                  'type' => 'raw'
+                },
+                {
                   'text' => '@end h@asis{}tml
 ',
                   'type' => 'raw'
@@ -48,6 +53,7 @@ $result_trees{'command_in_end_ignored_raw_one_char_before_command'} = {
 };
 
 $result_texis{'command_in_end_ignored_raw_one_char_before_command'} = '@html
+In html
 @end h@asis{}tml
 ';
 

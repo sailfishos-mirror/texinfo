@@ -56,6 +56,13 @@ $result_trees{'cond_info'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
+                  'contents' => [
+                    {
+                      'text' => 'This is html text.
+',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_rawpreformatted'
                 },
                 {
@@ -528,6 +535,13 @@ $result_trees{'cond_info'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'This is tex text.
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -759,6 +773,7 @@ $result_texis{'cond_info'} = '\\input texinfo
 @c test conditions
 
 @html
+This is html text.
 @end html
 
 
@@ -775,6 +790,7 @@ This is ifinfo text.
 
 
 @tex
+This is tex text.
 @end tex
 
 

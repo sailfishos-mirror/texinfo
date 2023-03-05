@@ -2116,15 +2116,19 @@ in verbatim ''
 <para> xml para </para> ''
 
 <html endspaces=" ">
+html ''
 </html>
 
 <tex endspaces=" ">
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 </tex>
 
 <docbook endspaces=" ">
+docbook ''
 </docbook>
 
 <latex endspaces=" ">
+$\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </latex>
 
 <majorheading spaces=" ">majorheading</majorheading>
@@ -3271,15 +3275,19 @@ in verbatim ''
 <para> xml para </para> ''
 
 <html endspaces=" ">
+html ''
 </html>
 
 <tex endspaces=" ">
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 </tex>
 
 <docbook endspaces=" ">
+docbook ''
 </docbook>
 
 <latex endspaces=" ">
+$\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </latex>
 
 <majorheading spaces=" ">majorheading</majorheading>
@@ -3515,6 +3523,7 @@ in verbatim ''
 </titlepage>
 
 <latex endspaces=" ">
+\DeclareUnicodeCharacter{0227}{\.{a}}
 \DeclareUnicodeCharacter{1EA1}{\d{a}}
 \DeclareUnicodeCharacter{2261}{$\equiv$}
 \DeclareUnicodeCharacter{21A6}{$\mapsto$}
@@ -4465,15 +4474,19 @@ in verbatim ''
 <para> xml para </para> ''
 
 <html endspaces=" ">
+html ''
 </html>
 
 <tex endspaces=" ">
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 </tex>
 
 <docbook endspaces=" ">
+docbook ''
 </docbook>
 
 <latex endspaces=" ">
+$\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </latex>
 
 <majorheading spaces=" ">majorheading</majorheading>
@@ -5614,15 +5627,19 @@ in verbatim ''
 <para> xml para </para> ''
 
 <html endspaces=" ">
+html ''
 </html>
 
 <tex endspaces=" ">
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 </tex>
 
 <docbook endspaces=" ">
+docbook ''
 </docbook>
 
 <latex endspaces=" ">
+$\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 </latex>
 
 </pre><majorheading spaces=" ">majorheading</majorheading>

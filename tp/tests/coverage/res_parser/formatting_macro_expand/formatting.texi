@@ -2113,18 +2113,23 @@ in verbatim ''
 @end verbatim
 
 @xml
+<para> xml para </para> ''
 @end xml
 
 @html
+html ''
 @end html
 
 @tex
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
+docbook ''
 @end docbook
 
 @latex
+$\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 @end latex
 
 @majorheading majorheading
@@ -3276,18 +3281,23 @@ in verbatim ''
 @end verbatim
 
 @xml
+<para> xml para </para> ''
 @end xml
 
 @html
+html ''
 @end html
 
 @tex
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
+docbook ''
 @end docbook
 
 @latex
+$\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 @end latex
 
 @majorheading majorheading
@@ -3527,6 +3537,7 @@ Insercopying in titlepage
 @end titlepage
 
 @latex
+\DeclareUnicodeCharacter{0227}{\.{a}}
 \DeclareUnicodeCharacter{1EA1}{\d{a}}
 \DeclareUnicodeCharacter{2261}{$\equiv$}
 \DeclareUnicodeCharacter{21A6}{$\mapsto$}
@@ -4477,18 +4488,23 @@ in verbatim ''
 @end verbatim
 
 @xml
+<para> xml para </para> ''
 @end xml
 
 @html
+html ''
 @end html
 
 @tex
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
+docbook ''
 @end docbook
 
 @latex
+$\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 @end latex
 
 @majorheading majorheading
@@ -5634,18 +5650,23 @@ in verbatim ''
 @end verbatim
 
 @xml
+<para> xml para </para> ''
 @end xml
 
 @html
+html ''
 @end html
 
 @tex
+$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
+docbook ''
 @end docbook
 
 @latex
+$\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 @end latex
 
 @majorheading majorheading

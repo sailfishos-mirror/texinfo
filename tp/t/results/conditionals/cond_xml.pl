@@ -56,6 +56,13 @@ $result_trees{'cond_xml'} = {
               'cmdname' => 'html',
               'contents' => [
                 {
+                  'contents' => [
+                    {
+                      'text' => 'This is html text.
+',
+                      'type' => 'raw'
+                    }
+                  ],
                   'type' => 'elided_rawpreformatted'
                 },
                 {
@@ -528,6 +535,13 @@ $result_trees{'cond_xml'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => 'This is tex text.
+',
+                  'type' => 'raw'
+                }
+              ],
               'type' => 'elided_rawpreformatted'
             },
             {
@@ -759,6 +773,7 @@ $result_texis{'cond_xml'} = '\\input texinfo
 @c test conditions
 
 @html
+This is html text.
 @end html
 
 
@@ -775,6 +790,7 @@ This is ifnotinfo text.
 
 
 @tex
+This is tex text.
 @end tex
 
 
@@ -879,6 +895,7 @@ $result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texin
 </preamblebeforebeginning><!-- c test conditions -->
 
 <html endspaces=" ">
+This is html text.
 </html>
 
 
@@ -896,6 +913,7 @@ $result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texin
 </para>
 
 <tex endspaces=" ">
+This is tex text.
 </tex>
 
 

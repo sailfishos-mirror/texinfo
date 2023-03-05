@@ -5735,7 +5735,6 @@ sub _process_remaining_on_line($$$$)
     push @{$current->{'contents'}}, $elided_rawpreformatted;
     while (1) {
     # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
-      ($line, $source_info) = _new_line($self, $elided_rawpreformatted);
       print STDERR "IGNORED RAW_PREFORMATTED $current->{'cmdname'}"
         .(defined($line) ? ": $line" : "\n")
           if ($self->{'DEBUG'});
@@ -5750,6 +5749,7 @@ sub _process_remaining_on_line($$$$)
                         'parent' => $elided_rawpreformatted};
         push @{$elided_rawpreformatted->{'contents'}}, $raw_text;
       }
+      ($line, $source_info) = _new_line($self, $elided_rawpreformatted);
     }
     # start a new line for the @end line, this is normally done
     # at the beginning of a line, but not here, as we directly
@@ -6334,8 +6334,11 @@ sub _process_remaining_on_line($$$$)
         _abort_empty_line($self, $current);
         push @{$current->{'contents'}}, {'text' => '{',
                                          'parent' => $current };
+        print STDERR "LONE OPEN BRACE in rawpreformatted\n"
+           if ($self->{'DEBUG'});
       # matching braces accepted in a rawpreformatted or math or ignored
-      # code
+      # code.  Note that for rawpreformatted, it can only happen
+      # within an @-command as { do not start a bracketed as seen just above.
       } elsif ($self->_top_context() eq 'ct_math'
                or $self->_top_context() eq 'ct_rawpreformatted'
                or $self->_top_context() eq 'ct_inlineraw') {
