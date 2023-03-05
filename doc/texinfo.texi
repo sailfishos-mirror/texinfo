@@ -13612,8 +13612,9 @@ No arguments here.
 Passing macro arguments containing commas requires care, since
 commas also separate the arguments.  To include a comma character in
 an argument, the most reliable method is to use the @code{@@comma@{@}}
-command.  For @code{texi2any}, you can also prepend a backslash
-character, as in @samp{\,}, but this does not work with @TeX{}.
+command.  Another method is to surround the argument with
+@samp{@@asis@{@dots{}@}}.  For @code{texi2any}, you can also prepend a
+backslash character, as in @samp{\,}, but this does not work with @TeX{}.
 
 @cindex Automatic quoting of commas for some macros
 @cindex Quoting, automatic for some macros
