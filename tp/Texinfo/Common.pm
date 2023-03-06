@@ -1897,7 +1897,14 @@ sub _copy_tree($$$)
     next if (!$current->{$info_type});
     $new->{$info_type} = {};
     foreach my $key (keys %{$current->{$info_type}}) {
-      # here need to copy hashes or arrays with out of tree elements
+      # here need to copy hashes or arrays with out of tree elements.  They can
+      # be found by looking at *_oot extra types in the XS parser.  Special
+      # constructs can be out of tree too.  extra misc_args are only strings
+      # so they are copied in _substitute_references_in_array, extra def_parsed
+      # is also ok, as the hash values refer to tree elements.
+      # Some out of tree elements may be added later too, as is the case of
+      # extra def_index_element and def_index_ref_element added in
+      # complete_indices.
       if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
            and $key eq 'prototypes') and $info_type eq 'extra') {
         $new->{$info_type}->{$key} = [];
@@ -2387,8 +2394,8 @@ sub _relate_index_entries_to_table_items_in($)
     # Now, to discover the related @?index and @item entries.
     my ($item, $index);
     foreach my $content (@{$term->{'contents'}}) {
-      if ($content->{'extra'}
-          and $content->{'extra'}->{'index_entry'}) {
+      if ($content->{'type'}
+          and $content->{'type'} eq 'index_entry_command') {
         $index = $content->{'extra'}->{'index_entry'} unless $index;
       } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
         $item = $content unless $item;
@@ -2400,7 +2407,7 @@ sub _relate_index_entries_to_table_items_in($)
     next unless $item and $index;
     # FIXME it is not ideal, as it adds an undocumented key to the index entry.
     # It is better than to reset 'entry_element', as the 'entry_element' holds
-    # informations important for the index entry.
+    # information important for the index entry.
     $index->{'entry_associated_element'} = $item;
   }
 }

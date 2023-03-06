@@ -316,14 +316,11 @@ sub _reassociate_to_node($$$$)
       }
     }
     push @{$new_node->{'extra'}->{'menus'}}, $current;
-  } elsif ($current->{'extra'} and $current->{'extra'}->{'index_entry'}) {
+  } elsif ($current->{'extra'} and $current->{'extra'}->{'element_node'}) {
     if ($previous_node
-        and (!$current->{'extra'}->{'element_node'}
-             or $current->{'extra'}->{'element_node'} ne $previous_node)) {
-      print STDERR "Bug: index entry $current (".
-        Texinfo::Convert::Texinfo::convert_to_texinfo(
-           Texinfo::Common::index_content_element($current))
-         .") not in previous node $previous_node\n";
+        and $current->{'extra'}->{'element_node'} ne $previous_node) {
+      print STDERR "Bug: element $current not in previous node $previous_node; "
+          .Texinfo::Common::debug_print_element($current)."\n";
       print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
       if ($current->{'extra'}->{'element_node'}) {

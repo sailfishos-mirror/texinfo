@@ -3986,8 +3986,8 @@ sub _convert($$)
       $unknown_command = 1;
     }
     if ($unknown_command
-        and !($element->{'extra'}
-                and ($element->{'extra'}->{'index_entry'}))
+        and !($element->{'type'}
+                and ($element->{'type'} eq 'index_entry_command'))
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they
         # are not considered as index entries either so they have a specific

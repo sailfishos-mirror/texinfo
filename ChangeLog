@@ -1,5 +1,17 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): use index_entry_command
+	type instead of extra index_entry when this is more relevant.
+
+	* tp/Texinfo/Transformations.pm (_reassociate_to_node): simplify and
+	generalize code reassociating extra element_node, by using only that
+	information and not information related to the element as an index
+	element.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Tree Element Conversion Functions),
 	tp/Texinfo/Convert/HTML.pm (_convert)
 	(_convert_index_entry_command_type): use the type of index commands,
