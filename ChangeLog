@@ -1,5 +1,16 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Convert/Text.pm
+	(_convert), tp/Texinfo/Convert/Utils.pm
+	(definition_arguments_content, definition_category_tree): determine
+	the category, name, type and name in definition_arguments_content.
+	Do not use def_parsed_hash in definition_category_tree.  Use this
+	information instead of def_parsed_hash in the callers.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
 	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data): store the
 	index_entry extra array directly in enter_index_entry, using

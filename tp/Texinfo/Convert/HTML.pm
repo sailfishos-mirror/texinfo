@@ -6715,8 +6715,9 @@ sub _convert_def_line_type($$$$)
   if (defined($index_id) and $index_id ne '' and !$self->in_multi_expanded()) {
     $index_label = " id=\"$index_id\"";
   }
-  my $arguments
-    = Texinfo::Convert::Utils::definition_arguments_content($element);
+  my ($category_element, $class_element,
+      $type_element, $name_element, $arguments)
+         = Texinfo::Convert::Utils::definition_arguments_content($element);
 
   my @classes = ();
   my $command_name;
@@ -6740,11 +6741,9 @@ sub _convert_def_line_type($$$$)
   unshift @classes, $original_command_name;
 
   my $result_type = '';
-  if ($element->{'extra'}
-      and $element->{'extra'}->{'def_parsed_hash'}
-      and $element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+  if ($type_element) {
     my $type_text = $self->_convert({'type' => '_code',
-       'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
+       'contents' => [$type_element]});
     if ($type_text ne '') {
       $result_type = $self->html_attribute_class('code', ['def-type']).'>'.
          $type_text .'</code>';
@@ -6756,11 +6755,9 @@ sub _convert_def_line_type($$$$)
   }
 
   my $result_name = '';
-  if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-      and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
-    my $name_content = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+  if ($name_element) {
     $result_name = $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->_convert({'type' => '_code', 'contents' => [$name_content]})
+       $self->_convert({'type' => '_code', 'contents' => [$name_element]})
        .'</strong>';
   }
 
@@ -6812,31 +6809,26 @@ sub _convert_def_line_type($$$$)
       . '>' . '[' . $category_result . ']' . "</td></tr>\n";
   }
 
-  my $category;
-  if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-      and defined($element->{'extra'}->{'def_parsed_hash'}->{'category'})) {
-    $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
-  }
   my $category_result = '';
   my $category_tree;
-  if (defined($category) and $category ne '') {
-    if ($element->{'extra'}->{'def_parsed_hash'}->{'class'}) {
+  if ($category_element) {
+    if ($class_element) {
       if ($command_name eq 'deftypeop'
-          and $element->{'extra'}->{'def_parsed_hash'}->{'type'}
+          and $type_element
           and $self->get_conf('deftypefnnewline') eq 'on') {
         $category_tree = $self->gdt('{category} on @code{{class}}:@* ',
-              {'category' => $category,
-              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+              {'category' => $category_element,
+              'class' => $class_element});
       } elsif ($command_name eq 'defop' or $command_name eq 'deftypeop') {
         $category_tree = $self->gdt('{category} on @code{{class}}: ',
-              {'category' => $category,
-              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+              {'category' => $category_element,
+              'class' => $class_element});
       } elsif ($command_name eq 'defcv' or $command_name eq 'deftypecv') {
         $category_tree = $self->gdt('{category} of @code{{class}}: ',
-              {'category' => $category,
-              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
+              {'category' => $category_element,
+              'class' => $class_element});
       }
-    } elsif ($element->{'extra'}->{'def_parsed_hash'}->{'type'}
+    } elsif ($type_element
             and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')
             and $self->get_conf('deftypefnnewline') eq 'on') {
         # FIXME if in @def* in @example and with @deftypefnnewline
@@ -6847,9 +6839,9 @@ sub _convert_def_line_type($$$$)
         # the conversion of @* in a @def* line in preformatted, nothing
         # really specific of @deftypefnnewline on.
         $category_tree = $self->gdt('{category}:@* ',
-                                    {'category' => $category});
+                                    {'category' => $category_element});
     } else {
-      $category_tree = $self->gdt('{category}: ', {'category' => $category});
+      $category_tree = $self->gdt('{category}: ', {'category' => $category_element});
     }
     $category_result = $self->convert_tree($category_tree);
   }

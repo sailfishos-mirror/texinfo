@@ -90,24 +90,30 @@ sub definition_arguments_content($)
 {
   my $element = shift;
 
-  return undef if (!defined($element->{'extra'})
-                    or !defined($element->{'extra'}->{'def_parsed_hash'})
-                    or !$element->{'args'}->[0]->{'contents'});
+  my ($category, $class, $type, $name, $args);
+  return ($category, $class, $type, $name, $args)
+     if (!$element->{'args'}->[0]->{'contents'});
 
   my @args = @{$element->{'args'}->[0]->{'contents'}};
   while (@args) {
-    last if (defined($args[0]->{'extra'})
-             and defined($args[0]->{'extra'}->{'def_role'})
-             and $args[0]->{'extra'}->{'def_role'} ne 'spaces'
-             and !$element->{'extra'}->{'def_parsed_hash'}
-                       ->{$args[0]->{'extra'}->{'def_role'}});
+    my $role = $args[0]->{'extra'}->{'def_role'};
+    if ($role eq 'category') {
+      $category = shift @args;
+    } elsif ($role eq 'class') {
+      $class = shift @args;
+    } elsif ($role eq 'type') {
+      $type = shift @args;
+    } elsif ($role eq 'name') {
+      $name = shift @args;
+    } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+      last;
+    }
     shift @args;
   }
   if (scalar(@args) > 0) {
-    return \@args;
-  } else {
-    return undef;
+    $args = \@args;
   }
+  return ($category, $class, $type, $name, $args);
 }
 
 # $SELF converter argument is optional
@@ -116,11 +122,21 @@ sub definition_category_tree($$)
   my $self = shift;
   my $current = shift;
 
-  return undef if (!$current->{'extra'}
-      or !$current->{'extra'}->{'def_parsed_hash'});
+  return undef if (!$current->{'args'}->[0]->{'contents'});
 
-  my $arg_category = $current->{'extra'}->{'def_parsed_hash'}->{'category'};
-  my $arg_class = $current->{'extra'}->{'def_parsed_hash'}->{'class'};
+  my $arg_category;
+  my $arg_class;
+  foreach my $arg (@{$current->{'args'}->[0]->{'contents'}}) {
+    my $role = $arg->{'extra'}->{'def_role'};
+    if ($role eq 'category') {
+      $arg_category = $arg;
+    } elsif ($role eq 'class') {
+      $arg_class = $arg;
+    } elsif ($role eq 'space') {
+    } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+      last;
+    }
+  }
 
   return $arg_category
     if (!defined($arg_class));
@@ -408,13 +424,15 @@ On strings translations, see L<Texinfo::Translations>.
 
 =over
 
-=item $arguments = definition_arguments_content($element)
+=item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>
 
-I<$element> should be a C<@def*> Texinfo tree element.  Texinfo elements
+I<$element> should be a C<@def*> Texinfo tree element.  The
+I<$category>, I<$class>, I<$type>, I<$name> are elements corresponding
+to the definition command line.  Texinfo elements
 on the @-command line corresponding to arguments in the function
 definition are returned in the I<$arguments> array reference.
-Arguments correspond to text following the category and the name
+Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 

@@ -3058,10 +3058,9 @@ sub _convert($$)
         }
       }
     } elsif ($element->{'type'} eq 'def_line') {
-      if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-             and %{$element->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments
-          = Texinfo::Convert::Utils::definition_arguments_content($element);
+      my ($category, $class, $type, $name, $arguments)
+        = Texinfo::Convert::Utils::definition_arguments_content($element);
+      if ($category or $class or $type or $name) {
         my $tree;
         my $command;
         if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
@@ -3070,12 +3069,7 @@ sub _convert($$)
         } else {
           $command = $element->{'extra'}->{'def_command'};
         }
-        my $name;
-        if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-          $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-        } else {
-          $name = '';
-        }
+        $name = '' if (!defined($name));
 
         my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
 
@@ -3085,10 +3079,10 @@ sub _convert($$)
             or $command eq 'deftp'
             or (($command eq 'deftypefn'
                  or $command eq 'deftypevr')
-                and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                and !defined($type))) {
           if ($arguments) {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+             'category' => $category,
              'name' => $name,
              'arguments' => $arguments};
             if ($omit_def_space) {
@@ -3100,18 +3094,16 @@ sub _convert($$)
             }
           } else {
             $tree = $self->gdt('@tie{}-- {category}: {name}', {
-                 'category'
-                    => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                 'category' => $category,
                  'name' => $name});
           }
         } elsif ($command eq 'deftypefn'
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {
-              'category'
-                  => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+              'category' => $category,
               'name' => $name,
-              'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+              'type' => $type,
               'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on'
                 and $command eq 'deftypefn') {
@@ -3137,8 +3129,8 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-             'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+             'category' => $category,
+             'type' => $type,
              'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on'
                 and $command eq 'deftypefn') {
@@ -3151,12 +3143,12 @@ sub _convert($$)
           }
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
-                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !defined($type))) {
           if ($arguments) {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+             'category' => $category,
              'name' => $name,
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'class' => $class,
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
@@ -3169,18 +3161,18 @@ sub _convert($$)
             }
           } else {
             $tree = $self->gdt('@tie{}-- {category} of {class}: {name}', {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'category' => $category,
+             'class' => $class,
              'name' => $name});
           }
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
-                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !defined($type))) {
           if ($arguments) {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+             'category' => $category,
              'name' => $name,
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'class' => $class,
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
@@ -3193,17 +3185,17 @@ sub _convert($$)
             }
           } else {
             $tree = $self->gdt('@tie{}-- {category} on {class}: {name}', {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'category' => $category,
+             'class' => $class,
              'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
           if ($arguments) {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+             'category' => $category,
              'name' => $name,
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-             'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+             'class' => $class,
+             'type' => $type,
              'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               if ($omit_def_space) {
@@ -3228,9 +3220,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-             'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'category' => $category,
+             'type' => $type,
+             'class' => $class,
              'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
@@ -3245,10 +3237,10 @@ sub _convert($$)
         } elsif ($command eq 'deftypecv') {
           if ($arguments) {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+             'category' => $category,
              'name' => $name,
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-             'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+             'class' => $class,
+             'type' => $type,
              'arguments' => $arguments};
             if ($omit_def_space) {
               $tree
@@ -3261,9 +3253,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-             'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-             'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+             'category' => $category,
+             'type' => $type,
+             'class' => $class,
              'name' => $name};
             $tree
               = $self->gdt('@tie{}-- {category} of {class}: {type} {name}',

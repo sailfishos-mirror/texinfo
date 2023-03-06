@@ -611,21 +611,23 @@ sub _convert($;$)
   }
   if ($element->{'type'} and $element->{'type'} eq 'def_line') {
     #print STDERR "$element->{'extra'}->{'def_command'}\n";
-    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-             and scalar(keys(%{$element->{'extra'}->{'def_parsed_hash'}}))) {
-      my $parsed_definition_category
-        = Texinfo::Convert::Utils::definition_category_tree($options->{'converter'},
-                                                       $element);
+    my ($category_element, $class_element,
+        $type_element, $name_element, $arguments)
+         = Texinfo::Convert::Utils::definition_arguments_content($element);
+
+    my $parsed_definition_category
+      = Texinfo::Convert::Utils::definition_category_tree($options->{'converter'},
+                                                     $element);
+    if (defined($parsed_definition_category)) {
       my @contents = ($parsed_definition_category, {'text' => ': '});
-      if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-        push @contents, ($element->{'extra'}->{'def_parsed_hash'}->{'type'},
+      if ($type_element) {
+        push @contents, ($type_element,
                          {'text' => ' '});
       }
-      if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-        push @contents, $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+      if ($name_element) {
+        push @contents, $name_element;
       }
 
-      my $arguments = Texinfo::Convert::Utils::definition_arguments_content($element);
       if ($arguments) {
         push @contents, {'text' => ' '};
         push @contents, @$arguments;

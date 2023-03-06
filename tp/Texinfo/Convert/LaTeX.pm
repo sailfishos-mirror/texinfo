@@ -2214,7 +2214,7 @@ sub _open_preformatted_command($$)
 {
   my $self = shift;
   my $command = shift;
-  
+
   push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}},
          $command;
   return '';
@@ -3183,7 +3183,7 @@ sub _convert($$)
                    ->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element = Texinfo::Common::get_label_element($reference);
           my $reference_node_content = $label_element->{'contents'};
-          
+
           my $section_command;
           if ($reference->{'extra'}->{'associated_section'}) {
             $section_command = $reference->{'extra'}->{'associated_section'};
@@ -3367,7 +3367,7 @@ sub _convert($$)
           if (defined($name)) {
             $name_text = _convert($self, {'contents' => $name});
           }
-          
+
           if ($book ne '') {
             if (defined ($name_text)) {
               # TODO translation
@@ -4008,10 +4008,11 @@ sub _convert($$)
       $result .= _index_entry($self, $element);
     }
     if ($element->{'type'} eq 'def_line') {
-      if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-             and %{$element->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments
+      my ($category_element, $class_element,
+          $type_element, $name_element, $arguments)
             = Texinfo::Convert::Utils::definition_arguments_content($element);
+      if (defined($category_element) or defined($class_element)
+          or defined($type_element) or defined($name_element)) {
         my $command;
         if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
           $command
@@ -4023,12 +4024,6 @@ sub _convert($$)
         my $deftypefnnewline = ($self->get_conf('deftypefnnewline') eq 'on'
                and ($command eq 'deftypefn' or $command eq 'deftypeop'));
 
-        my $name;
-        if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-          $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-        } else {
-          $name = '';
-        }
         my $def_space = ' ';
         if ($element->{'extra'}->{'omit_def_name_space'}) {
           $def_space = '';
@@ -4036,7 +4031,7 @@ sub _convert($$)
 
         my $converted_category;
         my $category
-          = Texinfo::Convert::Utils::definition_category_tree($self, $element);;
+          = Texinfo::Convert::Utils::definition_category_tree($self, $element);
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);
@@ -4067,11 +4062,10 @@ sub _convert($$)
         # the def* line except for the category is converted in code context
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
 
-        if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-          $def_line_result .=  _convert($self,
-            $element->{'extra'}->{'def_parsed_hash'}->{'type'});
+        if ($type_element) {
+          $def_line_result .= _convert($self, $type_element);
           if ($deftypefnnewline) {
-            if (defined($converted_category)) {
+           if (defined($converted_category)) {
               $def_line_result .= "}& $converted_category\\\\\n\\texttt{"
             } else {
               $def_line_result .= "}\\\\\n\\texttt{";
@@ -4080,7 +4074,7 @@ sub _convert($$)
             $def_line_result .= ' ';
           }
         }
-        $def_line_result .= _convert($self, $name) if $name;
+        $def_line_result .= _convert($self, $name_element) if $name_element;
         # will contain the command names that have been made known to
         # embrac, like texttt and need to have the symbol undefined
         # such that they can be redefined later
