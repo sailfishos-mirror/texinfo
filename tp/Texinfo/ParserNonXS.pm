@@ -3073,9 +3073,16 @@ sub _parse_def($$$$)
     $i++;
     last if (! defined($arg));
   }
+  # if the end was reached without args to trigger gathering the started
+  # argument content, it is gathered here.
   if (scalar(@$argument_content) > 1) {
     my $e = {'contents' => $argument_content,
-      'type' => 'def_aggregate'   };
+             'type' => 'def_aggregate',
+             'parent' => $current,
+             };
+    for my $e2 (@$argument_content) {
+      $e2->{'parent'} = $e;
+    }
     push @result, [$arg, $e];
     # Replace in the main tree.
     splice @new_contents, $i - scalar(@$argument_content),
@@ -3084,6 +3091,7 @@ sub _parse_def($$$$)
     push @result, [$arg, $argument_content->[0]];
   }
 
+  # at this point, @contents corresponds to the @def* args
   if (scalar(@contents) > 0) {
     splice @new_contents, -scalar(@contents);
   }
@@ -3092,7 +3100,7 @@ sub _parse_def($$$$)
                    @contents );
   @new_contents = (@new_contents, @contents);
 
-  # Create the part of the def_args array for any arguments.
+  # Create the part of the parsed def line array for any arguments.
   my @args_results;
   while (@contents) {
     my $spaces;
@@ -3634,7 +3642,6 @@ sub _end_line_def_line($$$)
                          __('missing category for @%s'),
        $current->{'extra'}->{'original_def_cmdname'});
   } else {
-    #$current->{'extra'}->{'def_args'} = $arguments;
     my $def_parsed_hash = {};
     foreach my $arg (@$arguments) {
       die if (!defined($arg->[0]));
