@@ -1072,8 +1072,10 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
+  my $indices_information = $parser->indices_information();
   if ($tree_transformations{'relate_index_entries_to_items'}) {
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree);
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
+                                                     $indices_information);
   }
 
   if ($tree_transformations{'move_index_entries_after_items'}) {
@@ -1144,15 +1146,14 @@ sub test($$)
   Texinfo::Structuring::number_floats($floats);
 
   my ($errors, $error_nrs) = $registrar->errors();
-  my $index_names = $parser->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries
-     = Texinfo::Structuring::merge_indices($index_names);
+     = Texinfo::Structuring::merge_indices($indices_information);
   
   # only print indices information if it differs from the default
   # indices
   my $indices;
-  my $trimmed_index_names = remove_keys($index_names, ['index_entries']);
+  my $trimmed_index_names = remove_keys($indices_information, ['index_entries']);
   $indices = {'index_names' => $trimmed_index_names}
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 

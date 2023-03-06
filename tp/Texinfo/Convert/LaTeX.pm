@@ -2409,7 +2409,9 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-    my $entry = $element->{'extra'}->{'index_entry'};
+    my $entry
+     = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                           $self->{'indices_information'});
     my $entry_index_name = $entry->{'index_name'};
     my $index_name = $entry_index_name;
     if ($self->{'indices_information'}->{$entry_index_name}->{'merged_in'}) {

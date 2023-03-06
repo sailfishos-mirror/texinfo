@@ -1424,6 +1424,25 @@ sub set_global_document_command($$$$)
   return $element;
 }
 
+# TODO document
+sub lookup_index_entry($$)
+{
+  my $index_entry_info = shift;
+  my $indices_information = shift;
+
+  my $entry_index_name = $index_entry_info->{'index_name'};
+  my $entry_number = $index_entry_info->{'entry_number'};
+
+  if ($indices_information->{$entry_index_name}
+      and $indices_information->{$entry_index_name}->{'index_entries'}
+      and $indices_information->{$entry_index_name}
+                                    ->{'index_entries'}->[$entry_number-1]) {
+    return $indices_information->{$entry_index_name}
+                                    ->{'index_entries'}->[$entry_number-1];
+  }
+  return undef;
+}
+
 sub set_output_encodings($$)
 {
   my $customization_information = shift;
@@ -2375,9 +2394,10 @@ sub move_index_entries_after_items_in_tree($)
 
 # Locates all @tables in the tree, and relocates index entry groups to be
 # related to the @item that immediately follows them.
-sub _relate_index_entries_to_table_items_in($)
+sub _relate_index_entries_to_table_items_in($$)
 {
   my $table = shift;
+  my $indices_information = shift;
 
   return unless $table->{'contents'};
 
@@ -2396,7 +2416,11 @@ sub _relate_index_entries_to_table_items_in($)
     foreach my $content (@{$term->{'contents'}}) {
       if ($content->{'type'}
           and $content->{'type'} eq 'index_entry_command') {
-        $index = $content->{'extra'}->{'index_entry'} unless $index;
+        $index
+          = Texinfo::Common::lookup_index_entry(
+                          $content->{'extra'}->{'index_entry'},
+                          $indices_information)
+            unless $index;
       } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
         $item = $content unless $item;
       }
@@ -2412,24 +2436,28 @@ sub _relate_index_entries_to_table_items_in($)
   }
 }
 
-sub _relate_index_entries_to_table_items($$)
+sub _relate_index_entries_to_table_items($$$)
 {
   my $type = shift;
   my $current = shift;
+  my $indices_information = shift;
 
   return $current unless $current->{'cmdname'};
 
   if ($current->{'cmdname'} eq 'table') {
-    _relate_index_entries_to_table_items_in($current);
+    _relate_index_entries_to_table_items_in($current, $indices_information);
   }
 
   return $current;
 }
 
-sub relate_index_entries_to_table_items_in_tree($)
+sub relate_index_entries_to_table_items_in_tree($$)
 {
   my $tree = shift;
-  return modify_tree($tree, \&_relate_index_entries_to_table_items);
+  my $indices_information = shift;
+
+  return modify_tree($tree, \&_relate_index_entries_to_table_items,
+                     $indices_information);
 }
 
 # Common to different module, but not meant to be used in user-defined

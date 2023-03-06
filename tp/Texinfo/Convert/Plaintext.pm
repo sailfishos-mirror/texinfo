@@ -1821,7 +1821,7 @@ sub _convert($$)
     my $location = $self->add_location($element);
     # remove a 'lines' from $location if at the very end of a node
     # since it will lead to the next node otherwise.
-    if ($command and $command =~ /index/) {
+    if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $following_not_empty;
       my @parents = @{$self->{'current_roots'}};
       my @parent_contents = @{$self->{'current_contents'}};
@@ -3004,7 +3004,7 @@ sub _convert($$)
     }
     if ($unknown_command
         and !($element->{'type'}
-                and ($element->{'type'} eq 'index_entry_command'))
+              and ($element->{'type'} eq 'index_entry_command'))
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they
         # are not considered as index entries either so they have a specific

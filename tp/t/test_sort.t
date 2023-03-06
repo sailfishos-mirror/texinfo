@@ -43,8 +43,8 @@ $tree = $parser->parse_texi_text('@node Top
 ');
 
 my $registrar = $parser->registered_errors();
-my ($index_names, $merged_indices) = $parser->indices_information();
-my $index_entries = Texinfo::Structuring::merge_indices($index_names);
+my ($indices_information, $merged_indices) = $parser->indices_information();
+my $index_entries = Texinfo::Structuring::merge_indices($indices_information);
 my $parser_information = $parser->global_information();
 my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
 Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
@@ -120,8 +120,8 @@ $tree = $parser->parse_texi_text('@node Top
 ');
 
 $registrar = $parser->registered_errors();
-($index_names, $merged_indices) = $parser->indices_information();
-$index_entries = Texinfo::Structuring::merge_indices($index_names);
+($indices_information, $merged_indices) = $parser->indices_information();
+$index_entries = Texinfo::Structuring::merge_indices($indices_information);
 ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
                                        $index_entries);

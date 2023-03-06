@@ -7494,7 +7494,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
     warn $error_message->{'error_line'};
   }
 
-  my $index_names = $parser->indices_information();
+  my $indices_information = $parser->indices_information();
   my $float_types_arrays = $parser->floats_information();
   my $internal_references_array
     = $parser->internal_references_information();
@@ -7787,7 +7787,7 @@ also available through the C<indices_information> method.
 =item indices_information
 X<C<indices_information>>
 
-  $index_names = indices_information($parser);
+  $indices_information = indices_information($parser);
 
 The index names is a hash reference.  The keys are
 

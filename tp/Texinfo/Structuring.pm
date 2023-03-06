@@ -2084,17 +2084,17 @@ sub sort_indices($$$;$$)
 
 sub merge_indices($)
 {
-  my $index_names = shift;
+  my $indices_information = shift;
 
   my $merged_index_entries;
-  foreach my $index_name (keys(%$index_names)) {
-    my $index_info = $index_names->{$index_name};
+  foreach my $index_name (keys(%$indices_information)) {
+    my $index_info = $indices_information->{$index_name};
     next if ($index_info->{'merged_in'});
     foreach my $contained_index (keys (%{$index_info->{'contained_indices'}})) {
-      if ($index_names->{$contained_index}->{'index_entries'}) {
+      if ($indices_information->{$contained_index}->{'index_entries'}) {
         $merged_index_entries = {} if (! $merged_index_entries);
         push @{$merged_index_entries->{$index_name}},
-          @{$index_names->{$contained_index}->{'index_entries'}};
+          @{$indices_information->{$contained_index}->{'index_entries'}};
       }
     }
   }
@@ -2144,9 +2144,9 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   elements_directions($config, $labels, $tree_units);
   elements_file_directions($tree_units);
 
-  my $index_names = $parser->indices_information();
+  my $indices_information = $parser->indices_information();
   my $merged_index_entries
-     = merge_indices($index_names);
+     = merge_indices($indices_information);
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted = sort_indices($registrar, $config,
@@ -2330,7 +2330,7 @@ I<$options> are options used for Texinfo to text conversion for
 the generation of the sort string, typically obtained from
 L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>.
 
-=item $merged_entries = merge_indices($index_names)
+=item $merged_entries = merge_indices($indices_information)
 X<C<merge_indices>>
 
 Using information returned by L<Texinfo::Parser/indices_information>,

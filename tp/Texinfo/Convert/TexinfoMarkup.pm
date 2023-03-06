@@ -368,7 +368,9 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-    my $index_entry = $element->{'extra'}->{'index_entry'};
+    my $index_entry
+     = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                           $self->{'indices_information'});
     my $attribute = [['index', $index_entry->{'index_name'}]];
     push @$attribute, ['number', $index_entry->{'entry_number'}]
         if (defined($index_entry->{'entry_number'}));
@@ -751,6 +753,9 @@ sub _convert($$;$)
       } # otherwise we have an incorrect construct, for instance
         # out of block commands @item, @itemx in enumerate or multitable...
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+      my $index_entry
+        = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                              $self->{'indices_information'});
       my $format_element;
       my $attribute = [];
       if (exists $line_commands{$element->{'cmdname'}}) {
@@ -760,7 +765,7 @@ sub _convert($$;$)
         $attribute = [['command', $element->{'cmdname'}]];
       }
       push @$attribute, ['index',
-                         $element->{'extra'}->{'index_entry'}->{'index_name'}];
+                         $index_entry->{'index_name'}];
       push @$attribute, _leading_spaces_arg($element);
 
       # this is important to get the spaces before a @subentry

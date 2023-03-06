@@ -1,5 +1,30 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (lookup_index_entry)
+	(_relate_index_entries_to_table_items_in)
+	(_relate_index_entries_to_table_items)
+	(relate_index_entries_to_table_items_in_tree),
+	tp/Texinfo/Convert/DocBook.pm (_index_entry),
+	tp/Texinfo/Convert/LaTeX.pm (_index_entry),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_index_entry, _convert),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: add the lookup_index_entry
+	function, to find an index entry based on the extra index_entry key,
+	that abstracts how the index entry is found.  The function requires
+	the indices information too.
+	Pass the indices information to
+	_relate_index_entries_to_table_items_in through
+	relate_index_entries_to_table_items_in_tree.
+
+	* tp/Texinfo/Structuring.pm (merge_indices), tp/t/automatic_nodes.t,
+	tp/t/test_sort.t, tp/t/test_utils.pl (test): change name of
+	$index_names to $indices_information.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): use index_entry_command
+	type to determine that the commmand is an index entry command instead
+	of using the command name.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in),
 	tp/Texinfo/Convert/LaTeX.pm (_convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert): use index_entry_command

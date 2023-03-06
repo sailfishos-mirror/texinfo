@@ -1496,7 +1496,9 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
-    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree);
+    my $indices_information = $parser->indices_information();
+    Texinfo::Common::relate_index_entries_to_table_items_in_tree($tree,
+                                                          $indices_information);
   }
 
   if ($formats_table{$converted_format}->{'move_index_entries_after_items'}
