@@ -141,8 +141,9 @@ extern size_t floats_space;
 
 
 /* In separator.c */
-ELEMENT *handle_separator (ELEMENT *current, char separator,
-                           char **line_inout);
+ELEMENT * handle_open_brace (ELEMENT *current, char **line_inout);
+ELEMENT * handle_close_brace (ELEMENT *current, char **line_inout);
+ELEMENT * handle_comma (ELEMENT *current, char **line_inout);
 
 /* In parser.c */
 typedef struct {

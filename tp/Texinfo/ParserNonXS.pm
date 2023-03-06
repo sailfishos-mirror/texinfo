@@ -4471,27 +4471,28 @@ sub _parse_texi_regex {
   my ($line) = @_;
 
   # REMACRO
-  my ($at_command, $open_brace, $asterisk, $single_letter_command,
-      $separator_match, $menu_separator, $misc_text)
+  my ($at_command, $open_brace, $close_brace, $comma,
+      $asterisk, $single_letter_command, $arobase,
+      $form_feed, $menu_only_separator, $misc_text)
     = ($line =~ /^\@([[:alnum:]][[:alnum:]-]*)
                 |^(\{)
+                |^(\})
+                |^(,)
                 |^(\*)
                 |^\@(["'~\@&\}\{,\.!\? \t\n\*\-\^`=:\|\/\\])
-                |^([{}@,\f])
+                |^(@)
+                |^(\f)
                 |^([:\t.])
                 |^([^{}@,:\t.\n\f]+)
                 /x);
 
-  if ($open_brace) {
-    $separator_match = $open_brace;
-  } elsif ($asterisk) {
+  if ($asterisk) {
     ($misc_text) = ($line =~ /^([^{}@,:\t.\n\f]+)/);
-  } elsif ($separator_match and $separator_match eq ',') {
-    $menu_separator = $separator_match;
   }
 
-  return ($at_command, $open_brace, $asterisk, $single_letter_command,
-    $separator_match, $menu_separator, $misc_text);
+  return ($at_command, $open_brace, $close_brace, $comma,
+    $asterisk, $single_letter_command, $arobase,
+    $form_feed, $menu_only_separator, $misc_text);
 }
 
 sub _check_line_directive {
@@ -5797,8 +5798,11 @@ sub _process_remaining_on_line($$$$)
 
   my $at_command_length;
   my @line_parsing = _parse_texi_regex($line);
-  my ($at_command, $open_brace, $asterisk, $single_letter_command,
-      $separator_match, $menu_separator, $misc_text) = @line_parsing;
+  my ($at_command, $open_brace, $close_brace, $comma, $asterisk,
+      $single_letter_command, $arobase, $form_feed, $menu_only_separator,
+      $misc_text) = @line_parsing;
+  my $menu_separator = $comma;
+  $menu_separator = $menu_only_separator if (!$comma);
   print STDERR "PARSED: "
     .join(', ',map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
@@ -6058,7 +6062,8 @@ sub _process_remaining_on_line($$$$)
       $current = $current->{'parent'};
     }
   } elsif (_handle_menu_entry_separators($self, \@current_array_for_ref,
-                        \$line, $source_info, $asterisk, $menu_separator)) {
+                                         \$line, $source_info, $asterisk,
+                                         $menu_separator)) {
     $current = $current_array_for_ref[0];
   # Any other @-command.
   } elsif ($command) {
@@ -6199,15 +6204,8 @@ sub _process_remaining_on_line($$$$)
       $command_element->{'info'} = {} if (!$command_element->{'info'});
       $command_element->{'info'}->{'alias_of'} = $from_alias;
     }
-  } elsif ($separator_match) {
-    my $separator = $separator_match;
+  } elsif ($open_brace) {
     substr ($line, 0, 1) = '';
-    print STDERR "SEPARATOR: $separator\n" if ($self->{'DEBUG'});
-    if ($separator eq '@') {
-      # this may happen with a @ at the very end of a file, therefore
-      # not followed by anything.
-      $self->_line_error(__("unexpected \@"), $source_info);
-    } elsif ($separator eq '{') {
       # handle_open_brace in XS parser
       if ($current->{'cmdname'}
            and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
@@ -6357,7 +6355,8 @@ sub _process_remaining_on_line($$$$)
         $self->_line_error(sprintf(__("misplaced {")), $source_info);
       }
 
-    } elsif ($separator eq '}') {
+  } elsif ($close_brace) {
+    substr ($line, 0, 1) = '';
       # handle_close_brace in XS parser
 
       # For footnote and caption closing, when there is a paragraph inside.
@@ -6609,9 +6608,10 @@ sub _process_remaining_on_line($$$$)
       } else {
         $self->_line_error(sprintf(__("misplaced }")), $source_info);
       }
-    } elsif ($separator eq ','
-             and $current->{'parent'}
-             and $current->{'parent'}->{'remaining_args'}) {
+  } elsif ($comma) {
+    substr ($line, 0, 1) = '';
+    if ($current->{'parent'}
+        and $current->{'parent'}->{'remaining_args'}) {
       # handle_comma in XS parser
       _abort_empty_line($self, $current);
       _isolate_last_space($self, $current);
@@ -6772,28 +6772,37 @@ sub _process_remaining_on_line($$$$)
                           'extra' => {'spaces_associated_command' => $current}
                          };
       push @{$current->{'contents'}}, $space_before;
-    } elsif ($separator eq ',' and $current->{'type'}
+    } elsif ($current->{'type'}
              and $current->{'type'} eq 'line_arg'
              and $current->{'parent'}->{'cmdname'}
              and $current->{'parent'}->{'cmdname'} eq 'node') {
       $self->_line_warn(__("superfluous arguments for node"), $source_info);
-    } elsif ($separator eq "\f" and $current->{'type'}
-             and $current->{'type'} eq 'paragraph') {
+    } else {
+      $current = _merge_text($self, $current, $comma);
+    }
+  } elsif ($form_feed) {
+    substr ($line, 0, 1) = '';
+    if ($current->{'type'}
+        and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
       $current = _end_paragraph($self, $current, $source_info);
-      my $line_feed = {'type' => 'empty_line', 'text' => $separator,
+      my $line_feed = {'type' => 'empty_line', 'text' => $form_feed,
                        'parent' => $current };
       push @{$current->{'contents'}}, $line_feed;
       my $empty_line = { 'type' => 'empty_line', 'text' => '',
                          'parent' => $current };
       push @{$current->{'contents'}}, $empty_line;
     } else {
-      $current = _merge_text($self, $current, $separator);
+      $current = _merge_text($self, $current, $form_feed);
     }
-  # need to be after as , is in common with separators
-  } elsif ($menu_separator) {
+  } elsif ($arobase) {
     substr ($line, 0, 1) = '';
-    $current = _merge_text($self, $current, $menu_separator);
+    # this may happen with a @ at the very end of a file, therefore
+    # not followed by anything.
+    $self->_line_error(__("unexpected \@"), $source_info);
+  } elsif ($menu_only_separator) {
+    substr ($line, 0, 1) = '';
+    $current = _merge_text($self, $current, $menu_only_separator);
   # Misc text except end of line
   } elsif (defined $misc_text) {
     print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});

@@ -105,16 +105,20 @@ xs_parse_texi_regex (text)
   PREINIT:
      char *at_command;
      char *open_brace;
+     char *close_brace;
+     char *comma;
      char *asterisk;
      char *single_letter_command;
      char *separator_match;
-     char *menu_separator;
+     char *arobase;
+     char *form_feed;
+     char *menu_only_separator;
      char *new_text;
   PPCODE:
-     xs_parse_texi_regex(text, &at_command, &open_brace, &asterisk, 
-                         &single_letter_command, &separator_match,
-                         &menu_separator, &new_text);
-     EXTEND(SP,6);
+     xs_parse_texi_regex(text, &at_command, &open_brace, &close_brace,
+                         &comma, &asterisk, &single_letter_command,
+                         &arobase, &form_feed, &menu_only_separator, &new_text);
+     EXTEND(SP,9);
      PUSHs(sv_newmortal());
      sv_setpv((SV*)ST(0), at_command);
      SvUTF8_on(ST(0));
@@ -122,20 +126,29 @@ xs_parse_texi_regex (text)
      sv_setpv((SV*)ST(1), open_brace);
      SvUTF8_on(ST(1));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(2), asterisk);
+     sv_setpv((SV*)ST(2), close_brace);
      SvUTF8_on(ST(2));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(3), single_letter_command);
+     sv_setpv((SV*)ST(3), comma);
      SvUTF8_on(ST(3));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(4), separator_match);
+     sv_setpv((SV*)ST(4), asterisk);
      SvUTF8_on(ST(4));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(5), menu_separator);
+     sv_setpv((SV*)ST(5), single_letter_command);
      SvUTF8_on(ST(5));
      PUSHs(sv_newmortal());
-     sv_setpv((SV*)ST(6), new_text);
+     sv_setpv((SV*)ST(6), arobase);
      SvUTF8_on(ST(6));
+     PUSHs(sv_newmortal());
+     sv_setpv((SV*)ST(7), form_feed);
+     SvUTF8_on(ST(7));
+     PUSHs(sv_newmortal());
+     sv_setpv((SV*)ST(8), menu_only_separator);
+     SvUTF8_on(ST(8));
+     PUSHs(sv_newmortal());
+     sv_setpv((SV*)ST(9), new_text);
+     SvUTF8_on(ST(9));
 
 SV *
 xs_default_format_protect_text (self, text_in)

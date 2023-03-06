@@ -281,15 +281,17 @@ xs_entity_text (char *text)
   return new;
 }
 
-/* Return list ($at_command, $open_brace, $asterisk, $single_letter_command,
-       $separator_match) */
+/* Return list ($at_command, $open_brace, ....) */
 void xs_parse_texi_regex (SV *text_in,
                           char **at_command,
                           char **open_brace,
+                          char **close_brace,
+                          char **comma,
                           char **asterisk,
                           char **single_letter_command,
-                          char **separator_match,
-                          char **menu_separator,
+                          char **arobase,
+                          char **form_feed,
+                          char **menu_only_separator,
                           char **new_text)
 {
   char *text;
@@ -301,8 +303,9 @@ void xs_parse_texi_regex (SV *text_in,
     sv_utf8_upgrade (text_in);
   text = SvPV_nolen (text_in);
 
-  *at_command = *open_brace = *asterisk = *single_letter_command
-          = *separator_match = *menu_separator = *new_text = 0;
+  *at_command = *open_brace = *close_brace = *comma = *asterisk
+     = *single_letter_command = *arobase = *form_feed
+          = *menu_only_separator = *new_text = 0;
 
   if (*text == '@' && isalnum(text[1]))
     {
@@ -324,9 +327,16 @@ void xs_parse_texi_regex (SV *text_in,
       if (*text == '{')
         {
           *open_brace = "{";
-          *separator_match = "{";
+        }
+      else if (*text == '}')
+        {
+          *close_brace = "}";
         }
 
+      else if (*text == ',')
+        {
+          *comma = ",";
+        }
       else if (*text == '@'
                  && text[1] && strchr ("([\"'~@&}{,.!?"
                                        " \t\n"
@@ -338,25 +348,21 @@ void xs_parse_texi_regex (SV *text_in,
           a[0] = text[1];
           a[1] = '\0';
         }
-
-      else if (strchr ("{}@,\f", *text))
-        {
-          static char a[2];
-          *separator_match = a;
-          if (*text == ',')
-            *menu_separator = a;
-          a[0] = *text;
-          a[1] = '\0';
-        }
-
       else if (strchr (":\t.", *text))
         {
           static char a[2];
-          *menu_separator = a;
+          *menu_only_separator = a;
           a[0] = *text;
           a[1] = '\0';
         }
-
+      else if (*text == '\f')
+        {
+          *form_feed = "\f";
+        }
+      else if (*text == '@')
+        {
+          *arobase = "@";
+        }
       else
         {
           char *p;

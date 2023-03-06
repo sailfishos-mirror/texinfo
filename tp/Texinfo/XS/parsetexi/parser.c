@@ -1618,7 +1618,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* There are cases when we need more input, but we don't want to
      get it in the top-level loop in parse_texi - this is mostly
      (always?) when we don't want to start a new, empty line, and
-     need to get more from the current, incomplete line of input. */
+     need to get more from the current, incomplete line of input.
+     Also, this ensures that the line cannot be empty in parsing below
+   */
   while (*line == '\0')
     {
       static char *allocated_text;
@@ -1949,7 +1951,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     /* special case for accent commands, use following character except @
      * as argument */
       else if ((command_flags(current) & CF_accent)
-               && *line != '\0' && *line != '@')
+               && *line != '@')
         {
           ELEMENT *e, *e2;
           debug ("ACCENT following_arg");
@@ -2219,30 +2221,65 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                command_name (from_alias));
         }
     }
-  /* "Separator" character */
-  else if (*line != '\0' && strchr ("{}@,\f", *line))
+  /* "Separator" characters */
+  else if (*line == '{')
     {
       char separator = *line++;
-      debug ("SEPARATOR: %c", separator);
-      if (separator == '@')
-        line_error ("unexpected @");
-      else
-        current = handle_separator (current, separator, &line);
+      current = handle_open_brace (current, &line);
     }
-  else if (*line != '\0' && strchr (":\t.", *line))
+  else if (*line == '}')
     {
-      /* merge menu separator (other than comma, done with other separators) */
+      char separator = *line++;
+      current = handle_close_brace (current, &line);
+    }
+  else if (*line == ',')
+    {
+      char separator = *line++;
+      /* comma as a command argument separator */
+      if (counter_value (&count_remaining_args, current->parent) > 0)
+        current = handle_comma (current, &line);
+      else if (current->type == ET_line_arg && current->parent->cmd == CM_node)
+        line_warn ("superfluous arguments for node");
+      else
+        current = merge_text (current, ",", 0);
+    }
+  else if (strchr (":\t.", *line))
+    {
+      /* merge menu separator (other than comma) */
       char separator = *line++;
       char t[2];
       t[0] = separator;
       t[1] = '\0';
       current = merge_text (current, t, 0);
     }
+  else if (*line == '@')
+    {
+      char separator = *line++;
+      line_error ("unexpected @");
+    }
+  else if (*line == '\f')
+    {
+      char separator = *line++;
+      if (current->type == ET_paragraph)
+        {
+          ELEMENT *e;
+
+          /* A form feed stops and restarts a paragraph. */
+          current = end_paragraph (current, 0, 0);
+          e = new_element (ET_empty_line);
+          text_append_n (&e->text, "\f", 1);
+          add_to_element_contents (current, e);
+          e = new_element (ET_empty_line);
+          add_to_element_contents (current, e);
+        }
+      else
+       current = merge_text (current, "\f", 0);
+    }
   /* "Misc text except end of line." */
-  else if (*line && *line != '\n')
+  else if (*line != '\n')
     {
       size_t len;
-      
+
       /* Output until next command, separator or newline. */
       {
         char saved; /* TODO: Have a length argument to merge_text? */
@@ -2253,8 +2290,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         line += len;
         *line = saved;
       }
-
-      goto funexit;
     }
   else /*  End of line */
     {

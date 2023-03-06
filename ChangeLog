@@ -1,5 +1,16 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi_regex)
+	(_process_remaining_on_line), tp/Texinfo/XS/MiscXS.xs
+	(xs_parse_texi_regex), tp/Texinfo/XS/misc.c (xs_parse_texi_regex),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_separator): handle
+	separately the different separators (except for menu only separators)
+	instead of grouping them, directly in process_remaining_on_line.
+	Remove the handle_separator function.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references_in_array)
 	(_substitute_references): copy info keys, fix _substitute_references
 	calls in which new and current were swapped, add more checks,
