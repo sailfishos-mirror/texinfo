@@ -1,5 +1,12 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_handle_open_brace, _handle_close_brace, _handle_comma):
+	add _handle_open_brace, _handle_close_brace, _handle_comma from
+	_process_remaining_on_line code, as in the XS parser.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi_regex)
 	(_process_remaining_on_line), tp/Texinfo/XS/MiscXS.xs
 	(xs_parse_texi_regex), tp/Texinfo/XS/misc.c (xs_parse_texi_regex),
