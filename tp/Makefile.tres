@@ -417,6 +417,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/ampchar.pl \
   t/results/def/code_in_def.pl \
   t/results/def/def_defx_mismatch.pl \
+  t/results/def/def_groupings_args.pl \
   t/results/def/defblock_no_defline.pl \
   t/results/def/defline_no_params.pl \
   t/results/def/defx_after_comment.pl \

@@ -1,3 +1,12 @@
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_def): set parent for the
+	definition args for the argument content gathered when there
+	is no args to finish the item before.
+
+	* tp/Makefile.tres, tp/t/19def.t: add def_groupings_args to
+	test grouping of def args more.
+
 2023-03-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

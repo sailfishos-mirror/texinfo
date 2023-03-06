@@ -377,6 +377,16 @@ T
 
 @anchor{myanchor}
 '],
+['def_groupings_args',
+'@deffn a b@code{aa}c
+@end deffn
+
+@deffn a@samp{g1}
+@end deffn
+
+@deffn @var{var}c {br @samp{s}} c@code{arg})
+@end deffn
+']
 );
 
 my @test_info = (
