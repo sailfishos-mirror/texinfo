@@ -75,7 +75,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
       switch (a->info[i].type)
         {
         case extra_string:
-        case extra_index_entry:
           free (a->info[i].value);
           break;
         case extra_element_oot:
@@ -102,18 +101,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
               }
             destroy_element (array);
             break;
-          }
-        case extra_contents_array:
-          {
-            int j;
-            ELEMENT *array = a->info[i].value;
-            for (j = 0 ; j < array->contents.number; j++)
-              {
-                if (array->contents.list[j])
-                  destroy_element (array->contents.list[j]);
-              }
-            destroy_element (array);
-          break;
           }
         case extra_misc_args:
           destroy_element_and_children (a->info[i].value);

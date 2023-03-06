@@ -54,7 +54,9 @@ add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 }
 
 /* Add an extra key that is a reference to another element that is
-   out-of-tree, i.e., not referenced anywhere in the tree. */
+   out-of-tree, i.e., not referenced anywhere in the tree.
+   Unused in 2023.
+*/
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
@@ -82,13 +84,6 @@ add_extra_contents_oot (ELEMENT *e, char *key, ELEMENT *value)
   add_associated_info_key (e->extra_info, key, value, extra_contents_oot);
 }
 
-/* An array of content arrays. */
-void
-add_extra_contents_array (ELEMENT *e, char *key, ELEMENT *value)
-{
-  add_associated_info_key (e->extra_info, key, value, extra_contents_array);
-}
-
 /* Add an extra key that is a reference to the text field of another
    element. */
 void
@@ -96,16 +91,6 @@ add_extra_text (ELEMENT *e, char *key, ELEMENT *value)
 {
   add_associated_info_key (e->extra_info, key, value, extra_text);
 }
-
-#if 0
-/* Function not used */
-void
-add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_REF *value)
-{
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value,
-                           extra_index_entry);
-}
-#endif
 
 void
 add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)

@@ -1,5 +1,15 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (store_additional_info),
+	tp/Texinfo/XS/parsetexi/extra.c (add_extra_contents_array)
+	(add_extra_index_entry), tp/Texinfo/XS/parsetexi/tree.c
+	(destroy_associated_info), tp/Texinfo/XS/parsetexi/tree_types.h:
+	remove extra_contents_array and extra_index_entry extra types and
+	associated functions, add_extra_contents_array and
+	add_extra_index_entry.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
 	(_handle_open_brace, _handle_close_brace, _handle_comma):
 	add _handle_open_brace, _handle_close_brace, _handle_comma from

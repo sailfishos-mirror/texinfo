@@ -226,7 +226,6 @@ void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents_oot (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_contents_array (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value);

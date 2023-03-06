@@ -343,28 +343,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                 STORE(build_perl_array (&f->contents));
               break;
               }
-            case extra_contents_array:
-              {
-              /* Like extra_contents, but this time output an array
-                 of arrays (instead of an array). */
-              int j;
-              AV *av;
-              av = newAV ();
-              STORE(newRV_inc ((SV *)av));
-              for (j = 0; j < f->contents.number; j++)
-                {
-                  SV *array;
-                  ELEMENT *g;
-
-                  g = f->contents.list[j];
-                  if (g)
-                    array = build_perl_array (&g->contents);
-                  else
-                    array = newSV (0); /* undef */
-                  av_push (av, array);
-                }
-              break;
-              }
             case extra_string:
               { /* A simple string. */
               char *value = (char *) f;
@@ -402,13 +380,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                 }
               break;
               }
-            case extra_index_entry:
-            /* A "index_entry" extra key on a command defining an index
-               entry.  Unlike the other keys, the value is not in the
-               main parse tree, but in the indices_information.  It would
-               be much nicer if we could get rid of the need for this key.
-               We set this afterwards in build_index_data. */
-              break;
             case extra_def_info:
               {
               DEF_INFO *d = (DEF_INFO *) f;
