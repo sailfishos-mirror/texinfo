@@ -1864,22 +1864,6 @@ sub _collect_commands_list_in_tree($$$)
 # modules but are not generally useful in converters
 # and therefore not public.
 
-# TODO
-# also recurse into
-# extra->misc_args
-#
-# extra that should point to other elements:
-# command_as_argument
-# associated_section part_associated_section associated_node associated_part
-# @prototypes @columnfractions titlepage quotation @author command
-# caption shortcaption and float.
-# sortas subentry seentry seealso.
-#
-# should point to other elements, or be copied.  And some should be recursed
-# into too.
-# extra->node_content
-# extra->node_manual
-
 sub _copy_tree($$$);
 sub _copy_tree($$$)
 {
@@ -1904,40 +1888,46 @@ sub _copy_tree($$$)
         print STDERR "Not an array [$command_or_type] $key ".ref($current->{$key})."\n";
       }
       $new->{$key} = [];
-      $reference_associations->{$current->{$key}} = $new->{$key};
       foreach my $child (@{$current->{$key}}) {
         push @{$new->{$key}}, _copy_tree($child, $new, $reference_associations);
       }
     }
   }
-  if ($current->{'extra'}) {
-    $new->{'extra'} = {};
-    foreach my $key (keys %{$current->{'extra'}}) {
+  foreach my $info_type ('info', 'extra') {
+    next if (!$current->{$info_type});
+    $new->{$info_type} = {};
+    foreach my $key (keys %{$current->{$info_type}}) {
+      # here need to copy hashes or arrays with out of tree elements
       if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-           and $key eq 'prototypes')
-          or ($current->{'type'} and $current->{'type'} eq 'menu_entry_node'
-              and ($key eq 'node_content' or $key eq 'node_manual'))) {
-        $new->{'extra'}->{$key} = [];
-        $reference_associations->{$current->{'extra'}->{$key}}
-          = $new->{'extra'}->{$key};
-        foreach my $child (@{$current->{'extra'}->{$key}}) {
-          push @{$new->{'extra'}->{$key}},
+           and $key eq 'prototypes') and $info_type eq 'extra') {
+        $new->{$info_type}->{$key} = [];
+        foreach my $child (@{$current->{$info_type}->{$key}}) {
+          push @{$new->{$info_type}->{$key}},
                   _copy_tree($child, $new, $reference_associations);
         }
-      } elsif (ref($current->{'extra'}->{$key}) eq '') {
-        $new->{'extra'}->{$key} = $current->{'extra'}->{$key};
+      } elsif (ref($current->{$info_type}->{$key}) eq '') {
+        $new->{$info_type}->{$key} = $current->{$info_type}->{$key};
+      } elsif ($info_type eq 'info'
+               and ref($current->{$info_type}->{$key}) eq 'HASH') {
+        $new->{$info_type}->{$key} = _copy_tree($current->{$info_type}->{$key},
+                                                undef, $reference_associations);
+        #print STDERR "ELEMENT: $info_type: $key\n";
       }
     }
   }
   return $new;
 }
 
-sub _substitute_references_in_array($$$);
-sub _substitute_references_in_array($$$)
+sub _substitute_references_in_array($$$;$);
+sub _substitute_references_in_array($$$;$)
 {
   my $array = shift;
   my $reference_associations = shift;
   my $context = shift;
+  my $level = shift;
+
+  $level = 0 if (!defined($level));
+  $level++;
 
   my $result = [];
   my $index = 0;
@@ -1949,10 +1939,10 @@ sub _substitute_references_in_array($$$)
     } elsif (ref($item) eq 'ARRAY') {
       push @$result,
         _substitute_references_in_array($item, $reference_associations,
-                                        "$context [$index]");
+                                        "$context [$index]", $level);
     } elsif (defined($item->{'text'})) {
       my $new_text = _copy_tree($item, undef, $reference_associations);
-      _substitute_references($item, $new_text, $reference_associations);
+      _substitute_references($item, $new_text, $reference_associations, $level);
       push @{$result}, $new_text;
     } else {
       print STDERR "Trouble with $context [$index] (".ref($item).")\n";
@@ -1963,78 +1953,128 @@ sub _substitute_references_in_array($$$)
   return $result;
 }
 
-sub _substitute_references($$$);
-sub _substitute_references($$$)
+sub _substitute_references($$$;$);
+sub _substitute_references($$$;$)
 {
   my $current = shift;
   my $new = shift;
   my $reference_associations = shift;
+  my $level = shift;
+
+  my $command_or_type = '';
+  if ($new->{'cmdname'}) {
+    $command_or_type = '@'.$new->{'cmdname'};
+  } elsif ($new->{'type'}) {
+    $command_or_type = $new->{'type'};
+  }
+
+  $level = 0 if (!defined($level));
+
+  $level++;
+  #print STDERR (' ' x $level)
+  #   .Texinfo::Common::debug_print_element($current).": $current\n";
 
   foreach my $key ('args', 'contents') {
     if ($new->{$key}) {
+      if (scalar(@{$current->{$key}}) != scalar(@{$new->{$key}})) {
+        print STDERR "For $key number of elements: "
+             .scalar(@{$current->{$key}}).' != '.scalar(@{$new->{$key}}).": "
+             .Texinfo::Common::debug_print_element($new)."\n";
+      }
       my $index = 0;
       foreach my $child (@{$new->{$key}}) {
-        _substitute_references($child, $current->{$key}->[$index],
-                               $reference_associations);
+        _substitute_references($current->{$key}->[$index], $child,
+                               $reference_associations, $level);
         $index++;
+      }
+    } elsif ($current->{$key}) {
+      print STDERR "Missing $key for "
+            .Texinfo::Common::debug_print_element($new)."\n";
+
+    }
+  }
+
+  # in general there is nothing to do in info elements, as they only
+  # hold text, but code is ready.
+  if ($current->{'info'}) {
+    #print STDERR (' ' x ($level+1)) . "Recurse in info ELEMENTS\n";
+    foreach my $key (keys(%{$current->{'info'}})) {
+      if (ref($current->{'info'}->{$key}) eq 'HASH') {
+        _substitute_references($current->{'info'}->{$key},
+                               $new->{'info'}->{$key},
+                               $reference_associations, $level+1);
       }
     }
   }
-  if ($current->{'extra'}) {
-    foreach my $key (keys %{$current->{'extra'}}) {
-      if (ref($current->{'extra'}->{$key})) {
-        my $command_or_type = '';
-        if ($new->{'cmdname'}) {
-          $command_or_type = '@'.$new->{'cmdname'};
-        } elsif ($new->{'type'}) {
-          $command_or_type = $new->{'type'};
-        }
-        
-        if ($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-            and $key eq 'prototypes') {
-          my $index = 0;
-          foreach my $child (@{$new->{'extra'}->{$key}}) {
-            _substitute_references($child, $current->{'extra'}->{$key}->[$index],
-                                  $reference_associations);
-            $index++;
-          }
-        } elsif ($reference_associations->{$current->{'extra'}->{$key}}) {
-          $new->{'extra'}->{$key}
-            = $reference_associations->{$current->{'extra'}->{$key}};
-          #print STDERR "Done [$command_or_type]: $key\n";
-        } else {
-          if (ref($current->{'extra'}->{$key}) eq 'ARRAY') {
-            #print STDERR "Array $command_or_type -> $key\n";
-            $new->{'extra'}->{$key} = _substitute_references_in_array(
-              $current->{'extra'}->{$key}, $reference_associations,
-              "[$command_or_type]{$key}");
+
+  foreach my $info_type ('info', 'extra') {
+    next if (!$current->{$info_type});
+    foreach my $key (keys %{$current->{$info_type}}) {
+      if (ref($current->{$info_type}->{$key}) ne '') {
+        #print STDERR (' ' x $level) . "K $info_type $key\n";
+
+        if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
+             and $key eq 'prototypes') and $info_type eq 'extra') {
+          if (! exists($new->{$info_type}->{$key})) {
+            print STDERR "Not substituting missing [$command_or_type]: $key\n";
           } else {
-            if ($key eq 'index_entry') {
-              $new->{'extra'}->{$key} = {};
-              foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
-                if (ref($current->{'extra'}->{$key}->{$type_key}) eq '') {
-                  $new->{'extra'}->{$key}->{$type_key}
-                    = $current->{'extra'}->{$key}->{$type_key};
-                } elsif ($reference_associations->{
-                                 $current->{'extra'}->{$key}->{$type_key}}) {
-                  $new->{'extra'}->{$key}->{$type_key}
-                    = $reference_associations->{
-                                      $current->{'extra'}->{$key}->{$type_key}};
-                } elsif (ref($current->{'extra'}->{$key}->{$type_key}) eq 'ARRAY') {
-                  $new->{'extra'}->{$key}->{$type_key}
-                    = _substitute_references_in_array(
-                      $current->{'extra'}->{$key}->{$type_key},
-                      $reference_associations,
-                      "[$command_or_type]{$key}{$type_key}");
-                } else {
-                  print STDERR "Not substituting [$command_or_type]{$key}: $type_key\n";
-                }
+            my $new_key = $new->{$info_type}->{$key};
+            if (scalar(@{$current->{$info_type}->{$key}}) != scalar(@$new_key)) {
+              print STDERR "For extra $key number of elements: "
+               .scalar(@{$current->{$info_type}->{$key}}).' != '.scalar(@$new_key).": "
+               .Texinfo::Common::debug_print_element($new)."\n";
+            }
+            #print STDERR "Recurse in $info_type $command_or_type $key\n";
+            my $index = 0;
+            foreach my $child (@$new_key) {
+              _substitute_references($current->{$info_type}->{$key}->[$index], $child,
+                                    $reference_associations, $level);
+              $index++;
+            }
+          }
+        } elsif ($reference_associations->{$current->{$info_type}->{$key}}) {
+          $new->{$info_type}->{$key}
+            = $reference_associations->{$current->{$info_type}->{$key}};
+          #print STDERR "Done $info_type [$command_or_type]: $key\n";
+        } else {
+          if (ref($current->{$info_type}->{$key}) eq 'ARRAY') {
+            #print STDERR "Array $command_or_type $info_type -> $key\n";
+            $new->{$info_type}->{$key} = _substitute_references_in_array(
+              $current->{$info_type}->{$key}, $reference_associations,
+              "${info_type}[$command_or_type]{$key}", $level);
+          } else {
+            # here are index_entry def_index_element def_index_ref_element
+            # def_parsed_hash
+            #print STDERR "HASH $info_type $key\n";
+            # FIXME for def_index_element def_index_ref_element maybe
+            # it would be better to call _copy_tree before
+            # _substitute_references, or even process in _copy_tree
+            $new->{$info_type}->{$key} = {};
+            foreach my $type_key (keys(%{$current->{$info_type}->{$key}})) {
+              if (ref($current->{$info_type}->{$key}->{$type_key}) eq '') {
+                $new->{$info_type}->{$key}->{$type_key}
+                  = $current->{$info_type}->{$key}->{$type_key};
+              } elsif ($reference_associations->{
+                               $current->{$info_type}->{$key}->{$type_key}}) {
+                $new->{$info_type}->{$key}->{$type_key}
+                  = $reference_associations->{
+                                    $current->{$info_type}->{$key}->{$type_key}};
+              } elsif (ref($current->{$info_type}->{$key}->{$type_key}) eq 'ARRAY') {
+                $new->{$info_type}->{$key}->{$type_key}
+                  = _substitute_references_in_array(
+                    $current->{$info_type}->{$key}->{$type_key},
+                    $reference_associations,
+                    "${info_type}[$command_or_type]{$key}{$type_key}", $level);
+              } else {
+                print STDERR "Unexpected $info_type [$command_or_type]{$key}: $type_key\n";
               }
-            } else {
-              print STDERR "Not substituting [$command_or_type]: $key ($current->{'extra'}->{$key})\n";
             }
           }
         }
+      } elsif (!defined($new->{$info_type}->{$key})
+               or ref($new->{$info_type}->{$key}) ne '') {
+        print STDERR "Missing $info_type $key: ".(ref($new->{$info_type}->{$key}))."; "
+              .Texinfo::Common::debug_print_element($new)."\n";
       }
     }
   }

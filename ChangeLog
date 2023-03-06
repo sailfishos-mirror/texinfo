@@ -1,5 +1,16 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references_in_array)
+	(_substitute_references): copy info keys, fix _substitute_references
+	calls in which new and current were swapped, add more checks,
+	enable extra key hash handling setup for index_entry for all the
+	extra key hashes, add a level argument for nicer debug messages.
+
+	* tp/t/test_tree_copy.t: test copy with Texinfo manual and
+	tests/converage/formatting.texi.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_def): set parent for the
 	definition args for the argument content gathered when there
 	is no args to finish the item before.
