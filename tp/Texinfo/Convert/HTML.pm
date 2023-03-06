@@ -5458,29 +5458,6 @@ foreach my $command(keys(%ref_commands)) {
   $default_commands_conversion{$command} = \&_convert_xref_commands;
 }
 
-# note that $cmdname is always cindex, in particular to make
-# customization possible, the actual @-command could be any index entry
-# @-command.
-sub _convert_index_command($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-
-  my $index_id = $self->command_id($command);
-  if (defined($index_id) and $index_id ne ''
-      and !$self->in_multi_expanded()
-      and !$self->in_string()) {
-    my $result = &{$self->formatting_function('format_separate_anchor')}($self,
-                                                   $index_id, 'index-entry-id');
-    $result .= "\n" unless ($self->in_preformatted());
-    return $result;
-  }
-  return '';
-}
-$default_commands_conversion{'cindex'} = \&_convert_index_command;
-
 sub _convert_printindex_command($$$$)
 {
   my $self = shift;
@@ -6256,6 +6233,29 @@ sub _convert_bracketed_type($$$$) {
 }
 
 $default_types_conversion{'bracketed'} = \&_convert_bracketed_type;
+
+# use the type and not the index commands names, as they are diverse and
+# can be dynamically added, so it is difficult to use as selector for output
+# formatting.  The command name can be obtained here as $element->{'cmdname'}.
+sub _convert_index_entry_command_type($$$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+  my $content = shift;
+
+  my $index_id = $self->command_id($element);
+  if (defined($index_id) and $index_id ne ''
+      and !$self->in_multi_expanded()
+      and !$self->in_string()) {
+    my $result = &{$self->formatting_function('format_separate_anchor')}($self,
+                                                   $index_id, 'index-entry-id');
+    $result .= "\n" unless ($self->in_preformatted());
+    return $result;
+  }
+  return '';
+}
+$default_types_conversion{'index_entry_command'} = \&_convert_index_entry_command_type;
 
 sub _convert_definfoenclose_type($$$$) {
   my $self = shift;
@@ -11479,14 +11479,12 @@ sub _convert($$;$)
   # better to consider them as a def_line type, as the whole point of the
   # def_line type is to handle the same the def*x and def* line formatting.
   if ($element->{'cmdname'}
-      and !($element->{'type'} and $element->{'type'} eq 'def_line'
-            or $element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
+      and !(($element->{'type'} and $element->{'type'} eq 'def_line')
+             or ($element->{'type'}
+                 and $element->{'type'} eq 'definfoenclose_command')
+             or ($element->{'type'}
+                 and $element->{'type'} eq 'index_entry_command'))) {
     my $command_name = $element->{'cmdname'};
-    # use the same command name for all the index entry commands
-    if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
-      and $element->{'cmdname'} and $element->{'cmdname'} =~ /index$/) {
-      $command_name = 'cindex';
-    }
     if ($root_commands{$command_name}) {
       $self->{'current_root_command'} = $element;
     }

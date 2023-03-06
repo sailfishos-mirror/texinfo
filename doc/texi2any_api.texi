@@ -2091,6 +2091,10 @@ conversion is usually done after formatting the contents of the element,
 but it may sometime be necessary to have some code run when
 the element is first encountered.
 
+For @@-commands with both a command name and a type, the type is used
+as selector for the formating function for @code{def_line},
+@code{definfoenclose_command} and @code{index_entry_command} types.
+
 
 @node Command Tree Element Opening Functions
 @subsection Command Tree Element Opening Functions
