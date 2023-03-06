@@ -300,6 +300,19 @@ enter_index_entry (enum command_id index_type_cmd,
       free (ignored_chars.text);
     }
 
+  /* index_entry is an array with two elements.  Use an element with extra_misc_args
+     to pass that information as an array */
+  {
+    ELEMENT *index_entry = new_element (ET_NONE);
+    ELEMENT *e = new_element (ET_NONE);
+    text_append (&e->text, idx->name);
+    add_to_element_contents (index_entry, e);
+    e = new_element (ET_NONE);
+    text_printf (&e->text, "%d", idx->index_number);
+    add_to_element_contents (index_entry, e);
+    add_extra_misc_args (element, "index_entry", index_entry);
+  }
+
   if (nesting_context.regions_stack.top > 0)
     {
       enum command_id region = top_command (&nesting_context.regions_stack);
