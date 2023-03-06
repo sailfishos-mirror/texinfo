@@ -400,12 +400,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'eeeindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'eee'
-            }
+            'index_entry' => [
+              'eee',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -513,12 +511,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'cccindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'ccc'
-            }
+            'index_entry' => [
+              'ccc',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -552,12 +548,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'bbbindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'bbb'
-            }
+            'index_entry' => [
+              'bbb',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -591,12 +585,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'aaaindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'aaa'
-            }
+            'index_entry' => [
+              'aaa',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -630,12 +622,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'dddindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'ddd'
-            }
+            'index_entry' => [
+              'ddd',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -669,12 +659,10 @@ $result_trees{'complex_recursive_synindex'} = {
           'cmdname' => 'eeeindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'eee'
-            }
+            'index_entry' => [
+              'eee',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -948,17 +936,11 @@ $result_trees{'complex_recursive_synindex'} = {
   'type' => 'document_root'
 };
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[12];
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[17]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[17];
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[18]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[18];
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[19]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[19];
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[20]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[20];
 $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[21]{'extra'}{'element_node'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2];
-$result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'complex_recursive_synindex'}{'contents'}[2]{'contents'}[21];
 
 $result_texis{'complex_recursive_synindex'} = '@node Top
 @node chap

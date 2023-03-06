@@ -255,12 +255,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'trucindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'truc'
-            }
+            'index_entry' => [
+              'truc',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -413,12 +411,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'codeidxindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'codeidx'
-            }
+            'index_entry' => [
+              'codeidx',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -457,12 +453,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -541,12 +535,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'ky'
-            }
+            'index_entry' => [
+              'ky',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -580,12 +572,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'pindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'pg'
-            }
+            'index_entry' => [
+              'pg',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -812,12 +802,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'defgindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'defg'
-            }
+            'index_entry' => [
+              'defg',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -856,12 +844,10 @@ $result_trees{'def_syn_indices'} = {
           'cmdname' => 'abcindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'abc'
-            }
+            'index_entry' => [
+              'abc',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1324,19 +1310,12 @@ $result_trees{'def_syn_indices'} = {
   'type' => 'document_root'
 };
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[7];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[9];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[13];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[14];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[24]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[24]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[24];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[26]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[26]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[26];
 
 $result_texis{'def_syn_indices'} = '@syncodeindex cp fn
 

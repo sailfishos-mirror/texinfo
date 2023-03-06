@@ -32,12 +32,10 @@ $result_trees{'vbar_in_index'} = {
           ],
           'cmdname' => 'findex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -70,12 +68,10 @@ $result_trees{'vbar_in_index'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -95,8 +91,6 @@ $result_trees{'vbar_in_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2];
 
 $result_texis{'vbar_in_index'} = '@findex A|B
 @cindex C|D

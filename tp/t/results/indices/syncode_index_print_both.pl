@@ -203,12 +203,10 @@ $result_trees{'syncode_index_print_both'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -242,12 +240,10 @@ $result_trees{'syncode_index_print_both'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -394,9 +390,7 @@ $result_trees{'syncode_index_print_both'} = {
   'type' => 'document_root'
 };
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'syncode_index_print_both'}{'contents'}[3];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'syncode_index_print_both'}{'contents'}[3];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2];
 
 $result_texis{'syncode_index_print_both'} = '@syncodeindex fn cp
 

@@ -150,12 +150,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              1
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -221,12 +219,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              2
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -292,12 +288,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              3
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -363,12 +357,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              4
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -439,12 +431,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 5,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              5
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -542,12 +532,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 6,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              6
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -614,12 +602,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 7,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              7
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -652,12 +638,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 8,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              8
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -723,12 +707,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 9,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              9
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -786,12 +768,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 10,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              10
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -824,12 +804,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 11,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              11
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1029,12 +1007,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 12,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              12
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1133,12 +1109,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 13,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              13
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1186,12 +1160,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 14,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              14
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1272,12 +1244,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 15,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              15
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1467,12 +1437,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 16,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              16
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1593,12 +1561,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 17,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              17
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1696,12 +1662,10 @@ $result_trees{'sorted_subentries'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 18,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              18
+            ],
             'subentry' => {
               'args' => [
                 {
@@ -1836,63 +1800,45 @@ $result_trees{'sorted_subentries'} = {
   'type' => 'document_root'
 };
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[1];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[2] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[3];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[4] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[5];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[6] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[7];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[8] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[7]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[10];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[11] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[10]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[12] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[13];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[14] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[13]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[15];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[16];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[17] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[18]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[18]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[18];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[19] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[18]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[20]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[20];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[3];
-$result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21];
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[22] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[23] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[24] = $result_trees{'sorted_subentries'}{'contents'}[4]{'contents'}[21]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[0];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[1] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[0]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[2] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[0]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[5] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[7] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[8] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[10] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[9]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[12] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[13] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[14];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[15] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[14]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[16] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[14]{'extra'}{'subentry'}{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[17]{'extra'}{'element_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
-$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[17];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[18] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[17]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[19] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[17]{'extra'}{'subentry'}{'extra'}{'subentry'};
 

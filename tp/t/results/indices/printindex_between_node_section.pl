@@ -92,12 +92,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -131,12 +129,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -170,12 +166,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -209,12 +203,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              4
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -322,12 +314,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 5,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              5
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -361,12 +351,10 @@ $result_trees{'printindex_between_node_section'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 6,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              6
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -501,17 +489,11 @@ $result_trees{'printindex_between_node_section'} = {
   'type' => 'document_root'
 };
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
-$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
-$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[2];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
-$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[3];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
-$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[4];
 $result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[3];
-$result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[3];
-$result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[2];
 
 $result_texis{'printindex_between_node_section'} = '@node Top
 @top top

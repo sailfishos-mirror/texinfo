@@ -1424,14 +1424,12 @@ sub set_global_document_command($$$$)
   return $element;
 }
 
-# TODO document
 sub lookup_index_entry($$)
 {
   my $index_entry_info = shift;
   my $indices_information = shift;
 
-  my $entry_index_name = $index_entry_info->{'index_name'};
-  my $entry_number = $index_entry_info->{'entry_number'};
+  my ($entry_index_name, $entry_number) = @{$index_entry_info};
 
   if ($indices_information->{$entry_index_name}
       and $indices_information->{$entry_index_name}->{'index_entries'}
@@ -2830,6 +2828,17 @@ file.  Otherwise, the file name in I<$file_path> is located in include
 directories also used to find texinfo files included in Texinfo documents.
 I<$file_path> should be a binary string.  C<undef> is returned if the file was
 not found, otherwise the file found is returned as a binary string.
+
+=item $index_entry = lookup_index_entry($index_entry_info, $indices_information)
+
+Returns an I<$index_entry> hash based on the I<$index_entry_info> and
+I<$indices_information>.  I<$index_entry_info> should be an array reference
+with an index name as first element and the index entry number in that index
+(1-based) as second element.  In general, the I<$index_entry_info> is an
+L<C<extra> I<index_entry>|Texinfo::Parser/index_entry> associated to an element.
+
+The I<$index_entry> hash is described in L<Texinfo::Parser/index_entries>.
+
 
 =item move_index_entries_after_items_in_tree($tree)
 X<C<move_index_entries_after_items_in_tree>>

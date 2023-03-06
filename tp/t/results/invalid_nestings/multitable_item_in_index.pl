@@ -69,12 +69,10 @@ $result_trees{'multitable_item_in_index'} = {
                   ],
                   'cmdname' => 'vindex',
                   'extra' => {
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 1,
-                      'in_code' => 1,
-                      'index_name' => 'vr'
-                    }
+                    'index_entry' => [
+                      'vr',
+                      1
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -158,7 +156,6 @@ $result_trees{'multitable_item_in_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0];
 

@@ -152,12 +152,10 @@ $result_trees{'preformatted'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 1,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              1
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -287,7 +285,6 @@ $result_trees{'preformatted'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'preformatted'} = '

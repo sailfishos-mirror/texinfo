@@ -826,12 +826,10 @@ $result_trees{'macro_in_index_commands'} = {
           'cmdname' => 'trucindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'truc'
-            }
+            'index_entry' => [
+              'truc',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -959,12 +957,10 @@ $result_trees{'macro_in_index_commands'} = {
           'cmdname' => 'codeidxindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'codeidx'
-            }
+            'index_entry' => [
+              'codeidx',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1030,12 +1026,10 @@ $result_trees{'macro_in_index_commands'} = {
           'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'ky'
-            }
+            'index_entry' => [
+              'ky',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1113,12 +1107,10 @@ $result_trees{'macro_in_index_commands'} = {
           'cmdname' => 'pindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'pg'
-            }
+            'index_entry' => [
+              'pg',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1307,13 +1299,9 @@ $result_trees{'macro_in_index_commands'} = {
   'type' => 'document_root'
 };
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[1];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[3];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[5];
 $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6];
 
 $result_texis{'macro_in_index_commands'} = '@macro cp
 cp

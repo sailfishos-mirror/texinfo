@@ -439,12 +439,10 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'phoo'
-            }
+            'index_entry' => [
+              'phoo',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -701,12 +699,10 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'phoo'
-            }
+            'index_entry' => [
+              'phoo',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1033,12 +1029,10 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'phoo'
-            }
+            'index_entry' => [
+              'phoo',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1284,11 +1278,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
   'type' => 'document_root'
 };
 $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[11];
 $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[20]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[20];
 $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[32]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[32]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[32];
 
 $result_texis{'macro_alias_definfoenclose_defindex'} = '@node Top
 @top top

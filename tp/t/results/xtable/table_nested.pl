@@ -263,12 +263,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 1,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              1
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -300,12 +298,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'itemx',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 2,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              2
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -371,12 +367,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 3,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              3
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -442,12 +436,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 4,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              4
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -857,12 +849,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 5,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              5
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -894,12 +884,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'itemx',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 6,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              6
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -965,12 +953,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 7,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              7
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -1036,12 +1022,10 @@ $result_trees{'table_nested'} = {
                           ],
                           'cmdname' => 'item',
                           'extra' => {
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 8,
-                              'in_code' => 1,
-                              'index_name' => 'vr'
-                            }
+                            'index_entry' => [
+                              'vr',
+                              8
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -1466,12 +1450,10 @@ $result_trees{'table_nested'} = {
                               ],
                               'cmdname' => 'item',
                               'extra' => {
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 9,
-                                  'in_code' => 1,
-                                  'index_name' => 'vr'
-                                }
+                                'index_entry' => [
+                                  'vr',
+                                  9
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -1503,12 +1485,10 @@ $result_trees{'table_nested'} = {
                               ],
                               'cmdname' => 'itemx',
                               'extra' => {
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 10,
-                                  'in_code' => 1,
-                                  'index_name' => 'vr'
-                                }
+                                'index_entry' => [
+                                  'vr',
+                                  10
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -1574,12 +1554,10 @@ $result_trees{'table_nested'} = {
                               ],
                               'cmdname' => 'item',
                               'extra' => {
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 11,
-                                  'in_code' => 1,
-                                  'index_name' => 'vr'
-                                }
+                                'index_entry' => [
+                                  'vr',
+                                  11
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -1645,12 +1623,10 @@ $result_trees{'table_nested'} = {
                               ],
                               'cmdname' => 'item',
                               'extra' => {
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 12,
-                                  'in_code' => 1,
-                                  'index_name' => 'vr'
-                                }
+                                'index_entry' => [
+                                  'vr',
+                                  12
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -2009,22 +1985,10 @@ $result_trees{'table_nested'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
 

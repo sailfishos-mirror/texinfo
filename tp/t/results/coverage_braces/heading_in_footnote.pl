@@ -75,12 +75,10 @@ $result_trees{'heading_in_footnote'} = {
                       ],
                       'cmdname' => 'cindex',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -133,7 +131,6 @@ $result_trees{'heading_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'heading_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'heading_in_footnote'} = 'T@footnote{
 AAA

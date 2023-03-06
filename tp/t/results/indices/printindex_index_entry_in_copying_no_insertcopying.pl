@@ -50,12 +50,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'cmdname' => 'findex',
                   'extra' => {
                     'element_region' => 'copying',
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 1,
-                      'in_code' => 1,
-                      'index_name' => 'fn'
-                    }
+                    'index_entry' => [
+                      'fn',
+                      1
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -136,12 +134,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'name' => {}
                         },
                         'element_region' => 'copying',
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        },
+                        'index_entry' => [
+                          'fn',
+                          2
+                        ],
                         'original_def_cmdname' => 'defun'
                       },
                       'source_info' => {
@@ -211,12 +207,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'name' => {}
                         },
                         'element_region' => 'copying',
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 3,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        },
+                        'index_entry' => [
+                          'fn',
+                          3
+                        ],
                         'original_def_cmdname' => 'defunx'
                       },
                       'info' => {
@@ -343,12 +337,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'cmdname' => 'item',
                               'extra' => {
                                 'element_region' => 'copying',
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 4,
-                                  'in_code' => 1,
-                                  'index_name' => 'fn'
-                                }
+                                'index_entry' => [
+                                  'fn',
+                                  4
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -381,12 +373,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'cmdname' => 'itemx',
                               'extra' => {
                                 'element_region' => 'copying',
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 5,
-                                  'in_code' => 1,
-                                  'index_name' => 'fn'
-                                }
+                                'index_entry' => [
+                                  'fn',
+                                  5
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -850,17 +840,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'printindex_index_entry_in_copying_no_insertcopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 

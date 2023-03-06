@@ -189,12 +189,10 @@ $result_trees{'backslash_in_arg'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -259,12 +257,10 @@ $result_trees{'backslash_in_arg'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -334,12 +330,10 @@ $result_trees{'backslash_in_arg'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -404,12 +398,10 @@ $result_trees{'backslash_in_arg'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              4
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -477,13 +469,9 @@ $result_trees{'backslash_in_arg'} = {
   'type' => 'document_root'
 };
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
-$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[3];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
-$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[4];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
-$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[5];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
-$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[6];
 
 $result_texis{'backslash_in_arg'} = '@node Top
 @node chap

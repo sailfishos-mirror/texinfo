@@ -216,41 +216,10 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_associated_element' => {
-                            'args' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'A'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'cmdname' => 'item',
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'source_info' => {
-                              'file_name' => 'index_entries_relate_to_item.texi',
-                              'line_nr' => 14,
-                              'macro' => ''
-                            }
-                          },
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -284,12 +253,10 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -323,12 +290,10 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 3,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          3
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -342,7 +307,35 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       },
                       'type' => 'index_entry_command'
                     },
-                    {},
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'A'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => 'index_entries_relate_to_item.texi',
+                        'line_nr' => 14,
+                        'macro' => ''
+                      }
+                    },
                     {
                       'args' => [
                         {
@@ -612,12 +605,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
   'type' => 'document_root'
 };
 $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1];
 $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3] = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_associated_element'};
 $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'index_entries_relate_to_item_transformation'} = '\\input texinfo @c -*-texinfo-*-

@@ -349,12 +349,10 @@ $result_trees{'comment_space_command_on_line'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -642,7 +640,6 @@ $result_trees{'comment_space_command_on_line'} = {
   'type' => 'document_root'
 };
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5];
 $result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'float_section'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4];
 
 $result_texis{'comment_space_command_on_line'} = '@settitle Settitle @ @c settittle

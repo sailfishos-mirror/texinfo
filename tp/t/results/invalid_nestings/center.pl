@@ -143,12 +143,10 @@ $result_trees{'center'} = {
                   ],
                   'cmdname' => 'cindex',
                   'extra' => {
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 1,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      1
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1308,7 +1306,6 @@ $result_trees{'center'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'center'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'center'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'contents'}[0]{'contents'}[0];

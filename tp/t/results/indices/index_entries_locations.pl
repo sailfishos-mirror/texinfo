@@ -125,12 +125,10 @@ $result_trees{'index_entries_locations'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -173,12 +171,10 @@ $result_trees{'index_entries_locations'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -231,12 +227,10 @@ $result_trees{'index_entries_locations'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -284,12 +278,10 @@ $result_trees{'index_entries_locations'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              4
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -376,13 +368,9 @@ $result_trees{'index_entries_locations'} = {
   'type' => 'document_root'
 };
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[6];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13];
 
 $result_texis{'index_entries_locations'} = '
 @node Top

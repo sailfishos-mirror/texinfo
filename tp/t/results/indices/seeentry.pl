@@ -174,12 +174,10 @@ $result_trees{'seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              1
+            ],
             'seeentry' => {}
           },
           'info' => {
@@ -236,12 +234,10 @@ $result_trees{'seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              2
+            ],
             'seealso' => {}
           },
           'info' => {
@@ -303,12 +299,10 @@ $result_trees{'seeentry'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            },
+            'index_entry' => [
+              'fn',
+              1
+            ],
             'seeentry' => {}
           },
           'info' => {
@@ -365,12 +359,10 @@ $result_trees{'seeentry'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            },
+            'index_entry' => [
+              'fn',
+              2
+            ],
             'seealso' => {}
           },
           'info' => {
@@ -475,16 +467,12 @@ $result_trees{'seeentry'} = {
   'type' => 'document_root'
 };
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[1];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[4];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'seeentry'} = '@node Top

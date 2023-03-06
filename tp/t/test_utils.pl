@@ -412,13 +412,6 @@ sub _duplicate_element_keys($$)
     if (exists($current->{'extra'}->{'type'})) {
       duplicate_key_array($current->{'extra'}->{'type'}, 'content');
     }
-    # only need to duplicate for @def* index entries
-    # in that case they are not duplicated in the XS parser output
-    if (exists($current->{'extra'}->{'index_entry'})
-        and exists($current->{'extra'}->{'def_command'})) {
-      duplicate_key_array($current->{'extra'}->{'index_entry'},
-        'content_normalized');
-    }
     if (exists($current->{'extra'}->{'prototypes'})
         and (defined($current->{'extra'}->{'prototypes'}))) {
       foreach my $prototype (@{$current->{'extra'}->{'prototypes'}}) {

@@ -75,12 +75,10 @@ $result_trees{'unknown_then_known_index_entry'} = {
           ],
           'cmdname' => 'someindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'some'
-            }
+            'index_entry' => [
+              'some',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -100,7 +98,6 @@ $result_trees{'unknown_then_known_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[2];
 
 $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.
 @defindex some

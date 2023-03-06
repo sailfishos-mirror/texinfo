@@ -302,12 +302,10 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -374,12 +372,10 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -511,9 +507,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2];
-$result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1];
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2];
-$result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7];
 
 $result_texis{'index_entry_in_footnote_separate'} = '@footnotestyle separate
 @node Top

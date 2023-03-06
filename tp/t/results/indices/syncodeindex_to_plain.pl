@@ -133,12 +133,10 @@ $result_trees{'syncodeindex_to_plain'} = {
           'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'ky'
-            }
+            'index_entry' => [
+              'ky',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -172,12 +170,10 @@ $result_trees{'syncodeindex_to_plain'} = {
           'cmdname' => 'vindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'vr'
-            }
+            'index_entry' => [
+              'vr',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -211,12 +207,10 @@ $result_trees{'syncodeindex_to_plain'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -346,11 +340,8 @@ $result_trees{'syncodeindex_to_plain'} = {
   'type' => 'document_root'
 };
 $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2];
-$result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[1];
 $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2];
-$result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[2];
 $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2];
-$result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncodeindex_to_plain'}{'contents'}[2]{'contents'}[3];
 
 $result_texis{'syncodeindex_to_plain'} = '@syncodeindex ky cp
 

@@ -178,12 +178,10 @@ $result_trees{'transparent_sort_chars'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              1
+            ],
             'index_ignore_chars' => '-'
           },
           'info' => {
@@ -218,12 +216,10 @@ $result_trees{'transparent_sort_chars'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              2
+            ],
             'index_ignore_chars' => '-'
           },
           'info' => {
@@ -258,12 +254,10 @@ $result_trees{'transparent_sort_chars'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              3
+            ],
             'index_ignore_chars' => '-'
           },
           'info' => {
@@ -337,11 +331,8 @@ $result_trees{'transparent_sort_chars'} = {
   'type' => 'document_root'
 };
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3];
 
 $result_texis{'transparent_sort_chars'} = '@set txiindexhyphenignore
 

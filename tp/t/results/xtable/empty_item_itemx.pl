@@ -81,12 +81,10 @@ $result_trees{'empty_item_itemx'} = {
                       ],
                       'cmdname' => 'item',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -140,12 +138,10 @@ $result_trees{'empty_item_itemx'} = {
                       ],
                       'cmdname' => 'itemx',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -219,12 +215,10 @@ $result_trees{'empty_item_itemx'} = {
                       ],
                       'cmdname' => 'item',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 3,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          3
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -296,9 +290,6 @@ $result_trees{'empty_item_itemx'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
 $result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'empty_item_itemx'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_item_itemx'} = '@vtable @asis

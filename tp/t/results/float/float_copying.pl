@@ -159,12 +159,10 @@ $result_trees{'float_copying'} = {
                                           'cmdname' => 'cindex',
                                           'extra' => {
                                             'element_region' => 'copying',
-                                            'index_entry' => {
-                                              'entry_element' => {},
-                                              'entry_number' => 1,
-                                              'in_code' => 0,
-                                              'index_name' => 'cp'
-                                            }
+                                            'index_entry' => [
+                                              'cp',
+                                              1
+                                            ]
                                           },
                                           'info' => {
                                             'spaces_before_argument' => {
@@ -198,12 +196,10 @@ $result_trees{'float_copying'} = {
                                           'cmdname' => 'findex',
                                           'extra' => {
                                             'element_region' => 'copying',
-                                            'index_entry' => {
-                                              'entry_element' => {},
-                                              'entry_number' => 1,
-                                              'in_code' => 1,
-                                              'index_name' => 'fn'
-                                            }
+                                            'index_entry' => [
+                                              'fn',
+                                              1
+                                            ]
                                           },
                                           'info' => {
                                             'spaces_before_argument' => {
@@ -341,12 +337,10 @@ $result_trees{'float_copying'} = {
                               'cmdname' => 'cindex',
                               'extra' => {
                                 'element_region' => 'copying',
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 2,
-                                  'in_code' => 0,
-                                  'index_name' => 'cp'
-                                }
+                                'index_entry' => [
+                                  'cp',
+                                  2
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -380,12 +374,10 @@ $result_trees{'float_copying'} = {
                               'cmdname' => 'findex',
                               'extra' => {
                                 'element_region' => 'copying',
-                                'index_entry' => {
-                                  'entry_element' => {},
-                                  'entry_number' => 2,
-                                  'in_code' => 1,
-                                  'index_name' => 'fn'
-                                }
+                                'index_entry' => [
+                                  'fn',
+                                  2
+                                ]
                               },
                               'info' => {
                                 'spaces_before_argument' => {
@@ -923,11 +915,7 @@ $result_trees{'float_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];

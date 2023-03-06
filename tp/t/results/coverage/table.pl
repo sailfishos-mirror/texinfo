@@ -240,12 +240,10 @@ $result_trees{'table'} = {
                   ],
                   'cmdname' => 'cindex',
                   'extra' => {
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 1,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      1
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -290,12 +288,10 @@ $result_trees{'table'} = {
                       ],
                       'cmdname' => 'item',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -342,12 +338,10 @@ $result_trees{'table'} = {
                       ],
                       'cmdname' => 'kindex',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 1,
-                          'index_name' => 'ky'
-                        }
+                        'index_entry' => [
+                          'ky',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -389,12 +383,10 @@ $result_trees{'table'} = {
                       ],
                       'cmdname' => 'itemx',
                       'extra' => {
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -593,10 +585,6 @@ $result_trees{'table'} = {
   'type' => 'document_root'
 };
 $result_trees{'table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1];
-$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2];
-$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3];
 $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
 

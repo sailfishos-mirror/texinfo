@@ -242,12 +242,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -286,12 +284,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'cmdname' => 'vindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'vr'
-            }
+            'index_entry' => [
+              'vr',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -330,12 +326,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -453,12 +447,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'cmdname' => 'cdiindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cdi'
-            }
+            'index_entry' => [
+              'cdi',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -576,12 +568,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'cmdname' => 'ddiindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'ddi'
-            }
+            'index_entry' => [
+              'ddi',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -651,15 +641,10 @@ $result_trees{'printindex_merged_indices_code_style'} = {
   'type' => 'document_root'
 };
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[3];
-$result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[5];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[3];
-$result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[7];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[3];
-$result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[9];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[3];
-$result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[15];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[21]{'extra'}{'element_node'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[3];
-$result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[4]{'contents'}[21];
 
 $result_texis{'printindex_merged_indices_code_style'} = '@node Top
 @top top

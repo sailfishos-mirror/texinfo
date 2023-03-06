@@ -173,12 +173,10 @@ $result_trees{'subentry_and_sortas'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              1
+            ],
             'sortas' => 'A---S',
             'subentry' => {
               'args' => [
@@ -295,12 +293,10 @@ $result_trees{'subentry_and_sortas'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            },
+            'index_entry' => [
+              'fn',
+              1
+            ],
             'sortas' => 'X---S',
             'subentry' => {
               'args' => [
@@ -461,10 +457,8 @@ $result_trees{'subentry_and_sortas'} = {
   'type' => 'document_root'
 };
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
-$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas'}{'contents'}[3];
-$result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4];
 $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[5] = $result_trees{'subentry_and_sortas'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
 
 $result_texis{'subentry_and_sortas'} = '@node Top

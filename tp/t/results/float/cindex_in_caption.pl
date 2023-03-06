@@ -181,12 +181,10 @@ $result_trees{'cindex_in_caption'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -332,7 +330,6 @@ $result_trees{'cindex_in_caption'} = {
   'type' => 'document_root'
 };
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3];
 $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 

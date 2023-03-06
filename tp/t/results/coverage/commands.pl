@@ -317,12 +317,10 @@ $result_trees{'commands'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -394,7 +392,6 @@ $result_trees{'commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands'}{'contents'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'commands'}{'contents'}[0]{'contents'}[4];
 
 $result_texis{'commands'} = '@@ @TeX{} @
 @"e @^{@dotless{i}} @~{a} @ringaccent a

@@ -168,12 +168,10 @@ $result_trees{'double_syncodeindex'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -207,12 +205,10 @@ $result_trees{'double_syncodeindex'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -319,9 +315,7 @@ $result_trees{'double_syncodeindex'} = {
   'type' => 'document_root'
 };
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
-$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[1];
 $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'double_syncodeindex'}{'contents'}[2];
-$result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'double_syncodeindex'}{'contents'}[2]{'contents'}[2];
 
 $result_texis{'double_syncodeindex'} = '@syncodeindex cp fn
 @syncodeindex cp fn

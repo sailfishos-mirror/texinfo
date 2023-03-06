@@ -180,12 +180,10 @@ $result_trees{'explicit_sort_key'} = {
           'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'SK'
-            },
+            'index_entry' => [
+              'SK',
+              1
+            ],
             'sortas' => 'A'
           },
           'info' => {
@@ -242,12 +240,10 @@ $result_trees{'explicit_sort_key'} = {
           'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'SK'
-            },
+            'index_entry' => [
+              'SK',
+              2
+            ],
             'sortas' => 'B'
           },
           'info' => {
@@ -304,12 +300,10 @@ $result_trees{'explicit_sort_key'} = {
           'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'SK'
-            },
+            'index_entry' => [
+              'SK',
+              3
+            ],
             'sortas' => '0'
           },
           'info' => {
@@ -377,12 +371,10 @@ $result_trees{'explicit_sort_key'} = {
           'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'SK'
-            }
+            'index_entry' => [
+              'SK',
+              4
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -619,13 +611,9 @@ $result_trees{'explicit_sort_key'} = {
   'type' => 'document_root'
 };
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6];
 
 $result_texis{'explicit_sort_key'} = '@node Top
 @top

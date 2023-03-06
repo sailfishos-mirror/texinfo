@@ -101,12 +101,10 @@ $result_trees{'heading_in_copying'} = {
               'cmdname' => 'cindex',
               'extra' => {
                 'element_region' => 'copying',
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 1,
-                  'in_code' => 0,
-                  'index_name' => 'cp'
-                }
+                'index_entry' => [
+                  'cp',
+                  1
+                ]
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -314,7 +312,6 @@ $result_trees{'heading_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'heading_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'heading_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'heading_in_copying'} = '@copying
 

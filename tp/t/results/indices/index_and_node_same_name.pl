@@ -106,12 +106,10 @@ $result_trees{'index_and_node_same_name'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -265,7 +263,6 @@ $result_trees{'index_and_node_same_name'} = {
   'type' => 'document_root'
 };
 $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[1];
-$result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[3];
 
 $result_texis{'index_and_node_same_name'} = '@node Top
 @top Test index entry with node name clash

@@ -3204,7 +3204,7 @@ sub _enter_index_entry($$$$)
 
   push @{$index->{'index_entries'}}, $index_entry;
 
-  $element->{'extra'}->{'index_entry'} = $index_entry;
+  $element->{'extra'}->{'index_entry'} = [$index_name, $number];
 }
 
 sub _in_include($)
@@ -8487,9 +8487,19 @@ associated index entry and for @anchor.
 
 =item index_entry
 
-The index entry information (described in L</index_entries>
-in details) is associated to @-commands that have an associated
-index entry.
+The index entry information is associated to @-commands that have an associated
+index entry.  The associated information should not be directly accessed,
+instead L<C<Texinfo::Common::lookup_index_entry>|Texinfo::Common/$index_entry = lookup_index_entry($index_entry_info, $indices_information)>
+should be called on the C<extra> I<index_entry> value.  The
+I<$indices_information> is the information on a Texinfo manual indices obtained
+from
+L<C<Texinfo::Parser::indices_information>|Texinfo::Parser/indices_information>.
+The index entry information hash returned by
+C<Texinfo::Common::lookup_index_entry> is described in L</index_entries>.
+
+Currently, the I<index_entry> value is an array reference
+with an index name as first element and the index entry number in that index
+(1-based) as second element.
 
 =item index_ignore_chars
 

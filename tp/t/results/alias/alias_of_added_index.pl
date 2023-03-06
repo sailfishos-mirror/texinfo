@@ -167,12 +167,10 @@ $result_trees{'alias_of_added_index'} = {
           'cmdname' => 'sliindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'sli'
-            }
+            'index_entry' => [
+              'sli',
+              1
+            ]
           },
           'info' => {
             'alias_of' => 'new',
@@ -313,7 +311,6 @@ $result_trees{'alias_of_added_index'} = {
   'type' => 'document_root'
 };
 $result_trees{'alias_of_added_index'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'alias_of_added_index'}{'contents'}[1];
-$result_trees{'alias_of_added_index'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'alias_of_added_index'}{'contents'}[2]{'contents'}[1];
 
 $result_texis{'alias_of_added_index'} = '@defindex sli
 

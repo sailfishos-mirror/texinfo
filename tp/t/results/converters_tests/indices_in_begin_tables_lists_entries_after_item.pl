@@ -224,12 +224,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 1,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      1
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -371,12 +369,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 2,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      2
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -442,12 +438,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 3,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      3
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -604,12 +598,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 4,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      4
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -837,12 +829,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 5,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      5
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -989,12 +979,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 6,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      6
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1110,12 +1098,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 7,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      7
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1266,12 +1252,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 8,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      8
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1397,12 +1381,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 9,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      9
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1446,12 +1428,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 10,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      10
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1485,12 +1465,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 11,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      11
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -1629,12 +1607,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -1768,12 +1744,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -1821,12 +1795,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 3,
-                          'in_code' => 1,
-                          'index_name' => 'vr'
-                        }
+                        'index_entry' => [
+                          'vr',
+                          3
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -1960,12 +1932,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 1,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        }
+                        'index_entry' => [
+                          'fn',
+                          1
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2000,12 +1970,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'cmdname' => 'cindex',
                           'extra' => {
                             'element_node' => {},
-                            'index_entry' => {
-                              'entry_element' => {},
-                              'entry_number' => 12,
-                              'in_code' => 0,
-                              'index_name' => 'cp'
-                            }
+                            'index_entry' => [
+                              'cp',
+                              12
+                            ]
                           },
                           'info' => {
                             'spaces_before_argument' => {
@@ -2062,12 +2030,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 2,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        }
+                        'index_entry' => [
+                          'fn',
+                          2
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2124,12 +2090,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 3,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        }
+                        'index_entry' => [
+                          'fn',
+                          3
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2187,12 +2151,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 4,
-                          'in_code' => 1,
-                          'index_name' => 'fn'
-                        }
+                        'index_entry' => [
+                          'fn',
+                          4
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2332,12 +2294,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 13,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          13
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2509,12 +2469,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 14,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      14
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -2680,12 +2638,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 15,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          15
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -2857,12 +2813,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 16,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      16
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -3031,12 +2985,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 17,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      17
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -3196,12 +3148,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
-                    'index_entry' => {
-                      'entry_element' => {},
-                      'entry_number' => 18,
-                      'in_code' => 0,
-                      'index_name' => 'cp'
-                    }
+                    'index_entry' => [
+                      'cp',
+                      18
+                    ]
                   },
                   'info' => {
                     'spaces_before_argument' => {
@@ -3373,12 +3323,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 19,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          19
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -3528,12 +3476,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 20,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          20
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -3577,12 +3523,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 21,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          21
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -3616,12 +3560,10 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
-                        'index_entry' => {
-                          'entry_element' => {},
-                          'entry_number' => 22,
-                          'in_code' => 0,
-                          'index_name' => 'cp'
-                        }
+                        'index_entry' => [
+                          'cp',
+                          22
+                        ]
                       },
                       'info' => {
                         'spaces_before_argument' => {
@@ -3936,76 +3878,47 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
   'type' => 'document_root'
 };
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[15]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[4];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[19]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[21]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[2];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[23]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[25]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[25]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[27]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[27]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[29]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[29]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[31]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[31]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[31]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[31]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[31]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[33]{'contents'}[0]{'contents'}[1];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[33]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[33]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[35]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[35]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[35]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[35]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[35]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[37]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[37]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[37]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[37]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[37]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists_entries_after_item'}{'contents'}[4]{'contents'}[39]{'args'}[0]{'contents'}[0];
 
 $result_texis{'indices_in_begin_tables_lists_entries_after_item'} = '\\input texinfo.tex

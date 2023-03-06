@@ -804,12 +804,12 @@ build_single_index_data (INDEX *i)
       STORE2("entry_number", newSViv (entry_number));
 
       av_push (entries, newRV_inc ((SV *)entry));
-      entry_number++;
 
       /* We set this now because the index data structures don't
          exist at the time that the main tree is built. */
       {
       SV **extra_hash;
+      AV *av;
       extra_hash = hv_fetch (e->command->hv, "extra", strlen ("extra"), 0);
       if (!extra_hash)
         {
@@ -819,9 +819,15 @@ build_single_index_data (INDEX *i)
                                  newRV_inc ((SV *)newHV ()), 0);
         }
 
+      /* element index_entry extra value is an array reference containing the
+         index name and entry number */
+      av = newAV ();
+      av_push (av, newSVpv_utf8 (i->name, 0));
+      av_push (av, newSViv (entry_number));
       hv_store ((HV *)SvRV(*extra_hash), "index_entry", strlen ("index_entry"),
-                newRV_inc ((SV *)entry), 0);
+                newRV_inc ((SV *)av), 0);
       }
+      entry_number++;
 #undef STORE2
     }
 }

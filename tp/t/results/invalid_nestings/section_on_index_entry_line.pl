@@ -27,12 +27,10 @@ $result_trees{'section_on_index_entry_line'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -97,7 +95,6 @@ $result_trees{'section_on_index_entry_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0];
 
 $result_texis{'section_on_index_entry_line'} = '@cindex a @section b
 

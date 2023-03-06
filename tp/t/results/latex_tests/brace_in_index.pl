@@ -146,12 +146,10 @@ $result_trees{'brace_in_index'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -204,12 +202,10 @@ $result_trees{'brace_in_index'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -262,12 +258,10 @@ $result_trees{'brace_in_index'} = {
           ],
           'cmdname' => 'cindex',
           'extra' => {
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -372,12 +366,10 @@ $result_trees{'brace_in_index'} = {
                   'category' => {},
                   'name' => {}
                 },
-                'index_entry' => {
-                  'entry_element' => {},
-                  'entry_number' => 1,
-                  'in_code' => 1,
-                  'index_name' => 'fn'
-                },
+                'index_entry' => [
+                  'fn',
+                  1
+                ],
                 'original_def_cmdname' => 'defun'
               },
               'source_info' => {
@@ -451,13 +443,9 @@ $result_trees{'brace_in_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[7];
-$result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[9];
-$result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[11];
 $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0];
 
 $result_texis{'brace_in_index'} = '@{
 

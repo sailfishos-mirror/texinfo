@@ -184,12 +184,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              1
+            ],
             'seealso' => {}
           },
           'info' => {
@@ -246,12 +244,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              2
+            ],
             'seealso' => {}
           },
           'info' => {
@@ -313,12 +309,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              3
+            ],
             'seeentry' => {}
           },
           'info' => {
@@ -375,12 +369,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              4
+            ],
             'seeentry' => {}
           },
           'info' => {
@@ -442,12 +434,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 5,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              5
+            ],
             'seealso' => {}
           },
           'info' => {
@@ -504,12 +494,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 6,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            },
+            'index_entry' => [
+              'cp',
+              6
+            ],
             'seeentry' => {}
           },
           'info' => {
@@ -549,12 +537,10 @@ $result_trees{'same_seealso_seeentry'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 7,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              7
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -624,25 +610,18 @@ $result_trees{'same_seealso_seeentry'} = {
   'type' => 'document_root'
 };
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[1];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[4];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[7];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[7]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[10];
 
 $result_texis{'same_seealso_seeentry'} = '@node Top
 @top top

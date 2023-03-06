@@ -70,12 +70,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -427,12 +425,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -466,12 +462,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -505,12 +499,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 1,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              1
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -544,12 +536,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 4,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              4
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1059,12 +1049,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 5,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              5
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1098,12 +1086,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 2,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              2
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1137,12 +1123,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 6,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              6
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1256,12 +1240,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 7,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              7
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1339,12 +1321,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 3,
-              'in_code' => 1,
-              'index_name' => 'fn'
-            }
+            'index_entry' => [
+              'fn',
+              3
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1378,12 +1358,10 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
-            'index_entry' => {
-              'entry_element' => {},
-              'entry_number' => 8,
-              'in_code' => 0,
-              'index_name' => 'cp'
-            }
+            'index_entry' => [
+              'cp',
+              8
+            ]
           },
           'info' => {
             'spaces_before_argument' => {
@@ -1471,18 +1449,13 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
   'type' => 'document_root'
 };
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1]{'contents'}[10]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[1]{'contents'}[10]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'args'}[2]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'args'}[3]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[1];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[2];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[3];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[4];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[3]{'args'}[3]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -1490,19 +1463,13 @@ $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[3]{'contents'}[0]
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'args'}[2]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'args'}[3]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[1];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[2];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[4]{'contents'}[3];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'args'}[1]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'args'}[1]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'args'}[3]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[0];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[4];
 $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5];
-$result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_nodes_no_split_no_use_nodes'}{'contents'}[5]{'contents'}[5];
 
 $result_texis{'index_nodes_no_split_no_use_nodes'} = '\\input texinfo @c -*-texinfo-*-
 
