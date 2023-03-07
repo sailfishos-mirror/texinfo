@@ -112,8 +112,7 @@ $result_trees{'empty_multitable_with_cells'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
-            'prototypes' => []
+            'max_columns' => 0
           },
           'source_info' => {
             'file_name' => '',

@@ -70,19 +70,7 @@ $result_trees{'prototype_brace_no_brace'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              },
-              {
-                'text' => 'bb',
-                'type' => 'row_prototype'
-              }
-            ]
+            'max_columns' => 1
           },
           'info' => {
             'spaces_before_argument' => {
@@ -101,7 +89,6 @@ $result_trees{'prototype_brace_no_brace'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'prototype_brace_no_brace'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'prototype_brace_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'prototype_brace_no_brace'} = '@multitable {aa} bb
 @end multitable

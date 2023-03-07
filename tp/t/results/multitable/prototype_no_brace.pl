@@ -83,21 +83,7 @@ $result_trees{'prototype_no_brace'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 3,
-            'prototypes' => [
-              {
-                'text' => 'aa',
-                'type' => 'row_prototype'
-              },
-              {
-                'text' => 'b',
-                'type' => 'row_prototype'
-              },
-              {
-                'text' => 'cc',
-                'type' => 'row_prototype'
-              }
-            ]
+            'max_columns' => 0
           },
           'info' => {
             'spaces_before_argument' => {
@@ -132,6 +118,15 @@ $result_errors{'prototype_no_brace'} = [
     'line_nr' => 1,
     'macro' => '',
     'text' => 'unexpected argument on @multitable line: @var{FF}',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'empty multitable',
     'type' => 'warning'
   }
 ];

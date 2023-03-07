@@ -31,66 +31,32 @@ $result_trees{'not_letters_in_prototype'} = {
             {
               'contents' => [
                 {
+                  'text' => ' ',
+                  'type' => 'ignorable_spaces_after_command'
+                },
+                {
                   'contents' => [
                     {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '1.3 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '5-6
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 2,
-                        'macro' => ''
-                      }
+                      'text' => '1.3 '
                     }
                   ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
+                  'type' => 'paragraph'
+                },
+                {
+                  'text' => ' ',
+                  'type' => 'ignorable_spaces_after_command'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => '5-6
+'
+                    }
+                  ],
+                  'type' => 'paragraph'
                 }
               ],
-              'type' => 'multitable_body'
+              'type' => 'before_item'
             },
             {
               'args' => [
@@ -126,17 +92,7 @@ $result_trees{'not_letters_in_prototype'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'text' => '1.3',
-                'type' => 'row_prototype'
-              },
-              {
-                'text' => '5-6',
-                'type' => 'row_prototype'
-              }
-            ]
+            'max_columns' => 0
           },
           'info' => {
             'spaces_before_argument' => {
@@ -157,7 +113,7 @@ $result_trees{'not_letters_in_prototype'} = {
 };
 
 $result_texis{'not_letters_in_prototype'} = '@multitable  1.3  5-6
-@item 1.3 @tab 5-6
+ 1.3  5-6
 @end multitable
 ';
 
@@ -165,27 +121,65 @@ $result_texis{'not_letters_in_prototype'} = '@multitable  1.3  5-6
 $result_texts{'not_letters_in_prototype'} = '1.3 5-6
 ';
 
-$result_errors{'not_letters_in_prototype'} = [];
+$result_errors{'not_letters_in_prototype'} = [
+  {
+    'error_line' => 'warning: empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item in empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@item in empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @tab in empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@tab in empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @multitable has text but no @item
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@multitable has text but no @item',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'not_letters_in_prototype'} = {};
 
 
 
-$result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.35-6
+$result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.3
+5-6
 ';
 
 
 $result_converted{'html_text'}->{'not_letters_in_prototype'} = '<table class="multitable">
-<tbody><tr><td>1.3</td><td>5-6</td></tr>
-</tbody>
+<tr><td>1.3 <p>5-6
+</p></td></tr>
 </table>
 ';
 
 
 $result_converted{'xml'}->{'not_letters_in_prototype'} = '<multitable spaces="  " endspaces=" "><columnprototypes>1.3  5-6</columnprototypes>
-<tbody><row><entry command="item"> <para>1.3 </para></entry><entry command="tab"> <para>5-6
-</para></entry></row></tbody></multitable>
+<beforefirstitem> <para>1.3 </para> <para>5-6
+</para></beforefirstitem></multitable>
 ';
 
 1;

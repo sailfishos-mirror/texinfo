@@ -763,7 +763,7 @@ end_line_starting_block (ELEMENT *current)
   else if (command == CM_multitable)
     {
       int i;
-      ELEMENT *prototypes = new_element (ET_NONE);
+      int max_columns = 0;
 
       for (i = 0; i < current->contents.number; i++)
         {
@@ -771,35 +771,15 @@ end_line_starting_block (ELEMENT *current)
 
           if (e->type == ET_bracketed)
             {
-              /* Copy and change the type of the element. */
-
-              ELEMENT *new;
-              new = malloc (sizeof (ELEMENT));
-              memcpy (new, e, sizeof (ELEMENT));
-              new->type = ET_bracketed_multitable_prototype;
-              new->parent = 0;
-              /* TODO the extra_info/info_info information in e is not copied
-                 over, at least leading/trailing spaces (something else?). */
-              new->extra_info = new_associated_info();
-              new->info_info = new_associated_info();
-              add_to_contents_as_array (prototypes, new);
+              max_columns++;
             }
           else if (e->text.end > 0)
             {
-              /* Split the text up by whitespace. */
-              char *p, *p2;
-              p = e->text.text;
-              while (1)
-                {
-                  ELEMENT *new;
-                  p2 = p + strspn (p, whitespace_chars);
-                  if (!*p2)
-                    break;
-                  p = p2 + strcspn (p2, whitespace_chars);
-                  new = new_element (ET_row_prototype);
-                  text_append_n (&new->text, p2, p - p2);
-                  add_to_contents_as_array (prototypes, new);
-                }
+              /*
+              TODO: this should be a warning or an error - all prototypes
+              on a @multitable line should be in braces, as documented in the
+              Texinfo manual.
+               */
             }
           else
             {
@@ -817,13 +797,10 @@ end_line_starting_block (ELEMENT *current)
         }
 
       {
-      int max_columns = prototypes->contents.number;
       add_extra_integer (current->parent, "max_columns", max_columns);
       if (max_columns == 0)
         command_warn (current->parent, "empty multitable");
       }
-      add_extra_contents_oot (current->parent, "prototypes", prototypes);
-      /* See code in destroy_element for how prototypes is deallocated. */
     }
 
   current = current->parent;

@@ -175,15 +175,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                 }
               ],
               'extra' => {
-                'max_columns' => 1,
-                'prototypes' => [
-                  {
-                    'contents' => [
-                      {}
-                    ],
-                    'type' => 'bracketed_multitable_prototype'
-                  }
-                ]
+                'max_columns' => 1
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -241,7 +233,6 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_in_example_extraneous_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_in_example_extraneous_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'multitable_in_example_extraneous_tab'} = '@example
 @multitable {a}

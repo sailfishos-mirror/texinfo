@@ -292,15 +292,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 1,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 1
           },
           'info' => {
             'spaces_before_argument' => {
@@ -319,7 +311,6 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_one_column_too_much_cells'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_one_column_too_much_cells'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'multitable_one_column_too_much_cells'} = '@multitable {a}
 @item a  additional tab  other additional tab  3rd  additiona tab

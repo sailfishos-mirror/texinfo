@@ -97,8 +97,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                     }
                   ],
                   'extra' => {
-                    'max_columns' => 0,
-                    'prototypes' => []
+                    'max_columns' => 0
                   },
                   'source_info' => {
                     'file_name' => '',

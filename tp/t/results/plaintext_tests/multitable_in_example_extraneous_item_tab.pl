@@ -47,94 +47,52 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'ita '
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'tmp
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 1
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
-                          }
+                          'text' => ' ',
+                          'type' => 'ignorable_spaces_after_command'
+                        },
+                        {
+                          'text' => 'ita '
                         }
                       ],
-                      'extra' => {
-                        'row_number' => 1
-                      },
-                      'type' => 'row'
+                      'type' => 'preformatted'
                     },
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'secit '
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-',
-                                  'type' => 'ignorable_spaces_after_command'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 1
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 4,
-                            'macro' => ''
-                          }
+                          'text' => ' ',
+                          'type' => 'ignorable_spaces_after_command'
+                        },
+                        {
+                          'text' => 'tmp
+'
                         }
                       ],
-                      'extra' => {
-                        'row_number' => 2
-                      },
-                      'type' => 'row'
+                      'type' => 'preformatted'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => ' ',
+                          'type' => 'ignorable_spaces_after_command'
+                        },
+                        {
+                          'text' => 'secit '
+                        }
+                      ],
+                      'type' => 'preformatted'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => '
+',
+                          'type' => 'ignorable_spaces_after_command'
+                        }
+                      ],
+                      'type' => 'preformatted'
                     }
                   ],
-                  'type' => 'multitable_body'
+                  'type' => 'before_item'
                 },
                 {
                   'args' => [
@@ -170,13 +128,7 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                 }
               ],
               'extra' => {
-                'max_columns' => 1,
-                'prototypes' => [
-                  {
-                    'text' => 'a',
-                    'type' => 'row_prototype'
-                  }
-                ]
+                'max_columns' => 0
               },
               'info' => {
                 'spaces_before_argument' => {
@@ -237,8 +189,8 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
 
 $result_texis{'multitable_in_example_extraneous_item_tab'} = '@example
 @multitable a
-@item ita  tmp
-@item secit 
+ ita  tmp
+ secit 
 @end multitable
 @end example
 ';
@@ -249,22 +201,58 @@ secit ';
 
 $result_errors{'multitable_in_example_extraneous_item_tab'} = [
   {
-    'error_line' => 'too many columns in multitable item (max 1)
+    'error_line' => 'warning: empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => 'empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item in empty multitable
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
+    'text' => '@item in empty multitable',
+    'type' => 'warning'
   },
   {
-    'error_line' => 'too many columns in multitable item (max 1)
+    'error_line' => 'warning: @tab in empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@tab in empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @item in empty multitable
 ',
     'file_name' => '',
     'line_nr' => 4,
     'macro' => '',
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
+    'text' => '@item in empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @tab in empty multitable
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@tab in empty multitable',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @multitable has text but no @item
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@multitable has text but no @item',
+    'type' => 'warning'
   }
 ];
 

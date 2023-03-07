@@ -391,23 +391,12 @@ handle_other_command (ELEMENT *current, char **line_inout,
           /* In a @multitable */
           else if ((parent = item_multitable_parent (current)))
             {
-              int max_columns = 0;
-              KEY_PAIR *prototypes;
+              long max_columns = 0;
+              KEY_PAIR *k;
 
-              prototypes = lookup_extra  (parent, "prototypes");
-              if (prototypes)
-                max_columns = prototypes->value->contents.number;
-              else
-                {
-                  prototypes = lookup_extra(parent, "columnfractions");
-                  if (prototypes)
-                    {
-                      prototypes = lookup_extra((ELEMENT *) prototypes->value,
-                                                "misc_args");
-                      if (prototypes)
-                        max_columns = prototypes->value->contents.number;
-                    }
-                }
+              k = lookup_extra (parent, "max_columns");
+              if (k)
+                max_columns = (long) k->value;
 
               if (max_columns == 0)
                 {

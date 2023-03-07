@@ -156,21 +156,7 @@ $result_trees{'bad_tab_nesting'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              },
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 2
           },
           'info' => {
             'spaces_before_argument' => {
@@ -189,8 +175,6 @@ $result_trees{'bad_tab_nesting'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'bad_tab_nesting'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'bad_tab_nesting'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_tab_nesting'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'bad_tab_nesting'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0];
 
 $result_texis{'bad_tab_nesting'} = '@multitable {truc} {bidule}
 @item truc

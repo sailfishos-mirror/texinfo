@@ -3754,29 +3754,16 @@ sub _end_line_starting_block($$$)
       delete $multitable->{'extra'}->{'columnfractions'};
     }
   } elsif ($command eq 'multitable') {
-    # parse the prototypes and put them in a special arg
-    my @prototype_row;
+    # determine max columns based on prototypes
+    my $max_columns = 0;
     if ($current->{'contents'}) {
       foreach my $content (@{$current->{'contents'}}) {
         if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
-          # TODO the 'extra' information in $content is not copied over,
-          # at least leading/trailing spaces (something else?).
-          my $bracketed_prototype
-            = { 'type' => 'bracketed_multitable_prototype' };
-          $bracketed_prototype->{'contents'} = $content->{'contents'}
-            if ($content->{'contents'});
-          push @prototype_row, $bracketed_prototype;
+          $max_columns++;
         } elsif ($content->{'text'}) {
           # TODO: this should be a warning or an error - all prototypes
           # on a @multitable line should be in braces, as documented in the
           # Texinfo manual.
-          if ($content->{'text'} =~ /\S/) {
-            foreach my $prototype (split /\s+/, $content->{'text'}) {
-              push @prototype_row, { 'text' => $prototype,
-                                     'type' => 'row_prototype' }
-                unless ($prototype eq '');
-            }
-          }
         } else {
           if (!$content->{'cmdname'}
                 or ($content->{'cmdname'} ne 'c'
@@ -3791,12 +3778,11 @@ sub _end_line_starting_block($$$)
     }
     my $multitable = $current->{'parent'};
     $multitable->{'extra'} = {} if (!$multitable->{'extra'});
-    $multitable->{'extra'}->{'max_columns'} = scalar(@prototype_row);
-    if (!scalar(@prototype_row)) {
+    $multitable->{'extra'}->{'max_columns'} = $max_columns;
+    if (!$max_columns) {
       $self->_command_warn($multitable, $source_info,
                            __("empty multitable"));
     }
-    $multitable->{'extra'}->{'prototypes'} = \@prototype_row;
   }
   $current = $current->{'parent'};
   delete $current->{'remaining_args'};
@@ -8682,11 +8668,9 @@ C<extra> hash labels information.
 
 =item C<@multitable>
 
-The key I<max_columns> holds the maximal number of columns.  If there
-are prototypes on the line they are in the array associated with
-I<prototypes>.  If there is a C<@columnfractions> as argument, then the
-I<columnfractions> key is associated with the element for the
-@columnfractions command.
+The key I<max_columns> holds the maximal number of columns.  If there is a
+C<@columnfractions> as argument, then the I<columnfractions> key is associated
+with the element for the @columnfractions command.
 
 =item C<@node>
 

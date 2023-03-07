@@ -78,18 +78,7 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'type' => 'bracketed_multitable_prototype'
-              },
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 2
           },
           'info' => {
             'spaces_before_argument' => {
@@ -108,7 +97,6 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_empty_bracketed_prototype'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable_empty_bracketed_prototype'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0];
 
 $result_texis{'multitable_empty_bracketed_prototype'} = '
 @multitable {} {a}

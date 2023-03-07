@@ -17,8 +17,7 @@ $result_trees{'section_on_multitable_line'} = {
           ],
           'cmdname' => 'multitable',
           'extra' => {
-            'max_columns' => 0,
-            'prototypes' => []
+            'max_columns' => 0
           },
           'info' => {
             'spaces_before_argument' => {
@@ -91,8 +90,7 @@ $result_trees{'section_on_multitable_line'} = {
           ],
           'cmdname' => 'multitable',
           'extra' => {
-            'max_columns' => 0,
-            'prototypes' => []
+            'max_columns' => 0
           },
           'info' => {
             'spaces_before_argument' => {
@@ -175,21 +173,7 @@ $result_trees{'section_on_multitable_line'} = {
           ],
           'cmdname' => 'multitable',
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              },
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 2
           },
           'info' => {
             'spaces_before_argument' => {
@@ -246,8 +230,6 @@ $result_trees{'section_on_multitable_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_on_multitable_line'}{'contents'}[2]{'contents'}[1]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'section_on_multitable_line'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'section_on_multitable_line'}{'contents'}[2]{'contents'}[1]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'section_on_multitable_line'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0];
 
 $result_texis{'section_on_multitable_line'} = '@multitable @section first
 

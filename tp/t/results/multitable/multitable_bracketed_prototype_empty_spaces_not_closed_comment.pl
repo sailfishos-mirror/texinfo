@@ -78,15 +78,7 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
             }
           ],
           'extra' => {
-            'max_columns' => 1,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 1
           },
           'info' => {
             'spaces_before_argument' => {
@@ -105,7 +97,6 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} = '
 @multitable { @comment comment

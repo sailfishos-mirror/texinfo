@@ -80,21 +80,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 2,
-            'prototypes' => [
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              },
-              {
-                'contents' => [
-                  {}
-                ],
-                'type' => 'bracketed_multitable_prototype'
-              }
-            ]
+            'max_columns' => 2
           },
           'info' => {
             'spaces_before_argument' => {
@@ -113,8 +99,6 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_bracketed_no_inter_space_prototype'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_bracketed_no_inter_space_prototype'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'multitable_bracketed_no_inter_space_prototype'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable_bracketed_no_inter_space_prototype'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'multitable_bracketed_no_inter_space_prototype'} = '
 @multitable {a}{b}
