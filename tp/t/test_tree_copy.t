@@ -64,6 +64,11 @@ Something
 @deffn a@var{n} {b} c d e@code{r}f (c, d) {(e f)}
 @end deffn
 
+@documentlanguage fr
+
+@defivar hr @samp{BBB} CCC
+@end defivar
+
 @float label, type
 @caption{float caption}
 @end float
@@ -129,7 +134,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
   my $texi_test_copy
      = Texinfo::Convert::Texinfo::convert_to_texinfo($test_tree_copy);
 
-  is ($test_texi, $texi_test_copy, " manual tree and copy to texi match");
+  is ($test_texi, $texi_test_copy, "manual tree and copy to texi match");
   #print STDERR $test_texi_copy;
 }
 

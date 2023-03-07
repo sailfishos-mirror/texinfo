@@ -1,5 +1,18 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_copy_tree, _copy_extra_info): do not setup
+	any extra info in _copy_tree.  Rename _substitute_references as
+	_copy_extra_info as it now copy all the extra info.  Detect if an hash
+	in _substitute_references is an element, and in that case call
+	_copy_tree and _copy_extra_info on that out of tree element.
+	Remove FIXME for a situation that happens fine.
+
+	* tp/Texinfo/Common.pm (_substitute_references_in_array): remove the
+	case of a text element, cannot happen right now and should be done
+	differently as if could be an element with other information.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line_def_line): gather
 	initial arguments name, category... in a has, to be returned from the
 	function after setting the extra def_role key.  Set other contents
