@@ -409,15 +409,6 @@ sub _duplicate_element_keys($$)
         duplicate_key_array($node_manual, 'node_content');
       }
     }
-    if (exists($current->{'extra'}->{'type'})) {
-      duplicate_key_array($current->{'extra'}->{'type'}, 'content');
-    }
-    if (exists($current->{'extra'}->{'prototypes'})
-        and (defined($current->{'extra'}->{'prototypes'}))) {
-      foreach my $prototype (@{$current->{'extra'}->{'prototypes'}}) {
-        duplicate_key_array($prototype, 'contents');
-      }
-    }
   }
 
   return ($current);
