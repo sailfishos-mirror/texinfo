@@ -84,24 +84,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           if (a->info[i].value)
             destroy_element ((ELEMENT *) a->info[i].value);
           break;
-        case extra_contents_oot:
-          {
-            /* Only used for 'prototypes' */
-            /* Free each element in the array, but not any children
-               of each element. */
-            int j;
-            ELEMENT *array = a->info[i].value;
-            for (j = 0 ; j < array->contents.number; j++)
-              {
-                if (array->contents.list[j])
-                  {
-                    free (array->contents.list[j]->text.text);
-                    free (array->contents.list[j]);
-                  }
-              }
-            destroy_element (array);
-            break;
-          }
         case extra_misc_args:
           destroy_element_and_children (a->info[i].value);
           break;

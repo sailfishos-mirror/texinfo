@@ -77,13 +77,6 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
   add_associated_info_key (e->extra_info, key, value, extra_contents);
 }
 
-/* Like add_extra_contents but all of the contents are out-of-tree. */
-void
-add_extra_contents_oot (ELEMENT *e, char *key, ELEMENT *value)
-{
-  add_associated_info_key (e->extra_info, key, value, extra_contents_oot);
-}
-
 /* Add an extra key that is a reference to the text field of another
    element. */
 void

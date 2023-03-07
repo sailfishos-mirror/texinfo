@@ -337,7 +337,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               STORE(newRV_inc ((SV *)f->hv));
               break;
             case extra_contents:
-            case extra_contents_oot:
               {
               if (f)
                 STORE(build_perl_array (&f->contents));

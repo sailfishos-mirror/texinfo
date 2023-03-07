@@ -225,7 +225,6 @@ void gather_previous_item (ELEMENT *current, enum command_id next_command);
 void add_extra_element (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_contents (ELEMENT *e, char *key, ELEMENT *value);
-void add_extra_contents_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_string (ELEMENT *e, char *key, char *value);
