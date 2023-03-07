@@ -1881,6 +1881,12 @@ sub _collect_commands_list_in_tree($$$)
 # modules but are not generally useful in converters
 # and therefore not public.
 
+# FIXME still work to do for elements located at multiple points
+# in the tree, right now the reference_associations is overwritten,
+# there should probably be a better way to do.  Maybe setup only the
+# main tree, and handle extra/info information in _substitute_references
+# with more copy_tree for out-of-tree elements there.
+
 sub _copy_tree($$$);
 sub _copy_tree($$$)
 {
@@ -1888,6 +1894,11 @@ sub _copy_tree($$$)
   my $parent = shift;
   my $reference_associations = shift;
   my $new = {};
+  #if (exists($reference_associations->{$current})) {
+  #  print STDERR "COPY: replace $current: "
+  #            ."$reference_associations->{$current} -> $new; "
+  #            .Texinfo::Common::debug_print_element($current)."\n";
+  #}
   $reference_associations->{$current} = $new;
   $new->{'parent'} = $parent if ($parent);
   foreach my $key ('type', 'cmdname', 'text') {
@@ -1930,8 +1941,11 @@ sub _copy_tree($$$)
         }
       } elsif (ref($current->{$info_type}->{$key}) eq '') {
         $new->{$info_type}->{$key} = $current->{$info_type}->{$key};
-      } elsif ($info_type eq 'info'
-               and ref($current->{$info_type}->{$key}) eq 'HASH') {
+      } elsif (($info_type eq 'info'
+                and ref($current->{$info_type}->{$key}) eq 'HASH')
+               or ($info_type eq 'extra'
+                    and ($key eq 'def_index_element'
+                         or $key eq 'def_index_ref_element'))) {
         $new->{$info_type}->{$key} = _copy_tree($current->{$info_type}->{$key},
                                                 undef, $reference_associations);
         #print STDERR "ELEMENT: $info_type: $key\n";
@@ -2017,6 +2031,9 @@ sub _substitute_references($$$;$)
     }
   }
 
+  # FIXME would be better to recurse in info/extra when needed without
+  # the need to know the name of the keys.
+
   # in general there is nothing to do in info elements, as they only
   # hold text, but code is ready.
   if ($current->{'info'}) {
@@ -2025,6 +2042,15 @@ sub _substitute_references($$$;$)
       if (ref($current->{'info'}->{$key}) eq 'HASH') {
         _substitute_references($current->{'info'}->{$key},
                                $new->{'info'}->{$key},
+                               $reference_associations, $level+1);
+      }
+    }
+  }
+  if ($current->{'extra'}) {
+    foreach my $key ('def_index_element', 'def_index_ref_element') {
+      if ($current->{'extra'}->{$key}) {
+        _substitute_references($current->{'extra'}->{$key},
+                               $new->{'extra'}->{$key},
                                $reference_associations, $level+1);
       }
     }
@@ -2061,16 +2087,14 @@ sub _substitute_references($$$;$)
           #print STDERR "Done $info_type [$command_or_type]: $key\n";
         } else {
           if (ref($current->{$info_type}->{$key}) eq 'ARRAY') {
+            # authors index_entry manual_content menus misc_args node_content
             #print STDERR "Array $command_or_type $info_type -> $key\n";
             $new->{$info_type}->{$key} = _substitute_references_in_array(
               $current->{$info_type}->{$key}, $reference_associations,
               "${info_type}[$command_or_type]{$key}", $level);
           } else {
-            # here are index_entry def_index_element def_index_ref_element
+            # nothing here for now
             #print STDERR "HASH $info_type $key\n";
-            # FIXME for def_index_element def_index_ref_element maybe
-            # it would be better to call _copy_tree before
-            # _substitute_references, or even process in _copy_tree
             $new->{$info_type}->{$key} = {};
             foreach my $type_key (keys(%{$current->{$info_type}->{$key}})) {
               if (ref($current->{$info_type}->{$key}->{$type_key}) eq '') {
