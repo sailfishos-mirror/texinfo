@@ -831,11 +831,9 @@ $result_sectioning{'cond_ifhtml_ifinfo'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -853,19 +851,16 @@ $result_nodes{'cond_ifhtml_ifinfo'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -879,7 +874,6 @@ $result_menus{'cond_ifhtml_ifinfo'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

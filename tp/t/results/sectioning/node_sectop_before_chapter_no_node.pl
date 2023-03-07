@@ -142,16 +142,13 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -180,20 +177,17 @@ $result_nodes{'node_sectop_before_chapter_no_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'node_sectop_before_chapter_no_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'node_sectop_before_chapter_no_node'} = [];

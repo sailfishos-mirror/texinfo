@@ -49,16 +49,14 @@ $result_nodes{'node_simple'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'node_simple'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'node_simple'} = [];

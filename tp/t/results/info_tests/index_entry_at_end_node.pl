@@ -518,11 +518,9 @@ $result_sectioning{'index_entry_at_end_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -533,11 +531,9 @@ $result_sectioning{'index_entry_at_end_node'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -555,11 +551,9 @@ $result_sectioning{'index_entry_at_end_node'} = {
                     'isindex' => 1,
                     'normalized' => 'indices'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -593,7 +587,6 @@ $result_nodes{'index_entry_at_end_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -603,7 +596,6 @@ $result_nodes{'index_entry_at_end_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -611,14 +603,12 @@ $result_nodes{'index_entry_at_end_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -626,7 +616,6 @@ $result_nodes{'index_entry_at_end_node'} = {
             'associated_section' => {
               'cmdname' => 'appendix',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 'A'
               }
@@ -634,7 +623,6 @@ $result_nodes{'index_entry_at_end_node'} = {
             'isindex' => 1,
             'normalized' => 'indices'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -658,14 +646,12 @@ $result_menus{'index_entry_at_end_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -673,7 +659,6 @@ $result_menus{'index_entry_at_end_node'} = {
             'isindex' => 1,
             'normalized' => 'indices'
           },
-          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

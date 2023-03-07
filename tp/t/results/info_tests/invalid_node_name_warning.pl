@@ -725,28 +725,24 @@ $result_nodes{'invalid_node_name_warning'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nodename_002e-a'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node_002ccomma'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'bidule_003a'
               },
-              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -776,28 +772,24 @@ $result_menus{'invalid_node_name_warning'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nodename_002e-a'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node_002ccomma'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'bidule_003a'
               },
-              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

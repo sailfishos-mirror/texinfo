@@ -1709,11 +1709,9 @@ $result_sectioning{'glossary'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1724,11 +1722,9 @@ $result_sectioning{'glossary'} = {
                   'extra' => {
                     'normalized' => 'glossary'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1757,7 +1753,6 @@ $result_nodes{'glossary'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1767,7 +1762,6 @@ $result_nodes{'glossary'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1775,14 +1769,12 @@ $result_nodes{'glossary'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'glossary'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1800,14 +1792,12 @@ $result_menus{'glossary'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'glossary'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

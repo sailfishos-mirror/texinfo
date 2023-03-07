@@ -2994,14 +2994,12 @@ $result_nodes{'top_in_ref'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-refs-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -3015,7 +3013,6 @@ $result_menus{'top_in_ref'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

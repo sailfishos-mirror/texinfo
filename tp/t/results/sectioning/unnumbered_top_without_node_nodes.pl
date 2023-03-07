@@ -328,7 +328,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
             'extra' => {
               'normalized' => 'a-node'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -345,7 +344,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
                           'extra' => {
                             'normalized' => 'second'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -378,7 +376,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -387,7 +384,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
       },
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -401,7 +397,6 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
         'extra' => {
           'associated_node' => {}
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -445,7 +440,6 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
     'associated_section' => {
       'cmdname' => 'unnumbered',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -463,7 +457,6 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
                       'associated_section' => {
                         'cmdname' => 'chapter',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'section_number' => 1
@@ -471,7 +464,6 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
                       },
                       'normalized' => 'second'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_up' => {
@@ -522,7 +514,6 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
     },
     'normalized' => 'a-node'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'node_up' => {
@@ -552,7 +543,6 @@ $result_menus{'unnumbered_top_without_node_nodes'} = {
   'extra' => {
     'normalized' => 'a-node'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -569,7 +559,6 @@ $result_menus{'unnumbered_top_without_node_nodes'} = {
                 'extra' => {
                   'normalized' => 'second'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {}
                 }
@@ -657,7 +646,6 @@ $result_elements{'unnumbered_top_without_node_nodes'} = [
         'extra' => {
           'normalized' => 'a-node'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -674,7 +662,6 @@ $result_elements{'unnumbered_top_without_node_nodes'} = [
               'extra' => {
                 'normalized' => 'second'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {}
               }

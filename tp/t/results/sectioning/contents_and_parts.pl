@@ -667,11 +667,9 @@ $result_sectioning{'contents_and_parts'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -688,12 +686,10 @@ $result_sectioning{'contents_and_parts'} = {
                 'extra' => {
                   'normalized' => 'chapter-1-node'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -704,7 +700,6 @@ $result_sectioning{'contents_and_parts'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {},
@@ -716,11 +711,9 @@ $result_sectioning{'contents_and_parts'} = {
                   'extra' => {
                     'normalized' => 'chapter-2-node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -747,12 +740,10 @@ $result_sectioning{'contents_and_parts'} = {
                 'extra' => {
                   'normalized' => 'chapter-3-node'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 3,
@@ -763,7 +754,6 @@ $result_sectioning{'contents_and_parts'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -805,7 +795,6 @@ $result_nodes{'contents_and_parts'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -815,7 +804,6 @@ $result_nodes{'contents_and_parts'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -826,11 +814,9 @@ $result_nodes{'contents_and_parts'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
-              'info' => {},
               'structure' => {}
             }
           },
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -838,7 +824,6 @@ $result_nodes{'contents_and_parts'} = {
         'node_preceding_part' => {},
         'normalized' => 'chapter-1-node'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -846,14 +831,12 @@ $result_nodes{'contents_and_parts'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'chapter-2-node'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -864,11 +847,9 @@ $result_nodes{'contents_and_parts'} = {
                     'associated_part' => {
                       'cmdname' => 'part',
                       'extra' => {},
-                      'info' => {},
                       'structure' => {}
                     }
                   },
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
@@ -876,7 +857,6 @@ $result_nodes{'contents_and_parts'} = {
                 'node_preceding_part' => {},
                 'normalized' => 'chapter-3-node'
               },
-              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -908,28 +888,24 @@ $result_menus{'contents_and_parts'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter-1-node'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'chapter-2-node'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'chapter-3-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

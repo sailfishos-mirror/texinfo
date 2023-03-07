@@ -1316,14 +1316,12 @@ $result_nodes{'form_feeds'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -1337,7 +1335,6 @@ $result_menus{'form_feeds'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -1353,16 +1350,14 @@ $result_floats{'form_feeds'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'info' => {}
+          }
         },
         'float_type' => '',
         'shortcaption' => {
           'cmdname' => 'shortcaption',
           'extra' => {
             'float' => {}
-          },
-          'info' => {}
+          }
         }
       }
     }
@@ -1374,7 +1369,6 @@ $result_floats{'form_feeds'} = {
         'float_type' => 'type',
         'normalized' => 'fl'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

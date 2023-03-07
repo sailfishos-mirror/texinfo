@@ -200,7 +200,6 @@ $result_sectioning{'section_before_after_top_node'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -213,11 +212,9 @@ $result_sectioning{'section_before_after_top_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_prev' => {},
@@ -227,7 +224,6 @@ $result_sectioning{'section_before_after_top_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -256,20 +252,17 @@ $result_nodes{'section_before_after_top_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'section_before_after_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'section_before_after_top_node'} = [

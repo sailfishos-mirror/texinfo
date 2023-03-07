@@ -324,14 +324,12 @@ $result_nodes{'ref_in_preformatted'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-nnn-the-node-name'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -349,14 +347,12 @@ $result_menus{'ref_in_preformatted'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-nnn-the-node-name'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

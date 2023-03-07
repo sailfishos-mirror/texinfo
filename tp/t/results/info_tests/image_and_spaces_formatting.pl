@@ -765,16 +765,14 @@ $result_nodes{'image_and_spaces_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'image_and_spaces_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'image_and_spaces_formatting'} = [];

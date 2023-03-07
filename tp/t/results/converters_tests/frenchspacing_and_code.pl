@@ -1766,11 +1766,9 @@ $result_sectioning{'frenchspacing_and_code'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1781,11 +1779,9 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   'extra' => {
                     'normalized' => 'chapter-frenchspacing'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1802,11 +1798,9 @@ $result_sectioning{'frenchspacing_and_code'} = {
                   'extra' => {
                     'normalized' => 'chap-no'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1840,12 +1834,10 @@ $result_nodes{'frenchspacing_and_code'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1853,14 +1845,12 @@ $result_nodes{'frenchspacing_and_code'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter-frenchspacing'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1868,14 +1858,12 @@ $result_nodes{'frenchspacing_and_code'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'chap-no'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -1897,7 +1885,6 @@ $result_menus{'frenchspacing_and_code'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

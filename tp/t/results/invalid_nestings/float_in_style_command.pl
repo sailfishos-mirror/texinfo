@@ -210,7 +210,6 @@ $result_floats{'float_in_style_command'} = {
         'float_type' => 'A',
         'normalized' => 'B'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

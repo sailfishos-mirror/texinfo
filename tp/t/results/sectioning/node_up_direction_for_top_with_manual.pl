@@ -91,7 +91,6 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_up' => {
       'extra' => {
@@ -111,7 +110,6 @@ $result_menus{'node_up_direction_for_top_with_manual'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

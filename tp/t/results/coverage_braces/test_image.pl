@@ -2805,14 +2805,12 @@ $result_nodes{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -2826,7 +2824,6 @@ $result_menus{'test_image'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -3073,7 +3070,6 @@ $result_floats{'test_image'} = {
         'float_type' => 'Image',
         'normalized' => 'Image-with-commands'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -504,11 +504,9 @@ $result_sectioning{'chinese_mixed_with_en'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -519,11 +517,9 @@ $result_sectioning{'chinese_mixed_with_en'} = {
                   'extra' => {
                     'normalized' => 'Mixed-english-and-chinese'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -552,12 +548,10 @@ $result_nodes{'chinese_mixed_with_en'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -565,14 +559,12 @@ $result_nodes{'chinese_mixed_with_en'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Mixed-english-and-chinese'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -588,7 +580,6 @@ $result_menus{'chinese_mixed_with_en'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

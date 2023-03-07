@@ -1898,7 +1898,6 @@ $result_sectioning{'sorted_subentries'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -1912,11 +1911,9 @@ $result_sectioning{'sorted_subentries'} = {
                   'extra' => {
                     'normalized' => 'chapter-one'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1934,11 +1931,9 @@ $result_sectioning{'sorted_subentries'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-second'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1976,7 +1971,6 @@ $result_nodes{'sorted_subentries'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1984,14 +1978,12 @@ $result_nodes{'sorted_subentries'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter-one'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1999,7 +1991,6 @@ $result_nodes{'sorted_subentries'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -2007,7 +1998,6 @@ $result_nodes{'sorted_subentries'} = {
             'isindex' => 1,
             'normalized' => 'chapter-second'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -2029,7 +2019,6 @@ $result_menus{'sorted_subentries'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

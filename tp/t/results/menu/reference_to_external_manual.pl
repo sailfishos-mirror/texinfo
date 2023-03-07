@@ -189,7 +189,6 @@ $result_nodes{'reference_to_external_manual'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -208,7 +207,6 @@ $result_menus{'reference_to_external_manual'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

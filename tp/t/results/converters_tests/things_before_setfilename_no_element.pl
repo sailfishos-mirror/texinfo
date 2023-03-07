@@ -1014,7 +1014,6 @@ $result_floats{'things_before_setfilename_no_element'} = {
         'float_type' => '',
         'normalized' => 'float-anchor'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -1033,7 +1032,6 @@ $result_floats{'things_before_setfilename_no_element'} = {
         'float_type' => 'Text',
         'normalized' => 'ta'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

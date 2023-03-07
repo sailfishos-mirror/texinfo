@@ -2279,14 +2279,12 @@ $result_nodes{'test_allowcodebreaks'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -2300,7 +2298,6 @@ $result_menus{'test_allowcodebreaks'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

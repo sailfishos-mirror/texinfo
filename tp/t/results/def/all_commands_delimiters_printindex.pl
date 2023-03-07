@@ -12355,7 +12355,6 @@ $result_nodes{'all_commands_delimiters_printindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -12363,7 +12362,6 @@ $result_nodes{'all_commands_delimiters_printindex'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -12377,7 +12375,6 @@ $result_menus{'all_commands_delimiters_printindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

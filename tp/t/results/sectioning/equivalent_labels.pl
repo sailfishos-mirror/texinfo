@@ -392,7 +392,6 @@ $result_nodes{'equivalent_labels'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',
@@ -409,7 +408,6 @@ $result_menus{'equivalent_labels'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',
@@ -423,7 +421,6 @@ $result_menus{'equivalent_labels'} = {
             'float_type' => 'truc',
             'normalized' => 'floa'
           },
-          'info' => {},
           'structure' => {
             'float_number' => 1,
             'menu_prev' => {},
@@ -475,7 +472,6 @@ $result_floats{'equivalent_labels'} = {
         'float_type' => 'truc',
         'normalized' => 'floa'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

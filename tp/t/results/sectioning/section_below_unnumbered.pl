@@ -572,11 +572,9 @@ $result_sectioning{'section_below_unnumbered'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -587,11 +585,9 @@ $result_sectioning{'section_below_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'Unn'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -602,11 +598,9 @@ $result_sectioning{'section_below_unnumbered'} = {
                         'extra' => {
                           'normalized' => 'Sec'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_up' => {}
@@ -640,7 +634,6 @@ $result_nodes{'section_below_unnumbered'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -650,7 +643,6 @@ $result_nodes{'section_below_unnumbered'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -658,7 +650,6 @@ $result_nodes{'section_below_unnumbered'} = {
         'associated_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
-          'info' => {},
           'structure' => {}
         },
         'menus' => [
@@ -668,7 +659,6 @@ $result_nodes{'section_below_unnumbered'} = {
         ],
         'normalized' => 'Unn'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -676,12 +666,10 @@ $result_nodes{'section_below_unnumbered'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'info' => {},
               'structure' => {}
             },
             'normalized' => 'Sec'
           },
-          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -703,21 +691,18 @@ $result_menus{'section_below_unnumbered'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Unn'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Sec'
           },
-          'info' => {},
           'structure' => {
             'menu_up' => {},
             'menu_up_hash' => {

@@ -83,8 +83,7 @@ $result_sectioning{'top_no_argument_and_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'start'
-            },
-            'info' => {}
+            }
           }
         },
         'structure' => {
@@ -107,16 +106,14 @@ $result_nodes{'top_no_argument_and_node'} = {
       'structure' => {}
     },
     'normalized' => 'start'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'top_no_argument_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'start'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'top_no_argument_and_node'} = [];

@@ -309,7 +309,6 @@ $result_sectioning{'no_menu'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -323,11 +322,9 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -344,11 +341,9 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -366,11 +361,9 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c3'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -412,7 +405,6 @@ $result_nodes{'no_menu'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -420,14 +412,12 @@ $result_nodes{'no_menu'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'c1'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -435,14 +425,12 @@ $result_nodes{'no_menu'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'c2'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -450,14 +438,12 @@ $result_nodes{'no_menu'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'c3'
               },
-              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -485,7 +471,6 @@ $result_menus{'no_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -189,11 +189,9 @@ $result_sectioning{'top_no_sectioning_command'} = {
             'extra' => {
               'normalized' => 'Chapter'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -211,7 +209,6 @@ $result_nodes{'top_no_sectioning_command'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -219,14 +216,12 @@ $result_nodes{'top_no_sectioning_command'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -240,7 +235,6 @@ $result_menus{'top_no_sectioning_command'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -1548,11 +1548,9 @@ $result_sectioning{'image_inline_or_not'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1563,11 +1561,9 @@ $result_sectioning{'image_inline_or_not'} = {
                   'extra' => {
                     'normalized' => 'node_005fimage'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1596,7 +1592,6 @@ $result_nodes{'image_inline_or_not'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1606,7 +1601,6 @@ $result_nodes{'image_inline_or_not'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1614,14 +1608,12 @@ $result_nodes{'image_inline_or_not'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node_005fimage'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1639,14 +1631,12 @@ $result_menus{'image_inline_or_not'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node_005fimage'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'extra' => {
@@ -1685,7 +1675,6 @@ $result_floats{'image_inline_or_not'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1693,7 +1682,6 @@ $result_floats{'image_inline_or_not'} = {
         'float_type' => 'F',
         'normalized' => 'g'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

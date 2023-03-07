@@ -701,11 +701,9 @@ $result_sectioning{'comment_space_command_on_line'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -717,11 +715,9 @@ $result_sectioning{'comment_space_command_on_line'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -750,12 +746,10 @@ $result_nodes{'comment_space_command_on_line'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -763,7 +757,6 @@ $result_nodes{'comment_space_command_on_line'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -771,7 +764,6 @@ $result_nodes{'comment_space_command_on_line'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -787,7 +779,6 @@ $result_menus{'comment_space_command_on_line'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -802,7 +793,6 @@ $result_floats{'comment_space_command_on_line'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -810,7 +800,6 @@ $result_floats{'comment_space_command_on_line'} = {
         'float_type' => 'Text',
         'normalized' => 'label'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

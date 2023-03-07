@@ -149,11 +149,9 @@ $result_sectioning{'ref_to_top'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -171,20 +169,17 @@ $result_nodes{'ref_to_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'ref_to_top'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'ref_to_top'} = [

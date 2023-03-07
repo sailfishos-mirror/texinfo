@@ -359,11 +359,9 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -375,7 +373,6 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -392,7 +389,6 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
                   'extra' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -426,7 +422,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -436,7 +431,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -444,7 +438,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -463,7 +456,6 @@ $result_menus{'in_menu_only_special_ascii_spaces_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

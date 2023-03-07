@@ -141,16 +141,14 @@ $result_nodes{'leading_space_before_menu_star'} = {
       }
     ],
     'normalized' => 'a-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'leading_space_before_menu_star'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'leading_space_before_menu_star'} = [];

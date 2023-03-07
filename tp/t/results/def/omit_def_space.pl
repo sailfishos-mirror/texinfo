@@ -397,14 +397,12 @@ $result_nodes{'omit_def_space'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -418,7 +416,6 @@ $result_menus{'omit_def_space'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

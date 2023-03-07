@@ -415,11 +415,9 @@ $result_sectioning{'customize_special_element'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -430,11 +428,9 @@ $result_sectioning{'customize_special_element'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -451,11 +447,9 @@ $result_sectioning{'customize_special_element'} = {
                   'extra' => {
                     'normalized' => 'Chapter-fr'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -489,12 +483,10 @@ $result_nodes{'customize_special_element'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -502,14 +494,12 @@ $result_nodes{'customize_special_element'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -517,14 +507,12 @@ $result_nodes{'customize_special_element'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Chapter-fr'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -546,7 +534,6 @@ $result_menus{'customize_special_element'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

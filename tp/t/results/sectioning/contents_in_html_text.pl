@@ -220,17 +220,14 @@ $result_sectioning{'contents_in_html_text'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -247,7 +244,6 @@ $result_sectioning{'contents_in_html_text'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,

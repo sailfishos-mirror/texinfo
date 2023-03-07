@@ -329,16 +329,14 @@ $result_nodes{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'empty_ref_arg'} = [

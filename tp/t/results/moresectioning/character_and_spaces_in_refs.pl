@@ -1450,11 +1450,9 @@ $result_sectioning{'character_and_spaces_in_refs'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1465,11 +1463,9 @@ $result_sectioning{'character_and_spaces_in_refs'} = {
                   'extra' => {
                     'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1486,11 +1482,9 @@ $result_sectioning{'character_and_spaces_in_refs'} = {
                   'extra' => {
                     'normalized' => 'other-nodes'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1524,7 +1518,6 @@ $result_nodes{'character_and_spaces_in_refs'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1534,7 +1527,6 @@ $result_nodes{'character_and_spaces_in_refs'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1542,14 +1534,12 @@ $result_nodes{'character_and_spaces_in_refs'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1557,7 +1547,6 @@ $result_nodes{'character_and_spaces_in_refs'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -1569,28 +1558,24 @@ $result_nodes{'character_and_spaces_in_refs'} = {
             ],
             'normalized' => 'other-nodes'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
                       'extra' => {
                         'normalized' => 'local-node'
                       },
-                      'info' => {},
                       'structure' => {
                         'node_prev' => {},
                         'node_up' => {}
@@ -1634,42 +1619,36 @@ $result_menus{'character_and_spaces_in_refs'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'other-nodes'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
                         'normalized' => 'local-node'
                       },
-                      'info' => {},
                       'structure' => {
                         'menu_prev' => {},
                         'menu_up' => {},

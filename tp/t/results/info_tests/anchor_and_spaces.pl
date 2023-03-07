@@ -208,11 +208,9 @@ $result_sectioning{'anchor_and_spaces'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -230,20 +228,17 @@ $result_nodes{'anchor_and_spaces'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'anchor_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'anchor_and_spaces'} = [];

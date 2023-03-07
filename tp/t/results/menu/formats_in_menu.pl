@@ -764,7 +764,6 @@ $result_nodes{'formats_in_menu'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -783,7 +782,6 @@ $result_menus{'formats_in_menu'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

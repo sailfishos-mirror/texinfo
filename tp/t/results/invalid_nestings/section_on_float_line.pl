@@ -102,7 +102,6 @@ $result_sectioning{'section_on_float_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -154,7 +153,6 @@ $result_floats{'section_on_float_line'} = {
         'float_type' => 't',
         'normalized' => 'l'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

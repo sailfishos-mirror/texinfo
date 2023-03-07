@@ -1210,7 +1210,6 @@ $result_sectioning{'index_no_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -1218,12 +1217,10 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_up' => {}
@@ -1238,7 +1235,6 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -1250,7 +1246,6 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 2,

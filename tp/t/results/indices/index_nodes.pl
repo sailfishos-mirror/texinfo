@@ -1565,7 +1565,6 @@ $result_nodes{'index_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1578,7 +1577,6 @@ $result_nodes{'index_nodes'} = {
         ],
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1591,7 +1589,6 @@ $result_nodes{'index_nodes'} = {
             ],
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1599,14 +1596,12 @@ $result_nodes{'index_nodes'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -1639,7 +1634,6 @@ $result_menus{'index_nodes'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1647,7 +1641,6 @@ $result_menus{'index_nodes'} = {
         'isindex' => 1,
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1655,7 +1648,6 @@ $result_menus{'index_nodes'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1663,14 +1655,12 @@ $result_menus{'index_nodes'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

@@ -123,16 +123,14 @@ $result_nodes{'space_in_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'space_in_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'space_in_setfilename'} = [

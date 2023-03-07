@@ -215,7 +215,6 @@ $result_nodes{'space_at_menu_end'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -236,7 +235,6 @@ $result_menus{'space_at_menu_end'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

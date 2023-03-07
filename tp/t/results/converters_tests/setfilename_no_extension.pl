@@ -205,11 +205,9 @@ $result_sectioning{'setfilename_no_extension'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -227,19 +225,16 @@ $result_nodes{'setfilename_no_extension'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -253,7 +248,6 @@ $result_menus{'setfilename_no_extension'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

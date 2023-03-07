@@ -228,16 +228,14 @@ $result_nodes{'empty_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'empty_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'empty_caption'} = [];
@@ -257,7 +255,6 @@ $result_floats{'empty_caption'} = {
         'float_type' => 'a',
         'normalized' => 'b'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

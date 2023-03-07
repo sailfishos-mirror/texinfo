@@ -435,7 +435,6 @@ $result_sectioning{'double_part'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -455,7 +454,6 @@ $result_sectioning{'double_part'} = {
                               'extra' => {
                                 'normalized' => 'node-chapter'
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
@@ -466,7 +464,6 @@ $result_sectioning{'double_part'} = {
                                 'part_associated_section' => {},
                                 'part_following_node' => {}
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {},
                                 'section_childs' => [
@@ -475,7 +472,6 @@ $result_sectioning{'double_part'} = {
                                 'section_level' => 0,
                                 'section_prev' => {
                                   'cmdname' => 'part',
-                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {
                                       'extra' => {
@@ -505,7 +501,6 @@ $result_sectioning{'double_part'} = {
                               }
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_level' => 1,
@@ -542,7 +537,6 @@ $result_sectioning{'double_part'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 0,
@@ -604,7 +598,6 @@ $result_nodes{'double_part'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -622,13 +615,11 @@ $result_nodes{'double_part'} = {
                       'associated_part' => {
                         'cmdname' => 'part',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {}
                         }
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 1
@@ -642,7 +633,6 @@ $result_nodes{'double_part'} = {
                         'first_in_page' => {},
                         'unit_command' => {
                           'cmdname' => 'part',
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -691,7 +681,6 @@ $result_nodes{'double_part'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {
@@ -701,7 +690,6 @@ $result_nodes{'double_part'} = {
         'node_preceding_part' => {},
         'normalized' => 'node-chapter'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'node_prev' => {},
@@ -751,7 +739,6 @@ $result_menus{'double_part'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -759,7 +746,6 @@ $result_menus{'double_part'} = {
         'unit_command' => {
           'cmdname' => 'top',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -776,13 +762,11 @@ $result_menus{'double_part'} = {
                   'associated_part' => {
                     'cmdname' => 'part',
                     'extra' => {},
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {}
                     }
                   }
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'section_number' => 1
@@ -796,7 +780,6 @@ $result_menus{'double_part'} = {
                     'first_in_page' => {},
                     'unit_command' => {
                       'cmdname' => 'part',
-                      'info' => {},
                       'structure' => {
                         'associated_unit' => {}
                       }
@@ -841,7 +824,6 @@ $result_menus{'double_part'} = {
       'extra' => {
         'normalized' => 'node-chapter'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_up' => {},
@@ -923,7 +905,6 @@ $result_elements{'double_part'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -940,13 +921,11 @@ $result_elements{'double_part'} = [
                 'associated_part' => {
                   'cmdname' => 'part',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'associated_unit' => {}
                   }
                 }
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1
@@ -960,7 +939,6 @@ $result_elements{'double_part'} = [
                   'first_in_page' => {},
                   'unit_command' => {
                     'cmdname' => 'part',
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {}
                     }

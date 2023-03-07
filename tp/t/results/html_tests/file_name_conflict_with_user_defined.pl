@@ -280,11 +280,9 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -295,11 +293,9 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                   'extra' => {
                     'normalized' => 'Chapter-1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -316,11 +312,9 @@ $result_sectioning{'file_name_conflict_with_user_defined'} = {
                   'extra' => {
                     'normalized' => 'Chapter-2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -354,12 +348,10 @@ $result_nodes{'file_name_conflict_with_user_defined'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -367,14 +359,12 @@ $result_nodes{'file_name_conflict_with_user_defined'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter-1'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -382,14 +372,12 @@ $result_nodes{'file_name_conflict_with_user_defined'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Chapter-2'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -411,7 +399,6 @@ $result_menus{'file_name_conflict_with_user_defined'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

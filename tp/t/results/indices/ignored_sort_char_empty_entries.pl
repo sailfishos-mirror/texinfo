@@ -393,7 +393,6 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -418,7 +417,6 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -426,7 +424,6 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -440,7 +437,6 @@ $result_menus{'ignored_sort_char_empty_entries'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

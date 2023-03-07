@@ -116,16 +116,14 @@ $result_nodes{'encoding_us_ascii'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'encoding_us_ascii'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'encoding_us_ascii'} = [];

@@ -364,7 +364,6 @@ $result_nodes{'seealso_duplicate'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -372,7 +371,6 @@ $result_nodes{'seealso_duplicate'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -386,7 +384,6 @@ $result_menus{'seealso_duplicate'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -143,16 +143,14 @@ $result_nodes{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'footnote_in_ref'} = [

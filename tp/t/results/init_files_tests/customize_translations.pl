@@ -671,11 +671,9 @@ $result_sectioning{'customize_translations'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -686,11 +684,9 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -707,11 +703,9 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter-fr'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -722,11 +716,9 @@ $result_sectioning{'customize_translations'} = {
                         'extra' => {
                           'normalized' => 'section-fr'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.1',
@@ -750,11 +742,9 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter-de'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -772,11 +762,9 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Last-chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -819,12 +807,10 @@ $result_nodes{'customize_translations'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -832,14 +818,12 @@ $result_nodes{'customize_translations'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -847,14 +831,12 @@ $result_nodes{'customize_translations'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Chapter-fr'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -862,14 +844,12 @@ $result_nodes{'customize_translations'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'Chapter-de'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
@@ -877,14 +857,12 @@ $result_nodes{'customize_translations'} = {
                     'associated_section' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
-                      'info' => {},
                       'structure' => {
                         'section_number' => 4
                       }
                     },
                     'normalized' => 'Last-chapter'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -918,7 +896,6 @@ $result_menus{'customize_translations'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

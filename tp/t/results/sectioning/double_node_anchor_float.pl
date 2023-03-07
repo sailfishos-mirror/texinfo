@@ -504,16 +504,14 @@ $result_nodes{'double_node_anchor_float'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node1'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'double_node_anchor_float'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node1'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'double_node_anchor_float'} = [
@@ -640,15 +638,13 @@ $result_floats{'double_node_anchor_float'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => 'Text'
-      },
-      'info' => {}
+      }
     },
     {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => 'Text'
-      },
-      'info' => {}
+      }
     },
     {
       'cmdname' => 'float',
@@ -656,7 +652,6 @@ $result_floats{'double_node_anchor_float'} = {
         'float_type' => 'Text',
         'normalized' => 'float1'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

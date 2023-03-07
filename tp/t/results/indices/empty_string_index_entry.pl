@@ -629,7 +629,6 @@ $result_nodes{'empty_string_index_entry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -637,7 +636,6 @@ $result_nodes{'empty_string_index_entry'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -651,7 +649,6 @@ $result_menus{'empty_string_index_entry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

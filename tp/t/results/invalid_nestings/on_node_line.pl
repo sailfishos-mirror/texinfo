@@ -260,7 +260,6 @@ $result_nodes{'on_node_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -280,7 +279,6 @@ $result_menus{'on_node_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {}
 };
 

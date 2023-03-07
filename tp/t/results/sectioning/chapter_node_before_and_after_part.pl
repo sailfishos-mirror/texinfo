@@ -361,11 +361,9 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -383,12 +381,10 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
                 'extra' => {
                   'normalized' => 'after'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -398,7 +394,6 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -425,7 +420,6 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
@@ -437,7 +431,6 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -448,11 +441,9 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
-              'info' => {},
               'structure' => {}
             }
           },
-          'info' => {},
           'structure' => {
             'section_number' => 2
           }
@@ -460,7 +451,6 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
         'node_preceding_part' => {},
         'normalized' => 'after'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -479,14 +469,12 @@ $result_menus{'chapter_node_before_and_after_part'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'after'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

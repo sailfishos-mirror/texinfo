@@ -213,16 +213,13 @@ $result_sectioning{'text_before_top_and_contents_after_title'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -251,20 +248,17 @@ $result_nodes{'text_before_top_and_contents_after_title'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'text_before_top_and_contents_after_title'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'text_before_top_and_contents_after_title'} = [];

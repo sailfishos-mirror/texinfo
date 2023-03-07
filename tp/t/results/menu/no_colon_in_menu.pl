@@ -141,16 +141,14 @@ $result_nodes{'no_colon_in_menu'} = {
       }
     ],
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'no_colon_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'no_colon_in_menu'} = [];

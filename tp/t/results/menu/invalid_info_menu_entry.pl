@@ -559,7 +559,6 @@ $result_nodes{'invalid_info_menu_entry'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -579,7 +578,6 @@ $result_menus{'invalid_info_menu_entry'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

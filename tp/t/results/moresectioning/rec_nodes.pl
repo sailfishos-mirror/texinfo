@@ -1014,7 +1014,6 @@ $result_nodes{'rec_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1026,7 +1025,6 @@ $result_nodes{'rec_nodes'} = {
         ],
         'normalized' => 'chap-node'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1038,7 +1036,6 @@ $result_nodes{'rec_nodes'} = {
             ],
             'normalized' => 'other-node'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_up' => {}
@@ -1062,21 +1059,18 @@ $result_menus{'rec_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-node'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'other-node'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'menu_next' => {},
@@ -1092,14 +1086,12 @@ $result_menus{'rec_nodes'} = {
           'extra' => {
             'normalized' => 'node-following-second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-up-node-following-second'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'menu_up' => {},

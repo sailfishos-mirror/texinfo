@@ -518,11 +518,9 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -533,11 +531,9 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -548,11 +544,9 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'} = {
                         'extra' => {
                           'normalized' => 'Foo'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -567,11 +561,9 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'} = {
                         'extra' => {
                           'normalized' => 'Bar'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.2',
@@ -587,11 +579,9 @@ $result_sectioning{'file_name_case_insensitive_conflict_node'} = {
                         'extra' => {
                           'normalized' => 'foo'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.3',
@@ -632,12 +622,10 @@ $result_nodes{'file_name_case_insensitive_conflict_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -645,14 +633,12 @@ $result_nodes{'file_name_case_insensitive_conflict_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -668,7 +654,6 @@ $result_menus{'file_name_case_insensitive_conflict_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

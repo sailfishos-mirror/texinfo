@@ -404,7 +404,6 @@ $result_floats{'empty_caption'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -441,7 +440,6 @@ $result_floats{'empty_caption'} = {
         'float_type' => 'a',
         'normalized' => 'b'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

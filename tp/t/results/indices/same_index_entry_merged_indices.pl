@@ -555,7 +555,6 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -570,11 +569,9 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -607,7 +604,6 @@ $result_nodes{'same_index_entry_merged_indices'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -615,7 +611,6 @@ $result_nodes{'same_index_entry_merged_indices'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -623,7 +618,6 @@ $result_nodes{'same_index_entry_merged_indices'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -639,7 +633,6 @@ $result_menus{'same_index_entry_merged_indices'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

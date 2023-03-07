@@ -231,14 +231,12 @@ $result_nodes{'menu_title_before_entries'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-subnode'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -256,14 +254,12 @@ $result_menus{'menu_title_before_entries'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-subnode'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

@@ -363,7 +363,6 @@ $result_nodes{'cindex_in_caption'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -371,7 +370,6 @@ $result_nodes{'cindex_in_caption'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -385,7 +383,6 @@ $result_menus{'cindex_in_caption'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -406,7 +403,6 @@ $result_floats{'cindex_in_caption'} = {
         'float_type' => 'fl',
         'normalized' => 'label'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

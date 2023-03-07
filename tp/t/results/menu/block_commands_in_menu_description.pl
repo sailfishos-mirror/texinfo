@@ -641,11 +641,9 @@ $result_sectioning{'block_commands_in_menu_description'} = {
             'extra' => {
               'normalized' => 'first'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -663,7 +661,6 @@ $result_nodes{'block_commands_in_menu_description'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -673,7 +670,6 @@ $result_nodes{'block_commands_in_menu_description'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -692,7 +688,6 @@ $result_menus{'block_commands_in_menu_description'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

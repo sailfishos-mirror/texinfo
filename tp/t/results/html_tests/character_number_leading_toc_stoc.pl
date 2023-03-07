@@ -207,12 +207,10 @@ $result_sectioning{'character_number_leading_toc_stoc'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -223,12 +221,10 @@ $result_sectioning{'character_number_leading_toc_stoc'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_up' => {}

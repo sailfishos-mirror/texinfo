@@ -1067,11 +1067,9 @@ $result_sectioning{'node_footnote_use_node_separate'} = {
             'extra' => {
               'normalized' => 'chapter'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -1094,21 +1092,18 @@ $result_nodes{'node_footnote_use_node_separate'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_00e1'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_00e2'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1116,7 +1111,6 @@ $result_nodes{'node_footnote_use_node_separate'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 1
                   }
@@ -1128,14 +1122,12 @@ $result_nodes{'node_footnote_use_node_separate'} = {
                 ],
                 'normalized' => 'chapter'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e0'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -1173,35 +1165,30 @@ $result_menus{'node_footnote_use_node_separate'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_00e1'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_00e2'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'chapter'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e0'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

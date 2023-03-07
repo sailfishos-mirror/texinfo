@@ -5604,11 +5604,9 @@ $result_sectioning{'macro_in_misc_commands'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -5619,11 +5617,9 @@ $result_sectioning{'macro_in_misc_commands'} = {
                   'extra' => {
                     'normalized' => 'node-atext'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'source_marks' => [
                 {
                   'counter' => 51,
@@ -5659,7 +5655,6 @@ $result_nodes{'macro_in_misc_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -5669,7 +5664,6 @@ $result_nodes{'macro_in_misc_commands'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -5677,7 +5671,6 @@ $result_nodes{'macro_in_misc_commands'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'source_marks' => [
             {
               'counter' => 51,
@@ -5691,7 +5684,6 @@ $result_nodes{'macro_in_misc_commands'} = {
         },
         'normalized' => 'node-atext'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -5709,14 +5701,12 @@ $result_menus{'macro_in_misc_commands'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node-atext'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

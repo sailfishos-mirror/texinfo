@@ -303,14 +303,12 @@ $result_nodes{'footnote_in_caption_and_error'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -324,7 +322,6 @@ $result_menus{'footnote_in_caption_and_error'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -355,7 +352,6 @@ $result_floats{'footnote_in_caption_and_error'} = {
         'float_type' => 'fl',
         'normalized' => 'label'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -398,7 +398,6 @@ $result_floats{'float_with_at_commands'} = {
         'float_type' => "entr\x{e9}e",
         'normalized' => 'premi_00e8re-entr_00e9e'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

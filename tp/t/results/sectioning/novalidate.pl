@@ -268,7 +268,6 @@ $result_nodes{'novalidate'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -283,7 +282,6 @@ $result_menus{'novalidate'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {}
 };
 

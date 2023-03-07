@@ -283,11 +283,9 @@ $result_sectioning{'between_node_and_section'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chap'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -298,11 +296,9 @@ $result_sectioning{'between_node_and_section'} = {
                   'extra' => {
                     'normalized' => 'sec1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '1.1',
@@ -317,11 +313,9 @@ $result_sectioning{'between_node_and_section'} = {
                   'extra' => {
                     'normalized' => 'sec2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '1.2',
@@ -350,22 +344,19 @@ $result_nodes{'between_node_and_section'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'chap'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'between_node_and_section'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chap'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'between_node_and_section'} = [];

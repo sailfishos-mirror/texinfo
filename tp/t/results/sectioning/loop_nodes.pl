@@ -603,11 +603,9 @@ $result_sectioning{'loop_nodes'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -625,7 +623,6 @@ $result_nodes{'loop_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -635,7 +632,6 @@ $result_nodes{'loop_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -647,7 +643,6 @@ $result_nodes{'loop_nodes'} = {
         ],
         'normalized' => 'chap-node-up'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -659,14 +654,12 @@ $result_nodes{'loop_nodes'} = {
             ],
             'normalized' => 'node-middle'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-down'
               },
-              'info' => {},
               'structure' => {
                 'node_up' => {}
               }
@@ -692,28 +685,24 @@ $result_menus{'loop_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-node-up'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node-middle'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-down'
               },
-              'info' => {},
               'structure' => {
                 'menu_up' => {},
                 'menu_up_hash' => {

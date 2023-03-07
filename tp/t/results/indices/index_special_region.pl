@@ -1825,16 +1825,13 @@ $result_sectioning{'index_special_region'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1852,11 +1849,9 @@ $result_sectioning{'index_special_region'} = {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-indices'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -1890,7 +1885,6 @@ $result_nodes{'index_special_region'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1900,7 +1894,6 @@ $result_nodes{'index_special_region'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1908,7 +1901,6 @@ $result_nodes{'index_special_region'} = {
         'associated_section' => {
           'cmdname' => 'appendix',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 'A'
           }
@@ -1916,7 +1908,6 @@ $result_nodes{'index_special_region'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-indices'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1934,7 +1925,6 @@ $result_menus{'index_special_region'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1942,7 +1932,6 @@ $result_menus{'index_special_region'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-indices'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

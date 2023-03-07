@@ -311,11 +311,9 @@ $result_sectioning{'text_before_line_command'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'LD-Version-Scripts'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -334,22 +332,19 @@ $result_nodes{'text_before_line_command'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'LD-Version-Scripts'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'text_before_line_command'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'LD-Version-Scripts'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'text_before_line_command'} = [

@@ -264,7 +264,6 @@ $result_sectioning{'internal_top_node_up'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -279,7 +278,6 @@ $result_sectioning{'internal_top_node_up'} = {
                           'extra' => {
                             'normalized' => 'chap'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -309,7 +307,6 @@ $result_sectioning{'internal_top_node_up'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 0,
@@ -342,7 +339,6 @@ $result_nodes{'internal_top_node_up'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -357,7 +353,6 @@ $result_nodes{'internal_top_node_up'} = {
                     'extra' => {
                       'normalized' => 'chap'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_prev' => {},
@@ -395,7 +390,6 @@ $result_nodes{'internal_top_node_up'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {},
@@ -426,7 +420,6 @@ $result_menus{'internal_top_node_up'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -441,7 +434,6 @@ $result_menus{'internal_top_node_up'} = {
                 'extra' => {
                   'normalized' => 'chap'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_up' => {},
@@ -505,7 +497,6 @@ $result_elements{'internal_top_node_up'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -513,7 +504,6 @@ $result_elements{'internal_top_node_up'} = [
             'extra' => {
               'normalized' => 'chap'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {

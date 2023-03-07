@@ -93,16 +93,14 @@ $result_nodes{'ignored_text'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'before-ignore'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'ignored_text'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'before-ignore'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'ignored_text'} = [

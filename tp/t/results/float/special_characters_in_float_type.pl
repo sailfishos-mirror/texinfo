@@ -451,11 +451,9 @@ $result_sectioning{'special_characters_in_float_type'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -466,11 +464,9 @@ $result_sectioning{'special_characters_in_float_type'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -499,12 +495,10 @@ $result_nodes{'special_characters_in_float_type'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -512,14 +506,12 @@ $result_nodes{'special_characters_in_float_type'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -535,7 +527,6 @@ $result_menus{'special_characters_in_float_type'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -556,7 +547,6 @@ $result_floats{'special_characters_in_float_type'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -564,7 +554,6 @@ $result_floats{'special_characters_in_float_type'} = {
         'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
         'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

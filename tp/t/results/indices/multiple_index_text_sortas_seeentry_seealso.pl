@@ -476,7 +476,6 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -491,11 +490,9 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -528,7 +525,6 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -536,7 +532,6 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -544,7 +539,6 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -560,7 +554,6 @@ $result_menus{'multiple_index_text_sortas_seeentry_seealso'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

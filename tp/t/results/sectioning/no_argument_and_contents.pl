@@ -146,12 +146,10 @@ $result_sectioning{'no_argument_and_contents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,

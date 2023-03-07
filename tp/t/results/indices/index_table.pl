@@ -6531,11 +6531,9 @@ $result_sectioning{'index_table'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -6546,11 +6544,9 @@ $result_sectioning{'index_table'} = {
                   'extra' => {
                     'normalized' => 'node-with-ftable-and-vtable'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -6568,11 +6564,9 @@ $result_sectioning{'index_table'} = {
                     'isindex' => 1,
                     'normalized' => 'node-with-printindex'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -6591,11 +6585,9 @@ $result_sectioning{'index_table'} = {
                     'isindex' => 1,
                     'normalized' => 'indices-refs'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -6606,11 +6598,9 @@ $result_sectioning{'index_table'} = {
                         'extra' => {
                           'normalized' => 'node'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '3.1',
@@ -6655,7 +6645,6 @@ $result_nodes{'index_table'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -6665,7 +6654,6 @@ $result_nodes{'index_table'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -6673,14 +6661,12 @@ $result_nodes{'index_table'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node-with-ftable-and-vtable'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -6688,7 +6674,6 @@ $result_nodes{'index_table'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -6696,7 +6681,6 @@ $result_nodes{'index_table'} = {
             'isindex' => 1,
             'normalized' => 'node-with-printindex'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -6704,7 +6688,6 @@ $result_nodes{'index_table'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
@@ -6717,7 +6700,6 @@ $result_nodes{'index_table'} = {
                 ],
                 'normalized' => 'indices-refs'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
@@ -6725,14 +6707,12 @@ $result_nodes{'index_table'} = {
                     'associated_section' => {
                       'cmdname' => 'section',
                       'extra' => {},
-                      'info' => {},
                       'structure' => {
                         'section_number' => '3.1'
                       }
                     },
                     'normalized' => 'node'
                   },
-                  'info' => {},
                   'structure' => {}
                 },
                 'node_prev' => {},
@@ -6763,14 +6743,12 @@ $result_menus{'index_table'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node-with-ftable-and-vtable'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -6778,7 +6756,6 @@ $result_menus{'index_table'} = {
             'isindex' => 1,
             'normalized' => 'node-with-printindex'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
@@ -6786,14 +6763,12 @@ $result_menus{'index_table'} = {
                 'isindex' => 1,
                 'normalized' => 'indices-refs'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'node'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_up' => {},
                     'menu_up_hash' => {

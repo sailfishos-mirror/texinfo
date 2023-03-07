@@ -218,7 +218,6 @@ $result_nodes{'node_on_index_entry_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -258,7 +257,6 @@ $result_menus{'node_on_index_entry_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -2990,11 +2990,9 @@ $result_sectioning{'refs_formatting'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chapter'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -3013,22 +3011,19 @@ $result_nodes{'refs_formatting'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'chapter'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'refs_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chapter'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'refs_formatting'} = [

@@ -621,16 +621,14 @@ $result_nodes{'spaces_in_empty_node_names'} = {
       }
     ],
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'spaces_in_empty_node_names'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'spaces_in_empty_node_names'} = [

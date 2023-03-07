@@ -206,7 +206,6 @@ $result_nodes{'menu_in_style_command'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -225,7 +224,6 @@ $result_menus{'menu_in_style_command'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

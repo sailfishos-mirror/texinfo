@@ -297,14 +297,12 @@ $result_nodes{'top_node_no_menu_direction'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -322,14 +320,12 @@ $result_menus{'top_node_no_menu_direction'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-node'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {},
         'menu_up' => {},

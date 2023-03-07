@@ -123,7 +123,6 @@ $result_sectioning{'loweredheading'} = {
         'extra' => {
           'sections_level' => -1
         },
-        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,

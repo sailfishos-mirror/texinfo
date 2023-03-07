@@ -197,7 +197,6 @@ $result_sectioning{'split_html_text'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -212,7 +211,6 @@ $result_sectioning{'split_html_text'} = {
                           'extra' => {
                             'normalized' => 'chap'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -244,7 +242,6 @@ $result_sectioning{'split_html_text'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -253,7 +250,6 @@ $result_sectioning{'split_html_text'} = {
               'extra' => {
                 'associated_node' => {}
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_level' => 1,
@@ -301,7 +297,6 @@ $result_nodes{'split_html_text'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -317,7 +312,6 @@ $result_nodes{'split_html_text'} = {
                       'associated_section' => {
                         'cmdname' => 'chapter',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'section_number' => 1
@@ -325,7 +319,6 @@ $result_nodes{'split_html_text'} = {
                       },
                       'normalized' => 'chap'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_prev' => {},
@@ -360,7 +353,6 @@ $result_nodes{'split_html_text'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'node_next' => {}
@@ -392,7 +384,6 @@ $result_menus{'split_html_text'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -407,7 +398,6 @@ $result_menus{'split_html_text'} = {
                 'extra' => {
                   'normalized' => 'chap'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {}
                 }
@@ -468,7 +458,6 @@ $result_elements{'split_html_text'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -483,7 +472,6 @@ $result_elements{'split_html_text'} = [
               'extra' => {
                 'normalized' => 'chap'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {}
               }

@@ -596,8 +596,7 @@ $result_nodes{'colon_in_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'colon_in_index_entry'} = {
@@ -605,8 +604,7 @@ $result_menus{'colon_in_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'colon_in_index_entry'} = [];

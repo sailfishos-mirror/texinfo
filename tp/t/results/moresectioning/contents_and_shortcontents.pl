@@ -525,27 +525,22 @@ $result_sectioning{'contents_and_shortcontents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
-                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.1',
@@ -585,7 +580,6 @@ $result_sectioning{'contents_and_shortcontents'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -595,13 +589,11 @@ $result_sectioning{'contents_and_shortcontents'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {},
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -613,7 +605,6 @@ $result_sectioning{'contents_and_shortcontents'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -630,12 +621,10 @@ $result_sectioning{'contents_and_shortcontents'} = {
       },
       {
         'cmdname' => 'appendix',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => 'A.1',

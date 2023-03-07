@@ -126,11 +126,9 @@ $result_sectioning{'recursive_self_section_reference'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'sharp'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -149,22 +147,19 @@ $result_nodes{'recursive_self_section_reference'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'sharp'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'recursive_self_section_reference'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'sharp'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'recursive_self_section_reference'} = [];

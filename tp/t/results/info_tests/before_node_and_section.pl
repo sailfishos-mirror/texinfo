@@ -691,11 +691,9 @@ $result_sectioning{'before_node_and_section'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -707,11 +705,9 @@ $result_sectioning{'before_node_and_section'} = {
                     'isindex' => 1,
                     'normalized' => 'node1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -740,7 +736,6 @@ $result_nodes{'before_node_and_section'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -750,7 +745,6 @@ $result_nodes{'before_node_and_section'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -758,7 +752,6 @@ $result_nodes{'before_node_and_section'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -766,7 +759,6 @@ $result_nodes{'before_node_and_section'} = {
         'isindex' => 1,
         'normalized' => 'node1'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -784,7 +776,6 @@ $result_menus{'before_node_and_section'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -792,7 +783,6 @@ $result_menus{'before_node_and_section'} = {
         'isindex' => 1,
         'normalized' => 'node1'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

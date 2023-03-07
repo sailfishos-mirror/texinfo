@@ -960,11 +960,9 @@ $result_sectioning{'navigation_node_no_header'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -975,11 +973,9 @@ $result_sectioning{'navigation_node_no_header'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -990,11 +986,9 @@ $result_sectioning{'navigation_node_no_header'} = {
                         'extra' => {
                           'normalized' => 'section'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -1005,11 +999,9 @@ $result_sectioning{'navigation_node_no_header'} = {
                               'extra' => {
                                 'normalized' => 'subsection'
                               },
-                              'info' => {},
                               'structure' => {}
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '1.1.1',
@@ -1052,7 +1044,6 @@ $result_nodes{'navigation_node_no_header'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1062,7 +1053,6 @@ $result_nodes{'navigation_node_no_header'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1070,7 +1060,6 @@ $result_nodes{'navigation_node_no_header'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1082,7 +1071,6 @@ $result_nodes{'navigation_node_no_header'} = {
         ],
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1090,7 +1078,6 @@ $result_nodes{'navigation_node_no_header'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
@@ -1102,7 +1089,6 @@ $result_nodes{'navigation_node_no_header'} = {
             ],
             'normalized' => 'section'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1110,14 +1096,12 @@ $result_nodes{'navigation_node_no_header'} = {
                 'associated_section' => {
                   'cmdname' => 'subsection',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => '1.1.1'
                   }
                 },
                 'normalized' => 'subsection'
               },
-              'info' => {},
               'structure' => {
                 'node_up' => {}
               }
@@ -1143,28 +1127,24 @@ $result_menus{'navigation_node_no_header'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'subsection'
               },
-              'info' => {},
               'structure' => {
                 'menu_up' => {},
                 'menu_up_hash' => {

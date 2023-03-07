@@ -668,16 +668,14 @@ $result_nodes{'submenu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'submenu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'submenu_in_example'} = [

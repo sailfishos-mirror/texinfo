@@ -511,7 +511,6 @@ $result_sectioning{'seeentry'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -526,11 +525,9 @@ $result_sectioning{'seeentry'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -563,7 +560,6 @@ $result_nodes{'seeentry'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -571,7 +567,6 @@ $result_nodes{'seeentry'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -579,7 +574,6 @@ $result_nodes{'seeentry'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -595,7 +589,6 @@ $result_menus{'seeentry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

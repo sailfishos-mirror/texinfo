@@ -487,14 +487,12 @@ $result_nodes{'index_entry_before_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -502,7 +500,6 @@ $result_nodes{'index_entry_before_node'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -526,14 +523,12 @@ $result_menus{'index_entry_before_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -541,7 +536,6 @@ $result_menus{'index_entry_before_node'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

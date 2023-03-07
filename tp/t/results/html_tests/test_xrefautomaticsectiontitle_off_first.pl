@@ -463,11 +463,9 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -478,11 +476,9 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -511,7 +507,6 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -521,7 +516,6 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -529,14 +523,12 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -554,14 +546,12 @@ $result_menus{'test_xrefautomaticsectiontitle_off_first'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

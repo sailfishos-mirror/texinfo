@@ -342,7 +342,6 @@ $result_sectioning{'part_chapter_after_top'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -360,7 +359,6 @@ $result_sectioning{'part_chapter_after_top'} = {
                               'extra' => {
                                 'normalized' => 'chapter'
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
@@ -371,7 +369,6 @@ $result_sectioning{'part_chapter_after_top'} = {
                                 'part_associated_section' => {},
                                 'part_following_node' => {}
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {},
                                 'section_childs' => [
@@ -383,7 +380,6 @@ $result_sectioning{'part_chapter_after_top'} = {
                               }
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_level' => 1,
@@ -420,7 +416,6 @@ $result_sectioning{'part_chapter_after_top'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 0,
@@ -467,7 +462,6 @@ $result_nodes{'part_chapter_after_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -483,13 +477,11 @@ $result_nodes{'part_chapter_after_top'} = {
                       'associated_part' => {
                         'cmdname' => 'part',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {}
                         }
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 1
@@ -528,7 +520,6 @@ $result_nodes{'part_chapter_after_top'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {
@@ -538,7 +529,6 @@ $result_nodes{'part_chapter_after_top'} = {
         'node_preceding_part' => {},
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'node_prev' => {},
@@ -577,14 +567,12 @@ $result_menus{'part_chapter_after_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'top',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -600,13 +588,11 @@ $result_menus{'part_chapter_after_top'} = {
                   'associated_part' => {
                     'cmdname' => 'part',
                     'extra' => {},
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {}
                     }
                   }
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'section_number' => 1
@@ -641,7 +627,6 @@ $result_menus{'part_chapter_after_top'} = {
       'extra' => {
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_up' => {},
@@ -683,7 +668,6 @@ $result_elements{'part_chapter_after_top'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -699,13 +683,11 @@ $result_elements{'part_chapter_after_top'} = [
                 'associated_part' => {
                   'cmdname' => 'part',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'associated_unit' => {}
                   }
                 }
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1

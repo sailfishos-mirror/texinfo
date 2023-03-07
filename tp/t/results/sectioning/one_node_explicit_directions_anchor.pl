@@ -184,7 +184,6 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
   'extra' => {
     'normalized' => 'one-node'
   },
-  'info' => {},
   'structure' => {
     'node_up' => {
       'extra' => {
@@ -203,7 +202,6 @@ $result_menus{'one_node_explicit_directions_anchor'} = {
   'extra' => {
     'normalized' => 'one-node'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -448,7 +448,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -463,7 +462,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
                           'extra' => {
                             'normalized' => 'Pr_00e9s'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -480,7 +478,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
                                 'extra' => {
                                   'normalized' => 'Other-node'
                                 },
-                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -528,7 +525,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -537,7 +533,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
               'extra' => {
                 'associated_node' => {}
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_level' => 1,
@@ -552,7 +547,6 @@ $result_sectioning{'transliterated_names_conflicts'} = {
               'extra' => {
                 'associated_node' => {}
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_level' => 1,
@@ -622,7 +616,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -638,7 +631,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
                       'associated_section' => {
                         'cmdname' => 'chapter',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'section_number' => 1
@@ -646,7 +638,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
                       },
                       'normalized' => 'Pr_00e9s'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_next' => {
@@ -655,7 +646,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
                           'associated_section' => {
                             'cmdname' => 'chapter',
                             'extra' => {},
-                            'info' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -681,7 +671,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
                           },
                           'normalized' => 'Other-node'
                         },
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'node_prev' => {},
@@ -726,7 +715,6 @@ $result_nodes{'transliterated_names_conflicts'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'node_next' => {}
@@ -777,7 +765,6 @@ $result_menus{'transliterated_names_conflicts'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -792,7 +779,6 @@ $result_menus{'transliterated_names_conflicts'} = {
                 'extra' => {
                   'normalized' => 'Pr_00e9s'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {}
                 }
@@ -809,7 +795,6 @@ $result_menus{'transliterated_names_conflicts'} = {
                       'extra' => {
                         'normalized' => 'Other-node'
                       },
-                      'info' => {},
                       'structure' => {
                         'associated_unit' => {}
                       }
@@ -898,7 +883,6 @@ $result_floats{'transliterated_names_conflicts'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {
               'extra' => {
@@ -907,7 +891,6 @@ $result_floats{'transliterated_names_conflicts'} = {
                   'extra' => {
                     'normalized' => 'Other-node'
                   },
-                  'info' => {},
                   'structure' => {
                     'associated_unit' => {}
                   }
@@ -922,7 +905,6 @@ $result_floats{'transliterated_names_conflicts'} = {
                         'extra' => {
                           'normalized' => 'Pr_00e9s'
                         },
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {}
                         }
@@ -937,7 +919,6 @@ $result_floats{'transliterated_names_conflicts'} = {
                               'extra' => {
                                 'normalized' => 'Top'
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
@@ -990,7 +971,6 @@ $result_floats{'transliterated_names_conflicts'} = {
         'float_type' => 'Figure',
         'normalized' => 'Pr_00e8s'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '2.1'
       }
@@ -1037,7 +1017,6 @@ $result_elements{'transliterated_names_conflicts'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -1052,7 +1031,6 @@ $result_elements{'transliterated_names_conflicts'} = [
               'extra' => {
                 'normalized' => 'Pr_00e9s'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {}
               }
@@ -1069,7 +1047,6 @@ $result_elements{'transliterated_names_conflicts'} = [
                     'extra' => {
                       'normalized' => 'Other-node'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {}
                     }

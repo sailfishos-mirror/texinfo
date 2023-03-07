@@ -990,7 +990,6 @@ $result_sectioning{'redirection_same_labels'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -1008,13 +1007,11 @@ $result_sectioning{'redirection_same_labels'} = {
                               'extra' => {
                                 'normalized' => 'umlaut'
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_level' => 1,
@@ -1039,13 +1036,11 @@ $result_sectioning{'redirection_same_labels'} = {
                                     'extra' => {
                                       'normalized' => 'circumflex'
                                     },
-                                    'info' => {},
                                     'structure' => {
                                       'associated_unit' => {}
                                     }
                                   }
                                 },
-                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'section_level' => 1,
@@ -1100,7 +1095,6 @@ $result_sectioning{'redirection_same_labels'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -1166,7 +1160,6 @@ $result_nodes{'redirection_same_labels'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -1179,7 +1172,6 @@ $result_nodes{'redirection_same_labels'} = {
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 1
@@ -1195,7 +1187,6 @@ $result_nodes{'redirection_same_labels'} = {
                         'unit_command' => {
                           'cmdname' => 'chapter',
                           'extra' => {},
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_number' => 2
@@ -1251,7 +1242,6 @@ $result_nodes{'redirection_same_labels'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {
@@ -1265,7 +1255,6 @@ $result_nodes{'redirection_same_labels'} = {
         ],
         'normalized' => 'umlaut'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -1273,7 +1262,6 @@ $result_nodes{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => '_00ef'
           },
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'node_next' => {
@@ -1281,7 +1269,6 @@ $result_nodes{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_0129'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'node_prev' => {},
@@ -1302,7 +1289,6 @@ $result_nodes{'redirection_same_labels'} = {
             ],
             'normalized' => 'circumflex'
           },
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -1310,7 +1296,6 @@ $result_nodes{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_00ee'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'node_up' => {}
@@ -1381,14 +1366,12 @@ $result_menus{'redirection_same_labels'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'top',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -1401,7 +1384,6 @@ $result_menus{'redirection_same_labels'} = {
               'unit_command' => {
                 'cmdname' => 'chapter',
                 'extra' => {},
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'section_number' => 1
@@ -1417,7 +1399,6 @@ $result_menus{'redirection_same_labels'} = {
                     'unit_command' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
-                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_number' => 2
@@ -1469,7 +1450,6 @@ $result_menus{'redirection_same_labels'} = {
       'extra' => {
         'normalized' => 'umlaut'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -1477,7 +1457,6 @@ $result_menus{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => '_00ef'
           },
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_next' => {
@@ -1485,7 +1464,6 @@ $result_menus{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_0129'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_prev' => {},
@@ -1506,7 +1484,6 @@ $result_menus{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => 'circumflex'
           },
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -1514,7 +1491,6 @@ $result_menus{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_00ee'
               },
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_up' => {},
@@ -1594,7 +1570,6 @@ $result_elements{'redirection_same_labels'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
-        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -1607,7 +1582,6 @@ $result_elements{'redirection_same_labels'} = [
             'unit_command' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1
@@ -1623,7 +1597,6 @@ $result_elements{'redirection_same_labels'} = [
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 2

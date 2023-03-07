@@ -2272,11 +2272,9 @@ $result_sectioning{'accent'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'first'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -2294,20 +2292,17 @@ $result_nodes{'accent'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'accent'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'accent'} = [];

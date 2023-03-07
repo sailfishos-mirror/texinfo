@@ -185,7 +185,6 @@ $result_nodes{'double_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {}
   }
@@ -197,7 +196,6 @@ $result_menus{'double_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

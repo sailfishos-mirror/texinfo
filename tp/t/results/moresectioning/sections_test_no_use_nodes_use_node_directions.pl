@@ -477,27 +477,22 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
-                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.1',
@@ -537,7 +532,6 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -547,13 +541,11 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {},
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -565,7 +557,6 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -582,12 +573,10 @@ $result_sectioning{'sections_test_no_use_nodes_use_node_directions'} = {
       },
       {
         'cmdname' => 'appendix',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => 'A.1',

@@ -87,7 +87,6 @@ $result_sectioning{'unclosed_verb_on_section_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

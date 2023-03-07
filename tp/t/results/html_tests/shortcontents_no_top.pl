@@ -163,7 +163,6 @@ $result_sectioning{'shortcontents_no_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -172,12 +171,10 @@ $result_sectioning{'shortcontents_no_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '2.1',

@@ -341,7 +341,6 @@ $result_nodes{'double_syncodeindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -349,7 +348,6 @@ $result_nodes{'double_syncodeindex'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -363,7 +361,6 @@ $result_menus{'double_syncodeindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

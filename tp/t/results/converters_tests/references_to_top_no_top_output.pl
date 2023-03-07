@@ -1228,11 +1228,9 @@ $result_sectioning{'references_to_top_no_top_output'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1244,11 +1242,9 @@ $result_sectioning{'references_to_top_no_top_output'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1277,12 +1273,10 @@ $result_nodes{'references_to_top_no_top_output'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1290,7 +1284,6 @@ $result_nodes{'references_to_top_no_top_output'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1298,7 +1291,6 @@ $result_nodes{'references_to_top_no_top_output'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1314,7 +1306,6 @@ $result_menus{'references_to_top_no_top_output'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -1335,13 +1326,11 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'info' => {},
           'structure' => {}
         },
         'float_type' => 'list',
         'normalized' => 'My-Flist'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -1358,7 +1347,6 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1366,7 +1354,6 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_type' => 'list',
         'normalized' => 'Main-Flist'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

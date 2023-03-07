@@ -959,11 +959,9 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -975,11 +973,9 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                     'isindex' => 1,
                     'normalized' => 'chap-f-nl-Something_003f-After-punct'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -996,11 +992,9 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                   'extra' => {
                     'normalized' => 'new-n'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1034,12 +1028,10 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1047,7 +1039,6 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1055,7 +1046,6 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
         'isindex' => 1,
         'normalized' => 'chap-f-nl-Something_003f-After-punct'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1063,7 +1053,6 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -1075,7 +1064,6 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
             ],
             'normalized' => 'new-n'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_prev' => {},
@@ -1099,7 +1087,6 @@ $result_menus{'end_of_line_command_in_node_lines'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

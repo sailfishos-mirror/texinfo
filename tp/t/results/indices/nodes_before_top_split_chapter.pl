@@ -2064,7 +2064,6 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2077,7 +2076,6 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
         ],
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2090,7 +2088,6 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
             ],
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2098,14 +2095,12 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -2132,7 +2127,6 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
         ],
         'normalized' => 'first-before-top'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2140,7 +2134,6 @@ $result_nodes{'nodes_before_top_split_chapter'} = {
             'isindex' => 1,
             'normalized' => 'node-in-menu-before-top'
           },
-          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -2174,7 +2167,6 @@ $result_menus{'nodes_before_top_split_chapter'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2182,7 +2174,6 @@ $result_menus{'nodes_before_top_split_chapter'} = {
         'isindex' => 1,
         'normalized' => 'chap-first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2190,7 +2181,6 @@ $result_menus{'nodes_before_top_split_chapter'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2198,14 +2188,12 @@ $result_menus{'nodes_before_top_split_chapter'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

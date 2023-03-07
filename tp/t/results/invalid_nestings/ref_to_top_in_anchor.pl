@@ -104,16 +104,14 @@ $result_nodes{'ref_to_top_in_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'ref_to_top_in_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'ref_to_top_in_anchor'} = [

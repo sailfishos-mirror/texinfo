@@ -2315,11 +2315,9 @@ $result_sectioning{'accentenc'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'first'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -2337,20 +2335,17 @@ $result_nodes{'accentenc'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'accentenc'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'accentenc'} = [];

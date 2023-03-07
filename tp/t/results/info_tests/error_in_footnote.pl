@@ -394,16 +394,14 @@ $result_nodes{'error_in_footnote'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'error_in_footnote'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'error_in_footnote'} = [
@@ -442,7 +440,6 @@ $result_floats{'error_in_footnote'} = {
         'float_type' => 'Text',
         'normalized' => 'label'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

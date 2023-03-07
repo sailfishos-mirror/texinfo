@@ -1350,11 +1350,9 @@ $result_sectioning{'split_chapter_index'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1366,11 +1364,9 @@ $result_sectioning{'split_chapter_index'} = {
                     'isindex' => 1,
                     'normalized' => 'first'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -1381,11 +1377,9 @@ $result_sectioning{'split_chapter_index'} = {
                         'extra' => {
                           'normalized' => 'section-1'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -1396,11 +1390,9 @@ $result_sectioning{'split_chapter_index'} = {
                               'extra' => {
                                 'normalized' => 'subsection-1'
                               },
-                              'info' => {},
                               'structure' => {}
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '1.1.1',
@@ -1443,7 +1435,6 @@ $result_nodes{'split_chapter_index'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1453,7 +1444,6 @@ $result_nodes{'split_chapter_index'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1461,7 +1451,6 @@ $result_nodes{'split_chapter_index'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1474,7 +1463,6 @@ $result_nodes{'split_chapter_index'} = {
         ],
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1482,7 +1470,6 @@ $result_nodes{'split_chapter_index'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
@@ -1494,7 +1481,6 @@ $result_nodes{'split_chapter_index'} = {
             ],
             'normalized' => 'section-1'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1502,14 +1488,12 @@ $result_nodes{'split_chapter_index'} = {
                 'associated_section' => {
                   'cmdname' => 'subsection',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => '1.1.1'
                   }
                 },
                 'normalized' => 'subsection-1'
               },
-              'info' => {},
               'structure' => {
                 'node_up' => {}
               }
@@ -1535,7 +1519,6 @@ $result_menus{'split_chapter_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1543,21 +1526,18 @@ $result_menus{'split_chapter_index'} = {
         'isindex' => 1,
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section-1'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'subsection-1'
               },
-              'info' => {},
               'structure' => {
                 'menu_up' => {},
                 'menu_up_hash' => {

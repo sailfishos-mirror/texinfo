@@ -56,16 +56,14 @@ $result_nodes{'no_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node-Top-not-Top-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'no_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node-Top-not-Top-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'no_top_node'} = [];

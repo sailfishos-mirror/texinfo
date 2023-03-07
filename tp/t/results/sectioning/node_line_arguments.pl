@@ -560,16 +560,14 @@ $result_nodes{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'node_line_arguments'} = [

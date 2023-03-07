@@ -539,7 +539,6 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
             'extra' => {
               'normalized' => '_00e3'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -554,7 +553,6 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
                           'extra' => {
                             'normalized' => 'Top'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -578,7 +576,6 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
                           'extra' => {
                             'normalized' => 'n'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -595,7 +592,6 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
                                 'extra' => {
                                   'normalized' => '_00e2'
                                 },
-                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -641,7 +637,6 @@ $result_sectioning{'transliterated_split_equivalent_nodes'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -699,7 +694,6 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -715,14 +709,12 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
                   'associated_section' => {
                     'cmdname' => 'unnumbered',
                     'extra' => {},
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {}
                     }
                   },
                   'normalized' => '_00e3'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -730,7 +722,6 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
                     'extra' => {
                       'normalized' => 'n'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -747,7 +738,6 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
                                   'extra' => {
                                     'normalized' => '_00e2'
                                   },
-                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {},
                                     'node_prev' => {},
@@ -869,7 +859,6 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -884,7 +873,6 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
                 'extra' => {
                   'normalized' => '_00e3'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
@@ -892,7 +880,6 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
                     'extra' => {
                       'normalized' => 'n'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -909,7 +896,6 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
                                   'extra' => {
                                     'normalized' => '_00e2'
                                   },
-                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {},
                                     'menu_prev' => {},
@@ -1044,7 +1030,6 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -1052,7 +1037,6 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
             'extra' => {
               'normalized' => '_00e3'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -1068,7 +1052,6 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
                           'extra' => {
                             'normalized' => 'n'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_next' => {
@@ -1076,7 +1059,6 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
                               'extra' => {
                                 'normalized' => '_00e2'
                               },
-                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {
                                   'extra' => {

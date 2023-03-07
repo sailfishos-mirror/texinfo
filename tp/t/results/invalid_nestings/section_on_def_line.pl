@@ -150,7 +150,6 @@ $result_sectioning{'section_on_def_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

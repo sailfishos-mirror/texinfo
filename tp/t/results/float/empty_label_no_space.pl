@@ -106,8 +106,7 @@ $result_floats{'empty_label_no_space'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => 'Type'
-      },
-      'info' => {}
+      }
     }
   ]
 };

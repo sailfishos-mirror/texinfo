@@ -873,11 +873,9 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -888,11 +886,9 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -909,7 +905,6 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -927,7 +922,6 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -945,11 +939,9 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_0085_00a0_1680'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -967,11 +959,9 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_180e_2003'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 5,
@@ -989,11 +979,9 @@ $result_sectioning{'in_menu_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 6,
@@ -1043,7 +1031,6 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1053,7 +1040,6 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1061,14 +1047,12 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_2002_2003_2002'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1076,7 +1060,6 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -1099,35 +1082,30 @@ $result_menus{'in_menu_only_special_spaces_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_2002_2003_2002'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_0085_00a0_1680'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => '_180e_2003'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

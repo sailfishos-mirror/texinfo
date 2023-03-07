@@ -183,16 +183,14 @@ $result_nodes{'nested_footnotes_separate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'nested_footnotes_separate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'nested_footnotes_separate'} = [

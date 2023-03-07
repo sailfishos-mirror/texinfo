@@ -469,7 +469,6 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
             'extra' => {
               'normalized' => 'third-node'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -484,7 +483,6 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
                           'extra' => {
                             'normalized' => 'second-node'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -499,7 +497,6 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
                                 'extra' => {
                                   'normalized' => 'Top'
                                 },
-                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -541,7 +538,6 @@ $result_sectioning{'nodes_after_top_before_chapter_nodes'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -588,7 +584,6 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -603,7 +598,6 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -612,7 +606,6 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = {
                       'associated_section' => {
                         'cmdname' => 'chapter',
                         'extra' => {},
-                        'info' => {},
                         'structure' => {
                           'associated_unit' => {
                             'extra' => {
@@ -635,7 +628,6 @@ $result_nodes{'nodes_after_top_before_chapter_nodes'} = {
                       },
                       'normalized' => 'third-node'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_prev' => {},
@@ -711,7 +703,6 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -726,7 +717,6 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
@@ -734,7 +724,6 @@ $result_menus{'nodes_after_top_before_chapter_nodes'} = {
                     'extra' => {
                       'normalized' => 'third-node'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -835,7 +824,6 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -843,7 +831,6 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
             'extra' => {
               'normalized' => 'second-node'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -859,7 +846,6 @@ $result_elements{'nodes_after_top_before_chapter_nodes'} = [
                           'extra' => {
                             'normalized' => 'third-node'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_prev' => {},

@@ -180,7 +180,6 @@ $result_sectioning{'index_and_node_same_name'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -197,8 +196,7 @@ $result_nodes{'index_and_node_same_name'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'index-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'index_and_node_same_name'} = {
@@ -206,8 +204,7 @@ $result_menus{'index_and_node_same_name'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'index-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'index_and_node_same_name'} = [];

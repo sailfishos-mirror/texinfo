@@ -598,11 +598,9 @@ $result_sectioning{'printindex_between_part_chapter'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -619,12 +617,10 @@ $result_sectioning{'printindex_between_part_chapter'} = {
                 'extra' => {
                   'normalized' => 'node-chap1'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -635,7 +631,6 @@ $result_sectioning{'printindex_between_part_chapter'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {},
@@ -647,11 +642,9 @@ $result_sectioning{'printindex_between_part_chapter'} = {
                   'extra' => {
                     'normalized' => 'node-chap2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -691,13 +684,11 @@ $result_nodes{'printindex_between_part_chapter'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -708,11 +699,9 @@ $result_nodes{'printindex_between_part_chapter'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
-              'info' => {},
               'structure' => {}
             }
           },
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -720,7 +709,6 @@ $result_nodes{'printindex_between_part_chapter'} = {
         'node_preceding_part' => {},
         'normalized' => 'node-chap1'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -728,14 +716,12 @@ $result_nodes{'printindex_between_part_chapter'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'node-chap2'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -759,7 +745,6 @@ $result_menus{'printindex_between_part_chapter'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -658,7 +658,6 @@ $result_sectioning{'explicit_sort_key'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -683,7 +682,6 @@ $result_nodes{'explicit_sort_key'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -691,7 +689,6 @@ $result_nodes{'explicit_sort_key'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -705,7 +702,6 @@ $result_menus{'explicit_sort_key'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

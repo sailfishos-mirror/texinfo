@@ -1816,7 +1816,6 @@ $result_nodes{'commands_and_spaces'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -1853,7 +1852,6 @@ $result_menus{'commands_and_spaces'} = {
   'extra' => {
     'normalized' => 'a'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -1879,8 +1877,7 @@ $result_floats{'commands_and_spaces'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'info' => {}
+          }
         },
         'float_type' => 'ff',
         'normalized' => 'b',
@@ -1891,7 +1888,6 @@ $result_floats{'commands_and_spaces'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

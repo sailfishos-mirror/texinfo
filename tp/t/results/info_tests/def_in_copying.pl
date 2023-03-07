@@ -775,11 +775,9 @@ $result_sectioning{'def_in_copying'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -797,13 +795,11 @@ $result_nodes{'def_in_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'def_in_copying'} = {
@@ -811,8 +807,7 @@ $result_menus{'def_in_copying'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'def_in_copying'} = [];

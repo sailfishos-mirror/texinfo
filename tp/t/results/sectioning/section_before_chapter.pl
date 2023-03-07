@@ -97,7 +97,6 @@ $result_sectioning{'section_before_chapter'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -106,7 +105,6 @@ $result_sectioning{'section_before_chapter'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,

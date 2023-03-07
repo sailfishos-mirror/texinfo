@@ -174,16 +174,14 @@ $result_nodes{'unknown_node_in_menu'} = {
       }
     ],
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'unknown_node_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'unknown_node_in_menu'} = [

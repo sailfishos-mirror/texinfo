@@ -731,11 +731,9 @@ $result_sectioning{'nodename_parentheses'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -746,11 +744,9 @@ $result_sectioning{'nodename_parentheses'} = {
                   'extra' => {
                     'normalized' => 'Node-_0028with-parentheses_0029'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -767,11 +763,9 @@ $result_sectioning{'nodename_parentheses'} = {
                   'extra' => {
                     'normalized' => 'Other-node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -789,11 +783,9 @@ $result_sectioning{'nodename_parentheses'} = {
                   'extra' => {
                     'normalized' => '_0028manual_0029node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -831,7 +823,6 @@ $result_nodes{'nodename_parentheses'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -841,7 +832,6 @@ $result_nodes{'nodename_parentheses'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -849,14 +839,12 @@ $result_nodes{'nodename_parentheses'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Node-_0028with-parentheses_0029'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -864,14 +852,12 @@ $result_nodes{'nodename_parentheses'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Other-node'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -879,14 +865,12 @@ $result_nodes{'nodename_parentheses'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => '_0028manual_0029node'
               },
-              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -916,21 +900,18 @@ $result_menus{'nodename_parentheses'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Node-_0028with-parentheses_0029'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Other-node'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'extra' => {

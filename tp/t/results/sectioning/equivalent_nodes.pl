@@ -323,14 +323,12 @@ $result_nodes{'equivalent_nodes'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node'
       },
-      'info' => {},
       'structure' => {
         'node_up' => {}
       }
@@ -346,14 +344,12 @@ $result_menus{'equivalent_nodes'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

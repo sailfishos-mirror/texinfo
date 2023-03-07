@@ -779,14 +779,12 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -794,7 +792,6 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
             'isindex' => 1,
             'normalized' => 'Concept-Index'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -818,14 +815,12 @@ $result_menus{'colons_in_index_entries_and_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -833,7 +828,6 @@ $result_menus{'colons_in_index_entries_and_node'} = {
             'isindex' => 1,
             'normalized' => 'Concept-Index'
           },
-          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

@@ -366,7 +366,6 @@ $result_sectioning{'transparent_sort_chars'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -391,7 +390,6 @@ $result_nodes{'transparent_sort_chars'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -399,7 +397,6 @@ $result_nodes{'transparent_sort_chars'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -413,7 +410,6 @@ $result_menus{'transparent_sort_chars'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

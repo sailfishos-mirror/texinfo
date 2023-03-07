@@ -344,16 +344,14 @@ $result_nodes{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'float_long_captions'} = [];
@@ -373,7 +371,6 @@ $result_floats{'float_long_captions'} = {
         'float_type' => 'Text',
         'normalized' => 'text1'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -390,7 +387,6 @@ $result_floats{'float_long_captions'} = {
         'float_type' => 'Text',
         'normalized' => 'text2'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 2
       }

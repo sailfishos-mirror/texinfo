@@ -470,7 +470,6 @@ $result_nodes{'one_node_counted_elements'} = {
     ],
     'normalized' => 'one-node'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -499,7 +498,6 @@ $result_menus{'one_node_counted_elements'} = {
     'isindex' => 1,
     'normalized' => 'one-node'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

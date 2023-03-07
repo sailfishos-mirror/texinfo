@@ -2592,11 +2592,9 @@ $result_sectioning{'nodes_before_top_and_sections_chapter'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -2608,11 +2606,9 @@ $result_sectioning{'nodes_before_top_and_sections_chapter'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2641,7 +2637,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
@@ -2652,7 +2647,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2665,7 +2659,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
         ],
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2678,7 +2671,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
             ],
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2686,14 +2678,12 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -2720,7 +2710,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
         ],
         'normalized' => 'first-before-top'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2728,7 +2717,6 @@ $result_nodes{'nodes_before_top_and_sections_chapter'} = {
             'isindex' => 1,
             'normalized' => 'node-in-menu-before-top'
           },
-          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -2762,7 +2750,6 @@ $result_menus{'nodes_before_top_and_sections_chapter'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2770,7 +2757,6 @@ $result_menus{'nodes_before_top_and_sections_chapter'} = {
         'isindex' => 1,
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2778,7 +2764,6 @@ $result_menus{'nodes_before_top_and_sections_chapter'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2786,14 +2771,12 @@ $result_menus{'nodes_before_top_and_sections_chapter'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},
@@ -2820,14 +2803,12 @@ $result_menus{'nodes_before_top_and_sections_chapter'} = {
             'isindex' => 1,
             'normalized' => 'chapter'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-in-chapter'
               },
-              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

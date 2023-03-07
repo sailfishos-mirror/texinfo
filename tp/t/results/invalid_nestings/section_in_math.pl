@@ -196,7 +196,6 @@ $result_sectioning{'section_in_math'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -205,7 +204,6 @@ $result_sectioning{'section_in_math'} = {
       },
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,

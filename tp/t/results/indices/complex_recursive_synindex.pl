@@ -1006,7 +1006,6 @@ $result_nodes{'complex_recursive_synindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1014,7 +1013,6 @@ $result_nodes{'complex_recursive_synindex'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -1028,7 +1026,6 @@ $result_menus{'complex_recursive_synindex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

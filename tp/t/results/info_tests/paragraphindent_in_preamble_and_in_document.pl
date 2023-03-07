@@ -383,11 +383,9 @@ $result_sectioning{'paragraphindent_in_preamble_and_in_document'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -405,20 +403,17 @@ $result_nodes{'paragraphindent_in_preamble_and_in_document'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'paragraphindent_in_preamble_and_in_document'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'paragraphindent_in_preamble_and_in_document'} = [];

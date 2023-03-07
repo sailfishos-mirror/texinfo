@@ -899,11 +899,9 @@ $result_sectioning{'printindex_index_entry_in_copying_no_insertcopying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -915,11 +913,9 @@ $result_sectioning{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -948,7 +944,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -958,7 +953,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -966,7 +960,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -974,7 +967,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -992,7 +984,6 @@ $result_menus{'printindex_index_entry_in_copying_no_insertcopying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1000,7 +991,6 @@ $result_menus{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

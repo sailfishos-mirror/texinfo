@@ -120,7 +120,6 @@ $result_sectioning{'part_before_chapter'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -139,7 +138,6 @@ $result_sectioning{'part_before_chapter'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -176,13 +174,11 @@ $result_elements{'part_before_chapter'} = [
           'associated_part' => {
             'cmdname' => 'part',
             'extra' => {},
-            'info' => {},
             'structure' => {
               'associated_unit' => {}
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1

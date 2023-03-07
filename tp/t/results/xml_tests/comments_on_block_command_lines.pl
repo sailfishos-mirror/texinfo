@@ -2253,7 +2253,6 @@ $result_floats{'comments_on_block_command_lines'} = {
         'float_type' => 'f',
         'normalized' => 'g'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

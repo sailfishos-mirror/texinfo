@@ -62,7 +62,6 @@ $result_sectioning{'one_subsection'} = {
     'section_childs' => [
       {
         'cmdname' => 'subsection',
-        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,

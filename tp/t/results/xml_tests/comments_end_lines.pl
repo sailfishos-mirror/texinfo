@@ -1033,7 +1033,6 @@ $result_floats{'comments_end_lines'} = {
         'float_type' => 'f',
         'normalized' => 'g'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

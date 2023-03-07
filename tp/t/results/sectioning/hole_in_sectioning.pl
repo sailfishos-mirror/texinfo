@@ -220,22 +220,18 @@ $result_sectioning{'hole_in_sectioning'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsubsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '1.1.1',
@@ -244,7 +240,6 @@ $result_sectioning{'hole_in_sectioning'} = {
                         },
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '1.1.2',

@@ -480,7 +480,6 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'float_type' => '',
         'normalized' => 'label1'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -497,7 +496,6 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'float_type' => '',
         'normalized' => 'label2'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 2
       }

@@ -1968,11 +1968,9 @@ $result_sectioning{'topic_guide'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1983,11 +1981,9 @@ $result_sectioning{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'guide1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2004,11 +2000,9 @@ $result_sectioning{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'guide2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -2042,7 +2036,6 @@ $result_nodes{'topic_guide'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -2052,7 +2045,6 @@ $result_nodes{'topic_guide'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2060,7 +2052,6 @@ $result_nodes{'topic_guide'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -2072,7 +2063,6 @@ $result_nodes{'topic_guide'} = {
         ],
         'normalized' => 'guide1'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2084,7 +2074,6 @@ $result_nodes{'topic_guide'} = {
             ],
             'normalized' => 'topic1'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_next' => {
@@ -2097,7 +2086,6 @@ $result_nodes{'topic_guide'} = {
                 ],
                 'normalized' => 'topic2'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'node_next' => {
@@ -2110,7 +2098,6 @@ $result_nodes{'topic_guide'} = {
                     ],
                     'normalized' => 'topic3'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
@@ -2122,7 +2109,6 @@ $result_nodes{'topic_guide'} = {
                         ],
                         'normalized' => 'topic5'
                       },
-                      'info' => {},
                       'structure' => {
                         'menu_child' => {},
                         'node_prev' => {}
@@ -2142,7 +2128,6 @@ $result_nodes{'topic_guide'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -2154,7 +2139,6 @@ $result_nodes{'topic_guide'} = {
             ],
             'normalized' => 'guide2'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_prev' => {},
@@ -2186,21 +2170,18 @@ $result_menus{'topic_guide'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'guide1'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'topic1'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {},
             'menu_next' => {
@@ -2208,7 +2189,6 @@ $result_menus{'topic_guide'} = {
               'extra' => {
                 'normalized' => 'topic2'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'menu_next' => {
@@ -2216,7 +2196,6 @@ $result_menus{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'topic5'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_child' => {},
                     'menu_next' => {
@@ -2224,14 +2203,12 @@ $result_menus{'topic_guide'} = {
                       'extra' => {
                         'normalized' => 'topic4'
                       },
-                      'info' => {},
                       'structure' => {
                         'menu_child' => {
                           'cmdname' => 'node',
                           'extra' => {
                             'normalized' => 'guide2'
                           },
-                          'info' => {},
                           'structure' => {
                             'menu_child' => {},
                             'menu_prev' => {},

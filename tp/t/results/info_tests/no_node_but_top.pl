@@ -56,7 +56,6 @@ $result_sectioning{'no_node_but_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}

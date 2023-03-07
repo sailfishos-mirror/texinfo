@@ -97,7 +97,6 @@ $result_sectioning{'unnumbered_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -105,7 +104,6 @@ $result_sectioning{'unnumbered_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_prev' => {},

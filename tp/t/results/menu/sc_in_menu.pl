@@ -796,14 +796,12 @@ $result_nodes{'sc_in_menu'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'NODE'
       },
-      'info' => {},
       'structure' => {
         'node_up' => {}
       }
@@ -817,14 +815,12 @@ $result_menus{'sc_in_menu'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'NODE'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

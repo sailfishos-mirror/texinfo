@@ -246,7 +246,6 @@ $result_nodes{'top_node_normalization'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {},
     'node_next' => {},
@@ -262,7 +261,6 @@ $result_menus{'top_node_normalization'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {},
     'menu_up' => {},

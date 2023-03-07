@@ -138,7 +138,6 @@ $result_sectioning{'section_chapter_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -147,7 +146,6 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,
@@ -158,7 +156,6 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_prev' => {},

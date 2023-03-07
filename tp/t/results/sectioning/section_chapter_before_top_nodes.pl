@@ -483,11 +483,9 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'extra' => {
               'normalized' => 'section-node'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -502,11 +500,9 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'extra' => {
               'normalized' => 'chapter-node'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,
@@ -523,11 +519,9 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_prev' => {},
@@ -553,7 +547,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -563,7 +556,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -571,7 +563,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 2
           }
@@ -583,7 +574,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
         ],
         'normalized' => 'chapter-node'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -591,14 +581,12 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 1
               }
             },
             'normalized' => 'section-node'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {},
             'node_up' => {}
@@ -624,21 +612,18 @@ $result_menus{'section_chapter_before_top_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter-node'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section-node'
           },
-          'info' => {},
           'structure' => {
             'menu_up' => {},
             'menu_up_hash' => {

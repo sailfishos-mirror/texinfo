@@ -468,11 +468,9 @@ $result_sectioning{'external_node_in_menu'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -483,11 +481,9 @@ $result_sectioning{'external_node_in_menu'} = {
                   'extra' => {
                     'normalized' => 'nchapter1'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -504,11 +500,9 @@ $result_sectioning{'external_node_in_menu'} = {
                   'extra' => {
                     'normalized' => 'nchapter2'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -542,7 +536,6 @@ $result_nodes{'external_node_in_menu'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -552,7 +545,6 @@ $result_nodes{'external_node_in_menu'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -560,14 +552,12 @@ $result_nodes{'external_node_in_menu'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'nchapter1'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -575,14 +565,12 @@ $result_nodes{'external_node_in_menu'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'nchapter2'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -606,14 +594,12 @@ $result_menus{'external_node_in_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nchapter1'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'extra' => {

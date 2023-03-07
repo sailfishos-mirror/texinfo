@@ -422,16 +422,13 @@ $result_sectioning{'chapter_between_nodes'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -442,11 +439,9 @@ $result_sectioning{'chapter_between_nodes'} = {
                         'extra' => {
                           'normalized' => 'section-node'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -482,7 +477,6 @@ $result_nodes{'chapter_between_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -492,7 +486,6 @@ $result_nodes{'chapter_between_nodes'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -500,14 +493,12 @@ $result_nodes{'chapter_between_nodes'} = {
         'associated_section' => {
           'cmdname' => 'section',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => '1.1'
           }
         },
         'normalized' => 'section-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -525,14 +516,12 @@ $result_menus{'chapter_between_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'section-node'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

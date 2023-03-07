@@ -159,7 +159,6 @@ $result_nodes{'print_merged_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -167,7 +166,6 @@ $result_nodes{'print_merged_index'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -181,7 +179,6 @@ $result_menus{'print_merged_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

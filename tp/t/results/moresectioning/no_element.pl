@@ -666,7 +666,6 @@ $result_floats{'no_element'} = {
         'float_type' => '',
         'normalized' => 'float-anchor'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -336,7 +336,6 @@ $result_nodes{'double_top_in_menu'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {},
     'node_next' => {}
@@ -350,7 +349,6 @@ $result_menus{'double_top_in_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {},
     'menu_next' => {},

@@ -261,7 +261,6 @@ $result_sectioning{'lone_Top_node'} = {
             'extra' => {
               'normalized' => 'First'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -279,7 +278,6 @@ $result_sectioning{'lone_Top_node'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -308,14 +306,12 @@ $result_nodes{'lone_Top_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'section_number' => 1
@@ -337,7 +333,6 @@ $result_nodes{'lone_Top_node'} = {
         'associated_section' => {},
         'normalized' => 'First'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'node_prev' => {},
@@ -362,14 +357,12 @@ $result_menus{'lone_Top_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'section_number' => 1
@@ -390,7 +383,6 @@ $result_menus{'lone_Top_node'} = {
       'extra' => {
         'normalized' => 'First'
       },
-      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_up' => {},
@@ -430,7 +422,6 @@ $result_elements{'lone_Top_node'} = [
       'unit_command' => {
         'cmdname' => 'chapter',
         'extra' => {},
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1

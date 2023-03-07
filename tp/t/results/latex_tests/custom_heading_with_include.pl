@@ -2304,11 +2304,9 @@ $result_sectioning{'custom_heading_with_include'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -2319,11 +2317,9 @@ $result_sectioning{'custom_heading_with_include'} = {
                   'extra' => {
                     'normalized' => 'in-main'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2340,11 +2336,9 @@ $result_sectioning{'custom_heading_with_include'} = {
                   'extra' => {
                     'normalized' => 'Chapter-in-included-file'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -2355,11 +2349,9 @@ $result_sectioning{'custom_heading_with_include'} = {
                         'extra' => {
                           'normalized' => 'Section'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -2370,11 +2362,9 @@ $result_sectioning{'custom_heading_with_include'} = {
                               'extra' => {
                                 'normalized' => 'Subsection'
                               },
-                              'info' => {},
                               'structure' => {}
                             }
                           },
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '2.1.1',
@@ -2398,17 +2388,14 @@ $result_sectioning{'custom_heading_with_include'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '3.1.1',
@@ -2432,17 +2419,14 @@ $result_sectioning{'custom_heading_with_include'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '4.1.1',
@@ -2466,17 +2450,14 @@ $result_sectioning{'custom_heading_with_include'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '5.1.1',
@@ -2500,17 +2481,14 @@ $result_sectioning{'custom_heading_with_include'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '6.1.1',
@@ -2540,11 +2518,9 @@ $result_sectioning{'custom_heading_with_include'} = {
                   'extra' => {
                     'normalized' => 'last-chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 7,
@@ -2608,12 +2584,10 @@ $result_nodes{'custom_heading_with_include'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -2621,14 +2595,12 @@ $result_nodes{'custom_heading_with_include'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'in-main'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -2636,7 +2608,6 @@ $result_nodes{'custom_heading_with_include'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -2648,7 +2619,6 @@ $result_nodes{'custom_heading_with_include'} = {
             ],
             'normalized' => 'Chapter-in-included-file'
           },
-          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2656,7 +2626,6 @@ $result_nodes{'custom_heading_with_include'} = {
                 'associated_section' => {
                   'cmdname' => 'section',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => '2.1'
                   }
@@ -2668,7 +2637,6 @@ $result_nodes{'custom_heading_with_include'} = {
                 ],
                 'normalized' => 'Section'
               },
-              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
@@ -2676,14 +2644,12 @@ $result_nodes{'custom_heading_with_include'} = {
                     'associated_section' => {
                       'cmdname' => 'subsection',
                       'extra' => {},
-                      'info' => {},
                       'structure' => {
                         'section_number' => '2.1.1'
                       }
                     },
                     'normalized' => 'Subsection'
                   },
-                  'info' => {},
                   'structure' => {
                     'node_up' => {}
                   }
@@ -2713,7 +2679,6 @@ $result_menus{'custom_heading_with_include'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

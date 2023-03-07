@@ -543,14 +543,12 @@ $result_nodes{'equivalent_nodes_defined_linked'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_up' => {}
       }
@@ -566,14 +564,12 @@ $result_menus{'equivalent_nodes_defined_linked'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
@@ -641,8 +637,7 @@ $result_floats{'equivalent_nodes_defined_linked'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => 'Figure'
-      },
-      'info' => {}
+      }
     }
   ]
 };

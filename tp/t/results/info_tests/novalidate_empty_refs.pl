@@ -285,16 +285,14 @@ $result_nodes{'novalidate_empty_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'novalidate_empty_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'novalidate_empty_refs'} = [

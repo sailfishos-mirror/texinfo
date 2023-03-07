@@ -313,7 +313,6 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -328,7 +327,6 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_prev' => {},
@@ -394,7 +392,6 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -409,7 +406,6 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_up' => {},
@@ -479,7 +475,6 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
         'extra' => {
           'normalized' => 'first'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -487,7 +482,6 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
             'extra' => {
               'normalized' => 'second-node'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {

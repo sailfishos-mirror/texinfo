@@ -417,7 +417,6 @@ $result_nodes{'space_in_def_for_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -425,7 +424,6 @@ $result_nodes{'space_in_def_for_index'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -439,7 +437,6 @@ $result_menus{'space_in_def_for_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

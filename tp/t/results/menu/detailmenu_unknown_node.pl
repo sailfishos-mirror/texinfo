@@ -229,16 +229,14 @@ $result_nodes{'detailmenu_unknown_node'} = {
       }
     ],
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'detailmenu_unknown_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'detailmenu_unknown_node'} = [

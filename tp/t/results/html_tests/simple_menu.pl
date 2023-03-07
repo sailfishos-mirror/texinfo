@@ -1598,7 +1598,6 @@ $result_sectioning{'simple_menu'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -1628,7 +1627,6 @@ $result_nodes{'simple_menu'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -1649,7 +1647,6 @@ $result_menus{'simple_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

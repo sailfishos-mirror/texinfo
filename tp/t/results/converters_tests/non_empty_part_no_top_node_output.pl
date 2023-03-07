@@ -945,12 +945,10 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
                 'extra' => {
                   'normalized' => 'Top'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 0,
               'section_prev' => {},
@@ -959,7 +957,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -974,7 +971,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -984,7 +980,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1002,11 +997,9 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             'extra' => {
               'normalized' => 'part-chapter-node'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_prev' => {},
@@ -1022,7 +1015,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
               'associated_node' => {},
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -1032,7 +1024,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1044,7 +1035,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
       },
       {
         'cmdname' => 'part',
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_prev' => {},
@@ -1059,7 +1049,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 3,
@@ -1069,7 +1058,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1090,12 +1078,10 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
                 'extra' => {
                   'normalized' => 'node-between-part-and-chapter'
                 },
-                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 4,
@@ -1106,7 +1092,6 @@ $result_sectioning{'non_empty_part_no_top_node_output'} = {
           },
           'part_following_node' => {}
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1170,11 +1155,9 @@ $result_nodes{'non_empty_part_no_top_node_output'} = {
         'associated_part' => {
           'cmdname' => 'part',
           'extra' => {},
-          'info' => {},
           'structure' => {}
         }
       },
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1185,7 +1168,6 @@ $result_nodes{'non_empty_part_no_top_node_output'} = {
     'node_preceding_part' => {},
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1196,11 +1178,9 @@ $result_nodes{'non_empty_part_no_top_node_output'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
-              'info' => {},
               'structure' => {}
             }
           },
-          'info' => {},
           'structure' => {
             'section_number' => 2
           }
@@ -1208,12 +1188,10 @@ $result_nodes{'non_empty_part_no_top_node_output'} = {
         'node_preceding_part' => {
           'cmdname' => 'part',
           'extra' => {},
-          'info' => {},
           'structure' => {}
         },
         'normalized' => 'part-chapter-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1232,14 +1210,12 @@ $result_menus{'non_empty_part_no_top_node_output'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'part-chapter-node'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

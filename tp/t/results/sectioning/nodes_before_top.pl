@@ -570,11 +570,9 @@ $result_sectioning{'nodes_before_top'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -585,11 +583,9 @@ $result_sectioning{'nodes_before_top'} = {
                   'extra' => {
                     'normalized' => 'second-node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -618,7 +614,6 @@ $result_nodes{'nodes_before_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -628,7 +623,6 @@ $result_nodes{'nodes_before_top'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -636,14 +630,12 @@ $result_nodes{'nodes_before_top'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'second-node'
       },
-      'info' => {},
       'structure' => {
         'node_up' => {}
       }
@@ -658,14 +650,12 @@ $result_nodes{'nodes_before_top'} = {
         ],
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node-in-menu-before-top'
           },
-          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -693,14 +683,12 @@ $result_menus{'nodes_before_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

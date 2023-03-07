@@ -209,7 +209,6 @@ $result_nodes{'empty_menu_description'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -229,7 +228,6 @@ $result_menus{'empty_menu_description'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

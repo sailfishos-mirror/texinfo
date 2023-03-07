@@ -497,7 +497,6 @@ $result_nodes{'backslash_in_arg'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -505,7 +504,6 @@ $result_nodes{'backslash_in_arg'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -519,7 +517,6 @@ $result_menus{'backslash_in_arg'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

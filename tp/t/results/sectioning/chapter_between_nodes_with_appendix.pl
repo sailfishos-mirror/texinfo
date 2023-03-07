@@ -325,16 +325,13 @@ $result_sectioning{'chapter_between_nodes_with_appendix'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -351,11 +348,9 @@ $result_sectioning{'chapter_between_nodes_with_appendix'} = {
                   'extra' => {
                     'normalized' => 'Additional'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -389,7 +384,6 @@ $result_nodes{'chapter_between_nodes_with_appendix'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -399,7 +393,6 @@ $result_nodes{'chapter_between_nodes_with_appendix'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -407,14 +400,12 @@ $result_nodes{'chapter_between_nodes_with_appendix'} = {
         'associated_section' => {
           'cmdname' => 'appendix',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 'A'
           }
         },
         'normalized' => 'Additional'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -432,14 +423,12 @@ $result_menus{'chapter_between_nodes_with_appendix'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Additional'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

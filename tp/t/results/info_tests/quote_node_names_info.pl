@@ -2060,7 +2060,6 @@ $result_sectioning{'quote_node_names_info'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -2074,11 +2073,9 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'blah_003ablah'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2095,11 +2092,9 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'blumpty_002efump'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -2117,11 +2112,9 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'normal-node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -2139,11 +2132,9 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'secret_002cnode'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -2194,7 +2185,6 @@ $result_nodes{'quote_node_names_info'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2202,14 +2192,12 @@ $result_nodes{'quote_node_names_info'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'blah_003ablah'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -2217,14 +2205,12 @@ $result_nodes{'quote_node_names_info'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'blumpty_002efump'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -2232,14 +2218,12 @@ $result_nodes{'quote_node_names_info'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'normal-node'
               },
-              'info' => {},
               'structure' => {
                 'node_next' => {
                   'extra' => {
@@ -2301,35 +2285,30 @@ $result_menus{'quote_node_names_info'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'blah_003ablah'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'blumpty_002efump'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'normal-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'secret_002cnode'
                   },
-                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

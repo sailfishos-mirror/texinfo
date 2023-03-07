@@ -3696,11 +3696,9 @@ $result_sectioning{'complex_float'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -3711,11 +3709,9 @@ $result_sectioning{'complex_float'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -3744,7 +3740,6 @@ $result_nodes{'complex_float'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -3754,7 +3749,6 @@ $result_nodes{'complex_float'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -3762,14 +3756,12 @@ $result_nodes{'complex_float'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -3787,14 +3779,12 @@ $result_menus{'complex_float'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
@@ -3828,13 +3818,11 @@ $result_floats{'complex_float'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'info' => {}
+          }
         },
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'info' => {},
           'structure' => {}
         },
         'float_type' => 'Text',
@@ -3846,7 +3834,6 @@ $result_floats{'complex_float'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -3858,13 +3845,11 @@ $result_floats{'complex_float'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'info' => {}
+          }
         },
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -3872,7 +3857,6 @@ $result_floats{'complex_float'} = {
         'float_type' => 'Text',
         'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

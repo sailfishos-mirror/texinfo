@@ -158,7 +158,6 @@ $result_sectioning{'part_chapter_appendix'} = {
             'extra' => {
               'associated_part' => {}
             },
-            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -166,7 +165,6 @@ $result_sectioning{'part_chapter_appendix'} = {
             }
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -177,7 +175,6 @@ $result_sectioning{'part_chapter_appendix'} = {
       },
       {
         'cmdname' => 'appendix',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 'A',

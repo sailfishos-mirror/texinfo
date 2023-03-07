@@ -95,11 +95,9 @@ $result_sectioning{'one_subsection_and_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'one-node'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,
@@ -118,22 +116,19 @@ $result_nodes{'one_subsection_and_node'} = {
     'associated_section' => {
       'cmdname' => 'subsection',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'one-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'one_subsection_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-node'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'one_subsection_and_node'} = [];

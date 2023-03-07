@@ -99,14 +99,12 @@ $result_nodes{'undefined_node_filename'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap-Other'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -120,7 +118,6 @@ $result_menus{'undefined_node_filename'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

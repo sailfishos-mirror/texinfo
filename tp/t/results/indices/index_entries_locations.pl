@@ -416,7 +416,6 @@ $result_nodes{'index_entries_locations'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -424,7 +423,6 @@ $result_nodes{'index_entries_locations'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -438,7 +436,6 @@ $result_menus{'index_entries_locations'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

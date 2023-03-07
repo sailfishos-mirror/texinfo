@@ -831,11 +831,9 @@ $result_sectioning{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -853,19 +851,16 @@ $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -879,7 +874,6 @@ $result_menus{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

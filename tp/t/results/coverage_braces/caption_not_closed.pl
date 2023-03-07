@@ -210,8 +210,7 @@ $result_floats{'caption_not_closed'} = {
           }
         },
         'float_type' => 'Text'
-      },
-      'info' => {}
+      }
     }
   ]
 };

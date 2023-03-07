@@ -465,11 +465,9 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -480,11 +478,9 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -498,11 +494,9 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {},
-                  'info' => {}
+                  'extra' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -536,12 +530,10 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -549,14 +541,12 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_2002_2003_2002'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -564,13 +554,11 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             }
-          },
-          'info' => {}
+          }
         },
         'node_prev' => {},
         'node_up' => {}
@@ -586,7 +574,6 @@ $result_menus{'reference_to_only_special_spaces_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

@@ -585,7 +585,6 @@ $result_floats{'float_in_block_commands'} = {
         'float_type' => 'Text',
         'normalized' => 'in-example'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -602,7 +601,6 @@ $result_floats{'float_in_block_commands'} = {
         'float_type' => 'Text',
         'normalized' => 'in-quotation'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 2
       }
@@ -619,7 +617,6 @@ $result_floats{'float_in_block_commands'} = {
         'float_type' => 'Text',
         'normalized' => 'in-cartouche'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 3
       }

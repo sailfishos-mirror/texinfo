@@ -62,7 +62,6 @@ $result_sectioning{'customize_informative_commands'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,

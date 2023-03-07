@@ -628,7 +628,6 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
@@ -643,11 +642,9 @@ $result_sectioning{'subentry_and_sortas_spaces'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -680,7 +677,6 @@ $result_nodes{'subentry_and_sortas_spaces'} = {
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -688,7 +684,6 @@ $result_nodes{'subentry_and_sortas_spaces'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -696,7 +691,6 @@ $result_nodes{'subentry_and_sortas_spaces'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -712,7 +706,6 @@ $result_menus{'subentry_and_sortas_spaces'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

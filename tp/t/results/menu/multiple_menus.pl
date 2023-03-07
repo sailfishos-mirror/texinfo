@@ -315,7 +315,6 @@ $result_nodes{'multiple_menus'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -337,7 +336,6 @@ $result_menus{'multiple_menus'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

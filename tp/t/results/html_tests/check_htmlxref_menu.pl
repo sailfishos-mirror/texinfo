@@ -733,11 +733,9 @@ $result_sectioning{'check_htmlxref_menu'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -748,11 +746,9 @@ $result_sectioning{'check_htmlxref_menu'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -781,7 +777,6 @@ $result_nodes{'check_htmlxref_menu'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -791,14 +786,12 @@ $result_nodes{'check_htmlxref_menu'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'extra' => {
@@ -839,14 +832,12 @@ $result_menus{'check_htmlxref_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'extra' => {

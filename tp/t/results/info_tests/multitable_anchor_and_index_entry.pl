@@ -968,8 +968,7 @@ $result_nodes{'multitable_anchor_and_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'multitable_anchor_and_index_entry'} = {
@@ -977,8 +976,7 @@ $result_menus{'multitable_anchor_and_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'multitable_anchor_and_index_entry'} = [];

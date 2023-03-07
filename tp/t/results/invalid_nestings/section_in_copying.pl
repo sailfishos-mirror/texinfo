@@ -102,7 +102,6 @@ $result_sectioning{'section_in_copying'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

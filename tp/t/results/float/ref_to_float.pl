@@ -308,7 +308,6 @@ $result_floats{'ref_to_float'} = {
         'float_type' => '',
         'normalized' => 'Label2'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -321,7 +320,6 @@ $result_floats{'ref_to_float'} = {
         'float_type' => 'Text',
         'normalized' => 'Label1'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

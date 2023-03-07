@@ -175,16 +175,14 @@ $result_nodes{'menu_node_unterminated'} = {
       }
     ],
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'first'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'menu_node_unterminated'} = [

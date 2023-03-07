@@ -261,11 +261,9 @@ $result_sectioning{'menu_pointing_to_anchor'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -283,7 +281,6 @@ $result_nodes{'menu_pointing_to_anchor'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -293,7 +290,6 @@ $result_nodes{'menu_pointing_to_anchor'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',
@@ -315,7 +311,6 @@ $result_menus{'menu_pointing_to_anchor'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',

@@ -1256,11 +1256,9 @@ $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1271,11 +1269,9 @@ $result_sectioning{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
                   'extra' => {
                     'normalized' => 'node-chap'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1304,12 +1300,10 @@ $result_nodes{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1317,14 +1311,12 @@ $result_nodes{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node-chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1340,7 +1332,6 @@ $result_menus{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

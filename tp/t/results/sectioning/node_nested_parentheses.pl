@@ -396,7 +396,6 @@ $result_nodes{'node_nested_parentheses'} = {
     ],
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -415,7 +414,6 @@ $result_menus{'node_nested_parentheses'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

@@ -730,7 +730,6 @@ $result_nodes{'ftable_vtable'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -738,7 +737,6 @@ $result_nodes{'ftable_vtable'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -752,7 +750,6 @@ $result_menus{'ftable_vtable'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

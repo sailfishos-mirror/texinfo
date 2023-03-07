@@ -163,11 +163,9 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -185,20 +183,17 @@ $result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'empty_lines_at_beginning_no_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'empty_lines_at_beginning_no_setfilename'} = [];

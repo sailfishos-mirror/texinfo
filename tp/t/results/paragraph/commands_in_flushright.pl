@@ -1293,7 +1293,6 @@ $result_floats{'commands_in_flushright'} = {
         'float_type' => 'label',
         'normalized' => 'type'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

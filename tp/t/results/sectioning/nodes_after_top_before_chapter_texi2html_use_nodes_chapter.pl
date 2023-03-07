@@ -445,11 +445,9 @@ $result_sectioning{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'}
             'extra' => {
               'normalized' => 'third-node'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -472,14 +470,12 @@ $result_nodes{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -487,14 +483,12 @@ $result_nodes{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 1
               }
             },
             'normalized' => 'third-node'
           },
-          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -518,21 +512,18 @@ $result_menus{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'third-node'
           },
-          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

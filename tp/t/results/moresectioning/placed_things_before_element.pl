@@ -710,7 +710,6 @@ $result_sectioning{'placed_things_before_element'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -744,7 +743,6 @@ $result_floats{'placed_things_before_element'} = {
         'float_type' => '',
         'normalized' => 'float-anchor'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

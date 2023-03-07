@@ -1382,7 +1382,6 @@ $result_nodes{'macro_in_index_commands'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1390,7 +1389,6 @@ $result_nodes{'macro_in_index_commands'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -1404,7 +1402,6 @@ $result_menus{'macro_in_index_commands'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

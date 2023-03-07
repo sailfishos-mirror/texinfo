@@ -224,7 +224,6 @@ $result_sectioning{'settitle_and_headings'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,

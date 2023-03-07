@@ -197,16 +197,14 @@ $result_nodes{'float_without_type'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'float_without_type'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'float_without_type'} = [];
@@ -218,8 +216,7 @@ $result_floats{'float_without_type'} = {
       'cmdname' => 'float',
       'extra' => {
         'float_type' => 'a'
-      },
-      'info' => {}
+      }
     }
   ]
 };

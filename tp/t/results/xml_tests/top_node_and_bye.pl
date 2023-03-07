@@ -79,7 +79,6 @@ $result_nodes{'top_node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'structure' => {
@@ -98,7 +97,6 @@ $result_menus{'top_node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'structure' => {

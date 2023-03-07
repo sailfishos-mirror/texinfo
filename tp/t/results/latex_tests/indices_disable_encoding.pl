@@ -1224,11 +1224,9 @@ $result_sectioning{'indices_disable_encoding'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1240,11 +1238,9 @@ $result_sectioning{'indices_disable_encoding'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1273,12 +1269,10 @@ $result_nodes{'indices_disable_encoding'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1286,7 +1280,6 @@ $result_nodes{'indices_disable_encoding'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1294,7 +1287,6 @@ $result_nodes{'indices_disable_encoding'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1310,7 +1302,6 @@ $result_menus{'indices_disable_encoding'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

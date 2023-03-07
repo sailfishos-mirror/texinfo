@@ -326,7 +326,6 @@ $result_sectioning{'section_on_itemize_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -335,7 +334,6 @@ $result_sectioning{'section_on_itemize_line'} = {
       },
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,
@@ -346,7 +344,6 @@ $result_sectioning{'section_on_itemize_line'} = {
       },
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 3,
@@ -357,7 +354,6 @@ $result_sectioning{'section_on_itemize_line'} = {
       },
       {
         'cmdname' => 'section',
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 4,

@@ -1469,11 +1469,9 @@ $result_sectioning{'sample_utf8'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1484,11 +1482,9 @@ $result_sectioning{'sample_utf8'} = {
                   'extra' => {
                     'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1505,11 +1501,9 @@ $result_sectioning{'sample_utf8'} = {
                   'extra' => {
                     'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1528,11 +1522,9 @@ $result_sectioning{'sample_utf8'} = {
                     'isindex' => 1,
                     'normalized' => 'Index-node'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -1569,7 +1561,6 @@ $result_nodes{'sample_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1579,7 +1570,6 @@ $result_nodes{'sample_utf8'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1587,14 +1577,12 @@ $result_nodes{'sample_utf8'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
-      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1602,14 +1590,12 @@ $result_nodes{'sample_utf8'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
-          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1617,13 +1603,11 @@ $result_nodes{'sample_utf8'} = {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
-                  'info' => {},
                   'structure' => {}
                 },
                 'isindex' => 1,
                 'normalized' => 'Index-node'
               },
-              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -1653,21 +1637,18 @@ $result_menus{'sample_utf8'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
-      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
-          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
@@ -1675,7 +1656,6 @@ $result_menus{'sample_utf8'} = {
                 'isindex' => 1,
                 'normalized' => 'Index-node'
               },
-              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

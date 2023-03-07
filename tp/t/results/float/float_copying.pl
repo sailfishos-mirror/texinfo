@@ -992,11 +992,9 @@ $result_sectioning{'float_copying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1008,11 +1006,9 @@ $result_sectioning{'float_copying'} = {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-floats'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -1041,7 +1037,6 @@ $result_nodes{'float_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1051,7 +1046,6 @@ $result_nodes{'float_copying'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1059,7 +1053,6 @@ $result_nodes{'float_copying'} = {
         'associated_section' => {
           'cmdname' => 'appendix',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 'A'
           }
@@ -1067,7 +1060,6 @@ $result_nodes{'float_copying'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-floats'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1085,7 +1077,6 @@ $result_menus{'float_copying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1093,7 +1084,6 @@ $result_menus{'float_copying'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-floats'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
@@ -1122,7 +1112,6 @@ $result_floats{'float_copying'} = {
         'float_type' => 'Copyright notice',
         'normalized' => 'public-domain'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -57,16 +57,14 @@ $result_nodes{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'name'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'name'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'node_empty_direction'} = [];

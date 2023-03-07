@@ -373,7 +373,6 @@ $result_nodes{'syncodeindex_to_plain'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -381,7 +380,6 @@ $result_nodes{'syncodeindex_to_plain'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -395,7 +393,6 @@ $result_menus{'syncodeindex_to_plain'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

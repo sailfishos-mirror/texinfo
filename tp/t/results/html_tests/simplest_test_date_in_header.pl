@@ -123,16 +123,14 @@ $result_nodes{'simplest_test_date_in_header'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'simplest_test_date_in_header'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'simplest_test_date_in_header'} = [];

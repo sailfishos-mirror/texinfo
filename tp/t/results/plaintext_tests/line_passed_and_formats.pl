@@ -2458,7 +2458,6 @@ $result_nodes{'line_passed_and_formats'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -2480,7 +2479,6 @@ $result_menus{'line_passed_and_formats'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

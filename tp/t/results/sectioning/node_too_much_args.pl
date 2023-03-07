@@ -91,7 +91,6 @@ $result_nodes{'node_too_much_args'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {
     'node_up' => {
       'extra' => {
@@ -110,7 +109,6 @@ $result_menus{'node_too_much_args'} = {
   'extra' => {
     'normalized' => 'first'
   },
-  'info' => {},
   'structure' => {}
 };
 

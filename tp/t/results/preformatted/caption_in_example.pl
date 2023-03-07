@@ -252,8 +252,7 @@ $result_floats{'caption_in_example'} = {
           }
         },
         'float_type' => 'float'
-      },
-      'info' => {}
+      }
     }
   ]
 };

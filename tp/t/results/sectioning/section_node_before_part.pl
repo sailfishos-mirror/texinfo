@@ -145,11 +145,9 @@ $result_sectioning{'section_node_before_part'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'info' => {}
+            }
           }
         },
-        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -158,7 +156,6 @@ $result_sectioning{'section_node_before_part'} = {
       },
       {
         'cmdname' => 'part',
-        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -177,22 +174,19 @@ $result_nodes{'section_node_before_part'} = {
     'associated_section' => {
       'cmdname' => 'section',
       'extra' => {},
-      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'section_node_before_part'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'section_node_before_part'} = [

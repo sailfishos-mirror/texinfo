@@ -668,8 +668,7 @@ $result_nodes{'nested_multitable_anchor_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_menus{'nested_multitable_anchor_index'} = {
@@ -677,8 +676,7 @@ $result_menus{'nested_multitable_anchor_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'info' => {}
+  }
 };
 
 $result_errors{'nested_multitable_anchor_index'} = [];

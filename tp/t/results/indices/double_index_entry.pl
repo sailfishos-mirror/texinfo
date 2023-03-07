@@ -443,7 +443,6 @@ $result_nodes{'double_index_entry'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -451,7 +450,6 @@ $result_nodes{'double_index_entry'} = {
         'isindex' => 1,
         'normalized' => 'chap-other-node'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -469,7 +467,6 @@ $result_menus{'double_index_entry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -477,7 +474,6 @@ $result_menus{'double_index_entry'} = {
         'isindex' => 1,
         'normalized' => 'chap-other-node'
       },
-      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

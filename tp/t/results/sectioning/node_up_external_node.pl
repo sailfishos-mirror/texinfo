@@ -312,7 +312,6 @@ $result_nodes{'node_up_external_node'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -327,7 +326,6 @@ $result_nodes{'node_up_external_node'} = {
                 'extra' => {
                   'normalized' => 'chap-first'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -428,7 +426,6 @@ $result_menus{'node_up_external_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -443,7 +440,6 @@ $result_menus{'node_up_external_node'} = {
                 'extra' => {
                   'normalized' => 'chap-first'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_up' => {},
@@ -538,7 +534,6 @@ $result_elements{'node_up_external_node'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -546,7 +541,6 @@ $result_elements{'node_up_external_node'} = [
             'extra' => {
               'normalized' => 'chap-first'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {

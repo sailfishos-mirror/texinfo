@@ -1757,11 +1757,9 @@ $result_sectioning{'float_and_refs'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1772,11 +1770,9 @@ $result_sectioning{'float_and_refs'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1787,7 +1783,6 @@ $result_sectioning{'float_and_refs'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1799,7 +1794,6 @@ $result_sectioning{'float_and_refs'} = {
             },
             {
               'cmdname' => 'chapter',
-              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -1837,12 +1831,10 @@ $result_nodes{'float_and_refs'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1850,14 +1842,12 @@ $result_nodes{'float_and_refs'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1873,7 +1863,6 @@ $result_menus{'float_and_refs'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -1894,7 +1883,6 @@ $result_floats{'float_and_refs'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1908,7 +1896,6 @@ $result_floats{'float_and_refs'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }
@@ -1934,7 +1921,6 @@ $result_floats{'float_and_refs'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }
@@ -1960,7 +1946,6 @@ $result_floats{'float_and_refs'} = {
           }
         }
       },
-      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

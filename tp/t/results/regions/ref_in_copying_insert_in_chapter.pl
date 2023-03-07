@@ -493,11 +493,9 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
             'extra' => {
               'normalized' => 'Top'
             },
-            'info' => {},
             'structure' => {}
           }
         },
-        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -508,11 +506,9 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                   'extra' => {
                     'normalized' => 'Intro'
                   },
-                  'info' => {},
                   'structure' => {}
                 }
               },
-              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -523,11 +519,9 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                         'extra' => {
                           'normalized' => 'GFDL'
                         },
-                        'info' => {},
                         'structure' => {}
                       }
                     },
-                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -563,12 +557,10 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -576,7 +568,6 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
-          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -588,7 +579,6 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
         ],
         'normalized' => 'Intro'
       },
-      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -596,14 +586,12 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
             },
             'normalized' => 'GFDL'
           },
-          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -623,7 +611,6 @@ $result_menus{'ref_in_copying_insert_in_chapter'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 

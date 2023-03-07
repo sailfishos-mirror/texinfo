@@ -258,14 +258,12 @@ $result_nodes{'comment_space_comand_in_float'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
-      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -279,7 +277,6 @@ $result_menus{'comment_space_comand_in_float'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {}
 };
 
@@ -294,7 +291,6 @@ $result_floats{'comment_space_comand_in_float'} = {
         'float_type' => 'Text  ',
         'normalized' => 'label-'
       },
-      'info' => {},
       'structure' => {
         'float_number' => 1
       }

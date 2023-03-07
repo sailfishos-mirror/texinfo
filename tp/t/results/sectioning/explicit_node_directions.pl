@@ -435,7 +435,6 @@ $result_nodes{'explicit_node_directions'} = {
     ],
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -450,7 +449,6 @@ $result_nodes{'explicit_node_directions'} = {
                 'extra' => {
                   'normalized' => 'chap-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -458,7 +456,6 @@ $result_nodes{'explicit_node_directions'} = {
                     'extra' => {
                       'normalized' => 'third-node'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -548,7 +545,6 @@ $result_menus{'explicit_node_directions'} = {
   'extra' => {
     'normalized' => 'Top'
   },
-  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -563,7 +559,6 @@ $result_menus{'explicit_node_directions'} = {
                 'extra' => {
                   'normalized' => 'chap-node'
                 },
-                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
@@ -571,7 +566,6 @@ $result_menus{'explicit_node_directions'} = {
                     'extra' => {
                       'normalized' => 'third-node'
                     },
-                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -672,7 +666,6 @@ $result_elements{'explicit_node_directions'} = [
         'extra' => {
           'normalized' => 'Top'
         },
-        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -680,7 +673,6 @@ $result_elements{'explicit_node_directions'} = [
             'extra' => {
               'normalized' => 'chap-node'
             },
-            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -696,7 +688,6 @@ $result_elements{'explicit_node_directions'} = [
                           'extra' => {
                             'normalized' => 'third-node'
                           },
-                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_prev' => {},
