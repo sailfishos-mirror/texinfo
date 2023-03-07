@@ -8272,14 +8272,6 @@ where they are valid, in C<@math>.
 
 Content in brackets on definition command lines.
 
-=item bracketed_multitable_prototype
-
-=item row_prototype
-
-On C<@multitable> line, content in brackets is in
-I<bracketed_multitable_prototype>, text not in brackets
-is in I<row_prototype>.
-
 =item def_aggregate
 
 Contains several elements that together are a single unit on a @def* line.

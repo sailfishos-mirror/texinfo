@@ -84,8 +84,6 @@ bracketed
 bracketed_def_content
 def_aggregate
 bracketed_inserted
-bracketed_multitable_prototype
-row_prototype
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted
