@@ -394,12 +394,24 @@ sub complete_indices($)
       if ($main_entry_element->{'extra'}
           and $main_entry_element->{'extra'}->{'def_command'}
           and not $main_entry_element->{'extra'}->{'def_index_element'}) {
-        my ($index_entry, $index_contents_normalized);
-        my $def_command = $main_entry_element->{'extra'}->{'def_command'};
+        my ($name, $class);
+        if ($main_entry_element->{'args'}->[0]->{'contents'}) {
+          foreach my $arg (@{$main_entry_element->{'args'}->[0]->{'contents'}}) {
+            my $role = $arg->{'extra'}->{'def_role'};
+            if ($role eq 'name') {
+              $name = $arg;
+            } elsif ($role eq 'class') {
+              $class = $arg;
+            } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+              last;
+            }
+          }
+        }
 
-        my $def_parsed_hash = $main_entry_element->{'extra'}->{'def_parsed_hash'};
-        if ($def_parsed_hash and $def_parsed_hash->{'class'}
-            and $def_command) {
+        if ($name and $class) {
+          my ($index_entry, $index_contents_normalized);
+          my $def_command = $main_entry_element->{'extra'}->{'def_command'};
+
           # Use the document language that was current when the command was
           # used for getting the translation.
           my $entry_language
@@ -409,37 +421,34 @@ sub complete_indices($)
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
             $index_entry = gdt($self, '{name} on {class}',
-                                      {'name' => $def_parsed_hash->{'name'},
-                                       'class' => $def_parsed_hash->{'class'}},
-                                      undef, undef, $entry_language);
+                               {'name' => $name, 'class' => $class},
+                                undef, undef, $entry_language);
             $index_contents_normalized
-              = [_non_bracketed_contents($def_parsed_hash->{'name'}),
+              = [_non_bracketed_contents($name),
                 { 'text' => ' on '},
-                _non_bracketed_contents($def_parsed_hash->{'class'})];
+                _non_bracketed_contents($class)];
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
             $index_entry = gdt($self, '{name} of {class}',
-                                      {'name' => $def_parsed_hash->{'name'},
-                                       'class' => $def_parsed_hash->{'class'}},
-                                      undef, undef, $entry_language);
+                               {'name' => $name, 'class' => $class},
+                               undef, undef, $entry_language);
             $index_contents_normalized
-              = [_non_bracketed_contents($def_parsed_hash->{'name'}),
+              = [_non_bracketed_contents($name),
                  { 'text' => ' of '},
-                 _non_bracketed_contents($def_parsed_hash->{'class'})];
+                 _non_bracketed_contents($class)];
           }
-        }
-        # 'root_line' is the container returned by gdt.
-        if ($index_entry->{'type'} and $index_entry->{'type'} eq 'root_line') {
-          for my $child (@{$index_entry->{'contents'}}) {
-            delete $child->{'parent'};
+
+          # 'root_line' is the container returned by gdt.
+          if ($index_entry->{'type'} and $index_entry->{'type'} eq 'root_line') {
+            for my $child (@{$index_entry->{'contents'}}) {
+              delete $child->{'parent'};
+            }
           }
-        }
-        if ($index_entry->{'contents'}) {
           $main_entry_element->{'extra'}->{'def_index_element'} = $index_entry;
           $main_entry_element->{'extra'}->{'def_index_ref_element'}
-             = {'contents' => $index_contents_normalized};
+                                  = {'contents' => $index_contents_normalized};
         }
       }
     }
