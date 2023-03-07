@@ -211,10 +211,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                           'extra' => {
                             'def_command' => 'deffn',
                             'def_index_element' => {},
-                            'def_parsed_hash' => {
-                              'category' => {},
-                              'name' => {}
-                            },
                             'index_entry' => [
                               'fn',
                               1
@@ -317,8 +313,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
   'type' => 'document_root'
 };
 $result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'end_of_lines_protected_in_footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'end_of_lines_protected_in_footnote'} = '@footnote{
 @deffn category deffn_name arguments arg2    more {args   with end of line within} with 3 @@ @@ {one last arg}

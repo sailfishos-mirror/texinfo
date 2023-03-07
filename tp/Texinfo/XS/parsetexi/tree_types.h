@@ -31,7 +31,6 @@ enum extra_type {
     extra_misc_args,
     extra_string,
     extra_integer,
-    extra_def_info,
     extra_deleted
 };
 
@@ -151,7 +150,7 @@ typedef struct {
     ELEMENT **out_of_tree_elements;
 } NODE_SPEC_EXTRA;
 
-/* For 'def_parsed_hash'. */
+/* For @def*. */
 typedef struct {
     ELEMENT *category;
     ELEMENT *class;

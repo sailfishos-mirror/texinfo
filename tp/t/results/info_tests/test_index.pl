@@ -356,10 +356,6 @@ $result_trees{'test_index'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -437,10 +433,6 @@ $result_trees{'test_index'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -2893,12 +2885,8 @@ $result_trees{'test_index'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];

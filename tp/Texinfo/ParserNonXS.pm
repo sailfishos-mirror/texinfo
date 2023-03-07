@@ -3642,30 +3642,33 @@ sub _end_line_def_line($$$)
                          __('missing category for @%s'),
        $current->{'extra'}->{'original_def_cmdname'});
   } else {
-    my $def_parsed_hash = {};
+    my ($name_element, $class_element);
     foreach my $arg (@$arguments) {
       die if (!defined($arg->[0]));
-      last if ($arg->[0] eq 'arg' or $arg->[0] eq 'typearg'
-               or $arg->[0] eq 'delimiter');
-      next if ($arg->[0] eq 'spaces');
-      $def_parsed_hash->{$arg->[0]} = $arg->[1];
+      if ($arg->[0] eq 'name') {
+        $name_element = $arg->[1];
+      } elsif ($arg->[0] eq 'class') {
+        $class_element = $arg->[1];
+      } elsif ($arg->[0] eq 'arg' or $arg->[0] eq 'typearg'
+          or $arg->[0] eq 'delimiter') {
+        last;
+      }
     }
-    $current->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
     # do a standard index entry tree
     my $index_entry;
-    if (defined($def_parsed_hash->{'name'})) {
-      $index_entry = $def_parsed_hash->{'name'}
+    if (defined($name_element)) {
+      $index_entry = $name_element
        # empty bracketed
-        unless ($def_parsed_hash->{'name'}->{'type'}
-                and $def_parsed_hash->{'name'}->{'type'} eq 'bracketed_def_content'
-                and (!$def_parsed_hash->{'name'}->{'contents'}
-                     or (!scalar(@{$def_parsed_hash->{'name'}->{'contents'}}))
-                     or (scalar(@{$def_parsed_hash->{'name'}->{'contents'}}) == 1
-                        and defined($def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'})
-                        and $def_parsed_hash->{'name'}->{'contents'}->[0]->{'text'} !~ /\S/)));
+        unless ($name_element->{'type'}
+                and $name_element->{'type'} eq 'bracketed_def_content'
+                and (!$name_element->{'contents'}
+                     or (!scalar(@{$name_element->{'contents'}}))
+                     or (scalar(@{$name_element->{'contents'}}) == 1
+                        and defined($name_element->{'contents'}->[0]->{'text'})
+                        and $name_element->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
     if (defined($index_entry)) {
-      if ($def_parsed_hash->{'class'}) {
+      if ($class_element) {
         # Delay getting the text until Texinfo::Structuring::sort_index_keys
         # in order to avoid using gdt.
         # We need to store the language as well in case there are multiple
@@ -8572,9 +8575,6 @@ For each element in a C<def_line>, the key I<def_role> holds a string
 describing the meaning of the element.  It is one of
 I<category>, I<name>, I<class>, I<type>, I<arg>, I<typearg>,
 I<spaces> or I<delimiter>, depending on the definition.
-
-The I<def_parsed_hash> hash reference has these strings as keys,
-and the values are the corresponding elements.
 
 The I<def_index_element> is a Texinfo tree element corresponding to
 the index entry associated to the definition line, based on the

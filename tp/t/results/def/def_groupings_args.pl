@@ -74,10 +74,6 @@ $result_trees{'def_groupings_args'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'index_entry' => [
                   'fn',
                   1
@@ -188,9 +184,6 @@ $result_trees{'def_groupings_args'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {}
-                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -380,10 +373,6 @@ $result_trees{'def_groupings_args'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'index_entry' => [
                   'fn',
                   2
@@ -448,12 +437,7 @@ $result_trees{'def_groupings_args'} = {
   'type' => 'document_root'
 };
 $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'def_groupings_args'} = '@deffn a b@code{aa}c
 @end deffn

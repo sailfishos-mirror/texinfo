@@ -48,10 +48,6 @@ $result_trees{'protected_brace'} = {
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'index_entry' => [
                   'fn',
                   1
@@ -116,8 +112,6 @@ $result_trees{'protected_brace'} = {
   'type' => 'document_root'
 };
 $result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'protected_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'protected_brace'} = '@deffn c @{
 @end deffn

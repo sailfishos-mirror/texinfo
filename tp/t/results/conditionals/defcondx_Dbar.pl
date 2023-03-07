@@ -121,9 +121,6 @@ $result_trees{'defcondx_Dbar'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {}
-                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -203,9 +200,6 @@ $result_trees{'defcondx_Dbar'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {}
-                },
                 'original_def_cmdname' => 'deffnx'
               },
               'info' => {
@@ -357,8 +351,6 @@ $result_trees{'defcondx_Dbar'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Dbar'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
 $result_texis{'defcondx_Dbar'} = '\\input texinfo
 

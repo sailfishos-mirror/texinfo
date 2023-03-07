@@ -60,10 +60,6 @@ $result_trees{'defline_no_params'} = {
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {},
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -138,8 +134,6 @@ $result_trees{'defline_no_params'} = {
   'type' => 'document_root'
 };
 $result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'defline_no_params'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'defline_no_params'} = '@defblock
 @defline Builtin truc

@@ -387,30 +387,6 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                 }
               break;
               }
-            case extra_def_info:
-              {
-              DEF_INFO *d = (DEF_INFO *) f;
-              HV *def_parsed_hash;
-
-              /* Create a "def_parsed_hash" extra value. */
-              def_parsed_hash = newHV ();
-              STORE(newRV_inc ((SV *)def_parsed_hash));
-
-#define SAVE_DEF(X) { if (!d->X->hv) \
-                        element_to_perl_hash (d->X); \
-                      hv_store (def_parsed_hash, #X, strlen (#X), \
-                                newRV_inc ((SV *)d->X->hv), 0) ; }
-
-              if (d->category)
-                SAVE_DEF(category)
-              if (d->class)
-                SAVE_DEF(class)
-              if (d->type)
-                SAVE_DEF(type)
-              if (d->name)
-                SAVE_DEF(name)
-              break;
-              }
             default:
               fatal ("unknown extra type");
               break;

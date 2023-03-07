@@ -121,9 +121,6 @@ $result_trees{'defcondx_Ubar'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {}
-                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -311,7 +308,6 @@ $result_trees{'defcondx_Ubar'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'defcondx_Ubar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'defcondx_Ubar'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'defcondx_Ubar'} = '\\input texinfo
 

@@ -132,10 +132,6 @@ $result_trees{'empty_index_entry'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -247,8 +243,6 @@ $result_trees{'empty_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_index_entry'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_index_entry'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_index_entry'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'empty_index_entry'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'empty_index_entry'} = '@node Top
 

@@ -663,8 +663,6 @@ end_line_def_line (ELEMENT *current)
     {
       ELEMENT *index_entry = 0; /* Index entry text. */
 
-      add_extra_def_info (current, "def_parsed_hash", def_info);
-
       if (def_info->name)
         {
           char *t;

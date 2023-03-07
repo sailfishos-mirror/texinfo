@@ -1917,8 +1917,7 @@ sub _copy_tree($$$)
       # here need to copy hashes or arrays with out of tree elements.  They can
       # be found by looking at *_oot extra types in the XS parser.  Special
       # constructs can be out of tree too.  extra misc_args are only strings
-      # so they are copied in _substitute_references_in_array, extra def_parsed
-      # is also ok, as the hash values refer to tree elements.
+      # so they are copied in _substitute_references_in_array.
       # Some out of tree elements may be added later too, as is the case of
       # extra def_index_element and def_index_ref_element added in
       # complete_indices.
@@ -2068,7 +2067,6 @@ sub _substitute_references($$$;$)
               "${info_type}[$command_or_type]{$key}", $level);
           } else {
             # here are index_entry def_index_element def_index_ref_element
-            # def_parsed_hash
             #print STDERR "HASH $info_type $key\n";
             # FIXME for def_index_element def_index_ref_element maybe
             # it would be better to call _copy_tree before

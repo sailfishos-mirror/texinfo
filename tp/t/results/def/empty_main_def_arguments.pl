@@ -34,9 +34,6 @@ $result_trees{'empty_main_def_arguments'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {}
-                },
                 'original_def_cmdname' => 'deffn'
               },
               'source_info' => {
@@ -96,7 +93,6 @@ $result_trees{'empty_main_def_arguments'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_main_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_main_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 
 $result_texis{'empty_main_def_arguments'} = '@deffn NNN
 @end deffn

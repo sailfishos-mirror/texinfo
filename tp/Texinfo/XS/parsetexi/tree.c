@@ -105,9 +105,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
         case extra_misc_args:
           destroy_element_and_children (a->info[i].value);
           break;
-        case extra_def_info:
-          free (a->info[i].value);
-          break;
 
         default:
           break;
