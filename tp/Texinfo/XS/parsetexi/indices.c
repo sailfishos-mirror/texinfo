@@ -308,7 +308,7 @@ enter_index_entry (enum command_id index_type_cmd,
     text_append (&e->text, idx->name);
     add_to_element_contents (index_entry, e);
     e = new_element (ET_NONE);
-    text_printf (&e->text, "%d", idx->index_number);
+    add_extra_integer (e, "integer", idx->index_number);
     add_to_element_contents (index_entry, e);
     add_extra_misc_args (element, "index_entry", index_entry);
   }

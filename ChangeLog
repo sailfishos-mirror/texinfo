@@ -1,5 +1,13 @@
 2023-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (store_additional_info),
+	tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry): use the
+	"integer" extra key in extra_misc_args to pass an integer instead
+	of a string in the extra_misc_args array.  Use it for the index
+	number.
+
+2023-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type),
 	tp/Texinfo/Convert/LaTeX.pm (_convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Convert/Text.pm

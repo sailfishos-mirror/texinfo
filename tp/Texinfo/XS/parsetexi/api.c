@@ -363,10 +363,17 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               AV *av;
               av = newAV ();
               STORE(newRV_inc ((SV *)av));
-              /* An array of strings. */
+              /* An array of strings or integers. */
               for (j = 0; j < f->contents.number; j++)
                 {
-                  if (f->contents.list[j]->text.end > 0)
+                  KEY_PAIR *k;
+                  k = lookup_extra (f->contents.list[j], "integer");
+                  if (k)
+                    {
+                      IV value = (IV) (intptr_t) k->value;
+                      av_push (av, newSViv (value));
+                    }
+                  else if (f->contents.list[j]->text.end > 0)
                     {
                       SV *sv = newSVpv_utf8 (f->contents.list[j]->text.text,
                                              f->contents.list[j]->text.end);
