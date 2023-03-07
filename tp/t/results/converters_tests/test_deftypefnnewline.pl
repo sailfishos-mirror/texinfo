@@ -583,8 +583,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -749,8 +748,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -915,8 +913,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1094,8 +1091,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1718,8 +1714,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1884,8 +1879,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -2050,8 +2044,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -2229,8 +2222,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

@@ -516,8 +516,7 @@ $result_trees{'empty_deftype'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -726,8 +725,7 @@ $result_trees{'empty_deftype'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

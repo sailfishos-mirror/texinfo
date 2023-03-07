@@ -9338,8 +9338,7 @@ $result_trees{'definition_commands'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

@@ -511,8 +511,7 @@ $result_trees{'documentlanguage_option'} = {
                       'text' => ' de '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

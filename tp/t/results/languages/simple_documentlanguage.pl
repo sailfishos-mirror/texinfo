@@ -190,8 +190,7 @@ $result_trees{'simple_documentlanguage'} = {
                       'text' => ' de '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

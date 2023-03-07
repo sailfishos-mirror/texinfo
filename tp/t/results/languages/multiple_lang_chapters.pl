@@ -801,8 +801,7 @@ $result_trees{'multiple_lang_chapters'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1099,8 +1098,7 @@ $result_trees{'multiple_lang_chapters'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1361,8 +1359,7 @@ $result_trees{'multiple_lang_chapters'} = {
                       'text' => ' de '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

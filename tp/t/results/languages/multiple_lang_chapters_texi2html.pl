@@ -768,8 +768,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1066,8 +1065,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1328,8 +1326,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                       'text' => ' de '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

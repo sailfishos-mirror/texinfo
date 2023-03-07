@@ -3485,8 +3485,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -3863,8 +3862,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4268,8 +4266,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4460,8 +4457,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4672,8 +4668,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4884,8 +4879,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5076,8 +5070,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5268,8 +5261,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5480,8 +5472,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5692,8 +5683,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5884,8 +5874,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6076,8 +6065,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6288,8 +6276,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6500,8 +6487,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6692,8 +6678,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6884,8 +6869,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -7109,8 +7093,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -9990,8 +9973,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10257,8 +10239,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10496,8 +10477,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10734,8 +10714,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -11000,8 +10979,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -11267,8 +11245,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

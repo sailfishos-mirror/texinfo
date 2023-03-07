@@ -3551,8 +3551,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -3930,8 +3929,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4336,8 +4334,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4529,8 +4526,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4742,8 +4738,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -4955,8 +4950,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5148,8 +5142,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5341,8 +5334,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5554,8 +5546,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5767,8 +5758,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -5960,8 +5950,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6153,8 +6142,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6366,8 +6354,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6579,8 +6566,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6772,8 +6758,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -6965,8 +6950,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -7191,8 +7175,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10086,8 +10069,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10354,8 +10336,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' of '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10594,8 +10575,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -10833,8 +10813,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -11100,8 +11079,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -11368,8 +11346,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

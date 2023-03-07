@@ -142,8 +142,7 @@ $result_trees{'multiple_in_preamble'} = {
                               'text' => ' de '
                             },
                             {}
-                          ],
-                          'type' => 'root_line'
+                          ]
                         },
                         'def_index_ref_element' => {
                           'contents' => [
@@ -537,8 +536,7 @@ $result_trees{'multiple_in_preamble'} = {
                       'text' => ' od '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -762,8 +760,7 @@ $result_trees{'multiple_in_preamble'} = {
                       'text' => ' von '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

@@ -500,8 +500,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -778,8 +777,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1294,8 +1292,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
@@ -1572,8 +1569,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [

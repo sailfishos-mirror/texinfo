@@ -440,12 +440,15 @@ sub complete_indices($)
                  _non_bracketed_contents($class)];
           }
 
-          # 'root_line' is the container returned by gdt.
-          if ($index_entry->{'type'} and $index_entry->{'type'} eq 'root_line') {
-            for my $child (@{$index_entry->{'contents'}}) {
-              delete $child->{'parent'};
-            }
-          }
+          # FIXME the 'parent' of the tree elements that correspond to name and
+          # class, be them from gdt or from _non_bracketed_contents, are in the
+          # main tree in the definition command arguments, while the new text has
+          # either no parent (for index_contents_normalized) or the 'root_line'
+          # container returned by gdt.
+          #
+          # prefer a type-less container rather than 'root_line' returned by gdt
+          delete $index_entry->{'type'};
+
           $main_entry_element->{'extra'}->{'def_index_element'} = $index_entry;
           $main_entry_element->{'extra'}->{'def_index_ref_element'}
                                   = {'contents' => $index_contents_normalized};

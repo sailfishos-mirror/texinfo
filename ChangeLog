@@ -1,5 +1,11 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (complete_indices): remove the type of
+	the tree root returned by gdt.  Do not mess with the parent of the
+	elements, as the elements may be in the main tree.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (complete_indices): determine the name
 	and class of def command by looking at the contents instead of using
 	def_parsed_hash.

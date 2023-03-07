@@ -511,8 +511,7 @@ $result_trees{'documentlanguage_unknown'} = {
                       'text' => ' on '
                     },
                     {}
-                  ],
-                  'type' => 'root_line'
+                  ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
