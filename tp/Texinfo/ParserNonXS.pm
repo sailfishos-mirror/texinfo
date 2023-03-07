@@ -2962,7 +2962,7 @@ sub _parse_def($$$$)
 {
   my ($self, $command, $current, $source_info) = @_;
 
-  return [] if (!$current->{'contents'});
+  return {} if (!$current->{'contents'});
   my $contents = $current->{'contents'};
 
   my @new_contents;
@@ -2998,7 +2998,7 @@ sub _parse_def($$$$)
 
   $current->{'contents'} = \@new_contents;
 
-  my @result;
+  my %result;
   my @args = @{$def_map{$command}};
   my $arg_type;
 
@@ -3028,7 +3028,7 @@ sub _parse_def($$$$)
           my $e = {'contents' => $argument_content,
                    'type' => 'def_aggregate',
                    'parent' => $current };
-          push @result, [$arg, $e];
+          $result{$arg} = $e;
           # Replace in the main tree.
           splice @new_contents,
                  $i - scalar(@$argument_content),
@@ -3039,7 +3039,7 @@ sub _parse_def($$$$)
           }
           $i -= scalar(@$argument_content) - 1;
         } elsif (scalar(@$argument_content) == 1) {
-          push @result, [$arg, $argument_content->[0]];
+          $result{$arg} = $argument_content->[0];
         }
         $argument_content = [];
         if ($token->{'type'} eq 'spaces'
@@ -3051,21 +3051,21 @@ sub _parse_def($$$$)
 
     if ($token->{'type'} and ($token->{'type'} eq 'bracketed_def_content'
                                 or $token->{'type'} eq 'bracketed_inserted')) {
-      push @result, [$arg, $token];
+      $result{$arg} = $token;
       shift @contents;
       $arg = shift (@args);
     } elsif ($token->{'type'}
         and ($token->{'type'} eq 'spaces'
                or $token->{'type'} eq 'spaces_inserted')) {
       if ($token->{'text'}) {
-        push @result, ['spaces', $token];
+        $token->{'extra'} = {'def_role' => 'spaces'};
         shift @contents;
       } else {
         $i++;
         last;
       }
     } elsif ($token->{'type'} and $token->{'type'} eq 'delimiter') {
-      push @result, ['delimiter', shift @contents];
+      $token->{'extra'} = {'def_role' => 'delimiter'};
     } else {
       my $text_or_cmd = shift @contents;
       push @$argument_content, $text_or_cmd;
@@ -3083,12 +3083,12 @@ sub _parse_def($$$$)
     for my $e2 (@$argument_content) {
       $e2->{'parent'} = $e;
     }
-    push @result, [$arg, $e];
+    $result{$arg} = $e;
     # Replace in the main tree.
     splice @new_contents, $i - scalar(@$argument_content),
            scalar(@$argument_content), $e;
   } elsif (scalar(@$argument_content) == 1) {
-    push @result, [$arg, $argument_content->[0]];
+    $result{$arg} = $argument_content->[0];
   }
 
   # at this point, @contents corresponds to the @def* args
@@ -3098,10 +3098,10 @@ sub _parse_def($$$$)
 
   @contents = map (_split_delimiters($self, $_, $current, $source_info),
                    @contents );
+  my @args_results = @contents;
   @new_contents = (@new_contents, @contents);
 
   # Create the part of the parsed def line array for any arguments.
-  my @args_results;
   while (@contents) {
     my $spaces;
     my $next_token = shift @contents;
@@ -3110,13 +3110,14 @@ sub _parse_def($$$$)
       $next_token = shift @contents;
     }
     if (defined($spaces)) {
-      push @args_results, ['spaces', $spaces]
+      $spaces->{'extra'} = {'def_role' => 'spaces'};
     }
     last if (!defined($next_token));
     if ($next_token->{'type'} and $next_token->{'type'} eq 'delimiter') {
-      push @args_results, ['delimiter', $next_token];
+      $next_token->{'extra'} = {'def_role' => 'delimiter'};
     } else {
-      push @args_results, ['arg', $next_token];
+      $next_token->{'extra'} = {} if (!$next_token->{'extra'});
+      $next_token->{'extra'}->{'def_role'} = 'arg';
     }
   }
 
@@ -3124,13 +3125,13 @@ sub _parse_def($$$$)
   if ($arg_type and $arg_type eq 'argtype') {
     my $next_is_type = 1;
     foreach my $arg(@args_results) {
-      if ($arg->[0] eq 'spaces') {
-      } elsif ($arg->[0] eq 'delimiter') {
+      if ($arg->{'extra'}->{'def_role'} eq 'spaces') {
+      } elsif ($arg->{'extra'}->{'def_role'} eq 'delimiter') {
         $next_is_type = 1;
-      } elsif ($arg->[1]->{'cmdname'} and $arg->[1]->{'cmdname'} ne 'code') {
+      } elsif ($arg->{'cmdname'} and $arg->{'cmdname'} ne 'code') {
         $next_is_type = 1;
       } elsif ($next_is_type) {
-        $arg->[0] = 'typearg';
+        $arg->{'extra'}->{'def_role'} = 'typearg';
         $next_is_type = 0;
       } else {
         $next_is_type = 1;
@@ -3138,12 +3139,13 @@ sub _parse_def($$$$)
     }
   }
 
-  for my $pair (@result, @args_results) {
-    $pair->[1]->{'extra'} = {} if (!$pair->[1]->{'extra'});
-    $pair->[1]->{'extra'}->{'def_role'} = $pair->[0];
+  for my $type (keys(%result)) {
+    my $element = $result{$type};
+    $element->{'extra'} = {} if (!$element->{'extra'});
+    $element->{'extra'}->{'def_role'} = $type;
   }
 
-  return [@result, @args_results];
+  return \%result;
 }
 
 # store an index entry.
@@ -3637,23 +3639,14 @@ sub _end_line_def_line($$$)
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
 
   $current = $current->{'parent'};
-  if (scalar(@$arguments) == 0) {
+  if (scalar(keys(%$arguments)) == 0) {
     $self->_command_warn($current, $source_info,
                          __('missing category for @%s'),
        $current->{'extra'}->{'original_def_cmdname'});
   } else {
-    my ($name_element, $class_element);
-    foreach my $arg (@$arguments) {
-      die if (!defined($arg->[0]));
-      if ($arg->[0] eq 'name') {
-        $name_element = $arg->[1];
-      } elsif ($arg->[0] eq 'class') {
-        $class_element = $arg->[1];
-      } elsif ($arg->[0] eq 'arg' or $arg->[0] eq 'typearg'
-          or $arg->[0] eq 'delimiter') {
-        last;
-      }
-    }
+    my $name_element = $arguments->{'name'};
+    my $class_element = $arguments->{'class'};
+
     # do a standard index entry tree
     my $index_entry;
     if (defined($name_element)) {

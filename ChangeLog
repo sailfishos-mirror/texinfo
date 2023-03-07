@@ -1,5 +1,12 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line_def_line): gather
+	initial arguments name, category... in a has, to be returned from the
+	function after setting the extra def_role key.  Set other contents
+	extra def_role key directly.  More similar to the XS parser.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (@contents_keys): remove obsolete keys.  Add
 	'info'.  Remove keys within 'info'.
 

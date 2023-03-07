@@ -2808,7 +2808,7 @@ $style_commands_element{'normal'} = {
       'emph'        => 'em',
       'env'         => 'code',
       'file'        => 'samp',
-      'headitemfont' => 'b', # the @multitable prototypes are ignored
+      'headitemfont' => 'b', # no effect: the @multitable prototypes are ignored
                              # and headitem are in <th> rather than <td>.
                              # The mapping is based on style used in other
                              # formats.
