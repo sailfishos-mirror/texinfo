@@ -172,7 +172,7 @@ $result_floats{'not_letters_in_prototype'} = {};
 
 
 
-$result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.3   5-6
+$result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.35-6
 ';
 
 
@@ -183,7 +183,7 @@ $result_converted{'html_text'}->{'not_letters_in_prototype'} = '<table class="mu
 ';
 
 
-$result_converted{'xml'}->{'not_letters_in_prototype'} = '<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype>1.3</columnprototype>  <columnprototype>5-6</columnprototype></columnprototypes>
+$result_converted{'xml'}->{'not_letters_in_prototype'} = '<multitable spaces="  " endspaces=" "><columnprototypes>1.3  5-6</columnprototypes>
 <tbody><row><entry command="item"> <para>1.3 </para></entry><entry command="tab"> <para>5-6
 </para></entry></row></tbody></multitable>
 ';

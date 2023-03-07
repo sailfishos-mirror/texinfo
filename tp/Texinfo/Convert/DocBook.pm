@@ -1502,18 +1502,25 @@ sub _convert($$;$)
         if ($element->{'extra'}) {
           my @fractions;
           my $multiply;
-          if ($element->{'extra'}->{'prototypes'}) {
-            $multiply = 1;
-            foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
-              my $prototype_text
-               = Texinfo::Convert::Text::convert_to_text($prototype,
-                  {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
-              push @fractions,
-                Texinfo::Convert::Unicode::string_width($prototype_text);
-            }
-          } elsif ($element->{'extra'}->{'columnfractions'}) {
+          if ($element->{'extra'}->{'columnfractions'}) {
             @fractions = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
             $multiply = 100;
+          } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+                   and $element->{'args'}->[0]->{'contents'}) {
+            $multiply = 1;
+            foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
+              if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+                my $prototype_text = '';
+                if ($content->{'contents'}) {
+                  $prototype_text
+                    = Texinfo::Convert::Text::convert_to_text(
+                                 {'contents' => $content->{'contents'}},
+        {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                }
+                push @fractions,
+                  Texinfo::Convert::Unicode::string_width($prototype_text);
+              }
+            }
           }
           foreach my $fraction (@fractions) {
             $appended .= '<colspec colwidth="'.($fraction*$multiply)

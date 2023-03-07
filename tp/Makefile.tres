@@ -1533,6 +1533,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/multiline_image_and_align.pl \
   t/results/plaintext_tests/multiline_verb_after_space.pl \
   t/results/plaintext_tests/multitable.pl \
+  t/results/plaintext_tests/multitable_in_example_extraneous_item_tab.pl \
   t/results/plaintext_tests/multitable_in_example_extraneous_tab.pl \
   t/results/plaintext_tests/nested_code_commands.pl \
   t/results/plaintext_tests/nested_indentedblock.pl \

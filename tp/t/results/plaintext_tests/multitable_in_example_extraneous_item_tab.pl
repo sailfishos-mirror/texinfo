@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'multitable_in_example_extraneous_tab'} = {
+$result_trees{'multitable_in_example_extraneous_item_tab'} = {
   'contents' => [
     {
       'contents' => [
@@ -28,12 +28,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'type' => 'bracketed'
+                      'text' => 'a'
                     }
                   ],
                   'info' => {
@@ -178,10 +173,8 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                 'max_columns' => 1,
                 'prototypes' => [
                   {
-                    'contents' => [
-                      {}
-                    ],
-                    'type' => 'bracketed_multitable_prototype'
+                    'text' => 'a',
+                    'type' => 'row_prototype'
                   }
                 ]
               },
@@ -241,10 +234,9 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_in_example_extraneous_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_in_example_extraneous_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 
-$result_texis{'multitable_in_example_extraneous_tab'} = '@example
-@multitable {a}
+$result_texis{'multitable_in_example_extraneous_item_tab'} = '@example
+@multitable a
 @item ita  tmp
 @item secit 
 @end multitable
@@ -252,10 +244,10 @@ $result_texis{'multitable_in_example_extraneous_tab'} = '@example
 ';
 
 
-$result_texts{'multitable_in_example_extraneous_tab'} = 'ita tmp
+$result_texts{'multitable_in_example_extraneous_item_tab'} = 'ita tmp
 secit ';
 
-$result_errors{'multitable_in_example_extraneous_tab'} = [
+$result_errors{'multitable_in_example_extraneous_item_tab'} = [
   {
     'error_line' => 'too many columns in multitable item (max 1)
 ',
@@ -277,11 +269,11 @@ $result_errors{'multitable_in_example_extraneous_tab'} = [
 ];
 
 
-$result_floats{'multitable_in_example_extraneous_tab'} = {};
+$result_floats{'multitable_in_example_extraneous_item_tab'} = {};
 
 
 
-$result_converted{'plaintext'}->{'multitable_in_example_extraneous_tab'} = '     ita
+$result_converted{'plaintext'}->{'multitable_in_example_extraneous_item_tab'} = '     ita
      tmp
      secit
 ';

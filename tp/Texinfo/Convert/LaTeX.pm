@@ -3632,18 +3632,24 @@ sub _convert($$)
         if ($element->{'extra'}->{'columnfractions'}) {
           @fractions
       = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
-        } elsif ($element->{'extra'}->{'prototypes'}) {
+        } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+                 and $element->{'args'}->[0]->{'contents'}) {
           my @prototypes_length;
           my $total_length = 0.;
-          foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
-            # not clear what to do here.  For now use the text width
-            my $prototype_text
-              = Texinfo::Convert::Text::convert_to_text($prototype,
-                 $self->{'convert_text_options'});
-            my $length
+          foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
+            if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+              my $prototype_text = '';
+              if ($content->{'contents'}) {
+                $prototype_text
+                    = Texinfo::Convert::Text::convert_to_text(
+                                 {'contents' => $content->{'contents'}},
+                                 $self->{'convert_text_options'});
+              }
+              my $length
                  = Texinfo::Convert::Unicode::string_width($prototype_text);
-            $total_length += $length;
-            push @prototypes_length, $length;
+              $total_length += $length;
+              push @prototypes_length, $length;
+            }
           }
           if ($total_length > 0.) {
             foreach my $length (@prototypes_length) {

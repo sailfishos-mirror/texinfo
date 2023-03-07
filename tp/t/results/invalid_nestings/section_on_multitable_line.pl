@@ -436,7 +436,7 @@ $result_converted{'xml'}->{'section_on_multitable_line'} = '<multitable spaces="
 </multitable>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 
-<multitable spaces=" "><columnprototypes><columnprototype><code>this</code></columnprototype></columnprototypes> 
+<multitable spaces=" "><columnprototypes><code>this</code></columnprototypes> 
 </multitable>
 </section>
 <section spaces=" "><sectiontitle>second</sectiontitle>

@@ -1,5 +1,18 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): use directly the
+	multitable line argument and the bracketed on that line to determine
+	the prototype, instead of extra prototypes.
+
+	* tp/t/plaintext_tests.t, tp/Makefile.tres: use braces on @multitable
+	line for multitable_in_example_extraneous_tab, and add
+	multitable_in_example_extraneous_item_tab without braces.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references): handle
 	def_index_element and def_index_ref_element explicitly as out of tree
 	elements.

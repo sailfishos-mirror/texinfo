@@ -554,6 +554,14 @@ bb*}.
 '],
 ['multitable_in_example_extraneous_tab',
 '@example
+@multitable {a}
+@item ita @tab tmp
+@item secit @tab
+@end multitable
+@end example
+'],
+['multitable_in_example_extraneous_item_tab',
+'@example
 @multitable a
 @item ita @tab tmp
 @item secit @tab

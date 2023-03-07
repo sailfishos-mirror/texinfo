@@ -1395,80 +1395,7 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
-              my @prototype_line;
-              if ($element->{'extra'}->{'prototypes'}) {
-                # Like 'prototypes' extra value, but keeping spaces information
-                if (defined $element->{'args'}->[0]
-                    and defined $element->{'args'}->[0]->{'type'}
-                    and $element->{'args'}->[0]->{'type'} eq 'block_line_arg'
-                    and $element->{'args'}->[0]->{'contents'}) {
-                  foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-                    if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
-                      push @prototype_line, $content;
-                    } elsif ($content->{'text'}) {
-                      # The regexp breaks between characters, with a non space
-                      # followed by a space or a space followed by non space.
-                      # It is like \b, but for \s \S, and not \w \W.
-                      foreach my $prototype_or_space (
-                          split /(?<=\S)(?=\s)|(?=\S)(?<=\s)/, $content->{'text'}) {
-                        if ($prototype_or_space =~ /\S/) {
-                          push @prototype_line, {'text' => $prototype_or_space,
-                            'type' => 'row_prototype' };
-                        } elsif ($prototype_or_space =~ /\s/) {
-                          push @prototype_line, {'text' => $prototype_or_space,
-                            'type' => 'prototype_space' };
-                        }
-                      }
-                    # $content->{'cmdname'} should be defined at this point,
-                    # if not, there should be a perl warning
-                    } elsif ($content->{'cmdname'} eq 'c'
-                             or $content->{'cmdname'} eq 'comment') {
-                      # NOTE it does not happen right now, because a comment
-                      # here will be in info comment_at_end.  If comments are
-                      # back in the tree, they should be ignored here, as
-                      # they would better be handled in
-                      # format_comment_or_return_end_line
-                    } else { # a command
-                      push @prototype_line, $content;
-                    }
-                  }
-                }
-              }
-
-              if (scalar(@prototype_line) > 0) {
-                $result .= $self->txi_markup_open_element('columnprototypes');
-                my $first_proto = 1;
-                foreach my $prototype (@prototype_line) {
-                  if ($prototype->{'text'} and $prototype->{'text'} !~ /\S/) {
-                    if (!$first_proto) {
-                      my $spaces = $prototype->{'text'};
-                      chomp($spaces);
-                      $result .= $spaces;
-                    }
-                  } else {
-                    my $attributes = [];
-                    if ($prototype->{'type'}
-                        and $prototype->{'type'} eq 'bracketed') {
-                      push @$attributes, ['bracketed', 'on'];
-                      push @$attributes,
-                                  _leading_spaces_arg($prototype);
-                    }
-                    $result .= $self->txi_markup_open_element('columnprototype',
-                                                              $attributes)
-                           .$self->_convert($prototype)
-                           .$self->txi_markup_close_element('columnprototype');
-                  }
-                  $first_proto = 0;
-                }
-                $result .= $self->txi_markup_close_element('columnprototypes');
-                my $end_space
-                  = _end_line_spaces($self, $element);
-                $result .= $end_space
-                          .$self->format_comment_or_return_end_line($element);
-                # happens for multitable line with prototypes interrupted
-                # by another @-command
-                $result .= "\n" unless ($result =~ /\n/);
-              } elsif ($element->{'args'} and $element->{'args'}->[0]
+              if ($element->{'args'} and $element->{'args'}->[0]
                        and $element->{'args'}->[0]->{'contents'}
                        and (($element->{'extra'}
                              and $element->{'extra'}->{'columnfractions'})
@@ -1488,6 +1415,32 @@ sub _convert($$;$)
                 }
                 $result
                  .= _format_columnfractions($self, $columnfractions_element);
+              } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+                       and $element->{'args'}->[0]->{'contents'}) {
+                $result .= $self->txi_markup_open_element('columnprototypes');
+                foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+                  if ($arg->{'type'}
+                      and $arg->{'type'} eq 'bracketed') {
+                    my $attributes = [];
+                    push @$attributes, ['bracketed', 'on'];
+                    push @$attributes,
+                                  _leading_spaces_arg($arg);
+                    $result .= $self->txi_markup_open_element('columnprototype',
+                                                              $attributes)
+                           .$self->_convert($arg)
+                           .$self->txi_markup_close_element('columnprototype');
+                  } else {
+                    $result .= $self->_convert($arg);
+                  }
+                }
+                $result .= $self->txi_markup_close_element('columnprototypes');
+                my $end_space
+                  = _end_line_spaces($self, $element);
+                $result .= $end_space
+                          .$self->format_comment_or_return_end_line($element);
+                # happens for multitable line with prototypes interrupted
+                # by another @-command
+                $result .= "\n" unless ($result =~ /\n/);
               } else { # bogus multitable
                 $result .= "\n";
               }

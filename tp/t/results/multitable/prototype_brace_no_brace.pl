@@ -123,7 +123,7 @@ $result_converted{'plaintext'}->{'prototype_brace_no_brace'} = '';
 $result_converted{'html_text'}->{'prototype_brace_no_brace'} = '';
 
 
-$result_converted{'xml'}->{'prototype_brace_no_brace'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa</columnprototype> <columnprototype>bb</columnprototype></columnprototypes>
+$result_converted{'xml'}->{'prototype_brace_no_brace'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa</columnprototype> bb</columnprototypes>
 </multitable>
 ';
 

@@ -2645,7 +2645,7 @@ sub _convert($$)
       } elsif ($menu_commands{$command}) {
         $result .= $self->_menu($element);
       } elsif ($command eq 'multitable') {
-        my $columnsize;
+        my $columnsize = [];
         if ($element->{'extra'}->{'columnfractions'}) {
           foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
                                        ->{'extra'}->{'misc_args'}}) {
@@ -2653,14 +2653,22 @@ sub _convert($$)
                    int($fraction
                        * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
           }
-        } elsif ($element->{'extra'}->{'prototypes'}) {
-          foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
-            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-            my ($formatted_prototype) = $self->convert_line($prototype,
+        } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+                 and $element->{'args'}->[0]->{'contents'}) {
+          foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
+            if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+              my $column_size = 0;
+              if ($content->{'contents'}) {
+                push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+                my ($formatted_prototype) = $self->convert_line(
+                                        {'contents' => $content->{'contents'}},
                                                        {'indent_length' => 0});
-            pop @{$self->{'count_context'}};
-            push @$columnsize,
-                 2+Texinfo::Convert::Unicode::string_width($formatted_prototype);
+                pop @{$self->{'count_context'}};
+                $column_size
+                  = Texinfo::Convert::Unicode::string_width($formatted_prototype);
+              }
+              push @$columnsize, 2+$column_size;
+            }
           }
         }
         $self->{'format_context'}->[-1]->{'columns_size'} = $columnsize;
@@ -2792,7 +2800,9 @@ sub _convert($$)
                                     ->[$element->{'extra'}->{'cell_number'}-1];
       $self->{'format_context'}->[-1]->{'item_command'} = $command
         if ($command ne 'tab');
-      die if (!defined($cell_width));
+      #die if (!defined($cell_width));
+      # happens with bogus multitables
+      $cell_width = 2 if (!defined ($cell_width));
       $self->{'empty_lines_count'}
          = $self->{'format_context'}->[-1]->{'row_empty_lines_count'};
 
@@ -3428,6 +3438,7 @@ sub _convert($$)
         $cell_beginnings[$cell_idx] = $cell_beginning;
         my $cell_width
            = $self->{'format_context'}->[-1]->{'columns_size'}->[$cell_idx];
+        $cell_width = 2 if (!defined($cell_width));
         $cell_beginning += $cell_width +1;
         $cell_lines[$cell_idx] = [ split /^/, $cell ];
         $max_lines = scalar(@{$cell_lines[$cell_idx]})
