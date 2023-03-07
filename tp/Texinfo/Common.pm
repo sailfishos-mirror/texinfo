@@ -1932,14 +1932,7 @@ sub _copy_tree($$$)
       # Some out of tree elements may be added later too, as is the case of
       # extra def_index_element and def_index_ref_element added in
       # complete_indices.
-      if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-           and $key eq 'prototypes') and $info_type eq 'extra') {
-        $new->{$info_type}->{$key} = [];
-        foreach my $child (@{$current->{$info_type}->{$key}}) {
-          push @{$new->{$info_type}->{$key}},
-                  _copy_tree($child, $new, $reference_associations);
-        }
-      } elsif (ref($current->{$info_type}->{$key}) eq '') {
+      if (ref($current->{$info_type}->{$key}) eq '') {
         $new->{$info_type}->{$key} = $current->{$info_type}->{$key};
       } elsif (($info_type eq 'info'
                 and ref($current->{$info_type}->{$key}) eq 'HASH')
@@ -2062,26 +2055,7 @@ sub _substitute_references($$$;$)
       if (ref($current->{$info_type}->{$key}) ne '') {
         #print STDERR (' ' x $level) . "K $info_type $key\n";
 
-        if (($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-             and $key eq 'prototypes') and $info_type eq 'extra') {
-          if (! exists($new->{$info_type}->{$key})) {
-            print STDERR "Not substituting missing [$command_or_type]: $key\n";
-          } else {
-            my $new_key = $new->{$info_type}->{$key};
-            if (scalar(@{$current->{$info_type}->{$key}}) != scalar(@$new_key)) {
-              print STDERR "For extra $key number of elements: "
-               .scalar(@{$current->{$info_type}->{$key}}).' != '.scalar(@$new_key).": "
-               .Texinfo::Common::debug_print_element($new)."\n";
-            }
-            #print STDERR "Recurse in $info_type $command_or_type $key\n";
-            my $index = 0;
-            foreach my $child (@$new_key) {
-              _substitute_references($current->{$info_type}->{$key}->[$index], $child,
-                                    $reference_associations, $level);
-              $index++;
-            }
-          }
-        } elsif ($reference_associations->{$current->{$info_type}->{$key}}) {
+        if ($reference_associations->{$current->{$info_type}->{$key}}) {
           $new->{$info_type}->{$key}
             = $reference_associations->{$current->{$info_type}->{$key}};
           #print STDERR "Done $info_type [$command_or_type]: $key\n";

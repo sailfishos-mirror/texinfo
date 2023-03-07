@@ -1,5 +1,10 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_copy_tree, _substitute_references): remove
+	handling of extra prototypes that do not exist anymore.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/element_types.txt: remove
 	bracketed_multitable_prototype and row_prototype.
 
