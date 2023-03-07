@@ -370,6 +370,7 @@ sub remove_keys($$;$)
   return $root;
 }
 
+# currently unused, but could be used again.
 sub duplicate_key_array($$)
 {
   my $element = shift;
@@ -400,15 +401,6 @@ sub _duplicate_element_keys($$)
       $new_source_info->{$key} = $current->{'source_info'}->{$key};
     }
     $current->{'source_info'} = $new_source_info;
-  }
-
-  if (exists($current->{'extra'})) {
-    if (exists($current->{'extra'}->{'nodes_manuals'})
-        and defined($current->{'extra'}->{'nodes_manuals'})) {
-      foreach my $node_manual (@{$current->{'extra'}->{'nodes_manuals'}}) {
-        duplicate_key_array($node_manual, 'node_content');
-      }
-    }
   }
 
   return ($current);
