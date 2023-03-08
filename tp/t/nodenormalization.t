@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 10; }
+BEGIN { plan tests => 12; }
 
 use Data::Dumper;
 use Locale::Messages;
@@ -182,7 +182,7 @@ is ($top_normalized, 'Top', 'normalize Top node');
 
 my $top_and_space_before = ' tOp';
 # when parsed with parse_texi_text, the text is put in a paragraph
-# and spaces before the text is put in a speicial content for
+# and spaces before the text is put in a special content for
 # spaces before paragraphs, that are ignored afterwards
 my $top_and_space_before_tree_text = $parser->parse_texi_piece($top_and_space_before);
 my $top_and_space_before_text_normalized
@@ -205,3 +205,14 @@ my $top_and_spaces_text = 'TOP ';
 my $top_and_spaces_tree = $parser->parse_texi_line($top_and_spaces_text);
 my $top_and_spaces_normalized = normalize_node($top_and_spaces_tree);
 is ($top_and_spaces_normalized, 'TOP-', 'normalize Top node followed by spaces');
+
+my $empty_command_node_text = '@today{a} @today{b} @today{c} 2';
+my $empty_command_node_tree = $parser->parse_texi_line($empty_command_node_text);
+my $empty_command_node_normalized = normalize_node($empty_command_node_tree);
+is ($empty_command_node_normalized, '-2', 'node with @today');
+
+my $effect_of_sc_node_text = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te} @U{aaaa} @math{ma+th} @footnote{infootnote}}';
+my $effect_of_sc_node_tree = $parser->parse_texi_line($effect_of_sc_node_text);
+my $effect_of_sc_node_normalized = normalize_node($effect_of_sc_node_tree);
+is ($effect_of_sc_node_normalized, 'A-_00d1-_00c5-TeX-MYIMAGE-aref-INVERB-AAAA-MA_002bTH-', '@sc content');
+

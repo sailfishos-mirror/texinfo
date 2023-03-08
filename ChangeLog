@@ -13,6 +13,12 @@
 
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/info_tests.t: add commands_in_sc
+	tp/t/nodenormalization.t: add two more tests, one corresponding to
+	commands_in_sc.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (set_menus_node_directions): use in-tree
 	external menu_entry_node as menu direction.
 

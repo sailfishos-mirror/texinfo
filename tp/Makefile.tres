@@ -879,6 +879,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/colons_in_index_entries_and_node/res_info \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting.pl \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting/res_info \
+  t/results/info_tests/commands_in_sc.pl \
   t/results/info_tests/def_in_copying.pl \
   t/results/info_tests/direntry_dircategory.pl \
   t/results/info_tests/direntry_dircategory/res_info \
