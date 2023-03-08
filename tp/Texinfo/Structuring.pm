@@ -521,17 +521,19 @@ sub set_menus_node_directions($$$$$$)
                       _check_menu_entry($registrar, $customization_information,
                                         $labels, 'menu', $menu_content, $arg);
                     }
-                    # this may happen more than once for a given node if the node
-                    # is in more than one menu.  Therefore all the menu up node
-                    # are kept in $menu_node->{'structure'}->{'menu_up_hash'}
-                    $menu_node = $labels->{$arg->{'extra'}->{'normalized'}};
-                    if ($menu_node) {
-                      $menu_node->{'structure'} = {} if (!$menu_node->{'structure'});
-                      $menu_node->{'structure'}->{'menu_up'} = $node;
-                      $menu_node->{'structure'}->{'menu_up_hash'} = {}
-                          if (!$menu_node->{'structure'}->{'menu_up_hash'});
-                      $menu_node->{'structure'}->{'menu_up_hash'}
+                    if (defined($arg->{'extra'}->{'normalized'})) {
+                      # this may happen more than once for a given node if the node
+                      # is in more than one menu.  Therefore all the menu up node
+                      # are kept in $menu_node->{'structure'}->{'menu_up_hash'}
+                      $menu_node = $labels->{$arg->{'extra'}->{'normalized'}};
+                      if ($menu_node) {
+                        $menu_node->{'structure'} = {} if (!$menu_node->{'structure'});
+                        $menu_node->{'structure'}->{'menu_up'} = $node;
+                        $menu_node->{'structure'}->{'menu_up_hash'} = {}
+                            if (!$menu_node->{'structure'}->{'menu_up_hash'});
+                        $menu_node->{'structure'}->{'menu_up_hash'}
                                     ->{$node->{'extra'}->{'normalized'}} = 1;
+                      }
                     }
                   } else {
                     $menu_node = $arg;
@@ -1494,8 +1496,8 @@ sub associate_internal_references($$$$$)
       my $normalized =
         Texinfo::Convert::NodeNameNormalization::normalize_node(
             {'contents' => $label_element->{'extra'}->{'node_content'} });
-        $label_element->{'extra'}->{'normalized'} = $normalized
-          if (defined $normalized and $normalized ne '');
+      $label_element->{'extra'}->{'normalized'} = $normalized
+        if (defined($normalized) and $normalized ne '');
     }
 
     if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {

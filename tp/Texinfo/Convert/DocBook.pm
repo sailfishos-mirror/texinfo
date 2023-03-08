@@ -562,8 +562,10 @@ sub _docbook_section_element($$)
      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   if ($level_adjusted_cmdname eq 'unnumbered'
       and $element->{'extra'}->{'associated_node'}
+      and $element->{'extra'}->{'associated_node'}->{'extra'}
       and $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}
-      and $docbook_special_unnumbered{lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})}) {
+      and $docbook_special_unnumbered{lc(
+           $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})}) {
     return lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'});
   }
 
@@ -891,7 +893,10 @@ sub _convert($$;$)
               if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
                 $section_attribute .= " label=\"$label\"";
               }
-              if ($opened_element->{'extra'} and $opened_element->{'extra'}->{'associated_node'}) {
+              if ($opened_element->{'extra'}
+                  and $opened_element->{'extra'}->{'associated_node'}
+                  and $opened_element->{'extra'}->{'associated_node'}->{'extra'}
+                  and defined($opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})) {
                 $section_attribute
                  .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
               }

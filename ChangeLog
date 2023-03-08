@@ -1,3 +1,18 @@
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/DocBook.pm (_docbook_section_element, _convert),
+	tp/Texinfo/Convert/Info.pm (format_node), tp/Texinfo/Convert/LaTeX.pm
+	(_associate_other_nodes_to_sections), tp/Texinfo/Structuring.pm
+	(set_menus_node_directions), tp/Texinfo/Transformations.pm
+	(insert_nodes_for_sectioning_commands): avoid autovivification, and
+	use defined() for extra 'normalized' strings that can be '0'.
+
+	* tp/Texinfo/Transformations.pm (_new_node): remove/warn about cases
+	that cannot happen.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text): use $context for 
+	'var' state too.
+
 2023-03-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Overview): Remove duplicate words.  From
@@ -11,24 +26,24 @@
 	name of a subdirectory.  This prevents programs that generate info
 	in a pipeline from being confused in weird working directories.
 
-2023-03-07  Patrice Dumas  <pertusus@free.fr>
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/info_tests.t: add commands_in_sc
 	tp/t/nodenormalization.t: add two more tests, one corresponding to
 	commands_in_sc.
 
-2023-03-07  Patrice Dumas  <pertusus@free.fr>
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (set_menus_node_directions): use in-tree
 	external menu_entry_node as menu direction.
 
-2023-03-07  Patrice Dumas  <pertusus@free.fr>
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output_internal_links): determine if
 	index entry is in code style by checking the associated index
 	information, and not the entry information.
 
-2023-03-07  Patrice Dumas  <pertusus@free.fr>
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_index_entries),
 	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/LaTeX.pm

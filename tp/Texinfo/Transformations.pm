@@ -273,8 +273,7 @@ sub _new_node($$$$)
 
     if ($normalized !~ /[^-]/) {
       if ($appended_number) {
-        # FIXME does not seems to be possible, as there is a trailing number.
-        # Maybe in case of error?
+        warn "BUG: spaces only node name despite appending $appended_number\n";
         return undef;
       } else {
         $node = undef;
@@ -284,11 +283,7 @@ sub _new_node($$$$)
   }
 
   $node->{'extra'}->{'normalized'} = $normalized;
-  # FIXME $node->{'extra'}->{'normalized'} eq '' does not seems to be possible,
-  # as in that case there should be a return undef in the loop.
-  if ($node->{'extra'}->{'normalized'} ne '') {
-    $labels->{$node->{'extra'}->{'normalized'}} = $node;
-  }
+  $labels->{$node->{'extra'}->{'normalized'}} = $node;
   Texinfo::Common::register_label($targets_list, $node);
   push @{$nodes_list}, $node;
   return $node;
@@ -379,7 +374,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
       if ($content->{'cmdname'}
           and $content->{'cmdname'} eq 'node'
           and $content->{'extra'}
-          and $content->{'extra'}->{'normalized'});
+          and defined($content->{'extra'}->{'normalized'}));
     push @contents, $content;
   }
   return (\@contents, \@added_nodes);

@@ -657,8 +657,7 @@ sub _process_text($$$)
 
   my $text = $command->{'text'};
 
-  if ($context->{'upper_case'}
-      or $self->{'formatters'}[-1]->{'var'}) {
+  if ($context->{'upper_case'} or $context->{'var'}) {
     $text = _protect_sentence_ends($text);
     $text = uc($text);
   }

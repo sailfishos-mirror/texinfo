@@ -493,7 +493,7 @@ sub format_node($$)
                              @{$node_direction->{'extra'}->{'manual_content'}},
                                           {'text' => ')'}]});
       }
-      if ($node_direction->{'extra'}->{'normalized'}) {
+      if (defined($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';
         my $post_quote = '';
         my ($node_text, $byte_count) = $self->node_line($node_direction);
@@ -518,7 +518,8 @@ sub format_node($$)
         }
         $result .= $pre_quote . $node_text . $post_quote;
       }
-    } elsif ($direction eq 'Up' and $node->{'extra'}->{'normalized'} eq 'Top') {
+    } elsif ($direction eq 'Up'
+             and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node
       my $text = ",  $direction: ".$self->get_conf('TOP_NODE_UP');
       $self->add_text_to_count($text);

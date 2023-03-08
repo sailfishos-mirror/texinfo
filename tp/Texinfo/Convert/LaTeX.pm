@@ -1013,7 +1013,7 @@ sub _associate_other_nodes_to_sections($$)
     if ($element_content->{'cmdname'}
         and $element_content->{'cmdname'} eq 'node') {
       if (not $element_content->{'extra'}->{'associated_section'}
-          and $element_content->{'extra'}->{'normalized'}) {
+          and defined($element_content->{'extra'}->{'normalized'})) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
               ->{$element_content->{'extra'}->{'normalized'}}
