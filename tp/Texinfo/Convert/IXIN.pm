@@ -691,7 +691,7 @@ sub output_ixin($$)
       $dts_information{$index_name} = {};
       my $dts_text_result = '';
       my $dts_entries_nr = 0;
-      my $dts_in_code = $index_names->{$index_name}->{'in_code'};
+      my $dts_in_code = $indices_information->{$index_name}->{'in_code'};
       foreach my $dts_entry (@{$entries->{$index_name}}) {
         my $main_entry_element = $dts_entry->{'entry_element'};
         my $node = $main_entry_element->{'extra'}->{'element_node'};
@@ -710,12 +710,6 @@ sub output_ixin($$)
         $dts_text_result .= $self->ixin_open_element('dtsterm');
         $dts_text_result .= $entry;
         $dts_text_result .= $self->ixin_close_element('dtsterm');
-        if ($dts_entry->{'in_code'} != $dts_in_code) {
-          my $font_name = $self->_index_font_name($dts_entry->{'in_code'});
-          $dts_text_result .= ' ';
-          $dts_text_result .= $self->ixin_list_element('dtsfont', [['font',
-                                                                   $font_name]]);
-        }
         $dts_text_result .= $self->ixin_close_element('dtsentry');
         $dts_entries_nr++;
       }
