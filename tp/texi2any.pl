@@ -1009,7 +1009,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
     my $var = 'OUTFILE';
-    if ($_[1] =~ m:/$: or -d $_[1]) {
+    if ($_[1] ne '-' and ($_[1] =~ m:/$: or -d $_[1])) {
       set_from_cmdline($var, undef);
       $var = 'SUBDIR';
     }

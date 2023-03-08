@@ -1,3 +1,11 @@
+2023-03-08  Arsen Arsenović  <arsen@aarsen.me>
+
+	texi2any: Don't switch to subdir mode if '-' names a dir
+	* tp/texi2any.pl (output|out|o=s): If the filename argument is
+	specifically '-', do not consider the possibility of it being the
+	name of a subdirectory.  This prevents programs that generate info
+	in a pipeline from being confused in weird working directories.
+
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (set_menus_node_directions): use in-tree
