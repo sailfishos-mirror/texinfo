@@ -1140,7 +1140,8 @@ sub test($$)
     ($sorted_index_entries, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($registrar,
                                    $main_configuration,
-                                   $merged_index_entries);
+                                   $merged_index_entries,
+                                   $indices_information);
     $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {
       # index entries sort strings sorted in the order of the index entries

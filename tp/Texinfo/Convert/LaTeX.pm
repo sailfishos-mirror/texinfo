@@ -2455,9 +2455,11 @@ sub _index_entry($$)
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       # always setup a string to sort with as we may use commands
+      my $convert_to_text_options = {%$options, 'code' => $in_code};
       my ($sortas, $sort_string)
            = Texinfo::Structuring::index_entry_sort_string($entry,
-                               $subentry, $subentry_sortas, $options);
+                                          $subentry, $subentry_sortas,
+                                          $convert_to_text_options);
       my $result = '';
       if (defined($sortas)) {
         # | in sort key breaks with hyperref

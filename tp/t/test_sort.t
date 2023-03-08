@@ -50,7 +50,7 @@ my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
 Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
 my ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
-                                       $index_entries);
+                                       $index_entries, $indices_information);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -66,7 +66,8 @@ cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my ($sorted_index_entries_by_letter, $by_letter_index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
-                                       $index_entries, 'by_letter');
+                                       $index_entries, $indices_information,
+                                       'by_letter');
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -124,7 +125,7 @@ $registrar = $parser->registered_errors();
 $index_entries = Texinfo::Structuring::merge_indices($indices_information);
 ($sorted_index_entries, $index_entries_sort_strings)
   = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
-                                       $index_entries);
+                                       $index_entries, $indices_information);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

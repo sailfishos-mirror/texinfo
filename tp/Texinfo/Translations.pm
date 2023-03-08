@@ -380,8 +380,7 @@ if (0) {
 
 # In a handful of cases, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
-# in the main code of Parser.pm.  Also set 'in_code' value on
-# index entries.
+# in the main code of Parser.pm.
 sub complete_indices($)
 {
   my $self = shift;
@@ -389,7 +388,6 @@ sub complete_indices($)
   foreach my $index_name (sort(keys(%{$self->{'index_names'}}))) {
     next if (not defined($self->{'index_names'}->{$index_name}->{'index_entries'}));
     foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
-      $entry->{'in_code'} = $self->{'index_names'}->{$index_name}->{'in_code'};
       my $main_entry_element = $entry->{'entry_element'};
       if ($main_entry_element->{'extra'}
           and $main_entry_element->{'extra'}->{'def_command'}

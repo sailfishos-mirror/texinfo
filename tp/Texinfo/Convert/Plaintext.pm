@@ -1358,15 +1358,16 @@ sub process_printindex($$;$)
   }
 
   # this is not redone for each index, only once
-  my $index_names = $self->{'indices_information'};
-  if (!defined($self->{'index_entries'}) and $index_names) {
+  my $indices_information = $self->{'indices_information'};
+  if (!defined($self->{'index_entries'}) and $indices_information) {
 
     my $merged_index_entries
-      = Texinfo::Structuring::merge_indices($index_names);
+      = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($self, $self,
-                                           $merged_index_entries);
+                                           $merged_index_entries,
+                                           $indices_information);
   }
   if (!$self->{'index_entries'} or !$self->{'index_entries'}->{$index_name}
       or ! @{$self->{'index_entries'}->{$index_name}}) {

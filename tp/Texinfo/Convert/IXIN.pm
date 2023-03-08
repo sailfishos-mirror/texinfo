@@ -678,13 +678,14 @@ sub output_ixin($$)
 
   my %dts_information;
 
-  my $index_names = $self->{'indices_information'};
-  if ($index_names) {
+  my $indices_information = $self->{'indices_information'};
+  if ($indices_information) {
     my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($index_names);
+        = Texinfo::Structuring::merge_indices($indices_information);
     my ($entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices($self,
-                                           $self, $merged_index_entries);
+      = Texinfo::Structuring::sort_indices($self, $self,
+                                           $merged_index_entries,
+                                           $indices_information);
     # first do the dts_text as the counts are needed for the dts index
     foreach my $index_name (sort(keys(%$entries))) {
       $dts_information{$index_name} = {};

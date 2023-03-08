@@ -1870,15 +1870,12 @@ sub index_entry_sort_string($$$$;$)
   my $options = shift;
   my $collator = shift;
 
-  my $convert_to_text_options = {%$options};
-  $convert_to_text_options->{'code'} = $main_entry->{'in_code'};
-
   my $entry_key;
   if (defined($sortas)) {
     $entry_key = $sortas;
   } else {
     $entry_key = Texinfo::Convert::Text::convert_to_text(
-                          $entry_tree_element, $convert_to_text_options);
+                          $entry_tree_element, $options);
     # FIXME do that for sortas too?
     if (defined($main_entry->{'entry_element'}
                        ->{'extra'}->{'index_ignore_chars'})) {
@@ -1909,11 +1906,12 @@ my $default_preset_keys = 1;
 
 # the structure returned depends on $SORT_BY_LETTER being set
 # or not.  It is described in the pod documentation.
-sub sort_indices($$$;$$)
+sub sort_indices($$$$;$$)
 {
   my $registrar = shift;
   my $customization_information = shift;
   my $index_entries = shift;
+  my $indices_information = shift;
   my $sort_by_letter = shift;
   my $preset_keys = shift;
   $preset_keys = $default_preset_keys if (!defined($preset_keys));
@@ -1963,16 +1961,19 @@ sub sort_indices($$$;$$)
     my $sortable_index_entries = [];
     # used if $sort_by_letter
     my $index_letter_hash = {};
-    foreach my $entry (@{$index_entries->{$index_name}}) {
-      my $main_entry_element = $entry->{'entry_element'};
+    foreach my $index_entry (@{$index_entries->{$index_name}}) {
+      my $entry_index_name = $index_entry->{'index_name'};
+      my $main_entry_element = $index_entry->{'entry_element'};
       my $main_entry_sortas;
+      my $convert_to_text_options = {%$options,
+        'code' => $indices_information->{$entry_index_name}->{'in_code'}};
       $main_entry_sortas = $main_entry_element->{'extra'}->{'sortas'}
          if ($main_entry_element->{'extra'});
       my ($entry_key, $sort_entry_key)
-        = index_entry_sort_string($entry,
+        = index_entry_sort_string($index_entry,
                    Texinfo::Common::index_content_element($main_entry_element),
                                   $main_entry_sortas,
-                                  $options, $entries_collator);
+                                  $convert_to_text_options, $entries_collator);
       my @entry_keys;
       my @sort_entry_keys;
       my $letter = '';
@@ -2011,9 +2012,11 @@ sub sort_indices($$$;$$)
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
         my ($subentry_key, $sort_subentry_key)
-              = index_entry_sort_string($entry,
-                 {'contents' => $subentry->{'args'}->[0]->{'contents'}},
-              $subentry->{'extra'}->{'sortas'}, $options, $entries_collator);
+              = index_entry_sort_string($index_entry,
+                        {'contents' => $subentry->{'args'}->[0]->{'contents'}},
+                        $subentry->{'extra'}->{'sortas'},
+                        $convert_to_text_options,
+                        $entries_collator);
         if ($subentry_key !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
@@ -2033,9 +2036,10 @@ sub sort_indices($$$;$$)
       }
       foreach my $sub_entry_key (@sort_entry_keys) {
         if ($sub_entry_key ne '') {
-          my $sortable_entry = {'entry' => $entry, 'keys' => \@sort_entry_keys,
-             'number' => $entry->{'entry_number'},
-             'index_name' => $entry->{'index_name'}};
+          my $sortable_entry = {'entry' => $index_entry,
+                                'keys' => \@sort_entry_keys,
+                                'number' => $index_entry->{'entry_number'},
+                                'index_name' => $entry_index_name};
           if ($sort_by_letter) {
             push @{$index_letter_hash->{$letter}}, $sortable_entry;
           } else {
@@ -2044,7 +2048,7 @@ sub sort_indices($$$;$$)
           last;
         }
       }
-      $index_entries_sort_strings->{$entry} = join(', ', @entry_keys);
+      $index_entries_sort_strings->{$index_entry} = join(', ', @entry_keys);
     }
     if ($sort_by_letter) {
       # need to use directly the collator here as there is no
@@ -2150,10 +2154,12 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted = sort_indices($registrar, $config,
-                             $merged_index_entries, 'by_letter');
+                             $merged_index_entries, $indices_information,
+                             'by_letter');
   } else {
     $index_entries_sorted = sort_indices($registrar, $config,
-                                         $merged_index_entries);
+                                         $merged_index_entries,
+                                         $indices_information);
   }
 
 
@@ -2470,7 +2476,7 @@ X<C<setup_index_entry_keys_formatting>>
 
 Return options for conversion of Texinfo to text relevant for index keys sorting.
 
-=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($registrar, $customization_information, $merged_index_entries, $sort_by_letter)
+=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($registrar, $customization_information, $merged_index_entries, $indices_information, $sort_by_letter)
 X<C<sort_indices>>
 
 If I<$sort_by_letter> is set, sort by letter, otherwise sort all

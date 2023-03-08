@@ -376,21 +376,19 @@ sub _index_entry($$)
         if (defined($index_entry->{'entry_number'}));
     # in case the index is not a default index, or the style of the
     # entry (in code or not) is not the default for this index
-    if ($self->{'indices_information'}) {
-      my $entry_index_name = $index_entry->{'index_name'};
-      my $in_code = $index_info->{'in_code'};
-      if (!$Texinfo::Commands::index_names{$entry_index_name}
-          or $in_code != $Texinfo::Commands::index_names{$entry_index_name}->{'in_code'}) {
-        push @$attribute, ['incode', $in_code];
-      }
-      if ($index_info->{'merged_in'}) {
-        push @$attribute, ['mergedindex', $index_info->{'merged_in'}];
-      }
+    my $entry_index_name = $index_entry->{'index_name'};
+    my $in_code = $index_info->{'in_code'};
+    if (!$Texinfo::Commands::index_names{$entry_index_name}
+        or $in_code != $Texinfo::Commands::index_names{$entry_index_name}->{'in_code'}) {
+      push @$attribute, ['incode', $in_code];
+    }
+    if ($index_info->{'merged_in'}) {
+      push @$attribute, ['mergedindex', $index_info->{'merged_in'}];
     }
     my $result = $self->txi_markup_open_element('indexterm', $attribute);
     push @{$self->{'document_context'}}, {'monospace' => [0]};
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
-      if ($index_entry->{'in_code'});
+      if ($in_code);
     $result .= $self->_convert(Texinfo::Common::index_content_element($element));
     pop @{$self->{'document_context'}};
     $result .= $self->txi_markup_close_element('indexterm');

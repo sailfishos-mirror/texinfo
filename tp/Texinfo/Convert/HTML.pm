@@ -9250,22 +9250,25 @@ sub _prepare_index_entries($)
 {
   my $self = shift;
 
-  my $index_names = $self->{'indices_information'};
-  if ($index_names) {
+  my $indices_information = $self->{'indices_information'};
+  if ($indices_information) {
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
 
     my $merged_index_entries
-        = Texinfo::Structuring::merge_indices($index_names);
+        = Texinfo::Structuring::merge_indices($indices_information);
     my $index_entries_sort_strings;
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
             = Texinfo::Structuring::sort_indices($self,
-                               $self, $merged_index_entries, 'by_letter');
+                                    $self, $merged_index_entries,
+                                    $indices_information,
+                                    'by_letter');
     $self->{'index_entries'} = $merged_index_entries;
 
-    foreach my $index_name (sort(keys(%$index_names))) {
-      foreach my $index_entry (@{$index_names->{$index_name}->{'index_entries'}}) {
+    foreach my $index_name (sort(keys(%$indices_information))) {
+      foreach my $index_entry (@{$indices_information->{$index_name}
+                                                    ->{'index_entries'}}) {
         my $main_entry_element = $index_entry->{'entry_element'};
         # does not refer to the document
         next if ($main_entry_element->{'extra'}
