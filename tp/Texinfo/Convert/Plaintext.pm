@@ -657,7 +657,7 @@ sub _process_text($$$)
 
   my $text = $command->{'text'};
 
-  if ($context->{'upper_case'}) {
+  if ($context->{'upper_case_stack'}->[-1]->{'upper_case'}) {
     $text = _protect_sentence_ends($text);
     $text = uc($text);
   }
@@ -737,7 +737,7 @@ sub new_formatter($$;$)
     set_space_protection($container, undef, 1, 1);
   }
 
-  my $formatter = {'container' => $container, 'upper_case' => 0,
+  my $formatter = {'container' => $container, 'upper_case_stack' => [{}],
                    'font_type_stack' => [{}],
                    'w' => 0, 'type' => $type,
               'frenchspacing_stack' => [$self->{'conf'}->{'frenchspacing'}],
@@ -1913,7 +1913,7 @@ sub _convert($$)
 
       # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
       # is the case whether we are in @sc or not.
-      if ($formatter->{'upper_case'}
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
           and $letter_no_arg_commands{$command}) {
         $text = _protect_sentence_ends($text);
         $text = uc($text);
@@ -1939,7 +1939,7 @@ sub _convert($$)
           remove_end_sentence($formatter->{'container'});
         }
       }
-      if ($formatter->{'var'}
+      if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
           or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
         allow_end_sentence($formatter->{'container'});
       }
@@ -1951,7 +1951,7 @@ sub _convert($$)
         $encoding = $self->{'output_encoding_name'};
       }
       my $sc;
-      if ($formatter->{'upper_case'}) {
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
         $sc = 1;
       }
       my $accented_text
@@ -1960,14 +1960,14 @@ sub _convert($$)
          add_text($formatter->{'container'}, $accented_text));
 
       my $accented_text_original;
-      if ($formatter->{'upper_case'}) {
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
         $accented_text_original
          = Texinfo::Convert::Text::text_accents($element, $encoding);
       }
 
       if (($accented_text_original
            and $accented_text_original !~ /\p{Upper}/)
-          or $formatter->{'var'}
+          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
           or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
         allow_end_sentence($formatter->{'container'});
       }
@@ -2002,8 +2002,8 @@ sub _convert($$)
           undef,undef,1);
       }
       if ($upper_case_commands{$command}) {
-        $formatter->{'upper_case'}++;
-        $formatter->{'var'}++ if ($command eq 'var');
+        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
+        $formatter->{'upper_case_stack'}->[-1]->{'var'}++ if ($command eq 'var');
       }
       if ($command eq 'w') {
         $formatter->{'w'}++;
@@ -2081,9 +2081,9 @@ sub _convert($$)
           undef, undef, $frenchspacing);
       }
       if ($upper_case_commands{$command}) {
-        $formatter->{'upper_case'}--;
+        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
         if ($command eq 'var') {
-          $formatter->{'var'}--;
+          $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
           # Allow a following full stop to terminate a sentence.
           allow_end_sentence($formatter->{'container'});
         }
@@ -2141,12 +2141,15 @@ sub _convert($$)
              and $element->{'args'}->[2]->{'contents'}
              and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]},
-            {'contents' => $element->{'args'}->[2]->{'contents'}};
+            {'type' => '_stop_upper_case',
+             'contents' => $element->{'args'}->[2]->{'contents'}};
         } elsif ($element->{'args'}->[0]->{'contents'}
                  and @{$element->{'args'}->[0]->{'contents'}}) {
           # no mangling of --- and similar in url.
-          my $url = {'type' => '_code',
-              'contents' => $element->{'args'}->[0]->{'contents'}};
+          my $url = {'type' => '_stop_upper_case',
+            'contents' => [
+             {'type' => '_code',
+              'contents' => $element->{'args'}->[0]->{'contents'}}]};
           if (scalar(@{$element->{'args'}}) == 2
              and defined($element->{'args'}->[1])
              and $element->{'args'}->[1]->{'contents'}
@@ -2276,9 +2279,11 @@ sub _convert($$)
                     undef, undef, undef, undef, 1);
 
         if ($command eq 'xref') {
-          $result = _convert($self, {'contents' => [{'text' => '*Note '}]});
+          $result = _convert($self, {'type' => '_stop_upper_case',
+                                     'contents' => [{'text' => '*Note '}]});
         } else {
-          $result = _convert($self, {'contents' => [{'text' => '*note '}]});
+          $result = _convert($self, {'type' => '_stop_upper_case',
+                                     'contents' => [{'text' => '*note '}]});
         }
         my $name;
         if (defined($args[1])) {
@@ -2289,8 +2294,9 @@ sub _convert($$)
         my $file;
         if (defined($args[3])) {
           $file = [{'text' => '('},
-                   {'type' => '_code',
-                    'contents' => $args[3]},
+                   {'type' => '_stop_upper_case',
+                    'contents' => [{'type' => '_code',
+                                   'contents' => $args[3]}],},
                    {'text' => ')'},];
         } elsif (defined($args[4])) {
           # add a () such that the node is considered to be external,
@@ -2384,8 +2390,10 @@ sub _convert($$)
                if $pre_quote;
 
         $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-        $node_text .= _convert($self, {'type' => '_code',
-                                         'contents' => $node_content});
+        $node_text .= _convert($self, {'type' => '_stop_upper_case',
+                                       'contents' => [
+                                         {'type' => '_code',
+                                          'contents' => $node_content}]});
         delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
         $node_text .= _count_added($self,
@@ -2489,11 +2497,16 @@ sub _convert($$)
          and defined($element->{'args'}->[$arg_index])
          and $element->{'args'}->[$arg_index]->{'contents'}
          and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
-        my $argument = {};
+        my $contents = $element->{'args'}->[$arg_index]->{'contents'};
+        my $argument;
         if ($command eq 'inlineraw') {
-          $argument->{'type'} = '_code';
+          $argument = {'type' => '_stop_upper_case',
+                       'contents' => [{'type' => '_code',
+                                       'contents' => $contents}]};
+        } else {
+          $argument
+           = {'contents' => $contents};
         }
-        $argument->{'contents'} = $element->{'args'}->[$arg_index]->{'contents'};
         unshift @{$self->{'current_contents'}->[-1]}, ($argument);
       }
       return '';
@@ -3391,6 +3404,8 @@ sub _convert($$)
       set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
     } elsif ($element->{'type'} eq '_code') {
       _open_code($formatter);
+    } elsif ($element->{'type'} eq '_stop_upper_case') {
+      push @{$formatter->{'upper_case_stack'}}, {};
     } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'},
                    add_text($formatter->{'container'}, '{'));
@@ -3424,6 +3439,8 @@ sub _convert($$)
                            undef, undef, $frenchspacing);
     } elsif ($element->{'type'} eq '_code') {
       _close_code($formatter);
+    } elsif ($element->{'type'} eq '_stop_upper_case') {
+      pop @{$formatter->{'upper_case_stack'}};
     } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'},
                                      add_text($formatter->{'container'}, '}'));

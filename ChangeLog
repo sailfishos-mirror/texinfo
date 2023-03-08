@@ -1,5 +1,16 @@
 2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text, new_formatter)
+	(_convert): put upper casing information on a distinct stack, to be
+	able to stop the upper casing context, using an internal type
+	_stop_upper_case.  Use it for node and file and *note for @*ref, for
+	@url and @inlineraw.
+
+	* tp/t/info_tests.t, tp/t/nodenormalization.t: add more to
+	commands_in_sc.
+
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_process_text): remove condition
 	on'var' state when 'upper_case' is set, as 'upper_case' implies 'var'.
 

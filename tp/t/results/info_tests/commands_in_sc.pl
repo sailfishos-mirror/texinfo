@@ -127,6 +127,90 @@ $result_trees{'commands_in_sc'} = {
                         {
                           'contents' => [
                             {
+                              'text' => '('
+                            },
+                            {
+                              'text' => 'f'
+                            },
+                            {
+                              'text' => ')'
+                            },
+                            {
+                              'text' => 'node'
+                            }
+                          ],
+                          'extra' => {
+                            'manual_content' => [
+                              {}
+                            ],
+                            'node_content' => [
+                              {}
+                            ]
+                          },
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'xref',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 1,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => '
+'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'ext'
+                            }
+                          ],
+                          'extra' => {
+                            'node_content' => [
+                              {}
+                            ]
+                          },
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'argf'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'ref',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
                               'text' => 'inverb',
                               'type' => 'raw'
                             }
@@ -140,7 +224,7 @@ $result_trees{'commands_in_sc'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 2,
                         'macro' => ''
                       }
                     },
@@ -164,7 +248,7 @@ $result_trees{'commands_in_sc'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 2,
                         'macro' => ''
                       }
                     },
@@ -186,12 +270,13 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'hyphenation',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 2,
                         'macro' => ''
                       }
                     },
                     {
-                      'text' => ' ',
+                      'text' => '
+',
                       'type' => 'spaces_after_close_brace'
                     },
                     {
@@ -208,7 +293,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'U',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 3,
                         'macro' => ''
                       }
                     },
@@ -229,7 +314,7 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'math',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 3,
                         'macro' => ''
                       }
                     },
@@ -255,7 +340,188 @@ $result_trees{'commands_in_sc'} = {
                       'cmdname' => 'footnote',
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 1,
+                        'line_nr' => 3,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'la'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'url',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'url',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'lb'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'url',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => '
+'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'url',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 4,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            },
+                            {
+                              'cmdname' => '@'
+                            },
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'email',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 4,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'ab'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'd'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'abbr',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 4,
                         'macro' => ''
                       }
                     }
@@ -280,11 +546,19 @@ $result_trees{'commands_in_sc'} = {
   'type' => 'document_root'
 };
 $result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'manual_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[1];
+$result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[3];
+$result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
 
-$result_texis{'commands_in_sc'} = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te} @U{aaaa} @math{ma+th} @footnote{infootnote}}';
+$result_texis{'commands_in_sc'} = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @xref{(f)node}
+@ref{ext,,name,argf} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te}
+@U{aaaa} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
+@url{,,c} @email{a@@c, e} @abbr{ab, d}}';
 
 
-$result_texts{'commands_in_sc'} = 'A N~ AA TeX MYIMAGE AREF inverb AAAA MA+TH ';
+$result_texts{'commands_in_sc'} = 'A N~ AA TeX MYIMAGE AREF (F)NODE
+EXT inverb AAAA MA+TH  LA A (B)  (LB)
+C E AB (D)';
 
 $result_errors{'commands_in_sc'} = [
   {
@@ -305,7 +579,8 @@ $result_floats{'commands_in_sc'} = {};
 
 $result_converted{'info'}->{'commands_in_sc'} = 'This is , produced from .
 
-A Ñ Å TeX [myimage] *NOTE AREF:: inverb ꪪ MA+TH (1)
+A Ñ Å TeX [myimage] *note aref:: *Note (f)node:: *note NAME: (argf)ext. inverb ꪪ
+MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 
    ---------- Footnotes ----------
 
@@ -314,7 +589,7 @@ A Ñ Å TeX [myimage] *NOTE AREF:: inverb ꪪ MA+TH (1)
 
 
 Tag Table:
-Ref: inanchor41
+Ref: inanchor80
 
 End Tag Table
 
@@ -344,7 +619,7 @@ $result_converted_errors{'info'}->{'commands_in_sc'} = [
     'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
-    'line_nr' => 1,
+    'line_nr' => 2,
     'macro' => '',
     'text' => '@anchor outside of any node',
     'type' => 'warning'
@@ -353,7 +628,7 @@ $result_converted_errors{'info'}->{'commands_in_sc'} = [
     'error_line' => 'warning: @footnote outside of any node
 ',
     'file_name' => '',
-    'line_nr' => 1,
+    'line_nr' => 3,
     'macro' => '',
     'text' => '@footnote outside of any node',
     'type' => 'warning'

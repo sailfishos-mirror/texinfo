@@ -211,8 +211,15 @@ my $empty_command_node_tree = $parser->parse_texi_line($empty_command_node_text)
 my $empty_command_node_normalized = normalize_node($empty_command_node_tree);
 is ($empty_command_node_normalized, '-2', 'node with @today');
 
-my $effect_of_sc_node_text = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te} @U{aaaa} @math{ma+th} @footnote{infootnote}}';
+my $effect_of_sc_node_text
+  = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @xref{(f)node}
+@ref{ext,,name,argf} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te}
+@U{aaaa} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
+@url{,,c} @email{a@@c, e} @abbr{ab, d}}'
+;
 my $effect_of_sc_node_tree = $parser->parse_texi_line($effect_of_sc_node_text);
 my $effect_of_sc_node_normalized = normalize_node($effect_of_sc_node_tree);
-is ($effect_of_sc_node_normalized, 'A-_00d1-_00c5-TeX-MYIMAGE-aref-INVERB-AAAA-MA_002bTH-', '@sc content');
+is ($effect_of_sc_node_normalized,
+    'A-_00d1-_00c5-TeX-MYIMAGE-aref-_0028f_0029node-ext-INVERB-AAAA-MA_002bTH-LA-A-A_0040C-AB',
+    '@sc content');
 
