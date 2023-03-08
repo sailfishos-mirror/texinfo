@@ -247,7 +247,7 @@ sub chm_init($)
   my ($index_entries, $index_entries_sort_strings)
        = Texinfo::Structuring::sort_indices($self, $self,
                              $self->get_info('index_entries'),
-                             $self->get_info('indices_information');
+                             $self->get_info('indices_information'));
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
