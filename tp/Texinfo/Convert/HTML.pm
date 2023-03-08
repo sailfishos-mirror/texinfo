@@ -10567,6 +10567,9 @@ sub output_internal_links($)
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $main_entry_element = $index_entry->{'entry_element'};
+          my $in_code
+            = $self->{'indices_information'}->{$index_entry->{'index_name'}}
+                                                                 ->{'in_code'};
           # does not refer to the document
           next if ($main_entry_element->{'extra'}
                    and ($main_entry_element->{'extra'}->{'seeentry'}
@@ -10575,7 +10578,7 @@ sub output_internal_links($)
           $href = $self->command_href($main_entry_element, '');
           # Obtain term by converting to text
           my $converter_options = {%options};
-          $converter_options->{'code'} = $index_entry->{'in_code'};
+          $converter_options->{'code'} = $in_code;
           my $entry_reference_content_element
             = Texinfo::Common::index_content_element($main_entry_element);
           my @contents = ($entry_reference_content_element);

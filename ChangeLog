@@ -1,5 +1,11 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output_internal_links): determine if
+	index entry is in code style by checking the associated index
+	information, and not the entry information.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_index_entries),
 	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/LaTeX.pm
 	(_index_entry), tp/Texinfo/Convert/Plaintext.pm (process_printindex),
