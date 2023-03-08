@@ -291,7 +291,8 @@ $result_nodes{'empty_menu_entry_name'} = {
             'text' => 'vvv'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -309,7 +310,8 @@ $result_menus{'empty_menu_entry_name'} = {
             'text' => 'vvv'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

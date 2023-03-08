@@ -478,7 +478,8 @@ $result_nodes{'one_node_counted_elements'} = {
             'text' => 'some_manual_name_with_gcc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     },
     'node_up' => {
       'extra' => {
@@ -506,7 +507,8 @@ $result_menus{'one_node_counted_elements'} = {
             'text' => 'some_manual_name_with_gcc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

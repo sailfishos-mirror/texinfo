@@ -1,5 +1,10 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (set_menus_node_directions): use in-tree
+	external menu_entry_node as menu direction.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (output_internal_links): determine if
 	index entry is in code style by checking the associated index
 	information, and not the entry information.

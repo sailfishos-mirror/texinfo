@@ -347,7 +347,8 @@ $result_nodes{'example_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -365,7 +366,8 @@ $result_menus{'example_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

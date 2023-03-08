@@ -1635,7 +1635,8 @@ $result_nodes{'simple_menu'} = {
             'text' => 'ggg'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     },
     'node_next' => {}
   }
@@ -1655,7 +1656,8 @@ $result_menus{'simple_menu'} = {
             'text' => 'ggg'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

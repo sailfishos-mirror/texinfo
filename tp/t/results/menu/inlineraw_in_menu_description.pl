@@ -322,7 +322,8 @@ $result_nodes{'inlineraw_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -340,7 +341,8 @@ $result_menus{'inlineraw_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

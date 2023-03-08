@@ -772,7 +772,8 @@ $result_nodes{'formats_in_menu'} = {
             'text' => 'gcc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -790,7 +791,8 @@ $result_menus{'formats_in_menu'} = {
             'text' => 'gcc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

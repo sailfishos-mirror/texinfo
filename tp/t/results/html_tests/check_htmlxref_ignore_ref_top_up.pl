@@ -846,7 +846,8 @@ $result_menus{'check_htmlxref_ignore_ref_top_up'} = {
                 'text' => 'other_no_existing_no_manual'
               }
             ]
-          }
+          },
+          'type' => 'menu_entry_node'
         },
         'menu_up' => {},
         'menu_up_hash' => {

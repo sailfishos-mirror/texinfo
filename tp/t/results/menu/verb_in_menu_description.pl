@@ -306,7 +306,8 @@ $result_nodes{'verb_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -324,7 +325,8 @@ $result_menus{'verb_in_menu_description'} = {
             'text' => 'manual'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

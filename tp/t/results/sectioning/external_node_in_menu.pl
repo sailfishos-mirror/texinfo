@@ -609,7 +609,8 @@ $result_menus{'external_node_in_menu'} = {
               }
             ],
             'normalized' => 'other'
-          }
+          },
+          'type' => 'menu_entry_node'
         },
         'menu_up' => {},
         'menu_up_hash' => {

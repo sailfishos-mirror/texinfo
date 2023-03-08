@@ -218,7 +218,8 @@ $result_nodes{'empty_menu_description'} = {
           }
         ],
         'normalized' => 'b'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -237,7 +238,8 @@ $result_menus{'empty_menu_description'} = {
           }
         ],
         'normalized' => 'b'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

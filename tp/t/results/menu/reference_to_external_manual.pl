@@ -197,7 +197,8 @@ $result_nodes{'reference_to_external_manual'} = {
             'text' => 'info'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -215,7 +216,8 @@ $result_menus{'reference_to_external_manual'} = {
             'text' => 'info'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

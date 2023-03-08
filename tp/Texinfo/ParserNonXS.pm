@@ -2917,7 +2917,7 @@ sub _split_def_args
   } elsif (defined $root->{'text'}) {
     my @elements;
     my $type;
-    # FIXME how to handle non ascii space in def*?  As space or argument?
+    # FIXME how to handle non ascii space?  As space or in argument?
     my @split_text = split /(?<=\s)(?=\S)|(?<=\S)(?=\s)/, $root->{'text'};
     if ($split_text[0] =~ /^\s*$/) {
       $type = 'spaces';
@@ -5143,7 +5143,8 @@ sub _handle_line_command($$$$$$)
       = _parse_rawline_command($self, $line, $command, $source_info);
     $command_e->{'info'} = {'arg_line' => $line}
       if ($special_arg);
-    # FIXME add a check on @clickstyle argument at that point?
+    # FIXME add a check that the @clickstyle argument is a glyph command
+    # at that point?
 
     # if using the @set txi* instead of a proper @-command, replace
     # by the tree obtained with the @-command.  Even though
@@ -5957,7 +5958,6 @@ sub _handle_close_brace($$$)
   } elsif ($current->{'type'}
            and $current->{'type'} eq 'rawpreformatted') {
     # empty line can happen in expanded rawpreformatted.
-    # FIXME should it?
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}}, {'text' => '}',
                                      'parent' => $current };
@@ -7170,7 +7170,7 @@ sub _parse_line_command_args($$$)
 
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
-    # FIXME not clear if non ascii spaces are ok in the args
+    # FIXME how to handle non ascii space?  As space or in argument?
     if ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
       my ($cmd_name, $begin, $end) = ($1, $2, $3);

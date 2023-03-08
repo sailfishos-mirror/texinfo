@@ -2467,7 +2467,8 @@ $result_nodes{'line_passed_and_formats'} = {
           }
         ],
         'normalized' => 'node'
-      }
+      },
+      'type' => 'menu_entry_node'
     },
     'node_next' => {}
   }
@@ -2488,7 +2489,8 @@ $result_menus{'line_passed_and_formats'} = {
           }
         ],
         'normalized' => 'node'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

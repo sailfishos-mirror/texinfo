@@ -223,7 +223,8 @@ $result_nodes{'space_at_menu_end'} = {
             'text' => 'out'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     },
     'node_next' => {}
   }
@@ -243,7 +244,8 @@ $result_menus{'space_at_menu_end'} = {
             'text' => 'out'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

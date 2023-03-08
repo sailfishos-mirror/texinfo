@@ -404,7 +404,8 @@ $result_nodes{'node_nested_parentheses'} = {
             'text' => '(some) file'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -422,7 +423,8 @@ $result_menus{'node_nested_parentheses'} = {
             'text' => '(some) file'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

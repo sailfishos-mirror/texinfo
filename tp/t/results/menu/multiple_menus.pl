@@ -324,7 +324,8 @@ $result_nodes{'multiple_menus'} = {
           }
         ],
         'normalized' => 'b'
-      }
+      },
+      'type' => 'menu_entry_node'
     },
     'node_next' => {}
   }
@@ -345,7 +346,8 @@ $result_menus{'multiple_menus'} = {
           }
         ],
         'normalized' => 'b'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

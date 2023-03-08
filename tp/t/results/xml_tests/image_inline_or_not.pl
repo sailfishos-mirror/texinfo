@@ -1646,7 +1646,8 @@ $result_menus{'image_inline_or_not'} = {
               }
             ],
             'normalized' => 'extnode'
-          }
+          },
+          'type' => 'menu_entry_node'
         },
         'menu_up' => {},
         'menu_up_hash' => {

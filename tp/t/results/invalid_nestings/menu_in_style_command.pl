@@ -214,7 +214,8 @@ $result_nodes{'menu_in_style_command'} = {
             'text' => 'truc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -232,7 +233,8 @@ $result_menus{'menu_in_style_command'} = {
             'text' => 'truc'
           }
         ]
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

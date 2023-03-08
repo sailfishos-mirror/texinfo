@@ -921,7 +921,8 @@ $result_menus{'nodename_parentheses'} = {
                   }
                 ],
                 'normalized' => 'node'
-              }
+              },
+              'type' => 'menu_entry_node'
             },
             'menu_prev' => {},
             'menu_up' => {},

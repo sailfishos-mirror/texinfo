@@ -568,7 +568,8 @@ $result_nodes{'invalid_info_menu_entry'} = {
           }
         ],
         'normalized' => 'a_003a'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };
@@ -587,7 +588,8 @@ $result_menus{'invalid_info_menu_entry'} = {
           }
         ],
         'normalized' => 'a_003a'
-      }
+      },
+      'type' => 'menu_entry_node'
     }
   }
 };

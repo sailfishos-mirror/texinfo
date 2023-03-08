@@ -513,7 +513,6 @@ sub set_menus_node_directions($$$$$$)
           if ($menu_content->{'type'}
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
-            my $external_node;
             foreach my $arg (@{$menu_content->{'contents'}}) {
               if ($arg->{'type'} eq 'menu_entry_node') {
                 if ($arg->{'extra'}) {
@@ -535,10 +534,7 @@ sub set_menus_node_directions($$$$$$)
                                     ->{$node->{'extra'}->{'normalized'}} = 1;
                     }
                   } else {
-                    $external_node = 1;
-                    # FIXME use directly arg?
-                    #$menu_node = $arg;
-                    $menu_node = {'extra' => $arg->{'extra'}};
+                    $menu_node = $arg;
                   }
                 }
                 last;
@@ -546,7 +542,7 @@ sub set_menus_node_directions($$$$$$)
             }
             if ($menu_node) {
               if ($previous_node) {
-                if (!$external_node) {
+                if (!$menu_node->{'extra'}->{'manual_content'}) {
                   $menu_node->{'structure'} = {}
                       if (!$menu_node->{'structure'});
                   $menu_node->{'structure'}->{'menu_prev'} = $previous_node;
