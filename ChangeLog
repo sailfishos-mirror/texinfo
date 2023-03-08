@@ -1,5 +1,10 @@
 2023-03-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text): remove condition
+	on'var' state when 'upper_case' is set, as 'upper_case' implies 'var'.
+
+2023-03-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_docbook_section_element, _convert),
 	tp/Texinfo/Convert/Info.pm (format_node), tp/Texinfo/Convert/LaTeX.pm
 	(_associate_other_nodes_to_sections), tp/Texinfo/Structuring.pm
