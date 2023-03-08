@@ -1431,14 +1431,16 @@ sub lookup_index_entry($$)
 
   my ($entry_index_name, $entry_number) = @{$index_entry_info};
 
-  if ($indices_information->{$entry_index_name}
-      and $indices_information->{$entry_index_name}->{'index_entries'}
-      and $indices_information->{$entry_index_name}
-                                    ->{'index_entries'}->[$entry_number-1]) {
-    return $indices_information->{$entry_index_name}
-                                    ->{'index_entries'}->[$entry_number-1];
+  my $index_info;
+
+  if ($indices_information->{$entry_index_name}) {
+    $index_info = $indices_information->{$entry_index_name};
+    if ($index_info->{'index_entries'}
+        and $index_info->{'index_entries'}->[$entry_number-1]) {
+      return ($index_info->{'index_entries'}->[$entry_number-1], $index_info);
+    }
   }
-  return undef;
+  return (undef, $index_info);
 }
 
 sub set_output_encodings($$)
@@ -2352,27 +2354,28 @@ sub _relate_index_entries_to_table_items_in($$)
     my $term = $table_entry->{'contents'}->[0];
 
     # Now, to discover the related @?index and @item entries.
-    my ($item, $index);
+    my ($item, $index_entry);
     foreach my $content (@{$term->{'contents'}}) {
       if ($content->{'type'}
           and $content->{'type'} eq 'index_entry_command') {
-        $index
+        my $index_info;
+        ($index_entry, $index_info)
           = Texinfo::Common::lookup_index_entry(
                           $content->{'extra'}->{'index_entry'},
                           $indices_information)
-            unless $index;
+            unless $index_entry;
       } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
         $item = $content unless $item;
       }
       # If we found both, no need to proceed;
-      last if $item and $index;
+      last if $item and $index_entry;
     }
 
-    next unless $item and $index;
+    next unless $item and $index_entry;
     # FIXME it is not ideal, as it adds an undocumented key to the index entry.
     # It is better than to reset 'entry_element', as the 'entry_element' holds
     # information important for the index entry.
-    $index->{'entry_associated_element'} = $item;
+    $index_entry->{'entry_associated_element'} = $item;
   }
 }
 
@@ -2771,15 +2774,17 @@ directories also used to find texinfo files included in Texinfo documents.
 I<$file_path> should be a binary string.  C<undef> is returned if the file was
 not found, otherwise the file found is returned as a binary string.
 
-=item $index_entry = lookup_index_entry($index_entry_info, $indices_information)
+=item ($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information)
 
 Returns an I<$index_entry> hash based on the I<$index_entry_info> and
-I<$indices_information>.  I<$index_entry_info> should be an array reference
-with an index name as first element and the index entry number in that index
-(1-based) as second element.  In general, the I<$index_entry_info> is an
-L<C<extra> I<index_entry>|Texinfo::Parser/index_entry> associated to an element.
+I<$indices_information>.  Also returns the I<$index_info> hash with information on
+the index associated to the index entry.  I<$index_entry_info> should be
+an array reference with an index name as first element and the index entry number
+in that index (1-based) as second element.  In general, the I<$index_entry_info>
+is an L<C<extra> I<index_entry>|Texinfo::Parser/index_entry> associated to an element.
 
-The I<$index_entry> hash is described in L<Texinfo::Parser/index_entries>.
+The I<$index_entry> hash is described in L<Texinfo::Parser/index_entries>.  The
+I<$index_info> hash is described in LL<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>.
 
 
 =item move_index_entries_after_items_in_tree($tree)

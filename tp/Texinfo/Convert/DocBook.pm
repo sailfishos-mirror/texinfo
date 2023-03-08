@@ -575,7 +575,7 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-    my $index_entry
+    my ($index_entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
                                            $self->{'indices_information'});
     # FIXME DocBook 5 role->type
@@ -583,7 +583,7 @@ sub _index_entry($$)
 
     $self->_new_document_context();
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
-      if ($index_entry->{'in_code'});
+      if ($index_info->{'in_code'});
     $result .= "<primary>";
     $result .= $self->_convert(Texinfo::Common::index_content_element($element));
     $result .= "</primary>";

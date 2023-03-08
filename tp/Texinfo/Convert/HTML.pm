@@ -1799,7 +1799,7 @@ my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document_name', 'documentdescription_string',
    'floats', 'global_commands',
-   'index_entries', 'index_entries_by_letter',
+   'index_entries', 'index_entries_by_letter', 'indices_information',
    'jslicenses', 'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree', 'structuring',
    'title_string', 'title_tree', 'title_titlepage') {
@@ -5556,8 +5556,12 @@ sub _convert_printindex_command($$$$)
       my $entry_content_element
           = Texinfo::Common::index_content_element($main_entry_element);
 
+      my $in_code = 0;
+      my $indices_information = $self->get_info('indices_information');
+      $in_code = 1
+       if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
       my $entry_ref_tree = {'contents' => [$entry_content_element]};
-      $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+      $entry_ref_tree->{'type'} = '_code' if ($in_code);
 
       # index entry with @seeentry or @seealso
       if ($main_entry_element->{'extra'}
@@ -5578,7 +5582,7 @@ sub _convert_printindex_command($$$$)
              = @{$referred_entry->{'args'}->[0]->{'contents'}};
         }
         my $referred_tree = {'contents' => \@referred_contents};
-        $referred_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+        $referred_tree->{'type'} = '_code' if ($in_code);
         my $entry;
         # for @seealso, to appear where chapter/node ususally appear
         my $reference = '';
@@ -5587,7 +5591,7 @@ sub _convert_printindex_command($$$$)
         my $section_class;
         if ($seenentry) {
           my $result_tree;
-          if ($index_entry_ref->{'in_code'}) {
+          if ($in_code) {
             $result_tree
           # TRANSLATORS: redirect to another index entry
         = $self->gdt('@code{{main_index_entry}}, @emph{See} @code{{seenentry}}',
@@ -5631,7 +5635,7 @@ sub _convert_printindex_command($$$$)
                = $self->convert_tree_new_formatting_context($reference_tree,
                   "index $index_name l $letter index entry $entry_nr seealso");
           }
-          $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+          $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
           # TODO add the information that it is associated with see also?
           $entry_class = "$cmdname-index-entry";
@@ -5672,7 +5676,7 @@ sub _convert_printindex_command($$$$)
           @subentry_contents = @{$subentry->{'args'}->[0]->{'contents'}};
         }
         my $subentry_tree = {'contents' => \@subentry_contents};
-        $subentry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+        $subentry_tree->{'type'} = '_code' if ($in_code);
         if ($subentry_level >= $subentries_max_level) {
           # at the max, concatenate the remaining subentries
           my $other_subentries_tree = $self->comma_index_subentries_tree($subentry);
@@ -5720,7 +5724,7 @@ sub _convert_printindex_command($$$$)
             $entry = $self->convert_tree($entry_trees[$level],
                   "index $index_name l $letter index entry $entry_nr subentry $level");
           }
-          $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+          $entry = '<code>' .$entry .'</code>' if ($in_code);
           my @td_entry_classes = ("$cmdname-index-entry");
           # indent
           if ($level > 0) {
@@ -5752,7 +5756,7 @@ sub _convert_printindex_command($$$$)
       next if ($entry !~ /\S/ and $entry_level == 0);
 
       $normalized_entry_levels = [@new_normalized_entry_levels];
-      $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+      $entry = '<code>' .$entry .'</code>' if ($in_code);
       my $target_element = $index_entry_ref->{'entry_element'};
       $target_element = $index_entry_ref->{'entry_associated_element'}
          if ($index_entry_ref->{'entry_associated_element'});

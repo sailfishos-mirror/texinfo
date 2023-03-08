@@ -368,7 +368,7 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-    my $index_entry
+    my ($index_entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
                                            $self->{'indices_information'});
     my $attribute = [['index', $index_entry->{'index_name'}]];
@@ -377,15 +377,14 @@ sub _index_entry($$)
     # in case the index is not a default index, or the style of the
     # entry (in code or not) is not the default for this index
     if ($self->{'indices_information'}) {
-      my $in_code
-         = $self->{'indices_information'}->{$index_entry->{'index_name'}}->{'in_code'};
-      if (!$Texinfo::Commands::index_names{$index_entry->{'index_name'}}
-          or $in_code != $Texinfo::Commands::index_names{$index_entry->{'index_name'}}->{'in_code'}) {
+      my $entry_index_name = $index_entry->{'index_name'};
+      my $in_code = $index_info->{'in_code'};
+      if (!$Texinfo::Commands::index_names{$entry_index_name}
+          or $in_code != $Texinfo::Commands::index_names{$entry_index_name}->{'in_code'}) {
         push @$attribute, ['incode', $in_code];
       }
-      if ($self->{'indices_information'}->{$index_entry->{'index_name'}}->{'merged_in'}) {
-        push @$attribute, ['mergedindex',
-         $self->{'indices_information'}->{$index_entry->{'index_name'}}->{'merged_in'}];
+      if ($index_info->{'merged_in'}) {
+        push @$attribute, ['mergedindex', $index_info->{'merged_in'}];
       }
     }
     my $result = $self->txi_markup_open_element('indexterm', $attribute);
@@ -753,7 +752,7 @@ sub _convert($$;$)
       } # otherwise we have an incorrect construct, for instance
         # out of block commands @item, @itemx in enumerate or multitable...
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
-      my $index_entry
+      my ($index_entry, $index_info)
         = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
                                               $self->{'indices_information'});
       my $format_element;

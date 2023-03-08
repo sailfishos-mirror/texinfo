@@ -1,5 +1,19 @@
 2023-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (lookup_index_entry): lookup_index_entry also
+	returns index information.  Update callers.
+
+	* tp/Texinfo/Convert/DocBook.pm (_index_entry),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex), tp/init/chm.pm
+	(chm_init): determine if index entry is in code style by checking the
+	associated index information, and not the entry information.
+
+	* tp/Texinfo/Convert/HTML.pm (%available_converter_info): add
+	indices_information.
+
+2023-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (_copy_tree, _copy_extra_info): do not setup
 	any extra info in _copy_tree.  Rename _substitute_references as
 	_copy_extra_info as it now copy all the extra info.  Detect if an hash

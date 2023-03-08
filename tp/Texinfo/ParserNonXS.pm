@@ -7753,7 +7753,7 @@ or floats within the document are also available:
 
 =over
 
-=item $internal_references_array = internal_references_information($parser);
+=item $internal_references_array = internal_references_information($parser)
 X<C<internal_references_information>>
 
 The function returns a list of cross-reference commands referring to
@@ -7766,12 +7766,10 @@ also available through the C<indices_information> method.
 
 =over
 
-=item indices_information
+=item $indices_information = $parser->indices_information()
 X<C<indices_information>>
 
-  $indices_information = indices_information($parser);
-
-The index names is a hash reference.  The keys are
+I<$indices_information> is a hash reference.  The keys are
 
 =over
 
@@ -8463,11 +8461,11 @@ associated index entry and for @anchor.
 
 The index entry information is associated to @-commands that have an associated
 index entry.  The associated information should not be directly accessed,
-instead L<C<Texinfo::Common::lookup_index_entry>|Texinfo::Common/$index_entry = lookup_index_entry($index_entry_info, $indices_information)>
+instead L<C<Texinfo::Common::lookup_index_entry>|Texinfo::Common/($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information)>
 should be called on the C<extra> I<index_entry> value.  The
 I<$indices_information> is the information on a Texinfo manual indices obtained
 from
-L<C<Texinfo::Parser::indices_information>|Texinfo::Parser/indices_information>.
+L<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>.
 The index entry information hash returned by
 C<Texinfo::Common::lookup_index_entry> is described in L</index_entries>.
 

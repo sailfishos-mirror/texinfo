@@ -2333,7 +2333,7 @@ L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting
 =item $merged_entries = merge_indices($indices_information)
 X<C<merge_indices>>
 
-Using information returned by L<Texinfo::Parser/indices_information>,
+Using information returned by L<< C<Texinfo::Parser::indices_information>|Texinfo::Parser/$indices_information = $parser->indices_information() >>,
 a structure holding all the index entries by index name is returned,
 with all the entries of merged indices merged with those of the indice
 merged into.

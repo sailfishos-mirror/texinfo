@@ -1745,6 +1745,10 @@ Information on indices taking into account merged indices.
 @item index_entries_by_letter
 Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,texi2any_internals}.
 
+@item indices_information
+Information about defined indices, merged indices and index entries.
+@xref{Texinfo@asis{::}Parser $indices_information = $parser->indices_information(),,Texinfo@asis{::}Parser@asis{::}indices_information,texi2any_internals}.
+
 @item jslicenses
 An hash reference with  categories of javascript used in the document
 as keys. The corresponding values are also hashes with file names

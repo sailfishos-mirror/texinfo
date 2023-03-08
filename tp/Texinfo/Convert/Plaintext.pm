@@ -1458,12 +1458,13 @@ sub process_printindex($$;$)
     next if ($ignored_entries{$entry});
 
     my $main_entry_element = $entry->{'entry_element'};
+    my $entry_index_name = $entry->{'index_name'};
     my $entry_content_element
         = Texinfo::Common::index_content_element($main_entry_element);
     my $entry_tree = {'contents' => [$entry_content_element]};
     my $subentries_tree
        = $self->comma_index_subentries_tree($main_entry_element);
-    if ($entry->{'in_code'}) {
+    if ($self->{'indices_information'}->{$entry_index_name}->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
       $subentries_tree->{'type'} = '_code'
         if (defined($subentries_tree));

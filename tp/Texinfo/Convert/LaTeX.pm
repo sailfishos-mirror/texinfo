@@ -2409,17 +2409,17 @@ sub _index_entry($$)
   my $self = shift;
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
-    my $entry
+    my ($entry, $index_info)
      = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
                                            $self->{'indices_information'});
     my $entry_index_name = $entry->{'index_name'};
     my $index_name = $entry_index_name;
-    if ($self->{'indices_information'}->{$entry_index_name}->{'merged_in'}) {
+    if ($index_info->{'merged_in'}) {
       $index_name
-        = $self->{'indices_information'}->{$entry_index_name}->{'merged_in'};
+        = $index_info->{'merged_in'};
     }
     my $in_code = 0;
-    if ($self->{'indices_information'}->{$entry_index_name}->{'in_code'}) {
+    if ($index_info->{'in_code'}) {
       $in_code = 1;
     }
     my $options
