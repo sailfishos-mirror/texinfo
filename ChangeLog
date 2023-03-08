@@ -1,3 +1,8 @@
+2023-03-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Overview): Remove duplicate words.  From
+	Ray Kuo <ray20140811@gmail.com>.
+
 2023-03-08  Arsen Arsenović  <arsen@aarsen.me>
 
 	texi2any: Don't switch to subdir mode if '-' names a dir
