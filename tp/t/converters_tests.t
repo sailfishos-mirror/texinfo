@@ -136,6 +136,16 @@ Content VI
 
 ';
 
+# this is also used to check the output corresponding
+# to the '@sc content' t/nodenormalization.t test, so it should be kept in
+# sync with t/nodenormalization.t
+# Also note that @verb is protected in LaTeX by @inlinefmtifelse to get
+# valid LaTeX.
+my $string_for_upper_case = 'a @~n @aa{} @TeX{} @image{myimage} @ref{chap} @xref{(f)node}
+@ref{ext,,name,argf} @inlinefmtifelse{latex,,@verb{!inverb!}} @anchor{inanchor} @hyphenation{hyphena-te}
+@U{00ff} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
+@url{,,c} @email{a@@c, e} @abbr{ab, d}';
+
 my @test_cases = (
 ['accent_with_text',
 '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{--@dotless{j}} @^{--a}
@@ -1078,6 +1088,18 @@ deftypeop n
 defop n
 @end defop
 '],
+# this test is also used to check the output corresponding
+# to the '@sc content' t/nodenormalization.t test, so it should be modified
+# if the t/nodenormalization.t test is modified
+['commands_in_sc',
+'@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@sc{'.$string_for_upper_case.'}',
+{'EXPANDED_FORMATS' => ['docbook', 'html', 'xml', 'plaintext']}],
 # the big rule is set to be different from the normal rule to check the type
 # of rule output
 ['contents_at_document_begin',
@@ -1248,6 +1270,7 @@ my %info_tests = (
  'contents_at_document_begin' => 1,
  'contents_at_document_begin_inline' => 1,
  'contents_at_document_begin_separate_element' => 1,
+ 'commands_in_sc' => 1,
 );
 
 my %html_tests = (

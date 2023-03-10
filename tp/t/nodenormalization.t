@@ -211,15 +211,18 @@ my $empty_command_node_tree = $parser->parse_texi_line($empty_command_node_text)
 my $empty_command_node_normalized = normalize_node($empty_command_node_tree);
 is ($empty_command_node_normalized, '-2', 'node with @today');
 
-my $effect_of_sc_node_text
-  = '@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @xref{(f)node}
-@ref{ext,,name,argf} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te}
-@U{aaaa} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
-@url{,,c} @email{a@@c, e} @abbr{ab, d}}'
-;
-my $effect_of_sc_node_tree = $parser->parse_texi_line($effect_of_sc_node_text);
+# also in t/converters_tests.t.  Should be kept in sync.
+my $string_for_upper_case = 'a @~n @aa{} @TeX{} @image{myimage} @ref{chap} @xref{(f)node}
+@ref{ext,,name,argf} @inlinefmtifelse{latex,,@verb{!inverb!}} @anchor{inanchor} @hyphenation{hyphena-te}
+@U{00ff} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
+@url{,,c} @email{a@@c, e} @abbr{ab, d}';
+
+my $effect_of_sc_node_tree = $parser->parse_texi_line('@sc{'.$string_for_upper_case
+  # we add a @verb out of @inline*.  @verb is in @inline* to have valid LaTeX output
+  # in the t/converters_tests.t test
+       . ' @verb{!mverb!}}');
 my $effect_of_sc_node_normalized = normalize_node($effect_of_sc_node_tree);
 is ($effect_of_sc_node_normalized,
-    'A-_00d1-_00c5-TeX-MYIMAGE-aref-_0028f_0029node-ext-INVERB-AAAA-MA_002bTH-LA-A-A_0040C-AB',
+    'A-_00d1-_00c5-TeX-MYIMAGE-chap-_0028f_0029node-ext-LATEX-00FF-MA_002bTH-LA-A-A_0040C-AB-MVERB',
     '@sc content');
 

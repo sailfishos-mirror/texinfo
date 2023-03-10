@@ -989,14 +989,6 @@ Some text.
 
 @printindex cp
 '],
-# this test is also used to check the output corresponding
-# to the '@sc content' t/nodenormalization.t test, so it should be modified
-# if the t/nodenormalization.t test is modified
-['commands_in_sc',
-'@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{aref} @xref{(f)node}
-@ref{ext,,name,argf} @verb{!inverb!} @anchor{inanchor} @hyphenation{hyphena-te}
-@U{aaaa} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
-@url{,,c} @email{a@@c, e} @abbr{ab, d}}'],
 );
 
 my @file_tests = (

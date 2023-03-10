@@ -1093,8 +1093,10 @@ sub _convert($$;$)
                    and @{$element->{'args'}->[0]->{'contents'}}) {
             my $node_contents
               = $element->{'args'}->[0]->{'contents'};
+            push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
             $node_name = $self->_convert(
                    {'contents' => $node_contents});
+            pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
 
             if (($book_contents or $manual_file_contents)
                 and $node_name eq 'Top') {
@@ -1102,53 +1104,55 @@ sub _convert($$;$)
             }
           }
 
+          my $result;
+          push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
           # external book ref
           if ($book_contents) {
             if ($section_name) {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see section ``{section_name}\'\' in @cite{{book}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'book' => $book_contents }));
               }
             } elsif ($node_name) {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See ``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see ``{node_name}\'\' in @cite{{book}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'book' => $book_contents }));
               }
             } else {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('@cite{{book}}',
                     {'book' => $book_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See @cite{{book}}',
                     {'book' => $book_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see @cite{{book}}',
                     {'book' => $book_contents }));
               }
@@ -1156,55 +1160,55 @@ sub _convert($$;$)
           } elsif ($manual_file_contents) {
             if ($section_name) {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see section ``{section_name}\'\' in @file{{manual}}',
                     { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                       'manual' => $manual_file_contents }));
               }
             } elsif ($node_name) {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See ``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see ``{node_name}\'\' in @file{{manual}}',
                     { 'node_name' => {'type' => '_converted', 'text' => $node_name},
                       'manual' => $manual_file_contents }));
               }
             } else {
               if ($cmdname eq 'ref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('@file{{manual}}',
                     {'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'xref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('See @file{{manual}}',
                     {'manual' => $manual_file_contents }));
               } elsif ($cmdname eq 'pxref') {
-                return $self->_convert(
+                $result = $self->_convert(
                   $self->gdt('see @file{{manual}}',
                     {'manual' => $manual_file_contents }));
               }
             }
           } elsif ($element->{'cmdname'} eq 'inforef') {
-            return '';
+            $result = '';
           } else {
             my $linkend = '';
             my $node_arg = $element->{'args'}->[0];
@@ -1217,22 +1221,24 @@ sub _convert($$;$)
             $link_text = $node_name if (! defined($link_text));
             my $argument = "<link${linkend}>".$link_text."</link>";
             if ($element->{'cmdname'} eq 'ref') {
-              return $self->_convert(
+              $result = $self->_convert(
                       $self->gdt('{title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($element->{'cmdname'} eq 'xref') {
-              return $self->_convert(
+              $result = $self->_convert(
                       $self->gdt('See {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($element->{'cmdname'} eq 'pxref') {
-              return $self->_convert(
+              $result = $self->_convert(
                       $self->gdt('see {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             }
           }
+          pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
+          return $result;
         } else {
           return '';
         }
