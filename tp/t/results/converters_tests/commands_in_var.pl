@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'commands_in_sc'} = {
+$result_trees{'commands_in_var'} = {
   'contents' => [
     {
       'type' => 'before_node_section'
@@ -47,7 +47,7 @@ $result_trees{'commands_in_sc'} = {
         {
           'contents' => [
             {
-              'text' => 'commands in sc'
+              'text' => 'commands in var'
             }
           ],
           'info' => {
@@ -691,7 +691,7 @@ $result_trees{'commands_in_sc'} = {
                   'type' => 'brace_command_arg'
                 }
               ],
-              'cmdname' => 'sc',
+              'cmdname' => 'var',
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -717,34 +717,34 @@ $result_trees{'commands_in_sc'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'manual_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[1];
-$result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[3];
-$result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_sc'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'manual_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[1];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[3];
+$result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'commands_in_var'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
 
-$result_texis{'commands_in_sc'} = '@node Top
-@top commands in sc
+$result_texis{'commands_in_var'} = '@node Top
+@top commands in var
 
 @node chap
 @chapter chap
 
-@sc{a @~n @aa{} @TeX{} @image{myimage} @ref{chap} @xref{(f)node}
+@var{a @~n @aa{} @TeX{} @image{myimage} @ref{chap} @xref{(f)node}
 @ref{ext,,name,argf} @inlinefmtifelse{latex,,@verb{!inverb!}} @anchor{inanchor} @hyphenation{hyphena-te}
 @U{00ff} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
 @url{,,c} @email{a@@c, e} @abbr{ab, d}}';
 
 
-$result_texts{'commands_in_sc'} = 'commands in sc
-**************
+$result_texts{'commands_in_var'} = 'commands in var
+***************
 
 1 chap
 ******
 
-A N~ AA TeX MYIMAGE CHAP (F)NODE
-EXT inverb 00FF MA+TH  LA A (B)  (LB)
-C E AB (D)';
+a n~ aa TeX myimage chap (f)node
+ext inverb 00ff ma+th  la a (b)  (lb)
+c e ab (d)';
 
-$result_sectioning{'commands_in_sc'} = {
+$result_sectioning{'commands_in_var'} = {
   'structure' => {
     'section_childs' => [
       {
@@ -788,12 +788,12 @@ $result_sectioning{'commands_in_sc'} = {
     'section_level' => -1
   }
 };
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0];
-$result_sectioning{'commands_in_sc'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_sc'};
+$result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'commands_in_var'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'commands_in_var'};
 
-$result_nodes{'commands_in_sc'} = {
+$result_nodes{'commands_in_var'} = {
   'cmdname' => 'node',
   'extra' => {
     'associated_section' => {
@@ -823,10 +823,10 @@ $result_nodes{'commands_in_sc'} = {
     }
   }
 };
-$result_nodes{'commands_in_sc'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'commands_in_sc'};
-$result_nodes{'commands_in_sc'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'commands_in_sc'};
+$result_nodes{'commands_in_var'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'commands_in_var'};
+$result_nodes{'commands_in_var'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'commands_in_var'};
 
-$result_menus{'commands_in_sc'} = {
+$result_menus{'commands_in_var'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
@@ -834,15 +834,15 @@ $result_menus{'commands_in_sc'} = {
   'structure' => {}
 };
 
-$result_errors{'commands_in_sc'} = [];
+$result_errors{'commands_in_var'} = [];
 
 
-$result_floats{'commands_in_sc'} = {};
+$result_floats{'commands_in_var'} = {};
 
 
 
-$result_converted{'plaintext'}->{'commands_in_sc'} = 'commands in sc
-**************
+$result_converted{'plaintext'}->{'commands_in_var'} = 'commands in var
+***************
 
 1 chap
 ******
@@ -856,7 +856,7 @@ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 
 ';
 
-$result_converted_errors{'plaintext'}->{'commands_in_sc'} = [
+$result_converted_errors{'plaintext'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: could not find @image file `myimage.txt\' nor alternate text
 ',
@@ -870,12 +870,12 @@ $result_converted_errors{'plaintext'}->{'commands_in_sc'} = [
 
 
 
-$result_converted{'html_text'}->{'commands_in_sc'} = '<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="commands-in-sc"><span>commands in sc<a class="copiable-link" href="#commands-in-sc"> &para;</a></span></h1>
+<h1 class="top" id="commands-in-var"><span>commands in var<a class="copiable-link" href="#commands-in-var"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
@@ -888,9 +888,9 @@ $result_converted{'html_text'}->{'commands_in_sc'} = '<div class="top-level-exte
 </div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
-<p><small class="sc">A &Ntilde; &Aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> SEE <a data-manual="F" href="f.html#node">(F)NODE</a>
-<a data-manual="argf" href="argf.html#ext">(argf)NAME</a> <code class="verb">INVERB</code> <a class="anchor" id="inanchor"></a>&#x00FF; <em class="math">ma+th</em> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="url" href="la">la</a> <a class="url" href="a">B</a> LB
-C <a class="email" href="mailto:a@c">E</a> <abbr class="abbr" title="d">AB</abbr> (D)</small></p></div>
+<p><var class="var">a &ntilde; &aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> See <a data-manual="f" href="f.html#node">(f)node</a>
+<a data-manual="argf" href="argf.html#ext">(argf)name</a> <code class="verb">inverb</code> <a class="anchor" id="inanchor"></a>&#x00ff; <em class="math">ma+th</em> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="url" href="la">la</a> <a class="url" href="a">b</a> lb
+c <a class="email" href="mailto:a@c">e</a> <abbr class="abbr" title="d">ab</abbr> (d)</var></p></div>
 </div>
 <div class="footnotes-segment">
 <hr>
@@ -901,7 +901,7 @@ C <a class="email" href="mailto:a@c">E</a> <abbr class="abbr" title="d">AB</abbr
 </div>
 ';
 
-$result_converted_errors{'html_text'}->{'commands_in_sc'} = [
+$result_converted_errors{'html_text'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' (for HTML) not found, using `myimage.jpg\'
 ',
@@ -915,29 +915,29 @@ $result_converted_errors{'html_text'}->{'commands_in_sc'} = [
 
 
 
-$result_converted{'xml'}->{'commands_in_sc'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>commands in sc</sectiontitle>
+$result_converted{'xml'}->{'commands_in_var'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<top spaces=" "><sectiontitle>commands in var</sectiontitle>
 
 </top>
 <node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap</sectiontitle>
 
-<para><sc>a <accent type="tilde" bracketed="off">n</accent> &aring; &tex; <image where="inline"><imagefile>myimage</imagefile></image> <ref label="chap"><xrefnodename>chap</xrefnodename></ref> <xref label="node" manual="f"><xrefnodename>(f)node</xrefnodename></xref>
+<para><var>a <accent type="tilde" bracketed="off">n</accent> &aring; &tex; <image where="inline"><imagefile>myimage</imagefile></image> <ref label="chap"><xrefnodename>chap</xrefnodename></ref> <xref label="node" manual="f"><xrefnodename>(f)node</xrefnodename></xref>
 <ref label="ext" manual="argf"><xrefnodename>ext</xrefnodename><xrefprinteddesc>name</xrefprinteddesc><xrefinfofile>argf</xrefinfofile></ref> <inlinefmtifelse><inlinefmtifelseformat>latex</inlinefmtifelseformat><inlinefmtifelsecontentelse><verb delimiter="!">inverb</verb></inlinefmtifelsecontentelse></inlinefmtifelse> <anchor name="inanchor">inanchor</anchor> <hyphenation>hyphena-te</hyphenation>
 <U>00ff</U> <math>ma+th</math> <footnote><para>infootnote</para></footnote> <url><urefurl>la</urefurl></url> <url><urefurl>a</urefurl><urefdesc>b</urefdesc></url> <url><urefurl spaces=" "></urefurl><urefdesc>lb</urefdesc></url>
-<url><urefreplacement>c</urefreplacement></url> <email><emailaddress>a&arobase;c</emailaddress><emailname spaces=" ">e</emailname></email> <abbr><abbrword>ab</abbrword><abbrdesc spaces=" ">d</abbrdesc></abbr></sc></para></chapter>
+<url><urefreplacement>c</urefreplacement></url> <email><emailaddress>a&arobase;c</emailaddress><emailname spaces=" ">e</emailname></email> <abbr><abbrword>ab</abbrword><abbrdesc spaces=" ">d</abbrdesc></abbr></var></para></chapter>
 ';
 
 
-$result_converted{'docbook'}->{'commands_in_sc'} = '<chapter label="1" id="chap">
+$result_converted{'docbook'}->{'commands_in_var'} = '<chapter label="1" id="chap">
 <title>chap</title>
 
-<para>A &#209; &#197; &tex; <inlinemediaobject><imageobject><imagedata fileref="myimage.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject> <link linkend="chap">chap</link> See <link>(f)node</link>
-section &#8220;NAME&#8221; in <filename>argf</filename> <literal>INVERB</literal> <anchor id="inanchor"/>&#x00ff; <inlineequation><mathphrase>ma+th</mathphrase></inlineequation> <footnote><para>infootnote</para></footnote> <ulink url="la">la</ulink> <ulink url="a">B</ulink> <ulink url="">LB</ulink>
-<ulink url="">C</ulink> <ulink url="mailto:a@c">E</ulink> <abbrev>AB</abbrev> (D)</para></chapter>
+<para><replaceable>a &#241; &#229; &tex; <inlinemediaobject><imageobject><imagedata fileref="myimage.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject> <link linkend="chap">chap</link> See <link>(f)node</link>
+section &#8220;name&#8221; in <filename>argf</filename> <literal>inverb</literal> <anchor id="inanchor"/>&#x00ff; <inlineequation><mathphrase>ma+th</mathphrase></inlineequation> <footnote><para>infootnote</para></footnote> <ulink url="la">la</ulink> <ulink url="a">b</ulink> <ulink url="">lb</ulink>
+<ulink url="">c</ulink> <ulink url="mailto:a@c">e</ulink> <abbrev>ab</abbrev> (d)</replaceable></para></chapter>
 ';
 
-$result_converted_errors{'docbook'}->{'commands_in_sc'} = [
+$result_converted_errors{'docbook'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' not found, using `myimage.jpg\'
 ',
@@ -951,16 +951,16 @@ $result_converted_errors{'docbook'}->{'commands_in_sc'} = [
 
 
 
-$result_converted{'latex_text'}->{'commands_in_sc'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'commands_in_var'} = '\\label{anchor:Top}%
 \\chapter{{chap}}
 \\label{anchor:chap}%
 
-\\textsc{a \\~{n} \\aa{} \\TeX{} \\includegraphics{myimage} \\hyperref[anchor:chap]{\\chaptername~\\ref*{anchor:chap} [chap], page~\\pageref*{anchor:chap}} See (f)node
+\\Texinfocommandstyletextvar{a \\~{n} \\aa{} \\TeX{} \\includegraphics{myimage} \\hyperref[anchor:chap]{\\chaptername~\\ref*{anchor:chap} [chap], page~\\pageref*{anchor:chap}} See (f)node
 Section ``name\'\' in \\texttt{argf}  \\label{anchor:inanchor}%
 \\hyphenation{hyphena-te}ÿ $ma+th$ \\footnote{infootnote} \\url{la} \\href{a}{b (\\nolinkurl{a})} lb
 c \\href{mailto:a@c}{e} ab (d)}';
 
-$result_converted_errors{'latex_text'}->{'commands_in_sc'} = [
+$result_converted_errors{'latex_text'}->{'commands_in_var'} = [
   {
     'error_line' => 'warning: @image file `myimage\' (for LaTeX) not found
 ',
@@ -968,61 +968,6 @@ $result_converted_errors{'latex_text'}->{'commands_in_sc'} = [
     'line_nr' => 7,
     'macro' => '',
     'text' => '@image file `myimage\' (for LaTeX) not found',
-    'type' => 'warning'
-  }
-];
-
-
-
-$result_converted{'info'}->{'commands_in_sc'} = 'This is , produced from .
-
-
-File: ,  Node: Top,  Next: chap,  Up: (dir)
-
-commands in sc
-**************
-
-* Menu:
-
-* chap::
-
-
-File: ,  Node: chap,  Prev: Top,  Up: Top
-
-1 chap
-******
-
-A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb ÿ
-MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
-
-   ---------- Footnotes ----------
-
-   (1) infootnote
-
-
-
-Tag Table:
-Node: Top27
-Node: chap124
-Ref: inanchor264
-Ref: chap-Footnote-1346
-
-End Tag Table
-
-
-Local Variables:
-coding: utf-8
-End:
-';
-
-$result_converted_errors{'info'}->{'commands_in_sc'} = [
-  {
-    'error_line' => 'warning: could not find @image file `myimage.txt\' nor alternate text
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => 'could not find @image file `myimage.txt\' nor alternate text',
     'type' => 'warning'
   }
 ];

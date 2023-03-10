@@ -637,6 +637,7 @@ t/info_tests.t
 Misc notes
 ==========
 
+Test validity of Texinfo XML or docbook
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 

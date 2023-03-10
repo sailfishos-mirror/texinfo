@@ -1,5 +1,11 @@
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/converters_tests.t, tp/t/nodenormalization.t, tp/Makefile.tres:
+	test commands with lower case arguments in @var, with commands_in_var
+	and a test in nodenormalization.t.
+
+2023-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
 	tp/Texinfo/Convert/Text.pm (_convert),
 	tp/Texinfo/Convert/TextContent.pm (_convert),

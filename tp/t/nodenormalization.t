@@ -226,3 +226,12 @@ is ($effect_of_sc_node_normalized,
     'A-_00d1-_00c5-TeX-MYIMAGE-chap-_0028f_0029node-ext-LATEX-00FF-MA_002bTH-LA-A-A_0040C-AB-MVERB',
     '@sc content');
 
+my $effect_of_var_node_tree = $parser->parse_texi_line('@var{'.$string_for_upper_case
+  # we add a @verb out of @inline*.  @verb is in @inline* to have valid LaTeX output
+  # in the t/converters_tests.t test
+       . ' @verb{!mverb!}}');
+my $effect_of_var_node_normalized = normalize_node($effect_of_var_node_tree);
+is ($effect_of_var_node_normalized,
+    'a-_00f1-_00e5-TeX-myimage-chap-_0028f_0029node-ext-latex-00ff-ma_002bth-la-a-a_0040c-ab-mverb',
+    '@var content');
+

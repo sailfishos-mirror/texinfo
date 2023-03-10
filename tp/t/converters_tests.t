@@ -1093,12 +1093,21 @@ defop n
 # if the t/nodenormalization.t test is modified
 ['commands_in_sc',
 '@node Top
-@top top
+@top commands in sc
 
 @node chap
 @chapter chap
 
 @sc{'.$string_for_upper_case.'}',
+{'EXPANDED_FORMATS' => ['docbook', 'html', 'xml', 'plaintext']}],
+['commands_in_var',
+'@node Top
+@top commands in var
+
+@node chap
+@chapter chap
+
+@var{'.$string_for_upper_case.'}',
 {'EXPANDED_FORMATS' => ['docbook', 'html', 'xml', 'plaintext']}],
 # the big rule is set to be different from the normal rule to check the type
 # of rule output
