@@ -19,7 +19,7 @@ $result_trees{'multitable'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '    '
@@ -30,7 +30,7 @@ $result_trees{'multitable'} = {
                       'text' => 'bidule'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -229,7 +229,7 @@ $result_trees{'multitable'} = {
                       'text' => 't'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '    '
@@ -240,7 +240,7 @@ $result_trees{'multitable'} = {
                       'text' => 'b'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -1152,7 +1152,7 @@ $result_trees{'multitable'} = {
                       'text' => 'AA'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -1163,7 +1163,7 @@ $result_trees{'multitable'} = {
                       'text' => 'BB'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -1421,7 +1421,7 @@ $result_trees{'multitable'} = {
                       'text' => 'A'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -1574,7 +1574,7 @@ $result_trees{'multitable'} = {
                       'text' => 'A'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -1585,7 +1585,7 @@ $result_trees{'multitable'} = {
                       'text' => 'B'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

@@ -36,7 +36,7 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
                       'text' => ' '
                     }
                   },
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'type' => 'block_line_arg'

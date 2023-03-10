@@ -30,7 +30,7 @@ $result_trees{'nested_multitable'} = {
                       'text' => ' machin'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '    '
@@ -41,7 +41,7 @@ $result_trees{'nested_multitable'} = {
                       'text' => 'bidule'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -77,7 +77,7 @@ $result_trees{'nested_multitable'} = {
                                       'text' => 'AAAA'
                                     }
                                   ],
-                                  'type' => 'bracketed'
+                                  'type' => 'bracketed_arg'
                                 },
                                 {
                                   'text' => ' '
@@ -88,7 +88,7 @@ $result_trees{'nested_multitable'} = {
                                       'text' => 'machin'
                                     }
                                   ],
-                                  'type' => 'bracketed'
+                                  'type' => 'bracketed_arg'
                                 }
                               ],
                               'info' => {

@@ -19,7 +19,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -609,7 +609,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'text' => 'thing'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

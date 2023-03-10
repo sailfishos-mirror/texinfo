@@ -769,7 +769,7 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e = contents_child_by_index(current, i);
 
-          if (e->type == ET_bracketed)
+          if (e->type == ET_bracketed_arg)
             {
               max_columns++;
             }

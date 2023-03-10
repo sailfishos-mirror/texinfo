@@ -19,7 +19,7 @@ $result_trees{'multitable_not_closed'} = {
                       'text' => 'r'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'multitable_not_closed'} = {
                       'text' => 't'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

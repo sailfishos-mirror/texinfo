@@ -19,7 +19,7 @@ $result_trees{'prototype_brace_no_brace'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' bb'

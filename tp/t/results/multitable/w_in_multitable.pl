@@ -19,7 +19,7 @@ $result_trees{'w_in_multitable'} = {
                       'text' => 'aaaaaaaaa'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'w_in_multitable'} = {
                       'text' => 'bbbbbbbbbbb'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

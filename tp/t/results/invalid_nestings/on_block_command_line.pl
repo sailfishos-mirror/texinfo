@@ -37,7 +37,7 @@ $result_trees{'on_block_command_line'} = {
                       }
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '

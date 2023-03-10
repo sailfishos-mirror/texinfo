@@ -172,10 +172,7 @@ sub _convert($$)
     }
   }
   $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed'
-         and (!$element->{'parent'}->{'type'} or
-              ($element->{'parent'}->{'type'} ne 'block_line_arg'
-               and $element->{'parent'}->{'type'} ne 'line_arg')));
+     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
 
   if ($element->{'type'} and $element->{'type'} eq 'line_arg') {
     $result .= "\n";

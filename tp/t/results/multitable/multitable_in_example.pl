@@ -33,7 +33,7 @@ $result_trees{'multitable_in_example'} = {
                           'text' => 'AAA'
                         }
                       ],
-                      'type' => 'bracketed'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'text' => '  '
@@ -44,7 +44,7 @@ $result_trees{'multitable_in_example'} = {
                           'text' => 'BBB'
                         }
                       ],
-                      'type' => 'bracketed'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {

@@ -19,7 +19,7 @@ $result_trees{'paragraph_in_cells'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '  '
@@ -30,7 +30,7 @@ $result_trees{'paragraph_in_cells'} = {
                       'text' => 'BBB'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

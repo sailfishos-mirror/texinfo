@@ -25,7 +25,7 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
 '
                     }
                   },
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'type' => 'block_line_arg'

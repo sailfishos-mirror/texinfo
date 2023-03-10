@@ -868,7 +868,7 @@ $result_trees{'commands_and_spaces'} = {
                       'text' => 'aa b'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '  '
@@ -884,7 +884,7 @@ $result_trees{'commands_and_spaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '  '

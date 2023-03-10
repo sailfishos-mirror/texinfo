@@ -425,6 +425,7 @@ close_current (ELEMENT *current,
       switch (current->type)
         {
         case ET_bracketed:
+        case ET_bracketed_arg:
           command_error (current, "misplaced {");
           if (current->contents.number > 0
               && current->contents.list[0]->type

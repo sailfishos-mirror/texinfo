@@ -30,7 +30,7 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'type' => 'block_line_arg'

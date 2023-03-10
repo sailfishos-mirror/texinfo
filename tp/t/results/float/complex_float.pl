@@ -1316,7 +1316,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'truc'
                                 }
                               ],
-                              'type' => 'bracketed'
+                              'type' => 'bracketed_arg'
                             },
                             {
                               'text' => ' '
@@ -1327,7 +1327,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'bidule'
                                 }
                               ],
-                              'type' => 'bracketed'
+                              'type' => 'bracketed_arg'
                             }
                           ],
                           'info' => {
@@ -2667,7 +2667,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'truc'
                                 }
                               ],
-                              'type' => 'bracketed'
+                              'type' => 'bracketed_arg'
                             },
                             {
                               'text' => ' '
@@ -2678,7 +2678,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'bidule'
                                 }
                               ],
-                              'type' => 'bracketed'
+                              'type' => 'bracketed_arg'
                             }
                           ],
                           'info' => {

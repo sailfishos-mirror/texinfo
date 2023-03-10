@@ -19,7 +19,7 @@ $result_trees{'multitable_item_in_index'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'multitable_item_in_index'} = {
                       'text' => 'bbb'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

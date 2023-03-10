@@ -436,7 +436,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'A'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -447,7 +447,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'B'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

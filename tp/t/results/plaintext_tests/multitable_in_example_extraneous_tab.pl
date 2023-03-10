@@ -33,7 +33,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                           'text' => 'a'
                         }
                       ],
-                      'type' => 'bracketed'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {

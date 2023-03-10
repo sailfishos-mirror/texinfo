@@ -2044,7 +2044,8 @@ sub _close_current($$$;$$)
     }
   } elsif ($current->{'type'}) {
     print STDERR "CLOSING type $current->{'type'}\n" if ($self->{'DEBUG'});
-    if ($current->{'type'} eq 'bracketed') {
+    if ($current->{'type'} eq 'bracketed'
+        or $current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed
       $self->_command_error($current, $source_info, __("misplaced {"));
       if ($current->{'contents'}
@@ -2782,7 +2783,7 @@ sub _isolate_last_space
   return if (!$current->{'contents'});
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # brace_command_arg, bracketed or menu_entry_node
+  # brace_command_arg, bracketed_arg or menu_entry_node
 
   # Store a final comment command in the 'info' hash, except for brace
   # commands
@@ -2950,9 +2951,8 @@ sub _split_def_args
                           $source_info, $current);
     }
     return @elements;
-  } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed') {
+  } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed_arg') {
     _isolate_last_space($self, $root);
-    $root->{'type'} = 'bracketed_arg';
   }
   return $root;
 }
@@ -3050,7 +3050,7 @@ sub _parse_def($$$$)
     }
 
     if ($token->{'type'} and ($token->{'type'} eq 'bracketed_arg'
-                                or $token->{'type'} eq 'bracketed_inserted')) {
+                              or $token->{'type'} eq 'bracketed_inserted')) {
       $result{$arg} = $token;
       shift @contents;
       $arg = shift (@args);
@@ -3751,7 +3751,7 @@ sub _end_line_starting_block($$$)
     my $max_columns = 0;
     if ($current->{'contents'}) {
       foreach my $content (@{$current->{'contents'}}) {
-        if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+        if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
           $max_columns++;
         } elsif ($content->{'text'}) {
           # TODO: this should be a warning or an error - all prototypes
@@ -5666,7 +5666,7 @@ sub _handle_open_brace($$$$)
                      and $current->{'parent'}->{'type'} eq 'def_line'))) {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
-         { 'type' => 'bracketed',
+         { 'type' => 'bracketed_arg',
            'parent' => $current };
     $current = $current->{'contents'}->[-1];
     # we need the line number here in case @ protects end of line
@@ -5725,8 +5725,9 @@ sub _handle_close_brace($$$)
      $current = _end_paragraph($self, $current, $source_info);
   }
 
-  if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
-    # Used in @math
+  if ($current->{'type'}
+      and ($current->{'type'} eq 'bracketed'
+           or $current->{'type'} eq 'bracketed_arg')) {
     _abort_empty_line($self, $current);
     $current = $current->{'parent'};
   } elsif ($current->{'parent'}
@@ -8258,11 +8259,11 @@ are present as elements in the tree.
 =item bracketed
 
 This a special type containing content in brackets in the context
-where they are valid, in C<@math>.
+where they are valid, in C<@math> and in raw output formats.
 
 =item bracketed_arg
 
-Bracketed argument.  On definition command lines.
+Bracketed argument.  On definition command and on C<@multitable> line.
 
 =item def_aggregate
 

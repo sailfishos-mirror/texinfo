@@ -24,7 +24,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'contents' => [
@@ -32,7 +32,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                       'text' => 'b'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

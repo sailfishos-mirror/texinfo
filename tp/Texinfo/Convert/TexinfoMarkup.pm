@@ -1417,7 +1417,7 @@ sub _convert($$;$)
                 $result .= $self->txi_markup_open_element('columnprototypes');
                 foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
                   if ($arg->{'type'}
-                      and $arg->{'type'} eq 'bracketed') {
+                      and $arg->{'type'} eq 'bracketed_arg') {
                     my $attributes = [];
                     push @$attributes, ['bracketed', 'on'];
                     push @$attributes,
@@ -1573,10 +1573,8 @@ sub _convert($$;$)
     }
   }
   $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed'
-         and (!$element->{'parent'}->{'type'} or
-              ($element->{'parent'}->{'type'} ne 'block_line_arg'
-               and $element->{'parent'}->{'type'} ne 'line_arg')));
+     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
+
   foreach my $format_element (@close_format_elements) {
     $result .= $self->txi_markup_close_element($format_element);
   }

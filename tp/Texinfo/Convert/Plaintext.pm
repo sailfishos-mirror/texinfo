@@ -2670,7 +2670,7 @@ sub _convert($$)
         } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
                  and $element->{'args'}->[0]->{'contents'}) {
           foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-            if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+            if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
               my $column_size = 0;
               if ($content->{'contents'}) {
                 push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};

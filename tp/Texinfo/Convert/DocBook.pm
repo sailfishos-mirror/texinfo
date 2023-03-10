@@ -1520,7 +1520,7 @@ sub _convert($$;$)
                    and $element->{'args'}->[0]->{'contents'}) {
             $multiply = 1;
             foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-              if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+              if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
                 my $prototype_text = '';
                 if ($content->{'contents'}) {
                   $prototype_text
@@ -1714,10 +1714,7 @@ sub _convert($$;$)
     }
   }
   $result = '{'.$result.'}' 
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed'
-         and (!$element->{'parent'}->{'type'} or
-              ($element->{'parent'}->{'type'} ne 'block_line_arg'
-               and $element->{'parent'}->{'type'} ne 'line_arg')));
+     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
   foreach my $format_element (@close_format_elements) {
     $result .= "</$format_element>";
   }

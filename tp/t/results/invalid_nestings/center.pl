@@ -976,7 +976,7 @@ $result_trees{'center'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '  '
@@ -987,7 +987,7 @@ $result_trees{'center'} = {
                       'text' => 'BBB'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

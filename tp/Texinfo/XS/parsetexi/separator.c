@@ -170,7 +170,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
     {
       ELEMENT *b, *e;
       abort_empty_line (&current, NULL);
-      b = new_element (ET_bracketed);
+      b = new_element (ET_bracketed_arg);
       add_to_element_contents (current, b);
       current = b;
 
@@ -244,7 +244,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       current = end_paragraph (current, 0, 0);
     }
 
-  if (current->type == ET_bracketed)
+  if (current->type == ET_bracketed
+      || current->type == ET_bracketed_arg)
     {
       /* Used in @math */
       abort_empty_line (&current, NULL);

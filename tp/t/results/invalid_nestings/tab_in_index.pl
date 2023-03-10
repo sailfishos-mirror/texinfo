@@ -19,7 +19,7 @@ $result_trees{'tab_in_index'} = {
                       'text' => 'one nonlettered character'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'tab_in_index'} = {
                       'text' => 'normal text'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

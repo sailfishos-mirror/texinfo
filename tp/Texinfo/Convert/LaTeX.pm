@@ -3639,7 +3639,7 @@ sub _convert($$)
           my @prototypes_length;
           my $total_length = 0.;
           foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-            if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+            if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
               my $prototype_text = '';
               if ($content->{'contents'}) {
                 $prototype_text

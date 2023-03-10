@@ -149,7 +149,7 @@ $result_trees{'section_on_multitable_line'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -160,7 +160,7 @@ $result_trees{'section_on_multitable_line'} = {
                       'text' => 'bbb'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

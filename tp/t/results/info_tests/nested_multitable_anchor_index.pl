@@ -44,7 +44,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       'text' => 'truc AAAA   machin'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => '    '
@@ -55,7 +55,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                       'text' => 'bidule'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -91,7 +91,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       'text' => 'AAAA'
                                     }
                                   ],
-                                  'type' => 'bracketed'
+                                  'type' => 'bracketed_arg'
                                 },
                                 {
                                   'text' => ' '
@@ -102,7 +102,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       'text' => 'machin'
                                     }
                                   ],
-                                  'type' => 'bracketed'
+                                  'type' => 'bracketed_arg'
                                 }
                               ],
                               'info' => {

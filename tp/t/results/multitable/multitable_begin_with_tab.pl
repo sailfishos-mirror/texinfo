@@ -19,7 +19,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                       'text' => 'b'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
@@ -124,7 +124,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                       'text' => 'c'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -135,7 +135,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                       'text' => 'd'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

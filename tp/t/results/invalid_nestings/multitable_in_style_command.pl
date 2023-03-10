@@ -47,7 +47,7 @@ $result_trees{'multitable_in_style_command'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -58,7 +58,7 @@ $result_trees{'multitable_in_style_command'} = {
                       'text' => 'machin'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

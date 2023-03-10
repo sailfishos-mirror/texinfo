@@ -1699,7 +1699,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -1710,7 +1710,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                       'text' => 'bbb'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

@@ -222,8 +222,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
 
 
 /* Divide any text elements into separate elements, separating whitespace
-   and non-whitespace.  Change ET_bracketed elements to 
-   ET_bracketed_arg. */
+   and non-whitespace. */
 static void
 split_def_args (ELEMENT *current, int starting_idx)
 {
@@ -239,10 +238,9 @@ split_def_args (ELEMENT *current, int starting_idx)
       uint8_t *u8_text = 0;
       uint8_t *u8_p;
 
-      if (e->type == ET_bracketed)
+      if (e->type == ET_bracketed_arg)
         {
           isolate_last_space (e);
-          e->type = ET_bracketed_arg;
           continue;
         }
 

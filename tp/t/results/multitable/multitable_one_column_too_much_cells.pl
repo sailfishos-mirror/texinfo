@@ -19,7 +19,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {

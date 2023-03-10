@@ -19,7 +19,7 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
             {
               'contents' => [
                 {
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 },
                 {
                   'text' => ' '
@@ -30,7 +30,7 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'bracketed'
+                  'type' => 'bracketed_arg'
                 }
               ],
               'info' => {
