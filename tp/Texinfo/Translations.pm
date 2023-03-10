@@ -351,13 +351,14 @@ sub pgdt($$$;$$$)
   return $self->gdt($string, $replaced_substrings, $translation_context, $type, $lang);
 }
 
-
+# FIXME currently not used.  See below how it could be used to avoid having the
+# 'bracketed_arg' type in @def* index entries trees
 sub _non_bracketed_contents($) {
   my $current = shift;
 
-  if ($current->{'type'} and $current->{'type'} eq 'bracketed') {
+  if ($current->{'type'} and $current->{'type'} eq 'bracketed_arg') {
     my $new = {};
-    $new->{'contents'} = $current->{'contents'} if ($current->{'parent'});
+    $new->{'contents'} = $current->{'contents'} if ($current->{'contents'});
     $new->{'parent'} = $current->{'parent'} if ($current->{'parent'});
     return $new;
   } else {
@@ -422,9 +423,10 @@ sub complete_indices($)
                                {'name' => $name, 'class' => $class},
                                 undef, undef, $entry_language);
             $index_contents_normalized
-              = [_non_bracketed_contents($name),
-                { 'text' => ' on '},
-                _non_bracketed_contents($class)];
+              = [$name, { 'text' => ' on '}, $class];
+              #= [_non_bracketed_contents($name),
+              #  {'text' => ' on '},
+              #  _non_bracketed_contents($class)];
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
@@ -433,13 +435,14 @@ sub complete_indices($)
                                {'name' => $name, 'class' => $class},
                                undef, undef, $entry_language);
             $index_contents_normalized
-              = [_non_bracketed_contents($name),
-                 { 'text' => ' of '},
-                 _non_bracketed_contents($class)];
+              = [$name, {'text' => ' of '}, $class];
+              #= [_non_bracketed_contents($name),
+              #   {'text' => ' of '},
+              #   _non_bracketed_contents($class)];
           }
 
           # FIXME the 'parent' of the tree elements that correspond to name and
-          # class, be them from gdt or from _non_bracketed_contents, are in the
+          # class, be them from gdt or from the elements, are in the
           # main tree in the definition command arguments, while the new text has
           # either no parent (for index_contents_normalized) or the 'root_line'
           # container returned by gdt.
