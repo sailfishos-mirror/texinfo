@@ -1,5 +1,25 @@
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_balanced_braces_type), tp/Texinfo/Convert/LaTeX.pm
+	(_convert), tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_close_current, _handle_open_brace)
+	(_handle_close_brace), tp/Texinfo/XS/parsetexi/close.c (close_current),
+	tp/Texinfo/XS/parsetexi/convert.c (convert_to_texinfo_internal),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace)
+	(handle_close_brace): rename bracketed type as balanced_braces.
+
+	* tp/t/01use.t: replace bracketed by bracketed_arg on @multitable
+	line.
+
+2023-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert),
 	tp/Texinfo/Convert/LaTeX.pm (_convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert),

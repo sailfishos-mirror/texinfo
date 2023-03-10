@@ -44,7 +44,7 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                             'line_nr' => 2,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         }
                       ],
                       'type' => 'brace_command_arg'
@@ -146,7 +146,7 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                             'line_nr' => 8,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         },
                         {
                           'text' => '

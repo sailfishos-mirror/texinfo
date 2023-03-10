@@ -307,7 +307,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                         'line_nr' => 15,
                                         'macro' => ''
                                       },
-                                      'type' => 'bracketed'
+                                      'type' => 'balanced_braces'
                                     },
                                     {
                                       'contents' => [
@@ -320,7 +320,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                         'line_nr' => 15,
                                         'macro' => ''
                                       },
-                                      'type' => 'bracketed'
+                                      'type' => 'balanced_braces'
                                     },
                                     {
                                       'text' => '

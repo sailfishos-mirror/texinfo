@@ -1355,7 +1355,7 @@ $result_trees{'commands_and_spaces'} = {
                         'line_nr' => 60,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'text' => ' '

@@ -432,7 +432,7 @@ $result_trees{'inline_expand_tex'} = {
                                     'line_nr' => 14,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed'
+                                  'type' => 'balanced_braces'
                                 }
                               ],
                               'type' => 'brace_command_arg'
@@ -451,7 +451,7 @@ $result_trees{'inline_expand_tex'} = {
                         'line_nr' => 14,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'text' => '$ ``'

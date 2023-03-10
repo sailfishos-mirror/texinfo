@@ -37,7 +37,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 2,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => ' F)dV=\\int_'
@@ -53,7 +53,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 2,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => ' F\\cdot ndS
@@ -140,7 +140,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => ' F)dV=\\int_'
@@ -156,7 +156,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => ' F\\cdot ndS

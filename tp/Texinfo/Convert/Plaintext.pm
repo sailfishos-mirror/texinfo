@@ -3406,7 +3406,7 @@ sub _convert($$)
       _open_code($formatter);
     } elsif ($element->{'type'} eq '_stop_upper_case') {
       push @{$formatter->{'upper_case_stack'}}, {};
-    } elsif ($element->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'balanced_braces') {
       $result .= _count_added($self, $formatter->{'container'},
                    add_text($formatter->{'container'}, '{'));
     }
@@ -3441,7 +3441,7 @@ sub _convert($$)
       _close_code($formatter);
     } elsif ($element->{'type'} eq '_stop_upper_case') {
       pop @{$formatter->{'upper_case_stack'}};
-    } elsif ($element->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'balanced_braces') {
       $result .= _count_added($self, $formatter->{'container'},
                                      add_text($formatter->{'container'}, '}'));
     } elsif ($element->{'type'} eq 'row') {

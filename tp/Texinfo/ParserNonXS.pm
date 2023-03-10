@@ -2044,7 +2044,7 @@ sub _close_current($$$;$$)
     }
   } elsif ($current->{'type'}) {
     print STDERR "CLOSING type $current->{'type'}\n" if ($self->{'DEBUG'});
-    if ($current->{'type'} eq 'bracketed'
+    if ($current->{'type'} eq 'balanced_braces'
         or $current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed
       $self->_command_error($current, $source_info, __("misplaced {"));
@@ -5699,10 +5699,10 @@ sub _handle_open_brace($$$$)
            or $self->_top_context() eq 'ct_inlineraw') {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
-         { 'type' => 'bracketed',
+         { 'type' => 'balanced_braces',
            'parent' => $current, 'source_info' => $source_info };
     $current = $current->{'contents'}->[-1];
-    print STDERR "BRACKETED in math/rawpreformatted/inlineraw\n"
+    print STDERR "BALANCED BRACES in math/rawpreformatted/inlineraw\n"
        if ($self->{'DEBUG'});
   } else {
     $self->_line_error(sprintf(__("misplaced {")), $source_info); #}
@@ -5726,7 +5726,7 @@ sub _handle_close_brace($$$)
   }
 
   if ($current->{'type'}
-      and ($current->{'type'} eq 'bracketed'
+      and ($current->{'type'} eq 'balanced_braces'
            or $current->{'type'} eq 'bracketed_arg')) {
     _abort_empty_line($self, $current);
     $current = $current->{'parent'};
@@ -8217,6 +8217,14 @@ The types of container element are the following:
 
 =over
 
+=item balanced_braces
+
+Special type containing content in balanced braces in the context
+where they are valid, and where balanced braces need to be collected
+to know when a top-level brace command is closed.  In C<@math>, in raw
+output format brace commands and within brace @-commands in raw output
+format block commands.
+
 =item before_item
 
 A container for content before the first C<@item> of block @-commands
@@ -8255,11 +8263,6 @@ As an exception, C<@value> flag argument is directly in the I<args> array
 reference, not in a I<brace_command_arg> container.  Note that only C<@value>
 commands that are not expanded because there is no corresponding value set
 are present as elements in the tree.
-
-=item bracketed
-
-This a special type containing content in brackets in the context
-where they are valid, in C<@math> and in raw output formats.
 
 =item bracketed_arg
 

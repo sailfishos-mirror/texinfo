@@ -264,7 +264,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                             'line_nr' => 15,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         }
                       ],
                       'type' => 'brace_command_arg'
@@ -368,7 +368,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                             'line_nr' => 19,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         }
                       ],
                       'type' => 'brace_command_arg'

@@ -18,13 +18,13 @@ my $manual_tree = { 'cmdname' => 'multitable',
         { 'type' => 'block_line_arg',
           'contents' => [
              { 'text' => ' ' },
-             { 'type' => 'bracketed',
+             { 'type' => 'bracketed_arg',
                'contents' => [
                                {'text' => 'aaaa'},
                             ]
              },
              { 'text' => ' ' },
-             { 'type' => 'bracketed',
+             { 'type' => 'bracketed_arg',
                'contents' => [
                                {'text' => 'xx'},
                                {'cmdname' => 'b',

@@ -1573,7 +1573,7 @@ sub _convert($$;$)
     }
   }
   $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
+     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
 
   foreach my $format_element (@close_format_elements) {
     $result .= $self->txi_markup_close_element($format_element);

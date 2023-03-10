@@ -35,7 +35,7 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_context'

@@ -43,7 +43,7 @@ $result_trees{'section_in_math'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_context'

@@ -248,7 +248,7 @@ $result_trees{'inline'} = {
                                             'line_nr' => 7,
                                             'macro' => ''
                                           },
-                                          'type' => 'bracketed'
+                                          'type' => 'balanced_braces'
                                         }
                                       ],
                                       'type' => 'brace_command_arg'
@@ -267,7 +267,7 @@ $result_trees{'inline'} = {
                                 'line_nr' => 7,
                                 'macro' => ''
                               },
-                              'type' => 'bracketed'
+                              'type' => 'balanced_braces'
                             },
                             {
                               'contents' => [
@@ -280,7 +280,7 @@ $result_trees{'inline'} = {
                                 'line_nr' => 7,
                                 'macro' => ''
                               },
-                              'type' => 'bracketed'
+                              'type' => 'balanced_braces'
                             }
                           ],
                           'type' => 'brace_command_context'
@@ -563,7 +563,7 @@ $result_trees{'inline'} = {
                                     'line_nr' => 15,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed'
+                                  'type' => 'balanced_braces'
                                 }
                               ],
                               'type' => 'brace_command_arg'
@@ -582,7 +582,7 @@ $result_trees{'inline'} = {
                         'line_nr' => 15,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'contents' => [
@@ -595,7 +595,7 @@ $result_trees{'inline'} = {
                         'line_nr' => 15,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'text' => '$ ``'

@@ -48,7 +48,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'contents' => [
@@ -74,7 +74,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_arg'

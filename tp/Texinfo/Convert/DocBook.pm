@@ -1713,8 +1713,10 @@ sub _convert($$;$)
       delete $self->{'document_context'}->[-1]->{'in_preformatted'};
     }
   }
+
   $result = '{'.$result.'}' 
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
+     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
+
   foreach my $format_element (@close_format_elements) {
     $result .= "</$format_element>";
   }

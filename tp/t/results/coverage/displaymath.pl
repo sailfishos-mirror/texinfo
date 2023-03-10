@@ -46,7 +46,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => '\\over'
@@ -62,7 +62,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => '
@@ -295,7 +295,7 @@ $result_trees{'displaymath'} = {
                             'line_nr' => 13,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         }
                       ],
                       'type' => 'brace_command_arg'
@@ -314,7 +314,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 13,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => ' '
@@ -336,7 +336,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 13,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'contents' => [
@@ -354,7 +354,7 @@ $result_trees{'displaymath'} = {
                     'line_nr' => 13,
                     'macro' => ''
                   },
-                  'type' => 'bracketed'
+                  'type' => 'balanced_braces'
                 }
               ],
               'source_info' => {
@@ -362,7 +362,7 @@ $result_trees{'displaymath'} = {
                 'line_nr' => 13,
                 'macro' => ''
               },
-              'type' => 'bracketed'
+              'type' => 'balanced_braces'
             },
             {
               'text' => '

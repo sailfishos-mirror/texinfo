@@ -321,7 +321,7 @@ sub _convert($)
     }
   }
   $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
+     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
   return $result;
 }
 

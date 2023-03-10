@@ -424,7 +424,7 @@ close_current (ELEMENT *current,
       enum context c;
       switch (current->type)
         {
-        case ET_bracketed:
+        case ET_balanced_braces:
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
           if (current->contents.number > 0

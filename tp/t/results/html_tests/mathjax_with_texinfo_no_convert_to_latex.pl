@@ -44,7 +44,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'contents' => [
@@ -70,7 +70,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_arg'

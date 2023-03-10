@@ -6227,7 +6227,7 @@ sub _convert_preformatted_type($$$$)
 
 $default_types_conversion{'preformatted'} = \&_convert_preformatted_type;
 
-sub _convert_bracketed_type($$$$) {
+sub _convert_balanced_braces_type($$$$) {
   my $self = shift;
   my $type = shift;
   my $element = shift;
@@ -6236,7 +6236,7 @@ sub _convert_bracketed_type($$$$) {
   return '{'.$content.'}';
 }
 
-$default_types_conversion{'bracketed'} = \&_convert_bracketed_type;
+$default_types_conversion{'balanced_braces'} = \&_convert_balanced_braces_type;
 
 # use the type and not the index commands names, as they are diverse and
 # can be dynamically added, so it is difficult to use as selector for output

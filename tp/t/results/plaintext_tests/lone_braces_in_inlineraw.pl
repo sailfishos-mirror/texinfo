@@ -34,7 +34,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'info' => {

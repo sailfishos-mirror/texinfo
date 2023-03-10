@@ -33,7 +33,7 @@ $result_trees{'math'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'text' => '\\over'
@@ -49,7 +49,7 @@ $result_trees{'math'} = {
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_context'
@@ -206,7 +206,7 @@ $result_trees{'math'} = {
                                     'line_nr' => 8,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed'
+                                  'type' => 'balanced_braces'
                                 }
                               ],
                               'type' => 'brace_command_arg'
@@ -225,7 +225,7 @@ $result_trees{'math'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'text' => ' '
@@ -247,7 +247,7 @@ $result_trees{'math'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     },
                     {
                       'contents' => [
@@ -265,7 +265,7 @@ $result_trees{'math'} = {
                             'line_nr' => 8,
                             'macro' => ''
                           },
-                          'type' => 'bracketed'
+                          'type' => 'balanced_braces'
                         }
                       ],
                       'source_info' => {
@@ -273,7 +273,7 @@ $result_trees{'math'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed'
+                      'type' => 'balanced_braces'
                     }
                   ],
                   'type' => 'brace_command_context'

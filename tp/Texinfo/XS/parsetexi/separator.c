@@ -196,7 +196,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
            || current_context() == ct_rawpreformatted
            || current_context() == ct_inlineraw)
     {
-      ELEMENT *b = new_element (ET_bracketed);
+      ELEMENT *b = new_element (ET_balanced_braces);
       abort_empty_line (&current, NULL);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
@@ -244,7 +244,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       current = end_paragraph (current, 0, 0);
     }
 
-  if (current->type == ET_bracketed
+  if (current->type == ET_balanced_braces
       || current->type == ET_bracketed_arg)
     {
       /* Used in @math */
