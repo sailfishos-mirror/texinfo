@@ -3215,7 +3215,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                       {},
                       {}
                     ],
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -9211,7 +9211,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -13606,7 +13606,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                       {},
                       {}
                     ],
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -15483,7 +15483,7 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'structure' => {}
                 }
@@ -16021,7 +16021,7 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                             'section_number' => 21
                                                                                           }
                                                                                         },
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'node_next' => {
@@ -16398,7 +16398,7 @@ $result_menus{'at_commands_in_refs_latin1'} = {
                                                                                     'menu_next' => {
                                                                                       'cmdname' => 'node',
                                                                                       'extra' => {
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'menu_next' => {

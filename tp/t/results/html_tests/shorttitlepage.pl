@@ -337,7 +337,7 @@ span:hover a.copiable-link {visibility: visible}
 
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="Top-of-_0040title-HTML-test"><span>Top of @title <small class="sc">HTML</small> <code class="code">test</code><a class="copiable-link" href="#Top-of-_0040title-HTML-test"> &para;</a></span></h1>
+<h1 class="top" id="Top-of-_0040title-html-test"><span>Top of @title <small class="sc">HTML</small> <code class="code">test</code><a class="copiable-link" href="#Top-of-_0040title-html-test"> &para;</a></span></h1>
 
 <p>Top.
 </p>

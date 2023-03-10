@@ -163,15 +163,15 @@ SKIP: {
   my $line_tree = $parser->parse_texi_line($texi_line);
   my $normalized_line = normalize_node($line_tree);
   is ($normalized_line,
-  '-A-SC-accents-_00ef-_00ef-_1e14-_0142-_1e08-_0146_0303_0304-_0155_030c-_0129_0304-_00ff-_0131-_0237-_00c7-_0118-_1ea1-a_0361-_0227-characters-_0142-_00a1-_00e5-_0153-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-_00a0_2003_2002_0085_180e-',
+  '-A-sc-accents-_00ef-_00ef-_1e14-_0142-_1e08-_0146_0303_0304-_0155_030c-_0129_0304-_00ff-_0131-_0237-_00c7-_0118-_1ea1-a_0361-_0227-characters-_0142-_00a1-_00e5-_0153-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-_00a0_2003_2002_0085_180e-',
   'normalized complex line');
   my $transliterated_line = normalize_transliterate_texinfo($line_tree);
   is ($transliterated_line,
-  '-A-SC-accents-i-i-E-l-C-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-',
+  '-A-sc-accents-i-i-E-l-C-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-',
   'transliterated complex line');
   my $transliterated_line_no_unidecode = normalize_transliterate_texinfo($line_tree, 1);
   is ($transliterated_line_no_unidecode,
-'-A-SC-accents-i-i-_1e14-l-_1e08-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-_00a0_2003_2002_0085_180e-',
+'-A-sc-accents-i-i-_1e14-l-_1e08-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e-_2026-_002e_002e_002e-no-brace-commands-_0040-_002e-_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e-spaces-_00a0_2003_2002_0085_180e-',
   'transliterated complex line no unidecode');
 }
 
@@ -223,7 +223,7 @@ my $effect_of_sc_node_tree = $parser->parse_texi_line('@sc{'.$string_for_upper_c
        . ' @verb{!mverb!}}');
 my $effect_of_sc_node_normalized = normalize_node($effect_of_sc_node_tree);
 is ($effect_of_sc_node_normalized,
-    'A-_00d1-_00c5-TeX-MYIMAGE-chap-_0028f_0029node-ext-LATEX-00FF-MA_002bTH-LA-A-A_0040C-AB-MVERB',
+    'a-_00f1-_00e5-TeX-myimage-chap-_0028f_0029node-ext-latex-00ff-ma_002bth-la-a-a_0040c-ab-mverb',
     '@sc content');
 
 my $effect_of_var_node_tree = $parser->parse_texi_line('@var{'.$string_for_upper_case

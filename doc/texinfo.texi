@@ -18854,8 +18854,6 @@ and the text of the argument is recursively transformed:
 @@t @@U @@var @@verb @@w
 @end example
 
-@noindent For @code{@@sc}, any letters are capitalized.
-
 In addition, the following commands are replaced by constant text, as
 shown below.  If any of these commands have non-empty arguments, as in
 @code{@@TeX@{bad@}}, it is an error, and the result is unspecified.

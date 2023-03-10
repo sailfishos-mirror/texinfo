@@ -3143,7 +3143,7 @@ $result_trees{'at_commands_in_refs'} = {
                       {},
                       {}
                     ],
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -9139,7 +9139,7 @@ $result_trees{'at_commands_in_refs'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -13534,7 +13534,7 @@ $result_trees{'at_commands_in_refs'} = {
                       {},
                       {}
                     ],
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -15407,7 +15407,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
                   'structure' => {}
                 }
@@ -15945,7 +15945,7 @@ $result_nodes{'at_commands_in_refs'} = {
                                                                                             'section_number' => 21
                                                                                           }
                                                                                         },
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'node_next' => {
@@ -16322,7 +16322,7 @@ $result_menus{'at_commands_in_refs'} = {
                                                                                     'menu_next' => {
                                                                                       'cmdname' => 'node',
                                                                                       'extra' => {
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'menu_next' => {
@@ -16873,7 +16873,7 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#someone_0040somewher-no_005fexplain_0040there"><a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a></a></li>
 <li><a href="#f_002d_002dile1-f_002d_002dile"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a></li>
 <li><a href="#-_0040-_007b_007d-_002e-"><code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code></a></li>
-<li><a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a></li>
+<li><a href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a></li>
 <li><a href="#env-code-option-samp-command-file-C_002dx-ESC"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a></li>
 <li><a href="#g_t8_002e27in">8.27<span class="dmn">in</span></a></li>
 <li><a href="#sansserif-slanted"><span class="sansserif">sansserif</span> <i class="slanted">slanted</i></a></li>
@@ -17056,25 +17056,25 @@ Next: <a href="#-_0040-_007b_007d-_002e-" accesskey="n" rel="next"><code class="
 <div class="chapter-level-extent" id="-_0040-_007b_007d-_002e-">
 <div class="nav-panel">
 <p>
-Next: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="n" rel="next"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Previous: <a href="#f_002d_002dile1-f_002d_002dile" accesskey="p" rel="prev"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" accesskey="n" rel="next"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Previous: <a href="#f_002d_002dile1-f_002d_002dile" accesskey="p" rel="prev"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="-_0040-_007b_007d-_002e--1"><span>20 <code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code><a class="copiable-link" href="#-_0040-_007b_007d-_002e--1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i">
+<div class="chapter-level-extent" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i">
 <div class="nav-panel">
 <p>
 Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel="next"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a>, Previous: <a href="#-_0040-_007b_007d-_002e-" accesskey="p" rel="prev"><code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i-1"><span>21 <cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i><a class="copiable-link" href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i-1"> &para;</a></span></h2>
+<h2 class="chapter" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"><span>21 <cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i><a class="copiable-link" href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="env-code-option-samp-command-file-C_002dx-ESC">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t8_002e27in" accesskey="n" rel="next">8.27<span class="dmn">in</span></a>, Previous: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="p" rel="prev"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t8_002e27in" accesskey="n" rel="next">8.27<span class="dmn">in</span></a>, Previous: <a href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" accesskey="p" rel="prev"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC-1"><span>22 <code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd><a class="copiable-link" href="#env-code-option-samp-command-file-C_002dx-ESC-1"> &para;</a></span></h2>
 
@@ -17163,7 +17163,7 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub class="sub">g</sub>H 3
 </p>
 <p><a class="ref" href="#-_0040-_007b_007d-_002e-"><code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code></a>
 </p>
-<p><a class="ref" href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>
+<p><a class="ref" href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>
 </p>
 <p><a class="ref" href="#env-code-option-samp-command-file-C_002dx-ESC"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a>
 </p>
@@ -17341,7 +17341,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 <chapter spaces=" "><sectiontitle><verb delimiter="."> @ {} . </verb></sectiontitle>
 
 </chapter>
-<node name="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" spaces=" "><nodename><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodename><nodenext automatic="on"><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodenext><nodeprev automatic="on"><verb delimiter="."> @ {} . </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" spaces=" "><nodename><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodename><nodenext automatic="on"><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodenext><nodeprev automatic="on"><verb delimiter="."> @ {} . </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></sectiontitle>
 
 </chapter>
@@ -17408,7 +17408,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 </para>
 <para><ref label="-_0040-_007b_007d-_002e-"><xrefnodename><verb delimiter="."> @ {} . </verb></xrefnodename></ref>
 </para>
-<para><ref label="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><xrefnodename><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></xrefnodename></ref>
+<para><ref label="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i"><xrefnodename><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></xrefnodename></ref>
 </para>
 <para><ref label="env-code-option-samp-command-file-C_002dx-ESC"><xrefnodename><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></xrefnodename></ref>
 </para>
@@ -17508,7 +17508,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 <title><literal> @ {} . </literal></title>
 
 </chapter>
-<chapter label="21" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i">
+<chapter label="21" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i">
 <title><citetitle>cite asis</citetitle> in&amp;#160;@w&amp;#160;<emphasis role="bold">b</emphasis><!-- /@w --> in r SC <emphasis role="bold">str</emphasis> <literal>t</literal> <replaceable>var</replaceable> <firstterm>dfn</firstterm> <emphasis>i</emphasis></title>
 
 </chapter>
@@ -17576,7 +17576,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="-_0040-_007b_007d-_002e-"><literal> @ {} . </literal></link>
 </para>
-<para><link linkend="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><citetitle>cite asis</citetitle> in&amp;#160;@w&amp;#160;<emphasis role="bold">b</emphasis><!-- /@w --> in r SC <emphasis role="bold">str</emphasis> <literal>t</literal> <replaceable>var</replaceable> <firstterm>dfn</firstterm> <emphasis>i</emphasis></link>
+<para><link linkend="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i"><citetitle>cite asis</citetitle> in&amp;#160;@w&amp;#160;<emphasis role="bold">b</emphasis><!-- /@w --> in r SC <emphasis role="bold">str</emphasis> <literal>t</literal> <replaceable>var</replaceable> <firstterm>dfn</firstterm> <emphasis>i</emphasis></link>
 </para>
 <para><link linkend="env-code-option-samp-command-file-C_002dx-ESC"><envar>env</envar> <literal>code</literal> <option>option</option> &#8216;<literal>samp</literal>&#8217; <command>command</command> <filename>file</filename> <userinput>C-x <keycap>ESC</keycap></userinput></link>
 </para>
@@ -17679,7 +17679,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\label{anchor:-_0040-_007b_007d-_002e-}%
 
 \\chapter{{\\Texinfocommandstyletextcite{cite asis} \\hbox{in @w \\textbf{b}} \\textnormal{in r} \\textsc{sc} \\textbf{str} \\texttt{t} \\Texinfocommandstyletextvar{var} \\textsl{dfn} \\textit{i}}}
-\\label{anchor:cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i}%
+\\label{anchor:cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}%
 
 \\chapter{{\\texttt{env} \\texttt{code} \\texttt{option} `\\texttt{samp}\' \\texttt{command} \\texttt{file} \\Texinfocommandstyletextkbd{C-x \\texttt{ESC}}}}
 \\label{anchor:env-code-option-samp-command-file-C_002dx-ESC}%
@@ -17739,7 +17739,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:-_0040-_007b_007d-_002e-]{\\chaptername~\\ref*{anchor:-_0040-_007b_007d-_002e-} [\\verb| @ {} . |], page~\\pageref*{anchor:-_0040-_007b_007d-_002e-}}
 
-\\hyperref[anchor:cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i]{\\chaptername~\\ref*{anchor:cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i} [\\Texinfocommandstyletextcite{cite asis} \\hbox{in @w \\textbf{b}} \\textnormal{in r} \\textsc{sc} \\textbf{str} \\texttt{t} \\Texinfocommandstyletextvar{var} \\textsl{dfn} \\textit{i}], page~\\pageref*{anchor:cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i}}
+\\hyperref[anchor:cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i]{\\chaptername~\\ref*{anchor:cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i} [\\Texinfocommandstyletextcite{cite asis} \\hbox{in @w \\textbf{b}} \\textnormal{in r} \\textsc{sc} \\textbf{str} \\texttt{t} \\Texinfocommandstyletextvar{var} \\textsl{dfn} \\textit{i}], page~\\pageref*{anchor:cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}}
 
 \\hyperref[anchor:env-code-option-samp-command-file-C_002dx-ESC]{\\chaptername~\\ref*{anchor:env-code-option-samp-command-file-C_002dx-ESC} [\\texttt{env} \\texttt{code} \\texttt{option} `\\texttt{samp}\' \\texttt{command} \\texttt{file} \\Texinfocommandstyletextkbd{C-x \\texttt{ESC}}], page~\\pageref*{anchor:env-code-option-samp-command-file-C_002dx-ESC}}
 

@@ -1,5 +1,14 @@
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	No capitalization of @sc argument in node name normalization
+
+	* NEWS, doc/texinfo.texi (HTML Xref Command Expansion),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/t/nodenormalization.t: no upper-casing of @sc argument in node
+	normalization (and therfore in HTML cross references).
+
+2023-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/converters_tests.t, tp/t/nodenormalization.t, tp/Makefile.tres:
 	test commands with lower case arguments in @var, with commands_in_var
 	and a test in nodenormalization.t.

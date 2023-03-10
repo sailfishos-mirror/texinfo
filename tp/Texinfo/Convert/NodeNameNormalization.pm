@@ -248,12 +248,11 @@ sub _unicode_to_transliterate($;$)
 }
 
 
-sub _convert($;$);
+sub _convert($);
 
-sub _convert($;$)
+sub _convert($)
 {
   my $element = shift;
-  my $in_sc = shift;
 
   return '' if (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
@@ -267,7 +266,6 @@ sub _convert($;$)
   if (defined($element->{'text'})) {
     $result = $element->{'text'};
     $result =~ s/\s+/ /g;
-    $result = uc($result) if ($in_sc);
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
@@ -279,9 +277,6 @@ sub _convert($;$)
           and defined($element->{'extra'}->{'clickstyle'})
           and defined($normalize_node_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
       my $result = $normalize_node_brace_no_arg_commands{$command};
-      if ($in_sc and $Texinfo::Commands::letter_no_arg_commands{$command}) {
-        $result = uc($result);
-      }
       return $result;
     # commands with braces
     } elsif ($accent_commands{$element->{'cmdname'}}) {
@@ -296,13 +291,7 @@ sub _convert($;$)
         $accented_char = Texinfo::Convert::Text::ascii_accent($accent_text,
                                                               $element);
       }
-      if ($in_sc) {
-        return uc ($accented_char);
-      } else {
-        return $accented_char;
-      }
-    #} elsif ($element->{'cmdname'} eq 'image') {
-    #  return _convert($element->{'args'}->[0]);
+      return $accented_char;
     } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
       my @args_try_order;
       if ($element->{'cmdname'} eq 'inforef') {
@@ -323,13 +312,12 @@ sub _convert($;$)
            and (($element->{'args'}->[0]->{'type'}
                 and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
                 or $element->{'cmdname'} eq 'math')) {
-      my $sc = 1 if ($element->{'cmdname'} eq 'sc' or $in_sc);
-      return _convert($element->{'args'}->[0], $sc);
+      return _convert($element->{'args'}->[0]);
     }
   }
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
-      $result .= _convert($content, $in_sc);
+      $result .= _convert($content);
     }
   }
   $result = '{'.$result.'}'

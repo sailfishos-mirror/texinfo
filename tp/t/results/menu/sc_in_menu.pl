@@ -113,7 +113,7 @@ $result_trees{'sc_in_menu'} = {
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'NODE'
+                    'normalized' => 'node'
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -551,7 +551,7 @@ $result_trees{'sc_in_menu'} = {
                         'node_content' => [
                           {}
                         ],
-                        'normalized' => 'EXAMPLE-NODE'
+                        'normalized' => 'example-node'
                       },
                       'type' => 'menu_entry_node'
                     },
@@ -721,7 +721,7 @@ $result_trees{'sc_in_menu'} = {
         }
       ],
       'extra' => {
-        'normalized' => 'NODE'
+        'normalized' => 'node'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -800,7 +800,7 @@ $result_nodes{'sc_in_menu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'NODE'
+        'normalized' => 'node'
       },
       'structure' => {
         'node_up' => {}
@@ -819,7 +819,7 @@ $result_menus{'sc_in_menu'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'NODE'
+        'normalized' => 'node'
       },
       'structure' => {
         'menu_up' => {},
@@ -908,7 +908,7 @@ th.menu-comment {text-align:left}
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td class="menu-entry-destination">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>
+<tr><td class="menu-entry-destination">&bull; <a href="#node" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
@@ -922,15 +922,15 @@ th.menu-comment {text-align:left}
 </th></tr></table>
 
 <hr>
-<a class="node-id" id="NODE"></a><div class="nav-panel">
+<a class="node-id" id="node"></a><div class="nav-panel">
 <p>
 Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
-<h4 class="node"><span><small class="sc">NODE</small><a class="copiable-link" href="#NODE"> &para;</a></span></h4>
+<h4 class="node"><span><small class="sc">NODE</small><a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   </pre><pre class="menu-entry-description-preformatted"><span class="sc">EXAMPLE DESCRIP TION</span>
+<pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#example-node" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   </pre><pre class="menu-entry-description-preformatted"><span class="sc">EXAMPLE DESCRIP TION</span>
 </pre><pre class="menu-comment-preformatted">
 
 <span class="sc">EXAMPLE COMMENT</span>
@@ -970,7 +970,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 </pre></example>
 </menucomment></menu>
 
-<node name="NODE" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
+<node name="node" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
 
 <example endspaces=" ">
 <menu endspaces=" ">

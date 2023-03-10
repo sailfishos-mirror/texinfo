@@ -2248,7 +2248,7 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <a class="index-entry-id" id="index-hhh-jjj-lll-1"></a>
 <a class="index-entry-id" id="index-hhh-1"></a>
 <a class="index-entry-id" id="index-hhh-jjj-2"></a>
-<a class="index-entry-id" id="index-hhh-JJJ-jjj"></a>
+<a class="index-entry-id" id="index-hhh-jjj-jjj"></a>
 <a class="index-entry-id" id="index-hhh-jjj-lll-2"></a>
 <a class="index-entry-id" id="index-hhh-k-nnn"></a>
 <a class="index-entry-id" id="index-hhh-l-third"></a>
@@ -2285,7 +2285,7 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-jjj-lll">lll</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-jjj-lll-1">lll</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-jjj-lll-ppp">lll, ppp</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-JJJ-jjj"><a class="email" href="mailto:jjj">mymail</a></a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-jjj-jjj"><a class="email" href="mailto:jjj">mymail</a></a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-hhh-k">k</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-k-nnn">nnn</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1">l</td><td></td></tr>
