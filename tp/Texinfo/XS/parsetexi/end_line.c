@@ -666,8 +666,8 @@ end_line_def_line (ELEMENT *current)
       if (def_info->name)
         {
           char *t;
-          /* Set index_entry unless an empty ET_bracketed_def_content. */
-          if (def_info->name->type == ET_bracketed_def_content
+          /* Set index_entry unless an empty ET_bracketed_arg. */
+          if (def_info->name->type == ET_bracketed_arg
               && (def_info->name->contents.number == 0
                   || (def_info->name->contents.number == 1
                       && (t = def_info->name->contents.list[0]->text.text)

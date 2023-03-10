@@ -81,7 +81,7 @@ multitable_head
 multitable_body
 row
 bracketed
-bracketed_def_content
+bracketed_arg
 def_aggregate
 bracketed_inserted
 

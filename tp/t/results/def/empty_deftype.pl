@@ -43,7 +43,7 @@ $result_trees{'empty_deftype'} = {
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -420,7 +420,7 @@ $result_trees{'empty_deftype'} = {
                         'line_nr' => 9,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

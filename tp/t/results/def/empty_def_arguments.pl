@@ -249,7 +249,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -267,7 +267,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -309,7 +309,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 6,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -351,7 +351,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -374,7 +374,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -416,7 +416,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -453,7 +453,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 9,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -471,7 +471,7 @@ $result_trees{'empty_def_arguments'} = {
                         'line_nr' => 9,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {

@@ -134,7 +134,7 @@ $result_trees{'defx_in_example'} = {
                             'line_nr' => 3,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {

@@ -115,7 +115,7 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                     'line_nr' => 3,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed_def_content'
+                                  'type' => 'bracketed_arg'
                                 },
                                 {
                                   'extra' => {
@@ -196,7 +196,7 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                     'line_nr' => 5,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed_def_content'
+                                  'type' => 'bracketed_arg'
                                 }
                               ],
                               'info' => {

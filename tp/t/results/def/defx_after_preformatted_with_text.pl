@@ -153,7 +153,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {

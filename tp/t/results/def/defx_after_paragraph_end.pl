@@ -139,7 +139,7 @@ $result_trees{'defx_after_paragraph_end'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

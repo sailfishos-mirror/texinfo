@@ -58,7 +58,7 @@ char *element_type_names[] = {
 "multitable_body",
 "row",
 "bracketed",
-"bracketed_def_content",
+"bracketed_arg",
 "def_aggregate",
 "bracketed_inserted",
 "elided_rawpreformatted",

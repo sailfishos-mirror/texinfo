@@ -156,7 +156,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -179,7 +179,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -345,7 +345,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -544,7 +544,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -567,7 +567,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -733,7 +733,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 9,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -906,7 +906,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 12,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1134,7 +1134,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 15,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1346,7 +1346,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 16,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1432,7 +1432,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 16,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1630,7 +1630,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 19,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1679,7 +1679,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 19,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -2086,7 +2086,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 26,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -2278,7 +2278,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 27,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -2451,7 +2451,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 30,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -2656,7 +2656,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 31,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -2829,7 +2829,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 34,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -3021,7 +3021,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 35,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -3194,7 +3194,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 38,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -3414,7 +3414,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 39,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -3786,7 +3786,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 43,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -4186,7 +4186,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 47,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -4575,7 +4575,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 53,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -4626,7 +4626,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 53,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -4781,7 +4781,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 56,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -4832,7 +4832,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 56,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -5359,7 +5359,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 65,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -5410,7 +5410,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 65,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -5565,7 +5565,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 68,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -5616,7 +5616,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 68,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -6143,7 +6143,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 77,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -6194,7 +6194,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 77,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -6349,7 +6349,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 80,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -6400,7 +6400,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 80,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -6968,7 +6968,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 89,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11213,7 +11213,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 149,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11236,7 +11236,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 149,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11259,7 +11259,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 149,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11470,7 +11470,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 152,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11493,7 +11493,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 152,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -11516,7 +11516,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         'line_nr' => 152,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

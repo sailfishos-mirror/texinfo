@@ -95,7 +95,7 @@ $result_trees{'space_in_def_for_index'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -126,7 +126,7 @@ $result_trees{'space_in_def_for_index'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -157,7 +157,7 @@ $result_trees{'space_in_def_for_index'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -217,7 +217,7 @@ $result_trees{'space_in_def_for_index'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -240,7 +240,7 @@ $result_trees{'space_in_def_for_index'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

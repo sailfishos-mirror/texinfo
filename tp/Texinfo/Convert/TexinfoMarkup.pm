@@ -1525,7 +1525,7 @@ sub _convert($$;$)
               $format_element = $type;
             }
             if ($arg->{'type'}
-                and ($arg->{'type'} eq 'bracketed_def_content'
+                and ($arg->{'type'} eq 'bracketed_arg'
                   or ($arg->{'type'} eq 'bracketed_inserted'))) {
               push @$attribute, ['bracketed', 'on'];
               push @$attribute, _leading_trailing_spaces_arg($arg);

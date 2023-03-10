@@ -154,7 +154,7 @@ $result_trees{'defx_after_comment_in_example'} = {
                             'line_nr' => 4,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {

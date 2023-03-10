@@ -260,7 +260,7 @@ $result_trees{'colon_in_index_entry'} = {
                         'line_nr' => 11,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -283,7 +283,7 @@ $result_trees{'colon_in_index_entry'} = {
                         'line_nr' => 11,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -356,7 +356,7 @@ $result_trees{'colon_in_index_entry'} = {
                         'line_nr' => 12,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -379,7 +379,7 @@ $result_trees{'colon_in_index_entry'} = {
                         'line_nr' => 12,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

@@ -131,7 +131,7 @@ sub convert_to_texinfo($)
     }
     if ($element->{'type'}
         and ($element->{'type'} eq 'bracketed'
-             or $element->{'type'} eq 'bracketed_def_content')) {
+             or $element->{'type'} eq 'bracketed_arg')) {
       $result .= '{';
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {
@@ -151,7 +151,7 @@ sub convert_to_texinfo($)
     }
     $result .= '}' if ($element->{'type'}
                        and ($element->{'type'} eq 'bracketed'
-                            or $element->{'type'} eq 'bracketed_def_content'));
+                            or $element->{'type'} eq 'bracketed_arg'));
   }
   return $result;
 }

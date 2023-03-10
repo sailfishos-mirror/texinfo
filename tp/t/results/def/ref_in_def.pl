@@ -151,7 +151,7 @@ $result_trees{'ref_in_def'} = {
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -355,7 +355,7 @@ $result_trees{'ref_in_def'} = {
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

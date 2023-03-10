@@ -174,7 +174,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                             'line_nr' => 7,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {

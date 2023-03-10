@@ -197,7 +197,7 @@ $result_trees{'complex_nestings'} = {
                             'line_nr' => 9,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {
@@ -326,7 +326,7 @@ $result_trees{'complex_nestings'} = {
                             'line_nr' => 10,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {
@@ -410,7 +410,7 @@ $result_trees{'complex_nestings'} = {
                                     'line_nr' => 11,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed_def_content'
+                                  'type' => 'bracketed_arg'
                                 },
                                 {
                                   'extra' => {
@@ -433,7 +433,7 @@ $result_trees{'complex_nestings'} = {
                                     'line_nr' => 11,
                                     'macro' => ''
                                   },
-                                  'type' => 'bracketed_def_content'
+                                  'type' => 'bracketed_arg'
                                 },
                                 {
                                   'extra' => {
@@ -555,7 +555,7 @@ $result_trees{'complex_nestings'} = {
                                             'line_nr' => 12,
                                             'macro' => ''
                                           },
-                                          'type' => 'bracketed_def_content'
+                                          'type' => 'bracketed_arg'
                                         },
                                         {
                                           'extra' => {
@@ -648,7 +648,7 @@ $result_trees{'complex_nestings'} = {
                                             'line_nr' => 14,
                                             'macro' => ''
                                           },
-                                          'type' => 'bracketed_def_content'
+                                          'type' => 'bracketed_arg'
                                         },
                                         {
                                           'extra' => {

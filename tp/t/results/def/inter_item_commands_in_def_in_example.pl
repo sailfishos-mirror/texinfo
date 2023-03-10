@@ -177,7 +177,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         },
                         {
                           'extra' => {
@@ -195,7 +195,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'type' => 'bracketed_def_content'
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'info' => {

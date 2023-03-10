@@ -85,7 +85,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'type' => 'block_line_arg'

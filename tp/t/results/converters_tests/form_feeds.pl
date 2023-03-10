@@ -464,7 +464,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -495,7 +495,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -526,7 +526,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -557,7 +557,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -588,7 +588,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {
@@ -643,7 +643,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -674,7 +674,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -705,7 +705,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -736,7 +736,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -767,7 +767,7 @@ $result_trees{'form_feeds'} = {
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'info' => {

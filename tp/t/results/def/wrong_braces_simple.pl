@@ -389,7 +389,7 @@ $result_trees{'wrong_braces_simple'} = {
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -555,7 +555,7 @@ $result_trees{'wrong_braces_simple'} = {
                         'line_nr' => 10,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -1002,7 +1002,7 @@ $result_trees{'wrong_braces_simple'} = {
                         'line_nr' => 16,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'type' => 'line_arg'
@@ -1122,7 +1122,7 @@ $result_trees{'wrong_braces_simple'} = {
                         'line_nr' => 17,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     }
                   ],
                   'type' => 'line_arg'

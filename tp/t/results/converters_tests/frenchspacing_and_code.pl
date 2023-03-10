@@ -315,7 +315,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 18,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -338,7 +338,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 18,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -361,7 +361,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 18,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -384,7 +384,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 18,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -609,7 +609,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 22,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -632,7 +632,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 22,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -655,7 +655,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 22,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1096,7 +1096,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 38,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1119,7 +1119,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 38,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1142,7 +1142,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 38,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1165,7 +1165,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 38,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1390,7 +1390,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 42,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1413,7 +1413,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 42,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {
@@ -1436,7 +1436,7 @@ $result_trees{'frenchspacing_and_code'} = {
                         'line_nr' => 42,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

@@ -2952,7 +2952,7 @@ sub _split_def_args
     return @elements;
   } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed') {
     _isolate_last_space($self, $root);
-    $root->{'type'} = 'bracketed_def_content';
+    $root->{'type'} = 'bracketed_arg';
   }
   return $root;
 }
@@ -3018,7 +3018,7 @@ sub _parse_def($$$$)
     if ( $token->{'type'}
         and ($token->{'type'} eq 'spaces'
                or $token->{'type'} eq 'spaces_inserted'
-               or $token->{'type'} eq 'bracketed_def_content'
+               or $token->{'type'} eq 'bracketed_arg'
                or $token->{'type'} eq 'bracketed_inserted'
                or $token->{'type'} eq 'delimiter')) {
       # we create a {'contents' =>} only if there is more than one
@@ -3049,7 +3049,7 @@ sub _parse_def($$$$)
       }
     }
 
-    if ($token->{'type'} and ($token->{'type'} eq 'bracketed_def_content'
+    if ($token->{'type'} and ($token->{'type'} eq 'bracketed_arg'
                                 or $token->{'type'} eq 'bracketed_inserted')) {
       $result{$arg} = $token;
       shift @contents;
@@ -3653,7 +3653,7 @@ sub _end_line_def_line($$$)
       $index_entry = $name_element
        # empty bracketed
         unless ($name_element->{'type'}
-                and $name_element->{'type'} eq 'bracketed_def_content'
+                and $name_element->{'type'} eq 'bracketed_arg'
                 and (!$name_element->{'contents'}
                      or (!scalar(@{$name_element->{'contents'}}))
                      or (scalar(@{$name_element->{'contents'}}) == 1
@@ -8260,9 +8260,9 @@ are present as elements in the tree.
 This a special type containing content in brackets in the context
 where they are valid, in C<@math>.
 
-=item bracketed_def_content
+=item bracketed_arg
 
-Content in brackets on definition command lines.
+Bracketed argument.  On definition command lines.
 
 =item def_aggregate
 

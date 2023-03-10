@@ -176,7 +176,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         }
 
       if (e->type == ET_bracketed
-          || e->type == ET_bracketed_def_content)
+          || e->type == ET_bracketed_arg)
         {
           KEY_PAIR *k;
           ADD("{");
@@ -200,7 +200,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         convert_to_texinfo_internal ((ELEMENT *)k->value, result);
 
       if (e->type == ET_bracketed
-          || e->type == ET_bracketed_def_content)
+          || e->type == ET_bracketed_arg)
         ADD("}");
     }
 

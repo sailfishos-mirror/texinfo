@@ -317,7 +317,7 @@ $result_trees{'def_groupings_args'} = {
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'type' => 'bracketed_def_content'
+                      'type' => 'bracketed_arg'
                     },
                     {
                       'extra' => {

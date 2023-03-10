@@ -1,5 +1,17 @@
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_split_def_args, _parse_def)
+	(_end_line_def_line), tp/Texinfo/XS/parsetexi/convert.c
+	(convert_to_texinfo_internal), tp/Texinfo/XS/parsetexi/def.c
+	(next_bracketed_or_word_agg, split_delimiters),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): rename
+	bracketed_def_content as bracketed_arg.
+
+2023-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	No capitalization of @sc argument in node name normalization
 
 	* NEWS, doc/texinfo.texi (HTML Xref Command Expansion),
