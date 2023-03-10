@@ -8114,7 +8114,7 @@ An empty line (possibly containing whitespace characters only).
 
 spaces appearing after an @-command without braces that does not
 take takes argument on the line, but which is followed by ignorable
-spaces, such as C<@item> in C<@itemize> of C<@multitable>, or C<@noindent>.
+spaces, such as C<@item> in C<@itemize> or C<@multitable>, or C<@noindent>.
 
 =item spaces_after_close_brace
 
@@ -8168,7 +8168,8 @@ and sectioning commands.
 
 =item before_node_section
 
-Content before nodes and sectioning commands at the beginning of C<document_root>.
+Content before nodes and sectioning commands at the beginning of
+C<document_root>.
 
 =item document_root
 
@@ -8179,7 +8180,7 @@ fragments using C<parse_texi_line>.  C<document_root> is the document
 root otherwise.
 
 C<document_root> first content should be C<before_node_section>, then nodes and
-sections @-commands elements, and also C<@bye> element.
+sections @-commands elements, C<@bye> element and C<postamble_after_end>.
 
 =item postamble_after_end
 
