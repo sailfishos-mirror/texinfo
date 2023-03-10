@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 12; }
+BEGIN { plan tests => 13; }
 
 use Data::Dumper;
 use Locale::Messages;
