@@ -1195,7 +1195,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

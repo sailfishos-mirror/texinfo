@@ -25,7 +25,7 @@ $result_trees{'setfilename'} = {
                         {
                           'text' => ' comment
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -95,7 +95,7 @@ $result_trees{'setfilename'} = {
                         {
                           'text' => ' comment
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

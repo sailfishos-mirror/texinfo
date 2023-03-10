@@ -13,11 +13,11 @@ $result_trees{'comma_value_in_macro_arg'} = {
           'args' => [
             {
               'text' => 'comma',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => ',',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

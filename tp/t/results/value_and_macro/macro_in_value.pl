@@ -85,11 +85,11 @@ $result_trees{'macro_in_value'} = {
           'args' => [
             {
               'text' => 'flagab',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '@ab',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

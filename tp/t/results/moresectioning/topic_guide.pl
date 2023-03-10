@@ -1779,7 +1779,7 @@ $result_trees{'topic_guide'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

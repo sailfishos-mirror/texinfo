@@ -87,7 +87,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

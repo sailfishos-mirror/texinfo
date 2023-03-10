@@ -59,11 +59,11 @@ $result_trees{'test_two_include'} = {
               'args' => [
                 {
                   'text' => 'UPDATED',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => '28 March 2002',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -76,11 +76,11 @@ $result_trees{'test_two_include'} = {
               'args' => [
                 {
                   'text' => 'UPDATED-MONTH',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => 'March 2002',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -93,11 +93,11 @@ $result_trees{'test_two_include'} = {
               'args' => [
                 {
                   'text' => 'EDITION',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => '4.2',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -110,11 +110,11 @@ $result_trees{'test_two_include'} = {
               'args' => [
                 {
                   'text' => 'VERSION',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => '4.2',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -135,11 +135,11 @@ $result_trees{'test_two_include'} = {
           'args' => [
             {
               'text' => 'VERSION_DATE',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'October 2002',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -152,11 +152,11 @@ $result_trees{'test_two_include'} = {
           'args' => [
             {
               'text' => 'SHORT_VERSION',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '2-0',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -169,11 +169,11 @@ $result_trees{'test_two_include'} = {
           'args' => [
             {
               'text' => 'RPM_VERSION',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '2.0.4',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

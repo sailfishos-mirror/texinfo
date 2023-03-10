@@ -473,7 +473,7 @@ $result_trees{'only_special_spaces_node'} = {
       "args" => [
         {
           "text" => "\n",
-          "type" => "misc_arg"
+          "type" => "rawline_arg"
         }
       ],
       "cmdname" => "bye"

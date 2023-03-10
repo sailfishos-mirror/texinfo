@@ -559,7 +559,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       if (!strchr (line, '\n'))
         {
           char *line2;
-          SOURCE_INFO save_src_info; 
+          SOURCE_INFO save_src_info;
 
           input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
 
@@ -655,11 +655,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
               for (i = 0; i < args->contents.number; i++)
                 {
-                  ELEMENT *misc_arg = new_element (ET_misc_arg);
-                  text_append_n (&misc_arg->text, 
+                  ELEMENT *rawline_arg = new_element (ET_rawline_arg);
+                  text_append_n (&rawline_arg->text,
                                  args->contents.list[i]->text.text,
                                  args->contents.list[i]->text.end);
-                  add_to_element_args (command_e, misc_arg);
+                  add_to_element_args (command_e, rawline_arg);
                 }
             }
           else

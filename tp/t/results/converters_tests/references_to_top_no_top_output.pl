@@ -367,7 +367,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

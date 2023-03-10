@@ -25,7 +25,7 @@ $result_trees{'text_before_and_after_bye'} = {
         {
           'text' => ' on bye line
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

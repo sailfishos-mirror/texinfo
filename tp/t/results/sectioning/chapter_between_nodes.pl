@@ -343,7 +343,7 @@ $result_trees{'chapter_between_nodes'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

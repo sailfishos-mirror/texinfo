@@ -13,11 +13,11 @@ $result_trees{'simple'} = {
           'args' => [
             {
               'text' => 'a-_5b',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'the value @b{b}',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -2389,7 +2389,7 @@ $result_trees{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

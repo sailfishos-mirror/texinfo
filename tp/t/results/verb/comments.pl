@@ -43,7 +43,7 @@ $result_trees{'comments'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -90,7 +90,7 @@ $result_trees{'comments'} = {
               'args' => [
                 {
                   'text' => ' other comment',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

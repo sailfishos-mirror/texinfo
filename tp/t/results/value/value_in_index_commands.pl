@@ -13,11 +13,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'cp',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'cp',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -30,11 +30,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'fn',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'fn',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -47,11 +47,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'syncodeindex_command',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '@syncodeindex',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -213,11 +213,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'truc',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'truc',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -312,11 +312,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'trucindex_command',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '@trucindex',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -334,11 +334,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'codeidx',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'codeidx',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -420,11 +420,11 @@ $result_trees{'value_in_index_commands'} = {
           'args' => [
             {
               'text' => 'defcodeindex_entry',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'a @var{index entry} t@\'e @^{@dotless{i}}',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

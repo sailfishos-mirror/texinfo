@@ -13,11 +13,11 @@ $result_trees{'value_after_brace_command'} = {
           'args' => [
             {
               'text' => 'bracedletter',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '{a}',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -30,11 +30,11 @@ $result_trees{'value_after_brace_command'} = {
           'args' => [
             {
               'text' => 'unknowncmd',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '@unknown',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -305,7 +305,7 @@ macroseven defined
                 {
                   'text' => ' @macrofour
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

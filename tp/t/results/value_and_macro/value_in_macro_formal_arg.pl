@@ -13,11 +13,11 @@ $result_trees{'value_in_macro_formal_arg'} = {
           'args' => [
             {
               'text' => 'argument',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'arg',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

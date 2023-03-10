@@ -26,7 +26,7 @@ $result_trees{'include_comment'} = {
                         'args' => [
                           {
                             'text' => ' comment',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'

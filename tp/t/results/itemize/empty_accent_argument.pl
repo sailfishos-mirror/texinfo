@@ -28,7 +28,7 @@ $result_trees{'empty_accent_argument'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'

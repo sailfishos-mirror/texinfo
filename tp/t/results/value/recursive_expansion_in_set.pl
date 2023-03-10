@@ -13,11 +13,11 @@ $result_trees{'recursive_expansion_in_set'} = {
           'args' => [
             {
               'text' => 'V',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '@value{V}',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

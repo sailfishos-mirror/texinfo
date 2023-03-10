@@ -30,7 +30,7 @@ $result_trees{'empty_label_with_space_comment'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

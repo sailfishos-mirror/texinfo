@@ -125,7 +125,7 @@ $result_trees{'defx_after_comment_in_example'} = {
                             {
                               'text' => ' comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

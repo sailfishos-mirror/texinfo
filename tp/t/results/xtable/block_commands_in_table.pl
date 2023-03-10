@@ -771,7 +771,7 @@ $result_trees{'block_commands_in_table'} = {
                             {
                               'text' => ' comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

@@ -65,7 +65,7 @@ $result_trees{'multiple_lang_chapters'} = {
                 {
                   'text' => ' @node Top is ignored in TeX and LaTeX, so switch here
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c',

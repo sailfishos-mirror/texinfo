@@ -390,7 +390,7 @@ $result_trees{'accent_on_table_line'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'

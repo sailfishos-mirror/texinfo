@@ -18,11 +18,11 @@ $result_trees{'end_ifset_in_format'} = {
           'args' => [
             {
               'text' => 'notset',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

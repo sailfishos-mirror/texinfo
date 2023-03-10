@@ -90,7 +90,7 @@ $result_trees{'no_empty_line_after_section'} = {
             {
               'text' => ' comment
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -111,7 +111,7 @@ $result_trees{'no_empty_line_after_section'} = {
                 {
                   'text' => ' c
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'comment'

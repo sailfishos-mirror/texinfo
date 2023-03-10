@@ -49,11 +49,11 @@ $result_trees{'set_in_item_missing_line'} = {
                               'args' => [
                                 {
                                   'text' => 'n',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -215,11 +215,11 @@ $result_trees{'set_in_item_missing_line'} = {
                               'args' => [
                                 {
                                   'text' => 'cn',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',

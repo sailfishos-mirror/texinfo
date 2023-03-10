@@ -18,7 +18,7 @@ $result_trees{'invalid_clickstyle'} = {
           'args' => [
             {
               'text' => '@result',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -74,7 +74,7 @@ $result_trees{'invalid_clickstyle'} = {
           'args' => [
             {
               'text' => '@nocmd',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',

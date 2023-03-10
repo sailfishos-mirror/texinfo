@@ -18,11 +18,11 @@ $result_trees{'macro_in_ifset_set'} = {
           'args' => [
             {
               'text' => 'a',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -139,7 +139,7 @@ $result_trees{'macro_in_ifset_set'} = {
           'args' => [
             {
               'text' => 'truc',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'unmacro',

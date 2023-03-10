@@ -118,7 +118,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                         {
                           'text' => ' ]
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

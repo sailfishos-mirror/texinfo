@@ -13,11 +13,11 @@ $result_trees{'value_in_node'} = {
           'args' => [
             {
               'text' => 'node1',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'Node 1',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -428,11 +428,11 @@ $result_trees{'value_in_node'} = {
           'args' => [
             {
               'text' => 'sec1',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'Section 1.1',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

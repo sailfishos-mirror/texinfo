@@ -117,7 +117,7 @@ $result_trees{'bye_in_macro'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

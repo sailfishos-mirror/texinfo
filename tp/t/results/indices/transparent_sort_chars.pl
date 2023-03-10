@@ -15,11 +15,11 @@ $result_trees{'transparent_sort_chars'} = {
               'args' => [
                 {
                   'text' => 'txiindexhyphenignore',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => '',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',

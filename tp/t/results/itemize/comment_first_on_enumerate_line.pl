@@ -18,7 +18,7 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                     {
                       'text' => ' comment on enumerate line
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

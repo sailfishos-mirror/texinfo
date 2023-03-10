@@ -36,7 +36,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -126,7 +126,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

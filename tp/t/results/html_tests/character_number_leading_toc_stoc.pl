@@ -126,7 +126,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -146,7 +146,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'shortcontents',

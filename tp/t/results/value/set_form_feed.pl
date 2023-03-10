@@ -13,11 +13,11 @@ $result_trees{'set_form_feed'} = {
           'args' => [
             {
               'text' => 'gg',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'a\\a\\f\\\\',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -30,11 +30,11 @@ $result_trees{'set_form_feed'} = {
           'args' => [
             {
               'text' => 'hh',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -47,11 +47,11 @@ $result_trees{'set_form_feed'} = {
           'args' => [
             {
               'text' => 'll',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -106,11 +106,11 @@ $result_trees{'inlineifsetifclear'} = {
           'args' => [
             {
               'text' => 'aaa',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

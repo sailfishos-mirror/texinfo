@@ -43,7 +43,7 @@ $result_trees{'comment_on_menu_line'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

@@ -1,5 +1,15 @@
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_handle_line_command),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	rename 'misc_arg' type as 'rawline_arg'.
+
+2023-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): protect from upper-casing
 	in @sc the node name and the associated text in @*ref.
 

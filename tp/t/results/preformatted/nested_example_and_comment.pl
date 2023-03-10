@@ -33,7 +33,7 @@ $result_trees{'nested_example_and_comment'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -180,7 +180,7 @@ $result_trees{'nested_example_and_comment'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -212,7 +212,7 @@ $result_trees{'nested_example_and_comment'} = {
                         {
                           'text' => '
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -336,7 +336,7 @@ $result_trees{'nested_example_and_comment'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -368,7 +368,7 @@ $result_trees{'nested_example_and_comment'} = {
                         {
                           'text' => '
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -425,7 +425,7 @@ $result_trees{'nested_example_and_comment'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

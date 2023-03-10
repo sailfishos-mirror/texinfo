@@ -100,7 +100,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                     {
                       'text' => ' float
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -193,7 +193,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                     {
                       'text' => ' listoffloats
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

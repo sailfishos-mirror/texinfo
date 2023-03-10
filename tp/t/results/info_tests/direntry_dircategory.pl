@@ -852,7 +852,7 @@ $result_trees{'direntry_dircategory'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

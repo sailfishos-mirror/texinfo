@@ -29,7 +29,7 @@ $result_trees{'table_command_comment'} = {
                     {
                       'text' => ' in comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

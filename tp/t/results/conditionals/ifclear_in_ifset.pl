@@ -99,7 +99,7 @@ $result_trees{'ifclear_in_ifset'} = {
             {
               'text' => ' WRONG - missing @end ifset.
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

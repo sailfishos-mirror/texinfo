@@ -27,7 +27,7 @@ $result_trees{'good_space_comment'} = {
                             {
                               'text' => ' space comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

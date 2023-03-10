@@ -409,7 +409,7 @@ $result_trees{'contents_and_shortcontents'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'shortcontents',
@@ -429,7 +429,7 @@ $result_trees{'contents_and_shortcontents'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

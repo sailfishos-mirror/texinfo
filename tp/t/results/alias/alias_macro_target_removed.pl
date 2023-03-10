@@ -168,7 +168,7 @@ $result_trees{'alias_macro_target_removed'} = {
           'args' => [
             {
               'text' => 'mystrong',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'unmacro',

@@ -89,7 +89,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

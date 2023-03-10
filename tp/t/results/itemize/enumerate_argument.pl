@@ -94,7 +94,7 @@ $result_trees{'enumerate_argument'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -171,7 +171,7 @@ $result_trees{'enumerate_argument'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

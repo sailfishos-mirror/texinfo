@@ -125,7 +125,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             {
                               'text' => ' comment before first deffnx
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

@@ -158,7 +158,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'page'
@@ -197,7 +197,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',

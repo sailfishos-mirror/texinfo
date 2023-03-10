@@ -13,11 +13,11 @@ $result_trees{'empty_set'} = {
           'args' => [
             {
               'text' => 'myspace',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

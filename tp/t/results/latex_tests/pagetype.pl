@@ -16,7 +16,7 @@ $result_trees{'pagetype'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourpaper',
@@ -36,7 +36,7 @@ $result_trees{'pagetype'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourwide',
@@ -187,7 +187,7 @@ $result_trees{'pagetype'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'smallbook',
@@ -231,7 +231,7 @@ $result_trees{'pagetype'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourpaper',

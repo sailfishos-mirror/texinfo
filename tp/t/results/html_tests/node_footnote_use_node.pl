@@ -31,7 +31,7 @@ $result_trees{'node_footnote_use_node'} = {
                 {
                   'text' => ' test footnotes with nodes only
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -977,7 +977,7 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

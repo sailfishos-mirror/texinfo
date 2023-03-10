@@ -312,7 +312,7 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

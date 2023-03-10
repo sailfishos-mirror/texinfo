@@ -13,11 +13,11 @@ $result_trees{'value_after_accent'} = {
           'args' => [
             {
               'text' => 'a_letter',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'a',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

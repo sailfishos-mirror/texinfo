@@ -764,7 +764,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

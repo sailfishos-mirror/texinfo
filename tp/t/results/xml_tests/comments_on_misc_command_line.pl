@@ -23,7 +23,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                     {
                       'text' => ' setfilename (text)
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -64,7 +64,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                     {
                       'text' => ' definfoenclose (number)
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -109,7 +109,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                     {
                       'text' => ' c (number)
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -143,7 +143,7 @@ $result_trees{'comments_on_misc_command_line'} = {
             {
               'text' => ' @c raisesections (skipline)
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'raisesections'
@@ -153,7 +153,7 @@ $result_trees{'comments_on_misc_command_line'} = {
             {
               'text' => '  @comment  (noarg)
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -177,7 +177,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                     {
                       'text' => ' pagesizes  (line)
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -224,7 +224,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                     {
                       'text' => ' everyheading (lineraw)
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -270,7 +270,7 @@ $result_trees{'comments_on_misc_command_line'} = {
             {
               'text' => ' indent (skipspace)
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

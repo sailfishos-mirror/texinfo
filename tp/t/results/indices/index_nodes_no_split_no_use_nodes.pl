@@ -1440,7 +1440,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

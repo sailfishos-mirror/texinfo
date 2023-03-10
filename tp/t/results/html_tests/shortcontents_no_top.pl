@@ -111,7 +111,7 @@ $result_trees{'shortcontents_no_top'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'shortcontents',

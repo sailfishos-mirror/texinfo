@@ -23,7 +23,7 @@ $result_trees{'misc_raw_comments'} = {
                     {
                       'text' => ' comment space
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -56,7 +56,7 @@ $result_trees{'misc_raw_comments'} = {
                         {
                           'text' => ' comment no space
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -130,7 +130,7 @@ $result_trees{'misc_raw_comments'} = {
                         {
                           'text' => ' comment after end tex
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

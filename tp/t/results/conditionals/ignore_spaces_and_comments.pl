@@ -144,7 +144,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                     {
                       'text' => ' no space comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -213,7 +213,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                     {
                       'text' => ' space comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'
@@ -287,7 +287,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

@@ -24,7 +24,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
                     {
                       'text' => ' comment on itemize line
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

@@ -18,7 +18,7 @@ $result_trees{'only_comment_on_quotation_line'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

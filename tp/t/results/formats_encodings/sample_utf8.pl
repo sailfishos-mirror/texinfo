@@ -26,7 +26,7 @@ $result_trees{'sample_utf8'} = {
                 {
                   'text' => ' %**start of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -136,7 +136,7 @@ $result_trees{'sample_utf8'} = {
                 {
                   'text' => ' %**end of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -279,7 +279,7 @@ $result_trees{'sample_utf8'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'page'
@@ -295,7 +295,7 @@ $result_trees{'sample_utf8'} = {
                         {
                           'text' => ' 0pt plus 1filll
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'vskip'
@@ -308,7 +308,7 @@ $result_trees{'sample_utf8'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',
@@ -367,7 +367,7 @@ $result_trees{'sample_utf8'} = {
                 {
                   'text' => ' Output the table of the contents at the beginning.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -377,7 +377,7 @@ $result_trees{'sample_utf8'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'contents',
@@ -486,7 +486,7 @@ $result_trees{'sample_utf8'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -1331,7 +1331,7 @@ $result_trees{'sample_utf8'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

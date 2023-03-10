@@ -14,7 +14,7 @@ $result_trees{'ref_in_sectioning'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

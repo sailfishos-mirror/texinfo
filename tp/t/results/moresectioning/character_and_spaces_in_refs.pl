@@ -1321,7 +1321,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

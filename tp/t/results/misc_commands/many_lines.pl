@@ -57,7 +57,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following afourpaper
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourpaper',
@@ -75,7 +75,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following smallbook
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'smallbook',
@@ -428,7 +428,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following raisesections
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'raisesections'
@@ -441,7 +441,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following lowersections
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'lowersections'
@@ -486,7 +486,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following afourpaper
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourpaper',
@@ -504,7 +504,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following afourlatex
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourlatex',
@@ -522,7 +522,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' on line following afourwide
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'afourwide',
@@ -1158,7 +1158,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'finalout'
@@ -1168,7 +1168,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'finalout'
@@ -1181,7 +1181,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'finalout'
@@ -1209,7 +1209,7 @@ $result_trees{'many_lines'} = {
                 {
                   'text' => ' a word after finalout
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'finalout'

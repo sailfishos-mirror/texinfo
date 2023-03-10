@@ -13,11 +13,11 @@ $result_trees{'value_node_directions'} = {
           'args' => [
             {
               'text' => 'a--foo',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'bar',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

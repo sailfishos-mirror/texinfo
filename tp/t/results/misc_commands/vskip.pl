@@ -14,7 +14,7 @@ $result_trees{'vskip'} = {
             {
               'text' => ' 0pt plus 1filll
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'vskip'

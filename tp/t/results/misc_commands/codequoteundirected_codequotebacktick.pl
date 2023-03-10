@@ -1439,7 +1439,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',

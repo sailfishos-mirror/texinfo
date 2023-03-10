@@ -27,7 +27,7 @@ $result_trees{'good_comment'} = {
                             {
                               'text' => ' comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

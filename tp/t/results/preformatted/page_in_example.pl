@@ -28,7 +28,7 @@ $result_trees{'page_in_example'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'page'

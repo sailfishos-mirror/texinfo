@@ -99,7 +99,7 @@ $result_trees{'simplest_no_node_section'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

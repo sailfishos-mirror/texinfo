@@ -525,7 +525,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',
@@ -661,7 +661,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                 {
                   'text' => ' note this chapter is not associated to a node
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -685,7 +685,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -1553,7 +1553,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -1646,7 +1646,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -1674,7 +1674,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

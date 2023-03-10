@@ -101,7 +101,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
             {
               'text' => ' on the line
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'

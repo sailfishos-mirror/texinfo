@@ -525,7 +525,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',
@@ -661,7 +661,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
                 {
                   'text' => ' note this chapter is not associated to a node
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -685,7 +685,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             {
               'text' => ' @insertcopying
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -1548,7 +1548,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             {
               'text' => ' @insertcopying
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -1636,7 +1636,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -1664,7 +1664,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

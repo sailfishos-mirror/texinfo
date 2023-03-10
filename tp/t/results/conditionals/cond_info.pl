@@ -31,7 +31,7 @@ $result_trees{'cond_info'} = {
                 {
                   'text' => ' test conditions
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -759,7 +759,7 @@ $result_trees{'cond_info'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -40,7 +40,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                     {
                       'text' => ' comment before first item
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -155,7 +155,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                 {
                                   'text' => ' last comment
 ',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'c'
@@ -390,7 +390,7 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                                 {
                                   'text' => ' comment in multitable
 ',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'c'

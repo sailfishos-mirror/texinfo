@@ -203,7 +203,7 @@ $result_trees{'cpp_line_latin1'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

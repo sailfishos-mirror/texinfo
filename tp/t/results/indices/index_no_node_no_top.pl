@@ -1062,7 +1062,7 @@ $result_trees{'index_no_node_no_top'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

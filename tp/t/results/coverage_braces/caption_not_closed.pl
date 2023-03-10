@@ -156,7 +156,7 @@ $result_trees{'caption_not_closed'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

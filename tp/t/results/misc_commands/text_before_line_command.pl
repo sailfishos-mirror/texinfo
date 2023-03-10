@@ -141,7 +141,7 @@ $result_trees{'text_before_line_command'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

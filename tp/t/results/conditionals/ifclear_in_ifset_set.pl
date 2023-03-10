@@ -18,11 +18,11 @@ $result_trees{'ifclear_in_ifset_set'} = {
           'args' => [
             {
               'text' => 'a',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -84,7 +84,7 @@ $result_trees{'ifclear_in_ifset_set'} = {
                           {
                             'text' => ' - ok, ignored
 ',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'
@@ -154,7 +154,7 @@ $result_trees{'ifclear_in_ifset_set'} = {
             {
               'text' => ' WRONG - missing @end ifset.
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

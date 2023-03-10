@@ -4872,7 +4872,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

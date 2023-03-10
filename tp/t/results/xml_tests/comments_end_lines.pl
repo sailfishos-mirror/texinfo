@@ -69,7 +69,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comment itemize
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -139,7 +139,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -259,7 +259,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -343,7 +343,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' quot no arg
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -419,7 +419,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -495,7 +495,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -657,7 +657,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -755,7 +755,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -840,7 +840,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -916,7 +916,7 @@ $result_trees{'comments_end_lines'} = {
                         {
                           'text' => ' comm
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

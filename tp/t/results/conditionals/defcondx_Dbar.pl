@@ -31,7 +31,7 @@ $result_trees{'defcondx_Dbar'} = {
                 {
                   'text' => ' test def*x in a conditional
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -46,7 +46,7 @@ $result_trees{'defcondx_Dbar'} = {
                 {
                   'text' => ' set this from the command line.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -56,7 +56,7 @@ $result_trees{'defcondx_Dbar'} = {
                 {
                   'text' => ' set bar
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -343,7 +343,7 @@ $result_trees{'defcondx_Dbar'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

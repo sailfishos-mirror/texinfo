@@ -596,7 +596,7 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

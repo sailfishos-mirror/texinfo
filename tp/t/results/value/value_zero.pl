@@ -13,11 +13,11 @@ $result_trees{'value_zero'} = {
           'args' => [
             {
               'text' => 'zero',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '0',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -13,7 +13,7 @@ $result_trees{'clear_no_end_of_line'} = {
           'args' => [
             {
               'text' => 'jj',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clear',

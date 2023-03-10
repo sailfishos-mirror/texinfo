@@ -170,7 +170,7 @@ $result_trees{'multitable'} = {
                                 {
                                   'text' => ' comment in multitable
 ',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'c'

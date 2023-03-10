@@ -18,11 +18,11 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
           'args' => [
             {
               'text' => 'notset',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -362,7 +362,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -377,7 +377,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'shortcontents',
@@ -444,7 +444,7 @@ $result_trees{'no_monolithic_only_toc_out'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

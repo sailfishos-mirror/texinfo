@@ -19,7 +19,7 @@ $result_trees{'novalidate_empty_refs'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'novalidate',

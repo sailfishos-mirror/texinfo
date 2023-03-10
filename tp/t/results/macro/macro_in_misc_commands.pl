@@ -308,7 +308,7 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'text' => ' comment @text{}
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -318,7 +318,7 @@ $result_trees{'macro_in_misc_commands'} = {
                 {
                   'text' => ' comment @text{}
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -806,7 +806,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'afourpaper',
@@ -1196,7 +1196,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'raisesections'
@@ -1286,7 +1286,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'lowersections'
@@ -3314,7 +3314,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => ' accepts 10 or 11
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -3442,7 +3442,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => ' accept false or true
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -3911,7 +3911,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => ' on page line
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -4178,7 +4178,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '         page at beginning of line
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page',
@@ -4211,7 +4211,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -4272,7 +4272,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -4458,7 +4458,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -4478,7 +4478,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => ' @atext{}
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'vskip'
@@ -4793,7 +4793,7 @@ $result_trees{'macro_in_misc_commands'} = {
           'args' => [
             {
               'text' => '@resultmacro',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -5065,7 +5065,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -5165,7 +5165,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'shortcontents',
@@ -5286,7 +5286,7 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

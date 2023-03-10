@@ -1711,7 +1711,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'text' => ' arg is command -- @dotless{i} is special-cased for HTML
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -1921,7 +1921,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'text' => ' arg is command -- @dotless{j}
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

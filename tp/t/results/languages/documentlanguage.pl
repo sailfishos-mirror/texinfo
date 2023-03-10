@@ -31,7 +31,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' this document is setup to detect when the documentlanguage was not
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -41,7 +41,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' set according to command line, but according to document.  This
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -51,7 +51,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' is important to test that in the Parser, as converters initialized with
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -61,7 +61,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' Texinfo::Convert::Converter converter() and with values accessed by
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -71,7 +71,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' get_conf() will use the command line.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -81,7 +81,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' This is tricky to demonstrate, as documentlanguage is not used much
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -91,7 +91,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' in Parser.  It is used in two places to set the documentlanguage extra
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -101,7 +101,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' value, 
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -111,7 +111,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' 1) for the untranslated type, for the prefix of @def* and 
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -121,7 +121,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' 2) for the @def* line commands with added index entries that need to 
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -131,7 +131,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => '    be translated, like \'{name} of {class}\'.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -141,7 +141,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' The untranslated type is in general translated in the converters
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -151,7 +151,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' without using the extra documentlanguage key value, so getting it 
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -161,7 +161,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' wrong does not have any consequence.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -171,7 +171,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' The @def* translated added indices are translated relatively early,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -181,7 +181,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' before the converter, and the extra documentlanguage key is used to
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -191,7 +191,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' get the language, so if the wrong language is set, it will show up
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -201,7 +201,7 @@ $result_trees{'documentlanguage'} = {
                 {
                   'text' => ' in the index generated by @printindex.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -657,7 +657,7 @@ $result_trees{'documentlanguage'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

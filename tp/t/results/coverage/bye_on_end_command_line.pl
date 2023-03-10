@@ -73,7 +73,7 @@ $result_trees{'bye_on_end_command_line'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -797,7 +797,7 @@ $result_trees{'navigation_test_misc_file_collision'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -830,7 +830,7 @@ $result_trees{'navigation_test_misc_file_collision'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

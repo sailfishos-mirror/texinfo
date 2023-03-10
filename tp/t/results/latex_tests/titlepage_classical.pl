@@ -253,7 +253,7 @@ $result_trees{'titlepage_classical'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'page'
@@ -263,7 +263,7 @@ $result_trees{'titlepage_classical'} = {
                     {
                       'text' => ' The following two commands start the copyright page.
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -273,7 +273,7 @@ $result_trees{'titlepage_classical'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'page'
@@ -283,7 +283,7 @@ $result_trees{'titlepage_classical'} = {
                     {
                       'text' => ' 0pt plus 1filll
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'vskip'
@@ -293,7 +293,7 @@ $result_trees{'titlepage_classical'} = {
                     {
                       'text' => '
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'insertcopying',

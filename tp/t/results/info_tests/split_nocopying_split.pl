@@ -312,7 +312,7 @@ $result_trees{'split_nocopying_split'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

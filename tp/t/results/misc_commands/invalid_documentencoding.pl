@@ -14,7 +14,7 @@ $result_trees{'invalid_documentencoding'} = {
             {
               'text' => ' this one is valid
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

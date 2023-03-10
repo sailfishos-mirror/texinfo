@@ -20,11 +20,11 @@ $result_trees{'begin_like_comment_on_set_line'} = {
           'args' => [
             {
               'text' => 'y',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'some thing @commentary is it',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

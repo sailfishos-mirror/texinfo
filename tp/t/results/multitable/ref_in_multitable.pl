@@ -14,7 +14,7 @@ $result_trees{'ref_in_multitable'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'novalidate',

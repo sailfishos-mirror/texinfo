@@ -19,7 +19,7 @@ $result_trees{'comments_in_text'} = {
             {
               'text' => ' lone comment
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -39,7 +39,7 @@ $result_trees{'comments_in_text'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -49,7 +49,7 @@ $result_trees{'comments_in_text'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -62,7 +62,7 @@ $result_trees{'comments_in_text'} = {
                 {
                   'text' => ' c
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'comment'
@@ -89,7 +89,7 @@ $result_trees{'comments_in_text'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

@@ -16,7 +16,7 @@ $result_trees{'no_argument_and_contents'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'contents',

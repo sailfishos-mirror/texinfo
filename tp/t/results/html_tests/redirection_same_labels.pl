@@ -90,7 +90,7 @@ $result_trees{'redirection_same_labels'} = [
                           {
                             'text' => ' * @"i::
 ',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'
@@ -100,7 +100,7 @@ $result_trees{'redirection_same_labels'} = [
                           {
                             'text' => ' * @~{@dotless{i}}::
 ',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'
@@ -110,7 +110,7 @@ $result_trees{'redirection_same_labels'} = [
                           {
                             'text' => ' * @^i::
 ',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'

@@ -238,7 +238,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

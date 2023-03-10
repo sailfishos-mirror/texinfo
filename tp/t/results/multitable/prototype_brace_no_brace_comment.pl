@@ -31,7 +31,7 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                     {
                       'text' => ' cc
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'

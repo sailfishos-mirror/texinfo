@@ -26,7 +26,7 @@ $result_trees{'comment_on_quotation_line'} = {
                     {
                       'text' => ' quotation 
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

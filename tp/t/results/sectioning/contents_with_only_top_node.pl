@@ -55,7 +55,7 @@ $result_trees{'contents_with_only_top_node'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

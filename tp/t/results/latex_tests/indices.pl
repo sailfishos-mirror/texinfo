@@ -25,11 +25,11 @@ $result_trees{'indices'} = {
               'args' => [
                 {
                   'text' => 'txiindexbackslashignore',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => '',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -899,7 +899,7 @@ $result_trees{'indices'} = {
           'args' => [
             {
               'text' => 'txiindexbackslashignore',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clear',
@@ -945,7 +945,7 @@ $result_trees{'indices'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

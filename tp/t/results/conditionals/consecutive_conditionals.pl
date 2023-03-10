@@ -147,11 +147,11 @@ $result_trees{'consecutive_conditionals'} = {
           'args' => [
             {
               'text' => 'b',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

@@ -108,7 +108,7 @@ $result_trees{'contents_at_end_document'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

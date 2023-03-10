@@ -22,7 +22,7 @@ $result_trees{'empty_comment'} = {
                             {
                               'text' => '
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

@@ -13,11 +13,11 @@ $result_trees{'value_in_invalid_documentencoding'} = {
           'args' => [
             {
               'text' => 'badvalue',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'bad',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

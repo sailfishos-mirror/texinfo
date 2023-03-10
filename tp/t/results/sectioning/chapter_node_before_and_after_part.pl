@@ -288,7 +288,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

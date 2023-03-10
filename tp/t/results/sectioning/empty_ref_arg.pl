@@ -203,7 +203,7 @@ $result_trees{'empty_ref_arg'} = {
                         {
                           'text' => ' aaa
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -223,7 +223,7 @@ $result_trees{'empty_ref_arg'} = {
                         {
                           'text' => ' ggg
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -243,7 +243,7 @@ $result_trees{'empty_ref_arg'} = {
                         {
                           'text' => ' fff
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -253,7 +253,7 @@ $result_trees{'empty_ref_arg'} = {
                         {
                           'text' => '
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

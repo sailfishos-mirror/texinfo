@@ -31,7 +31,7 @@ $result_trees{'nodes_before_top'} = {
                 {
                   'text' => ' test nodes before Top node
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1903,7 +1903,7 @@ $result_trees{'nodes_before_top'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

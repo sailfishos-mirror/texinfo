@@ -22,7 +22,7 @@ $result_trees{'text_space_comment'} = {
               'args' => [
                 {
                   'text' => ' space comment',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

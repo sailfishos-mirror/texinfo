@@ -384,7 +384,7 @@ $result_trees{'transliterated_names_conflicts'} = [
           {
             'text' => '
 ',
-            'type' => 'misc_arg'
+            'type' => 'rawline_arg'
           }
         ],
         'cmdname' => 'bye'

@@ -742,7 +742,7 @@ $result_trees{'japanese_shift_jis'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

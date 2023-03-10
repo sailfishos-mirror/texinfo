@@ -2644,7 +2644,7 @@ $result_trees{'encoding_index_latin1_enable_encoding'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -405,7 +405,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -1198,7 +1198,7 @@ $result_trees{'cpp_lines'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -36,7 +36,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -109,7 +109,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment on enumerate line
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -127,7 +127,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment enumerate
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -228,7 +228,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment table
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -317,7 +317,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment on vtable line
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -449,7 +449,7 @@ $result_trees{'formats_only_title_comments'} = {
                     {
                       'text' => ' comment multitable
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

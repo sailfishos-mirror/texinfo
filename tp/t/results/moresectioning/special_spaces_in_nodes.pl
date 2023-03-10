@@ -912,7 +912,7 @@ $result_trees{'special_spaces_in_nodes'} = {
       "args" => [
         {
           "text" => "\n",
-          "type" => "misc_arg"
+          "type" => "rawline_arg"
         }
       ],
       "cmdname" => "bye"

@@ -25,7 +25,7 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
                         {
                           'text' => ' comment
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'comment'

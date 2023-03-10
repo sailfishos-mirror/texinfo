@@ -47,7 +47,7 @@ $result_trees{'delcomment_on_comment'} = {
                 {
                   'text' => ' a comment with del next line
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -68,7 +68,7 @@ $result_trees{'delcomment_on_comment'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

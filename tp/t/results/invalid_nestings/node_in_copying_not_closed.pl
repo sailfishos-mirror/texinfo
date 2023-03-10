@@ -118,7 +118,7 @@ $result_trees{'node_in_copying_not_closed'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

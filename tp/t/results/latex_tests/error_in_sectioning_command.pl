@@ -16,7 +16,7 @@ $result_trees{'error_in_sectioning_command'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'contents',

@@ -420,7 +420,7 @@ $result_trees{'node_part_chapter_after_chapter'} = [
               {
                 'text' => '
 ',
-                'type' => 'misc_arg'
+                'type' => 'rawline_arg'
               }
             ],
             'cmdname' => 'contents',

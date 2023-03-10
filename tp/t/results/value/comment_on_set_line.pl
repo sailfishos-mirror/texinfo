@@ -13,11 +13,11 @@ $result_trees{'comment_on_set_line'} = {
           'args' => [
             {
               'text' => 'x',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -30,11 +30,11 @@ $result_trees{'comment_on_set_line'} = {
           'args' => [
             {
               'text' => 'y',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -47,11 +47,11 @@ $result_trees{'comment_on_set_line'} = {
           'args' => [
             {
               'text' => 'z',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'g',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -64,11 +64,11 @@ $result_trees{'comment_on_set_line'} = {
           'args' => [
             {
               'text' => 't',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'a vv',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

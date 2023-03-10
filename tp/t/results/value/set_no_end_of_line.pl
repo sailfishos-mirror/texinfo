@@ -13,11 +13,11 @@ $result_trees{'set_no_end_of_line'} = {
           'args' => [
             {
               'text' => 'arg',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

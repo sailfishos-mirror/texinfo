@@ -745,7 +745,7 @@ $result_trees{'glossary'} = {
               'args' => [
                 {
                   'text' => 'expandglossary',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'unmacro',
@@ -867,7 +867,7 @@ $result_trees{'glossary'} = {
               'args' => [
                 {
                   'text' => 'glossarytext',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'unmacro',
@@ -1180,7 +1180,7 @@ $result_trees{'glossary'} = {
               'args' => [
                 {
                   'text' => 'expandglossary',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'unmacro',
@@ -1302,7 +1302,7 @@ $result_trees{'glossary'} = {
               'args' => [
                 {
                   'text' => 'glossarytext',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'unmacro',

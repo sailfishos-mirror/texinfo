@@ -31,7 +31,7 @@ $result_trees{'delcomment'} = {
                 {
                   'text' => ' this tests both the del comment and a file without
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -41,7 +41,7 @@ $result_trees{'delcomment'} = {
                 {
                   'text' => ' element.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -89,7 +89,7 @@ $result_trees{'delcomment'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -13,11 +13,11 @@ $result_trees{'ignored_value_definition'} = {
           'args' => [
             {
               'text' => 'aa',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'outside',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

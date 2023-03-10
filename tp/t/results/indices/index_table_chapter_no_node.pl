@@ -5955,7 +5955,7 @@ $result_trees{'index_table_chapter_no_node'} = {
             {
               'text' => ' @printindex fn
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -5965,7 +5965,7 @@ $result_trees{'index_table_chapter_no_node'} = {
             {
               'text' => ' @printindex vr
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -6111,7 +6111,7 @@ $result_trees{'index_table_chapter_no_node'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -6139,7 +6139,7 @@ $result_trees{'index_table_chapter_no_node'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

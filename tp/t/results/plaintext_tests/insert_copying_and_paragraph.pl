@@ -90,7 +90,7 @@ $result_trees{'insert_copying_and_paragraph'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

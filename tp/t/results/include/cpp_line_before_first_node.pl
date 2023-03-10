@@ -66,7 +66,7 @@ $result_trees{'cpp_line_before_first_node'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

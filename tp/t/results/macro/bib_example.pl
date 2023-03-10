@@ -26,7 +26,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Copyright (C) 2004  Aaron S. Hawley
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -41,7 +41,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -51,7 +51,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Keywords: docs, texinfo, extensions, bib
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -66,7 +66,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % This file is free software; you can redistribute it and/or modify
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -76,7 +76,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % it under the terms of the GNU General Public License as published by
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -86,7 +86,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % the Free Software Foundation; either version 2, or (at your option)
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -96,7 +96,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % any later version.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -111,7 +111,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % This file is distributed in the hope that it will be useful,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -121,7 +121,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -131,7 +131,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -141,7 +141,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % GNU General Public License for more details.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -156,7 +156,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % You should have received a copy of the GNU General Public License
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -166,7 +166,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % along with texi2html; see the file COPYING.  If not, write to
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -176,7 +176,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -186,7 +186,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Boston, MA 02111-1307, USA.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -201,7 +201,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %**start of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'comment'
@@ -285,7 +285,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' \\input texinfo   @c -*-texinfo-*-
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -295,7 +295,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% my-bib-macros.texi --- Texinfo macros providing a crude
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -305,7 +305,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% bibliography and citation capability.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -320,7 +320,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Copyright (C) 2004  Aaron S. Hawley
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -335,7 +335,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -345,7 +345,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Keywords: docs, texinfo, extensions, bib
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -360,7 +360,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % This file is free software; you can redistribute it and/or modify
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -370,7 +370,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % it under the terms of the GNU General Public License as published by
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -380,7 +380,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % the Free Software Foundation; either version 2, or (at your option)
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -390,7 +390,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % any later version.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -405,7 +405,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % This file is distributed in the hope that it will be useful,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -415,7 +415,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -425,7 +425,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -435,7 +435,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % GNU General Public License for more details.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -450,7 +450,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % You should have received a copy of the GNU General Public License
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -460,7 +460,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % along with texi2html; see the file COPYING.  If not, write to
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -470,7 +470,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -480,7 +480,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Boston, MA 02111-1307, USA.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -495,7 +495,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Commentary:
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -510,7 +510,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%% Introduction
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -525,7 +525,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -535,7 +535,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% section of a Texinfo document, using Texinfo\'s
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -545,7 +545,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% macro system.  Although not as terse a way to cite systems as is
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -555,7 +555,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% found in document systems like TeX, the format is simpler and
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -565,7 +565,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% the rendering  is easier for non-academic readers.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -580,7 +580,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -595,7 +595,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%% Usage
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -610,7 +610,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% References to cited works can be put in any section of a document.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -620,7 +620,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% The cited works must be put in either a Texinfo table (for
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -630,7 +630,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% instance with ``@table @asis ... @end table\'\') or within a
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -640,7 +640,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -650,7 +650,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -660,7 +660,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -670,7 +670,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -685,7 +685,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% The beginning of a document must include (using the @include
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -695,7 +695,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% command) the file my-bib-macros.texi, which should be made
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -705,7 +705,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% available in the current directory of the parent file.  A single
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -715,7 +715,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% call should be made to choose to use a list or a table.  The
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -725,7 +725,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% command to chose is called @mybibuselist{NODE}, where NODE is
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -735,7 +735,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% the node containing the location where the references are listed.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -750,7 +750,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -765,7 +765,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%% Example
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -780,7 +780,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% \\input texinfo   @c -*-texinfo-*-
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -790,7 +790,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @comment %**start of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -800,7 +800,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @setfilename my-file-with-bib.info
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -810,7 +810,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @settitle Texinfo with a Bibliography and References
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -820,7 +820,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -830,7 +830,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @include my-bib-macros.texi
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -840,7 +840,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibuselist{References}
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -850,7 +850,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -860,7 +860,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @comment %**end of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -870,7 +870,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -880,7 +880,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @node Top
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -890,7 +890,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @top Top
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -900,7 +900,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -910,7 +910,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @menu
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -920,7 +920,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% * Introduction::
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -930,7 +930,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% * @mybibnode{}::
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -940,7 +940,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -950,7 +950,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @end menu
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -960,7 +960,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -970,7 +970,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @node Introduction
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -980,7 +980,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @chapter Introduction
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -990,7 +990,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1000,7 +1000,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% The ability of a documentation format to make cross references to a
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1010,7 +1010,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1020,7 +1020,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% currently supported in Texinfo.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1030,7 +1030,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1040,7 +1040,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @node @mybibnode{}
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1050,7 +1050,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @chapter References
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1060,7 +1060,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1070,7 +1070,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @itemize @asis
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1080,7 +1080,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1090,7 +1090,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1100,7 +1100,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1110,7 +1110,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Massachusetts, 1994.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1120,7 +1120,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1130,7 +1130,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @end itemize
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1140,7 +1140,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1150,7 +1150,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @bye
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1165,7 +1165,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1180,7 +1180,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% This example produces (in Info):
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1195,7 +1195,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       1 Introduction
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1205,7 +1205,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       **************
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1215,7 +1215,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1225,7 +1225,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       The ability of a documentation format to make cross
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1235,7 +1235,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1245,7 +1245,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1255,7 +1255,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       supported in Texinfo.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1265,7 +1265,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1275,7 +1275,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1285,7 +1285,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       2 References
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1295,7 +1295,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       ************
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1305,7 +1305,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1315,7 +1315,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1325,7 +1325,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1335,7 +1335,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       Massachusetts, 1994.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1350,7 +1350,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% and (in printed output):
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1365,7 +1365,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       1 Introduction
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1375,7 +1375,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       **************
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1385,7 +1385,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1395,7 +1395,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       The ability of a documentation format to make cross
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1405,7 +1405,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1415,7 +1415,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1425,7 +1425,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       currently supported in Texinfo.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1435,7 +1435,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1445,7 +1445,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1455,7 +1455,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       2 References
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1465,7 +1465,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       ************
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1475,7 +1475,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1485,7 +1485,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1495,7 +1495,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1505,7 +1505,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%       Massachusetts, 1994.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1520,7 +1520,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1535,7 +1535,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %%% Notes
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1550,7 +1550,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% The pointers to references will be functional in hypertext
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1560,7 +1560,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% documentation (info, HTML, XML and others) and properly rendered
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1570,7 +1570,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% in print documents, because they are implemented with Texinfo\'s
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1580,7 +1580,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% cross referencing capabilities (using @anchor and @ref).  Failures
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1590,7 +1590,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% by an author to make proper references with ``my-bib-macros\'\' in
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1600,7 +1600,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% their document will give cross referencing errors by Texinfo
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1610,7 +1610,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% conversion tools.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1625,7 +1625,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Only one ``Reference\'\' section is allowed per document.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1640,7 +1640,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% An improvement of this system would create cross references
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1650,7 +1650,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% (with @xref) at each cited work to all the originating cross
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1660,7 +1660,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% refererences.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1675,7 +1675,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1690,7 +1690,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% Code:
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1705,7 +1705,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' % Configuration Options
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1720,7 +1720,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibsetrefnode : Defines the name of the node to contain
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1730,7 +1730,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% references.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1811,7 +1811,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibnode{} : Macro to be placed at node containing references
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1821,7 +1821,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% and calls to @mybibcite{}
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1898,7 +1898,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibusetable : Whether each @mybibitem will be put in a
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1908,7 +1908,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% table.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -2009,7 +2009,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibuselist : Whether each @mybibitem will be put in a
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -2019,7 +2019,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% list.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -2125,7 +2125,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibcite{REF} : Cites the cross reference REF.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -2311,7 +2311,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -2457,7 +2457,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %% my-bib-macros.texi ends here
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c',
@@ -2494,11 +2494,11 @@ $result_trees{'bib_example'} = {
               'args' => [
                 {
                   'text' => 'mybiblist',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => 'true',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -2616,11 +2616,11 @@ $result_trees{'bib_example'} = {
               'args' => [
                 {
                   'text' => 'mybibrefnode',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 },
                 {
                   'text' => 'References',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'set',
@@ -2639,7 +2639,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %**end of header
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'comment'
@@ -3100,7 +3100,7 @@ $result_trees{'bib_example'} = {
                 {
                   'text' => ' %**else if
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c',
@@ -3752,7 +3752,7 @@ $result_trees{'bib_example'} = {
                         {
                           'text' => ' %**else if
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c',
@@ -3936,7 +3936,7 @@ $result_trees{'bib_example'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

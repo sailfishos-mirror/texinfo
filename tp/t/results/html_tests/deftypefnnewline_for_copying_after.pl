@@ -214,7 +214,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -273,7 +273,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

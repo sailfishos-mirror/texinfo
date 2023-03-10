@@ -188,7 +188,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -552,7 +552,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -705,7 +705,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => ' comment before first item in enumerate
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'
@@ -1389,7 +1389,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'
@@ -1578,7 +1578,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -1763,7 +1763,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                             {
                               'text' => ' comment between item and itemx
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -1988,7 +1988,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                             {
                               'text' => ' and a comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -1998,7 +1998,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                             {
                               'text' => ' and another comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'comment'
@@ -2114,7 +2114,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                             {
                               'text' => ' comment between lines
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -2178,7 +2178,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         {
                           'text' => ' comment at end
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -2312,7 +2312,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -2656,7 +2656,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         {
                           'text' => ' samp comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -3494,7 +3494,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                         {
                           'text' => ' commant
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -3865,7 +3865,7 @@ $result_trees{'indices_in_begin_tables_lists'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -315,7 +315,7 @@ $result_trees{'style_not_closed_root_commands'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

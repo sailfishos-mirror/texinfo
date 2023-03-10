@@ -130,7 +130,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                     {
                                       'text' => ' and a comment
 ',
-                                      'type' => 'misc_arg'
+                                      'type' => 'rawline_arg'
                                     }
                                   ],
                                   'cmdname' => 'c'
@@ -140,7 +140,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                     {
                                       'text' => ' and another comment
 ',
-                                      'type' => 'misc_arg'
+                                      'type' => 'rawline_arg'
                                     }
                                   ],
                                   'cmdname' => 'comment'

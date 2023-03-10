@@ -32,7 +32,7 @@ $result_trees{'also_not_line'} = {
             {
               'text' => ' 
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -137,7 +137,7 @@ $result_trees{'also_not_line'} = {
             {
               'text' => '         page at beginning of line
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -147,7 +147,7 @@ $result_trees{'also_not_line'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -179,7 +179,7 @@ $result_trees{'also_not_line'} = {
             {
               'text' => '   
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'page'
@@ -219,7 +219,7 @@ $result_trees{'also_not_line'} = {
                 {
                   'text' => ' something
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'novalidate',
@@ -285,7 +285,7 @@ $result_trees{'also_not_line'} = {
                 {
                   'text' => ' 
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'vskip'

@@ -13,11 +13,11 @@ $result_trees{'spaces_before_value'} = {
           'args' => [
             {
               'text' => 'var',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'val',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

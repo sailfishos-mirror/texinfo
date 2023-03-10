@@ -2250,7 +2250,7 @@ $result_trees{'complex'} = [
               {
                 'text' => '
 ',
-                'type' => 'misc_arg'
+                'type' => 'rawline_arg'
               }
             ],
             'cmdname' => 'contents',
@@ -2280,7 +2280,7 @@ $result_trees{'complex'} = [
           {
             'text' => '
 ',
-            'type' => 'misc_arg'
+            'type' => 'rawline_arg'
           }
         ],
         'cmdname' => 'bye'

@@ -14,7 +14,7 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

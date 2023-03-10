@@ -143,7 +143,7 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',

@@ -211,7 +211,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                             {
                               'text' => ' comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

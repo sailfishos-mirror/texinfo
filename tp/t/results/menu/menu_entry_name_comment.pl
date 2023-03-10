@@ -76,7 +76,7 @@ $result_trees{'menu_entry_name_comment'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -153,7 +153,7 @@ $result_trees{'menu_entry_name_comment'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -229,7 +229,7 @@ $result_trees{'menu_entry_name_comment'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -305,7 +305,7 @@ $result_trees{'menu_entry_name_comment'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -384,7 +384,7 @@ $result_trees{'menu_entry_name_comment'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'

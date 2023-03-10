@@ -55,7 +55,7 @@ $result_trees{'brace_opened_no_command'} = {
       'args' => [
         {
           'text' => '',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

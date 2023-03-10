@@ -95,7 +95,7 @@ $result_trees{'simplest_test_date_in_header'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

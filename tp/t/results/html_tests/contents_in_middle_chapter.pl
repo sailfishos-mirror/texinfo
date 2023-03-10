@@ -288,7 +288,7 @@ $result_trees{'contents_in_middle_chapter'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -508,7 +508,7 @@ $result_trees{'contents_in_middle_chapter'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

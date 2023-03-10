@@ -95,7 +95,7 @@ $result_trees{'split_for_format_not_split'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

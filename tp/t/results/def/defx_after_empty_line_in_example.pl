@@ -130,7 +130,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                             {
                               'text' => ' c
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -140,7 +140,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                             {
                               'text' => ' comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'comment'

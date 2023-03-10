@@ -190,7 +190,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 {
                                   'text' => ' comment in multitable
 ',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'c'

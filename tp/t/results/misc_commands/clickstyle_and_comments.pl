@@ -13,7 +13,7 @@ $result_trees{'clickstyle_and_comments'} = {
           'args' => [
             {
               'text' => '@comment',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -31,7 +31,7 @@ $result_trees{'clickstyle_and_comments'} = {
           'args' => [
             {
               'text' => '@comment',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -73,7 +73,7 @@ $result_trees{'clickstyle_and_comments'} = {
           'args' => [
             {
               'text' => '@result',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -91,7 +91,7 @@ $result_trees{'clickstyle_and_comments'} = {
           'args' => [
             {
               'text' => '@result',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',
@@ -109,7 +109,7 @@ $result_trees{'clickstyle_and_comments'} = {
           'args' => [
             {
               'text' => '@result',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clickstyle',

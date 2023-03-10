@@ -13,11 +13,11 @@ $result_trees{'value_expansion_in_include'} = {
           'args' => [
             {
               'text' => 'testvar',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'incl-incl.txi',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -36,7 +36,7 @@ $result_trees{'value_expansion_in_include'} = {
             {
               'text' => ' test - in the variable name, and concatenation of text after.
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -45,11 +45,11 @@ $result_trees{'value_expansion_in_include'} = {
           'args' => [
             {
               'text' => 'test-var',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'incl-incl.tx',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -68,7 +68,7 @@ $result_trees{'value_expansion_in_include'} = {
             {
               'text' => ' test - in the variable name, and concatenation of text before and after.
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'
@@ -77,11 +77,11 @@ $result_trees{'value_expansion_in_include'} = {
           'args' => [
             {
               'text' => 'test_var',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'ncl-incl.tx',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

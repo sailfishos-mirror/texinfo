@@ -14,7 +14,7 @@ $result_trees{'loweredheading'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'lowersections'
@@ -93,7 +93,7 @@ $result_trees{'loweredheading'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

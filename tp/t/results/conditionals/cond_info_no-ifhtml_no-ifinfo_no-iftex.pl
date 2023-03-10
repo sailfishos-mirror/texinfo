@@ -31,7 +31,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                 {
                   'text' => ' test conditions
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -759,7 +759,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

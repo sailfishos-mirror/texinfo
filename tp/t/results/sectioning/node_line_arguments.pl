@@ -361,7 +361,7 @@ $result_trees{'node_line_arguments'} = {
                 {
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'comment'
@@ -492,7 +492,7 @@ $result_trees{'node_line_arguments'} = {
                 {
                   'text' => ' comma , end
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

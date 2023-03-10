@@ -118,7 +118,7 @@ sub _convert($$)
                  or ($element->{'args'} and $element->{'args'}->[0]
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
-                         or $element->{'args'}->[0]->{'type'} eq 'misc_arg')
+                         or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
                      and !$self->{'formatted_line_commands'}->{$element->{'cmdname'}})))));
   if (defined($element->{'text'})) {
     return $element->{'text'};

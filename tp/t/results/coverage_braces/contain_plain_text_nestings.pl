@@ -353,7 +353,7 @@ $result_trees{'contain_plain_text_nestings'} = {
             {
               'text' => ' no warning for @ref in @w
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'c'

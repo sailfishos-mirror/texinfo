@@ -780,7 +780,7 @@ $result_trees{'in_menu_only_special_spaces_node_menu'} = {
       "args" => [
         {
           "text" => "\n",
-          "type" => "misc_arg"
+          "type" => "rawline_arg"
         }
       ],
       "cmdname" => "bye"

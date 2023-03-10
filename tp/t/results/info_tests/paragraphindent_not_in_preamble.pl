@@ -259,7 +259,7 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

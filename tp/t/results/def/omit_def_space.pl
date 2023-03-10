@@ -77,11 +77,11 @@ $result_trees{'omit_def_space'} = {
           'args' => [
             {
               'text' => 'txidefnamenospace',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

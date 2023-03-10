@@ -306,7 +306,7 @@ $result_trees{'no_content_do_contents_inline'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

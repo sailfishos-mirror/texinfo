@@ -219,7 +219,7 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                         {
                           'text' => ' c
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

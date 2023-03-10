@@ -14242,7 +14242,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

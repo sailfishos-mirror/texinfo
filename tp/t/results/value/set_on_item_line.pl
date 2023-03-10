@@ -46,11 +46,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'ca',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => 'b',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -114,11 +114,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'cj',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -178,11 +178,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'cg',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -302,11 +302,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'a',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => 'b',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -370,11 +370,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'j',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',
@@ -434,11 +434,11 @@ $result_trees{'set_on_item_line'} = {
                               'args' => [
                                 {
                                   'text' => 'g',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 },
                                 {
                                   'text' => '',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'set',

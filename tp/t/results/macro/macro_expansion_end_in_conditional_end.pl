@@ -85,11 +85,11 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
           'args' => [
             {
               'text' => 'flag',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '1',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

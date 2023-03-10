@@ -305,7 +305,7 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

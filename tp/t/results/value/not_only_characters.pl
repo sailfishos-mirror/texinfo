@@ -13,11 +13,11 @@ $result_trees{'not_only_characters'} = {
           'args' => [
             {
               'text' => '-e_\'::;',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => 'hh',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',

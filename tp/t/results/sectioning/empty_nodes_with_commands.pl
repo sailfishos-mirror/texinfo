@@ -26,7 +26,7 @@ $result_trees{'empty_nodes_with_commands'} = {
                 {
                   'text' => ' comment
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

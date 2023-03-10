@@ -173,7 +173,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -537,7 +537,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'

@@ -198,7 +198,7 @@ $result_trees{'table'} = {
                     {
                       'text' => ' samp
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -216,7 +216,7 @@ $result_trees{'table'} = {
                     {
                       'text' => ' after vtable
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -311,7 +311,7 @@ $result_trees{'table'} = {
                             {
                               'text' => ' after item
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -369,7 +369,7 @@ $result_trees{'table'} = {
                                 {
                                   'text' => ' comment in itemx line
 ',
-                                  'type' => 'misc_arg'
+                                  'type' => 'rawline_arg'
                                 }
                               ],
                               'cmdname' => 'comment'

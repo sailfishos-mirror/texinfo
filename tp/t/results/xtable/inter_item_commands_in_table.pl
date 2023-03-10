@@ -175,7 +175,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -360,7 +360,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                             {
                               'text' => ' comment between item and itemx
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -585,7 +585,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                             {
                               'text' => ' and a comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -595,7 +595,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                             {
                               'text' => ' and another comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'comment'
@@ -711,7 +711,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                             {
                               'text' => ' comment between lines
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -775,7 +775,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'text' => ' comment at end
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -1124,7 +1124,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -1468,7 +1468,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'text' => ' samp comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -2306,7 +2306,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'text' => ' commant
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'

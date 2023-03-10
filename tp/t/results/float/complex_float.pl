@@ -296,7 +296,7 @@ $result_trees{'complex_float'} = {
                 {
                   'text' => ' makeinfo --docbook segfaults
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c',

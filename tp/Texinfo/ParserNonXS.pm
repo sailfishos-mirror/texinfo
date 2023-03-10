@@ -5184,7 +5184,7 @@ sub _handle_line_command($$$$$$)
           $command_e->{'args'} = [];
           foreach my $arg (@$args) {
             push @{$command_e->{'args'}},
-              { 'type' => 'misc_arg', 'text' => $arg,
+              { 'type' => 'rawline_arg', 'text' => $arg,
                 'parent' => $current->{'contents'}->[-1] };
           }
         }
@@ -8125,17 +8125,17 @@ this space should be ignorable (like C<@caption> or C<@sortas>).
 
 Space appearing before a paragraph beginning.
 
-=item misc_arg
+=item raw
+
+Text in an environment where it should be kept as is (in C<@verbatim>,
+C<@verb>, C<@macro> body).
+
+=item rawline_arg
 
 Used for the arguments to some special line commands whose arguments
 aren't subject to the usual macro expansion.  For example C<@set>,
 C<@clickstyle>, C<@unmacro>, C<@comment>.  The argument is associated to
 the I<text> key.
-
-=item raw
-
-Text in an environment where it should be kept as is (in C<@verbatim>,
-C<@verb>, C<@macro> body).
 
 =item spaces_at_end
 

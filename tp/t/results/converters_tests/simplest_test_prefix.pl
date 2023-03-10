@@ -95,7 +95,7 @@ $result_trees{'simplest_test_prefix'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

@@ -2523,7 +2523,7 @@ $result_trees{'htmlxref_only_mono_nodes'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

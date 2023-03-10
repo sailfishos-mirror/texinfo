@@ -2728,7 +2728,7 @@ $result_trees{'index_split_split_chapter_no_nodes'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

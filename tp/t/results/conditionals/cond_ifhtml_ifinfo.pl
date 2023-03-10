@@ -31,7 +31,7 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
                 {
                   'text' => ' test conditions
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -758,7 +758,7 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

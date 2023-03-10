@@ -278,7 +278,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',
@@ -471,7 +471,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'insertcopying',

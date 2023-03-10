@@ -19,7 +19,7 @@ $result_trees{'raiselowersections'} = {
                 {
                   'text' => ' -*-texinfo-*-
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -481,11 +481,11 @@ $result_trees{'raiselowersections'} = {
           'args' => [
             {
               'text' => 'do-top',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -504,7 +504,7 @@ $result_trees{'raiselowersections'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'lowersections'
@@ -599,7 +599,7 @@ $result_trees{'raiselowersections'} = {
                 {
                   'text' => ' -*-texinfo-*-
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'
@@ -1370,7 +1370,7 @@ $result_trees{'raiselowersections'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'raisesections'
@@ -1384,7 +1384,7 @@ $result_trees{'raiselowersections'} = {
           'args' => [
             {
               'text' => 'do-top',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'clear',
@@ -1488,7 +1488,7 @@ $result_trees{'raiselowersections'} = {
             {
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'contents',
@@ -1516,7 +1516,7 @@ $result_trees{'raiselowersections'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

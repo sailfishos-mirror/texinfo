@@ -440,7 +440,7 @@ $result_trees{'displaymath'} = {
                 {
                   'text' => ' comment in displaymath
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'rawline_arg'
                 }
               ],
               'cmdname' => 'c'

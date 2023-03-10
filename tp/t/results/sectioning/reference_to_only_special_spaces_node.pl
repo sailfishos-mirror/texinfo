@@ -408,7 +408,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

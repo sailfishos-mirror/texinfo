@@ -188,7 +188,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -553,7 +553,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'text' => ' comment in itemize
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -707,7 +707,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'text' => ' comment before first item in enumerate
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'
@@ -1403,7 +1403,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'comment'
@@ -1582,7 +1582,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -1767,7 +1767,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                             {
                               'text' => ' comment between item and itemx
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -1992,7 +1992,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                             {
                               'text' => ' and a comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -2002,7 +2002,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                             {
                               'text' => ' and another comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'comment'
@@ -2118,7 +2118,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                             {
                               'text' => ' comment between lines
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'c'
@@ -2182,7 +2182,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                         {
                           'text' => ' comment at end
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -2316,7 +2316,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                         {
                           'text' => ' comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -2660,7 +2660,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                         {
                           'text' => ' samp comment in table
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -3498,7 +3498,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                         {
                           'text' => ' commant
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -3869,7 +3869,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

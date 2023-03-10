@@ -18,7 +18,7 @@ $result_trees{'raw_and_comments'} = {
                     {
                       'text' => ' comment
 ',
-                      'type' => 'misc_arg'
+                      'type' => 'rawline_arg'
                     }
                   ],
                   'cmdname' => 'c'
@@ -52,7 +52,7 @@ $result_trees{'raw_and_comments'} = {
                         {
                           'text' => ' other comment
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'comment'
@@ -111,7 +111,7 @@ $result_trees{'raw_and_comments'} = {
                         {
                           'text' => ' in xml comment
 ',
-                          'type' => 'misc_arg'
+                          'type' => 'rawline_arg'
                         }
                       ],
                       'cmdname' => 'c'
@@ -145,7 +145,7 @@ $result_trees{'raw_and_comments'} = {
                             {
                               'text' => ' end xml comment
 ',
-                              'type' => 'misc_arg'
+                              'type' => 'rawline_arg'
                             }
                           ],
                           'cmdname' => 'comment'

@@ -1223,7 +1223,7 @@ $result_trees{'split_chapter_index'} = {
         {
           'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'rawline_arg'
         }
       ],
       'cmdname' => 'bye'

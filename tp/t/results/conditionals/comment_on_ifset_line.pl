@@ -13,11 +13,11 @@ $result_trees{'comment_on_ifset_line'} = {
           'args' => [
             {
               'text' => 'x',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             },
             {
               'text' => '',
-              'type' => 'misc_arg'
+              'type' => 'rawline_arg'
             }
           ],
           'cmdname' => 'set',
@@ -44,7 +44,7 @@ $result_trees{'comment_on_ifset_line'} = {
                           {
                             'text' => '
 ',
-                            'type' => 'misc_arg'
+                            'type' => 'rawline_arg'
                           }
                         ],
                         'cmdname' => 'c'
@@ -132,7 +132,7 @@ $result_trees{'comment_on_ifset_line'} = {
                               {
                                 'text' => ' comm
 ',
-                                'type' => 'misc_arg'
+                                'type' => 'rawline_arg'
                               }
                             ],
                             'cmdname' => 'c'
@@ -217,7 +217,7 @@ $result_trees{'comment_on_ifset_line'} = {
                               {
                                 'text' => '@ggg
 ',
-                                'type' => 'misc_arg'
+                                'type' => 'rawline_arg'
                               }
                             ],
                             'cmdname' => 'c'
@@ -302,7 +302,7 @@ $result_trees{'comment_on_ifset_line'} = {
                               {
                                 'text' => '
 ',
-                                'type' => 'misc_arg'
+                                'type' => 'rawline_arg'
                               }
                             ],
                             'cmdname' => 'c'
@@ -390,7 +390,7 @@ $result_trees{'comment_on_ifset_line'} = {
                               {
                                 'text' => ' comm
 ',
-                                'type' => 'misc_arg'
+                                'type' => 'rawline_arg'
                               }
                             ],
                             'cmdname' => 'c'
@@ -478,7 +478,7 @@ $result_trees{'comment_on_ifset_line'} = {
                               {
                                 'text' => '@ggg
 ',
-                                'type' => 'misc_arg'
+                                'type' => 'rawline_arg'
                               }
                             ],
                             'cmdname' => 'c'
