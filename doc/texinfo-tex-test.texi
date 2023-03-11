@@ -176,132 +176,233 @@ line
 @paragraphindent 0
 
 @chapter Macros
+
+Each line should occur twice throughout, first line uses macro, second
+line should be the output.
+
 @section Backslashes in macro arguments
 
 @macro Mac{x}
-A\x\A
+(\x\)
 @end macro
 
+@Mac{}
+
+()
+
+@Mac{a}
+
+(a)
+
+@Mac{a}X
+
+(a)X
+
+@Mac{a\\}
+
+(a\)
+
+@Mac{a\}X
+
+(a\)X
+
+@Mac{b\\}X
+
+(b\)X
+
+@Mac{c\\\}X
+
+(c\\)X
+
+@Mac{\}X
+
+(\)X
+
+@Mac{\a}X
+
+(\a)X
+
+@Mac{\\b}X
+
+(\b)X
+
+@Mac{\\}X
+
+(\)X
+
+@Mac{\\\}X
+
+(\\)X
+
+@Mac{\\\aaa\}X
+
+(\\aaa\)X
+
+@Mac{\a\\b}X
+
+(\a\b)X
+
+@subsection Line arguments
+
+
+@Mac a
+
+(a)
+
+@Mac a\
+
+(a\)
+
+@Mac a\\
+
+(a\\)
+
+@Mac a\\\
+
+(a\\\)
+
+@Mac \a\\b
+
+(\a\\b)
+
+@subsection In @t{@@code}
+
+@code{@Mac{a\}}
+
+@code{(a\)}
+
+@code{@Mac{b\\}}
+
+@code{(b\)}
+
+@code{@Mac{c\\\}}
+
+@code{(c\\)}
+
+@code{@Mac{\\\\d}}
+
+@code{(\\d)}
+
+
+
+@subsection Macros with two arguments
+
 @macro Mactwo{x, y}
-<\x\>.<\y\>@.
+<\x\>.<\y\>
 @end macro
 
 @rmacro RMac{x}
 Z\x\Z
 @end rmacro
 
-The number refers to the number of backslashes that should appear
-
-0 @Mac{}
-
-0 @Mac{a}
-
-0 @Mac{a}X
-
-1 @Mac{a\\}
-
-1 @Mac{a\}X
-
-1 @Mac{a\\}X
-
-2 @Mac{a\\\}X
-
-1 @Mac{\}X
-
-1 @Mac{\a}X
-
-1 @Mac{\\a}X
-
-1 @Mac{\\}X
-
-2 @Mac{\\\}X
-
-2 and 1 @Mac{\\\aaa\}X
-
-1 and 1 @Mac{\a\\b}X
-
-one backslash outside \
-
-two backslashes outside \\
-
-three backslashes outside \\\
-
-0 @Mac a 
-
-1 @Mac a\
-
-2 @Mac a\\ 
-
-3 @Mac a\\\
-
-1 and 2 @Mac \a\\b
-
-in @@code:@*
-1 @code{@Mac{\}}@*
-1 @code{@Mac{\\}}@*
-2 @code{@Mac{\\\}}@*
-2 @code{@Mac{\\\\}}
-
-one backslash outside \
-
-two backslashes outside \\
-
-three backslashes outside \\\
-
-Macros with two arguments:
-0+0 @Mactwo{A,B}
-0+0 @Mactwo{A, B}
-1+0 @Mactwo{\A, B}
-0+1 @Mactwo{A, \\B}
-2+1 @Mactwo{\\\A, \\B}
-2+2 @Mactwo{\\\A, \\\\B}
-
-Space between macro name and opening brace (thus: @samp{@@Mactwo @{}):
-
-0+0 @Mactwo {A,B}
-0+0 @Mactwo {A, B}
-1+0 @Mactwo {\A, B}
-0+1 @Mactwo {A, \\B}
-2+1 @Mactwo {\\\A, \\B}
-2+2 @Mactwo {\\\A, \\\\B}
-
-space between backslashes: @Mac{\ \}@*
-space between backslashes line arg: @Mac \ \
-
-space after backslashes, two arguments:@*
-@Mactwo{\ \\, \ \\}@*
-@Mactwo{\\ \\, \\ \\}@*
-@Mactwo{\\ a, \\ b}@*
-@Mactwo{\ a, \ b}@*
-
-other spaces:@*
-@Mactwo{h \\, i \\}@*
-@Mactwo{h \\, i \\}@*
-@Mactwo{h a, i b}@*
 
 
-@section Special characters in macro argument
+@Mactwo{A,B}
 
-Braceless single line macro invocation with special characters.  Compare:
+<A>.<B>
+
+@Mactwo{A, C}
+
+<A>.<C>
+
+@Mactwo{\A, B}
+
+<\A>.<B>
+
+@Mactwo{A, \\B}
+
+<A>.<\B>
+
+@Mactwo{\\\A, \\B}
+
+<\\A>.<\B>
+
+@Mactwo{\\\A, \\\\B}
+
+<\\A>.<\\B>
+
+@subsubsection Space between macro name and opening brace
+
+@Mactwo {A,B}
+
+<A>.<B>
+
+@Mactwo {A, C}
+
+<A>.<C>
+
+@Mactwo {\A, B}
+
+<\A>.<B>
+
+@Mactwo {A, \\B}
+
+<A>.<\B>
+
+@Mactwo {\\\A, \\B}
+
+<\\A>.<\B>
+
+@Mactwo {\\\A, \\\\B}
+
+<\\A>.<\\B>
+
+
+@subsection Spaces and backslashes
+
+@Mac{\ \}
+
+(\ \)
+
+@Mac \ \x
+
+(\ \x)
+
+@Mactwo{\ \\, \ \\}
+
+<\ \>.<\ \>
+
+x@Mactwo{\\ \\, \\ \\}
+
+x<\ \>.<\ \>
+
+@Mactwo{\\ a, \\ b}
+
+<\ a>.<\ b>
+
+y@Mactwo{\ a, \ b}
+
+y<\ a>.<\ b>
+
+@Mactwo{h \\, i \\}
+
+<h \>.<i \>
+
+@Mactwo{h a, i b}
+
+<h a>.<i b>
+
+
+@section Braceless single line macro invocation with special characters
 
 @Mac "+<>^+|~@@@{@}
 
-A"+<>^+|~@@@{@}A
+("+<>^+|~@@@{@})
 
 
 @section Spaces in macro bodies
-
-Distance between the two x's should be the same
 
 @macro Mac
 @example
 x  x
 @end example
 @end macro
+
+@Mac
+
 @example
 x  x
 @end example
-@Mac
 
 @section Macro use inside macro argument
 
@@ -315,28 +416,21 @@ xx \arg\ xx
 @end macro
 
 @Outermac{@Innermac{e}}
-should be@*
+
 xx e xx
 
 @section Closing brace following empty macro argument
 
 @macro Mac{x}
-A@acronym{\x\}A
+(@acronym{\x\})
 @end macro
 
 @Mac{}
 
-AA
+()
 
 @page
 @section Trailing newlines in macro bodies
-
-Output should be doubled:
-
-1y
-
-z
-x2
 
 @macro nbsp
 y
@@ -347,8 +441,14 @@ x
 
 1@nbsp{}2
 
-Output should be doubled:
+1y
 
+z
+x2
+
+@example
+1@nbsp{}2
+@end example
 
 @example
 1y
@@ -357,9 +457,6 @@ z
 x2
 @end example
 
-@example
-1@nbsp{}2
-@end example
 
 @section Open or close a group in a macro
 
@@ -429,28 +526,51 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 value
 @end macro
 
-Okay, we are here. The @Mac
-on next line now.
+A @Mac
+BB.
 
-With spaces and newline. The @Mac       
-on next line now.
+A valueBB.
 
-With braces. The @Mac{}
-on next line now.
+C @Mac       
+DD.
 
-With space and braces. The @Mac {}
-on next line now.
+C valueDD.
 
-With two spaces and braces. The @Mac  {}
-on next line now.
+E@Mac{}
+F
 
-With braces and two newlines. The @Mac{}
+Evalue F
 
-in next paragraph now.
+E @Mac {}
+F
 
-With two newlines. The @Mac
+E value F
 
-in next paragraph now.
+EE @Mac  {}
+FF
+
+EE value FF
+
+GG @Mac{}
+
+HHH
+
+GG value
+
+HHH
+
+II JJ @Mac
+
+KLM
+
+II JJ valueKLM
+
+KK LL @Mac
+
+
+MMM
+
+KK LL valueMMM
 
 @section @,c in macro argument
 
@@ -470,6 +590,8 @@ Fran@,cois+.
 @end macro
 
 exceeds @math{@frak{1,16}} pt
+
+exceeds @math{1 @over 16} pt
 
 
 @section Trim whitespace from macro arguments

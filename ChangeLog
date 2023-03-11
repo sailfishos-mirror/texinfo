@@ -1,5 +1,11 @@
 2023-03-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Macros):
+	Show desired output for all test cases to make it easier to
+	check.
+
+2023-03-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid spurious space in macro expansion
 
 	* doc/texinfo.texi (\defmacro): Define a control sequence with
