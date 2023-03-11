@@ -1,5 +1,12 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): determine if an
+	accent command argument has braces in the same way as it is done in
+	other converters by checking if argument type is not
+	brace_command_arg.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_close_current, _handle_close_brace),
 	tp/Texinfo/XS/parsetexi/close.c (close_current),
 	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): separate

@@ -8085,14 +8085,6 @@ This type is set for an @-command that is redefined by C<@definfoenclose>.
 The beginning is in C<< {'extra'}->{'begin'} >> and the end in
 C<< {'extra'}->{'end'} >>.
 
-=item following_arg
-
-This type is set for accent @-commands that don't use braces but instead
-have their argument after them, as
-
-  @~n
-  @ringaccent A
-
 =item index_entry_command
 
 This is the type of index entry command like C<@cindex>, and, more
@@ -8254,6 +8246,8 @@ with items (C<@table>, C<@multitable>, C<@enumerate>...).
 
 =item block_line_arg
 
+=item following_arg
+
 Those containers occur within the C<args> array of @-commands taking an
 argument.  I<brace_command_arg> is used for the arguments to commands
 taking arguments surrounded by braces (and in some cases separated by
@@ -8264,6 +8258,12 @@ I<line_arg> is used for commands that take the texinfo code on the rest of the
 line as their argument, such as C<@settitle>, C<@node>, C<@section>.
 I<block_line_arg> is similar but is used for commands that start a new block
 (which is to be ended with C<@end>).
+
+I<following_arg> is used for the accent @-commands argument that did not use
+braces but instead followed the @-command, possibly after a space, as
+
+  @~n
+  @ringaccent A
 
 For example
 

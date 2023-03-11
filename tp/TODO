@@ -32,8 +32,7 @@ Tree documentation in ParserNonXS.pm
 
 elided_rawpreformatted, elided_brace_command_arg types.
 
-extra->'comment_at_end'
-likely in many line commands
+'comment_at_end' in info hash
 
 source marks.
 
