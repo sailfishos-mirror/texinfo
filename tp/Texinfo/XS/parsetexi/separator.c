@@ -187,10 +187,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
     }
   else if (current->type == ET_rawpreformatted)
     {
-      ELEMENT *e = new_element (ET_NONE);
-      abort_empty_line (&current, NULL);
-      text_append (&e->text, "{");
-      add_to_element_contents (current, e);
+      current = merge_text (current, "{", 0);
     }
   /* matching braces accepted in a rawpreformatted, inline raw or
      math.  Note that for rawpreformatted, it can only happen

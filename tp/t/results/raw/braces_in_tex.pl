@@ -35,10 +35,7 @@ $result_trees{'braces_in_tex'} = {
 '
                 },
                 {
-                  'text' => '\\chi^2 = \\sum_'
-                },
-                {
-                  'text' => '{i=1'
+                  'text' => '\\chi^2 = \\sum_{i=1'
                 },
                 {
                   'text' => '}^N
@@ -145,10 +142,7 @@ $result_trees{'braces_in_tex'} = {
 '
                         },
                         {
-                          'text' => '\\chi^2 = \\sum_'
-                        },
-                        {
-                          'text' => '{i=1'
+                          'text' => '\\chi^2 = \\sum_{i=1'
                         },
                         {
                           'text' => '}^N

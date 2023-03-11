@@ -1,5 +1,12 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_open_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): right in a
+	rawpreformatted, use merge_text to merge an opening brace to the
+	preceding text, if any.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
 	(_convert_balanced_braces_type), tp/Texinfo/Convert/LaTeX.pm
 	(_convert), tp/Texinfo/Convert/Plaintext.pm (_convert),

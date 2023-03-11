@@ -241,10 +241,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
             {
               'contents' => [
                 {
-                  'text' => '$\\underline'
-                },
-                {
-                  'text' => '{a < b '
+                  'text' => '$\\underline{a < b '
                 },
                 {
                   'args' => [
@@ -345,10 +342,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
             {
               'contents' => [
                 {
-                  'text' => '$\\frac'
-                },
-                {
-                  'text' => '{a < b '
+                  'text' => '$\\frac{a < b '
                 },
                 {
                   'args' => [
@@ -382,10 +376,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   }
                 },
                 {
-                  'text' => '}'
-                },
-                {
-                  'text' => '{b'
+                  'text' => '}{b'
                 },
                 {
                   'text' => '}$ ``

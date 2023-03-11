@@ -5697,10 +5697,7 @@ sub _handle_open_brace($$$$)
   } elsif ($current->{'type'}
            and $current->{'type'} eq 'rawpreformatted') {
     # this can happen in an expanded rawpreformatted
-    # FIXME use _merge_text?
-    _abort_empty_line($self, $current);
-    push @{$current->{'contents'}}, {'text' => '{',
-                                     'parent' => $current };
+    $current = _merge_text($self, $current, '{');
     print STDERR "LONE OPEN BRACE in rawpreformatted\n"
        if ($self->{'DEBUG'});
   # matching braces accepted in a rawpreformatted, inline raw or
