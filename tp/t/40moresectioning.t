@@ -609,6 +609,16 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi',
    'test_formats' => ['file_info', 'file_html'],},
   {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
 ],
+['anchor_in_footnote_split_node',
+$anchor_in_footnote_text,
+{}, {'SPLIT' => 'node'}
+],
+['anchor_in_footnote_separate_split_node',
+'@footnotestyle separate
+'.
+$anchor_in_footnote_text,
+{}, {'SPLIT' => 'node'}
+],
 );
 
 my %xml_tests_converted_tests = (

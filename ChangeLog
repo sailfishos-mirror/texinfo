@@ -1,5 +1,11 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/40moresectioning.t, tp/Makefile.tres: add
+	anchor_in_footnote_split_node and
+	anchor_in_footnote_separate_split_node tests.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/50value.t, tp/t/60macro.t, tp/Makefile.tres: add
 	closing_brace_in_value_in_ingnored_inline and
 	closing_brace_in_macro_call_in_ingnored_inline with end of @inline*

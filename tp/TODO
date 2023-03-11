@@ -522,8 +522,6 @@ The @FIGURE @macro is, for html:
 @end html
 @end macro
 
-Add @value to the corresponding commands categories?
-
 Use of specialized synopsis in DocBook is not a priority and it is not even
 obvious that it is interesting to do so.  The following notes explain the
 possibilities and issues extensively.
@@ -593,23 +591,9 @@ style for some tests.  However, the test suite is already too long to
 run so such additions should be done with caution.
 
 t/30sectioning.t
- chapter_between_nodes (more_nodes_than_sections renamed)
- more_sections_than_nodes
- two_nodes_between_chapters
- two_nodes_at_the_end
- character_and_spaces_in_refs
- character_and_spaces_in_node
- some_at_commands_in_ref_nodes
- at_commands_in_refs
- character_and_spaces_in_refs <- mono/chapter
- rec_nodes (with USE_NODES and without)
- loop_nodes?
- nodes_before_top?
- no_element
- top_node_no_menu_direction? (with USE_NODES and without?)
- anchor_in_footnote
- anchor_in_footnote_separate
- placed_things_before_node    (with USE_NODES and without?)
+ chapter_between_nodes (TEXI2HTML for USE_NODES=0 and directions)
+ two_nodes_between_chapters (split at node / TEXI2HTML for USE_NODES=0 and directions)
+ two_nodes_at_the_end (split at node / TEXI2HTML for USE_NODES=0 and directions)
  placed_things_before_element (with USE_NODES and without?)
  top_no_argument_and_node
  top_no_argument_and_top_node
@@ -619,6 +603,9 @@ t/30sectioning.t
  nodes_no_node_top_explicit_directions (with USE_NODES and without)
  one_node_explicit_directions_anchor (with USE_NODES and without) Really useful?
  top_without_node_sections
+
+t/40moresectioning.t
+ more_sections_than_nodes (current is with TEXI2HTML, one with default USE_NODES=1 could be interesting)
 
 t/info_tests.t
  space_in_setfilename
