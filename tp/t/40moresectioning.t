@@ -83,6 +83,44 @@ In top node@footnote{in footnote
 @ref{Anchor in footnote}.
 ';
 
+my $placed_things_before_element_text = '@anchor{An anchor}
+
+Ref to the anchor:
+@ref{An anchor}
+
+Ref to the anchor in footnote:
+@ref{Anchor in footnote}.
+
+@footnote{In footnote.
+
+@anchor{Anchor in footnote}
+
+Ref to main text anchor
+@ref{An anchor}
+}
+
+@float , float anchor
+In float
+@end float
+
+Ref to float
+@ref{float anchor}.
+
+@menu
+* An anchor::                menu entry pointing to the anchor.
+@end menu
+
+@cindex index entry
+
+@section section
+
+Ref to anchor
+@ref{An anchor}
+
+Ref to footnote anchor
+@ref{Anchor in footnote}
+';
+
 my @tests_info = (
 ['character_and_spaces_in_refs',
 undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
@@ -201,43 +239,11 @@ Ref to float
 @cindex index entry
 ', {}, {'SHOW_TITLE' => 1}],
 ['placed_things_before_element',
-'@anchor{An anchor}
-
-Ref to the anchor:
-@ref{An anchor}
-
-Ref to the anchor in footnote:
-@ref{Anchor in footnote}.
-
-@footnote{In footnote.
-
-@anchor{Anchor in footnote}
-
-Ref to main text anchor
-@ref{An anchor}
-}
-
-@float , float anchor
-In float
-@end float
-
-Ref to float
-@ref{float anchor}.
-
-@menu
-* An anchor::                menu entry pointing to the anchor.
-@end menu
-
-@cindex index entry
-
-@section section
-
-Ref to anchor
-@ref{An anchor}
-
-Ref to footnote anchor
-@ref{Anchor in footnote}
-',{},{'FORMAT_MENU' => 'menu'}],
+$placed_things_before_element_text
+,{},{'FORMAT_MENU' => 'menu'}],
+['placed_things_before_element_no_use_node',
+$placed_things_before_element_text
+,{},{'FORMAT_MENU' => 'menu', 'USE_NODES' => 0}],
 ['placed_things_before_node',
 '@anchor{An anchor}
 
@@ -618,6 +624,10 @@ $anchor_in_footnote_text,
 '.
 $anchor_in_footnote_text,
 {}, {'SPLIT' => 'node'}
+],
+['sectioning_part_appendix_texi2html_chapter',
+$test_text,
+{}, {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'},
 ],
 );
 

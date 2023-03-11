@@ -1323,6 +1323,11 @@ my @test_out_files = (
   {},
   {'TEXI2HTML' => 1, 'USE_NODES' => 1, 'SPLIT' => 'chapter'}
 ],
+['nodes_after_top_before_chapter_no_use_nodes_chapter',
+  $nodes_after_top_before_chapter_text,
+  {},
+  {'USE_NODES' => 0, 'SPLIT' => 'chapter'}
+],
 ['nodes_after_top_before_section_texi2html_chapter',
   $nodes_after_top_before_section_text,
   {},

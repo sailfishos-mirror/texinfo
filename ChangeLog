@@ -1,5 +1,14 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/30sectioning.t: add
+	nodes_after_top_before_chapter_no_use_nodes_chapter test.
+
+	* tp/t/40moresectioning.t: add
+	placed_things_before_element_no_use_node and
+	sectioning_part_appendix_texi2html_chapter tests.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/40moresectioning.t, tp/Makefile.tres: add
 	anchor_in_footnote_split_node and
 	anchor_in_footnote_separate_split_node tests.

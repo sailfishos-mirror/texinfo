@@ -1440,6 +1440,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/non_automatic_top_node_up_url.pl \
   t/results/moresectioning/only_special_spaces_node.pl \
   t/results/moresectioning/placed_things_before_element.pl \
+  t/results/moresectioning/placed_things_before_element_no_use_node.pl \
   t/results/moresectioning/placed_things_before_node.pl \
   t/results/moresectioning/raiselowersections.pl \
   t/results/moresectioning/rec_nodes.pl \
@@ -1447,6 +1448,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/section_in_unnumbered_plaintext.pl \
   t/results/moresectioning/sectioning_part_appendix.pl \
   t/results/moresectioning/sectioning_part_appendix_no_top.pl \
+  t/results/moresectioning/sectioning_part_appendix_texi2html_chapter.pl \
+  t/results/moresectioning/sectioning_part_appendix_texi2html_chapter/res_html \
   t/results/moresectioning/sections_test.pl \
   t/results/moresectioning/sections_test_no_use_nodes.pl \
   t/results/moresectioning/sections_test_no_use_nodes_use_node_directions.pl \
@@ -1737,6 +1740,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/node_up_direction_for_top_with_manual.pl \
   t/results/sectioning/node_up_external_node.pl \
   t/results/sectioning/nodename_parentheses.pl \
+  t/results/sectioning/nodes_after_top_before_chapter_no_use_nodes_chapter.pl \
+  t/results/sectioning/nodes_after_top_before_chapter_no_use_nodes_chapter/res_html \
   t/results/sectioning/nodes_after_top_before_chapter_nodes.pl \
   t/results/sectioning/nodes_after_top_before_chapter_not_split.pl \
   t/results/sectioning/nodes_after_top_before_chapter_not_split_no_use_node_directions.pl \

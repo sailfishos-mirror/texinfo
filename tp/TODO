@@ -594,12 +594,7 @@ t/30sectioning.t
  chapter_between_nodes (TEXI2HTML for USE_NODES=0 and directions)
  two_nodes_between_chapters (split at node / TEXI2HTML for USE_NODES=0 and directions)
  two_nodes_at_the_end (split at node / TEXI2HTML for USE_NODES=0 and directions)
- placed_things_before_element (with USE_NODES and without?)
- top_no_argument_and_node
- top_no_argument_and_top_node
- nodes_after_top_before_chapter_(nodes/sections) (with USE_NODES and --split chapter)
- nodes_after_top_before_section_(nodes/sections) (with USE_NODES and --split chapter and only --split chapter)
- sectioning_part_appendix   (--split chapter)
+
  nodes_no_node_top_explicit_directions (with USE_NODES and without)
  one_node_explicit_directions_anchor (with USE_NODES and without) Really useful?
  top_without_node_sections
