@@ -531,9 +531,7 @@ And multiple paragraphs.
 Like an argument to @b{@@footnote}.
 }
 
-@section Bugs
-
-Here an extra space appears in the output:
+@section Substitution into @t{@@example}
 
 @macro Twoarg {arg,argtwo}
 @example
@@ -542,6 +540,10 @@ Here an extra space appears in the output:
 @end macro
 
 @Twoarg{bbbbb, 22222222222}
+
+@example
+@result{}bbbbb@result{}
+@end example
 
 
 

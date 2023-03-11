@@ -1,3 +1,14 @@
+2023-03-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Avoid spurious space in macro expansion
+
+	* doc/texinfo.texi (\defmacro): Define a control sequence with
+	\string rather than \relax.  This avoids an extra space appearing
+	for an argument substituted into an environment like @example.
+
+	* doc/texinfo-tex-test.texi (Bugs, Substitution into @example):
+	Update now-working test case.
+
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): determine if an
