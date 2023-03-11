@@ -48,15 +48,6 @@ Delayed bugs
 
 See message/thread from Reißner Ernst: Feature request: api docs
 
-In @inline* ignored arguments, @value and user macros should not be
-expanded.  For example
-
- @set closebrace }
-
- @inlinefmt{html,
- truc @value{closebrace}
- machin
-
 hyphenation: should only appear in toplevel.
 
 

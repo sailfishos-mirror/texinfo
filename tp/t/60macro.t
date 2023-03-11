@@ -615,6 +615,19 @@ Toto @inlineifclear{fl@clearargendignored{}}. After.
 
 Again with space @inlineifclear{fl@clearargendignored{} }. After.
 '],
+['closing_brace_in_macro_call_in_ingnored_inline',
+'@macro closebrace
+}
+@end macro
+
+@inlinefmt{html,
+truc @closebrace{}
+machin
+
+@inlinefmt{tex,
+bidule @closebrace
+after
+'],
 ['macro_call_in_node_manual',
 '@macro openbrace
 (

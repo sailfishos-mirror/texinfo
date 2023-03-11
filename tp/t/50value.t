@@ -394,7 +394,18 @@ line
 }
 
 @value{aa}.
-']
+'],
+['closing_brace_in_value_in_ingnored_inline',
+'@set closebrace }
+
+@inlinefmt{html,
+truc @value{closebrace}
+machin
+
+@inlinefmt{tex,
+bidule @value{closebrace}
+after
+'],
 );
 
 run_all('value', \@test_cases);

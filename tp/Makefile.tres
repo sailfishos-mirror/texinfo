@@ -1212,6 +1212,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/bad_macro_name_with_underscore.pl \
   t/results/macro/bib_example.pl \
   t/results/macro/bye_in_macro.pl \
+  t/results/macro/closing_brace_in_macro_call_in_ingnored_inline.pl \
   t/results/macro/complete_macro_for_end.pl \
   t/results/macro/complex_argument.pl \
   t/results/macro/cpp_directives_after_macros.pl \
@@ -1825,6 +1826,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/value/bad_syntax.pl \
   t/results/value/begin_like_comment_on_set_line.pl \
   t/results/value/clear_no_end_of_line.pl \
+  t/results/value/closing_brace_in_value_in_ingnored_inline.pl \
   t/results/value/comment_on_clear_line.pl \
   t/results/value/comment_on_set_line.pl \
   t/results/value/empty_set.pl \
