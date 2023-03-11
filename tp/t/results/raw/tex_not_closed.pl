@@ -31,10 +31,7 @@ $result_trees{'tex_not_closed'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'text' => 'This is some \\LaTeX{'
-                },
-                {
-                  'text' => '}
+                  'text' => 'This is some \\LaTeX{}
 '
                 }
               ],

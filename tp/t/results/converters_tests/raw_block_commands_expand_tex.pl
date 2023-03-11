@@ -31,10 +31,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
             {
               'contents' => [
                 {
-                  'text' => '<blink>html</blink> ``'
-                },
-                {
-                  'text' => '}
+                  'text' => '<blink>html</blink> ``}
 '
                 }
               ],
@@ -101,10 +98,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
             {
               'contents' => [
                 {
-                  'text' => '<para>xml</para> ``'
-                },
-                {
-                  'text' => '}
+                  'text' => '<para>xml</para> ``}
 '
                 }
               ],
@@ -171,10 +165,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
             {
               'contents' => [
                 {
-                  'text' => '<emphasis>docbook</emphasis> ``'
-                },
-                {
-                  'text' => '}
+                  'text' => '<emphasis>docbook</emphasis> ``}
 '
                 }
               ],
@@ -376,10 +367,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   }
                 },
                 {
-                  'text' => '}{b'
-                },
-                {
-                  'text' => '}$ ``
+                  'text' => '}{b}$ ``
 '
                 }
               ],

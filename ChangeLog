@@ -1,9 +1,9 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/ParserNonXS.pm (_handle_open_brace),
-	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): right in a
-	rawpreformatted, use merge_text to merge an opening brace to the
-	preceding text, if any.
+	* tp/Texinfo/ParserNonXS.pm (_handle_open_brace, _handle_close_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace,
+	handle_close_brace): right in a rawpreformatted, use merge_text to
+	merge an opening or a closing brace to the preceding text, if any.
 
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 

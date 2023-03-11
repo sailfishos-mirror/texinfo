@@ -5980,11 +5980,7 @@ sub _handle_close_brace($$$)
   # lone braces accepted right in a rawpreformatted
   } elsif ($current->{'type'}
            and $current->{'type'} eq 'rawpreformatted') {
-    # empty line can happen in expanded rawpreformatted.
-    _abort_empty_line($self, $current);
-    push @{$current->{'contents'}}, {'text' => '}',
-                                     'parent' => $current };
-
+    $current = _merge_text($self, $current, '}');
   } else {
     $self->_line_error(sprintf(__("misplaced }")), $source_info);
   }

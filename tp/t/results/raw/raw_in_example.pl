@@ -258,10 +258,7 @@ $result_trees{'raw_in_example'} = {
 '
                         },
                         {
-                          'text' => '\\chi^2 = \\sum_{i=1'
-                        },
-                        {
-                          'text' => '}^N
+                          'text' => '\\chi^2 = \\sum_{i=1}^N
 '
                         },
                         {

@@ -259,7 +259,6 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       else
         abort_empty_line (&current, NULL);
       current = current->parent;
-      goto funexit;
     }
   else if (command_flags(current->parent) & CF_brace)
     {
@@ -535,16 +534,11 @@ handle_close_brace (ELEMENT *current, char **line_inout)
   else if (current->type == ET_rawpreformatted)
     {
       /* lone right braces are accepted in a rawpreformatted */
-      ELEMENT *e = new_element (ET_NONE);
-      abort_empty_line (&current, NULL);
-      text_append_n (&e->text, "}", 1);
-      add_to_element_contents (current, e);
-      goto funexit;
+      current = merge_text (current, "}", 0);
     }
   else
     {
       line_error ("misplaced }");
-      goto funexit;
     }
 
 funexit:
