@@ -701,8 +701,8 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
           transfer_marks_element->source_mark_list.number = 0;
         }
       /* Append text */
-      text_append (&last_child->text, text);
       debug ("MERGED TEXT: %s|||", text);
+      text_append (&last_child->text, text);
     }
   else
     {
@@ -711,7 +711,7 @@ merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
       text_append (&e->text, text);
       add_to_element_contents (current, e);
-      debug ("NEW TEXT: %s|||", text);
+      debug ("NEW TEXT (merge): %s|||", text);
     }
 
   return current;

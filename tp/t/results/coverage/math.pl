@@ -25,7 +25,7 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x^i'
+                          'text' => '{x^i}'
                         }
                       ],
                       'source_info' => {
@@ -41,7 +41,7 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '\\tan y'
+                          'text' => '{\\tan y}'
                         }
                       ],
                       'source_info' => {
@@ -189,6 +189,9 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
+                          'text' => '{'
+                        },
+                        {
                           'args' => [
                             {
                               'contents' => [
@@ -198,7 +201,7 @@ $result_trees{'math'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => ' code '
+                                      'text' => '{ code }'
                                     }
                                   ],
                                   'source_info' => {
@@ -218,6 +221,9 @@ $result_trees{'math'} = {
                             'line_nr' => 8,
                             'macro' => ''
                           }
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {
@@ -239,7 +245,7 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'i'
+                          'text' => '{i}'
                         }
                       ],
                       'source_info' => {
@@ -252,12 +258,12 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '\\underline'
+                          'text' => '{\\underline'
                         },
                         {
                           'contents' => [
                             {
-                              'text' => 'f'
+                              'text' => '{f}'
                             }
                           ],
                           'source_info' => {
@@ -266,6 +272,9 @@ $result_trees{'math'} = {
                             'macro' => ''
                           },
                           'type' => 'balanced_braces'
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {

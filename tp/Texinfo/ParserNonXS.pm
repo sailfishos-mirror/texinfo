@@ -2048,10 +2048,17 @@ sub _close_current($$$;$$)
         or $current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed
       $self->_command_error($current, $source_info, __("misplaced {"));
-      if ($current->{'contents'}
-          and $current->{'contents'}->[0]->{'type'}
-          and $current->{'contents'}->[0]->{'type'}
-                eq 'internal_spaces_before_argument') {
+      if ($current->{'type'} eq 'balanced_braces') {
+        # We prefer adding an element to merging because we may
+        # be at the end of the document after an empty line we
+        # do not want to modify
+        #$current = _merge_text($self, $current, '}');
+        my $close_brace = {'text' => '}', 'parent' => $current};
+        push @{$current->{'contents'}}, $close_brace;
+      } elsif ($current->{'contents'}
+               and $current->{'contents'}->[0]->{'type'}
+               and $current->{'contents'}->[0]->{'type'}
+                              eq 'internal_spaces_before_argument') {
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
@@ -2196,17 +2203,17 @@ sub _merge_text {
       delete $transfer_marks_element->{'source_marks'};
     }
     # Append text
-    $merged_to->{'text'} .= $text;
     print STDERR "MERGED TEXT: $text|||in "
       .Texinfo::Common::debug_print_element($merged_to)
       ." last of: ".Texinfo::Common::debug_print_element($current)."\n"
          if ($self->{'DEBUG'});
+    $merged_to->{'text'} .= $text;
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
     _transfer_source_marks($transfer_marks_element, $new_element)
       if ($transfer_marks_element);
     push @{$current->{'contents'}}, $new_element;
-    print STDERR "NEW TEXT: $text|||\n" if ($self->{'DEBUG'});
+    print STDERR "NEW TEXT (merge): $text|||\n" if ($self->{'DEBUG'});
   }
   return $current;
 }
@@ -2704,7 +2711,9 @@ sub _abort_empty_line {
 
     my $spaces_element = $current->{'contents'}->[-1];
 
-    print STDERR "ABORT EMPTY "
+    print STDERR "ABORT EMPTY in "
+      .Texinfo::Common::debug_print_element($current)."(p:".
+       (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
       .$spaces_element->{'type'}
       ." additional text |$additional_spaces|,"
       ." current |$spaces_element->{'text'}|\n"
@@ -4175,7 +4184,9 @@ sub _end_line($$$)
   if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
       and $current->{'contents'}->[-1]->{'type'} eq 'empty_line') {
-    print STDERR "END EMPTY LINE\n" if ($self->{'DEBUG'});
+    print STDERR "END EMPTY LINE in "
+        . Texinfo::Common::debug_print_element($current)."\n"
+          if ($self->{'DEBUG'});
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
       my $empty_line = _pop_element_from_contents($self, $current);
@@ -5686,22 +5697,27 @@ sub _handle_open_brace($$$$)
   } elsif ($current->{'type'}
            and $current->{'type'} eq 'rawpreformatted') {
     # this can happen in an expanded rawpreformatted
+    # FIXME use _merge_text?
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}}, {'text' => '{',
                                      'parent' => $current };
     print STDERR "LONE OPEN BRACE in rawpreformatted\n"
        if ($self->{'DEBUG'});
-  # matching braces accepted in a rawpreformatted or math or ignored
-  # code.  Note that for rawpreformatted, it can only happen
-  # within an @-command as { do not start a bracketed as seen just above.
+  # matching braces accepted in a rawpreformatted, inline raw or
+  # math.  Note that for rawpreformatted, it can only happen
+  # within an @-command as { is simply added as seen just above.
   } elsif ($self->_top_context() eq 'ct_math'
            or $self->_top_context() eq 'ct_rawpreformatted'
            or $self->_top_context() eq 'ct_inlineraw') {
     _abort_empty_line($self, $current);
-    push @{$current->{'contents'}},
-         { 'type' => 'balanced_braces',
-           'parent' => $current, 'source_info' => $source_info };
-    $current = $current->{'contents'}->[-1];
+    my $balanced_braces = {'type' => 'balanced_braces',
+                           'contents' => [],
+                           'parent' => $current,
+                           'source_info' => $source_info};
+    push @{$current->{'contents'}}, $balanced_braces;
+    $current = $balanced_braces;
+    my $open_brace = {'text' => '{', 'parent' => $current};
+    push @{$current->{'contents'}}, $open_brace;
     print STDERR "BALANCED BRACES in math/rawpreformatted/inlineraw\n"
        if ($self->{'DEBUG'});
   } else {
@@ -5717,18 +5733,27 @@ sub _handle_close_brace($$$)
   my $current = shift;
   my $source_info = shift;
 
+  print STDERR "CLOSE BRACE\n" if ($self->{'DEBUG'});
   # For footnote and caption closing, when there is a paragraph inside.
   # This makes the brace command the parent element.
   if ($current->{'parent'} and $current->{'parent'}->{'type'}
-        and $current->{'parent'}->{'type'} eq 'brace_command_context') {
-     _abort_empty_line($self, $current);
-     $current = _end_paragraph($self, $current, $source_info);
+      and $current->{'parent'}->{'type'} eq 'brace_command_context'
+      and $current->{'type'} eq 'paragraph') {
+    _abort_empty_line($self, $current);
+    print STDERR "IN BRACE_COMMAND_CONTEXT "
+       .Texinfo::Common::debug_print_element($current, 1)."\n"
+          if ($self->{'DEBUG'});
+    $current = _end_paragraph($self, $current, $source_info);
   }
 
   if ($current->{'type'}
       and ($current->{'type'} eq 'balanced_braces'
            or $current->{'type'} eq 'bracketed_arg')) {
-    _abort_empty_line($self, $current);
+    if ($current->{'type'} eq 'balanced_braces') {
+      $current = _merge_text($self, $current, '}');
+    } else {
+      _abort_empty_line($self, $current);
+    }
     $current = $current->{'parent'};
   } elsif ($current->{'parent'}
       and $current->{'parent'}->{'cmdname'}
@@ -8219,10 +8244,10 @@ The types of container element are the following:
 
 =item balanced_braces
 
-Special type containing content in balanced braces in the context
-where they are valid, and where balanced braces need to be collected
-to know when a top-level brace command is closed.  In C<@math>, in raw
-output format brace commands and within brace @-commands in raw output
+Special type containing balanced braces content (braces included)
+in the context where they are valid, and where balanced braces need to
+be collected to know when a top-level brace command is closed.  In C<@math>,
+in raw output format brace commands and within brace @-commands in raw output
 format block commands.
 
 =item before_item

@@ -665,12 +665,10 @@ sub _convert($;$)
     $options->{'_raw_state'}-- if ($in_raw);
     $options->{'_code_state'}-- if ($in_code);
   }
-  if ($element->{'type'} and $element->{'type'} eq 'balanced_braces') {
-    $result = '{'.$result.'}';
-  } elsif ($element->{'type'} and $element->{'type'} eq 'menu_entry'
-           and (!$element->{'parent'}->{'type'}
-                or ($element->{'parent'}->{'type'} ne 'preformatted'
-                    and $element->{'parent'}->{'type'} ne 'rawpreformatted'))) {
+  if ($element->{'type'} and $element->{'type'} eq 'menu_entry'
+      and (!$element->{'parent'}->{'type'}
+           or ($element->{'parent'}->{'type'} ne 'preformatted'
+               and $element->{'parent'}->{'type'} ne 'rawpreformatted'))) {
     chomp($result);
     $result .= "\n";
   }

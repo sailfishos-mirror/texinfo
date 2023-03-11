@@ -35,8 +35,11 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                         {
                           'contents' => [
                             {
-                              'text' => '
+                              'text' => '{
 '
+                            },
+                            {
+                              'text' => '}'
                             }
                           ],
                           'source_info' => {
@@ -138,7 +141,7 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'c d'
+                              'text' => '{c d}'
                             }
                           ],
                           'source_info' => {

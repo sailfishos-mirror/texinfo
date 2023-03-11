@@ -256,7 +256,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                         {
                           'contents' => [
                             {
-                              'text' => ' code '
+                              'text' => '{ code }'
                             }
                           ],
                           'source_info' => {
@@ -360,7 +360,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                         {
                           'contents' => [
                             {
-                              'text' => ' code '
+                              'text' => '{ code }'
                             }
                           ],
                           'source_info' => {

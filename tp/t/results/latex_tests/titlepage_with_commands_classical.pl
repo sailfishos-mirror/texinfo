@@ -299,7 +299,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                     {
                                       'contents' => [
                                         {
-                                          'text' => 'a'
+                                          'text' => '{a}'
                                         }
                                       ],
                                       'source_info' => {
@@ -312,7 +312,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                     {
                                       'contents' => [
                                         {
-                                          'text' => 'b'
+                                          'text' => '{b}'
                                         }
                                       ],
                                       'source_info' => {

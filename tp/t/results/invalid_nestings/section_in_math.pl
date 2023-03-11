@@ -29,13 +29,16 @@ $result_trees{'section_in_math'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x^2
+                          'text' => '{x^2
 '
                         },
                         {
                           'text' => '
 ',
                           'type' => 'empty_line'
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {

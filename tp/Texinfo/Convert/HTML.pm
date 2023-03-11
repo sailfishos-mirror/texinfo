@@ -6233,7 +6233,7 @@ sub _convert_balanced_braces_type($$$$) {
   my $element = shift;
   my $content = shift;
 
-  return '{'.$content.'}';
+  return $content;
 }
 
 $default_types_conversion{'balanced_braces'} = \&_convert_balanced_braces_type;

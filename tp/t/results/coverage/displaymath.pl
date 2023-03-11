@@ -38,7 +38,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => 'x^i'
+                  'text' => '{x^i}'
                 }
               ],
               'source_info' => {
@@ -54,7 +54,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\tan y'
+                  'text' => '{\\tan y}'
                 }
               ],
               'source_info' => {
@@ -278,6 +278,9 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
+                  'text' => '{'
+                },
+                {
                   'args' => [
                     {
                       'contents' => [
@@ -287,7 +290,7 @@ $result_trees{'displaymath'} = {
                         {
                           'contents' => [
                             {
-                              'text' => ' code '
+                              'text' => '{ code }'
                             }
                           ],
                           'source_info' => {
@@ -307,6 +310,9 @@ $result_trees{'displaymath'} = {
                     'line_nr' => 13,
                     'macro' => ''
                   }
+                },
+                {
+                  'text' => '}'
                 }
               ],
               'source_info' => {
@@ -328,7 +334,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => 'i'
+                  'text' => '{i}'
                 }
               ],
               'source_info' => {
@@ -341,12 +347,12 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\underline'
+                  'text' => '{\\underline'
                 },
                 {
                   'contents' => [
                     {
-                      'text' => 'f'
+                      'text' => '{f}'
                     }
                   ],
                   'source_info' => {
@@ -355,6 +361,9 @@ $result_trees{'displaymath'} = {
                     'macro' => ''
                   },
                   'type' => 'balanced_braces'
+                },
+                {
+                  'text' => '}'
                 }
               ],
               'source_info' => {

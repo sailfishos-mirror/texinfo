@@ -320,8 +320,6 @@ sub _convert($)
       $result .= _convert($content);
     }
   }
-  $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
   return $result;
 }
 

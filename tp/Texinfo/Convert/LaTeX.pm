@@ -4204,8 +4204,6 @@ sub _convert($$)
       $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
-    } elsif ($element->{'type'} eq 'balanced_braces') {
-      $result .= _protect_text($self, '{');
     }
   }
 
@@ -4240,8 +4238,6 @@ sub _convert($$)
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};
-    } elsif ($type eq 'balanced_braces') {
-      $result .= _protect_text($self, '}');
     } elsif ($type eq 'preformatted') {
       $result .= _close_preformatted($self, $element);
     } elsif ($type eq 'before_item') {

@@ -1714,9 +1714,6 @@ sub _convert($$;$)
     }
   }
 
-  $result = '{'.$result.'}' 
-     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
-
   foreach my $format_element (@close_format_elements) {
     $result .= "</$format_element>";
   }

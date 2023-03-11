@@ -1347,7 +1347,7 @@ $result_trees{'commands_and_spaces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ' a, b'
+                          'text' => '{ a, b}'
                         }
                       ],
                       'source_info' => {

@@ -171,8 +171,6 @@ sub _convert($$)
       $result .= _convert($self, $content);
     }
   }
-  $result = '{'.$result.'}'
-     if ($element->{'type'} and $element->{'type'} eq 'balanced_braces');
 
   if ($element->{'type'} and $element->{'type'} eq 'line_arg') {
     $result .= "\n";

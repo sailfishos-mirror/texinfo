@@ -26,7 +26,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'text' => '{truc}'
                         }
                       ],
                       'source_info' => {

@@ -40,7 +40,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '\\xi'
+                          'text' => '{\\xi}'
                         }
                       ],
                       'source_info' => {
@@ -53,7 +53,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'phi '
+                          'text' => '{phi '
                         },
                         {
                           'args' => [
@@ -67,6 +67,9 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                             'line_nr' => 2,
                             'macro' => ''
                           }
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {

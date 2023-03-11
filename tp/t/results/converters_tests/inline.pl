@@ -228,7 +228,7 @@ $result_trees{'inline'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'a < b '
+                                  'text' => '{a < b '
                                 },
                                 {
                                   'args' => [
@@ -240,7 +240,7 @@ $result_trees{'inline'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'text' => ' code '
+                                              'text' => '{ code }'
                                             }
                                           ],
                                           'source_info' => {
@@ -260,6 +260,9 @@ $result_trees{'inline'} = {
                                     'line_nr' => 7,
                                     'macro' => ''
                                   }
+                                },
+                                {
+                                  'text' => '}'
                                 }
                               ],
                               'source_info' => {
@@ -272,7 +275,7 @@ $result_trees{'inline'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'b'
+                                  'text' => '{b}'
                                 }
                               ],
                               'source_info' => {
@@ -543,7 +546,7 @@ $result_trees{'inline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a < b '
+                          'text' => '{a < b '
                         },
                         {
                           'args' => [
@@ -555,7 +558,7 @@ $result_trees{'inline'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => ' code '
+                                      'text' => '{ code }'
                                     }
                                   ],
                                   'source_info' => {
@@ -575,6 +578,9 @@ $result_trees{'inline'} = {
                             'line_nr' => 15,
                             'macro' => ''
                           }
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {
@@ -587,7 +593,7 @@ $result_trees{'inline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'b'
+                          'text' => '{b}'
                         }
                       ],
                       'source_info' => {

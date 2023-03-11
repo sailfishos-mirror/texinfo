@@ -18,7 +18,7 @@ $result_trees{'math_bracketed_not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x^i'
+                          'text' => '{x^i}'
                         }
                       ],
                       'source_info' => {
@@ -34,7 +34,10 @@ $result_trees{'math_bracketed_not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '\\tan '
+                          'text' => '{\\tan '
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {

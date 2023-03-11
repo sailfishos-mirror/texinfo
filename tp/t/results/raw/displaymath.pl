@@ -29,7 +29,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\nabla\\cdot'
+                  'text' => '{\\nabla\\cdot}'
                 }
               ],
               'source_info' => {
@@ -45,7 +45,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\partial D'
+                  'text' => '{\\partial D}'
                 }
               ],
               'source_info' => {
@@ -132,7 +132,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\nabla\\cdot'
+                  'text' => '{\\nabla\\cdot}'
                 }
               ],
               'source_info' => {
@@ -148,7 +148,7 @@ $result_trees{'displaymath'} = {
             {
               'contents' => [
                 {
-                  'text' => '\\partial D'
+                  'text' => '{\\partial D}'
                 }
               ],
               'source_info' => {

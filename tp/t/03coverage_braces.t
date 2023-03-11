@@ -336,6 +336,17 @@ b}'],
 
 '],
 ['math_leading_trailing_spaces','@math{ a = b }'],
+['empty_line_in_braces_in_math',
+'@math{a{bb
+
+c}d}'],
+['empty_line_in_braces_in_math_at_begin_line',
+'@math{a
+
+{b
+
+} c
+}'],
 ['unknown_command_with_braces',
 'Unknown thing @thing{}
 

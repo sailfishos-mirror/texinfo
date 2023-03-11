@@ -130,8 +130,7 @@ sub convert_to_texinfo($)
       $result .= _expand_cmd_args_to_texi($element);
     }
     if ($element->{'type'}
-        and ($element->{'type'} eq 'balanced_braces'
-             or $element->{'type'} eq 'bracketed_arg')) {
+        and $element->{'type'} eq 'bracketed_arg') {
       $result .= '{';
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {
@@ -150,8 +149,7 @@ sub convert_to_texinfo($)
       $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if ($element->{'type'}
-                       and ($element->{'type'} eq 'balanced_braces'
-                            or $element->{'type'} eq 'bracketed_arg'));
+                       and $element->{'type'} eq 'bracketed_arg');
   }
   return $result;
 }

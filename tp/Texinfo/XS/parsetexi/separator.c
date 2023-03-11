@@ -192,16 +192,23 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       text_append (&e->text, "{");
       add_to_element_contents (current, e);
     }
+  /* matching braces accepted in a rawpreformatted, inline raw or
+     math.  Note that for rawpreformatted, it can only happen
+     within an @-command as { is simply added as seen just above.
+   */
   else if (current_context() == ct_math
            || current_context() == ct_rawpreformatted
            || current_context() == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
+      ELEMENT *open_brace = new_element (ET_NONE);
       abort_empty_line (&current, NULL);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
       current = b;
-      debug ("BRACKETED in math");
+      text_append (&open_brace->text, "{");
+      add_to_element_contents (current, open_brace);
+      debug ("BALANCED BRACES in math/rawpreformatted/inlineraw");
     }
   else
     {
@@ -236,9 +243,12 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 {
   char *line = *line_inout;
 
+  debug ("CLOSE BRACE");
+
   /* For footnote and caption closing, when there is a paragraph inside.
      This makes the brace command the parent element. */
-  if (current->parent && current->parent->type == ET_brace_command_context)
+  if (current->parent && current->parent->type == ET_brace_command_context
+      && current->type == ET_paragraph)
     {
       abort_empty_line (&current, NULL);
       current = end_paragraph (current, 0, 0);
@@ -247,8 +257,10 @@ handle_close_brace (ELEMENT *current, char **line_inout)
   if (current->type == ET_balanced_braces
       || current->type == ET_bracketed_arg)
     {
-      /* Used in @math */
-      abort_empty_line (&current, NULL);
+      if (current->type == ET_balanced_braces)
+        current = merge_text (current, "}", 0);
+      else
+        abort_empty_line (&current, NULL);
       current = current->parent;
       goto funexit;
     }
@@ -537,7 +549,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       line_error ("misplaced }");
       goto funexit;
     }
-  
+
 funexit:
   *line_inout = line;
   return current;

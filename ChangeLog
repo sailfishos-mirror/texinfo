@@ -1,3 +1,28 @@
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_balanced_braces_type), tp/Texinfo/Convert/LaTeX.pm
+	(_convert), tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_close_current, _handle_open_brace)
+	(_handle_close_brace), tp/Texinfo/XS/parsetexi/close.c
+	(close_current), tp/Texinfo/XS/parsetexi/convert.c
+	(convert_to_texinfo_internal), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace): put braces associated to the
+	balanced_braces type in the contents of the container, as text.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): abort empty
+	line and close paragraph in brace_command_context commands only if the
+	current container is actually a paragraph.
+
+	* tp/t/03coverage_braces.t, tp/Makefile.tres: add
+	empty_line_in_braces_in_math and
+	empty_line_in_braces_in_math_at_begin_line tests.
+
 2023-03-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm

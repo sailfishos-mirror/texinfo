@@ -412,7 +412,7 @@ $result_trees{'inline_expand_tex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a < b '
+                          'text' => '{a < b '
                         },
                         {
                           'args' => [
@@ -424,7 +424,7 @@ $result_trees{'inline_expand_tex'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => ' code '
+                                      'text' => '{ code }'
                                     }
                                   ],
                                   'source_info' => {
@@ -444,6 +444,9 @@ $result_trees{'inline_expand_tex'} = {
                             'line_nr' => 14,
                             'macro' => ''
                           }
+                        },
+                        {
+                          'text' => '}'
                         }
                       ],
                       'source_info' => {

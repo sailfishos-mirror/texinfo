@@ -175,8 +175,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
           expand_cmd_args_to_texi (e, result);
         }
 
-      if (e->type == ET_balanced_braces
-          || e->type == ET_bracketed_arg)
+      if (e->type == ET_bracketed_arg)
         {
           KEY_PAIR *k;
           ADD("{");
@@ -199,8 +198,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
       if (k)
         convert_to_texinfo_internal ((ELEMENT *)k->value, result);
 
-      if (e->type == ET_balanced_braces
-          || e->type == ET_bracketed_arg)
+      if (e->type == ET_bracketed_arg)
         ADD("}");
     }
 
