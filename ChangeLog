@@ -11,6 +11,12 @@
 
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: minor changes.  Reindent, change in comments.
+	Use $main_configuration instead of $converter for
+	Texinfo::Common::output_files_open_out call for SORT_ELEMENT_COUNT.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): determine if an
 	accent command argument has braces in the same way as it is done in
 	other converters by checking if argument type is not

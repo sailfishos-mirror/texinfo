@@ -3,20 +3,20 @@
 # texi2any: Texinfo converter.
 #
 # Copyright 2010-2022 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
@@ -185,7 +185,7 @@ my $internal_extension_dirs = [$extensions_dir];
 my $messages_textdomain = '@PACKAGE@';
 $messages_textdomain = 'texinfo' if ($messages_textdomain eq '@'.'PACKAGE@');
 my $strings_textdomain = '@PACKAGE@' . '_document';
-$strings_textdomain = 'texinfo_document' 
+$strings_textdomain = 'texinfo_document'
    if ($strings_textdomain eq '@'.'PACKAGE@' . '_document');
 
 
@@ -211,7 +211,7 @@ Locale::Messages::bindtextdomain($messages_textdomain,
                                 File::Spec->catdir($datadir, 'locale'));
 
 
-# Version setting is complicated, because we cope with 
+# Version setting is complicated, because we cope with
 # * script with configure values substituted or not
 # * script shipped as part of texinfo or as a standalone perl module
 #   (although standalone module infrastructure was removed in 2019)
@@ -221,16 +221,16 @@ Locale::Messages::bindtextdomain($messages_textdomain,
 # by a sed one liner.  The consequence is that configure.ac is not used
 # to retrieve the version number, version came from Texinfo::Common in that
 # case.
-# Otherwise this is only used as a safety value, and should never be used 
+# Otherwise this is only used as a safety value, and should never be used
 # in practice as a regexp extracts the version from configure.ac.
 my $hardcoded_version = "0.00-hardcoded";
 # Version set in configure.ac
 my $configured_version = '@PACKAGE_VERSION@';
 if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
-  # if not configured, and $hardcoded_version is set search for the version 
+  # if not configured, and $hardcoded_version is set search for the version
   # in configure.ac
   if (defined($hardcoded_version)) {
-    if (open (CONFIGURE, 
+    if (open (CONFIGURE,
               "< ".File::Spec->catfile($Texinfo::ModulePath::top_srcdir,
                                        'configure.ac'))) {
       while (<CONFIGURE>) {
@@ -268,7 +268,7 @@ if ($configured_version ne $Texinfo::Common::VERSION
 my $configured_package = '@PACKAGE@';
 $configured_package = 'Texinfo' if ($configured_package eq '@' . 'PACKAGE@');
 my $configured_name = '@PACKAGE_NAME@';
-$configured_name = $configured_package 
+$configured_name = $configured_package
   if ($configured_name eq '@' .'PACKAGE_NAME@');
 my $configured_name_version = "$configured_name $configured_version";
 my $configured_url = '@PACKAGE_URL@';
@@ -282,7 +282,7 @@ my $texinfo_dtd_version = '@TEXINFO_DTD_VERSION@';
 if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   $texinfo_dtd_version = undef;
   if (defined($hardcoded_version)) {
-    if (open (CONFIGURE, 
+    if (open (CONFIGURE,
             "< ".File::Spec->catfile($Texinfo::ModulePath::top_srcdir,
                                      'configure.ac'))) {
       while (<CONFIGURE>) {
@@ -329,7 +329,7 @@ my $main_program_set_options = {
     'PACKAGE_NAME' => $configured_name,
     'PACKAGE_AND_VERSION' => $configured_name_version,
     'PACKAGE_URL' => $configured_url,
-    'PROGRAM' => $real_command_name, 
+    'PROGRAM' => $real_command_name,
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     'MESSAGE_ENCODING' => $locale_encoding,
@@ -362,11 +362,11 @@ my $conf_file_name = 'Config' ;
 
 # directories for texinfo configuration files, used as part of binary strings.
 my @language_config_dirs = File::Spec->catdir($curdir, '.texinfo');
-push @language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo') 
+push @language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo')
                                 if (defined($ENV{'HOME'}));
-push @language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo') 
+push @language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
                                if (defined($sysconfdir));
-push @language_config_dirs, File::Spec->catdir($datadir, 'texinfo') 
+push @language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
                                if (defined($datadir));
 my @texinfo_config_dirs = ($curdir, @language_config_dirs);
 
@@ -378,9 +378,9 @@ my $program_name = 'texi2any';
 @program_config_dirs = ($curdir, File::Spec->catdir($curdir, ".$program_name"));
 push @program_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$program_name")
        if (defined($ENV{'HOME'}));
-push @program_config_dirs, File::Spec->catdir($sysconfdir, $program_name) 
+push @program_config_dirs, File::Spec->catdir($sysconfdir, $program_name)
        if (defined($sysconfdir));
-push @program_config_dirs, File::Spec->catdir($datadir, $program_name) 
+push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
   if (defined($datadir));
 
 @program_init_dirs = @program_config_dirs;
@@ -415,7 +415,7 @@ sub document_warn($) {
   my $text = shift;
   chomp ($text);
   warn(_encode_message(
-       sprintf(__p("program name: warning: warning_message", 
+       sprintf(__p("program name: warning: warning_message",
                    "%s: warning: %s")."\n", $real_command_name, $text)));
 }
 
@@ -563,7 +563,7 @@ sub set_expansion($$) {
     add_to_option_list('EXPANDED_FORMATS', [$region]);
   } else {
     remove_from_option_list('EXPANDED_FORMATS', [$region]);
-    @{$default_expanded_format} 
+    @{$default_expanded_format}
        = grep {$_ ne $region} @{$default_expanded_format};
   }
 }
@@ -684,8 +684,9 @@ sub set_format($;$$)
   }
   my $expanded_format = $set_format;
   if (!$formats_table{$new_format}) {
-    document_warn(sprintf(__("ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"), 
-                 $new_format));
+    document_warn(sprintf(__(
+                   "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"),
+                         $new_format));
     $new_format = $previous_format;
   } else {
     if ($format_from_command_line and $do_not_override_command_line) {
@@ -693,16 +694,16 @@ sub set_format($;$$)
     } else {
       if ($formats_table{$new_format}->{'texi2dvi_format'}) {
         $call_texi2dvi = 1;
-        push @texi2dvi_args, '--'.$new_format; 
+        push @texi2dvi_args, '--'.$new_format;
         $expanded_format = 'tex';
       } elsif ($formats_table{$new_format}->{'converted_format'}) {
         $expanded_format = $formats_table{$new_format}->{'converted_format'};
       }
       if ($Texinfo::Common::texinfo_output_formats{$expanded_format}) {
         if ($expanded_format eq 'plaintext') {
-          $default_expanded_format = [$expanded_format, 'info'] 
+          $default_expanded_format = [$expanded_format, 'info'];
         } else {
-          $default_expanded_format = [$expanded_format] 
+          $default_expanded_format = [$expanded_format];
         }
       }
       $format_from_command_line = 1
@@ -758,7 +759,7 @@ sub handle_errors($$$)
       warn $s;
     }
   }
-  
+
   _exit($error_count, $opened_files);
   return $error_count;
 }
@@ -868,7 +869,7 @@ the behavior is identical, and does not depend on the installed name.\n")
 "      --split-size=NUM        split Info files at size NUM (default %d).")."\n"
 ."\n",
     _get_converter_default('FILLCOLUMN'),
-    _get_converter_default('paragraphindent'), 
+    _get_converter_default('paragraphindent'),
     _get_converter_default('SPLIT_SIZE'))
 ."\n";
   # TODO: avoid \n in translated strings, split each option in a translatable
@@ -888,8 +889,6 @@ the behavior is identical, and does not depend on the installed name.\n")
   $makeinfo_help .= __("Options for DVI/PS/PDF:
       --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n")
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Input file options:")."\n"
 .__(" -D VAR                       define the variable VAR, as with \@set.")."\n"
 .__(" -D 'VAR VAL'                 define VAR to VAL (one shell argument).")."\n"
@@ -916,9 +915,9 @@ the behavior is identical, and does not depend on the installed name.\n")
 ."\n"
 .__("  Also, for the --no-ifFORMAT options, do process \@ifnotFORMAT text.")."\n"
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("  The defaults for the \@if... conditionals depend on the output format:
+  # TODO: split each line in a translatable string?
+  $makeinfo_help
+    .= __("  The defaults for the \@if... conditionals depend on the output format:
   if generating Docbook, --ifdocbook is on and the others are off;
   if generating HTML, --ifhtml is on and the others are off;
   if generating Info, --ifinfo is on and the others are off;
@@ -926,7 +925,8 @@ the behavior is identical, and does not depend on the installed name.\n")
   if generating LaTeX, --iflatex is on and the others are off;
   if generating XML, --ifxml is on and the others are off.")."\n"
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
+  # TODO: avoid \n in translated strings, Report from Benno Schulenberg.
+  # TODO: split each line in a translatable string?
   # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Examples:
   makeinfo foo.texi                      write Info to foo's \@setfilename
@@ -957,7 +957,8 @@ my $result_options = Getopt::Long::GetOptions (
  'help|h' => sub { print _encode_message(makeinfo_help()); exit 0; },
  'version|V' => sub {
     print _encode_message("$program_name (GNU texinfo) $configured_version\n\n");
-    print _encode_message(sprintf __("Copyright (C) %s Free Software Foundation, Inc.
+    print _encode_message(sprintf __(
+"Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
@@ -983,7 +984,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
        set_from_cmdline('footnotestyle', $value);
     } else {
       die _encode_message(
-           sprintf(__("%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
+           sprintf(__(
+          "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
                   $real_command_name, $value));
     }
   },
@@ -995,7 +997,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
                        $split = 'node';
                      }
                      set_from_cmdline('SPLIT', $split); },
- 'no-split' => sub { set_from_cmdline('SPLIT', ''); 
+ 'no-split' => sub { set_from_cmdline('SPLIT', '');
                      set_from_cmdline('SPLIT_SIZE', undef);},
  'headers!' => sub { set_from_cmdline('HEADERS', $_[1]);
                      if (!$_[1]) {
@@ -1004,7 +1006,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
                        # a special value that is modified below when the
                        # output format is known, to be the default for that
                        # format, or 'menu'
-                       set_from_cmdline('FORMAT_MENU', 'set_format_menu_from_cmdline_header');
+                       set_from_cmdline('FORMAT_MENU',
+                                        'set_format_menu_from_cmdline_header');
                      }
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
@@ -1017,15 +1020,15 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
     push @texi2dvi_args, '-o', $_[1];
   },
  'no-validate|no-pointer-validate' => sub {
-      set_from_cmdline('novalidate',$_[1]);
-    },
+                            set_from_cmdline('novalidate',$_[1]);
+                          },
  'no-warn' => sub { set_from_cmdline('NO_WARN', $_[1]); },
- 'verbose|v!' => sub {set_from_cmdline('VERBOSE', $_[1]); 
+ 'verbose|v!' => sub {set_from_cmdline('VERBOSE', $_[1]);
                      push @texi2dvi_args, '--verbose'; },
  'document-language=s' => sub {
                       my $documentlanguage = _decode_input($_[1]);
                       set_from_cmdline('documentlanguage', $documentlanguage);
-                      my @messages 
+                      my @messages
                        = Texinfo::Common::warn_unknown_language($documentlanguage);
                       foreach my $message (@messages) {
                         document_warn($message);
@@ -1072,7 +1075,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
  },
  'css-include=s' => \@css_files,
  'css-ref=s' => \@css_refs,
- 'transliterate-file-names!' => 
+ 'transliterate-file-names!' =>
      sub {set_from_cmdline('TRANSLITERATE_FILE_NAMES', $_[1]);},
  'error-limit|e=i' => sub { set_from_cmdline('ERROR_LIMIT', $_[1]); },
  'split-size=s' => sub {set_from_cmdline('SPLIT_SIZE', $_[1])},
@@ -1082,7 +1085,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
       set_from_cmdline('paragraphindent', $value);
     } else {
       die _encode_message(sprintf(
-       __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
+     __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
                   $real_command_name, $value));
     }
  },
@@ -1109,7 +1112,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2022");
  'dvipdf' => sub {$format = set_format($_[0].'');},
  'ps' => sub {$format = set_format($_[0].'');},
  'pdf' => sub {$format = set_format($_[0].'');},
- 'debug=i' => sub {set_from_cmdline('DEBUG', $_[1]); 
+ 'debug=i' => sub {set_from_cmdline('DEBUG', $_[1]);
                    push @texi2dvi_args, '--'.$_[0]; },
 );
 
@@ -1161,7 +1164,7 @@ my %test_conf = (
     'PACKAGE_AND_VERSION' => 'texinfo',
     'PACKAGE_URL' => 'http://www.gnu.org/software/texinfo/',
 # maybe don't set this?
-    'PROGRAM' => 'texi2any', 
+    'PROGRAM' => 'texi2any',
 );
 if (get_conf('TEST')) {
   foreach my $conf (keys (%test_conf)) {
@@ -1194,7 +1197,7 @@ if (defined($init_file_format)) {
   $format = set_format($init_file_format, $format, 1);
 }
 
-if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'}) 
+if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
     and $ENV{'TEXINFO_OUTPUT_FORMAT'} ne '') {
   $format = set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}),
                        $format, 1);
@@ -1209,11 +1212,12 @@ if (defined ($formats_table{$format}->{'init_file'})) {
 if ($call_texi2dvi) {
   if (defined(get_conf('OUTFILE')) and @ARGV > 1) {
     die _encode_message(
-      sprintf(__('%s: when generating %s, only one input FILE may be specified with -o'."\n"),
+      sprintf(
+ __('%s: when generating %s, only one input FILE may be specified with -o'."\n"),
                 $real_command_name, format_name($format)));
   }
 } elsif($Xopt_arg_nr) {
-  document_warn(__('--Xopt option without printed output')); 
+  document_warn(__('--Xopt option without printed output'));
 }
 
 require Texinfo::Parser;
@@ -1229,7 +1233,7 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
     if (Texinfo::Common::valid_tree_transformation($transformation)) {
       $tree_transformations{$transformation} = 1;
     } else {
-      document_warn(sprintf(__('unknown tree transformation %s'), 
+      document_warn(sprintf(__('unknown tree transformation %s'),
                      $transformation));
     }
   }
@@ -1243,12 +1247,12 @@ if ($formats_table{$format}->{'converted_format'}) {
   $converted_format = $formats_table{$format}->{'converted_format'};
 }
 
-# FIXME distinguish format and converted_format in message?
+# TODO distinguish format and converted_format in message?
 if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
-  #document_warn(sprintf(__('ignoring splitting for converted format %s'), 
-  document_warn(sprintf(__('ignoring splitting for format %s'), 
+  #document_warn(sprintf(__('ignoring splitting for converted format %s'),
+  document_warn(sprintf(__('ignoring splitting for format %s'),
                         format_name($converted_format)));
-  set_from_cmdline('SPLIT', ''); 
+  set_from_cmdline('SPLIT', '');
 }
 
 add_to_option_list('EXPANDED_FORMATS', $default_expanded_format);
@@ -1271,8 +1275,8 @@ if (defined($formats_table{$converted_format}->{'module'})) {
         .'->converter(@_)};';
 }
 
-# For now, FORMAT_MENU is the only variable that can be set from converter defaults
-# for the main program structuring and for the parser.
+# For now, FORMAT_MENU is the only variable that can be set from converter
+# defaults for the main program structuring and for the parser.
 # This could be done for more variables if
 # converter default becomes relevant for more variables, either
 # for the parser or the main program.
@@ -1320,7 +1324,7 @@ my @parser_settable_options
 # Copy relevant customization variables into the parser options.
 foreach my $parser_settable_option (@parser_settable_options) {
   if (defined(get_conf($parser_settable_option))) {
-    $parser_options->{$parser_settable_option} 
+    $parser_options->{$parser_settable_option}
        = get_conf($parser_settable_option);
   }
 }
@@ -1338,7 +1342,7 @@ my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
 die _encode_message(
-    sprintf(__("%s: missing file argument.\n"), $real_command_name) 
+    sprintf(__("%s: missing file argument.\n"), $real_command_name)
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name))
      unless (scalar(@input_files) >= 1);
 
@@ -1396,7 +1400,7 @@ while(@input_files) {
   my $tree = $parser->parse_texi_file($input_file_name);
 
   if (defined($tree)
-      and (defined(get_conf('DUMP_TREE')) 
+      and (defined(get_conf('DUMP_TREE'))
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     # this is very wrong, but a way to avoid a spurious warning.
     no warnings 'once';
@@ -1414,10 +1418,11 @@ while(@input_files) {
 
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    my ($filled_contents, $added_sections) 
+    my ($filled_contents, $added_sections)
       = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
     if (!defined($filled_contents)) {
-      document_warn(__("fill_gaps_in_sectioning transformation return no result. No section?"));
+      document_warn(__(
+       "fill_gaps_in_sectioning transformation return no result. No section?"));
     } else {
       $tree->{'contents'} = $filled_contents;
     }
@@ -1459,22 +1464,25 @@ while(@input_files) {
     #print STDERR "$texinfo_text\n";
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
     my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
-    my $macro_expand_files_information = Texinfo::Common::output_files_initialize();;
-    my ($macro_expand_fh, $error_message) = Texinfo::Common::output_files_open_out(
-                                $macro_expand_files_information, $main_configuration,
-                                $encoded_macro_expand_file_name);
+    my $macro_expand_files_information
+          = Texinfo::Common::output_files_initialize();
+    my ($macro_expand_fh, $error_message)
+          = Texinfo::Common::output_files_open_out(
+                          $macro_expand_files_information, $main_configuration,
+                          $encoded_macro_expand_file_name);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
-      Texinfo::Common::output_files_register_closed($macro_expand_files_information,
-                                                    $encoded_macro_expand_file_name);
+      Texinfo::Common::output_files_register_closed(
+                             $macro_expand_files_information,
+                             $encoded_macro_expand_file_name);
       if (!close($macro_expand_fh)) {
-        document_warn(sprintf(__("error on closing macro expand file %s: %s\n"), 
+        document_warn(sprintf(__("error on closing macro expand file %s: %s\n"),
                               $macro_expand_file_name, $!));
         $error_macro_expand_file = 1;
       }
     } else {
-      document_warn(sprintf(__("could not open %s for writing: %s\n"), 
+      document_warn(sprintf(__("could not open %s for writing: %s\n"),
                             $macro_expand_file_name, $error_message));
       $error_macro_expand_file = 1;
     }
@@ -1512,14 +1520,14 @@ while(@input_files) {
                               $tree, $nodes_list, $targets_list, $labels);
     if (!defined($modified_contents)) {
       document_warn(__(
-       "insert_nodes_for_sectioning_commands transformation return no result. No section?"));
+   "insert_nodes_for_sectioning_commands transformation return no result. No section?"));
     } else {
       $tree->{'contents'} = $modified_contents;
     }
   }
 
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($registrar, 
+  Texinfo::Structuring::associate_internal_references($registrar,
                                                       $main_configuration,
                                         $parser_information, $labels, $refs);
   # information obtained through Texinfo::Structuring
@@ -1558,9 +1566,14 @@ while(@input_files) {
   my $top_node;
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
 
-    # FIXME makes implicitely menu the default here.  'FORMAT_MENU'
-    # not being set here happens rarely, when there is a format, but the
-    # format does not define 'FORMAT_MENU' (case of plaintexinfo).
+    # With this condition, menu is the default for 'FORMAT_MENU'.
+    # However, this can only happen if
+    # 1) 'nodes_tree' is set for the converted format,
+    # 2) there is a 'module' setting a converter, such that the default set
+    #    in Texinfo::Common is not used,
+    # 3) FORMAT_MENU is not set in the converter defaults.
+    # In practice these three conditions are never met, so the default
+    # is never used.
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($registrar,
@@ -1638,11 +1651,11 @@ while(@input_files) {
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       if ($unclosed_file eq '-') {
-        $unclosed_files{$unclosed_file} 
+        $unclosed_files{$unclosed_file}
           = $converter_unclosed_files->{$unclosed_file};
       } else {
         if (!close($converter_unclosed_files->{$unclosed_file})) {
-          warn(sprintf(__("%s: error on closing %s: %s\n"), 
+          warn(sprintf(__("%s: error on closing %s: %s\n"),
                            $real_command_name, $unclosed_file, $!));
           $error_count++;
           _exit($error_count, \@opened_files);
@@ -1650,10 +1663,10 @@ while(@input_files) {
       }
     }
   }
-  
+
   if (defined(get_conf('INTERNAL_LINKS')) and $file_number == 0
       and $formats_table{$converted_format}->{'internal_links'}) {
-    my $internal_links_text 
+    my $internal_links_text
       = $converter->output_internal_links();
     # always create a file, even if empty.
     $internal_links_text = '' if (!defined($internal_links_text));
@@ -1669,17 +1682,18 @@ while(@input_files) {
     my $error_internal_links_file;
     if (defined ($internal_links_fh)) {
       print $internal_links_fh $internal_links_text;
-      
+
       if (!close ($internal_links_fh)) {
-        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"), 
+        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"),
                       $real_command_name, $internal_links_file_name, $!));
         $error_internal_links_file = 1;
       }
       Texinfo::Common::output_files_register_closed(
            $internal_links_files_information, $encoded_internal_links_file_name);
     } else {
-      warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
-                      $real_command_name, $internal_links_file_name, $error_message));
+      warn(sprintf(__("%s: could not open %s for writing: %s\n"),
+                      $real_command_name, $internal_links_file_name,
+                      $error_message));
       $error_internal_links_file = 1;
     }
 
@@ -1696,7 +1710,7 @@ while(@input_files) {
   }
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
     require Texinfo::Convert::TextContent;
-    my $converter_element_count_file 
+    my $converter_element_count
       = Texinfo::Convert::TextContent->converter($converter_options);
     # here could be $format or $converted_format.  Since $converted_format
     # is used above for ->{'nodes_tree'}, use it here again.
@@ -1705,7 +1719,7 @@ while(@input_files) {
                             and !$converter->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)
         = Texinfo::Convert::Converter::sort_element_counts(
-               $converter_element_count_file, $tree, $use_sections,
+               $converter_element_count, $tree, $use_sections,
                              get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
     my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');
@@ -1713,27 +1727,23 @@ while(@input_files) {
        = Texinfo::Common::encode_file_name($sort_element_count_file_name,
                                            $input_perl_encoding);
     my $sort_elem_files_information = Texinfo::Common::output_files_initialize();
-    # FIXME using $converter here for the configuration is
-    # not right, should be changed by something not associated
-    # with the converter but to the main program or file. parser
-    # is not much better
     my ($sort_element_count_fh, $error_message)
                 = Texinfo::Common::output_files_open_out(
-                               $sort_elem_files_information, $converter,
+                             $sort_elem_files_information, $main_configuration,
                                     $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;
     if (defined ($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;
-      
+
       if (!close ($sort_element_count_fh)) {
-        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"), 
+        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"),
                       $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
       Texinfo::Common::output_files_register_closed($sort_elem_files_information,
                                            $encoded_sort_element_count_file_name);
     } else {
-      warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
+      warn(sprintf(__("%s: could not open %s for writing: %s\n"),
                     $real_command_name, $sort_element_count_file_name, $!));
       $error_sort_element_count_file = 1;
     }
@@ -1753,7 +1763,7 @@ while(@input_files) {
 
 foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {
-    warn(sprintf(__("%s: error on closing %s: %s\n"), 
+    warn(sprintf(__("%s: error on closing %s: %s\n"),
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \@opened_files);
@@ -1762,7 +1772,7 @@ foreach my $unclosed_file (keys(%unclosed_files)) {
 
 if ($call_texi2dvi) {
   if (get_conf('DEBUG') or get_conf('VERBOSE')) {
-    print STDERR "EXEC ".join('|', (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV)) 
+    print STDERR "EXEC ".join('|', (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV))
        ."\n";
   }
   exec { get_conf('TEXI2DVI') } (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV);
