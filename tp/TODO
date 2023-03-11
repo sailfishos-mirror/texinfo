@@ -594,9 +594,6 @@ t/30sectioning.t
  chapter_between_nodes (TEXI2HTML for USE_NODES=0 and directions)
  two_nodes_between_chapters (split at node / TEXI2HTML for USE_NODES=0 and directions)
  two_nodes_at_the_end (split at node / TEXI2HTML for USE_NODES=0 and directions)
-
- nodes_no_node_top_explicit_directions (with USE_NODES and without)
- one_node_explicit_directions_anchor (with USE_NODES and without) Really useful?
  top_without_node_sections
 
 t/40moresectioning.t

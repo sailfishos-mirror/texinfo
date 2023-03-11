@@ -1,5 +1,11 @@
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/30sectioning.t, tp/Makefile.tres: add
+	one_node_explicit_directions_anchor_no_use_node and
+	top_without_node_texi2html_no_use_nodes tests.
+
+2023-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/30sectioning.t: add
 	nodes_after_top_before_chapter_no_use_nodes_chapter test.
 

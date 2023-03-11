@@ -484,6 +484,14 @@ anchor ref @anchor{ref}.
 
 ref to ref @ref{ref}.
 '],
+['one_node_explicit_directions_anchor_no_use_node',
+'@node one node,,,(dir)
+Top node
+
+anchor ref @anchor{ref}.
+
+ref to ref @ref{ref}.
+', {}, {'USE_NODES' => 0}],
 # NOTE that the DocBook output is incorrect because the chapter opened
 # in the Top node is not output, while the closing element is output
 # at the end of the document
@@ -1349,6 +1357,11 @@ my @test_out_files = (
    'test_formats' => ['file_xml']
   },
   {'SPLIT' => 'chapter'}
+],
+['top_without_node_texi2html_no_use_nodes',
+$top_without_node_text,
+# use TEXI2HTML for the directions
+{}, {'USE_NODES' => 0, 'TEXI2HTML' => 1},
 ],
 );
 

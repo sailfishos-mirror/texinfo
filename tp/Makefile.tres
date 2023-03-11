@@ -1765,6 +1765,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/nodes_no_node_top_explicit_directions.pl \
   t/results/sectioning/novalidate.pl \
   t/results/sectioning/one_node_explicit_directions_anchor.pl \
+  t/results/sectioning/one_node_explicit_directions_anchor_no_use_node.pl \
   t/results/sectioning/one_subsection.pl \
   t/results/sectioning/one_subsection_and_node.pl \
   t/results/sectioning/part_before_chapter.pl \
@@ -1814,6 +1815,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/top_part_chapter.pl \
   t/results/sectioning/top_without_node_nodes.pl \
   t/results/sectioning/top_without_node_sections.pl \
+  t/results/sectioning/top_without_node_texi2html_no_use_nodes.pl \
+  t/results/sectioning/top_without_node_texi2html_no_use_nodes/res_html \
   t/results/sectioning/transliterated_split_equivalent_nodes.pl \
   t/results/sectioning/transliterated_split_equivalent_nodes/res_html \
   t/results/sectioning/two_nodes_at_the_end.pl \
