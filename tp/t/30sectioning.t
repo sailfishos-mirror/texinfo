@@ -62,6 +62,26 @@ second node
 @subsection subsection
 ';
 
+my $chapter_between_nodes_text = '@node Top
+@top top section
+Top node
+
+@menu
+* section node::
+@end menu
+
+@chapter Chapter
+
+In chapter
+
+@node section node,,,Top
+@section section
+
+section.
+
+@contents
+';
+
 my $chapter_between_nodes_with_appendix = '@node Top
 @top top section
 @chapter Main
@@ -73,6 +93,24 @@ Top node
 
 @node Additional
 @appendix Annex
+';
+
+my $two_nodes_between_chapters_text = '@node Top
+@top top
+
+@menu
+* chapter 1::
+* node between chapters::
+* chapter 2::
+@end menu
+
+@node chapter 1, Top, node between chapters, Top
+@chapter chapter c1
+
+@node node between chapters
+
+@node chapter 2
+@chapter chapter c2
 ';
 
 my @tests_converted = (
@@ -185,23 +223,8 @@ Text part second.
 @node chap first, (manual1), (manual2) , (manual3)
 ', {'test_split' => 'node'}],
 ['two_nodes_between_chapters',
-'@node Top
-@top top
-
-@menu
-* chapter 1::
-* node between chapters::
-* chapter 2::
-@end menu
-
-@node chapter 1, Top, node between chapters, Top
-@chapter chapter c1
-
-@node node between chapters
-
-@node chapter 2
-@chapter chapter c2
-', {'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
+$two_nodes_between_chapters_text,
+{'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['two_nodes_at_the_end',
 '@node Top
 @top top
@@ -496,25 +519,11 @@ ref to ref @ref{ref}.
 # in the Top node is not output, while the closing element is output
 # at the end of the document
 ['chapter_between_nodes',
-'@node Top
-@top top section
-Top node
-
-@menu
-* section node::
-@end menu
-
-@chapter Chapter
-
-In chapter
-
-@node section node,,,Top
-@section section
-
-section.
-
-@contents
-', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+$chapter_between_nodes_text,
+{}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+['chapter_between_nodes_texi2html',
+$chapter_between_nodes_text,
+{}, {'TEXI2HTML' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 # quite similar with previous test, but the following sectioning
 # command is also at chapter level
 ['chapter_between_nodes_with_appendix',
@@ -1363,6 +1372,13 @@ $top_without_node_text,
 # use TEXI2HTML for the directions
 {}, {'USE_NODES' => 0, 'TEXI2HTML' => 1},
 ],
+['two_nodes_between_chapters_nodes',
+$two_nodes_between_chapters_text,
+{}, {'SPLIT' => 'node'}],
+# both for USE_NODES=0 and specific directions.
+['two_nodes_between_chapters_texi2html',
+$two_nodes_between_chapters_text,
+{}, {'TEXI2HTML' => 1}],
 );
 
 foreach my $test (@test_out_files) {
