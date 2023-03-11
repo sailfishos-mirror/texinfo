@@ -251,13 +251,14 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       current = end_paragraph (current, 0, 0);
     }
 
-  if (current->type == ET_balanced_braces
-      || current->type == ET_bracketed_arg)
+  if (current->type == ET_balanced_braces)
     {
-      if (current->type == ET_balanced_braces)
-        current = merge_text (current, "}", 0);
-      else
-        abort_empty_line (&current, NULL);
+      current = merge_text (current, "}", 0);
+      current = current->parent;
+    }
+  else if (current->type == ET_bracketed_arg)
+    {
+      abort_empty_line (&current, NULL);
       current = current->parent;
     }
   else if (command_flags(current->parent) & CF_brace)

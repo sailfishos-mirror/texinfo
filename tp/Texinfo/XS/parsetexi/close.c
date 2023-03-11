@@ -425,20 +425,18 @@ close_current (ELEMENT *current,
       switch (current->type)
         {
         case ET_balanced_braces:
+          ELEMENT *close_brace = new_element (ET_NONE);
+          command_error (current, "misplaced {");
+          /* We prefer adding an element to merging because we may
+             be at the end of the document after an empty line we
+             do not want to modify */
+          /* current = merge_text (current, "}", 0); */
+          text_append (&close_brace->text, "}");
+          add_to_element_contents (current, close_brace);
+          break;
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
-          if (current->type == ET_balanced_braces)
-            {
-              /* We prefer adding an element to merging because we may
-                 be at the end of the document after an empty line we
-                do not want to modify */
-              /* current = merge_text (current, "}", 0); */
-              ELEMENT *close_brace = new_element (ET_NONE);
-              text_append (&close_brace->text, "}");
-              add_to_element_contents (current, close_brace);
-
-            }
-          else if (current->contents.number > 0
+          if (current->contents.number > 0
               && current->contents.list[0]->type
                  == ET_internal_spaces_before_argument)
             {

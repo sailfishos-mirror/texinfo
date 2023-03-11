@@ -2044,24 +2044,25 @@ sub _close_current($$$;$$)
     }
   } elsif ($current->{'type'}) {
     print STDERR "CLOSING type $current->{'type'}\n" if ($self->{'DEBUG'});
-    if ($current->{'type'} eq 'balanced_braces'
-        or $current->{'type'} eq 'bracketed_arg') {
-      # unclosed bracketed
+    if ($current->{'type'} eq 'bracketed_arg') {
+      # unclosed bracketed argument
       $self->_command_error($current, $source_info, __("misplaced {"));
-      if ($current->{'type'} eq 'balanced_braces') {
-        # We prefer adding an element to merging because we may
-        # be at the end of the document after an empty line we
-        # do not want to modify
-        #$current = _merge_text($self, $current, '}');
-        my $close_brace = {'text' => '}', 'parent' => $current};
-        push @{$current->{'contents'}}, $close_brace;
-      } elsif ($current->{'contents'}
-               and $current->{'contents'}->[0]->{'type'}
-               and $current->{'contents'}->[0]->{'type'}
-                              eq 'internal_spaces_before_argument') {
+      if ($current->{'contents'}
+          and $current->{'contents'}->[0]->{'type'}
+          and $current->{'contents'}->[0]->{'type'}
+                        eq 'internal_spaces_before_argument') {
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
+    } elsif ($current->{'type'} eq 'balanced_braces') {
+      # unclosed braces in contexts accepting lone braces
+      $self->_command_error($current, $source_info, __("misplaced {"));
+      # We prefer adding an element to merging because we may
+      # be at the end of the document after an empty line we
+      # do not want to modify
+      #$current = _merge_text($self, $current, '}');
+      my $close_brace = {'text' => '}', 'parent' => $current};
+      push @{$current->{'contents'}}, $close_brace;
     } elsif ($current->{'type'} eq 'line_arg') {
       #$current = _end_line_misc_line($self, $current, $source_info);
       # We ignore the current returned $current, to be sure that
@@ -5743,14 +5744,11 @@ sub _handle_close_brace($$$)
     $current = _end_paragraph($self, $current, $source_info);
   }
 
-  if ($current->{'type'}
-      and ($current->{'type'} eq 'balanced_braces'
-           or $current->{'type'} eq 'bracketed_arg')) {
-    if ($current->{'type'} eq 'balanced_braces') {
-      $current = _merge_text($self, $current, '}');
-    } else {
-      _abort_empty_line($self, $current);
-    }
+  if ($current->{'type'} and $current->{'type'} eq 'balanced_braces') {
+    $current = _merge_text($self, $current, '}');
+    $current = $current->{'parent'};
+  } elsif ($current->{'type'} eq 'bracketed_arg') {
+    _abort_empty_line($self, $current);
     $current = $current->{'parent'};
   } elsif ($current->{'parent'}
       and $current->{'parent'}->{'cmdname'}
