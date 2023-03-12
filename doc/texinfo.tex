@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-03-11.10}
+\def\texinfoversion{2023-03-12.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -8643,7 +8643,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Make the definition
 \def\linemacrodef{%
   \let\hash=##%
-  \let\xeatspaces\relax
+  \def\xeatspaces{\string\xeatspaces}%
   \expandafter\xdef\csname\the\macname\endcsname{%
     \bgroup
     \noexpand\scanctxt
@@ -8653,10 +8653,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \expandafter\xdef\csname\the\macname @@\endcsname##1{%
     \egroup
     \expandafter\noexpand
-    \csname\the\macname @@@\endcsname##1 \noexpand\endlinemacro
-    % Note that we append a space to the macro line to terminate the last
-    % argument in case the final argument is empty.  @xeatspaces may be needed
-    % to remove this space.
+    \csname\the\macname @@@\endcsname##1\noexpand\endlinemacro
   }
   \expandafter\expandafter
   \expandafter\xdef

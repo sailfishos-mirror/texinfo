@@ -672,8 +672,6 @@ Like an argument to @b{@@footnote}.
 
 @chapter Line macros
 
-No args
-
 @linemacro noarg
 @example
 @expansion{} this is the expansion
@@ -682,8 +680,9 @@ No args
 
 @noarg
 
-
-One arg
+@example
+@expansion{} this is the expansion
+@end example
 
 @linemacro onearg arg
 @result{}\arg\@result{}
@@ -691,7 +690,7 @@ One arg
  
 @onearg aaaaa
 
-Two args
+@result{}aaaaa@result{}
 
 @linemacro twoargs one two
 foo @samp{\one\} `\two\' bar
@@ -699,13 +698,35 @@ foo @samp{\one\} `\two\' bar
 
 @twoargs AA BB
 
-With empty second arg:
+foo @samp{AA} `BB' bar
 
 @linemacro twoargs one two
 foo @samp{\one\} `\two\' bar
 @end linemacro
 
-@twoargs AA
+@twoargs AA {}
+
+foo @samp{AA} `' bar
+
+@linemacro two arg argii
+@example
+@expansion{}\arg\@expansion{}\argii\@pounds{}
+@end example
+@end linemacro
+
+@two AA {}
+
+@example
+@expansion{}AA@expansion{}@pounds{}
+@end example
+
+@two BB CC
+
+@example
+@expansion{}BB@expansion{}CC@pounds{}
+@end example
+
+
 
 @heading With @code{@@defblock}
 
@@ -717,15 +738,21 @@ foo @samp{\one\} `\two\' bar
 
 @defblock
 @defbuiltin One (more)
-hallo
-@defbuiltin Nothing
-hallo agin
+one
+@defbuiltin Nothing {}
+two
+@end defblock
+
+
+
+@defblock
+@defline Builtin One (more)
+one
+@defline Builtin Nothing
+two
 @end defblock
 
 @printindex BI
-
-
-
 
 
 
