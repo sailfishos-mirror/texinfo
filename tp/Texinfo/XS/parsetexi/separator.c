@@ -659,6 +659,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                         text_append_n (&arg->text, line, 1);
                       break;
                     default:
+                /* FIXME probably useless, as line should be an empty string? */
                       text_append (&arg->text, line);
                       line = next_text (e);
                       if (!line)
@@ -687,7 +688,7 @@ handle_comma (ELEMENT *current, char **line_inout)
           expandp = 0;
         }
 
-      /* If this command is not being expanded, add a dummy argument, and
+      /* If this command is not being expanded, add an elided argument, and
          scan forward to the closing brace. */
       if (!expandp)
         {
@@ -720,12 +721,12 @@ handle_comma (ELEMENT *current, char **line_inout)
                     text_append_n (&arg->text, line, 1);
                   break;
                 default:
+                /* FIXME probably useless, as line should be an empty string? */
                   text_append (&arg->text, line);
                   free (alloc_line);
-                  alloc_line = next_text (e);
+                  line = alloc_line = next_text (e);
                   if (!alloc_line)
                     goto funexit;
-                  line = alloc_line;
                   continue;
                 }
               line++;

@@ -28,6 +28,13 @@
 
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_comma): when getting
+	a line in an inline* ignored last argument, set line to the new text
+	gotten, even if null, as otherwise the previously freed line (freed as
+	alloc_line) may be used.
+
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	Update po files
 
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
