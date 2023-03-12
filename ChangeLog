@@ -1,5 +1,9 @@
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	Update po files
+
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): fix
 	missing end of firstparagraphindent command name in message.
 
