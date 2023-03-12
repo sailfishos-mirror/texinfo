@@ -1,5 +1,18 @@
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): fix
+	missing end of firstparagraphindent command name in message.
+
+	* po/POTFILES.in: add tp/Texinfo/XS/parsetexi/labels.c
+
+	* tp/Texinfo/ParserNonXS.pm: synchronize messages with XS parser.
+
+	* tp/t/08misc_commands.t: use @firstparagraphindent insert to have it
+	tested somewhere and add test of an @firstparagraphindent invalid
+	argument.
+
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	Update in-source copy of Text::Unidecode to 1.30
 
 	* tp/Texinfo/Convert/Unicode.pm (%transliterate_map): add an explicite

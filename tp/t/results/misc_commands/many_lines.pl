@@ -681,14 +681,14 @@ $result_trees{'many_lines'} = {
               }
             },
             {
-              'text' => 'firstparagraphindent none '
+              'text' => 'firstparagraphindent insert '
             },
             {
               'args' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'none'
+                      'text' => 'insert'
                     }
                   ],
                   'info' => {
@@ -703,7 +703,7 @@ $result_trees{'many_lines'} = {
               'cmdname' => 'firstparagraphindent',
               'extra' => {
                 'misc_args' => [
-                  'none'
+                  'insert'
                 ]
               },
               'info' => {
@@ -714,6 +714,38 @@ $result_trees{'many_lines'} = {
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => 'firstparagraphindent 3 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => '3'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'firstparagraphindent',
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -745,7 +777,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 26,
                 'macro' => ''
               }
             },
@@ -782,7 +814,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -819,7 +851,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
+                'line_nr' => 28,
                 'macro' => ''
               }
             },
@@ -856,7 +888,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
+                'line_nr' => 29,
                 'macro' => ''
               }
             },
@@ -891,7 +923,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
+                'line_nr' => 30,
                 'macro' => ''
               }
             },
@@ -925,7 +957,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 31,
                 'macro' => ''
               }
             },
@@ -962,7 +994,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             },
@@ -999,7 +1031,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 32,
+                'line_nr' => 33,
                 'macro' => ''
               }
             },
@@ -1036,7 +1068,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
+                'line_nr' => 34,
                 'macro' => ''
               }
             },
@@ -1068,7 +1100,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 34,
+                'line_nr' => 35,
                 'macro' => ''
               }
             },
@@ -1102,7 +1134,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
+                'line_nr' => 36,
                 'macro' => ''
               }
             },
@@ -1136,7 +1168,7 @@ $result_trees{'many_lines'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 36,
+                'line_nr' => 37,
                 'macro' => ''
               }
             }
@@ -1251,7 +1283,8 @@ paragraphindent asis @paragraphindent asis
 paragraphindent 0 @paragraphindent 0
 paragraphindent none @paragraphindent none
 paragraphindent 4 @paragraphindent 4
-firstparagraphindent none @firstparagraphindent none
+firstparagraphindent insert @firstparagraphindent insert
+firstparagraphindent 3 @firstparagraphindent 3
 exampleindent 6 @exampleindent 6 on line following exampleindent
 exampleindent 6 @exampleindent 6
 footnotestyle @footnotestyle end 
@@ -1276,7 +1309,7 @@ Line after finalout
 ';
 
 
-$result_texts{'many_lines'} = 'pagesizes afourpaper smallbook headings oddfooting everyheading everyfooting evenheading evenfooting oddheading need need setchapternewpage raisesections lowersections kbdinputstyle code afourpaper afourlatex afourwide paragraphindent asis paragraphindent 0 paragraphindent none paragraphindent 4 firstparagraphindent none exampleindent 6 exampleindent 6 footnotestyle footnotestyle documentencoding frenchspacing frenchspacing fonttextsize everyheadingmarks 
+$result_texts{'many_lines'} = 'pagesizes afourpaper smallbook headings oddfooting everyheading everyfooting evenheading evenfooting oddheading need need setchapternewpage raisesections lowersections kbdinputstyle code afourpaper afourlatex afourwide paragraphindent asis paragraphindent 0 paragraphindent none paragraphindent 4 firstparagraphindent insert firstparagraphindent 3 exampleindent 6 exampleindent 6 footnotestyle footnotestyle documentencoding frenchspacing frenchspacing fonttextsize everyheadingmarks 
 Text line followed by finalout on the same line and another below Text line after the finalout followed by a fianlout Text line after the text line followed by the finalout.
 
 Test text after finalout
@@ -1546,21 +1579,21 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
+    'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 25,
     'macro' => '',
-    'text' => '@exampleindent should only appear at the beginning of a line',
+    'text' => '@firstparagraphindent should only appear at the beginning of a line',
     'type' => 'warning'
   },
   {
-    'error_line' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
+    'error_line' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'
 ',
     'file_name' => '',
     'line_nr' => 25,
     'macro' => '',
-    'text' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'',
+    'text' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'',
     'type' => 'error'
   },
   {
@@ -1573,10 +1606,28 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
+    'error_line' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => '',
+    'text' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 27,
+    'macro' => '',
+    'text' => '@exampleindent should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 28,
     'macro' => '',
     'text' => '@footnotestyle should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1585,7 +1636,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 28,
+    'line_nr' => 29,
     'macro' => '',
     'text' => '@footnotestyle should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1594,7 +1645,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: multiple @footnotestyle
 ',
     'file_name' => '',
-    'line_nr' => 28,
+    'line_nr' => 29,
     'macro' => '',
     'text' => 'multiple @footnotestyle',
     'type' => 'warning'
@@ -1603,7 +1654,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 29,
+    'line_nr' => 30,
     'macro' => '',
     'text' => '@documentencoding should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1612,7 +1663,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
-    'line_nr' => 29,
+    'line_nr' => 30,
     'macro' => '',
     'text' => 'encoding `US-ascii encoding name\' is not a canonical texinfo encoding',
     'type' => 'warning'
@@ -1621,18 +1672,9 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: unrecognized encoding name `US-ascii encoding name\'
 ',
     'file_name' => '',
-    'line_nr' => 29,
+    'line_nr' => 30,
     'macro' => '',
     'text' => 'unrecognized encoding name `US-ascii encoding name\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
-',
-    'file_name' => '',
-    'line_nr' => 31,
-    'macro' => '',
-    'text' => '@frenchspacing should only appear at the beginning of a line',
     'type' => 'warning'
   },
   {
@@ -1645,10 +1687,19 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @fonttextsize should only appear at the beginning of a line
+    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 33,
+    'macro' => '',
+    'text' => '@frenchspacing should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @fonttextsize should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 34,
     'macro' => '',
     'text' => '@fonttextsize should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1657,7 +1708,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: @everyheadingmarks should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 34,
+    'line_nr' => 35,
     'macro' => '',
     'text' => '@everyheadingmarks should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1666,7 +1717,7 @@ $result_errors{'many_lines'} = [
     'error_line' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
 ',
     'file_name' => '',
-    'line_nr' => 34,
+    'line_nr' => 35,
     'macro' => '',
     'text' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'',
     'type' => 'error'
@@ -1675,7 +1726,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 38,
+    'line_nr' => 39,
     'macro' => '',
     'text' => '@finalout should only appear at the beginning of a line',
     'type' => 'warning'
@@ -1684,7 +1735,7 @@ $result_errors{'many_lines'} = [
     'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
     'file_name' => '',
-    'line_nr' => 40,
+    'line_nr' => 41,
     'macro' => '',
     'text' => '@finalout should only appear at the beginning of a line',
     'type' => 'warning'

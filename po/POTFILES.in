@@ -66,6 +66,7 @@ tp/Texinfo/XS/parsetexi/errors.c
 tp/Texinfo/XS/parsetexi/errors.h
 tp/Texinfo/XS/parsetexi/handle_commands.c
 tp/Texinfo/XS/parsetexi/indices.c
+tp/Texinfo/XS/parsetexi/labels.c
 tp/Texinfo/XS/parsetexi/macro.c
 tp/Texinfo/XS/parsetexi/menus.c
 tp/Texinfo/XS/parsetexi/multitable.c

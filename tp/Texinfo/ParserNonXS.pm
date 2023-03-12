@@ -1274,7 +1274,7 @@ sub _parse_macro_command_line($$$$$;$)
     }
   } elsif ($line !~ /\S/) {
     $self->_line_error(sprintf(
-               __("%c%s requires a name"), ord('@'), $command), $source_info);
+               __("\@%s requires a name"), $command), $source_info);
     $macro->{'extra'} = {'invalid_syntax' => 1};
   } else {
     $self->_line_error(sprintf(
@@ -1421,7 +1421,7 @@ sub _close_brace_command($$$;$$$)
                   $interrupting_command, $current->{'cmdname'});
     } elsif ($missing_brace) {
       $self->_command_error($current, $source_info,
-        __("%c%s missing closing brace"), ord('@'), $current->{'cmdname'});
+        __("\@%s missing closing brace"), $current->{'cmdname'});
     }
   } elsif ($missing_brace) {
     $self->_command_error($current, $source_info,
@@ -2024,8 +2024,8 @@ sub _close_current($$$;$$)
                                   $interrupting_command, $command),
                            $source_info);
       } else {
-        $self->_line_error(sprintf(__("no matching `%cend %s'"),
-                                   ord('@'), $command),
+        $self->_line_error(sprintf(__("no matching `\@end %s'"),
+                                   $command),
                            $source_info);
       }
       _pop_block_command_contexts($self, $current, $source_info);
@@ -3959,7 +3959,7 @@ sub _end_line_starting_block($$$)
           my $name = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
           if ($name !~ /\S/) {
             $self->_line_error(sprintf(
-                __("%c%s requires a name"), ord('@'), $command), $source_info);
+                __("\@%s requires a name"), $command), $source_info);
             $bad_line = 0;
           } else {
             if ($command eq 'ifclear' or $command eq 'ifset') {
@@ -3999,7 +3999,7 @@ sub _end_line_starting_block($$$)
         }
       } else {
         $self->_line_error(sprintf(
-            __("%c%s requires a name"), ord('@'), $command), $source_info);
+            __("\@%s requires a name"), $command), $source_info);
         $bad_line = 0;
       }
       $self->_line_error(sprintf(
@@ -5124,8 +5124,8 @@ sub _handle_line_command($$$$$$)
       while ($parent) {
         if ($parent->{'cmdname'} and $parent->{'cmdname'} eq 'copying') {
           $self->_line_error(
-             sprintf(__("\@%s not allowed inside `\@%s' block"),
-                     $command, $parent->{'cmdname'}), $source_info);
+             sprintf(__("\@%s not allowed inside `\@copying' block"),
+                     $command), $source_info);
           $ignored = 1;
           last;
         }
@@ -5358,9 +5358,9 @@ sub _handle_line_command($$$$$$)
         }
       }
       if (!$found) {
-        $self->_line_warn(sprintf(__(
-     "\@%s not meaningful outside `\@titlepage' and `\@quotation' environments"),
-                           $command), $current->{'source_info'});
+        $self->_line_warn(__(
+     "\@author not meaningful outside `\@titlepage' and `\@quotation' environments"),
+                           $current->{'source_info'});
       }
     } elsif ($command eq 'dircategory' and $self->{'current_node'}) {
         $self->_line_warn(__("\@dircategory after first node"),
@@ -5873,8 +5873,7 @@ sub _handle_close_brace($$$)
         if (!defined ($text)
           or ($text ne 'i' and $text ne 'j')) {
           $self->_line_error(sprintf(
-                __("%c%s expects `i' or `j' as argument, not `%s'"),
-                ord('@'), $dotless->{'cmdname'},
+                __("\@dotless expects `i' or `j' as argument, not `%s'"),
                 Texinfo::Convert::Texinfo::convert_to_texinfo($current)),
               $source_info);
         }
@@ -6301,8 +6300,8 @@ sub _process_remaining_on_line($$$$)
     if (!defined($current->{'parent'}->{'info'}->{'delimiter'})) {
       if ($line =~ /^$/) {
         $current->{'parent'}->{'info'}->{'delimiter'} = '';
-        $self->_line_error(sprintf(
-            __("\@%s without associated character"), 'verb'), $source_info);
+        $self->_line_error(
+            __("\@verb without associated character"), $source_info);
       } else {
         $line =~ s/^(.)//;
         $current->{'parent'}->{'info'}->{'delimiter'} = $1;
@@ -6688,7 +6687,7 @@ sub _process_remaining_on_line($$$$)
           push @{$current->{'contents'}}, $new_element;
         }
       } else {
-        $self->_line_error(sprintf(__("bad syntax for %c%s"), ord('@'),
+        $self->_line_error(sprintf(__("bad syntax for \@%s"),
                              $command), $source_info);
       }
       return ($current, $line, $source_info, $retval);
@@ -6696,8 +6695,8 @@ sub _process_remaining_on_line($$$$)
     }
 
     if (defined($deprecated_commands{$command})) {
-      $self->_line_warn(sprintf(__("%c%s is obsolete"),
-                          ord('@'), $command), $source_info);
+      $self->_line_warn(sprintf(__("\@%s is obsolete"),
+                                $command), $source_info);
     }
 
     # special case with @ followed by a newline protecting end of lines
@@ -7049,8 +7048,7 @@ sub _parse_rawline_command($$$$)
       $args = [$name, $arg];
       $self->{'values'}->{$name} = $arg;
     } elsif ($line !~ /\S/) {
-      $self->_line_error(sprintf(
-                  __("%c%s requires a name"), ord('@'), $command), $source_info);
+      $self->_line_error(__("\@set requires a name"), $source_info);
     } else {
       $self->_line_error(sprintf(
                     __("bad name for \@%s"), $command), $source_info);
@@ -7062,8 +7060,7 @@ sub _parse_rawline_command($$$$)
       delete $self->{'values'}->{$1};
       $has_comment = 1 if (defined($3));
     } elsif ($line !~ /\S/) {
-      $self->_line_error(sprintf(
-                  __("%c%s requires a name"), ord('@'), $command), $source_info);
+      $self->_line_error(__("\@clear requires a name"), $source_info);
     } else {
       $self->_line_error(sprintf(
                     __("bad name for \@%s"), $command), $source_info);
@@ -7076,8 +7073,7 @@ sub _parse_rawline_command($$$$)
       $has_comment = 1 if (defined($3));
       print STDERR "UNMACRO $1\n" if ($self->{'DEBUG'});
     } elsif ($line !~ /\S/) {
-      $self->_line_error(sprintf(
-                  __("%c%s requires a name"), ord('@'), $command), $source_info);
+      $self->_line_error(__("\@unmacro requires a name"), $source_info);
     } else {
       $self->_line_error(sprintf(
                     __("bad name for \@%s"), $command), $source_info);
@@ -7100,8 +7096,8 @@ sub _parse_rawline_command($$$$)
       }
     } else {
       $self->_line_error(sprintf(__(
-                "\@%s should only accept an \@-command as argument, not `%s'"),
-                                 $command, $line), $source_info);
+      "\@clickstyle should only accept an \@-command as argument, not `%s'"),
+                                 $line), $source_info);
     }
   } else {
     $args = [ $line ];
@@ -7164,8 +7160,8 @@ sub _parse_line_command_args($$$)
       $args = [$1, $3];
       if (exists($block_commands{$existing_command})) {
         $self->_line_warn(sprintf(
-                           __("environment command %s as argument to \@%s"),
-                           $existing_command, $command), $source_info);
+                           __("environment command %s as argument to \@alias"),
+                           $existing_command), $source_info);
       }
 
       if (exists($self->{'aliases'}->{$existing_command})) {
@@ -7216,8 +7212,8 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'columnfractions') {
     my @possible_fractions = split (/\s+/, $line);
     if (!@possible_fractions) {
-      $self->_line_error(sprintf(__("empty \@%s"), $command),
-                             $source_info);
+      $self->_line_error(__("empty \@columnfractions"),
+                         $source_info);
     } else {
       foreach my $fraction (@possible_fractions) {
         if ($fraction =~ /^\d*\.\d+$|^\d+\.?$/) {
@@ -7355,32 +7351,32 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-                        "Only \@%s 10 or 11 is supported, not `%s'"),
-                                $command, $line), $source_info);
+                        "Only \@fonttextsize 10 or 11 is supported, not `%s'"),
+                                 $line), $source_info);
     }
   } elsif ($command eq 'footnotestyle') {
     if ($line eq 'separate' or $line eq 'end') {
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-                            "\@%s arg must be `separate' or `end', not `%s'"),
-                                $command, $line), $source_info);
+                   "\@footnotestyle arg must be `separate' or `end', not `%s'"),
+                                 $line), $source_info);
     }
   } elsif ($command eq 'setchapternewpage') {
     if ($line eq 'on' or $line eq 'off' or $line eq 'odd') {
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-                           "\@%s arg must be `on', `off' or `odd', not `%s'"),
-                                $command, $line), $source_info);
+              "\@setchapternewpage arg must be `on', `off' or `odd', not `%s'"),
+                                 $line), $source_info);
     }
   } elsif ($command eq 'need') { # only a warning
     if (($line =~ /^([0-9]+(\.[0-9]*)?)$/) or
              ($line =~ /^(\.[0-9]+)$/)) {
       $args = [$1];
     } else {
-      $self->_line_error(sprintf(__("bad argument to \@%s: %s"),
-                                 $command, $line), $source_info);
+      $self->_line_error(sprintf(__("bad argument to \@need: %s"),
+                                 $line), $source_info);
     }
   } elsif ($command eq 'paragraphindent') {
     if ($line =~ /^([\w\-]+)$/) {

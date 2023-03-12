@@ -30,7 +30,8 @@ paragraphindent asis @paragraphindent asis
 paragraphindent 0 @paragraphindent 0
 paragraphindent none @paragraphindent none
 paragraphindent 4 @paragraphindent 4
-firstparagraphindent none @firstparagraphindent none
+firstparagraphindent insert @firstparagraphindent insert
+firstparagraphindent 3 @firstparagraphindent 3
 exampleindent 6 @exampleindent 6 on line following exampleindent
 exampleindent 6 @exampleindent 6
 footnotestyle @footnotestyle end 

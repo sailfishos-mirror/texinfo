@@ -509,7 +509,7 @@ parse_line_command_args (ELEMENT *line_command)
             ADD_ARG(line);
           }
         else
-          line_error ("@firstparagraph arg must be "
+          line_error ("@firstparagraphindent arg must be "
                        "`none' or `insert', not `%s'", line);
 
         break;
