@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-03-12.17}
+\def\texinfoversion{2023-03-12.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -7597,7 +7597,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \parseargusing\activeparens{\printdefunline\deflineheader}%
 }
 \def\deflineheader#1 #2 #3\endheader{%
-  \defname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
+  \printdefname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
 }
 \def\deftypeline{%
   \doingtypefntrue
@@ -7660,14 +7660,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % @deffn category name args
 \makedefun{deffn}#1 #2 #3\endheader{%
   \doind{fn}{\code{#2}}%
-  \defname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
+  \printdefname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
 }
 
 % @defop category class name args
 \makedefun{defop}#1 {\defopheaderx{#1\ \putwordon}}
 \def\defopheaderx#1#2 #3 #4\endheader{%
   \doind{fn}{\code{#3}\space\putwordon\ \code{#2}}%
-  \defname{#1\ \code{#2}}{}{#3}\magicamp\defunargs{#4\unskip}%
+  \printdefname{#1\ \code{#2}}{}{#3}\magicamp\defunargs{#4\unskip}%
 }
 
 % Typed functions:
@@ -7676,7 +7676,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{deftypefn}#1 #2 #3 #4\endheader{%
   \doind{fn}{\code{#3}}%
   \doingtypefntrue
-  \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
+  \printdefname{#1}{#2}{#3}\defunargs{#4\unskip}%
 }
 
 % @deftypeop category class type name args
@@ -7684,7 +7684,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\deftypeopheaderx#1#2 #3 #4 #5\endheader{%
   \doind{fn}{\code{#4}\space\putwordon\ \code{#1\ \code{#2}}}%
   \doingtypefntrue
-  \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
+  \printdefname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
 
 % Typed variables:
@@ -7692,14 +7692,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % @deftypevr category type var args
 \makedefun{deftypevr}#1 #2 #3 #4\endheader{%
   \doind{vr}{\code{#3}}%
-  \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
+  \printdefname{#1}{#2}{#3}\defunargs{#4\unskip}%
 }
 
 % @deftypecv category class type var args
 \makedefun{deftypecv}#1 {\deftypecvheaderx{#1\ \putwordof}}
 \def\deftypecvheaderx#1#2 #3 #4 #5\endheader{%
   \doind{vr}{\code{#4}\space\putwordof\ \code{#2}}%
-  \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
+  \printdefname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
 
 % Untyped variables:
@@ -7716,7 +7716,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % @deftp category name args
 \makedefun{deftp}#1 #2 #3\endheader{%
   \doind{tp}{\code{#2}}%
-  \defname{#1}{}{#2}\defunargs{#3\unskip}%
+  \printdefname{#1}{}{#2}\defunargs{#3\unskip}%
 }
 
 % Remaining @defun-like shortcuts:
@@ -7732,14 +7732,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{defivar}{\defcvheaderx\putwordInstanceVariableof}
 \makedefun{deftypeivar}{\deftypecvheaderx\putwordInstanceVariableof}
 
-% \defname, which formats the name of the @def (not the args).
+% \printdefname, which formats the name of the @def (not the args).
 % #1 is the category, such as "Function".
 % #2 is the return type, if any.
 % #3 is the function name.
 %
 % We are followed by (but not passed) the arguments, if any.
 %
-\def\defname#1#2#3{%
+\def\printdefname#1#2#3{%
   \par
   % Get the values of \leftskip and \rightskip as they were outside the @def...
   \advance\leftskip by -\defbodyindent
@@ -8188,12 +8188,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % 
 % We are in \macrobodyctxt, and the \xdef causes backslashshes in the macro 
 % body to be transformed.
-% Set \macrobody to the body of the macro, and call \defmacro.
+% Set \macrobody to the body of the macro, and call \macrodef.
 %
 {\catcode`\ =\other\long\gdef\parsemacbody#1@end macro{%
-\xdef\macrobody{\eatcr{#1}}\endgroup\defmacro}}%
+\xdef\macrobody{\eatcr{#1}}\endgroup\macrodef}}%
 {\catcode`\ =\other\long\gdef\parsermacbody#1@end rmacro{%
-\xdef\macrobody{\eatcr{#1}}\endgroup\defmacro}}%
+\xdef\macrobody{\eatcr{#1}}\endgroup\macrodef}}%
 
 % Make @ a letter, so that we can make private-to-Texinfo macro names.
 \edef\texiatcatcode{\the\catcode`\@}
@@ -8412,7 +8412,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % \xdef is used so that macro definitions will survive the file
 % they're defined in: @include reads the file inside a group.
 %
-\def\defmacro{%
+\def\macrodef{%
   \let\hash=##% convert placeholders to macro parameter chars
   \ifnum\paramno=1
     \long\def\xeatspaces##1{##1}%
@@ -9654,8 +9654,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 \def\caption{\docaption\thiscaption}
 \def\shortcaption{\docaption\thisshortcaption}
-\def\docaption{\checkenv\float \bgroup\scanctxt\defcaption}
-\def\defcaption#1#2{\egroup \def#1{#2}}
+\def\docaption{\checkenv\float \bgroup\scanctxt\docaptionz}
+\def\docaptionz#1#2{\egroup \def#1{#2}}
 
 % The parameter is the control sequence identifying the counter we are
 % going to use.  Create it if it doesn't exist and assign it to \floatno.
