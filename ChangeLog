@@ -1,3 +1,11 @@
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres, tp/t/30sectioning.t: add
+	two_nodes_at_the_end_nodes and two_nodes_at_the_end_texi2html.
+
+	* tp/Makefile.tres, tp/t/40moresectioning.t: do not set TEXI2HTML in
+	more_sections_than_nodes, but add more_sections_than_nodes_texi2html.
+
 2023-03-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.tres, tp/t/30sectioning.t: add

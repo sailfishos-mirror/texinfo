@@ -121,6 +121,48 @@ Ref to footnote anchor
 @ref{Anchor in footnote}
 ';
 
+my $more_sections_than_nodes_text = '@node Top
+@top top
+
+@menu
+* n c2::
+* n c3::
+* n c3 s1 s2::
+@end menu
+
+@chapter c1
+
+@node n c2
+@chapter c2
+
+@section s1
+
+@node n c3, n c3 s1 s2, n c2, Top
+@chapter c3
+
+@menu 
+* n c3 s 2::
+@end menu
+
+@section C3 s1
+
+@node n c3 s 2
+@section c3 s2
+
+@section c3 s3
+
+@chapter c4
+
+@section c3 s1
+
+@subsection c3 s1 s1
+
+@node n c3 s1 s2,,n c3,Top
+@subsection c3 s1 s2
+
+@appendix appendix
+';
+
 my @tests_info = (
 ['character_and_spaces_in_refs',
 undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
@@ -161,49 +203,8 @@ $anchor_in_footnote_text
 undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ],
 ['more_sections_than_nodes',
-'@node Top
-@top top
-
-@menu
-* n c2::
-* n c3::
-* n c3 s1 s2::
-@end menu
-
-@chapter c1
-
-@node n c2
-@chapter c2
-
-@section s1
-
-@node n c3, n c3 s1 s2, n c2, Top
-@chapter c3
-
-@menu 
-* n c3 s 2::
-@end menu
-
-@section C3 s1
-
-@node n c3 s 2
-@section c3 s2
-
-@section c3 s3
-
-@chapter c4
-
-@section c3 s1
-
-@subsection c3 s1 s1
-
-@node n c3 s1 s2,,n c3,Top
-@subsection c3 s1 s2
-
-@appendix appendix
-', {},
-# to test texi2html style directions in that case
-{'TEXI2HTML' => 1}],
+$more_sections_than_nodes_text, {},
+],
 ['no_element',
 '@settitle no_element test
 @documentencoding ISO-8859-1
@@ -628,6 +629,11 @@ $anchor_in_footnote_text,
 ['sectioning_part_appendix_texi2html_chapter',
 $test_text,
 {}, {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'},
+],
+['more_sections_than_nodes_texi2html',
+$more_sections_than_nodes_text,
+# to test texi2html style directions in that case
+{}, {'TEXI2HTML' => 1},
 ],
 );
 

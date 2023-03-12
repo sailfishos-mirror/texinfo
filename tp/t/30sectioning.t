@@ -113,6 +113,25 @@ my $two_nodes_between_chapters_text = '@node Top
 @chapter chapter c2
 ';
 
+my $two_nodes_at_the_end_text = '@node Top
+@top top
+
+@menu
+* chapter 1::
+* node after chapter 1::
+* node after chapter 2::
+@end menu
+
+@node chapter 1, node after chapter 1, Top, Top
+@chapter chapter c1
+
+@node node after chapter 1
+
+in node after chapter 1
+
+@node node after chapter 2
+';
+
 my @tests_converted = (
 ['one_subsection',
 '@subsection The subsection
@@ -226,24 +245,8 @@ Text part second.
 $two_nodes_between_chapters_text,
 {'test_split' => 'section', 'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['two_nodes_at_the_end',
-'@node Top
-@top top
-
-@menu
-* chapter 1::
-* node after chapter 1::
-* node after chapter 2::
-@end menu
-
-@node chapter 1, node after chapter 1, Top, Top
-@chapter chapter c1
-
-@node node after chapter 1
-
-in node after chapter 1
-
-@node node after chapter 2
-', {'test_split' => 'section'}],
+$two_nodes_at_the_end_text
+, {'test_split' => 'section'}],
 ['chapter_before_and_after_part',
 '@chapter chapter
 
@@ -1378,6 +1381,13 @@ $two_nodes_between_chapters_text,
 # both for USE_NODES=0 and specific directions.
 ['two_nodes_between_chapters_texi2html',
 $two_nodes_between_chapters_text,
+{}, {'TEXI2HTML' => 1}],
+['two_nodes_at_the_end_nodes',
+$two_nodes_at_the_end_text,
+{}, {'SPLIT' => 'node'}],
+# both for USE_NODES=0 and specific directions.
+['two_nodes_at_the_end_texi2html',
+$two_nodes_at_the_end_text,
 {}, {'TEXI2HTML' => 1}],
 );
 

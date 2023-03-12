@@ -1432,6 +1432,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/lowered_subsubsection.pl \
   t/results/moresectioning/loweredheading.pl \
   t/results/moresectioning/more_sections_than_nodes.pl \
+  t/results/moresectioning/more_sections_than_nodes_texi2html.pl \
+  t/results/moresectioning/more_sections_than_nodes_texi2html/res_html \
   t/results/moresectioning/no_element.pl \
   t/results/moresectioning/nodes_before_after_top_xref.pl \
   t/results/moresectioning/nodes_before_after_top_xref/res_latex \
@@ -1821,6 +1823,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/transliterated_split_equivalent_nodes.pl \
   t/results/sectioning/transliterated_split_equivalent_nodes/res_html \
   t/results/sectioning/two_nodes_at_the_end.pl \
+  t/results/sectioning/two_nodes_at_the_end_nodes.pl \
+  t/results/sectioning/two_nodes_at_the_end_nodes/res_html \
+  t/results/sectioning/two_nodes_at_the_end_texi2html.pl \
+  t/results/sectioning/two_nodes_at_the_end_texi2html/res_html \
   t/results/sectioning/two_nodes_between_chapters.pl \
   t/results/sectioning/two_nodes_between_chapters_nodes.pl \
   t/results/sectioning/two_nodes_between_chapters_nodes/res_html \

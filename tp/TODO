@@ -582,24 +582,6 @@ defvr (defvar, defopt), deftypevr (deftypevar)
 deftp
 
 
-
-Missing test outputs as files in t/
-===================================
-
-output files split (node or not split) could be interesting +texi2html
-style for some tests.  However, the test suite is already too long to
-run so such additions should be done with caution.
-
-t/30sectioning.t
- two_nodes_at_the_end (split at node / TEXI2HTML for USE_NODES=0 and directions)
-
-t/40moresectioning.t
- more_sections_than_nodes (current is with TEXI2HTML, one with default USE_NODES=1 could be interesting)
-
-t/info_tests.t
- space_in_setfilename
-
-
 Misc notes
 ==========
 
