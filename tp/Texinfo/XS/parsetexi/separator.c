@@ -659,8 +659,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                         text_append_n (&arg->text, line, 1);
                       break;
                     default:
-                /* FIXME probably useless, as line should be an empty string? */
-                      text_append (&arg->text, line);
+                      /* at the end of line */
                       line = next_text (e);
                       if (!line)
                         goto funexit;
@@ -721,8 +720,7 @@ handle_comma (ELEMENT *current, char **line_inout)
                     text_append_n (&arg->text, line, 1);
                   break;
                 default:
-                /* FIXME probably useless, as line should be an empty string? */
-                  text_append (&arg->text, line);
+                  /* at the end of line */
                   free (alloc_line);
                   line = alloc_line = next_text (e);
                   if (!alloc_line)
