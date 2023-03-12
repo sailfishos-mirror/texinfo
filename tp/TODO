@@ -83,17 +83,8 @@ the context command stack.
  @end defun
 
 
-
-In HTML, some @-commands do not have an element with a class associated, or the
-association is not perfect.  There is @author in @quotation, @-command affected
-by @definfoenclose.  @pxref and similar @-commands have no class for references
-to external nodes, and don't have the 'See ' in the element for references to
-internal nodes.  In general, it is because gdt() is used instead of direct
-HTML.
-
-
-Many strings in debugging output are not encoded.  For example with
-/usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
+Modules included in tp/maintain/lib/ need to be updated from time to
+time.
 
 
 HTML5 validation tidy errors that do not need fixing
@@ -152,10 +143,6 @@ all the text in this preamble as one long string - it wouldn't have to be
 line by line.
 
 
-Update Unicode-EastAsianWidth.  The new version has improved tests
-and a new license, but no functional change.  So maybe wait a
-bit to update.
-
 Right now VERBOSE is almost not used.
 
 Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT_ENCODING_NAME?
@@ -194,6 +181,10 @@ text depends on the Info viewer, howere, there is no way to know in
 advance the lenght of text to underline (if any).  It is therefore unclear
 what would be the correct underlying characters count.
 An example in formats_encodings/at_commands_in_refs.
+
+Many strings in debugging output are not encoded.  Not clear that it is
+an issue.  For example with
+/usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
 
 
 DocBook
@@ -382,8 +373,8 @@ résultat/encodé.txt file name encoded in utf8
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
 
-Notes
-=====
+Notes on classes names in HTML
+==============================
 
 In january 2022 the classes in HTML elements were normalized.  There are no
 rules, but here is descriptions of the choices made at that time in case one
@@ -417,6 +408,14 @@ the specific command name used.
 
 For the classes not associated with @-commands, the names were selected to
 correspond to the role in the document rather than to the formatting style.
+
+
+In HTML, some @-commands do not have an element with a class associated, or the
+association is not perfect.  There is @author in @quotation, @-command affected
+by @definfoenclose.  @pxref and similar @-commands have no class for references
+to external nodes, and don't have the 'See ' in the element for references to
+internal nodes.  In general, it is because gdt() is used instead of direct
+HTML.
 
 
 Notes on protection of punctuation in nodes (done)
