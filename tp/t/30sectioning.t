@@ -119,7 +119,7 @@ my $two_nodes_at_the_end_text = '@node Top
 @menu
 * chapter 1::
 * node after chapter 1::
-* node after chapter 2::
+* last node in chapter 1::
 @end menu
 
 @node chapter 1, node after chapter 1, Top, Top
@@ -129,7 +129,7 @@ my $two_nodes_at_the_end_text = '@node Top
 
 in node after chapter 1
 
-@node node after chapter 2
+@node last node in chapter 1
 ';
 
 my @tests_converted = (

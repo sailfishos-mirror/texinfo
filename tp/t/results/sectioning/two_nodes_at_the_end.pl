@@ -188,14 +188,14 @@ $result_trees{'two_nodes_at_the_end'} = [
                   {
                     'contents' => [
                       {
-                        'text' => 'node after chapter 2'
+                        'text' => 'last node in chapter 1'
                       }
                     ],
                     'extra' => {
                       'node_content' => [
                         {}
                       ],
-                      'normalized' => 'node-after-chapter-2'
+                      'normalized' => 'last-node-in-chapter-1'
                     },
                     'type' => 'menu_entry_node'
                   },
@@ -472,7 +472,7 @@ $result_trees{'two_nodes_at_the_end'} = [
           {
             'contents' => [
               {
-                'text' => 'node after chapter 2'
+                'text' => 'last node in chapter 1'
               }
             ],
             'info' => {
@@ -486,7 +486,7 @@ $result_trees{'two_nodes_at_the_end'} = [
         ],
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'node-after-chapter-2'
+          'normalized' => 'last-node-in-chapter-1'
         },
         'info' => {
           'spaces_before_argument' => {
@@ -521,7 +521,7 @@ $result_texis{'two_nodes_at_the_end'} = '@node Top
 @menu
 * chapter 1::
 * node after chapter 1::
-* node after chapter 2::
+* last node in chapter 1::
 @end menu
 
 @node chapter 1, node after chapter 1, Top, Top
@@ -531,7 +531,7 @@ $result_texis{'two_nodes_at_the_end'} = '@node Top
 
 in node after chapter 1
 
-@node node after chapter 2
+@node last node in chapter 1
 ';
 
 
@@ -540,7 +540,7 @@ $result_texts{'two_nodes_at_the_end'} = 'top
 
 * chapter 1::
 * node after chapter 1::
-* node after chapter 2::
+* last node in chapter 1::
 
 1 chapter c1
 ************
@@ -737,7 +737,7 @@ $result_nodes{'two_nodes_at_the_end'} = {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'node-after-chapter-2'
+                'normalized' => 'last-node-in-chapter-1'
               },
               'structure' => {
                 'associated_unit' => {},
@@ -857,7 +857,7 @@ $result_menus{'two_nodes_at_the_end'} = {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'node-after-chapter-2'
+                'normalized' => 'last-node-in-chapter-1'
               },
               'structure' => {
                 'associated_unit' => {},
@@ -1060,18 +1060,18 @@ Next: <a href="#node-after-chapter-1" accesskey="n" rel="next">node after chapte
 <hr>
 <a class="node-id" id="node-after-chapter-1"></a><div class="nav-panel">
 <p>
-Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapter 2</a>, Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#last-node-in-chapter-1" accesskey="n" rel="next">last node in chapter 1</a>, Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>node after chapter 1<a class="copiable-link" href="#node-after-chapter-1"> &para;</a></span></h4>
 
 <p>in node after chapter 1
 </p>
 <hr>
-<a class="node-id" id="node-after-chapter-2"></a><div class="nav-panel">
+<a class="node-id" id="last-node-in-chapter-1"></a><div class="nav-panel">
 <p>
 Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node"><span>node after chapter 2<a class="copiable-link" href="#node-after-chapter-2"> &para;</a></span></h4>
+<h4 class="node"><span>last node in chapter 1<a class="copiable-link" href="#last-node-in-chapter-1"> &para;</a></span></h4>
 </div>
 </div>
 
@@ -1091,7 +1091,7 @@ $result_converted{'latex_text'}->{'two_nodes_at_the_end'} = '\\begin{document}
 
 in node after chapter 1
 
-\\label{anchor:node-after-chapter-2}%
+\\label{anchor:last-node-in-chapter-1}%
 ';
 
 1;

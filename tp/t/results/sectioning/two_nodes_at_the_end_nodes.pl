@@ -181,14 +181,14 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'node after chapter 2'
+                      'text' => 'last node in chapter 1'
                     }
                   ],
                   'extra' => {
                     'node_content' => [
                       {}
                     ],
-                    'normalized' => 'node-after-chapter-2'
+                    'normalized' => 'last-node-in-chapter-1'
                   },
                   'type' => 'menu_entry_node'
                 },
@@ -457,7 +457,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
         {
           'contents' => [
             {
-              'text' => 'node after chapter 2'
+              'text' => 'last node in chapter 1'
             }
           ],
           'info' => {
@@ -471,7 +471,7 @@ $result_trees{'two_nodes_at_the_end_nodes'} = {
       ],
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node-after-chapter-2'
+        'normalized' => 'last-node-in-chapter-1'
       },
       'info' => {
         'spaces_before_argument' => {
@@ -500,7 +500,7 @@ $result_texis{'two_nodes_at_the_end_nodes'} = '@node Top
 @menu
 * chapter 1::
 * node after chapter 1::
-* node after chapter 2::
+* last node in chapter 1::
 @end menu
 
 @node chapter 1, node after chapter 1, Top, Top
@@ -510,7 +510,7 @@ $result_texis{'two_nodes_at_the_end_nodes'} = '@node Top
 
 in node after chapter 1
 
-@node node after chapter 2
+@node last node in chapter 1
 ';
 
 
@@ -519,7 +519,7 @@ $result_texts{'two_nodes_at_the_end_nodes'} = 'top
 
 * chapter 1::
 * node after chapter 1::
-* node after chapter 2::
+* last node in chapter 1::
 
 1 chapter c1
 ************
@@ -616,7 +616,7 @@ $result_nodes{'two_nodes_at_the_end_nodes'} = {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'node-after-chapter-2'
+                'normalized' => 'last-node-in-chapter-1'
               },
               'structure' => {
                 'node_prev' => {},
@@ -663,7 +663,7 @@ $result_menus{'two_nodes_at_the_end_nodes'} = {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'node-after-chapter-2'
+                'normalized' => 'last-node-in-chapter-1'
               },
               'structure' => {
                 'menu_prev' => {},
