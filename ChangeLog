@@ -1,5 +1,9 @@
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	Update in-source copy of Unicode::EastAsianWidth to 12.0
+
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%default_special_element_info): change
 	the 'order' of contents and shortcontents to have shortcontents
 	separate element appear before contents separate element.
