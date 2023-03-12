@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'closing_brace_in_macro_call_in_ingnored_inline'} = {
+$result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
   'contents' => [
     {
       'contents' => [
@@ -196,7 +196,7 @@ after
   'type' => 'document_root'
 };
 
-$result_texis{'closing_brace_in_macro_call_in_ingnored_inline'} = '@macro closebrace
+$result_texis{'closing_brace_in_macro_call_in_ignored_inline'} = '@macro closebrace
 }
 @end macro
 
@@ -210,13 +210,13 @@ after
 }';
 
 
-$result_texts{'closing_brace_in_macro_call_in_ingnored_inline'} = '
+$result_texts{'closing_brace_in_macro_call_in_ignored_inline'} = '
 truc 
 machin
 
 ';
 
-$result_errors{'closing_brace_in_macro_call_in_ingnored_inline'} = [
+$result_errors{'closing_brace_in_macro_call_in_ignored_inline'} = [
   {
     'error_line' => '@inlinefmt missing closing brace
 ',
@@ -229,7 +229,7 @@ $result_errors{'closing_brace_in_macro_call_in_ingnored_inline'} = [
 ];
 
 
-$result_floats{'closing_brace_in_macro_call_in_ingnored_inline'} = {};
+$result_floats{'closing_brace_in_macro_call_in_ignored_inline'} = {};
 
 
 1;
