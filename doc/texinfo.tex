@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-03-12.16}
+\def\texinfoversion{2023-03-12.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -8608,7 +8608,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % At the end it will be like "#1 #2 #3\endlinemacro".
 \def\linegetparamlist#1;{%
   \paramno=0\def\paramlist{}%
-  \let\hash\relax \let\xeatspaces\relax
+  \let\hash\relax
   \linegetparamlistxxx#1; %
 }
 \def\linegetparamlistxxx#1 {%
@@ -8616,7 +8616,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \else \let\next=\linegetparamlistxxx
     \advance\paramno by 1
     \expandafter\edef\csname macarg.\eatspaces{#1}\endcsname
-        {\noexpand\xeatspaces{\hash\the\paramno}}%
+        {\hash\the\paramno}%
     \edef\paramlist{\paramlist\hash\the\paramno\space}%
   \fi\next}
 \def\linegetparamlistxxxx{%
@@ -8634,7 +8634,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Read the body of the macro, replacing backslash-surrounded variables
 %
 {\catcode`\ =\other\long\gdef\parselinemacrobody#1@end linemacro{%
-\let\xeatspaces\relax
 \xdef\macrobody{#1}%
 \endgroup
 \linemacrodef
@@ -8643,7 +8642,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Make the definition
 \def\linemacrodef{%
   \let\hash=##%
-  \def\xeatspaces{\string\xeatspaces}%
   \expandafter\xdef\csname\the\macname\endcsname{%
     \bgroup
     \noexpand\scanctxt
@@ -8659,7 +8657,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \expandafter\xdef
   \expandafter\expandafter\csname\the\macname @@@\endcsname\paramlist{%
     \newlinechar=13 % split \macrobody into lines
-    \let\noexpand\xeatspaces\noexpand\eatspaces
     \noexpand\scantokens{\macrobody}%
   }
 }

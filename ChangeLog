@@ -1,5 +1,10 @@
 2023-03-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\linemacro): Do not use @xeatspaces around
+	macro arguments as this appears to be unnecessary.
+
+2023-03-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\linemacrodef): Do not append space to macro
 	argument line.  Require empty final argument to be given explicitly
 	as {}.  Avoid extra space before arg in @example environment.
