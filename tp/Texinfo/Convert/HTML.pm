@@ -1973,8 +1973,8 @@ my %default_special_element_info = (
    },
 
    'order' => {
-     'contents' => 20,
-     'shortcontents' => 30,
+     'contents' => 30,
+     'shortcontents' => 20,
      'footnotes' => 10,
      'about' => 40,
    },
