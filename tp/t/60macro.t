@@ -615,7 +615,7 @@ Toto @inlineifclear{fl@clearargendignored{}}. After.
 
 Again with space @inlineifclear{fl@clearargendignored{} }. After.
 '],
-['closing_brace_in_macro_call_in_ingnored_inline',
+['closing_brace_in_macro_call_in_ignored_inline',
 '@macro closebrace
 }
 @end macro

@@ -395,7 +395,7 @@ line
 
 @value{aa}.
 '],
-['closing_brace_in_value_in_ingnored_inline',
+['closing_brace_in_value_in_ignored_inline',
 '@set closebrace }
 
 @inlinefmt{html,
