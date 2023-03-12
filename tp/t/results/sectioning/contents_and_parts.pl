@@ -1004,6 +1004,22 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
+<div class="element-shortcontents" id="SEC_Shortcontents">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="toc-numbered-mark">
+<li><a id="stoc-part-1_003a-part-1" href="#toc-part-1_003a-part-1">part 1: part 1</a><ul class="toc-numbered-mark">
+<li><a id="stoc-chapter-1" href="#toc-chapter-1">1 chapter 1</a></li>
+<li><a id="stoc-chapter-2" href="#toc-chapter-2">2 chapter 2</a></li>
+</ul></li>
+<li><a id="stoc-part2_003a-part2" href="#toc-part2_003a-part2">part2: part2</a><ul class="toc-numbered-mark">
+<li><a id="stoc-chapter-3" href="#toc-chapter-3">3 chapter 3</a></li>
+</ul></li>
+
+</ul>
+</div>
+</div>
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
@@ -1017,22 +1033,6 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 <li><a id="toc-part2_003a-part2" href="#part2_003a-part2">part2: part2</a>
 <ul class="toc-numbered-mark">
   <li><a id="toc-chapter-3" href="#chapter-3-node">3 chapter 3</a></li>
-</ul></li>
-
-</ul>
-</div>
-</div>
-<div class="element-shortcontents" id="SEC_Shortcontents">
-<h2 class="shortcontents-heading">Short Table of Contents</h2>
-
-<div class="shortcontents">
-<ul class="toc-numbered-mark">
-<li><a id="stoc-part-1_003a-part-1" href="#toc-part-1_003a-part-1">part 1: part 1</a><ul class="toc-numbered-mark">
-<li><a id="stoc-chapter-1" href="#toc-chapter-1">1 chapter 1</a></li>
-<li><a id="stoc-chapter-2" href="#toc-chapter-2">2 chapter 2</a></li>
-</ul></li>
-<li><a id="stoc-part2_003a-part2" href="#toc-part2_003a-part2">part2: part2</a><ul class="toc-numbered-mark">
-<li><a id="stoc-chapter-3" href="#toc-chapter-3">3 chapter 3</a></li>
 </ul></li>
 
 </ul>

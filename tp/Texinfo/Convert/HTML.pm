@@ -4110,7 +4110,7 @@ sub _convert_heading_command($$$$$)
       and $cmdname eq 'top'
       and $structuring and $structuring->{'sectioning_root'}
       and scalar(@{$structuring->{'sections_list'}}) > 1) {
-    foreach my $content_command_name ('contents', 'shortcontents') {
+    foreach my $content_command_name ('shortcontents', 'contents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text
           = $self->_contents_inline_element($content_command_name, undef);
@@ -6962,7 +6962,7 @@ sub _contents_shortcontents_in_title($)
   if ($structuring and $structuring->{'sectioning_root'}
       and scalar(@{$structuring->{'sections_list'}}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-    foreach my $cmdname ('contents', 'shortcontents') {
+    foreach my $cmdname ('shortcontents', 'contents') {
       if ($self->get_conf($cmdname)) {
         my $contents_text = $self->_contents_inline_element($cmdname, undef);
         if ($contents_text ne '') {
@@ -8966,13 +8966,12 @@ sub _prepare_special_elements($$$$)
   my %do_special;
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
       and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
-    foreach my $cmdname ('contents', 'shortcontents') {
-      my $special_element_variety
-          = $contents_command_special_element_variety{$cmdname};
-      if ($self->get_conf($cmdname)) {
-        if ($self->get_conf('CONTENTS_OUTPUT_LOCATION')
-            eq 'separate_element') {
-          $do_special{$special_element_variety} = 1;
+    if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'separate_element') {
+      foreach my $cmdname ('shortcontents', 'contents') {
+        my $special_element_variety
+            = $contents_command_special_element_variety{$cmdname};
+        if ($self->get_conf($cmdname)) {
+            $do_special{$special_element_variety} = 1;
         }
       }
     }

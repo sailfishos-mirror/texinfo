@@ -31,6 +31,7 @@ See the manual for detailed information.
  . HTML output:
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.
+    . output @shortcontents before @contents by default
     . No more capitalization of @sc argument in HTML Cross-references.
     . Change @point expansion to U+22C6 in HTML Cross-references.
     . omit colons after index entries by default.  this can still be

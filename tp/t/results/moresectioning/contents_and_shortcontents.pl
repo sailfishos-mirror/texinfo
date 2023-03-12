@@ -759,6 +759,24 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
+<div class="element-shortcontents" id="SEC_Shortcontents">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="toc-numbered-mark">
+<li><ul class="toc-numbered-mark">
+<li><a id="stoc-chapter" href="#toc-chapter">1 chapter</a></li>
+</ul></li>
+<li><a id="stoc-part" href="#toc-part">part</a><ul class="toc-numbered-mark">
+<li><a id="stoc-chapter-in-part" href="#toc-chapter-in-part">2 chapter in part</a></li>
+<li><a id="stoc-second-chapter-in-part" href="#toc-second-chapter-in-part">3 second chapter in part</a></li>
+<li><a id="stoc-unnumbered" href="#toc-unnumbered">unnumbered</a></li>
+</ul></li>
+<li><a id="stoc-appendix" href="#toc-appendix">Appendix A appendix</a></li>
+
+</ul>
+</div>
+</div>
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
@@ -787,24 +805,6 @@ ul.toc-numbered-mark {list-style: none}
   <ul class="toc-numbered-mark">
     <li><a id="toc-appendixsec" href="#appendixsec">A.1 appendixsec</a></li>
   </ul></li>
-
-</ul>
-</div>
-</div>
-<div class="element-shortcontents" id="SEC_Shortcontents">
-<h2 class="shortcontents-heading">Short Table of Contents</h2>
-
-<div class="shortcontents">
-<ul class="toc-numbered-mark">
-<li><ul class="toc-numbered-mark">
-<li><a id="stoc-chapter" href="#toc-chapter">1 chapter</a></li>
-</ul></li>
-<li><a id="stoc-part" href="#toc-part">part</a><ul class="toc-numbered-mark">
-<li><a id="stoc-chapter-in-part" href="#toc-chapter-in-part">2 chapter in part</a></li>
-<li><a id="stoc-second-chapter-in-part" href="#toc-second-chapter-in-part">3 second chapter in part</a></li>
-<li><a id="stoc-unnumbered" href="#toc-unnumbered">unnumbered</a></li>
-</ul></li>
-<li><a id="stoc-appendix" href="#toc-appendix">Appendix A appendix</a></li>
 
 </ul>
 </div>

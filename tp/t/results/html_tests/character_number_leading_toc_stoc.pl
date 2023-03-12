@@ -292,6 +292,16 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="en">
 <div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<div class="element-shortcontents" id="SEC_Shortcontents">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="toc-numbered-mark">
+<li><a id="stoc-0" href="#toc-0">1 0</a></li>
+<li><a id="stoc-_005f" href="#toc-_005f">_</a></li>
+</ul>
+</div>
+</div>
 <div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
@@ -303,16 +313,6 @@ ul.toc-numbered-mark {list-style: none}
   <ul class="toc-numbered-mark">
     <li><a id="toc-_003f" href="#g_t_003f">?</a></li>
   </ul></li>
-</ul>
-</div>
-</div>
-<div class="element-shortcontents" id="SEC_Shortcontents">
-<h2 class="shortcontents-heading">Short Table of Contents</h2>
-
-<div class="shortcontents">
-<ul class="toc-numbered-mark">
-<li><a id="stoc-0" href="#toc-0">1 0</a></li>
-<li><a id="stoc-_005f" href="#toc-_005f">_</a></li>
 </ul>
 </div>
 </div>
