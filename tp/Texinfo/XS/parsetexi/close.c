@@ -422,10 +422,11 @@ close_current (ELEMENT *current,
   else if (current->type != ET_NONE)
     {
       enum context c;
+      ELEMENT *close_brace;
       switch (current->type)
         {
         case ET_balanced_braces:
-          ELEMENT *close_brace = new_element (ET_NONE);
+          close_brace = new_element (ET_NONE);
           command_error (current, "misplaced {");
           /* We prefer adding an element to merging because we may
              be at the end of the document after an empty line we
