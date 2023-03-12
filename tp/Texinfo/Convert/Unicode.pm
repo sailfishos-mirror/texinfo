@@ -589,6 +589,43 @@ foreach my $command (keys(%unicode_map)) {
 
 
 our %transliterate_map = (
+  # Text::Unicode starting from version 1.25_01 maps C1 controls in the
+  # 0080 to 009F range to Windows-1252 characters.  We still consider
+  # the Unicode standard to rule and keep on transliterating to empty
+  # strings
+               '0080'  => '',
+               '0081'  => '',
+               '0082'  => '',
+               '0083'  => '',
+               '0084'  => '',
+               '0085'  => '',
+               '0086'  => '',
+               '0087'  => '',
+               '0088'  => '',
+               '0089'  => '',
+               '008A'  => '',
+               '008B'  => '',
+               '008C'  => '',
+               '008D'  => '',
+               '008E'  => '',
+               '008F'  => '',
+               '0090'  => '',
+               '0091'  => '',
+               '0092'  => '',
+               '0093'  => '',
+               '0094'  => '',
+               '0095'  => '',
+               '0096'  => '',
+               '0097'  => '',
+               '0098'  => '',
+               '0099'  => '',
+               '009A'  => '',
+               '009B'  => '',
+               '009C'  => '',
+               '009D'  => '',
+               '009E'  => '',
+               '009F'  => '',
+               # explicit transliterations
                '00C5'  => 'AA',
                '00E5'  => 'aa',
                '00D8'  => 'O',

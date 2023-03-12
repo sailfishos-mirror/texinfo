@@ -1,5 +1,19 @@
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	Update in-source copy of Text::Unidecode to 1.30
+
+	* tp/Texinfo/Convert/Unicode.pm (%transliterate_map): add an explicite
+	transliterations of characters in the 0080 to 009F range to an empty
+	string.  Indeed, in Text::Unicode starting from version 1.25_01, those
+	characters (C1 codes) are mapped to Windows-1252 characters.  We still
+	consider the Unicode standard to rule and keep on transliterating to
+	empty strings.
+
+	* tp/t/nodenormalization.t: update test result without Unidecode now
+	that the 0085 character has an explicit transliteration.
+
+2023-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	Update in-source copy of Unicode::EastAsianWidth to 12.0
 
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
