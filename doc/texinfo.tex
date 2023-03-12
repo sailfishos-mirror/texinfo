@@ -7864,7 +7864,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % If we encounter &foo, then turn on ()-hacking afterwards
 \newif\ifampseen
-\def\amprm#1 {\ampseentrue{\bf\&#1 }}
+\def\amprm#1 {\ampseentrue{\rm\&#1 }}
 
 \def\parenfont{%
   \ifampseen

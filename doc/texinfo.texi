@@ -12202,10 +12202,10 @@ Here are some possibilities:
 @itemize @bullet
 @item
 Explicitly marking a Lisp keyword like @samp{&@var{keyword}} with
-@code{@@r@{@@b@{&keyword@}@}}, producing @r{@b{&keyword}}.
+@code{@@r@{&keyword@}}, producing @r{&keyword}.
 
 Note such keywords in definition arguments are (at present)
-rendered in bold in @TeX{}, but this formatting is not done in
+rendered in roman in @TeX{}, but this formatting is not done in
 any other output format.
 
 @item
@@ -12281,7 +12281,7 @@ function, @code{apply}, follows immediately after the @code{@@defun}
 command and it is followed, on the same line, by the parameter list.
 
 @quotation
-@defun apply function @r{@b{&rest}} arguments
+@defun apply function @r{&rest} arguments
 @code{apply} calls @var{function} with @var{arguments}, just
 like @code{funcall} but with one difference: the last of
 @var{arguments} is a list of arguments to give to
@@ -12316,7 +12316,7 @@ In the Texinfo source file, this example should look like this:
 
 @example
 @group
-@@defun apply function @@r@{@@b@{&rest@}@} arguments
+@@defun apply function @@r@{&rest@} arguments
 @@code@{apply@} calls @@var@{function@} with
 @@var@{arguments@}, just like @@code@{funcall@} but with one
 difference: the last of @@var@{arguments@} is a list of

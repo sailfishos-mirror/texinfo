@@ -1,5 +1,14 @@
 2023-03-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Roman rather than bold for &rest etc.
+
+	* doc/texinfo.tex (\amprm): Use \rm instead of \bf.
+	* doc/texinfo.texi (Def Cmd Conventions, Sample Function Definition):
+	Update.  Bold gives too much emphasis when compared with the
+	headword itself, which is in tt.
+
+2023-03-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\defname, \printdefname, \defcaption, \docaptionz)
 	(\defmacro, \macrodef): Rename macros beginning with \def... to
 	avoid possible confusion with @def* Texinfo commands.
