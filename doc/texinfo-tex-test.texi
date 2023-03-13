@@ -684,7 +684,7 @@ Like an argument to @b{@@footnote}.
 @expansion{} this is the expansion
 @end example
 
-@linemacro onearg arg
+@linemacro onearg {arg}
 @result{}\arg\@result{}
 @end linemacro
  
@@ -692,7 +692,7 @@ Like an argument to @b{@@footnote}.
 
 @result{}aaaaa@result{}
 
-@linemacro twoargs one two
+@linemacro twoargs {one, two}
 foo @samp{\one\} `\two\' bar
 @end linemacro
 
@@ -700,7 +700,7 @@ foo @samp{\one\} `\two\' bar
 
 foo @samp{AA} `BB' bar
 
-@linemacro twoargs one two
+@linemacro twoargs {one, two}
 foo @samp{\one\} `\two\' bar
 @end linemacro
 
@@ -708,7 +708,7 @@ foo @samp{\one\} `\two\' bar
 
 foo @samp{AA} `' bar
 
-@linemacro two arg argii
+@linemacro two {arg, argii}
 @example
 @expansion{}\arg\@expansion{}\argii\@pounds{}
 @end example
@@ -731,7 +731,7 @@ foo @samp{AA} `' bar
 @heading With @code{@@defblock}
 
 @defcodeindex BI
-@linemacro defbuiltin symbol rest
+@linemacro defbuiltin {symbol, rest}
 @BIindex \symbol\
 @defline Builtin \symbol\ \rest\
 @end linemacro

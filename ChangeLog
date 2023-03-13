@@ -1,3 +1,9 @@
+2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\linemacro): Parameter list in macro definition
+	is in braces and surrounded by commas, the same as for @macro.
+	Suggestion from Patrice.
+
 2023-03-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/separator.c (handle_comma): when at the end

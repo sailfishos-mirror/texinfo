@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-03-12.18}
+\def\texinfoversion{2023-03-13.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -8591,17 +8591,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % @linemacro
 
 \parseargdef\linemacro{%
-  \linegetargs#1 \linegetargs
+  \getargs{#1}% now \macname is the macname and \argl the arglist
   \expandafter\linegetparamlist\argl;%
   \begingroup \macrobodyctxt \usembodybackslash
   \parselinemacrobody
-}
-
-% Parse the arguments to a @linemacro line.  Set \macname to the name
-% of the macro and \argl to the list of arguments.
-\def\linegetargs#1 #2\linegetargs{%
-  \macname={#1}%
-  \def\argl{#2}%
 }
 
 % Build up \paramlist which will be used as the parameter text for the macro.
@@ -8609,9 +8602,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\linegetparamlist#1;{%
   \paramno=0\def\paramlist{}%
   \let\hash\relax
-  \linegetparamlistxxx#1; %
+  \linegetparamlistxxx#1,;,%
 }
-\def\linegetparamlistxxx#1 {%
+\def\linegetparamlistxxx#1,{%
   \if#1;\let\next=\linegetparamlistxxxx
   \else \let\next=\linegetparamlistxxx
     \advance\paramno by 1
