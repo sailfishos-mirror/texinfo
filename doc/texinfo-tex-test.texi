@@ -684,6 +684,26 @@ Like an argument to @b{@@footnote}.
 @expansion{} this is the expansion
 @end example
 
+@linemacro bs
+A\\B
+@end linemacro
+
+@bs
+
+A\B
+
+@linemacro noargii {}
+@example
+@expansion{}another test
+@end example
+@end linemacro
+
+@noargii
+
+@example
+@expansion{}another test
+@end example
+
 @linemacro onearg {arg}
 @result{}\arg\@result{}
 @end linemacro
@@ -699,10 +719,6 @@ foo @samp{\one\} `\two\' bar
 @twoargs AA BB
 
 foo @samp{AA} `BB' bar
-
-@linemacro twoargs {one, two}
-foo @samp{\one\} `\two\' bar
-@end linemacro
 
 @twoargs AA {}
 
@@ -725,6 +741,14 @@ foo @samp{AA} `' bar
 @example
 @expansion{}BB@expansion{}CC@pounds{}
 @end example
+
+@linemacro nospace{one, two, three}
+\three\@bullet{}\two\@minus{}\one\
+@end linemacro
+
+@nospace X Y Z
+
+Z@bullet{}Y@minus{}X
 
 
 

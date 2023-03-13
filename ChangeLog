@@ -1,5 +1,11 @@
 2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\linemacro): Fix definition of zero-arg
+	@linemacro so not to break literal backslash in macro body.
+	* doc/texinfo-tex-test.texi (Line macros): More tests.
+
+2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\linemacro): Parameter list in macro definition
 	is in braces and surrounded by commas, the same as for @macro.
 	Suggestion from Patrice.
