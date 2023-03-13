@@ -750,6 +750,19 @@ foo @samp{AA} `' bar
 
 Z@bullet{}Y@minus{}X
 
+@linemacro test {first, rest}
+@deffn Function \first\ \rest\
+something
+@end deffn
+@end linemacro
+
+@test foo (bar, baz)@
+ continuation line
+
+@deffn Function foo (bar, baz) continuation line
+something
+@end deffn
+
 
 
 @heading With @code{@@defblock}

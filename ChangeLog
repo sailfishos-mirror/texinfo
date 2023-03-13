@@ -1,5 +1,12 @@
 2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\linemacro): Do not set \scanctxt when getting
+	argument in order to keep @ as the escape character, allowing
+	@<NEWLINE> to be kept as a line continuation character for @def*.
+	* doc/texinfo-tex-test.texi (Line macros): Add example.
+
+2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\linemacro): Fix definition of zero-arg
 	@linemacro so not to break literal backslash in macro body.
 	* doc/texinfo-tex-test.texi (Line macros): More tests.
