@@ -257,7 +257,13 @@ Check "make ccheck" and "make vcheck" work in "doc/refcard".
 make V=1 pdf and fix underfull/overfull boxes.
 
 -------------------------------------------------------------------------
-- Final (easy) checks:
+- Final steps
+
+(Keep a copy of README-hacking open in a text editor to update these
+release instructions.)
+
+Check on correct branch (master or release/*) and rebuild.
+./autogen.sh ; ./configure ; make
 
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.  Check for leftover result
@@ -265,6 +271,8 @@ Have a look at the output of "git status -u" to check for files that
 
 check OpenCSW build reports at
   https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
+(for master branch only)
+
 Check that translations have been updated, e.g.:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
@@ -294,6 +302,10 @@ Update version number:
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
+For release-7.0 series only - need to update result of
+test_scripts/layout_formatting_epub_nodes.sh test (delete this note
+once we are on release-7.1)
+
 - Official releases only:
 version and date in NEWS.
 (cd tp && maintain/regenerate_documentlanguages-loc.pl)
@@ -304,6 +316,8 @@ one last "git diff" to check release commit looks good
 make distcheck
 (export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
 git commit and push
+
+(If on a release branch, copy the NEWS message to NEWS on master)
 
 -------------------------------------------------------------------------
 
