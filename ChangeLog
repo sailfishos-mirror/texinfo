@@ -1,3 +1,9 @@
+2023-03-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo-tex-test.texi (Line macros):
+	Test @defline with continuation.  Add example of nested @defblock
+	for API documentation.
+
 2023-03-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\linemacro): Do not set \scanctxt when getting
