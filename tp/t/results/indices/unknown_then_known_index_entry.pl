@@ -52,45 +52,45 @@ $result_trees{'unknown_then_known_index_entry'} = {
                 'line_nr' => 2,
                 'macro' => ''
               }
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'someindex entry.'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'someindex',
+              'extra' => {
+                'index_entry' => [
+                  'some',
+                  1
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'someindex entry.'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'someindex',
-          'extra' => {
-            'index_entry' => [
-              'some',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         }
       ],
       'type' => 'before_node_section'

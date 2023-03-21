@@ -776,46 +776,46 @@ $result_trees{'at_commands_in_raw'} = {
             {
               'text' => '.
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'fentry2'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'findex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'fn',
+                  1
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 72,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fentry2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'findex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 72,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -1081,7 +1081,7 @@ $result_trees{'at_commands_in_raw'} = {
 };
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
 
 $result_texis{'at_commands_in_raw'} = '@node Top
 @top top
@@ -1477,7 +1477,7 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 
 * Menu:
 
-* fentry2:                               chap.                 (line 17)
+* fentry2:                               chap.                 (line 16)
 
    FF.
 
@@ -1530,8 +1530,8 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 <p>See <a class="xref" href="#anchor-in-html">anchor in html</a>.
 </p>
 <p>&lsquo;anchor in tex&rsquo;.
-</p><a class="index-entry-id" id="index-fentry2"></a>
-
+<a class="index-entry-id" id="index-fentry2"></a>
+</p>
 <p>newidx entry
 </p>
 <div class="printindex fn-printindex">
@@ -1639,8 +1639,8 @@ Some \\arg\\.
 <para><xref label="anchor-in-html"><xrefnodename>anchor in html</xrefnodename></xref>.
 </para>
 <para><ref label="anchor-in-tex"><xrefnodename>anchor in tex</xrefnodename></ref>.
-</para><findex index="fn" spaces=" "><indexterm index="fn" number="1">fentry2</indexterm></findex>
-
+<findex index="fn" spaces=" "><indexterm index="fn" number="1">fentry2</indexterm></findex>
+</para>
  <para>newidx entry
 </para>
 <printindex spaces=" " value="cp" line="cp"></printindex>
@@ -1678,8 +1678,8 @@ $result_converted{'docbook'}->{'at_commands_in_raw'} = '<chapter label="1" id="c
 <para>See <link linkend="anchor-in-html">anchor in html</link>.
 </para>
 <para><link linkend="anchor-in-tex">anchor in tex</link>.
-</para><indexterm role="fn"><primary>fentry2</primary></indexterm>
-
+<indexterm role="fn"><primary>fentry2</primary></indexterm>
+</para>
 <para>newidx entry
 </para>
 <index role="cp"></index>

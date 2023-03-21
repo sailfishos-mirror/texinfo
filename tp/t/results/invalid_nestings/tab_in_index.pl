@@ -85,52 +85,52 @@ $result_trees{'tab_in_index'} = {
                             {
                               'text' => 'aaa
 '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'in index entry '
+                                    },
+                                    {
+                                      'text' => ' ',
+                                      'type' => 'ignorable_spaces_after_command'
+                                    },
+                                    {
+                                      'text' => 'in tab'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'vindex',
+                              'extra' => {
+                                'index_entry' => [
+                                  'vr',
+                                  1
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 3,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in index entry '
-                                },
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'in tab'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'vindex',
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              1
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 3,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {

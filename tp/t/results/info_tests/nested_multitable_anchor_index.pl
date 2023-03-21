@@ -182,46 +182,46 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               'text' => '
 ',
                                               'type' => 'spaces_after_close_brace'
+                                            },
+                                            {
+                                              'args' => [
+                                                {
+                                                  'contents' => [
+                                                    {
+                                                      'text' => 'index entry inside'
+                                                    }
+                                                  ],
+                                                  'info' => {
+                                                    'spaces_after_argument' => {
+                                                      'text' => '
+'
+                                                    }
+                                                  },
+                                                  'type' => 'line_arg'
+                                                }
+                                              ],
+                                              'cmdname' => 'cindex',
+                                              'extra' => {
+                                                'element_node' => {},
+                                                'index_entry' => [
+                                                  'cp',
+                                                  1
+                                                ]
+                                              },
+                                              'info' => {
+                                                'spaces_before_argument' => {
+                                                  'text' => ' '
+                                                }
+                                              },
+                                              'source_info' => {
+                                                'file_name' => '',
+                                                'line_nr' => 7,
+                                                'macro' => ''
+                                              },
+                                              'type' => 'index_entry_command'
                                             }
                                           ],
                                           'type' => 'paragraph'
-                                        },
-                                        {
-                                          'args' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'index entry inside'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'spaces_after_argument' => {
-                                                  'text' => '
-'
-                                                }
-                                              },
-                                              'type' => 'line_arg'
-                                            }
-                                          ],
-                                          'cmdname' => 'cindex',
-                                          'extra' => {
-                                            'element_node' => {},
-                                            'index_entry' => [
-                                              'cp',
-                                              1
-                                            ]
-                                          },
-                                          'info' => {
-                                            'spaces_before_argument' => {
-                                              'text' => ' '
-                                            }
-                                          },
-                                          'source_info' => {
-                                            'file_name' => '',
-                                            'line_nr' => 7,
-                                            'macro' => ''
-                                          },
-                                          'type' => 'index_entry_command'
                                         }
                                       ],
                                       'extra' => {
@@ -399,46 +399,46 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               'text' => '
 ',
                               'type' => 'spaces_after_close_brace'
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'index entry'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'cindex',
+                              'extra' => {
+                                'element_node' => {},
+                                'index_entry' => [
+                                  'cp',
+                                  2
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 11,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => [
-                              'cp',
-                              2
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 11,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {
@@ -630,8 +630,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0];
 

@@ -676,46 +676,46 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                     {
                       'text' => 'Title
 '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'cindex'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => [
+                          'cp',
+                          4
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 34,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cindex'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      4
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 34,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -1025,7 +1025,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];

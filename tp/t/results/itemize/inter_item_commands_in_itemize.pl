@@ -547,46 +547,46 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                     {
                       'text' => 'T--ext before items.
 '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'also a cindex in itemize'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => [
+                          'cp',
+                          4
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 23,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'also a cindex in itemize'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      4
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 23,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -680,7 +680,7 @@ $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[1]{'e
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 
 $result_texis{'inter_item_commands_in_itemize'} = '@node Top

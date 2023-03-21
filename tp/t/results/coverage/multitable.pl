@@ -233,45 +233,45 @@ $result_trees{'multitable'} = {
                             {
                               'text' => 'multitable tab 2
 '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'index entry within multitable'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'cindex',
+                              'extra' => {
+                                'index_entry' => [
+                                  'cp',
+                                  1
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 7,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry within multitable'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'index_entry' => [
-                              'cp',
-                              1
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 7,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {
@@ -615,8 +615,8 @@ $result_converted{'xml'}->{'multitable'} = '
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
 </para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
-</entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
+</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
@@ -646,8 +646,8 @@ $result_converted{'docbook'}->{'multitable'} = '
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
 <!-- comment in multitable -->
 </para></entry></row><row><entry><para>mu&#8211;ltitable item 2 </para></entry><entry><para>multitable tab 2
-</para><indexterm role="cp"><primary>index entry within multitable</primary></indexterm>
-</entry></row><row><entry><para>lone mu&#8211;ltitable item
+<indexterm role="cp"><primary>index entry within multitable</primary></indexterm>
+</para></entry></row><row><entry><para>lone mu&#8211;ltitable item
 </para></entry></row></tbody></tgroup></informaltable>
 <informaltable><tgroup cols="2"><colspec colwidth="4*"></colspec><colspec colwidth="6*"></colspec><tbody><row><entry><para>truc </para></entry><entry><para>bidule
 </para></entry></row></tbody></tgroup></informaltable>';

@@ -100,46 +100,46 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
                         {
                           'text' => 'Another para in footnote.
 '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'index entry in footnote'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'cindex',
+                          'extra' => {
+                            'element_node' => {},
+                            'index_entry' => [
+                              'cp',
+                              1
+                            ]
+                          },
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 7,
+                            'macro' => ''
+                          },
+                          'type' => 'index_entry_command'
                         }
                       ],
                       'type' => 'paragraph'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'index entry in footnote'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'cindex',
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => [
-                          'cp',
-                          1
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 7,
-                        'macro' => ''
-                      },
-                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'brace_command_context'
@@ -284,7 +284,7 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entry_in_footnote_sections_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections_separate'}{'contents'}[1];
+$result_trees{'index_entry_in_footnote_sections_separate'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections_separate'}{'contents'}[1];
 
 $result_texis{'index_entry_in_footnote_sections_separate'} = '@node Top
 @top index_entry_in_footnote
@@ -529,7 +529,8 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections_separate'} = 
 <p>in footnote
 </p>
 <p>Another para in footnote.
-</p><a class="index-entry-id" id="index-index-entry-in-footnote"></a>
+<a class="index-entry-id" id="index-index-entry-in-footnote"></a>
+</p>
 </div>';
 
 
@@ -539,8 +540,8 @@ $result_converted{'xml'}->{'index_entry_in_footnote_sections_separate'} = '<node
 <para>Top node<footnote><para>in footnote
 </para>
 <para>Another para in footnote.
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
-</footnote>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
+</para></footnote>
 </para>
 </top>
 <node name="Index" spaces=" "><nodename>Index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>

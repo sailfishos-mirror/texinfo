@@ -562,46 +562,46 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => 'T--ext before items.
 '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'also a cindex in itemize'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => [
+                          'cp',
+                          4
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 25,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'also a cindex in itemize'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      4
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 25,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -1214,46 +1214,46 @@ $result_trees{'indices_in_begin_tables_lists'} = {
                     {
                       'text' => 'Title
 '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'cindex'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'element_node' => {},
+                        'index_entry' => [
+                          'cp',
+                          8
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 56,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cindex'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      8
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 56,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -3878,12 +3878,12 @@ $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'ex
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];

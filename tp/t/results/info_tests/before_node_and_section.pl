@@ -45,48 +45,43 @@ $result_trees{'before_node_and_section'} = {
             {
               'text' => '.
 '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'args' => [
+            },
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'index entry before anything'
+                  'contents' => [
+                    {
+                      'text' => 'index entry before anything'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' 
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'index_entry' => [
+                  'cp',
+                  1
+                ]
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'contents' => [
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
             {
               'text' => 'Hey'
             },
@@ -629,7 +624,7 @@ $result_trees{'before_node_and_section'} = {
   'type' => 'document_root'
 };
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
@@ -820,8 +815,7 @@ $result_indices_sort_strings{'before_node_and_section'} = {
 
 $result_converted{'info'}->{'before_node_and_section'} = 'This is , produced from .
 
-Garbage ref to Top *note Top::.
-   Hey(1).  An anchor .
+Garbage ref to Top *note Top::.  Hey(1).  An anchor .
 
 * Menu:
 
@@ -860,11 +854,11 @@ File: ,  Node: node1,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Ref: anchor180
-Node: Top104
-Ref: Top-Footnote-1319
-Ref: Top-Footnote-2338
-Node: node1363
+Ref: anchor178
+Node: Top102
+Ref: Top-Footnote-1317
+Ref: Top-Footnote-2336
+Node: node1361
 
 End Tag Table
 

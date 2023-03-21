@@ -253,72 +253,72 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                             {
                               'text' => 'multitable tab 2
 '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'index entry within multitable'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'cindex',
+                              'extra' => {
+                                'element_node' => {},
+                                'index_entry' => [
+                                  'cp',
+                                  1
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 8,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'anchor in multitable'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'anchor',
+                              'extra' => {
+                                'normalized' => 'anchor-in-multitable'
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 9,
+                                'macro' => ''
+                              }
+                            },
+                            {
+                              'text' => '
+',
+                              'type' => 'spaces_after_close_brace'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry within multitable'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => [
-                              'cp',
-                              1
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 8,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'anchor in multitable'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'anchor',
-                          'extra' => {
-                            'normalized' => 'anchor-in-multitable'
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 9,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'spaces_after_close_brace'
                         }
                       ],
                       'extra' => {
@@ -559,46 +559,46 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                             {
                               'text' => 'mlsdmjlfdsjm mdsfk 
 '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'index entry'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'cindex',
+                              'extra' => {
+                                'element_node' => {},
+                                'index_entry' => [
+                                  'cp',
+                                  2
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 21,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => [
-                              'cp',
-                              2
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 21,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {
@@ -897,9 +897,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1];
+$result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1];
 $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[1]{'extra'}{'columnfractions'} = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1];
+$result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1];
 $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'multitable_anchor_and_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0];
 
@@ -1003,7 +1003,6 @@ mu-ltitable headitem          another tab
 --------------------------------------------------------------------------
 mu-ltitable item              multitable tab
 mu-ltitable item 2            multitable tab 2
-                              
 lone mu-ltitable item
 
 A   G
@@ -1026,16 +1025,16 @@ mdsfk2
  [index ]
 * Menu:
 
-* index entry:                           Top.                  (line 20)
-* index entry within multitable:         Top.                  (line  7)
+* index entry:                           Top.                  (line 19)
+* index entry within multitable:         Top.                  (line  6)
 
    *note mark:: *note anchor in multitable::
 
 
 Tag Table:
 Node: Top27
-Ref: anchor in multitable300
-Ref: mark419
+Ref: anchor in multitable269
+Ref: mark388
 
 End Tag Table
 

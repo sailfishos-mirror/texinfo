@@ -386,7 +386,7 @@ my %default_basic_inline_commands = %contain_basic_inline_commands;
 foreach my $index (keys(%index_names)) {
   my $one_letter_prefix = substr($index, 0, 1);
   foreach my $prefix ($index, $one_letter_prefix) {
-    $default_close_paragraph_commands{$prefix.'index'} = 1;
+    #$default_close_paragraph_commands{$prefix.'index'} = 1;
     $default_basic_inline_commands{$prefix.'index'} = 1;
     $default_no_paragraph_commands{$prefix.'index'} = 1;
   }
@@ -7194,7 +7194,7 @@ sub _parse_line_command_args($$$)
       delete $self->{'aliases'}->{$cmd_name};
       # unset @def*index effect
       delete $self->{'line_commands'}->{$cmd_name};
-      delete $self->{'close_paragraph_commands'}->{$cmd_name};
+      #delete $self->{'close_paragraph_commands'}->{$cmd_name};
       delete $self->{'no_paragraph_commands'}->{$cmd_name};
       delete $self->{'basic_inline_commands'}->{$cmd_name};
       delete $self->{'command_index'}->{$cmd_name};
@@ -7260,7 +7260,7 @@ sub _parse_line_command_args($$$)
         delete $self->{'brace_commands'}->{$index_cmdname};
         delete $self->{'valid_nestings'}->{$index_cmdname};
         $self->{'line_commands'}->{$index_cmdname} = 'line';
-        $self->{'close_paragraph_commands'}->{$index_cmdname} = 1;
+        #$self->{'close_paragraph_commands'}->{$index_cmdname} = 1;
         $self->{'no_paragraph_commands'}->{$index_cmdname} = 1;
         $self->{'basic_inline_commands'}->{$index_cmdname} = 1;
         $self->{'command_index'}->{$index_cmdname} = $name;

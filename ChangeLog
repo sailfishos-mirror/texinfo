@@ -1,3 +1,11 @@
+2023-03-21  Patrice Dumas  <pertusus@free.fr>
+
+	Index commands do not end paragraphs in texi2any
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/indices.c (add_index_command): do not set
+	index commands as close_paragraph.
+
 2023-03-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Index commands do not end paragraphs

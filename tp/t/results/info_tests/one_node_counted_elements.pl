@@ -14,45 +14,45 @@ $result_trees{'one_node_counted_elements'} = {
             {
               'text' => 'Garbage
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'before nodes'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'index_entry' => [
+                  'cp',
+                  1
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'before nodes'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -111,46 +111,46 @@ $result_trees{'one_node_counted_elements'} = {
             {
               'text' => 'Top node
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Top node'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  2
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -418,9 +418,9 @@ $result_trees{'one_node_counted_elements'} = {
   'type' => 'document_root'
 };
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'one_node_counted_elements'} = 'Garbage
 @cindex before nodes
@@ -561,7 +561,7 @@ Top node
 * Menu:
 
 * before nodes:                          (outside of any node). (line 0)
-* Top node:                              one node.              (line 4)
+* Top node:                              one node.              (line 3)
 
 
 

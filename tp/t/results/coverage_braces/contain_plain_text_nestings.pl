@@ -261,87 +261,87 @@ $result_trees{'contain_plain_text_nestings'} = {
             {
               'text' => '
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'ii'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces_at_end'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'code in sortas'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 10,
+                                'macro' => ''
+                              }
+                            },
+                            {
+                              'text' => ' text'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'sortas',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 10,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  1
+                ],
+                'sortas' => ' text'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ii'
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'code in sortas'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'text' => ' text'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'sortas',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 10,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ],
-            'sortas' => ' text'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -540,106 +540,106 @@ $result_trees{'contain_plain_text_nestings'} = {
             {
               'text' => '
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'ii'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces_at_end'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'Top'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'node_content' => [
+                                      {}
+                                    ],
+                                    'normalized' => 'Top'
+                                  },
+                                  'type' => 'brace_command_arg'
+                                },
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'cross in sortas'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
+                                  },
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'ref',
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 16,
+                                'macro' => ''
+                              }
+                            },
+                            {
+                              'text' => ' text'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'sortas',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 16,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  2
+                ],
+                'sortas' => ' text'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 16,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ii'
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Top'
-                                }
-                              ],
-                              'extra' => {
-                                'node_content' => [
-                                  {}
-                                ],
-                                'normalized' => 'Top'
-                              },
-                              'type' => 'brace_command_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'cross in sortas'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'ref',
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 16,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'text' => ' text'
-                        }
-                      ],
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'sortas',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 16,
-                    'macro' => ''
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ],
-            'sortas' => ' text'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 16,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -696,12 +696,12 @@ $result_trees{'contain_plain_text_nestings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 
 $result_texis{'contain_plain_text_nestings'} = '@node Top
 @top top
@@ -930,8 +930,8 @@ Text ‘code in w’ text.  <‘code in key’ text>
 
 * Menu:
 
-* ii:                                    chap.                  (line 7)
-* ii <1>:                                chap.                  (line 9)
+* ii:                                    chap.                  (line 6)
+* ii <1>:                                chap.                  (line 8)
 
 ';
 
@@ -956,12 +956,12 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 
 <p>Text <code class="code">code&nbsp;in&nbsp;w</code>&nbsp;text<!-- /@w -->.
 <kbd class="key"><code class="code">code in key</code> text</kbd>
-</p><a class="index-entry-id" id="index-ii"></a>
-
+<a class="index-entry-id" id="index-ii"></a>
+</p>
 <p>Text <a class="ref" href="#Top">cross&nbsp;in&nbsp;w</a>&nbsp;text<!-- /@w -->.
 <kbd class="key"><a class="ref" href="#Top">cross in key</a> text</kbd>
-</p><a class="index-entry-id" id="index-ii-1"></a>
-
+<a class="index-entry-id" id="index-ii-1"></a>
+</p>
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>

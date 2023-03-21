@@ -861,120 +861,120 @@ $result_trees{'sample_utf8'} = {
             {
               'text' => "This is the first chapter. \x{8fd9}\x{662f}\x{7b2c}\x{4e00}\x{7ae0}\x{3002}
 "
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry"
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  2
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 47,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => "\x{104}\x{118} ae \x{105}\x{119}"
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  3
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 48,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => "\x{e9} \x{c2}"
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  4
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 49,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry"
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 47,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => "\x{104}\x{118} ae \x{105}\x{119}"
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 48,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => "\x{e9} \x{c2}"
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 49,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -1343,9 +1343,9 @@ $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'conte
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
 
 $result_texis{'sample_utf8'} = '\\input texinfo   @c -*-texinfo-*-
 @c %**start of header

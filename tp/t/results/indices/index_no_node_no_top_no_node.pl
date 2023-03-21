@@ -214,45 +214,45 @@ $result_trees{'index_no_node_no_top_no_node'} = {
             {
               'text' => 'in unnumbered
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'unnumbered after text'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'index_entry' => [
+                  'cp',
+                  3
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'index_no_node_no_top.texi',
+                'line_nr' => 13,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'unnumbered after text'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              3
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_no_node_no_top.texi',
-            'line_nr' => 13,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -760,45 +760,45 @@ $result_trees{'index_no_node_no_top_no_node'} = {
             {
               'text' => 'second node
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'second'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'index_entry' => [
+                  'cp',
+                  12
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'index_no_node_no_top.texi',
+                'line_nr' => 37,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'second'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              12
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_no_node_no_top.texi',
-            'line_nr' => 37,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -950,45 +950,45 @@ $result_trees{'index_no_node_no_top_no_node'} = {
             {
               'text' => 'Text of chapter
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Chapter2'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'index_entry' => [
+                  'cp',
+                  14
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'index_no_node_no_top.texi',
+                'line_nr' => 45,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              14
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_no_node_no_top.texi',
-            'line_nr' => 45,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -1886,8 +1886,8 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 
 <a class="index-entry-id" id="index-unnumbered"></a>
 <p>in unnumbered
-</p><a class="index-entry-id" id="index-unnumbered-after-text"></a>
-
+<a class="index-entry-id" id="index-unnumbered-after-text"></a>
+</p>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#unnumbered_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -2061,8 +2061,8 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 </div>
 <a class="index-entry-id" id="index-second"></a>
 <p>second node
-</p><a class="index-entry-id" id="index-second-1"></a>
-
+<a class="index-entry-id" id="index-second-1"></a>
+</p>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#second_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -2167,8 +2167,8 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 </td></tr></table>
 </div>
 <p>Text of chapter
-</p><a class="index-entry-id" id="index-Chapter2"></a>
-
+<a class="index-entry-id" id="index-Chapter2"></a>
+</p>
 <hr>
 </div>
 <div class="chapter-level-extent" id="Chapter-2">
@@ -2196,8 +2196,8 @@ $result_converted{'xml'}->{'index_no_node_no_top_no_node'} = '<preamblebeforebeg
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">unnumbered</indexterm></cindex>
 <para>in unnumbered
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="3">unnumbered after text</indexterm></cindex>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">unnumbered after text</indexterm></cindex>
+</para>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 
 </unnumbered>
@@ -2221,8 +2221,8 @@ $result_converted{'xml'}->{'index_no_node_no_top_no_node'} = '<preamblebeforebeg
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="11">second</indexterm></cindex>
 <para>second node
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="12">second</indexterm></cindex>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="12">second</indexterm></cindex>
+</para>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 </section>
 </unnumbered>
@@ -2231,8 +2231,8 @@ $result_converted{'xml'}->{'index_no_node_no_top_no_node'} = '<preamblebeforebeg
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <para>Text of chapter
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="14">Chapter2</indexterm></cindex>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="14">Chapter2</indexterm></cindex>
+</para>
 </chapter>
 <chapter spaces=" "><sectiontitle>Chapter 2</sectiontitle>
 

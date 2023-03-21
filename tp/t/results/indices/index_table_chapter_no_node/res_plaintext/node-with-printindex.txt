@@ -25,7 +25,7 @@
 * ?oncept:                               indices refs.          (line 0)
 * /oncept:                               indices refs.          (line 0)
 * an second index entry in node:         node with ftable and vtable.
-                                                                (line 7)
+                                                                (line 6)
 * aoncept:                               indices refs.          (line 0)
 * boncept:                               indices refs.          (line 0)
 * c,ncept:                               indices refs.          (line 0)

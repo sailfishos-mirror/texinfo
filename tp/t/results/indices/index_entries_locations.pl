@@ -101,92 +101,87 @@ $result_trees{'index_entries_locations'} = {
             {
               'text' => 'Paragraph
 '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'args' => [
+            },
             {
-              'contents' => [
+              'args' => [
                 {
-                  'text' => 'entry in paragraph'
+                  'contents' => [
+                    {
+                      'text' => 'entry in paragraph'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  1
+                ]
+              },
               'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
+                'spaces_before_argument' => {
+                  'text' => ' '
                 }
               },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'contents' => [
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 8,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
             {
               'text' => 'end paragraph.
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'entry at end of paragraph.'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  2
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entry at end of paragraph.'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -367,10 +362,10 @@ $result_trees{'index_entries_locations'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
+$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
+$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
+$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
 $result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
-$result_trees{'index_entries_locations'}{'contents'}[2]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'index_entries_locations'}{'contents'}[2];
 
 $result_texis{'index_entries_locations'} = '
 @node Top
@@ -466,8 +461,7 @@ File: ,  Node: chap,  Prev: Top
 
 Initial paragraph.
 
-   Paragraph
-   end paragraph.
+   Paragraph end paragraph.
 
    New paragraph.
 
@@ -478,10 +472,10 @@ Initial paragraph.
  [index ]
 * Menu:
 
-* entry at end of paragraph.:            chap.                 (line  7)
-* Entry before paragraph:                chap.                 (line 10)
-* entry in paragraph:                    chap.                 (line  6)
-* lone entry:                            chap.                 (line 12)
+* entry at end of paragraph.:            chap.                 (line  5)
+* Entry before paragraph:                chap.                 (line  9)
+* entry in paragraph:                    chap.                 (line  5)
+* lone entry:                            chap.                 (line 11)
 
 
 
@@ -500,8 +494,7 @@ End:
 
 $result_converted{'plaintext'}->{'index_entries_locations'} = 'Initial paragraph.
 
-   Paragraph
-   end paragraph.
+   Paragraph end paragraph.
 
    New paragraph.
 
@@ -511,10 +504,10 @@ $result_converted{'plaintext'}->{'index_entries_locations'} = 'Initial paragraph
 
 * Menu:
 
-* entry at end of paragraph.:            chap.                  (line 4)
-* Entry before paragraph:                chap.                  (line 7)
-* entry in paragraph:                    chap.                  (line 3)
-* lone entry:                            chap.                  (line 9)
+* entry at end of paragraph.:            chap.                  (line 2)
+* Entry before paragraph:                chap.                  (line 6)
+* entry in paragraph:                    chap.                  (line 2)
+* lone entry:                            chap.                  (line 8)
 
 ';
 
@@ -534,10 +527,10 @@ $result_converted{'html_text'}->{'index_entries_locations'} = '<a class="node-id
 <p>Initial paragraph.
 </p>
 <p>Paragraph
-</p><a class="index-entry-id" id="index-entry-in-paragraph"></a>
-<p>end paragraph.
-</p><a class="index-entry-id" id="index-entry-at-end-of-paragraph_002e"></a>
-
+<a class="index-entry-id" id="index-entry-in-paragraph"></a>
+end paragraph.
+<a class="index-entry-id" id="index-entry-at-end-of-paragraph_002e"></a>
+</p>
 <p>New paragraph.
 </p>
 <a class="index-entry-id" id="index-Entry-before-paragraph"></a>
@@ -581,10 +574,10 @@ $result_converted{'xml'}->{'index_entries_locations'} = '<preamblebeforebeginnin
 <para>Initial paragraph.
 </para>
 <para>Paragraph
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry in paragraph</indexterm></cindex>
-<para>end paragraph.
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="2">entry at end of paragraph.</indexterm></cindex>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry in paragraph</indexterm></cindex>
+end paragraph.
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">entry at end of paragraph.</indexterm></cindex>
+</para>
 <para>New paragraph.
 </para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="3">Entry before paragraph</indexterm></cindex>

@@ -44,46 +44,46 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                 {
                                   'text' => 'In footnote
 '
+                                },
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'Copying this document'
+                                        }
+                                      ],
+                                      'info' => {
+                                        'spaces_after_argument' => {
+                                          'text' => '
+'
+                                        }
+                                      },
+                                      'type' => 'line_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'cindex',
+                                  'extra' => {
+                                    'element_region' => 'copying',
+                                    'index_entry' => [
+                                      'cp',
+                                      1
+                                    ]
+                                  },
+                                  'info' => {
+                                    'spaces_before_argument' => {
+                                      'text' => ' '
+                                    }
+                                  },
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 5,
+                                    'macro' => ''
+                                  },
+                                  'type' => 'index_entry_command'
                                 }
                               ],
                               'type' => 'paragraph'
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Copying this document'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'cmdname' => 'cindex',
-                              'extra' => {
-                                'element_region' => 'copying',
-                                'index_entry' => [
-                                  'cp',
-                                  1
-                                ]
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 5,
-                                'macro' => ''
-                              },
-                              'type' => 'index_entry_command'
                             },
                             {
                               'text' => '
@@ -817,12 +817,12 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote
-</p><a class="index-entry-id" id="index-copying-Copying-this-document"></a>
-
+<a class="index-entry-id" id="index-copying-Copying-this-document"></a>
+</p>
 <h5 class="footnote-body-heading"><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>In footnote
-</p><a class="index-entry-id" id="index-copying-Copying-this-document"></a>
-
+<a class="index-entry-id" id="index-copying-Copying-this-document"></a>
+</p>
 </div>
 ';
 
@@ -830,8 +830,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 $result_converted{'xml'}->{'printindex_index_entry_in_copying_in_footnote'} = '<copying endspaces=" ">
 
 <para>Copying<footnote spaces="\\n"><para>In footnote
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="1">Copying this document</indexterm></cindex>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">Copying this document</indexterm></cindex>
+</para>
 </footnote>.
 </para>
 <printindex spaces=" " value="cp" line="cp"></printindex>

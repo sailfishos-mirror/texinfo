@@ -1130,120 +1130,120 @@ $result_trees{'nodes_before_top_and_sections_chapter_no_node'} = {
             {
               'text' => 'Text and then index entries
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => '! entry in node'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  6
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'nodes_before_top_and_sections.texi',
+                'line_nr' => 49,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'fun in node'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'findex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'fn',
+                  1
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'nodes_before_top_and_sections.texi',
+                'line_nr' => 50,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'entry in node'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'cindex',
+              'extra' => {
+                'element_node' => {},
+                'index_entry' => [
+                  'cp',
+                  7
+                ]
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'file_name' => 'nodes_before_top_and_sections.texi',
+                'line_nr' => 51,
+                'macro' => ''
+              },
+              'type' => 'index_entry_command'
             }
           ],
           'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => '! entry in node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              6
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 49,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fun in node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'findex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              1
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 50,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entry in node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'cindex',
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              7
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top_and_sections.texi',
-            'line_nr' => 51,
-            'macro' => ''
-          },
-          'type' => 'index_entry_command'
         },
         {
           'text' => '
@@ -2412,10 +2412,10 @@ $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[4]{'c
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[4]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[4]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'args'}[2]{'contents'}[0];
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'args'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
-$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
-$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
-$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
+$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
+$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5];
+$result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[5]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'args'}[3]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'args'}[3]{'contents'}[0];
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top_and_sections_chapter_no_node'}{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];

@@ -453,45 +453,45 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                             {
                               'text' => 'multitable tab 2
 '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'index entry within multitable'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'cindex',
+                              'extra' => {
+                                'index_entry' => [
+                                  'cp',
+                                  2
+                                ]
+                              },
+                              'info' => {
+                                'spaces_before_argument' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 17,
+                                'macro' => ''
+                              },
+                              'type' => 'index_entry_command'
                             }
                           ],
                           'type' => 'paragraph'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry within multitable'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'cindex',
-                          'extra' => {
-                            'index_entry' => [
-                              'cp',
-                              2
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 17,
-                            'macro' => ''
-                          },
-                          'type' => 'index_entry_command'
                         }
                       ],
                       'extra' => {
@@ -630,45 +630,45 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                     {
                       'text' => 'Title
 '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'cindex'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'cindex',
+                      'extra' => {
+                        'index_entry' => [
+                          'cp',
+                          3
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 23,
+                        'macro' => ''
+                      },
+                      'type' => 'index_entry_command'
                     }
                   ],
                   'type' => 'paragraph'
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cindex'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'index_entry' => [
-                      'cp',
-                      3
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 23,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
                 }
               ],
               'type' => 'before_item'
@@ -920,14 +920,14 @@ $result_converted{'xml'}->{'inter_item_commands_in_multitable'} = '<multitable s
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
 </para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="2">index entry within multitable</indexterm></cindex>
-</entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">index entry within multitable</indexterm></cindex>
+</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">thing</columnprototype></columnprototypes>
 <beforefirstitem><para>Title
-</para><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex</indexterm></cindex>
-</beforefirstitem><tbody><row><entry command="item"> <para>thing
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex</indexterm></cindex>
+</para></beforefirstitem><tbody><row><entry command="item"> <para>thing
 </para></entry></row></tbody></multitable>
 
 ';
