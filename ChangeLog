@@ -1,3 +1,13 @@
+2023-03-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index commands do not end paragraphs
+
+	* doc/texinfo.tex (\doindex, \docodeindex): Do not use \indexpar.
+	(\indexpar): Remove.
+
+	This reverts change on 2023-02-19.  It caused problems for the
+	Lilypond manuals -- report from Werner.
+
 2023-03-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: Update

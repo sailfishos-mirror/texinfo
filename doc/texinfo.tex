@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-03-13.20}
+\def\texinfoversion{2023-03-21.06}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -4102,7 +4102,6 @@ $$%
     \nobreak\kern\dimen0
     \endgroup
     \itemxneedsnegativevskiptrue
-    \penalty 10021 % for \indexpar
   \fi
 }
 
@@ -4219,7 +4218,6 @@ $$%
    % We can be in inner vertical mode in a footnote, although an
    % @itemize looks awful there.
   }%
-  \penalty 10021 % for \indexpar
   \flushcr
 }
 
@@ -4784,17 +4782,11 @@ $$%
 % and it is the two-letter name of the index.
 
 \def\doindex#1{\edef\indexname{#1}\parsearg\doindexxxx}
-\def\doindexxxx #1{\indexpar\doind{\indexname}{#1}}
+\def\doindexxxx #1{\doind{\indexname}{#1}}
 
 % like the previous two, but they put @code around the argument.
 \def\docodeindex#1{\edef\indexname{#1}\parsearg\docodeindexxxx}
-\def\docodeindexxxx #1{\indexpar\docind{\indexname}{#1}}
-
-% End any open paragraph, unless we are immediately after @item in
-% @itemize or @enumerate.
-\def\indexpar{%
-\ifnum\lastpenalty=10021 \else\endgraf\fi
-}
+\def\docodeindexxxx #1{\docind{\indexname}{#1}}
 
 
 % \definedummyword defines \#1 as \string\#1\space, thus effectively
@@ -5351,9 +5343,7 @@ $$%
 % ..., ready, GO:
 %
 \def\safewhatsit#1{\ifhmode
-  \whatsitpenalty = \lastpenalty
   #1%
-  \ifnum\whatsitpenalty>9999 \penalty\whatsitpenalty \fi
  \else
   % \lastskip and \lastpenalty cannot both be nonzero simultaneously.
   \whatsitskip = \lastskip
