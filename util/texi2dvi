@@ -1,7 +1,7 @@
 #! /bin/sh
 # texi2dvi --- produce DVI (or PDF) files from Texinfo (or (La)TeX) sources.
 #
-# Copyright 1992-2022 Free Software Foundation, Inc.
+# Copyright 1992-2023 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ set -e
 program=`echo $0 | $SED -e 's!.*/!!'`
 
 build_mode=${TEXI2DVI_BUILD_MODE:-local}
-build_dir=${TEXI2DVI_BUILD_DIRECTORY:-.}
+build_dir=${TEXI2DVI_BUILD_DIRECTORY:-}
 
 orig_pwd=`pwd`
 
@@ -151,12 +151,10 @@ Build modes:
       --tidy           same as --build=tidy
   -c, --clean          same as --build=clean
       --build-dir=DIR  specify where the tidy compilation is performed;
-                         implies --tidy;
-                         defaults to TEXI2DVI_BUILD_DIRECTORY [$build_dir]
+                         implies --tidy
 
 The MODE specifies where the TeX compilation takes place, and, as a
-consequence, how auxiliary files are treated.  The build mode can also
-be set using the environment variable TEXI2DVI_BUILD_MODE.
+consequence, how auxiliary files are treated.
 
 Valid values of MODE are:
   \`local'      compile in the current directory, leaving all the auxiliary
@@ -165,6 +163,10 @@ Valid values of MODE are:
                are left.  Output files are copied back to the original file.
   \`clean'      same as \`tidy', but remove the auxiliary directory afterwards.
                Every compilation therefore requires the full cycle.
+
+The build mode can also be set using the environment variable
+TEXI2DVI_BUILD_MODE.  The tidy build directory can also be set using
+the environment variable TEXI2DVI_BUILD_DIRECTORY.
 
 The values of these environment variables are used to run the
 corresponding commands, if they are set:
@@ -1694,7 +1696,7 @@ while test x"$1" != x"$arg_sep"; do
     -~ ) verbose "Option -~ is obsolete: texi2dvi ignores it.";;
     -b | --batch) ;; # Obsolete
          --build)      shift; build_mode=$1;;
-         --build-dir)  shift; build_dir=$1; build_mode=tidy;;
+         --build-dir)  shift; build_dir=$1;;
     -c | --clean) build_mode=clean;;
     -D | --debug) debug=true;;
     -e | -E | --expand) expand=true;;
@@ -1742,6 +1744,11 @@ while test x"$1" != x"$arg_sep"; do
 done
 # Pop the token
 shift
+
+# If build_dir given, switch from --local to --tidy
+if test x"$build_dir" != x"" && test x"$build_mode" = x"local" ; then
+  build_mode=tidy
+fi
 
 # $tidy:  compile in a t2d directory.
 # $clean: remove all the aux files.
@@ -1848,7 +1855,8 @@ do
   # in compiling this document.
   case $build_dir in
       '' | . ) t2ddir=$out_noext.t2d ;;
-      *) # Avoid collisions between multiple occurrences of the same
+      *) ensure_dir "$build_dir"
+         # Avoid collisions between multiple occurrences of the same
          # file, so depend on the output path.  Remove leading `./',
          # at least to avoid creating a file starting with `.!', i.e.,
          # an invisible file. The sed expression is fragile if the cwd
@@ -1860,7 +1868,7 @@ do
   # Remove it at exit if clean mode.
   trap "cleanup" 0 1 2 15
 
-  ensure_dir "$build_dir" "$t2ddir"
+  ensure_dir "$t2ddir"
 
   # Sometimes there are incompatibilities between auxiliary files for
   # DVI and PDF.  The contents can also change whether we work on PDF
