@@ -128,13 +128,14 @@ sub convert_to_texinfo($)
     if ($element->{'cmdname'}
         or ($element->{'type'} and $element->{'type'} eq 'def_line')) {
       $result .= _expand_cmd_args_to_texi($element);
-    }
-    if ($element->{'type'}
-        and $element->{'type'} eq 'bracketed_arg') {
-      $result .= '{';
+    } else {
+      if ($element->{'type'}
+          and $element->{'type'} eq 'bracketed_arg') {
+        $result .= '{';
+      }
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {
-         $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
       }
     }
     if (defined($element->{'contents'})) {
@@ -206,9 +207,6 @@ sub _expand_cmd_args_to_texi($) {
       if ($with_commas) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;
-      }
-      if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'info'}->{'spaces_before_argument'}->{'text'};
       }
       $result .= convert_to_texinfo($arg);
     }

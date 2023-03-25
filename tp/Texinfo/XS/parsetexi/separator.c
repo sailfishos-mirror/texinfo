@@ -361,7 +361,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                     {
                       char *texi = 0;
                       if (ref->args.list[1])
-                        texi = convert_to_texinfo (ref->args.list[1]);
+                        texi = convert_contents_to_texinfo (ref->args.list[1]);
 
                       line_warn ("in @%s empty cross reference name "
                                  "after expansion `%s'",
@@ -379,7 +379,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                     {
                       char *texi = 0;
                       if (ref->args.list[2])
-                        texi = convert_to_texinfo (ref->args.list[2]);
+                        texi = convert_contents_to_texinfo (ref->args.list[2]);
 
                       line_warn ("in @%s empty cross reference title "
                                  "after expansion `%s'",

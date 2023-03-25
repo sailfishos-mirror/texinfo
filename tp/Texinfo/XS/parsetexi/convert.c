@@ -131,13 +131,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
                 ADD(",");
               arg_nr++;
             }
-          k = lookup_info (arg, "spaces_before_argument");
-          if (k)
-            ADD((char *)k->value->text.text);
           convert_to_texinfo_internal (arg, result);
-          k = lookup_info (arg, "spaces_after_argument");
-          if (k)
-            ADD((char *)k->value->text.text);
         }
 
       if (e->cmd == CM_verb)
@@ -179,10 +173,10 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         {
           KEY_PAIR *k;
           ADD("{");
-          k = lookup_info (e, "spaces_before_argument");
-          if (k)
-            ADD((char *)k->value->text.text);
         }
+      k = lookup_info (e, "spaces_before_argument");
+      if (k)
+        ADD((char *)k->value->text.text);
       if (e->contents.number > 0)
         {
           int i;

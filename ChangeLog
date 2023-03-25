@@ -1,3 +1,14 @@
+2023-03-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/XS/parsetexi/convert.c
+	(expand_cmd_args_to_texi, convert_to_texinfo_internal),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): consider
+	spaces_before_argument (and spaces_after_argument) only in
+	convert_to_texinfo_internal/convert_to_texinfo.  Call
+	convert_contents_to_texinfo instead of convert_to_texinfo to avoid
+	spaces appearing in messages.
+
 2023-03-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Image Scaling, Predefined Indices):
