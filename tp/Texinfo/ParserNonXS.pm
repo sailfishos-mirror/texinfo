@@ -1639,13 +1639,18 @@ sub _check_no_text($)
   return $after_paragraph;
 }
 
-# put everything after the last @item/@itemx in a table_entry type
-# container and distinguish table_term and table_definition.
+# For @table/@ftable/@vtable.
+# Collect recent material into a 'table_entry' element, containing
+# 'table_term' and 'table_definition' elements.
+# $CURRENT is the @table element.
+# $NEXT_COMMAND is the command that follows the entry, usually @item.
+# If it is @itemx, gather an 'inter_item' element instead.
+#
 sub _gather_previous_item($$;$$)
 {
   my ($self, $current, $next_command, $source_info) = @_;
 
-  # nothing to do in that case.
+  # nothing to do in this case.
   if ($current->{'contents'}->[-1]->{'type'}
       and $current->{'contents'}->[-1]->{'type'} eq 'before_item') {
     if ($next_command and $next_command eq 'itemx') {
@@ -1663,40 +1668,40 @@ sub _gather_previous_item($$;$$)
     $type = 'table_definition';
   }
 
-  # remove everything that is not an @item/@itemx or before_item to
-  # put it in the table_definition/inter_item
+  # Working from the end, find the beginning of the definition content
   my $contents_count = scalar(@{$current->{'contents'}});
-  my $splice_idx;
+  my $begin;
   for (my $i = $contents_count - 1; $i >= 0; $i--) {
     if ($current->{'contents'}->[$i]->{'cmdname'}
         and ($current->{'contents'}->[$i]->{'cmdname'} eq 'item'
              or ($current->{'contents'}->[$i]->{'cmdname'} eq 'itemx'))) {
-      $splice_idx = $i + 1;
+      $begin = $i + 1;
       last;
     }
   }
-  $splice_idx = 0 if !defined($splice_idx);
+  $begin = 0 if !defined($begin);
 
-  my $splice_idx2;
-
+  # Find the end of the definition content
+  my $end;
   if (defined($next_command)) {
     # Don't absorb trailing index entries as they are included with a
     # following @item.
-    for (my $i = $contents_count - 1; $i >= $splice_idx; $i--) {
+    for (my $i = $contents_count - 1; $i >= $begin; $i--) {
       if (!$current->{'contents'}->[$i]->{'type'}
         or $current->{'contents'}->[$i]->{'type'} ne 'index_entry_command') {
-        $splice_idx2 = $i + 1;
+        $end = $i + 1;
         last;
       }
     }
   }
-  $splice_idx2 = $contents_count if !defined($splice_idx2);
+  $end = $contents_count if !defined($end);
 
+  # Extract the table definition
   my $table_after_terms;
-  if ($splice_idx2 - $splice_idx) {
+  if ($end - $begin > 0) {
     my $new_contents = [];
     @{$new_contents} = splice @{$current->{'contents'}},
-                              $splice_idx, $splice_idx2 - $splice_idx;
+                              $begin, $end - $begin;
     $table_after_terms = {'type' => $type,
                            'contents' => $new_contents};
     foreach my $child (@{$new_contents}) {
@@ -1718,8 +1723,8 @@ sub _gather_previous_item($$;$$)
     # put everything starting from the end until reaching the previous
     # table entry or beginning of the table in table_term.
     my $contents_count = scalar(@{$current->{'contents'}});
-    my $splice_idx3;
-    for (my $i = $splice_idx - 1; $i >= 0; $i--) {
+    my $term_begin;
+    for (my $i = $begin - 1; $i >= 0; $i--) {
       if ($current->{'contents'}->[$i]->{'type'}
            # reached the beginning of the table
            and ($current->{'contents'}->[$i]->{'type'} eq 'before_item'
@@ -1728,16 +1733,16 @@ sub _gather_previous_item($$;$$)
         if ($current->{'contents'}->[$i]->{'type'} eq 'before_item') {
           $before_item = $current->{'contents'}->[$i];
         }
-        $splice_idx3 = $i + 1;
+        $term_begin = $i + 1;
         last;
       }
     }
-    $splice_idx3 = 0 if !defined($splice_idx3);
+    $term_begin = 0 if !defined($term_begin);
 
-    if ($splice_idx3 - $splice_idx) {
+    if ($begin - $term_begin > 0) {
       my $new_contents = [];
       @{$new_contents} = splice @{$current->{'contents'}},
-                                $splice_idx3, $splice_idx - $splice_idx3;
+                                $term_begin, $begin - $term_begin;
       $table_term->{'contents'} = $new_contents;
       for my $child (@{$new_contents}) {
         $child->{'parent'} = $table_term;
@@ -1766,7 +1771,7 @@ sub _gather_previous_item($$;$$)
       push @{$table_entry->{'contents'}}, $table_after_terms;
       $table_after_terms->{'parent'} = $table_entry;
     }
-    splice @{$current->{'contents'}}, $splice_idx3, 0, $table_entry;
+    splice @{$current->{'contents'}}, $term_begin, 0, $table_entry;
   } else {
     if ($table_after_terms) {
       my $after_paragraph = _check_no_text($table_after_terms);
@@ -1774,7 +1779,7 @@ sub _gather_previous_item($$;$$)
         $self->_line_error(__("\@itemx must follow \@item"), $source_info);
       }
       if (scalar(@{$table_after_terms->{'contents'}})) {
-        splice @{$current->{'contents'}}, $splice_idx, 0, $table_after_terms;
+        splice @{$current->{'contents'}}, $begin, 0, $table_after_terms;
         $table_after_terms->{'parent'} = $current;
       }
     }
