@@ -2334,8 +2334,8 @@ sub move_index_entries_after_items_in_tree($)
   return modify_tree($tree, \&_move_index_entries_after_items);
 }
 
-# Locates all @tables in the tree, and relocates index entry groups to be
-# related to the @item that immediately follows them.
+# Locate all @tables in the tree, and relate index entries to
+# the @item that immediately follows or precedes them.
 sub _relate_index_entries_to_table_items_in($$)
 {
   my $table = shift;
@@ -2343,39 +2343,57 @@ sub _relate_index_entries_to_table_items_in($$)
 
   return unless $table->{'contents'};
 
-  # For each table_term in $table->{'contents'}->[0], relate it's content's
-  # first index_entry_command to the term itself.
   foreach my $table_entry (@{$table->{'contents'}}) {
     next unless $table_entry->{'contents'}
       and $table_entry->{'type'} eq 'table_entry';
 
-    # AFAIU, there's always a unique term in the first position in an entry's
-    # contents.
     my $term = $table_entry->{'contents'}->[0];
+    my $item;
 
-    # Now, to discover the related @?index and @item entries.
-    my ($item, $index_entry);
-    foreach my $content (@{$term->{'contents'}}) {
-      if ($content->{'type'}
-          and $content->{'type'} eq 'index_entry_command') {
-        my $index_info;
-        ($index_entry, $index_info)
-          = Texinfo::Common::lookup_index_entry(
-                          $content->{'extra'}->{'index_entry'},
-                          $indices_information)
-            unless $index_entry;
-      } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
-        $item = $content unless $item;
+    if (defined($term->{'type'}) and $term->{'type'} eq 'table_term') {
+      # Relate the first index_entry_command in the 'table_term' to
+      # the term itself.
+
+      my $index_entry;
+      foreach my $content (@{$term->{'contents'}}) {
+        if ($content->{'type'}
+            and $content->{'type'} eq 'index_entry_command') {
+          my $index_info;
+          ($index_entry, $index_info)
+            = Texinfo::Common::lookup_index_entry(
+                            $content->{'extra'}->{'index_entry'},
+                            $indices_information)
+              unless $index_entry;
+        } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
+          $item = $content unless $item;
+        }
+        if ($item and $index_entry) {
+          # FIXME it is not ideal, as it adds an undocumented key to
+          # the index entry.  It is better than resetting 'entry_element',
+          # as the 'entry_element' holds information important for the
+          # index entry.
+          $index_entry->{'entry_associated_element'} = $item;
+          last;
+        }
       }
-      # If we found both, no need to proceed;
-      last if $item and $index_entry;
     }
 
-    next unless $item and $index_entry;
-    # FIXME it is not ideal, as it adds an undocumented key to the index entry.
-    # It is better than to reset 'entry_element', as the 'entry_element' holds
-    # information important for the index entry.
-    $index_entry->{'entry_associated_element'} = $item;
+    # Also move index entries from the start of a 'table_definition' to
+    # the 'table_term'.
+    if (defined($item)
+        and defined($table_entry->{'contents'}->[1])
+        and defined($table_entry->{'contents'}->[1]->{'type'})
+        and $table_entry->{'contents'}->[1]->{'type'} eq 'table_definition') {
+      my $definition = $table_entry->{'contents'}->[1];
+      while (defined($definition->{'contents'}->[0])) {
+        my $child = $definition->{'contents'}->[0];
+        last if !defined($child->{'type'})
+               or $child->{'type'} ne 'index_entry_command';
+        shift @{$definition->{'contents'}};
+        unshift @{$term->{'contents'}}, $child;
+        $child->{'parent'} = $term;
+      }
+    }
   }
 }
 

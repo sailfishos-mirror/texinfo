@@ -1,5 +1,11 @@
 2023-03-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in):
+	Move index entries that immediately follow an @item to before the
+	item.
+
+2023-03-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item):
 	Comments and variable names changed.  Compare expressions to zero
 	explicitly to be clearer.
