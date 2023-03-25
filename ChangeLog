@@ -1,5 +1,13 @@
 2023-03-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Image Scaling, Predefined Indices):
+	Move index commands back after @item in @table so that they are not
+	considered to be part of the preceding paragraphs.  These uses of
+	@table do not have empty lines to save vertical space in Info
+	output.  This partially reverts change on 2022-11-26.
+
+2023-03-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in):
 	Move index entries that immediately follow an @item to before the
 	item.
