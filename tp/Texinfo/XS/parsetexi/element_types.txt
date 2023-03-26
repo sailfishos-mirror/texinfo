@@ -99,4 +99,5 @@ untranslated
 # for macro expansion source marks
 macro_call
 rmacro_call
+linemacro_call
 

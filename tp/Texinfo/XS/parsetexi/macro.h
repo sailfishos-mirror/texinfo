@@ -38,6 +38,8 @@ ELEMENT *handle_macro (ELEMENT *current, char **line_inout,
                        enum command_id cmd_id);
 void delete_macro (char *name);
 void unset_macro_record (MACRO *m);
+void expand_macro_body (MACRO *macro_record, ELEMENT *arguments,
+                        TEXT *expanded);
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);
 

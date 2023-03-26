@@ -166,7 +166,8 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       debug ("OPENED");
     }
   else if (current->parent && (current->parent->cmd == CM_multitable
-           || current->parent->type == ET_def_line))
+                               || current->parent->type == ET_def_line
+                               || current->parent->type == ET_linemacro_call))
     {
       ELEMENT *b, *e;
       abort_empty_line (&current, NULL);
@@ -195,7 +196,8 @@ handle_open_brace (ELEMENT *current, char **line_inout)
    */
   else if (current_context() == ct_math
            || current_context() == ct_rawpreformatted
-           || current_context() == ct_inlineraw)
+           || current_context() == ct_inlineraw
+           || current_context() == ct_linecommand)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
       ELEMENT *open_brace = new_element (ET_NONE);

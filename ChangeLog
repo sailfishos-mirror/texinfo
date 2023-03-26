@@ -1,3 +1,28 @@
+2023-03-26  Patrice Dumas  <pertusus@free.fr>
+
+	linemacro implementation for the XS Parser
+
+	* tp/Texinfo/XS/parsetexi/api.c (linemacro_expansion),
+	tp/Texinfo/XS/parsetexi/context_stack.h (no_paragraph_context),
+	tp/Texinfo/XS/parsetexi/def.c (parse_def),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line)
+	(end_line_misc_line, end_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
+	(parse_texi), tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace),
+	tp/Texinfo/XS/parsetexi/source_marks.c (register_source_mark)
+	(source_marks_reset_counters): handle @linemacro and linemacro defined
+	command calls using the same design as for perl Parser.
+
+	* tp/Texinfo/ParserNonXS.pm (%no_paragraph_contexts): set
+	ct_linecommand to be no paragraph context.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line):
+	change code opening arguments_container line_arg for linemacro command
+	call to be more like XS parser.
+
 2023-03-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: add 7.0.3 news.

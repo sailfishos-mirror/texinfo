@@ -543,7 +543,7 @@ foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
 # a paragraph
 my %no_paragraph_contexts;
 foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
-                                  'def', 'inlineraw') {
+                                  'def', 'inlineraw', 'linecommand') {
   $no_paragraph_contexts{'ct_'.$no_paragraph_context} = 1;
 };
 
@@ -6867,10 +6867,12 @@ sub _process_remaining_on_line($$$$)
       # FIXME needed? Correct?
       $arguments_container->{'source_info'} = $source_info;
       $self->_push_context('ct_linecommand', $command);
-      $current = $current->{'contents'}->[-1];
-      $current->{'args'} = [{ 'type' => 'line_arg',
-                          'parent' => $current }];
-      $current = $current->{'args'}->[-1];
+      $current = $arguments_container;
+      $current->{'args'} = [];
+      my $line_arg = { 'type' => 'line_arg',
+                        'parent' => $current };
+      push @{$current->{'args'}}, $line_arg;
+      $current = $line_arg;
       $line = _start_empty_line_after_command($line, $current,
                                               $arguments_container);
       return ($current, $line, $source_info, $retval);

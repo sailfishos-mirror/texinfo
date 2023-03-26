@@ -68,5 +68,6 @@ char *element_type_names[] = {
 "untranslated",
 "macro_call",
 "rmacro_call",
+"linemacro_call",
 
 };

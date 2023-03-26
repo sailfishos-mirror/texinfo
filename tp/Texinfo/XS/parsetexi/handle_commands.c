@@ -996,7 +996,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
   ELEMENT *block = 0;
 
   /* New macro being defined. */
-  if (cmd == CM_macro || cmd == CM_rmacro)
+  if (cmd == CM_macro || cmd == CM_rmacro || cmd == CM_linemacro)
     {
       block = parse_macro_command_line (cmd, &line, current);
       add_to_element_contents (current, block);

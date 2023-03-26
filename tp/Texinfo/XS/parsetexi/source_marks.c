@@ -26,6 +26,7 @@ int setfilename_counter = 0;
 int delcomment_counter = 0;
 int defline_continuation_counter = 0;
 int macro_expansion_counter = 0;
+int linemacro_expansion_counter = 0;
 int value_expansion_counter = 0;
 int ignored_conditional_block_counter = 0;
 int expanded_conditional_command_counter = 0;
@@ -137,6 +138,11 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
           macro_expansion_counter++;
           source_mark->counter = macro_expansion_counter;
         }
+      else if (source_mark->type == SM_type_linemacro_expansion)
+        {
+          linemacro_expansion_counter++;
+          source_mark->counter = linemacro_expansion_counter;
+        }
       else if (source_mark->type == SM_type_value_expansion)
         {
           value_expansion_counter++;
@@ -165,6 +171,7 @@ source_marks_reset_counters (void)
   delcomment_counter = 0;
   defline_continuation_counter = 0;
   macro_expansion_counter = 0;
+  linemacro_expansion_counter = 0;
   value_expansion_counter = 0;
   ignored_conditional_block_counter = 0;
   expanded_conditional_command_counter = 0;

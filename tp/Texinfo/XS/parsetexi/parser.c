@@ -1294,6 +1294,7 @@ int
 process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 {
   ELEMENT *current = *current_inout;
+  ELEMENT *macro_call_element = 0;
   char *line = *line_inout;
   char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
@@ -1312,7 +1313,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       enum command_id cmd = 0;
       int closed_nested_raw = 0;
       /* Check if we are using a macro within a macro. */
-      if (current->cmd == CM_macro || current->cmd == CM_rmacro)
+      if (current->cmd == CM_macro || current->cmd == CM_rmacro
+          || current->cmd == CM_linemacro)
         {
           p += strspn (p, whitespace_chars);
           if (!strncmp (p, "@macro", strlen ("@macro")))
@@ -1324,6 +1326,11 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             {
               p += strlen ("@rmacro");
               cmd = CM_rmacro;
+            }
+          else if (!strncmp (p, "@linemacro", strlen ("@linemacro")))
+            {
+              p += strlen ("@linemacro");
+              cmd = CM_linemacro;
             }
           if (*p && !strchr (whitespace_chars, *p))
             cmd = 0;
@@ -1374,7 +1381,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                  "beginning of a line", command_name(end_cmd));
                     }
                   /* For macros, define a new macro. */
-                  if (end_cmd == CM_macro || end_cmd == CM_rmacro)
+                  if (end_cmd == CM_macro || end_cmd == CM_rmacro
+                      || end_cmd == CM_linemacro)
                     {
                       char *name;
                       enum command_id existing;
@@ -1687,7 +1695,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if (cmd && (command_data(cmd).flags & CF_MACRO))
     {
       static char *allocated_line;
-      ELEMENT *macro_call_element;
 
       line = line_after_command;
       macro_call_element = handle_macro (current, &line, cmd);
@@ -1696,7 +1703,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (from_alias != CM_NONE)
             add_info_string_dup (macro_call_element, "alias_of",
                                  command_name (from_alias));
-
+        }
+      if (macro_call_element && macro_call_element->type == ET_linemacro_call)
+       /* do nothing, the linemacro defined command call is done at the
+          end of the line after parsing the line similarly as for @def* */
+        {
+        }
+      else if (macro_call_element)
+        {
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
              the processing of empty text.  No difference in output, more
@@ -1706,8 +1720,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           free (allocated_line);
           allocated_line = next_text (current);
           line = allocated_line;
+          goto funexit;
         }
-      goto funexit;
+      else
+        goto funexit;
     }
   /* expand value if it actually expands and changes the line.  It is
      considered again together with other commands below for all the other cases
@@ -1884,7 +1900,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->cmd));
                    if (current_context() == ct_def
-                       || current_context() == ct_line)
+                       || current_context() == ct_line
+                     /* FIXME check that it is correct and add a test case */
+                       || current_context() == ct_linecommand)
                      {
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
@@ -2075,6 +2093,20 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               goto funexit;
             }
         }
+      else if (macro_call_element)
+        {
+          ELEMENT *line_arg = new_element (ET_line_arg);
+
+          add_to_element_contents (current, macro_call_element);
+          /* FIXME needed? Correct? */
+          macro_call_element->source_info = current_source_info;
+          push_context (ct_linecommand, cmd);
+          current = macro_call_element;
+          add_to_element_args (current, line_arg);
+          current = line_arg;
+          start_empty_line_after_command (current, &line, macro_call_element);
+          goto funexit;
+        }
 
       /* Warn on deprecated command */
       if (command_data(cmd).flags & CF_deprecated)
@@ -2094,6 +2126,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
              gettext is implemented */
         }
 
+      /* special case with @ followed by a newline protecting end of lines
+         in linemacro invokations and @def* */
+      if (current_context () == ct_linecommand && cmd == CM_NEWLINE)
+        {
+          ELEMENT *command_e = new_element (ET_NONE);
+          command_e->cmd = cmd;
+          add_to_element_contents (current, command_e);
+          retval = GET_A_NEW_LINE;
+          goto funexit;
+        }
       def_line_continuation = (current_context() == ct_def
                                && cmd == CM_NEWLINE);
       /* warn on not appearing at line beginning.  Need to do before closing
@@ -2410,7 +2452,8 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                  || (command_data(current->cmd).data == BLOCK_format_raw
                      && !format_expanded_p (command_name(current->cmd)))))
             || current->parent && current->parent->cmd == CM_verb)
-          && current_context () != ct_def)
+          && current_context () != ct_def
+          && current_context () != ct_linecommand)
         {
           ELEMENT *e;
           int n;
@@ -2453,7 +2496,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
             }
         }
     }
-finished_totally:
+ finished_totally:
 
   /* Check for unclosed conditionals */
   while (conditional_number > 0)
@@ -2520,11 +2563,6 @@ finished_totally:
              value_expansion_nr);
   if (input_number > 0)
     fprintf (stderr, "BUG: at end, input_number > 0: %d", input_number);
-
-  /* to avoid a memory leak if @bye is given */
-  /*
-  input_reset_input_stack ();
-  */
 
   return current;
 }

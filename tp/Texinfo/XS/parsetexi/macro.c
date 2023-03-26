@@ -421,7 +421,7 @@ funexit:
 
 /* ARGUMENTS element holds the arguments used in the macro invocation.
    EXPANDED gets the result of the expansion. */
-static void
+void
 expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
 {
   int pos; /* Index into arguments. */
@@ -577,91 +577,97 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
     arguments_container->type = ET_macro_call;
   else if (macro->cmd == CM_rmacro)
     arguments_container->type = ET_rmacro_call;
+  else if (macro->cmd == CM_linemacro)
+    arguments_container->type = ET_linemacro_call;
+
   add_extra_string_dup (arguments_container, "name", command_name(cmd));
 
-  /* Get number of args. - 1 for the macro name. */
-  args_number = macro->args.number - 1;
+  if (macro->cmd != CM_linemacro)
+    {
+      /* Get number of args. - 1 for the macro name. */
+      args_number = macro->args.number - 1;
 
-  p = line + strspn (line, whitespace_chars);
-  if (*p == '{')
-    {
-      p++;
-      line = p;
-      line += strspn (line, whitespace_chars);
-      if (line - p)
+      p = line + strspn (line, whitespace_chars);
+      if (*p == '{')
         {
-          ELEMENT *spaces_element = new_element (ET_NONE);
-          text_append_n (&spaces_element->text, p, line - p);
-          add_info_element_oot (arguments_container, "spaces_before_argument",
-                                spaces_element);
-        }
-      expand_macro_arguments (macro, &line, cmd, arguments_container);
-    }
-  /* Warning depending on the number of arguments this macro
-     is supposed to take. */
-  else if (args_number != 1)
-    {
-      if (args_number > 1)
-        line_warn ("@%s defined with zero or more than one argument should "
-                   "be invoked with {}", command_name(cmd));
-      /* As agreed on the bug-texinfo mailing list, no warn when zero
-         arg and not called with {}. */
-    }
-  else
-    {
-      ELEMENT *arg_elt = new_element (ET_line_arg);
-      add_to_element_args (arguments_container, arg_elt);
-
-      while (1)
-        {
-          if (*line == '\0')
+          p++;
+          line = p;
+          line += strspn (line, whitespace_chars);
+          if (line - p)
             {
-            /* If it takes a single line of input, and we don't have a
-               full line of input already, call new_line. */
-              line = new_line (arg_elt);
-              if (!line)
-                {
-                  line = "";
-                  break;
-                }
+              ELEMENT *spaces_element = new_element (ET_NONE);
+              text_append_n (&spaces_element->text, p, line - p);
+              add_info_element_oot (arguments_container, "spaces_before_argument",
+                                    spaces_element);
             }
-          else
+          expand_macro_arguments (macro, &line, cmd, arguments_container);
+        }
+      /* Warning depending on the number of arguments this macro
+         is supposed to take. */
+      else if (args_number != 1)
+        {
+          if (args_number > 1)
+            line_warn ("@%s defined with zero or more than one argument should "
+                       "be invoked with {}", command_name(cmd));
+          /* As agreed on the bug-texinfo mailing list, no warn when zero
+             arg and not called with {}. */
+        }
+      else
+        {
+          ELEMENT *arg_elt = new_element (ET_line_arg);
+          add_to_element_args (arguments_container, arg_elt);
+
+          while (1)
             {
-              int leading_spaces_added = 0;
-              if (arg_elt->contents.number == 0)
+              if (*line == '\0')
                 {
-                  int leading_spaces_nr = strspn (line,
-                                           whitespace_chars_except_newline);
-                  if (leading_spaces_nr)
+                /* If it takes a single line of input, and we don't have a
+                   full line of input already, call new_line. */
+                  line = new_line (arg_elt);
+                  if (!line)
                     {
-                      ELEMENT *internal_space
-                        = new_element (ET_internal_spaces_before_argument);
-                      text_append_n (&internal_space->text, line,
-                                     leading_spaces_nr);
-                      add_extra_element (internal_space,
-                                         "spaces_associated_command",
-                                         arguments_container);
-                      add_to_element_contents (arg_elt, internal_space);
-
-                      line += leading_spaces_nr;
-
-                      leading_spaces_added = 1;
+                      line = "";
+                      break;
                     }
                 }
-              if (! leading_spaces_added)
+              else
                 {
-                  char *p = strchr (line, '\n');
-                  if (!p)
+                  int leading_spaces_added = 0;
+                  if (arg_elt->contents.number == 0)
                     {
-                      arg_elt = merge_text (arg_elt, line, 0);
-                      line += strlen(line);
+                      int leading_spaces_nr = strspn (line,
+                                               whitespace_chars_except_newline);
+                      if (leading_spaces_nr)
+                        {
+                          ELEMENT *internal_space
+                            = new_element (ET_internal_spaces_before_argument);
+                          text_append_n (&internal_space->text, line,
+                                         leading_spaces_nr);
+                          add_extra_element (internal_space,
+                                             "spaces_associated_command",
+                                             arguments_container);
+                          add_to_element_contents (arg_elt, internal_space);
+
+                          line += leading_spaces_nr;
+
+                          leading_spaces_added = 1;
+                        }
                     }
-                  else
+                  if (! leading_spaces_added)
                     {
-                      *p = '\0';
-                      arg_elt = merge_text (arg_elt, line, 0);
-                      line = "\n";
-                      break;
+                      char *p = strchr (line, '\n');
+                      if (!p)
+                        {
+                          arg_elt = merge_text (arg_elt, line, 0);
+                          line += strlen(line);
+                        }
+                      else
+                        {
+                          *p = '\0';
+                          arg_elt = merge_text (arg_elt, line, 0);
+                          line = "\n";
+                          break;
+                        }
                     }
                 }
             }
@@ -679,7 +685,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
       goto funexit;
     }
 
-  if (macro->cmd == CM_macro)
+  if (macro->cmd != CM_rmacro)
     {
       if (expanding_macro (command_name(cmd)))
         {
@@ -689,6 +695,11 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
           goto funexit;
         }
     }
+
+  macro_expansion_nr++;
+
+  if (macro->cmd == CM_linemacro)
+    goto funexit;
 
   expand_macro_body (macro_record, arguments_container, &expanded);
   debug ("MACROBODY: %s||||||", expanded.text);
@@ -700,8 +711,6 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   macro_source_mark->status = SM_status_start;
   macro_source_mark->element = arguments_container;
   register_source_mark (current, macro_source_mark);
-
-  macro_expansion_nr++;
 
   /* Put expansion in front of the current line. */
   input_push_text (strdup (line), current_source_info.line_nr, 0, 0);
