@@ -6,13 +6,13 @@
 #
 # Mirsad Todorovac <mtodorov_69@yahoo.com>, 2002.
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012, 2013.
-# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022.
+# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo-6.8.90\n"
+"Project-Id-Version: GNU texinfo-7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-03-19 19:10+0000\n"
-"PO-Revision-Date: 2022-11-06 17:19-0800\n"
+"POT-Creation-Date: 2023-03-26 12:46+0100\n"
+"PO-Revision-Date: 2023-03-21 13:48-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: gnulib/lib/error.c:195
 msgid "Unknown system error"
@@ -508,7 +508,7 @@ msgstr ""
 "(datoteka u Info formatu) pronađenih u stazi pretraživanja INFOPATH.\n"
 "Ako su argumenti specificirani, onda „info“ tretira prvi argument\n"
 "(koji nije opcija) kao stavku menīja „dir“ čvora; drugi argument\n"
-" (ako postoji) tretira se kao ime stavke menīja čvora prvog argumenta\n"
+"(ako postoji) tretira se kao ime stavke menīja čvora prvog argumenta\n"
 "i tako dalje."
 
 #: info/info.c:1132
@@ -621,7 +621,7 @@ msgstr "Nepoznata Info-naredba „%c“; pokušajte „?“ za pomoć"
 #: info/info.c:1203
 #, c-format
 msgid "Terminal type '%s' is not smart enough to run Info"
-msgstr "Terminal tipa „%s“ nije dovoljno „pametan“ za Info"
+msgstr "Vrsta terminala „%s“ nije dovoljno „pametan“ za Info"
 
 #: info/info.c:1204
 msgid "You are already at the last page of this node"
@@ -2199,11 +2199,10 @@ msgid "%s is not a valid region code"
 msgstr "%s nije ispravan kȏd regije"
 
 #: tp/Texinfo/Config.pm:121
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: greška pri zatvaranju %s: %s\n"
+msgstr "%s: upozorenje: %s"
 
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1257
 #, perl-format
@@ -2211,18 +2210,16 @@ msgid "error loading %s: %s"
 msgstr "greška pri učitavanju %s: %s"
 
 #: tp/Texinfo/Config.pm:150
-#, fuzzy, perl-format
-#| msgid "%s: %s"
+#, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
 #: tp/Texinfo/Config.pm:156
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: greška pri zatvaranju %s: %s\n"
+msgstr "%s: upozorenje: %s"
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -2296,12 +2293,12 @@ msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:6831
 msgid "missing type"
-msgstr "nema tipa"
+msgstr "nema vrste"
 
 #: tp/Texinfo/Convert/HTML.pm:6835
 #, perl-format
 msgid "unrecognized type: %s"
-msgstr "neprepoznati tip: %s"
+msgstr "neprepoznata vrsta: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:6855
 #, perl-format
@@ -3167,26 +3164,25 @@ msgstr "@%s argument mora biti „top“ ili „bottom“, a ne „%s“"
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s (possibly involving @%s)\n"
-msgstr ""
+msgstr "upozorenje: %s (vjerojatno uključuje @%s)\n"
 
 #: tp/Texinfo/Report.pm:90
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "upozorenje: %s\n"
 
 #: tp/Texinfo/Report.pm:140
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "whole document warning"
 msgid "%s: warning: %s\n"
-msgstr "%s: greška pri zatvaranju %s: %s\n"
+msgstr "%s: upozorenje: %s\n"
 
 #: tp/Texinfo/Report.pm:143
 #, perl-format
 msgctxt "whole document warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "upozorenje: %s\n"
 
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
@@ -3433,22 +3429,19 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: nije (bilo) moguće otvoriti %s za pisanje: %s"
 
 #: tp/ext/tex4ht.pm:122
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for math: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for math: %s"
-msgstr "tex4ht.pm: nepoznati tip konverzije za formulu: %s"
+msgstr "tex4ht.pm: nepoznata vrsta konverzije za matematiku: %s"
 
 #: tp/ext/tex4ht.pm:131
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
-msgstr "tex4ht.pm: nepoznati tip konverzije za @tex: %s"
+msgstr "tex4ht.pm: nepoznata vrsta konverzije za @tex: %s"
 
 #: tp/ext/tex4ht.pm:140
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
-msgstr "tex4ht.pm: nepoznati tip konverzije za @latex: %s"
+msgstr "tex4ht.pm: nepoznata vrsta konverzije za @latex: %s"
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:420
 #, perl-format
@@ -3572,11 +3565,10 @@ msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: izlaz nema element HTML-a za @%s %s %s"
 
 #: tp/texi2any.pl:415
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s\n"
-msgstr "%s: greška pri zatvaranju %s: %s\n"
+msgstr "%s: upozorenje: %s\n"
 
 #: tp/texi2any.pl:441
 #, perl-format

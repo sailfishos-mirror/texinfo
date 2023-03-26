@@ -64,7 +64,7 @@ use vars qw($VERSION @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.0.2.90';
+$VERSION = '7.0.3';
 
 
 our %unicode_diacritics = (

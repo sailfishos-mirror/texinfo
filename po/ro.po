@@ -4,7 +4,7 @@
 # This file is distributed under the same license as the texinfo package.
 #
 # Laurentiu Buzdugan <lbuz@rolix.org>, 2003, 2004, 2005.
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022 - 2023.
 #
 # Cronologia traducerii fișierului „texinfo”:
 # Traducerea inițială, făcută de LB, pentru versiunea texinfo 4.7.94.
@@ -18,13 +18,15 @@
 # Actualizare a traducerii pentru versiunea 6.7.92, făcută de R-GC, 2022.
 # Actualizare a algoritmului formelor de plural (de la „trei” la „patru”, experimental).
 # Actualizare a traducerii pentru versiunea 6.8.90, făcută de R-GC, 2022.
+# Actualizare a traducerii pentru versiunea 7.0.2.90, făcută de R-GC, 2023.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Z(anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.8.90\n"
+"Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-03-19 19:10+0000\n"
-"PO-Revision-Date: 2022-10-21 16:22+0200\n"
+"POT-Creation-Date: 2023-03-26 12:46+0100\n"
+"PO-Revision-Date: 2023-03-20 09:52+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -34,7 +36,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=((n==1) ? 0 : (n==2) ? 1 : (n==0 || (n%100 "
 "> 0 && n%100 < 20)) ? 2 : 3);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: gnulib/lib/error.c:195
 msgid "Unknown system error"
@@ -2354,11 +2356,10 @@ msgid "%s is not a valid region code"
 msgstr "%s nu este un cod de regiune valid"
 
 #: tp/Texinfo/Config.pm:121
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: eroare la închiderea %s: %s\n"
+msgstr "%s: avertisment: %s"
 
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1257
 #, perl-format
@@ -2366,18 +2367,16 @@ msgid "error loading %s: %s"
 msgstr "eroare la încărcarea %s: %s"
 
 #: tp/Texinfo/Config.pm:150
-#, fuzzy, perl-format
-#| msgid "%s: %s"
+#, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
 #: tp/Texinfo/Config.pm:156
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: eroare la închiderea %s: %s\n"
+msgstr "%s: avertisment: %s"
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -2648,7 +2647,7 @@ msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
 msgstr ""
-"@strong{Note...] produce o referință încrucișată falsă în Info; reformulați "
+"@strong{Note...} produce o referință încrucișată falsă în Info; reformulați "
 "pentru a o evita"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2225
@@ -3319,26 +3318,25 @@ msgstr "@%s arg trebuie să fie „top” sau „bottom”, nu „%s”"
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s (possibly involving @%s)\n"
-msgstr ""
+msgstr "avertisment: %s (eventual implicând @%s)\n"
 
 #: tp/Texinfo/Report.pm:90
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "avertisment: %s\n"
 
 #: tp/Texinfo/Report.pm:140
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "whole document warning"
 msgid "%s: warning: %s\n"
-msgstr "%s: eroare la închiderea %s: %s\n"
+msgstr "%s: avertisment: %s\n"
 
 #: tp/Texinfo/Report.pm:143
 #, perl-format
 msgctxt "whole document warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "avertisment: %s\n"
 
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
@@ -3587,20 +3585,17 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: nu s-a putut deschide %s pentru scriere: %s"
 
 #: tp/ext/tex4ht.pm:122
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for math: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr "tex4ht.pm: tip de conversie necunoscut pentru matematică: %s"
 
 #: tp/ext/tex4ht.pm:131
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr "tex4ht.pm: tip de conversie necunoscut pentru @tex: %s"
 
 #: tp/ext/tex4ht.pm:140
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr "tex4ht.pm: tip de conversie necunoscut pentru @latex: %s"
 
@@ -3728,11 +3723,10 @@ msgstr ""
 "highlight_syntax.pm: ieșirea nu are niciun element HTML pentru @%s %s %s"
 
 #: tp/texi2any.pl:415
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s\n"
-msgstr "%s: eroare la închiderea %s: %s\n"
+msgstr "%s: avertisment: %s\n"
 
 #: tp/texi2any.pl:441
 #, perl-format

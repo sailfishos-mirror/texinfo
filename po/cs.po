@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the texinfo package.
 # Vladimir Michl <Vladimir.Michl@seznam.cz>, 1997.
 # Petr Pisar <petr.pisar@atlas.cz>, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
-# Petr Pisar <petr.pisar@atlas.cz>, 2022.
+# Petr Pisar <petr.pisar@atlas.cz>, 2022, 2023.
 #
 # Note: 2 messages untranslated, it's ok.
 # gnulib messages copied from gnulib-3.0.0.6062.a6b16.
@@ -18,10 +18,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.8.90\n"
+"Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-03-19 19:10+0000\n"
-"PO-Revision-Date: 2022-10-29 13:27+02:00\n"
+"POT-Creation-Date: 2023-03-26 12:46+0100\n"
+"PO-Revision-Date: 2023-03-20 20:50+01:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -2199,11 +2199,10 @@ msgid "%s is not a valid region code"
 msgstr "%s není platný kód oblasti"
 
 #: tp/Texinfo/Config.pm:121
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: varování: "
+msgstr "%s: pozor: %s"
 
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1257
 #, perl-format
@@ -2211,18 +2210,16 @@ msgid "error loading %s: %s"
 msgstr "chyba při zavádění %s: %s"
 
 #: tp/Texinfo/Config.pm:150
-#, fuzzy, perl-format
-#| msgid "%s: %s"
+#, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
 #: tp/Texinfo/Config.pm:156
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s: varování: "
+msgstr "%s: pozor: %s"
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -3154,28 +3151,25 @@ msgstr "@%s argument musí být „top“ nebo „bottom“, ne „%s“"
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s (possibly involving @%s)\n"
-msgstr ""
+msgstr "pozor: %s (možná zahrnuje @%s)\n"
 
 #: tp/Texinfo/Report.pm:90
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s\n"
-msgstr "%s: varování: "
+msgstr "pozor: %s\n"
 
 #: tp/Texinfo/Report.pm:140
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "whole document warning"
 msgid "%s: warning: %s\n"
-msgstr "%s: varování: "
+msgstr "%s: pozor: %s\n"
 
 #: tp/Texinfo/Report.pm:143
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "whole document warning"
 msgid "warning: %s\n"
-msgstr "%s: varování: "
+msgstr "pozor: %s\n"
 
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
@@ -3422,20 +3416,17 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: %s nebylo možné otevřít pro zápis: %s"
 
 #: tp/ext/tex4ht.pm:122
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for math: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr "tex4ht.pm: neznámý konverzní typ pro matematiku: %s"
 
 #: tp/ext/tex4ht.pm:131
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr "tex4ht.pm: neznámý konverzní typ pro @tex: %s"
 
 #: tp/ext/tex4ht.pm:140
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr "tex4ht.pm: neznámý konverzní typ pro @latex: %s"
 
@@ -3557,11 +3548,10 @@ msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: výstup nemá žádnou HTML položku pro @%s %s %s"
 
 #: tp/texi2any.pl:415
-#, fuzzy, perl-format
-#| msgid "%s: warning: "
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s\n"
-msgstr "%s: varování: "
+msgstr "%s: pozor: %s\n"
 
 #: tp/texi2any.pl:441
 #, perl-format

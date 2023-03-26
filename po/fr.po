@@ -9,14 +9,14 @@
 #
 # Laurent Bourbeau <bourbeau@progiciels-bpi.ca>, 2001.
 # Jean-Philippe Guérard <jean-philippe.guerard@corbeaunoir.org>, 2011-2013.
-# Jean-Charles Malahieude <lilyfan@orange.fr>, 2013-2022.
+# Jean-Charles Malahieude <lilyfan@orange.fr>, 2013-2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.8.90\n"
+"Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2023-03-19 19:10+0000\n"
-"PO-Revision-Date: 2022-10-29 14:00+0200\n"
+"POT-Creation-Date: 2023-03-26 12:46+0100\n"
+"PO-Revision-Date: 2023-03-20 18:45+0100\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2207,11 +2207,10 @@ msgid "%s is not a valid region code"
 msgstr "%s n'est pas un code de zone géographique"
 
 #: tp/Texinfo/Config.pm:121
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s : erreur de fermeture de %s : %s\n"
+msgstr "%s : avertissement : %s"
 
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1257
 #, perl-format
@@ -2219,18 +2218,16 @@ msgid "error loading %s: %s"
 msgstr "erreur de chargement de %s : %s"
 
 #: tp/Texinfo/Config.pm:150
-#, fuzzy, perl-format
-#| msgid "%s: %s"
+#, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s : %s"
 
 #: tp/Texinfo/Config.pm:156
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
-msgstr "%s : erreur de fermeture de %s : %s\n"
+msgstr "%s : avertissement : %s"
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -3179,26 +3176,25 @@ msgstr "l'argument de @%s doit être « top » ou « bottom », pas « %s 
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s (possibly involving @%s)\n"
-msgstr ""
+msgstr "avertissement : %s (concerne probablement @%s)\n"
 
 #: tp/Texinfo/Report.pm:90
 #, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "avertissement : %s\n"
 
 #: tp/Texinfo/Report.pm:140
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "whole document warning"
 msgid "%s: warning: %s\n"
-msgstr "%s : erreur de fermeture de %s : %s\n"
+msgstr "%s : avertissement : %s\n"
 
 #: tp/Texinfo/Report.pm:143
 #, perl-format
 msgctxt "whole document warning"
 msgid "warning: %s\n"
-msgstr ""
+msgstr "avertissement : %s\n"
 
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
@@ -3456,20 +3452,17 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h : impossible d'ouvrir %s en écriture : %s"
 
 #: tp/ext/tex4ht.pm:122
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for math: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr "tex4ht.pm : type de conversion inconnu pour math : %s"
 
 #: tp/ext/tex4ht.pm:131
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr "tex4ht.pm : type de conversion inconnu pour @tex : %s"
 
 #: tp/ext/tex4ht.pm:140
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+#, perl-format
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr "tex4ht.pm : type de conversion inconnu pour @latex : %s"
 
@@ -3598,11 +3591,10 @@ msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm : sortie sans élément HTML pour @%s %s %s"
 
 #: tp/texi2any.pl:415
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s\n"
-msgstr "%s : erreur de fermeture de %s : %s\n"
+msgstr "%s : avertissement : %s\n"
 
 #: tp/texi2any.pl:441
 #, perl-format
