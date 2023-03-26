@@ -149,6 +149,34 @@ DEF_ALIAS def_aliases[] = {
   0, 0, 0
 };
 
+typedef struct {
+    enum command_id command;
+    char **arguments;
+} DEF_MAP;
+
+char *defline_arguments[] = {"category", "name", "arg", 0};
+char *defvr_arguments[] = {"category", "name", 0};
+char *deftypefn_arguments[] = {"category", "type", "name", "argtype", 0};
+char *deftypeop_arguments[] = {"category", "class" , "type", "name", "argtype", 0};
+char *deftypevr_arguments[] = {"category", "type", "name", 0};
+char *defcv_arguments[] = {"category", "class" , "name", 0};
+char *deftypecv_arguments[] = {"category", "class" , "type", "name", 0};
+char *defop_arguments[] = {"category", "class" , "name", "arg", 0};
+char *deftp_arguments[] = {"category", "name", "argtype", 0};
+
+DEF_MAP def_maps[] = {
+  CM_defline, defline_arguments,
+  CM_deffn, defline_arguments,
+  CM_defvr, defvr_arguments,
+  CM_deftypefn, deftypefn_arguments,
+  CM_deftypeop, deftypeop_arguments,
+  CM_deftypevr, deftypevr_arguments,
+  CM_defcv, defcv_arguments,
+  CM_deftypecv, deftypecv_arguments,
+  CM_defop, defop_arguments,
+  CM_deftp, deftp_arguments,
+};
+
 /* Split non-space text elements into strings without [ ] ( ) , and single
    character strings with one of them. */
 static void
@@ -292,7 +320,7 @@ parse_def (enum command_id command, ELEMENT *current)
   DEF_INFO *ret;
   int contents_idx = 0;
   int type, next_type;
-  int i;
+  int i, i_def;
   ELEMENT *e, *e1; 
 
   ret = malloc (sizeof (DEF_INFO));
@@ -346,29 +374,29 @@ parse_def (enum command_id command, ELEMENT *current)
      NAME - name of entity being documented
      ARGUMENTS - arguments to a function or macro                  */
 
-  /* CATEGORY */
-  ret->category = next_bracketed_or_word_agg (current, &contents_idx);
-
-  /* CLASS */
-  if (command == CM_deftypeop
-      || command == CM_defcv
-      || command == CM_deftypecv
-      || command == CM_defop)
+  for (i_def = 0; i_def < sizeof (def_maps) / sizeof (*def_maps); i_def++)
     {
-      ret->class = next_bracketed_or_word_agg (current, &contents_idx);
+      if (def_maps[i_def].command == command)
+        goto def_found;
     }
+  fatal ("no arguments for def command");
+ def_found:
 
-  /* TYPE */
-  if (command == CM_deftypefn
-      || command == CM_deftypeop
-      || command == CM_deftypevr
-      || command == CM_deftypecv)
+  i = 0;
+  while (def_maps[i_def].arguments[i])
     {
-      ret->type = next_bracketed_or_word_agg (current, &contents_idx);
-    }
+      char *arg_type_name = def_maps[i_def].arguments[i];
 
-  /* NAME */
-  ret->name = next_bracketed_or_word_agg (current, &contents_idx);
+      if (!strcmp (arg_type_name, "category"))
+        ret->category = next_bracketed_or_word_agg (current, &contents_idx);
+      else if (!strcmp (arg_type_name, "class"))
+        ret->class = next_bracketed_or_word_agg (current, &contents_idx);
+      else if (!strcmp (arg_type_name, "type"))
+        ret->type = next_bracketed_or_word_agg (current, &contents_idx);
+      else if (!strcmp (arg_type_name, "name"))
+        ret->name = next_bracketed_or_word_agg (current, &contents_idx);
+      i++;
+    }
 
   if (ret->category)
     {

@@ -5,6 +5,14 @@
 
 2023-03-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (DEF_MAP, def_maps, parse_def): pass
+	the list of def commands arguments by using a list of arguments names
+	as strings.  This is a first step to allow to generalize parse_def
+	to be able to handle linemacro defined arguments with arbitrary names
+	and is more similar to the perl parser.
+
+2023-03-26  Patrice Dumas  <pertusus@free.fr>
+
 	linemacro implementation for the perl Parser
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line_misc_line)
