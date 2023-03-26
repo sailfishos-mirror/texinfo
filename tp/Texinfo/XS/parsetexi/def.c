@@ -154,6 +154,14 @@ typedef struct {
     char **arguments;
 } DEF_MAP;
 
+  /*
+     Meaning of these:
+     CATEGORY - type of entity, e.g. "Function"
+     CLASS - class for object-oriented programming
+     TYPE - data type of a variable or function return value
+     NAME - name of entity being documented
+     ARGUMENTS - arguments to a function or macro                  */
+
 char *defline_arguments[] = {"category", "name", "arg", 0};
 char *defvr_arguments[] = {"category", "name", 0};
 char *deftypefn_arguments[] = {"category", "type", "name", "argtype", 0};
@@ -314,17 +322,15 @@ split_def_args (ELEMENT *current, int starting_idx)
     }
 }
 
-DEF_INFO *
+DEF_ARG **
 parse_def (enum command_id command, ELEMENT *current)
 {
-  DEF_INFO *ret;
   int contents_idx = 0;
   int type, next_type;
   int i, i_def;
+  int arg_types_nr;
   ELEMENT *e, *e1; 
-
-  ret = malloc (sizeof (DEF_INFO));
-  memset (ret, 0, sizeof (DEF_INFO));
+  DEF_ARG **result;
 
   split_def_args (current, contents_idx);
 
@@ -365,14 +371,8 @@ parse_def (enum command_id command, ELEMENT *current)
       insert_into_contents (current, e, contents_idx + 1);
     }
 
-  /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS].
+  /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS]. */
   
-     Meaning of these:
-     CATEGORY - type of entity, e.g. "Function"
-     CLASS - class for object-oriented programming
-     TYPE - data type of a variable or function return value
-     NAME - name of entity being documented
-     ARGUMENTS - arguments to a function or macro                  */
 
   for (i_def = 0; i_def < sizeof (def_maps) / sizeof (*def_maps); i_def++)
     {
@@ -382,38 +382,32 @@ parse_def (enum command_id command, ELEMENT *current)
   fatal ("no arguments for def command");
  def_found:
 
-  i = 0;
-  while (def_maps[i_def].arguments[i])
+  /* determine non arg/argtype number of arguments */
+  arg_types_nr = 0;
+  while (def_maps[i_def].arguments[arg_types_nr])
+    {
+      char *arg_type_name = def_maps[i_def].arguments[arg_types_nr];
+
+      /* FIXME keep information about arg/argtype? */
+      if (!strcmp (arg_type_name, "arg")
+          || !strcmp (arg_type_name, "argtype"))
+        break;
+      arg_types_nr++;
+    }
+  result = malloc ((arg_types_nr+1) * sizeof (DEF_ARG *));
+
+  for (i = 0; i < arg_types_nr; i++)
     {
       char *arg_type_name = def_maps[i_def].arguments[i];
+      DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
 
-      if (!strcmp (arg_type_name, "category"))
-        ret->category = next_bracketed_or_word_agg (current, &contents_idx);
-      else if (!strcmp (arg_type_name, "class"))
-        ret->class = next_bracketed_or_word_agg (current, &contents_idx);
-      else if (!strcmp (arg_type_name, "type"))
-        ret->type = next_bracketed_or_word_agg (current, &contents_idx);
-      else if (!strcmp (arg_type_name, "name"))
-        ret->name = next_bracketed_or_word_agg (current, &contents_idx);
-      i++;
+      result[i] = def_arg;
+      def_arg->arg_type = strdup(arg_type_name);
+      def_arg->element = next_bracketed_or_word_agg (current, &contents_idx);
+      if (def_arg->element)
+        add_extra_string_dup (def_arg->element, "def_role", arg_type_name);
     }
-
-  if (ret->category)
-    {
-      add_extra_string_dup (ret->category, "def_role", "category");
-    }
-  if (ret->class)
-    {
-      add_extra_string_dup (ret->class, "def_role", "class");
-    }
-  if (ret->type)
-    {
-      add_extra_string_dup (ret->type, "def_role", "type");
-    }
-  if (ret->name)
-    {
-      add_extra_string_dup (ret->name, "def_role", "name");
-    }
+  result[i] = 0;
 
   /* Process args */
   split_delimiters (current, contents_idx);
@@ -450,5 +444,5 @@ parse_def (enum command_id command, ELEMENT *current)
                             (type == 1 ? "arg" : "typearg"));
       type *= next_type;
     }
-  return ret;
+  return result;
 }

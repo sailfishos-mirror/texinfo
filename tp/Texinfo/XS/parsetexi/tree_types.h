@@ -149,12 +149,9 @@ typedef struct {
     ELEMENT **out_of_tree_elements;
 } NODE_SPEC_EXTRA;
 
-/* For @def*. */
 typedef struct {
-    ELEMENT *category;
-    ELEMENT *class;
-    ELEMENT *type;
-    ELEMENT *name;
-} DEF_INFO;
+    char *arg_type;
+    ELEMENT *element;
+} DEF_ARG;
 
 #endif
