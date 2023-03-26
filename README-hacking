@@ -302,9 +302,9 @@ Update version number:
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
-For release-7.0 series only - need to update result of
+For release/7.0 series only - need to update result of
 test_scripts/layout_formatting_epub_nodes.sh test (delete this note
-once we are on release-7.1)
+once we are on release/7.1)
 
 - Official releases only:
 version and date in NEWS.

@@ -62,6 +62,20 @@ See the manual for detailed information.
 * info
  . do not use "/index" as a possible file extension for Info files
 
+
+
+7.0.3 (26 March 2023)
+This is a bug-fix release with minimal changes.
+
+* texi2any
+  . fix performance regression when Perl binary extension (XS) modules
+    are not being used (e.g. with TEXINFO_XS=omit)
+
+* info
+  . further fix of recoding of UTF-8 files to ASCII to avoid text
+    disappearing from nodes
+  . avoid possible freeze at start of a file with `-v nodeline=pointers'
+
 
 7.0.2 (22 January 2023)
 This is a bug-fix release with minimal changes.

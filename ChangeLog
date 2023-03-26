@@ -1,3 +1,8 @@
+2023-03-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: add 7.0.3 news.
+	* README-hacking: update
+
 2023-03-26  Patrice Dumas  <pertusus@free.fr>
 
 	linemacro implementation for the perl Parser
