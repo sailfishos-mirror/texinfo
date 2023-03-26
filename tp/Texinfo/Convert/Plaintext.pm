@@ -264,8 +264,8 @@ foreach my $advancing_para('center', 'verbatim', 'listoffloats') {
   $advance_paragraph_count_commands{$advancing_para} = 1;
 }
 
-foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
-  'documentdescription', 'titlepage', 'direntry') {
+foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
+  'copying', 'documentdescription', 'titlepage', 'direntry') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 

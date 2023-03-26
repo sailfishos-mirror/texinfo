@@ -2539,8 +2539,8 @@ foreach my $ignored_brace_commands ('caption', 'shortcaption',
   $default_commands_conversion{$ignored_brace_commands} = undef;
 }
 
-foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
-  'documentdescription', 'titlepage', 'direntry') {
+foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
+  'copying', 'documentdescription', 'titlepage', 'direntry') {
   $default_commands_conversion{$ignored_block_commands} = undef;
 };
 

@@ -1,3 +1,32 @@
+2023-03-26  Patrice Dumas  <pertusus@free.fr>
+
+	linemacro implementation for the perl Parser
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line_misc_line)
+	(_end_line_def_line, _handle_macro, _handle_block_command)
+	(_handle_open_brace, _process_remaining_on_line, _parse_texi),
+	tp/Texinfo/command_data.txt: handle @linemacro and linemacro defined
+	command calls.  The associated command call arguments parsing is
+	different than for regular @macro.  In _handle_macro start a
+	linemacro_call container, but do not parse the arguments.  In
+	_process_remaining_on_line add the linemacro_call container to the
+	tree and start a line_arg in ct_linecommand, to let regular Texinfo
+	code parsing proceed similar to @def lines, with a special treatment
+	of @ at end of lines.  At end of line, use _parse_def to determine
+	arguments, reusing part of the code used for @def*.  Replace with
+	linemacro body expansion text, remove the container element from the
+	tree and associate it to the source mark.
+
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/Convert/Text.pm,
+	tp/Texinfo/Convert/TextContent.pm: ignore or handle @linemacro.
+
+	* tp/Texinfo/ParserNonXS.pm (_start_empty_line_after_command): code
+	more similar to XS parser.
+
+	* util/texinfo.dtd: add linemacro.
+
 2023-03-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo)

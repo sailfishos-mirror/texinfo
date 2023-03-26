@@ -27,8 +27,8 @@
 
 <!-- @-commands definition commands -->
 <!-- def(code)index are there as they define an @*index @-command -->
-<!ENTITY % define.cmds "definfoenclose | alias | macro | rmacro | unmacro
-                        | defindex | defcodeindex">
+<!ENTITY % define.cmds "definfoenclose | alias | macro | rmacro | linemacro
+                        | unmacro | defindex | defcodeindex">
 
 <!-- Unique options -->
 <!ENTITY % unique.option.cmds "novalidate | setcontentsaftertitlepage 
@@ -762,13 +762,18 @@
 
 <!-- formalarg only before PCDATA, but mandating it seems not possible -->
 <!-- same issue for nesting macros -->
-<!ELEMENT macro (#PCDATA | formalarg | macro | rmacro)*>
+<!ELEMENT macro (#PCDATA | formalarg | macro | rmacro | linemacro)*>
 <!ATTLIST macro
           name CDATA #REQUIRED
           line CDATA #REQUIRED
           endspaces CDATA #IMPLIED>
-<!ELEMENT rmacro (#PCDATA | formalarg | macro | rmacro)*>
+<!ELEMENT rmacro (#PCDATA | formalarg | macro | rmacro | linemacro)*>
 <!ATTLIST rmacro
+          name CDATA #REQUIRED
+          line CDATA #REQUIRED
+          endspaces CDATA #IMPLIED>
+<!ELEMENT linemacro (#PCDATA | formalarg | macro | rmacro | linemacro)*>
+<!ATTLIST linemacro
           name CDATA #REQUIRED
           line CDATA #REQUIRED
           endspaces CDATA #IMPLIED>

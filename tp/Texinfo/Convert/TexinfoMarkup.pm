@@ -1266,7 +1266,8 @@ sub _convert($$;$)
       } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @$attribute, ['space', 'preserve'];
       } elsif ($element->{'cmdname'} eq 'macro'
-               or $element->{'cmdname'} eq 'rmacro') {
+               or $element->{'cmdname'} eq 'rmacro'
+               or $element->{'cmdname'} eq 'linemacro') {
         if (defined($element->{'args'})) {
           my @args = @{$element->{'args'}};
           my $name_arg = shift @args;

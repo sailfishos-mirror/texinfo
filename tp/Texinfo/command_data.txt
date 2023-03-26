@@ -560,6 +560,7 @@ latex                   block,preamble                    BLOCK_format_raw
 # raw commands
 verbatim                block,close_paragraph                 BLOCK_raw
 ignore                  block,preamble,non_formatted_block    BLOCK_raw
+linemacro               block,preamble,non_formatted_block    BLOCK_raw
 macro                   block,preamble,non_formatted_block    BLOCK_raw
 rmacro                  block,preamble,non_formatted_block    BLOCK_raw
 
