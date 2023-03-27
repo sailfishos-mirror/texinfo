@@ -1,5 +1,12 @@
 2023-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/macro.c
+	(handle_macro): rename arguments_container variable as
+	macro_call_element for consistency.
+
+2023-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): do not
 	set source_info for linemacro call container.

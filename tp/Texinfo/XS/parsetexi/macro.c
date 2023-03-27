@@ -562,7 +562,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   char *expanded_macro_text;
   int args_number;
   SOURCE_MARK *macro_source_mark;
-  ELEMENT *arguments_container = new_element (ET_NONE);
+  ELEMENT *macro_call_element = new_element (ET_NONE);
   int error = 0;
 
   line = *line_inout;
@@ -574,13 +574,13 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   macro = macro_record->element;
 
   if (macro->cmd == CM_macro)
-    arguments_container->type = ET_macro_call;
+    macro_call_element->type = ET_macro_call;
   else if (macro->cmd == CM_rmacro)
-    arguments_container->type = ET_rmacro_call;
+    macro_call_element->type = ET_rmacro_call;
   else if (macro->cmd == CM_linemacro)
-    arguments_container->type = ET_linemacro_call;
+    macro_call_element->type = ET_linemacro_call;
 
-  add_extra_string_dup (arguments_container, "name", command_name(cmd));
+  add_extra_string_dup (macro_call_element, "name", command_name(cmd));
 
   if (macro->cmd != CM_linemacro)
     {
@@ -597,10 +597,10 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
             {
               ELEMENT *spaces_element = new_element (ET_NONE);
               text_append_n (&spaces_element->text, p, line - p);
-              add_info_element_oot (arguments_container, "spaces_before_argument",
+              add_info_element_oot (macro_call_element, "spaces_before_argument",
                                     spaces_element);
             }
-          expand_macro_arguments (macro, &line, cmd, arguments_container);
+          expand_macro_arguments (macro, &line, cmd, macro_call_element);
         }
       /* Warning depending on the number of arguments this macro
          is supposed to take. */
@@ -615,7 +615,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
       else
         {
           ELEMENT *arg_elt = new_element (ET_line_arg);
-          add_to_element_args (arguments_container, arg_elt);
+          add_to_element_args (macro_call_element, arg_elt);
 
           while (1)
             {
@@ -645,7 +645,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                                          leading_spaces_nr);
                           add_extra_element (internal_space,
                                              "spaces_associated_command",
-                                             arguments_container);
+                                             macro_call_element);
                           add_to_element_contents (arg_elt, internal_space);
 
                           line += leading_spaces_nr;
@@ -701,7 +701,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
   if (macro->cmd == CM_linemacro)
     goto funexit;
 
-  expand_macro_body (macro_record, arguments_container, &expanded);
+  expand_macro_body (macro_record, macro_call_element, &expanded);
   debug ("MACROBODY: %s||||||", expanded.text);
 
   if (expanded.end > 0 && expanded.text[expanded.end - 1] == '\n')
@@ -709,7 +709,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   macro_source_mark = new_source_mark (SM_type_macro_expansion);
   macro_source_mark->status = SM_status_start;
-  macro_source_mark->element = arguments_container;
+  macro_source_mark->element = macro_call_element;
   register_source_mark (current, macro_source_mark);
 
   /* Put expansion in front of the current line. */
@@ -730,11 +730,11 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   if (error)
     {
-      destroy_element_and_children (arguments_container);
-      arguments_container = 0;
+      destroy_element_and_children (macro_call_element);
+      macro_call_element = 0;
     }
   *line_inout = line;
-  return arguments_container;
+  return macro_call_element;
 }
 
 

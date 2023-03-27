@@ -4769,18 +4769,18 @@ sub _handle_macro($$$$$)
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
   my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-  my $arguments_container = {'type' => $expanded_macro->{'cmdname'}.'_call',
-                             'extra' => {'name' => $command},
-                             'args' => []};
+  my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
+                            'extra' => {'name' => $command},
+                            'args' => []};
   if ($expanded_macro->{'cmdname'} ne 'linemacro') {
     if ($line =~ s/^\s*{(\s*)//) { # } macro with args
       if ($1 ne '') {
-        $arguments_container->{'info'}
+        $macro_call_element->{'info'}
             = {'spaces_before_argument' => {'text' => $1}};
       }
       ($line, $source_info)
        = _expand_macro_arguments($self, $expanded_macro, $line, $source_info,
-                                 $arguments_container);
+                                 $macro_call_element);
     } elsif (($args_number >= 2) or ($args_number <1)) {
     # as agreed on the bug-texinfo mailing list, no warn when zero
     # arg and not called with {}.
@@ -4790,8 +4790,8 @@ sub _handle_macro($$$$$)
          if ($args_number >= 2);
     } else {
       my $arg_elt = {'type' => 'line_arg',
-                     'parent' => $arguments_container};
-      push @{$arguments_container->{'args'}}, $arg_elt;
+                     'parent' => $macro_call_element};
+      push @{$macro_call_element->{'args'}}, $arg_elt;
       while (1) {
         if ($line eq '') {
           ($line, $source_info) = _new_line($self, $arg_elt);
@@ -4805,7 +4805,7 @@ sub _handle_macro($$$$$)
                                   'text' => $1,
                                   'parent' => $arg_elt,
                                   'extra' => {'spaces_associated_command'
-                                                => $arguments_container}};
+                                                => $macro_call_element}};
             push @{$arg_elt->{'contents'}}, $internal_space;
           } else {
             if ($line !~ /\n/) {
@@ -4851,12 +4851,12 @@ sub _handle_macro($$$$$)
     if ($self->{'DEBUG'});
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
-    return ($arguments_container, $line, $source_info);
+    return ($macro_call_element, $line, $source_info);
   }
 
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
-                            $arguments_container->{'args'}, $source_info);
+                            $macro_call_element->{'args'}, $source_info);
   print STDERR "MACROBODY: $expanded".'||||||'."\n"
     if ($self->{'DEBUG'});
 
@@ -4871,16 +4871,16 @@ sub _handle_macro($$$$$)
                    $expanded_macro->{'args'}->[0]->{'text'});
   my $macro_source_mark = {'sourcemark_type' => 'macro_expansion',
                            'status' => 'start'};
-  delete $arguments_container->{'args'}
-     if (scalar(@{$arguments_container->{'args'}}) == 0);
-  $macro_source_mark->{'element'} = $arguments_container;
+  delete $macro_call_element->{'args'}
+     if (scalar(@{$macro_call_element->{'args'}}) == 0);
+  $macro_source_mark->{'element'} = $macro_call_element;
   _register_source_mark($self, $current, $macro_source_mark);
   $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
   # not really important as line is ignored by the caller if there
   # was no macro expansion error
   $line = '';
  #funexit:
-  return ($arguments_container, $line, $source_info);
+  return ($macro_call_element, $line, $source_info);
 }
 
 # to have similar code with the XS parser, the only returned information
@@ -6514,7 +6514,7 @@ sub _process_remaining_on_line($$$$)
     .join(', ',map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
 
-  my $arguments_container;
+  my $macro_call_element;
   my $command;
   my $from_alias;
   if ($single_letter_command) {
@@ -6534,22 +6534,22 @@ sub _process_remaining_on_line($$$$)
       my $arg_line = $line;
       substr($arg_line, 0, $at_command_length) = '';
 
-      ($arguments_container, $arg_line, $source_info)
+      ($macro_call_element, $arg_line, $source_info)
         = _handle_macro($self, $current, $arg_line, $source_info, $command);
-      if ($arguments_container) {
+      if ($macro_call_element) {
         if ($from_alias) {
-          $arguments_container->{'info'} = {}
-             if (!$arguments_container->{'info'});
-          $arguments_container->{'info'}->{'alias_of'} = $from_alias;
+          $macro_call_element->{'info'} = {}
+             if (!$macro_call_element->{'info'});
+          $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
         }
       }
-      if ($arguments_container
-          and $arguments_container->{'type'} eq 'linemacro_call') {
+      if ($macro_call_element
+          and $macro_call_element->{'type'} eq 'linemacro_call') {
         # do nothing, the linemacro defined command call is done at the
         # end of the line after parsing the line similarly as for @def*
       } else {
         $line = $arg_line;
-        if ($arguments_container) {
+        if ($macro_call_element) {
           # directly get the following input (macro expansion text) instead
           # of going through the next call of process_remaining_on_line and
           # the processing of empty text.  No difference in output, more
@@ -6652,7 +6652,7 @@ sub _process_remaining_on_line($$$$)
       # @txiinternalvalue is invalid unless accept_internalvalue is set
       and !($command eq 'txiinternalvalue'
             and $self->{'accept_internalvalue'})
-      and !$arguments_container) {
+      and !$macro_call_element) {
     $self->_line_error(sprintf(__("unknown command `%s'"),
                                   $command), $source_info);
     substr($line, 0, $at_command_length) = '';
@@ -6824,19 +6824,19 @@ sub _process_remaining_on_line($$$$)
       }
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
-    } elsif ($arguments_container) {
+    } elsif ($macro_call_element) {
       # linemacro defined command call
-      push @{$current->{'contents'}}, $arguments_container;
-      $arguments_container->{'parent'} = $current;
+      push @{$current->{'contents'}}, $macro_call_element;
+      $macro_call_element->{'parent'} = $current;
       $self->_push_context('ct_linecommand', $command);
-      $current = $arguments_container;
+      $current = $macro_call_element;
       $current->{'args'} = [];
       my $line_arg = { 'type' => 'line_arg',
                         'parent' => $current };
       push @{$current->{'args'}}, $line_arg;
       $current = $line_arg;
       $line = _start_empty_line_after_command($line, $current,
-                                              $arguments_container);
+                                              $macro_call_element);
       return ($current, $line, $source_info, $retval);
       # goto funexit;  # used in XS code
     }
