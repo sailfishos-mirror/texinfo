@@ -27,6 +27,7 @@ test_tap_files_generated_list = \
   t/57invalid_nestings.t \
   t/58alias.t \
   t/60macro.t \
+  t/65linemacro.t \
   t/70value_and_macro.t \
   t/80include.t \
   t/accents.t \
@@ -1204,6 +1205,16 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/layout/no_monolithic/res_html \
   t/results/layout/no_monolithic_only_toc_out.pl \
   t/results/layout/no_monolithic_only_toc_out/res_html \
+  t/results/linemacro/api_doc_with_linemacro.pl \
+  t/results/linemacro/braces_after_text.pl \
+  t/results/linemacro/empty_last_argument.pl \
+  t/results/linemacro/last_argument_with_braces.pl \
+  t/results/linemacro/newline_and_continuation_in_brace.pl \
+  t/results/linemacro/protected_spaces_on_line.pl \
+  t/results/linemacro/spaces_after_command_in_call.pl \
+  t/results/linemacro/spaces_in_args.pl \
+  t/results/linemacro/spaces_in_call.pl \
+  t/results/linemacro/text_arguments.pl \
   t/results/macro/arg_body_expansion_order.pl \
   t/results/macro/arg_not_closed.pl \
   t/results/macro/backslash_in_arg.pl \

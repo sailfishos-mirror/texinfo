@@ -1,5 +1,9 @@
 2023-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/65linemacro.t, tp/Makefile.tres: add tests of @linemacro.
+
+2023-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_def_args)
 	(_next_bracketed_or_word_agg, _parse_def): add
 	_next_bracketed_or_word_agg and modify _parse_def to use the same code
