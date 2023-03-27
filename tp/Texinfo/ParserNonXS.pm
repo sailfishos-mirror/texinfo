@@ -3105,7 +3105,6 @@ sub _parse_def($$$$)
     if ($element) {
       $result{$args[$i]} = $element;
     } else {
-      $i++;
       last;
     }
   }
@@ -3115,7 +3114,8 @@ sub _parse_def($$$$)
            and $current->{'contents'}->[$contents_idx]->{'type'} eq 'spaces') {
       $contents_idx++;
     }
-    if ($contents_idx < scalar(@{$current->{'contents'}})) {
+    if ($contents_idx < scalar(@{$current->{'contents'}})
+        and $i < scalar(@args)) {
       my $contents_nr = scalar(@{$current->{'contents'}}) - $contents_idx;
       if ($contents_nr == 1) {
         $result{$args[$i]} = $current->{'contents'}->[$contents_idx];

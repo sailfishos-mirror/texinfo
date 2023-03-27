@@ -399,9 +399,8 @@ parse_def (enum command_id command, ELEMENT *current)
             }
           /* remove one for the rest of the line argument */
           arg_types_nr--;
-
-          result = malloc ((args_number+1) * sizeof (DEF_ARG *));
         }
+      result = malloc ((args_number+1) * sizeof (DEF_ARG *));
     }
   else
     {
@@ -455,7 +454,9 @@ parse_def (enum command_id command, ELEMENT *current)
              && current->contents.list[contents_idx]->type == ET_spaces)
         contents_idx++;
       /* note that element at contents_idx is not collected at that point */
-      if (contents_idx < current->contents.number)
+      /* arguments_list[i] NULL should only happen if there is no
+         argument at all for the linemacro */
+      if (contents_idx < current->contents.number && arguments_list[i])
         {
           DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
           int contents_nr = current->contents.number - contents_idx;

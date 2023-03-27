@@ -1209,7 +1209,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/linemacro/braces_after_text.pl \
   t/results/linemacro/empty_last_argument.pl \
   t/results/linemacro/last_argument_with_braces.pl \
+  t/results/linemacro/missing_formal_arg.pl \
   t/results/linemacro/newline_and_continuation_in_brace.pl \
+  t/results/linemacro/no_arguments.pl \
   t/results/linemacro/protected_spaces_on_line.pl \
   t/results/linemacro/spaces_after_command_in_call.pl \
   t/results/linemacro/spaces_in_args.pl \

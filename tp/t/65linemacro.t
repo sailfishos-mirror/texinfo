@@ -13,6 +13,24 @@ my @test_cases = (
 
 @nospace X Y Z
 '],
+['missing_formal_arg',
+'@linemacro mymacro {a, , b}
+\a\ and \b\.
+@end linemacro
+
+@mymacro one two three
+'],
+['no_arguments',
+'@linemacro noarg
+Body.
+@end linemacro
+
+@noarg
+
+@noarg A B
+
+@noarg {in brace}
+'],
 ['empty_last_argument',
 '@defcodeindex BI
 @linemacro defbuiltin {symbol, rest}
@@ -28,7 +46,7 @@ my @test_cases = (
 @defbuiltin foo {{}}
 @end defblock
 '],
-# arguments should 'my foo' 'a last {} arg{ument}'
+# arguments should be 'my foo' 'a last {} arg{ument}'
 # 'my foo' '{} {}'
 # 'my foo' '{second arg} remaining on {line}'
 ['last_argument_with_braces',
@@ -154,7 +172,7 @@ If @var{axis} is not a valid axis of @var{a}.
 @end defblock
 ']
 # TODO add linemacro call in linemacro
-# add recurrsive linemacro call
+# add recursive linemacro call
 # add macro call in linemacro
 );
 

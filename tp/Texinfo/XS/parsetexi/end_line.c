@@ -790,7 +790,8 @@ end_line_def_line (ELEMENT *current)
       register_source_mark (current, macro_source_mark);
       set_input_source_mark (macro_source_mark);
 
-      destroy_element_and_children (macro_args);
+      if (macro_args)
+        destroy_element_and_children (macro_args);
 
       return current;
     }
