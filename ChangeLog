@@ -1,3 +1,17 @@
+2023-03-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix PDF page labels if pages appear between title page and contents
+
+	* doc/texinfo.texi (\contentsendroman): Record end of contents
+	in new count register, \contentsendcount.  Reset \pageno to 1.
+	(\pagelabels): Check \contentsendcount to support case of @contents
+	appearing at end of document.
+
+	Arnold Robbins reported that Roman numerals would be used for the
+	PDF page labels throughout the gawk manual.  This was because the
+	two dedication pages before the contents were being treated as the
+	Arabic-numbered pages in the document.
+
 2023-03-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_next_bracketed_or_word_agg),
