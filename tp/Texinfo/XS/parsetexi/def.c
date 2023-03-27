@@ -445,10 +445,7 @@ parse_def (enum command_id command, ELEMENT *current)
           def_arg->element = e;
         }
       else
-        {
-          i++;
-          break;
-        }
+        break;
     }
 
   result[i] = 0;
