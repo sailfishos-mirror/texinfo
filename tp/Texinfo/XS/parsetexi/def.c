@@ -93,26 +93,19 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
           else
             {
               (*i)++;
-              continue;
             }
         }
-      if (e->type == ET_bracketed_arg
-          || e->type == ET_bracketed_inserted)
+      else
         {
-          if (num > 0)
-            break;
-          else
-            {
-              (*i)++;
-              return e;
-            }
+         /* e is a text or command element or bracketed argument */
+          (*i)++;
+          num++;
         }
-      /* e is a text or command element */
-      (*i)++;
-      num++;
     }
+
   if (num == 0)
     return 0;
+
   if (num == 1)
     return current->contents.list[*i - 1];
 

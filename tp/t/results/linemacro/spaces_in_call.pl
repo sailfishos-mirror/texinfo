@@ -104,26 +104,31 @@ $result_trees{'spaces_in_call'} = {
                       {
                         'contents' => [
                           {
-                            'text' => 'a b'
-                          }
-                        ],
-                        'type' => 'bracketed_arg'
-                      },
-                      {
-                        'contents' => [
+                            'contents' => [
+                              {
+                                'text' => 'a b'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
+                          },
                           {
-                            'text' => 'c d'
-                          }
-                        ],
-                        'type' => 'bracketed_arg'
-                      },
-                      {
-                        'contents' => [
+                            'contents' => [
+                              {
+                                'text' => 'c d'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
+                          },
                           {
-                            'text' => 'rest'
+                            'contents' => [
+                              {
+                                'text' => 'rest'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
                           }
                         ],
-                        'type' => 'bracketed_arg'
+                        'type' => 'def_aggregate'
                       }
                     ],
                     'info' => {
@@ -179,23 +184,51 @@ $result_trees{'spaces_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'a b'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          },
+                          'type' => 'bracketed_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'c d'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          },
+                          'type' => 'bracketed_arg'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'rest'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'a'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -214,33 +247,7 @@ $result_trees{'spaces_in_call'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'text' => 'c'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'text' => 'd'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
+                      'text' => '  ',
                       'type' => 'spaces'
                     },
                     {
@@ -248,24 +255,11 @@ $result_trees{'spaces_in_call'} = {
                         'def_role' => 'arg'
                       },
                       'text' => 'B'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'text' => 'rest'
                     }
                   ],
                   'info' => {
                     'spaces_after_argument' => {
-                      'text' => '
+                      'text' => ' 
 '
                     }
                   },
@@ -351,13 +345,13 @@ $result_texis{'spaces_in_call'} = '@linemacro mylinecommand {first, second, rest
 @end linemacro
 
 @defblock
-@defline category a b A c d B rest
+@defline category {a b}{c d}{rest} A  B 
 @end defblock
 ';
 
 
 $result_texts{'spaces_in_call'} = '
-category: a b A c d B rest
+category: a bc drest A  B
 ';
 
 $result_errors{'spaces_in_call'} = [];

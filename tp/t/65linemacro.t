@@ -64,13 +64,14 @@ Body.
 @end defblock
 '],
 # arguments should be 'text{in paren}'  rest{in paren}'  ''
-# FIXME This is not currently the result, but result is incorrect for @def*
 ['braces_after_text',
 '@linemacro mymacro {a, b, c}
-expand \a\ \b\ \c\
+@defline \a\ \b\ \c\
 @end linemacro
 
+@defblock
 @mymacro text{in paren} rest{in paren} {}
+@end defblock
 '],
 # continuation with the first call, with @@ there is no continuation
 ['protected_spaces_on_line',
@@ -113,7 +114,6 @@ something
 @mylinecommand @abc {d} @ringaccent b rest
 '],
 # first argument should be {a b}{c d}{rest}
-# FIXME not currently ok
 ['spaces_in_call',
 '@linemacro mylinecommand {first, second, rest}
 @defblock

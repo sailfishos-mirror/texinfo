@@ -2996,18 +2996,11 @@ sub _next_bracketed_or_word_agg($$)
       last if ($num > 0);
 
       $$index_ref++;
-      next;
-    } elsif ($element->{'type'}
-             and ($element->{'type'} eq 'bracketed_arg'
-                  or $element->{'type'} eq 'bracketed_inserted')) {
-      last if ($num > 0);
-
+    } else {
+      # element is a text, a command element or a bracketed argument
       $$index_ref++;
-      return $element;
+      $num++;
     }
-    # element is a text or command element
-    $$index_ref++;
-    $num++;
   }
 
   return undef if ($num == 0);
