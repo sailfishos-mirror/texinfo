@@ -153,11 +153,6 @@ $result_trees{'braces_after_text'} = {
                     'text' => ' '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 5,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',

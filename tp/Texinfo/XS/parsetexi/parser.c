@@ -2098,8 +2098,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           ELEMENT *line_arg = new_element (ET_line_arg);
 
           add_to_element_contents (current, macro_call_element);
-          /* FIXME needed? Correct? */
-          macro_call_element->source_info = current_source_info;
           push_context (ct_linecommand, cmd);
           current = macro_call_element;
           add_to_element_args (current, line_arg);

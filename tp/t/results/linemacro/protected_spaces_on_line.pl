@@ -167,11 +167,6 @@ $result_trees{'protected_spaces_on_line'} = {
                     'text' => ' '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',
@@ -474,11 +469,6 @@ $result_trees{'protected_spaces_on_line'} = {
                     'text' => ' '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 10,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',
@@ -762,11 +752,6 @@ $result_trees{'protected_spaces_on_line'} = {
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
-                },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 12,
-                  'macro' => ''
                 },
                 'type' => 'linemacro_call'
               },

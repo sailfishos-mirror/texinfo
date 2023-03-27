@@ -6828,8 +6828,6 @@ sub _process_remaining_on_line($$$$)
       # linemacro defined command call
       push @{$current->{'contents'}}, $arguments_container;
       $arguments_container->{'parent'} = $current;
-      # FIXME needed? Correct?
-      $arguments_container->{'source_info'} = $source_info;
       $self->_push_context('ct_linecommand', $command);
       $current = $arguments_container;
       $current->{'args'} = [];

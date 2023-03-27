@@ -187,11 +187,6 @@ $result_trees{'last_argument_with_braces'} = {
                             'text' => ' '
                           }
                         },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 7,
-                          'macro' => ''
-                        },
                         'type' => 'linemacro_call'
                       },
                       'sourcemark_type' => 'linemacro_expansion',
@@ -491,11 +486,6 @@ $result_trees{'last_argument_with_braces'} = {
                             'text' => ' '
                           }
                         },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 9,
-                          'macro' => ''
-                        },
                         'type' => 'linemacro_call'
                       },
                       'sourcemark_type' => 'linemacro_expansion',
@@ -787,11 +777,6 @@ $result_trees{'last_argument_with_braces'} = {
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
-                        },
-                        'source_info' => {
-                          'file_name' => '',
-                          'line_nr' => 11,
-                          'macro' => ''
                         },
                         'type' => 'linemacro_call'
                       },

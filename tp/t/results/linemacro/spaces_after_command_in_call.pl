@@ -167,11 +167,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                     'text' => '  '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',

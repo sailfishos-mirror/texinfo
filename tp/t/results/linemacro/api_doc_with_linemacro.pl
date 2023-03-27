@@ -527,11 +527,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'text' => ' '
                                   }
                                 },
-                                'source_info' => {
-                                  'file_name' => '',
-                                  'line_nr' => 19,
-                                  'macro' => ''
-                                },
                                 'type' => 'linemacro_call'
                               },
                               'sourcemark_type' => 'linemacro_expansion',
@@ -715,11 +710,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                                   'spaces_before_argument' => {
                                     'text' => ' '
                                   }
-                                },
-                                'source_info' => {
-                                  'file_name' => '',
-                                  'line_nr' => 22,
-                                  'macro' => ''
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -930,11 +920,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'text' => ' '
                                   }
                                 },
-                                'source_info' => {
-                                  'file_name' => '',
-                                  'line_nr' => 26,
-                                  'macro' => ''
-                                },
                                 'type' => 'linemacro_call'
                               },
                               'sourcemark_type' => 'linemacro_expansion',
@@ -1119,11 +1104,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                                     'text' => ' '
                                   }
                                 },
-                                'source_info' => {
-                                  'file_name' => '',
-                                  'line_nr' => 29,
-                                  'macro' => ''
-                                },
                                 'type' => 'linemacro_call'
                               },
                               'sourcemark_type' => 'linemacro_expansion',
@@ -1292,11 +1272,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                                   'spaces_before_argument' => {
                                     'text' => ' '
                                   }
-                                },
-                                'source_info' => {
-                                  'file_name' => '',
-                                  'line_nr' => 32,
-                                  'macro' => ''
                                 },
                                 'type' => 'linemacro_call'
                               },

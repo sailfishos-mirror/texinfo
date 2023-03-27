@@ -90,11 +90,6 @@ $result_trees{'no_arguments'} = {
                 'extra' => {
                   'name' => 'noarg'
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 5,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',
@@ -165,11 +160,6 @@ $result_trees{'no_arguments'} = {
                     'text' => ' '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',
@@ -234,11 +224,6 @@ $result_trees{'no_arguments'} = {
                   'spaces_before_argument' => {
                     'text' => ' '
                   }
-                },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 9,
-                  'macro' => ''
                 },
                 'type' => 'linemacro_call'
               },

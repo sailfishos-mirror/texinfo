@@ -178,11 +178,6 @@ $result_trees{'spaces_in_args'} = {
                     'text' => ' '
                   }
                 },
-                'source_info' => {
-                  'file_name' => '',
-                  'line_nr' => 7,
-                  'macro' => ''
-                },
                 'type' => 'linemacro_call'
               },
               'sourcemark_type' => 'linemacro_expansion',
