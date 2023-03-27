@@ -708,7 +708,7 @@ end_line_def_line (ELEMENT *current)
                   ELEMENT *arg = def_info[def_info_index]->element;
                   if (arg->type == ET_bracketed_arg)
                     {
-                      /* we also duplicate leading and trailing spaces */
+                      /* duplicate leading and trailing spaces info */
                       KEY_PAIR *kspaces_before
                         = lookup_info (arg, "spaces_before_argument");
                       KEY_PAIR *kspaces_after
@@ -745,14 +745,7 @@ end_line_def_line (ELEMENT *current)
                         argument_text = strdup("");
                     }
                   else
-                    {
-                      /* FIXME remove leading spaces but they should probably
-                         not be in the input */
-                      char *converted_string = convert_to_texinfo (arg);
-                      argument_text = strdup(converted_string
-                       + strspn (converted_string, whitespace_chars_except_newline));
-                      free (converted_string);
-                    }
+                    argument_text = convert_to_texinfo (arg);
                 }
               else
                 argument_text = strdup("");

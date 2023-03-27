@@ -2951,6 +2951,9 @@ sub _split_def_args
                                $current_position, length($t));
       if ($type) {
         $e->{'type'} = $type;
+        if ($type eq 'spaces') {
+          $e->{'extra'} = {'def_role' => 'spaces'};
+        }
         $type = undef;
       } else {
         $type = 'spaces';
@@ -2972,6 +2975,57 @@ sub _split_def_args
   return $root;
 }
 
+# the index is set past the gathered or aggregated
+# element.
+sub _next_bracketed_or_word_agg($$)
+{
+  my $current = shift;
+  my $index_ref = shift;
+
+  my $num = 0;
+  while (1) {
+    if (!$current->{'contents'}
+        or $$index_ref == scalar(@{$current->{'contents'}})) {
+      last;
+    }
+    my $element = $current->{'contents'}->[$$index_ref];
+    if ($element->{'type'} and ($element->{'type'} eq 'spaces'
+                                or $element->{'type'} eq 'spaces_inserted'
+                                or $element->{'type'} eq 'delimiter')) {
+      last if ($num > 0);
+
+      $$index_ref++;
+      next;
+    } elsif ($element->{'type'}
+             and ($element->{'type'} eq 'bracketed_arg'
+                  or $element->{'type'} eq 'bracketed_inserted')) {
+      last if ($num > 0);
+
+      $$index_ref++;
+      return $element;
+    }
+    # element is a text or command element
+    $$index_ref++;
+    $num++;
+  }
+
+  return undef if ($num == 0);
+
+  return $current->{'contents'}->[$$index_ref -1]
+    if ($num == 1);
+
+  my @gathered_contents
+    = splice(@{$current->{'contents'}}, $$index_ref - $num, $num);
+  my $new = {'type' => 'def_aggregate', 'parent' => $current,
+             'contents' => \@gathered_contents};
+  foreach my $content (@gathered_contents) {
+    $content->{'parent'} = $new;
+  }
+  splice (@{$current->{'contents'}}, $$index_ref - $num, 0, ($new));
+  $$index_ref = $$index_ref - $num + 1;
+  return $new;
+}
+
 # definition line parsing
 sub _parse_def($$$$)
 {
@@ -2985,7 +3039,7 @@ sub _parse_def($$$$)
 
   my @args;
   my $arg_type;
-  my $remaining_args_nr;
+  my $arg_types_nr;
 
   if ($self->{'macros'}->{$command}) {
     my $macro = $self->{'macros'}->{$command}->{'element'};
@@ -2999,10 +3053,10 @@ sub _parse_def($$$$)
         }
       }
     }
-    $remaining_args_nr = $args_total;
-    if ($remaining_args_nr > 0) {
+    $arg_types_nr = $args_total;
+    if ($arg_types_nr > 0) {
       # remove one for the rest of the line argument
-      $remaining_args_nr--;
+      $arg_types_nr--;
     }
   } else{
     # could have used def_aliases, but use code more similar with the XS parser
@@ -3023,6 +3077,7 @@ sub _parse_def($$$$)
       unshift @contents, $bracketed,
                          { 'text' => ' ', 'type' => 'spaces_inserted',
                            'parent' => $current,
+                           'extra' => {'def_role' => 'spaces'},
                          };
 
       $command = $def_aliases{$command};
@@ -3031,7 +3086,7 @@ sub _parse_def($$$$)
     $arg_type = pop @args if ($args[-1] eq 'arg' or $args[-1] eq 'argtype');
     # If $arg_type is not set (for @def* commands that are not documented
     # to take args), everything happens as if arg_type was set to 'arg'.
-    $remaining_args_nr = scalar(@args);
+    $arg_types_nr = scalar(@args);
   }
   @contents = map (_split_def_args($self, $_, $current, $source_info),
                    @contents );
@@ -3039,173 +3094,86 @@ sub _parse_def($$$$)
 
   $current->{'contents'} = \@new_contents;
 
-  my @result;
+  my %result;
 
   #  Fill in everything up to the args, collecting adjacent non-whitespace
   #  elements into a single element, e.g 'a@i{b}c'.
-  my $argument_content = [];
-  $remaining_args_nr--;
-
-  my $i = 0; # the offset in @new_contents of $token
-  if ($remaining_args_nr >= 0) {
-    while (@contents) {
-      my $token = $contents[0];
-      # finish previous item
-      if ( $token->{'type'}
-          and ($token->{'type'} eq 'spaces'
-                 or $token->{'type'} eq 'spaces_inserted'
-                 or $token->{'type'} eq 'bracketed_arg'
-                 or $token->{'type'} eq 'bracketed_inserted'
-                 or $token->{'type'} eq 'delimiter')) {
-        # we create a {'contents' =>} only if there is more than one
-        # content gathered.
-        if (scalar(@$argument_content)) {
-          if (scalar(@$argument_content) > 1) {
-            my $e = {'contents' => $argument_content,
-                     'type' => 'def_aggregate',
-                     'parent' => $current };
-            push @result, $e;
-            # Replace in the main tree.
-            splice @new_contents,
-                   $i - scalar(@$argument_content),
-                   scalar(@$argument_content),
-                   $e;
-            for my $e2 (@$argument_content) {
-              $e2->{'parent'} = $e;
-            }
-            $i -= scalar(@$argument_content) - 1;
-          } elsif (scalar(@$argument_content) == 1) {
-            push @result, $argument_content->[0];
-          }
-          $argument_content = [];
-          if ($token->{'type'} eq 'spaces'
-              or $token->{'type'} eq 'spaces_inserted') {
-            $remaining_args_nr--;
-          }
-        }
-      }
-
-      if ($token->{'type'} and ($token->{'type'} eq 'bracketed_arg'
-                                or $token->{'type'} eq 'bracketed_inserted')) {
-        push @result, $token;
-        shift @contents;
-        $remaining_args_nr--;
-      } elsif ($token->{'type'}
-          and ($token->{'type'} eq 'spaces'
-                 or $token->{'type'} eq 'spaces_inserted')) {
-        if ($token->{'text'}) {
-          $token->{'extra'} = {'def_role' => 'spaces'};
-          shift @contents;
-        } else {
-          $i++;
-          last;
-        }
-      } elsif ($token->{'type'} and $token->{'type'} eq 'delimiter') {
-        $token->{'extra'} = {'def_role' => 'delimiter'};
-      } else {
-        my $text_or_cmd = shift @contents;
-        push @$argument_content, $text_or_cmd;
-      }
-      $i++;
-      last if ($remaining_args_nr < 0);
-    }
-    # if the end was reached without args to trigger gathering the started
-    # argument content, it is gathered here.
-    if (scalar(@$argument_content) > 1) {
-      my $e = {'contents' => $argument_content,
-               'type' => 'def_aggregate',
-               'parent' => $current,
-               };
-      for my $e2 (@$argument_content) {
-        $e2->{'parent'} = $e;
-      }
-      push @result, $e;
-      # Replace in the main tree.
-      splice @new_contents, $i - scalar(@$argument_content),
-             scalar(@$argument_content), $e;
-    } elsif (scalar(@$argument_content) == 1) {
-      push @result, $argument_content->[0];
-    }
-  }
-
-  # at this point, @contents corresponds to the @def* args
-  if (scalar(@contents) > 0) {
-    splice @new_contents, -scalar(@contents);
-  }
-
-  if ($self->{'macros'}->{$command}) {
-    if (scalar(@contents) > 1) {
-      my $e = {'contents' => \@contents,
-               'type' => 'def_aggregate',
-               'parent' => $current,
-              };
-      push @new_contents, $e;
-      # FIXME remove leading spaces?  Currently it is removed
-      # after converting to texinfo
-      push @result, $e;
+  my $i;
+  my $contents_idx = 0;
+  for ($i = 0; $i < $arg_types_nr; $i++) {
+    my $element = _next_bracketed_or_word_agg($current, \$contents_idx);
+    if ($element) {
+      $result{$args[$i]} = $element;
     } else {
-      push @new_contents, $contents[0];
-      push @result, $contents[0];
+      $i++;
+      last;
     }
-  } else {
-
-    @contents = map (_split_delimiters($self, $_, $current, $source_info),
-                     @contents );
-    my @args_results = @contents;
-    @new_contents = (@new_contents, @contents);
-
-    # Create the part of the parsed def line array for any arguments.
-    while (@contents) {
-      my $spaces;
-      my $next_token = shift @contents;
-      if ($next_token->{'type'} and $next_token->{'type'} eq 'spaces') {
-        $spaces = $next_token;
-        $next_token = shift @contents;
-      }
-      if (defined($spaces)) {
-        $spaces->{'extra'} = {'def_role' => 'spaces'};
-      }
-      last if (!defined($next_token));
-      if ($next_token->{'type'} and $next_token->{'type'} eq 'delimiter') {
-        $next_token->{'extra'} = {'def_role' => 'delimiter'};
+  }
+  if ($self->{'macros'}->{$command}) {
+    while ($contents_idx < scalar(@{$current->{'contents'}})
+           and $current->{'contents'}->[$contents_idx]->{'type'}
+           and $current->{'contents'}->[$contents_idx]->{'type'} eq 'spaces') {
+      $contents_idx++;
+    }
+    if ($contents_idx < scalar(@{$current->{'contents'}})) {
+      my $contents_nr = scalar(@{$current->{'contents'}}) - $contents_idx;
+      if ($contents_nr == 1) {
+        $result{$args[$i]} = $current->{'contents'}->[$contents_idx];
       } else {
-        $next_token->{'extra'} = {} if (!$next_token->{'extra'});
-        $next_token->{'extra'}->{'def_role'} = 'arg';
-      }
-    }
-
-    # If a command like @deftypefn, mark the type arguments
-    if ($arg_type and $arg_type eq 'argtype') {
-      my $next_is_type = 1;
-      foreach my $arg(@args_results) {
-        if ($arg->{'extra'}->{'def_role'} eq 'spaces') {
-        } elsif ($arg->{'extra'}->{'def_role'} eq 'delimiter') {
-          $next_is_type = 1;
-        } elsif ($arg->{'cmdname'} and $arg->{'cmdname'} ne 'code') {
-          $next_is_type = 1;
-        } elsif ($next_is_type) {
-          $arg->{'extra'}->{'def_role'} = 'typearg';
-          $next_is_type = 0;
-        } else {
-          $next_is_type = 1;
+        my @gathered_contents
+          = splice(@{$current->{'contents'}}, $contents_idx,
+                   $contents_idx + $contents_nr);
+        my $new = {'type' => 'def_aggregate', 'parent' => $current,
+                   'contents' => \@gathered_contents};
+        foreach my $content (@gathered_contents) {
+          $content->{'parent'} = $new;
         }
+        splice (@{$current->{'contents'}}, $contents_idx, 0, ($new));
+        $result{$args[$i]} = $new;
       }
     }
-    for (my $i = 0; $i < scalar(@result)
-                    and $i < scalar(@args); $i++) {
-      my $element = $result[$i];
-      my $type = $args[$i];
-      $element->{'extra'} = {} if (!$element->{'extra'});
-      $element->{'extra'}->{'def_role'} = $type;
+    return \%result;
+  }
+
+  foreach my $type (keys(%result)) {
+    my $element = $result{$type};
+    $element->{'extra'} = {} if (!$element->{'extra'});
+    $element->{'extra'}->{'def_role'} = $type;
+  }
+
+  my @args_results = map (_split_delimiters($self, $_, $current, $source_info),
+                          splice(@{$current->{'contents'}}, $contents_idx,
+                                 scalar(@{$current->{'contents'}}) - $contents_idx));
+  push @{$current->{'contents'}}, @args_results;
+
+  # Create the part of the parsed def line array for any arguments.
+  foreach my $content (@args_results) {
+    if ($content->{'type'} and $content->{'type'} eq 'spaces') {
+      $content->{'extra'} = {'def_role' => 'spaces'};
+    } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
+      $content->{'extra'} = {'def_role' => 'delimiter'};
+    } else {
+      $content->{'extra'} = {} if (!$content->{'extra'});
+      $content->{'extra'}->{'def_role'} = 'arg';
     }
   }
 
-  my %result;
-  for (my $i = 0; $i < scalar(@result)
-                  and $i < scalar(@args); $i++) {
-    my $element = $result[$i];
-    my $type = $args[$i];
-    $result{$type} = $element;
+  # If a command like @deftypefn, mark the type arguments
+  if ($arg_type and $arg_type eq 'argtype') {
+    my $next_is_type = 1;
+    foreach my $arg(@args_results) {
+      if ($arg->{'extra'}->{'def_role'} eq 'spaces') {
+      } elsif ($arg->{'extra'}->{'def_role'} eq 'delimiter') {
+        $next_is_type = 1;
+      } elsif ($arg->{'cmdname'} and $arg->{'cmdname'} ne 'code') {
+        $next_is_type = 1;
+      } elsif ($next_is_type) {
+        $arg->{'extra'}->{'def_role'} = 'typearg';
+        $next_is_type = 0;
+      } else {
+        $next_is_type = 1;
+      }
+    }
   }
 
   return \%result;
@@ -3748,10 +3716,7 @@ sub _end_line_def_line($$$)
               }
             } else {
               $argument_text = Texinfo::Convert::Texinfo::convert_to_texinfo($arg);
-              # should only be needed for the last argument
-              $argument_text =~ s/^\s*//;
             }
-            #print STDERR "AAAA '$argument_text' ".Texinfo::Common::debug_print_element($arg)."\n";
             push @$macro_args, {'contents' => [{'text' => $argument_text}]};
           }
         }

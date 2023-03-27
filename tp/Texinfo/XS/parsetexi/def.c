@@ -454,7 +454,9 @@ parse_def (enum command_id command, ELEMENT *current)
   result[i] = 0;
   if (command_data(command).flags & CF_MACRO)
     {
-      /* FIXME do not add leading space to def_arg */
+      while (contents_idx < current->contents.number
+             && current->contents.list[contents_idx]->type == ET_spaces)
+        contents_idx++;
       /* note that element at contents_idx is not collected at that point */
       if (contents_idx < current->contents.number)
         {
