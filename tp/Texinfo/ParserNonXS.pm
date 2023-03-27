@@ -2904,6 +2904,7 @@ sub _split_delimiters
                                  $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
         push @elements, {'text' => $1, 'type' => 'delimiter',
+                         'extra' => {'def_role' => 'delimiter'},
                          'parent' => $root->{'parent'}};
         $current_position = Texinfo::Common::relocate_source_marks(
                                  $remaining_source_marks, $elements[-1],
@@ -3115,6 +3116,7 @@ sub _parse_def($$$$)
       $contents_idx++;
     }
     if ($contents_idx < scalar(@{$current->{'contents'}})
+        # should only happen if there is no argument at all for the linemacro
         and $i < scalar(@args)) {
       my $contents_nr = scalar(@{$current->{'contents'}}) - $contents_idx;
       if ($contents_nr == 1) {
@@ -3146,33 +3148,31 @@ sub _parse_def($$$$)
                                  scalar(@{$current->{'contents'}}) - $contents_idx));
   push @{$current->{'contents'}}, @args_results;
 
-  # Create the part of the parsed def line array for any arguments.
+  # set def_role for the rest of arguments.
+  my $set_type_not_arg = 1;
+  # For some commands, alternate between "arg" and "typearg".
+  # In that case $set_type_not_arg is both used to set to argtype and
+  # to switch sign to switch between arg and argtype
+  $set_type_not_arg = -1 if ($arg_type and $arg_type eq 'argtype');
+
+  my $type = $set_type_not_arg;
+
   foreach my $content (@args_results) {
     if ($content->{'type'} and $content->{'type'} eq 'spaces') {
-      $content->{'extra'} = {'def_role' => 'spaces'};
     } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
-      $content->{'extra'} = {'def_role' => 'delimiter'};
-    } else {
+      $type = $set_type_not_arg;
+    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'code') {
       $content->{'extra'} = {} if (!$content->{'extra'});
       $content->{'extra'}->{'def_role'} = 'arg';
-    }
-  }
-
-  # If a command like @deftypefn, mark the type arguments
-  if ($arg_type and $arg_type eq 'argtype') {
-    my $next_is_type = 1;
-    foreach my $arg(@args_results) {
-      if ($arg->{'extra'}->{'def_role'} eq 'spaces') {
-      } elsif ($arg->{'extra'}->{'def_role'} eq 'delimiter') {
-        $next_is_type = 1;
-      } elsif ($arg->{'cmdname'} and $arg->{'cmdname'} ne 'code') {
-        $next_is_type = 1;
-      } elsif ($next_is_type) {
-        $arg->{'extra'}->{'def_role'} = 'typearg';
-        $next_is_type = 0;
+      $type = $set_type_not_arg;
+    } else {
+      $content->{'extra'} = {} if (!$content->{'extra'});
+      if ($type == 1) {
+        $content->{'extra'}->{'def_role'} = 'arg';
       } else {
-        $next_is_type = 1;
+        $content->{'extra'}->{'def_role'} = 'typearg';
       }
+      $type = $type * $set_type_not_arg;
     }
   }
 
@@ -6827,7 +6827,6 @@ sub _process_remaining_on_line($$$$)
     } elsif ($arguments_container) {
       # linemacro defined command call
       push @{$current->{'contents'}}, $arguments_container;
-      # FIXME needed? Correct?
       $arguments_container->{'parent'} = $current;
       # FIXME needed? Correct?
       $arguments_container->{'source_info'} = $source_info;

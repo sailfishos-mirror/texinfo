@@ -1,5 +1,13 @@
 2023-03-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_def): use code more similar to XS
+	parser to set the def_role for the rest or arguments.
+
+	* tp/Texinfo/XS/parsetexi/def.c (parse_def): rename next_type as
+	set_type_not_arg.
+
+2023-03-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_def),
 	tp/Texinfo/XS/parsetexi/def.c (parse_def),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): handle

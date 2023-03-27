@@ -327,7 +327,7 @@ DEF_ARG **
 parse_def (enum command_id command, ELEMENT *current)
 {
   int contents_idx = 0;
-  int type, next_type;
+  int type, set_type_not_arg;
   int i, i_def;
   int arg_types_nr;
   ELEMENT *e, *e1;
@@ -501,13 +501,15 @@ parse_def (enum command_id command, ELEMENT *current)
 
   /* For some commands, alternate between "arg" and "typearg". This matters for
      the DocBook output. */
+  /* In that case set_type_not_arg is both used to set to argtype and
+     to switch sign to switch between arg and argtype */
   if (command == CM_deftypefn || command == CM_deftypeop
           || command == CM_deftp)
-    next_type = -1;
+    set_type_not_arg = -1;
   else
-    next_type = 1;
+    set_type_not_arg = 1;
 
-  type = next_type;
+  type = set_type_not_arg;
   for (i = contents_idx; i < current->contents.number; i++)
     {
       e = contents_child_by_index (current, i);
@@ -518,18 +520,18 @@ parse_def (enum command_id command, ELEMENT *current)
         }
       if (e->type == ET_delimiter)
         {
-          type = next_type;
+          type = set_type_not_arg;
           continue;
         }
       if (e->cmd && e->cmd != CM_code)
         {
           add_extra_string_dup (e, "def_role", "arg");
-          type = next_type;
+          type = set_type_not_arg;
           continue;
         }
       add_extra_string_dup (e, "def_role",
                             (type == 1 ? "arg" : "typearg"));
-      type *= next_type;
+      type *= set_type_not_arg;
     }
   return result;
 }
