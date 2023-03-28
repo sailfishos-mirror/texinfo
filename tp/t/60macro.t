@@ -1469,10 +1469,10 @@ X\arg\X
 @alias phooindex = strong
 @phooindex{all}
 
-@macro phoo {arg}
+@macro phooindex {arg}
 %%\arg\%%
 @end macro
-@phoo{mmm}
+@phooindex{mmm}
 
 @printindex phoo
 ', {'test_formats' => ['plaintext'],}],

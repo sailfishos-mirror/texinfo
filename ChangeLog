@@ -1,3 +1,22 @@
+2023-03-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line): if a linemacro
+	command call is nested on a line, return instead of closing
+	the precedeing commands as they may use the expansion result.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line): fix name of linemacro
+	call type.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace): avoid a potential
+	undefinition message.
+
+	* tp/t/65linemacro.t, tp/Makefile.tres: add
+	simple_nested_linemacro_calls and nested_linemacro_calls tests.
+
+	* tp/t/60macro.t: always call @phooindex in
+	macro_alias_definfoenclose_defindex and not phoo.
+
 2023-03-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Line Macros): Write node documenting @linemacro.

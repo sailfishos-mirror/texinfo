@@ -170,10 +170,47 @@ If @var{axis} is not a valid axis of @var{a}.
 @end defblock
 
 @end defblock
-']
-# TODO add linemacro call in linemacro
+'],
+['simple_nested_linemacro_calls',
+'@node Top
+
+@linemacro inside {a, b, rest}
+inside {\a\ operator \b\} \rest\
+@end linemacro
+
+@linemacro outside {one, two, three}
+@defline \one\ {\two\} \three\
+@cindex \two\
+@end linemacro
+
+@defblock
+@outside {type} {a function} @inside {X} {Y} ( remaining, type typed )
+@end defblock
+'],
+# following example has incorrect braces in many places and
+# in particular the bracketed opened with @inside in it is
+# not closed, this makes it an interesting case.
+['nested_linemacro_calls',
+'@linemacro inside {a, b}
+inside {\a\ operator \b\}
+@end linemacro
+
+@linemacro outside {one, two, three}
+@defline \one\ {\two\} \three\
+@cindex \two\
+@end linemacro
+
+@defblock
+@outside {type} {@inside {X} {Y}} ( remaining, type typed )
+@end defblock
+'],
+# TODO
 # add recursive linemacro call
 # add macro call in linemacro
+# test cases of line commands, including linemacros on the same
+# line to check commands closing in that context.
+# test @c in line macro command invokation, including in
+# braces
 );
 
 

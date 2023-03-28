@@ -1896,6 +1896,7 @@ ELEMENT *
 end_line (ELEMENT *current)
 {
   ELEMENT *current_old = current; /* Used at very end of function */
+  char *in_macro_expansion = 0;
 
   /* If empty line, start a new paragraph. */
   if (last_contents_child (current)
@@ -1965,6 +1966,11 @@ end_line (ELEMENT *current)
 
   else if (current->type == ET_line_arg)
     {
+      if (current->parent->type == ET_linemacro_call)
+        {
+          KEY_PAIR *k = lookup_extra (current->parent, "name");
+          in_macro_expansion = (char *)k->value;
+        }
       current = end_line_misc_line (current);
     }
 
@@ -1973,6 +1979,15 @@ end_line (ELEMENT *current)
   if (current_context () == ct_line || current_context () == ct_def
        || current_context () == ct_linecommand)
     {
+      if (in_macro_expansion)
+        /* if in a linemacro command call nested on a line, we do not close
+           the preceding commands yet, as they might use the expansion */
+        {
+          debug ("Expanded @%s still line/block %d:", in_macro_expansion,
+                 current_context ());
+          debug_print_element (current, 1); debug("");
+          return current;
+        }
       debug_nonl ("Still opened line command %d:", current_context ());
       debug_print_element (current, 1); debug("");
       if (current_context () == ct_def)

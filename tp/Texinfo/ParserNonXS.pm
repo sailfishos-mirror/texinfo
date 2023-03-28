@@ -2072,9 +2072,14 @@ sub _close_current($$$;$$)
       #$current = _end_line_misc_line($self, $current, $source_info);
       # We ignore the current returned $current, to be sure that
       # we close the command too.
+      # TODO if returned $current is used, tests fails, should
+      # investigate why, maybe because it is redundant
+      # with _close_container below?
       _end_line_misc_line($self, $current, $source_info);
     } elsif ($current->{'type'} eq 'block_line_arg') {
       _end_line_starting_block($self, $current, $source_info);
+    } else {
+      print STDERR "No need of type closing function\n" if ($self->{'DEBUG'});
     }
     $current = _close_container($self, $current);
   } else { # Should never go here.
@@ -3299,7 +3304,8 @@ sub _end_line_misc_line($$$)
   # associated to CM_item_LINE
   $data_cmdname = 'item_LINE' if ($command eq 'item');
 
-  # FIXME add a condition to avoid linecommands?
+  # FIXME add a condition to avoid this check in linemacro defined
+  # commands calls?
   if ($self->{'basic_inline_commands'}
       and $self->{'basic_inline_commands'}->{$data_cmdname}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
@@ -3674,8 +3680,8 @@ sub _end_line_def_line($$$)
     # $def_command = $current->{'parent'}->{'extra'}->{'name'};
   }
 
-  print STDERR "END DEF LINE $def_command; current: "
-    .Texinfo::Common::debug_print_element($current)."\n"
+  print STDERR "END DEF LINE $top_context $def_command; current: "
+    .Texinfo::Common::debug_print_element($current, 1)."\n"
       if ($self->{'DEBUG'});
 
   my $arguments = _parse_def($self, $def_command, $current, $source_info);
@@ -3734,6 +3740,15 @@ sub _end_line_def_line($$$)
     # remove linemacro call from the tree, it remains associated
     # to the source mark
     my $popped = _pop_element_from_contents($self, $current);
+    #if ($popped ne $macro_source_mark->{'element'}) {
+    #  $self->_bug_message("popped $popped ne $macro_source_mark->{'element'}"
+    #            ." in linemacro command call\n", $source_info, $current);
+    #}
+    #if (!$popped->{'type'} or $popped->{'type'} ne 'linemacro_call') {
+    #  $self->_bug_message("unexpected linemacro popped in parse_def "
+    #         .Texinfo::Common::debug_print_element($popped, 1),
+    #            $source_info, $current);
+    #}
     delete $popped->{'parent'};
     _register_source_mark($self, $current, $macro_source_mark);
     $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
@@ -4273,6 +4288,8 @@ sub _end_line($$$)
 
   my $current_old = $current;
 
+  my $in_macro_expansion;
+
   # a line consisting only of spaces.
   if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
@@ -4342,6 +4359,11 @@ sub _end_line($$$)
   # misc command line arguments
   # Never go here if lineraw/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
+    if ($current->{'parent'}->{'type'}
+        and $current->{'parent'}->{'type'} eq 'linemacro_call') {
+      # we could have checked the context too
+      $in_macro_expansion = $current->{'parent'}->{'extra'}->{'name'};
+    }
     $current = _end_line_misc_line($self, $current, $source_info);
   }
 
@@ -4350,8 +4372,17 @@ sub _end_line($$$)
   my $top_context = $self->_top_context();
   if ($top_context eq 'ct_line' or $top_context eq 'ct_def'
       or $top_context eq 'ct_linecommand') {
+    if (defined($in_macro_expansion)) {
+      # if in a linemacro command call nested on a line, we do not close
+      # the preceding commands yet, as they might use the expansion
+      print STDERR "Expanded \@$in_macro_expansion still line/block"
+       ." command $top_context:"
+       .Texinfo::Common::debug_print_element($current)."\n"
+        if ($self->{'DEBUG'});
+      return $current;
+    }
     print STDERR "Still opened line/block command $top_context:"
-      .Texinfo::Common::debug_print_element($current)
+      .Texinfo::Common::debug_print_element($current)."\n"
         if ($self->{'DEBUG'});
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'} and !($current->{'parent'}->{'type'}
@@ -4360,7 +4391,7 @@ sub _end_line($$$)
       }
     } elsif ($top_context eq 'ct_linecommand') {
       while ($current->{'parent'} and !($current->{'parent'}->{'type'}
-             and $current->{'parent'}->{'type'} eq 'linecommand_call')) {
+              and $current->{'parent'}->{'type'} eq 'linemacro_call')) {
         $current = _close_current($self, $current, $source_info);
       }
     } else {
@@ -5378,6 +5409,8 @@ sub _handle_line_command($$$$$$)
         # Do not make the @subentry element a child of the index
         # command.  This means that spaces are preserved properly
         # when converting back to Texinfo.
+        # FIXME check that it is correct to end the line if in a
+        # linemacro command invokation
         $current = _end_line($self, $current, $source_info);
       } elsif ($sectioning_heading_commands{$data_cmdname}) {
         if ($self->{'sections_level'}) {
@@ -5858,7 +5891,7 @@ sub _handle_close_brace($$$)
   if ($current->{'type'} and $current->{'type'} eq 'balanced_braces') {
     $current = _merge_text($self, $current, '}');
     $current = $current->{'parent'};
-  } elsif ($current->{'type'} eq 'bracketed_arg') {
+  } elsif ($current->{'type'} and $current->{'type'} eq 'bracketed_arg') {
     _abort_empty_line($self, $current);
     $current = $current->{'parent'};
   } elsif ($current->{'parent'}

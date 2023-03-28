@@ -1124,7 +1124,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'args' => [
             {
-              'text' => 'phoo',
+              'text' => 'phooindex',
               'type' => 'macro_name'
             },
             {
@@ -1173,7 +1173,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             }
           ],
           'info' => {
-            'arg_line' => ' phoo {arg}
+            'arg_line' => ' phooindex {arg}
 '
           },
           'source_info' => {
@@ -1196,7 +1196,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   }
                 ],
                 'extra' => {
-                  'name' => 'phoo'
+                  'name' => 'phooindex'
                 },
                 'type' => 'macro_call'
               },
@@ -1329,7 +1329,7 @@ $result_texis{'macro_alias_definfoenclose_defindex'} = '@node Top
 @alias phooindex = strong
 @strong{all}
 
-@macro phoo {arg}
+@macro phooindex {arg}
 %%\\arg\\%%
 @end macro
 %%mmm%%
