@@ -495,6 +495,7 @@ Defining New Texinfo Commands
 * Invoking Macros::             Using a macro, once you've defined it.
 * Macro Details::               Limitations of Texinfo macros.
 * @code{@@alias}::                      Command aliases.
+* Line Macros::                 Macros using whole line for arguments.
 * @code{@@definfoenclose}::             Customized highlighting.
 * External Macro Processors::   @code{#line} directives.
 
@@ -12174,6 +12175,9 @@ Description of set-var and var.
 Description of set-var and var.
 @end defblock
 
+It may be useful to define line macros (@pxref{Line Macros}) in combination
+with these commands.
+
 
 
 @node Def Cmd Conventions
@@ -13446,6 +13450,10 @@ command, which is for documenting macros in the subject area of the
 manual (@pxref{Def Cmd Template}).
 
 @item
+@samp{@@linemacro} allows you to define a macro whose arguments
+extend to the end of the line and are separated by spaces.
+
+@item
 @samp{@@alias} defines a new name for an existing command.
 
 @item
@@ -13468,6 +13476,7 @@ If you want to do simple text substitution, @code{@@set} and
 * Invoking Macros::             Using a macro, once you've defined it.
 * Macro Details::               Limitations of Texinfo macros.
 * @code{@@alias}::                      Command aliases.
+* Line Macros::                 Macros using whole line for arguments.
 * @code{@@definfoenclose}::             Customized highlighting.
 * External Macro Processors::   @code{#line} directives.
 @end menu
@@ -14035,6 +14044,82 @@ Alias identifiers should be the same as for macro names, that is
 alphanumerics and (except as the first character) @samp{-}.  However,
 with @TeX{}, letters only should be used.  So, we recommend using only
 letters.
+
+
+@node Line Macros
+@section Line Macros
+
+You can also define a macro using the @samp{@@linemacro} command.
+The syntax for line macro definitions is similar to that for
+@code{@@macro}.
+
+However, the syntax for using a macro defined this way is different.
+The macro call uses the rest of the line, with arguments separated
+by spaces.  The line macro facility is mainly intended to allow you
+to define commands that operate similarly to the builtin commands
+for providing definitions (@pxref{Definition Commands}).
+
+For example:
+
+@example
+@@linemacro defbuiltin @{name, args@}
+@@defline @{Builtin@} \name\ \args\
+@@end linemacro
+@end example
+
+The above macro may be used as
+
+@example
+@@defblock
+@@defbuiltin foo (bar)
+Explanation
+@@end defblock
+@end example
+
+This produces the following result:
+
+@linemacro defbuiltin {name, args}
+@defline {Builtin} \name\ \args\
+@end linemacro
+
+@defblock
+@defbuiltin foo (bar)
+Explanation
+@end defblock
+
+Here the first argument is @samp{foo}, and is substituted where
+@samp{\name\} appears in the macro body.  Likewise, @samp{(bar)}
+is substituted for @samp{\args\}.
+
+You can include spaces in a macro argument by surrounding the argument
+by braces.  Any pair of braces enclosing an argument is removed
+before substitution.  Any empty arguments (including the last one)
+must be given as @samp{@{@}}.
+
+Additionally, non-initial spaces may appear in the final argument in
+the argument list without surrounding braces (as in the example below).
+
+If an argument line for a line macro ends in a @samp{@@} character,
+then this character together with the following newline are included
+in a macro argument, and the following line in the input file is also
+used to get the arguments for the macro.  Note that any substitution
+of the @samp{@@@var{<newline>}} sequence must be in a valid context,
+such as a definition line (@pxref{Def Cmd Continuation Lines}).
+
+For example, if the above macro was used as
+
+@example
+@@defbuiltin openbox (room, cupboard,@@
+key)
+@end example
+
+@noindent the two arguments would be @samp{openbox} and
+@w{@samp{(room, cupboard,@@@var{<newline>}key)}}.
+
+Line macros produce a whole number of lines of output in their expansion.
+There may be better compatibility between the Texinfo processors
+(@command{texi2any} and @TeX{} with @file{texinfo.tex}) for macros defined
+with @code{@@linemacro} than for those defined with @code{@@macro}.
 
 
 @node @code{@@definfoenclose}
