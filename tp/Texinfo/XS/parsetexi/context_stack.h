@@ -42,8 +42,8 @@ enum context {
 void push_context (enum context c, enum command_id cmd);
 enum context pop_context (void);
 enum context current_context (void);
-enum command_id current_context_command (void);
 void reset_context_stack (void);
+int in_context (enum context context);
 
 
 
@@ -58,6 +58,7 @@ void reset_command_stack (COMMAND_STACK *stack);
 void push_command (COMMAND_STACK *stack, enum command_id cmd);
 enum command_id pop_command (COMMAND_STACK *stack);
 enum command_id top_command (COMMAND_STACK *stack);
+enum command_id current_context_command (void);
 
 
 /* Used to check indirect nesting, e.g. @footnote{@emph{@footnote{...}}} */

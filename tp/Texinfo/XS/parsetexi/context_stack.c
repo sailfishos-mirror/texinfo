@@ -71,6 +71,20 @@ top_command (COMMAND_STACK *stack)
   return stack->stack[stack->top - 1];
 }
 
+enum command_id
+current_context_command (void)
+{
+  int i;
+
+  if (top == 0)
+    return CM_NONE;
+  for (i = top -1; i >= 0; i--)
+    {
+      if (command_stack.stack[i] != CM_NONE)
+        return command_stack.stack[i];
+    }
+  return CM_NONE;
+}
 
 /* Context stacks */
 
@@ -93,6 +107,7 @@ push_context (enum context c, enum command_id cmd)
          : c == ct_line ? "line"
          : c == ct_def ? "def"
          : c == ct_brace_command ? "brace_command"
+         : c == ct_linecommand ? "linemacro_command"
          : "", command_name(cmd));
   context_stack[top] = c;
   top++;
@@ -121,21 +136,21 @@ current_context (void)
   return context_stack[top - 1];
 }
 
-enum command_id
-current_context_command (void)
+int
+in_context (enum context context)
 {
   int i;
 
   if (top == 0)
-    return CM_NONE;
-  for (i = top -1; i >= 0; i--)
-    {
-      if (command_stack.stack[i] != CM_NONE)
-        return command_stack.stack[i];
-    }
-  return CM_NONE;
-}
+    return 0;
 
+  for (i = 0; i < top; i++)
+    {
+      if (context_stack[i] == context)
+        return 1;
+    }
+  return 0;
+}
 
 
 

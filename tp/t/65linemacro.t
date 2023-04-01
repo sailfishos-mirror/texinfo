@@ -13,6 +13,34 @@ my @test_cases = (
 
 @nospace X Y Z
 '],
+['brace_command_not_closed',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@mycommand @code{in code
+
+'],
+['verb_not_closed',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@mycommand @verb{: in verb
+
+'],
+['paragraph_no_paragraph',
+'@linemacro mycommand {a, b, c}
+\a\, \b\ \c\
+@end linemacro
+
+@* @mycommand @anchor{aa} definite and @code{more}
+
+Some text @mycommand {a
+  protected} in @var{the
+ call}
+and after.
+'],
 ['missing_formal_arg',
 '@linemacro mymacro {a, , b}
 \a\ and \b\.

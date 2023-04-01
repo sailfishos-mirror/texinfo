@@ -2435,7 +2435,19 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       free (allocated_line);
       line = allocated_line = next_text (current);
       if (!allocated_line)
-        break; /* Out of input. */
+        {
+          if (in_context (ct_linecommand))
+            {
+              /*
+              if we are in a linemacro command expansion and at the end
+              of input, there may actually be more input after the expansion.
+              So we call end_line to trigger the expansion.
+              */
+              current = end_line (current);
+              continue;
+            }
+          break; /* Out of input. */
+        }
 
       debug_nonl ("NEW LINE %s", line);
 
@@ -2560,7 +2572,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
     fprintf (stderr, "BUG: at end, value_expansion_nr > 0: %d\n",
              value_expansion_nr);
   if (input_number > 0)
-    fprintf (stderr, "BUG: at end, input_number > 0: %d", input_number);
+    fprintf (stderr, "BUG: at end, input_number > 0: %d\n", input_number);
 
   return current;
 }

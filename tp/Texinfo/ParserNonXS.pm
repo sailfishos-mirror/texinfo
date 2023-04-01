@@ -7055,10 +7055,20 @@ sub _parse_texi($$$)
     ($line, $source_info) = _next_text($self, $current);
     if (!defined($line)) {
       print STDERR "NEXT_LINE NO MORE\n" if ($self->{'DEBUG'});
+      # if we are in a linemacro command expansion and at the end
+      # of input, there may actually be more input after the expansion.
+      # So we call _end_line to trigger the expansion.
+      my @context_stack = $self->_get_context_stack;
+      foreach my $context (@context_stack) {
+        if ($context eq 'ct_linecommand') {
+          $current = _end_line($self, $current, $source_info);
+          next NEXT_LINE;
+        }
+      }
       last;
     }
-#print STDERR "@{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}}|$line"
-#if ($self->{'nesting_context'} and $self->{'nesting_context'}->{'basic_inline_stack_on_line'});
+    #print STDERR "@{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}}|$line"
+    #if ($self->{'nesting_context'} and $self->{'nesting_context'}->{'basic_inline_stack_on_line'});
 
     if ($self->{'DEBUG'}) {
       my $source_info_text = '';
@@ -7117,6 +7127,7 @@ sub _parse_texi($$$)
       ($current, $line, $source_info, $status)
          = _process_remaining_on_line($self, $current, $line, $source_info);
       if ($status == $GET_A_NEW_LINE) {
+        print STDERR "GET_A_NEW_LINE\n" if ($self->{'DEBUG'});
         last;
       } elsif ($status == $FINISHED_TOTALLY) {
         print STDERR "FINISHED_TOTALLY\n" if ($self->{'DEBUG'});
