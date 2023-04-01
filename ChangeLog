@@ -6,6 +6,9 @@
 	command expansion at the end of input, call end_line to get new input
 	corresponding to the linemacro command expansion.
 
+	* tp/t/65linemacro.t, tp/Makefile.tres: add brace_command_not_closed,
+	verb_not_closed and paragraph_no_paragraph tests.
+
 2023-03-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
