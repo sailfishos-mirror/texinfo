@@ -336,7 +336,11 @@ $result_trees{'nested_linemacro_calls'} = {
                                         'text' => ' ( remaining, type typed )}'
                                       }
                                     ],
-                                    'source_info' => {},
+                                    'source_info' => {
+                                      'file_name' => '',
+                                      'line_nr' => 11,
+                                      'macro' => 'inside'
+                                    },
                                     'type' => 'balanced_braces'
                                   }
                                 ],
@@ -617,7 +621,6 @@ $result_trees{'nested_linemacro_calls'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'source_marks'}[0]{'element'}{'args'}[0]{'contents'}[2]{'contents'}[2]{'source_info'} = $result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'source_marks'}[0]{'element'}{'args'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'source_info'};
 $result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'nested_linemacro_calls'} = '@linemacro inside {a, b}

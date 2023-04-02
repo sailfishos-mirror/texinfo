@@ -1,5 +1,11 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm
+	(_handle_brace_command, _handle_open_brace):
+	Duplicate 'source_info' hashes to avoid disparity with XS test results.
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in):
 	Relocate index entries before setting 'entry_associated_element'.
 

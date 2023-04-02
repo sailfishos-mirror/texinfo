@@ -5679,7 +5679,7 @@ sub _handle_brace_command($$$$)
      if ($self->{'DEBUG'});
 
   my $command_e = { 'cmdname' => $command, 'parent' => $current,};
-  $command_e->{'source_info'} = $source_info;
+  $command_e->{'source_info'} = {%{$source_info}};
   push @{$current->{'contents'}}, $command_e;
   if ($in_index_commands{$command}
       and !_is_index_element($self, $current->{'parent'})) {
@@ -5856,7 +5856,7 @@ sub _handle_open_brace($$$$)
     my $balanced_braces = {'type' => 'balanced_braces',
                            'contents' => [],
                            'parent' => $current,
-                           'source_info' => $source_info};
+                           'source_info' => {%{$source_info}}};
     push @{$current->{'contents'}}, $balanced_braces;
     $current = $balanced_braces;
     my $open_brace = {'text' => '{', 'parent' => $current};
