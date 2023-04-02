@@ -1,5 +1,10 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/22xtable.t (item_index_transformation):
+	New test using 'relate_index_entries_to_item' transformation.
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf (gdb, stabs): Update.
 	From Thérèse Godefroy <godef.th@free.fr>
 

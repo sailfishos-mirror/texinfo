@@ -460,7 +460,7 @@ my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
   # FIXME remaining_args should not be present in the final tree, but they are
     'remaining_args',
     'structure', 'menu_child', 'unit_next', 'directions', 'page_next',
-    'parent');
+    'parent', 'element');
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;
 }

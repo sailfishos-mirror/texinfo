@@ -194,6 +194,55 @@ aaaaa
 @vindex var
 @end table
 '],
+['item_index_transformation',
+'@node chap
+@chapter Chapter
+
+@table @asis
+@cindex Before1
+@item one
+@itemx onex
+@itemx oney
+@cindex After1
+@cindex After2
+AAA
+@item two
+BBB
+@end table
+
+@table @asis
+@item three
+@itemx threex
+@itemx zzzz
+@cindex after1
+@cindex after2
+CCCC
+@item zzzz2
+DDDDD
+@end table
+
+@table @asis
+@cindex before1
+@cindex before2
+@item four
+@itemx fourx
+EEEE
+@item foour
+FFFFf
+@end table
+
+@table @asis
+@item five
+GGGG
+@item six
+@itemx sixx
+@cindex after6
+@cindex after7
+HHHHHH
+@end table
+',
+{'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_items'}
+],
 ['block_commands_in_table',
 '@node Top
 @top Element

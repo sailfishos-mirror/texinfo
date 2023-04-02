@@ -75,23 +75,6 @@ $result_trees{'no_arguments'} = {
           'source_marks' => [
             {
               'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'noarg'
-                },
-                'type' => 'linemacro_call'
-              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
@@ -125,43 +108,6 @@ $result_trees{'no_arguments'} = {
           'source_marks' => [
             {
               'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'A'
-                      },
-                      {
-                        'extra' => {
-                          'def_role' => 'spaces'
-                        },
-                        'text' => ' ',
-                        'type' => 'spaces'
-                      },
-                      {
-                        'text' => 'B'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'noarg'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
@@ -195,38 +141,6 @@ $result_trees{'no_arguments'} = {
           'source_marks' => [
             {
               'counter' => 3,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'in brace'
-                          }
-                        ],
-                        'type' => 'bracketed_arg'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'name' => 'noarg'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
