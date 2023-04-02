@@ -138,6 +138,43 @@ $result_trees{'empty_last_argument'} = {
                   'source_marks' => [
                     {
                       'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'foo'
+                              },
+                              {
+                                'extra' => {
+                                  'def_role' => 'spaces'
+                                },
+                                'text' => ' ',
+                                'type' => 'spaces'
+                              },
+                              {
+                                'type' => 'bracketed_arg'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'defbuiltin'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'linemacro_call'
+                      },
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
@@ -253,6 +290,33 @@ $result_trees{'empty_last_argument'} = {
                   'source_marks' => [
                     {
                       'counter' => 2,
+                      'element' => {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'foo'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'defbuiltin'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'linemacro_call'
+                      },
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }
@@ -368,6 +432,58 @@ $result_trees{'empty_last_argument'} = {
                   'source_marks' => [
                     {
                       'counter' => 3,
+                      'element' => {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'foo'
+                              },
+                              {
+                                'extra' => {
+                                  'def_role' => 'spaces'
+                                },
+                                'text' => ' ',
+                                'type' => 'spaces'
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => '{}'
+                                      }
+                                    ],
+                                    'source_info' => {
+                                      'file_name' => '',
+                                      'line_nr' => 12,
+                                      'macro' => ''
+                                    },
+                                    'type' => 'balanced_braces'
+                                  }
+                                ],
+                                'type' => 'bracketed_arg'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'line_arg'
+                          }
+                        ],
+                        'extra' => {
+                          'name' => 'defbuiltin'
+                        },
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'linemacro_call'
+                      },
                       'sourcemark_type' => 'linemacro_expansion',
                       'status' => 'start'
                     }

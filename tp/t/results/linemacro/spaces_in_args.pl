@@ -97,6 +97,89 @@ $result_trees{'spaces_in_args'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => ' '
+                          },
+                          'spaces_before_argument' => {
+                            'text' => '  '
+                          }
+                        },
+                        'type' => 'bracketed_arg'
+                      },
+                      {
+                        'extra' => {
+                          'def_role' => 'spaces'
+                        },
+                        'text' => ' ',
+                        'type' => 'spaces'
+                      },
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'd'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '  '
+                          },
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'bracketed_arg'
+                      },
+                      {
+                        'extra' => {
+                          'def_role' => 'spaces'
+                        },
+                        'text' => ' ',
+                        'type' => 'spaces'
+                      },
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'rest'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => '   '
+                          }
+                        },
+                        'type' => 'bracketed_arg'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mylinecommand'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'type' => 'linemacro_call'
+              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }

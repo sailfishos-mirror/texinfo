@@ -87,6 +87,52 @@ $result_trees{'verb_not_closed'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'args' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => ' in verb
+',
+                                'type' => 'raw'
+                              },
+                              {
+                                'text' => '
+',
+                                'type' => 'raw'
+                              }
+                            ],
+                            'type' => 'brace_command_arg'
+                          }
+                        ],
+                        'cmdname' => 'verb',
+                        'info' => {
+                          'delimiter' => ':'
+                        },
+                        'source_info' => {
+                          'file_name' => '',
+                          'line_nr' => 5,
+                          'macro' => ''
+                        }
+                      }
+                    ],
+                    'type' => 'line_arg'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mycommand'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'type' => 'linemacro_call'
+              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }

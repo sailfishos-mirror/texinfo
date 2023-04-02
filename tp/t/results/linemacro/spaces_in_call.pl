@@ -97,6 +97,54 @@ $result_trees{'spaces_in_call'} = {
           'source_marks' => [
             {
               'counter' => 1,
+              'element' => {
+                'args' => [
+                  {
+                    'contents' => [
+                      {
+                        'contents' => [
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'a b'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'c d'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
+                          },
+                          {
+                            'contents' => [
+                              {
+                                'text' => 'rest'
+                              }
+                            ],
+                            'type' => 'bracketed_arg'
+                          }
+                        ],
+                        'type' => 'def_aggregate'
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'line_arg'
+                  }
+                ],
+                'extra' => {
+                  'name' => 'mylinecommand'
+                },
+                'type' => 'linemacro_call'
+              },
               'sourcemark_type' => 'linemacro_expansion',
               'status' => 'start'
             }
