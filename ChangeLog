@@ -1,6 +1,11 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* tp/Texinfo//XS/parsetexi/multitable.c (gather_previous_item):
+	* tp/Texinfo/Common.pm (_relate_index_entries_to_table_items_in):
+	Relocate index entries before setting 'entry_associated_element'.
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
 	Rename variables to match XS code.
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item): add comment.
 

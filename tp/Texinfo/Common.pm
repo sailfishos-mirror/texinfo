@@ -2328,14 +2328,13 @@ sub _move_index_entries_after_items($$)
   return ($current);
 }
 
+# For @itemize/@enumerate
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
   return modify_tree($tree, \&_move_index_entries_after_items);
 }
 
-# Locate all @tables in the tree, and relate index entries to
-# the @item that immediately follows or precedes them.
 sub _relate_index_entries_to_table_items_in($$)
 {
   my $table = shift;
@@ -2348,7 +2347,27 @@ sub _relate_index_entries_to_table_items_in($$)
       and $table_entry->{'type'} eq 'table_entry';
 
     my $term = $table_entry->{'contents'}->[0];
+    my $definition;
     my $item;
+    my @moved_index_entries;
+
+    # Move any index entries from the start of a 'table_definition' to
+    # the 'table_term'.
+    if (defined($table_entry->{'contents'}->[1])
+        and defined($table_entry->{'contents'}->[1]->{'type'})
+        and $table_entry->{'contents'}->[1]->{'type'} eq 'table_definition') {
+      $definition = $table_entry->{'contents'}->[1];
+
+      while (defined($definition->{'contents'}->[0])) {
+        my $child = $definition->{'contents'}->[0];
+        last if !defined($child->{'type'})
+               or $child->{'type'} ne 'index_entry_command';
+        shift @{$definition->{'contents'}};
+        push @moved_index_entries, $child;
+        $child->{'parent'} = $term;
+      }
+      unshift @{$term->{'contents'}}, @moved_index_entries;
+    }
 
     if (defined($term->{'type'}) and $term->{'type'} eq 'table_term') {
       # Relate the first index_entry_command in the 'table_term' to
@@ -2368,35 +2387,18 @@ sub _relate_index_entries_to_table_items_in($$)
           $item = $content unless $item;
         }
         if ($item and $index_entry) {
-          # FIXME it is not ideal, as it adds an undocumented key to
-          # the index entry.  It is better than resetting 'entry_element',
-          # as the 'entry_element' holds information important for the
-          # index entry.
+          # This is better than overwriting 'entry_element', which
+          # holds important information.
           $index_entry->{'entry_associated_element'} = $item;
           last;
         }
       }
     }
-
-    # Also move index entries from the start of a 'table_definition' to
-    # the 'table_term'.
-    if (defined($item)
-        and defined($table_entry->{'contents'}->[1])
-        and defined($table_entry->{'contents'}->[1]->{'type'})
-        and $table_entry->{'contents'}->[1]->{'type'} eq 'table_definition') {
-      my $definition = $table_entry->{'contents'}->[1];
-      while (defined($definition->{'contents'}->[0])) {
-        my $child = $definition->{'contents'}->[0];
-        last if !defined($child->{'type'})
-               or $child->{'type'} ne 'index_entry_command';
-        shift @{$definition->{'contents'}};
-        unshift @{$term->{'contents'}}, $child;
-        $child->{'parent'} = $term;
-      }
-    }
   }
 }
 
+# Locate all @tables in the tree, and relate index entries to
+# the @item that immediately follows or precedes them.
 sub _relate_index_entries_to_table_items($$$)
 {
   my $type = shift;
@@ -2815,8 +2817,9 @@ between index entries are moved too.
 =item relate_index_entries_to_table_items_in_tree($tree)
 X<C<relate_index_entries_to_table_items_in_tree>>
 
-In tables, relates index entries preceding items with said item, by placing it
-inside the entry's C<entry_element>.
+In tables, relate index entries preceding and following an
+entry with said item.  Reference one of them in the entry's
+C<entry_associated_element>.
 
 =item $normalized_name = normalize_top_node_name($node_string)
 X<C<normalize_top_node_name>>
