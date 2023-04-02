@@ -2582,6 +2582,8 @@ $default_no_arg_commands_formatting{'normal'}->{"\n"} = {'text' => '&nbsp;'};
 
 $default_no_arg_commands_formatting{'normal'}->{'enddots'}
     = {'element' => 'small', 'text' => '...'};
+$default_no_arg_commands_formatting{'preformatted'}->{'dots'}
+    = {'text' => '...'};
 $default_no_arg_commands_formatting{'preformatted'}->{'enddots'}
     = {'text' => '...'};
 $default_no_arg_commands_formatting{'normal'}->{'*'} = {'text' => '<br>'};

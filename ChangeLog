@@ -1,5 +1,12 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):
+	In 'preformatted' context, use '...' for @dots as well as for
+	@enddots.  This is because a monospaced ellipsis looks bad inside
+	@example.
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/22xtable.t (item_index_transformation):
 	New test using 'relate_index_entries_to_item' transformation.
 
