@@ -1,5 +1,13 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/indices.c (info_indices_of_file_buffer): Check for
+	N_IsIndex flag on index nodes.  This has the effect that typing
+	'i<ret>' avoids taking you to a node with "Index" in the name
+	that is not a real index, as long as there are other nodes with
+	the index marker in them.
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):
 	In 'preformatted' context, use '...' for @dots as well as for
 	@enddots.  This is because a monospaced ellipsis looks bad inside
