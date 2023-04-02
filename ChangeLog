@@ -1,5 +1,10 @@
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.cnf (gdb, stabs): Update.
+	From Thérèse Godefroy <godef.th@free.fr>
+
+2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm
 	(_handle_brace_command, _handle_open_brace):
 	Duplicate 'source_info' hashes to avoid disparity with XS test results.
