@@ -65,7 +65,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   ELEMENT *table_after_terms, *e;
   enum element_type type;
   int i, contents_count;
-  int splice_idx = -1, splice_idx2 = -1, splice_idx3 = -1;
+  int begin = -1, end = -1, term_begin = -1;
 
   if (last_contents_child(current)
       && last_contents_child(current)->type == ET_before_item)
@@ -85,39 +85,38 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       e = contents_child_by_index (current, i);
       if (e->cmd == CM_item || e->cmd == CM_itemx)
         {
-          splice_idx = i + 1;
+          begin = i + 1;
           break;
         }
     }
-  if (splice_idx == -1)
-    splice_idx = 0;
+  if (begin == -1)
+    begin = 0;
 
   if (next_command)
     {
       /* Don't absorb trailing index entries as they are included with a
          following @item. */
-      for (i = contents_count - 1; i >= splice_idx; i--)
+      for (i = contents_count - 1; i >= begin; i--)
         {
           e = contents_child_by_index (current, i);
           if (e->type != ET_index_entry_command)
             {
-              splice_idx2 = i + 1;
+              end = i + 1;
               break;
             }
         }
     }
-  if (splice_idx2 == -1)
-    splice_idx2 = contents_count;
+  if (end == -1)
+    end = contents_count;
 
   table_after_terms = new_element (type);
 
-  /* Move everything from splice_idx onwards to be children of
+  /* Move everything from 'begin' onwards to be children of
      table_after_terms. */
-  insert_slice_into_contents (table_after_terms, 0, current,
-                              splice_idx, splice_idx2);
+  insert_slice_into_contents (table_after_terms, 0, current, begin, end);
   for (i = 0; i < table_after_terms->contents.number; i++)
     contents_child_by_index(table_after_terms, i)->parent = table_after_terms;
-  remove_slice_from_contents (current, splice_idx, splice_idx2);
+  remove_slice_from_contents (current, begin, end);
 
   if (type == ET_table_definition)
     {
@@ -128,7 +127,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 
       /* We previously collected elements into a ET_table_definition.  Now
          do the same for ET_table_term. */
-       for (i = splice_idx - 1; i >= 0; i--)
+       for (i = begin - 1; i >= 0; i--)
          {
            e = contents_child_by_index (current, i);
            if (e->type == ET_before_item
@@ -136,18 +135,18 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
              {
                if (e->type == ET_before_item)
                  before_item = e;
-               splice_idx3 = i + 1;
+               term_begin = i + 1;
                break;
              }
          }
-      if (splice_idx3 == -1)
-        splice_idx3 = 0;
+      if (term_begin == -1)
+        term_begin = 0;
 
       insert_slice_into_contents (table_term, 0, current,
-                                  splice_idx3, splice_idx);
+                                  term_begin, begin);
       for (i = 0; i < table_term->contents.number; i++)
         contents_child_by_index(table_term, i)->parent = table_term;
-      remove_slice_from_contents (current, splice_idx3, splice_idx);
+      remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
           /* Reparent any trailing index entries in the before_item to the
@@ -169,7 +168,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       else
         destroy_element (table_after_terms);
 
-      insert_into_contents (current, table_entry, splice_idx3);
+      insert_into_contents (current, table_entry, term_begin);
     }
   else /* Gathering ET_inter_item between @item and @itemx */
     {
@@ -179,7 +178,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
         line_error ("@itemx must follow @item");
 
       if (table_after_terms->contents.number > 0)
-        insert_into_contents (current, table_after_terms, splice_idx);
+        insert_into_contents (current, table_after_terms, begin);
       else
         destroy_element (table_after_terms);
     }

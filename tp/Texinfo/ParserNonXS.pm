@@ -1773,6 +1773,7 @@ sub _gather_previous_item($$;$$)
     }
     splice @{$current->{'contents'}}, $term_begin, 0, $table_entry;
   } else {
+    # Gathering 'inter_item' between @item and @itemx
     if ($table_after_terms) {
       my $after_paragraph = _check_no_text($table_after_terms);
       if ($after_paragraph) {
