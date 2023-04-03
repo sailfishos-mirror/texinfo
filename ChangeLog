@@ -1,5 +1,9 @@
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Run gnulib-tool --add-import
+
+2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-infoc (output_dirfile): Use chmod
 	instead of fchmod as fchmod doesn't exist on MinGW.  From
 	Arash Esbati.

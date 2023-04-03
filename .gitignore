@@ -48,6 +48,7 @@ gnulib/lib/alloca.h
 gnulib/lib/argz.h
 gnulib/lib/configmake.h
 gnulib/lib/errno.h
+gnulib/lib/error.h
 gnulib/lib/fcntl.h
 gnulib/lib/getopt.h
 gnulib/lib/inttypes.h

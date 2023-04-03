@@ -36,12 +36,23 @@
 
 #ifndef _@GUARD_PREFIX@_STDIO_H
 
+/* Suppress macOS deprecation warnings for sprintf and vsprintf.  */
+#if (defined __APPLE__ && defined __MACH__) && !defined _POSIX_C_SOURCE
+# define _POSIX_C_SOURCE 200809L
+# define _GL_DEFINED__POSIX_C_SOURCE
+#endif
+
 #define _GL_ALREADY_INCLUDING_STDIO_H
 
 /* The include_next requires a split double-inclusion guard.  */
 #@INCLUDE_NEXT@ @NEXT_STDIO_H@
 
 #undef _GL_ALREADY_INCLUDING_STDIO_H
+
+#ifdef _GL_DEFINED__POSIX_C_SOURCE
+# undef _GL_DEFINED__POSIX_C_SOURCE
+# undef _POSIX_C_SOURCE
+#endif
 
 #ifndef _@GUARD_PREFIX@_STDIO_H
 #define _@GUARD_PREFIX@_STDIO_H
@@ -192,6 +203,37 @@
      && defined __GNUC__ && defined __STDC__)
 # undef putc_unlocked
 #endif
+
+
+/* Maximum number of characters produced by printing a NaN value.  */
+#ifndef _PRINTF_NAN_LEN_MAX
+# if defined __FreeBSD__ || defined __DragonFly__ \
+     || defined __NetBSD__ \
+     || defined __OpenBSD__ \
+     || (defined __APPLE__ && defined __MACH__)
+/* On BSD systems, a NaN value prints as just "nan", without a sign.  */
+#  define _PRINTF_NAN_LEN_MAX 3
+# elif (__GLIBC__ >= 2) || MUSL_LIBC || defined __sun || defined __CYGWIN__
+/* glibc, musl libc, Solaris libc, and Cygwin produce "[-]nan".  */
+#  define _PRINTF_NAN_LEN_MAX 4
+# elif defined _AIX
+/* AIX produces "[-]NaNQ".  */
+#  define _PRINTF_NAN_LEN_MAX 5
+# elif defined _WIN32 && !defined __CYGWIN__
+/* On native Windows, the output can be:
+   - with MSVC ucrt: "[-]nan" or "[-]nan(ind)" or "[-]nan(snan)",
+   - with mingw: "[-]1.#IND" or "[-]1.#QNAN".  */
+#  define _PRINTF_NAN_LEN_MAX 10
+# elif defined __sgi
+/* On IRIX, the output typically is "[-]nan0xNNNNNNNN" with 8 hexadecimal
+   digits.  */
+#  define _PRINTF_NAN_LEN_MAX 14
+# else
+/* We don't know, but 32 should be a safe maximum.  */
+#  define _PRINTF_NAN_LEN_MAX 32
+# endif
+#endif
+
 
 #if @GNULIB_DPRINTF@
 # if @REPLACE_DPRINTF@
