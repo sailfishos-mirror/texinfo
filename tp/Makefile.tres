@@ -1930,6 +1930,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/xtable/inter_item_commands_in_table_in_example.pl \
   t/results/xtable/inter_item_commands_in_table_in_example/res_latex \
   t/results/xtable/invalid_command_and_brace_in_table.pl \
+  t/results/xtable/item_index_transformation.pl \
   t/results/xtable/itemx_before_item.pl \
   t/results/xtable/lone_end_table.pl \
   t/results/xtable/long_item.pl \
