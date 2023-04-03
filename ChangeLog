@@ -1,5 +1,9 @@
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/19def.t (deftypeline): New test.
+
+2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@deftypeline in texi2any
 
 	* tp/Texinfo/command_data.txt,

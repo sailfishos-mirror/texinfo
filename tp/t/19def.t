@@ -459,6 +459,12 @@ description2 description2 description2 description2 description2
 misc text inside
 @end defblock
 '],
+['deftypeline',
+'@defblock
+@deftypeline Function {long int} foo (int @var{bar}, int @var{baz})
+@dots{}
+@end defblock
+'],
 );
 
 foreach my $test (@test_defblock) {
