@@ -852,7 +852,7 @@ end_line_def_line (ELEMENT *current)
                                  index_entry);
             }
 
-          if (def_command != CM_defline)
+          if (def_command != CM_defline && def_command != CM_deftypeline)
             enter_index_entry (def_command, current);
         }
       else

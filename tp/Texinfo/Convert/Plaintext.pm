@@ -3034,7 +3034,7 @@ sub _convert($$)
         # are not considered as index entries either so they have a specific
         # condition
         and !($def_commands{$command}
-              and ($command eq 'defline'
+              and ($command eq 'defline' or $command eq 'deftypeline'
                     or $command =~ /x$/))) {
       warn "Unhandled $command\n";
       $result .= "!!!!!!!!! Unhandled $command !!!!!!!!!\n";
@@ -3121,7 +3121,8 @@ sub _convert($$)
                  'category' => $category,
                  'name' => $name});
           }
-        } elsif ($command eq 'deftypefn'
+        } elsif ($command eq 'deftypeline'
+                 or $command eq 'deftypefn'
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {

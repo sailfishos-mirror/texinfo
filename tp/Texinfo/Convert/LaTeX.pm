@@ -4004,6 +4004,7 @@ sub _convert($$)
         # condition
         and !($def_commands{$cmdname}
               and ($cmdname eq 'defline'
+                   or $cmdname eq 'deftypeline'
                    or $cmdname =~ /x$/))) {
       warn "Unhandled $cmdname\n";
       #$result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";

@@ -222,6 +222,7 @@ foreach my $brace_command (keys(%Texinfo::Commands::brace_commands)) {
 
 my %defcommand_name_type = (
  'defline'   => 'symbol',
+ 'deftypeline' => 'symbol',
  'deffn'     => 'function',
  'defvr'     => 'variable',
  'deftypefn' => 'function',

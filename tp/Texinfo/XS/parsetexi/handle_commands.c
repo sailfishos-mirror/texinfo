@@ -787,7 +787,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
               enum command_id cmdname;
               char *val;
 
-              if (cmd == CM_defline)
+              if (cmd == CM_defline || cmd == CM_deftypeline)
                 {
                   base_command = cmd;
                   add_extra_string_dup (command_e, "original_def_cmdname",

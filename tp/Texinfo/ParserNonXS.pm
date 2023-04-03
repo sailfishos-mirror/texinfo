@@ -1795,7 +1795,8 @@ sub _gather_def_item($$;$)
 
   my $type;
   # means that we are between a @def*x and a @def
-  if ($next_command and $next_command ne 'defline') {
+  if ($next_command
+        and $next_command ne 'defline' and $next_command ne 'deftypeline') {
     $type = 'inter_def_item';
   } else {
     $type = 'def_item';
@@ -3801,7 +3802,8 @@ sub _end_line_def_line($$$)
       _enter_index_entry($self,
         $current->{'extra'}->{'def_command'},
         $current, $source_info)
-           if $current->{'extra'}->{'def_command'} ne 'defline';
+           if $current->{'extra'}->{'def_command'} ne 'defline'
+             and $current->{'extra'}->{'def_command'} ne 'deftypeline';
     } else {
       $self->_command_warn($current, $source_info,
                            __('missing name for @%s'),

@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -31,7 +31,8 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   ELEMENT *def_item;
   int contents_count, i;
 
-  if (next_command && next_command != CM_defline)
+  if (next_command
+      && next_command != CM_defline && next_command != CM_deftypeline)
     type = ET_inter_def_item; /* Between @def*x and @def*. */
   else
     type = ET_def_item;
@@ -157,6 +158,7 @@ typedef struct {
      ARGUMENTS - arguments to a function or macro                  */
 
 char *defline_arguments[] = {"category", "name", "arg", 0};
+char *deftypeline_arguments[] = {"category", "type", "name", "argtype", 0};
 char *defvr_arguments[] = {"category", "name", 0};
 char *deftypefn_arguments[] = {"category", "type", "name", "argtype", 0};
 char *deftypeop_arguments[] = {"category", "class" , "type", "name", "argtype", 0};
@@ -168,6 +170,7 @@ char *deftp_arguments[] = {"category", "name", "argtype", 0};
 
 DEF_MAP def_maps[] = {
   CM_defline, defline_arguments,
+  CM_deftypeline, deftypeline_arguments,
   CM_deffn, defline_arguments,
   CM_defvr, defvr_arguments,
   CM_deftypefn, deftypefn_arguments,

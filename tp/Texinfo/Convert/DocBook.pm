@@ -194,6 +194,7 @@ my %default_args_code_style
 
 my %defcommand_name_type = (
  'defline'   => 'varname',
+ 'deftypeline' => 'varname',
  'defcv'     => 'property',
  'deffn'     => 'function',
  'defop'     => 'methodname',

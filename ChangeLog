@@ -1,5 +1,26 @@
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@deftypeline in texi2any
+
+	* tp/Texinfo/command_data.txt,
+	* tp/Texinfo/Common.pm (%def_map),
+	* tp/Texinfo/XS/parsetexi/def.c (def_maps):
+	Add @deftypeline.
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_def_item, _end_line_def_line),
+	* tp/Texinfo/XS/parsetexi/def.c (gather_def_item),
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line),
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	Treat @deftypeline the same as @defline.
+
+	* tp/Texinfo/Convert/DocBook.pm (%defcommand_name_type),
+	* tp/Texinfo/Convert/LaTeX.pm (_convert),
+	* tp/Texinfo/Convert/Plaintext.pm (_convert),
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (%defcommand_name_type):
+	Handle @deftypeline.
+
+2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/Makefile.am (LDADD): Add $(GETRANDOM) in attempt
 	to fix missing BCryptGenRandom symbol on MinGW.
 

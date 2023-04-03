@@ -494,6 +494,7 @@ deftypemethod           block,def,contain_basic_inline,def_alias,close_paragraph
 # generic, no automatic index
 defblock                block,contain_basic_inline,close_paragraph       BLOCK_def
 defline                 line,def,contain_basic_inline,close_paragraph        LINE_line
+deftypeline             line,def,contain_basic_inline,close_paragraph        LINE_line
 
 # def*x
 deffnx                  line,def,contain_basic_inline,close_paragraph        LINE_line
