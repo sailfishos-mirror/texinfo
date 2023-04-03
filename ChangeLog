@@ -1,3 +1,8 @@
+2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/pcterm.c (MAX): Add definition (removed on 2023-01-15).
+	Report from Arash Esbati.
+
 2023-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/indices.c (info_indices_of_file_buffer): Check for

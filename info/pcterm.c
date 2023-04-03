@@ -950,6 +950,15 @@ pc_set_bg_color (int color)
   textbackground (convert_color (color) | (norm_attr & BACKGROUND_INTENSITY));
 }
 
+#ifdef MAX
+#undef MAX
+#endif
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#ifdef MIN
+#undef MIN
+#endif
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+
 /* Move the cursor up one line. */
 static void
 pc_up_line (void)
@@ -958,11 +967,6 @@ pc_up_line (void)
   ScreenGetCursor (&y, &x);
   ScreenSetCursor (MAX (y-1, 0), x);
 }
-
-#ifdef MIN
-#undef MIN
-#endif
-#define MIN(a,b) ((a) < (b) ? (a) : (b))
 
 /* Move the cursor down one line. */
 static void
