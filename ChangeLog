@@ -1,5 +1,10 @@
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/def.c (parse_def): Treat @deftypeline
+	like @deftypefn in alternating between typearg and arg in arguments.
+
+2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/t/19def.t (deftypeline): New test.
 
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>

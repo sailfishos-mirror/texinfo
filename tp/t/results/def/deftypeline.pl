@@ -85,7 +85,7 @@ $result_trees{'deftypeline'} = {
                     },
                     {
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'text' => 'int'
                     },
@@ -133,7 +133,7 @@ $result_trees{'deftypeline'} = {
                     },
                     {
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'text' => 'int'
                     },
@@ -403,7 +403,7 @@ $result_converted{'latex'}->{'deftypeline'} = '\\documentclass{book}
 ';
 
 
-$result_converted{'docbook'}->{'deftypeline'} = '<synopsis><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>long int</returnvalue> <varname>foo</varname> (<emphasis role="arg">int</emphasis> <emphasis role="arg"><replaceable>bar</replaceable></emphasis>, <emphasis role="arg">int</emphasis> <emphasis role="arg"><replaceable>baz</replaceable></emphasis>)</synopsis>
+$result_converted{'docbook'}->{'deftypeline'} = '<synopsis><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>long int</returnvalue> <varname>foo</varname> (<type>int</type> <emphasis role="arg"><replaceable>bar</replaceable></emphasis>, <type>int</type> <emphasis role="arg"><replaceable>baz</replaceable></emphasis>)</synopsis>
 <blockquote><para>&#8230;
 </para></blockquote>';
 

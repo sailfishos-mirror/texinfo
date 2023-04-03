@@ -499,8 +499,8 @@ parse_def (enum command_id command, ELEMENT *current)
      the DocBook output. */
   /* In that case set_type_not_arg is both used to set to argtype and
      to switch sign to switch between arg and argtype */
-  if (command == CM_deftypefn || command == CM_deftypeop
-          || command == CM_deftp)
+  if (command == CM_deftypeline || command == CM_deftypefn
+      || command == CM_deftypeop || command == CM_deftp)
     set_type_not_arg = -1;
   else
     set_type_not_arg = 1;
