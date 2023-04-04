@@ -1,5 +1,10 @@
 2023-04-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Line Macros): Change second example to
+	show use of braces for the return type for @deftypeline.
+
+2023-04-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@link in texinfo.tex
 
 	* doc/texinfo.tex (\xrefX, \getprintedrefname, \startxreflink):

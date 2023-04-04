@@ -14094,10 +14094,9 @@ is substituted for @samp{\args\}.
 You can include spaces in a macro argument by surrounding the argument
 by braces.  Any pair of braces enclosing an argument is removed
 before substitution.  Any empty arguments (including the last one)
-must be given as @samp{@{@}}.
-
-Additionally, non-initial spaces may appear in the final argument in
-the argument list without surrounding braces (as in the example below).
+must be given as @samp{@{@}}.  Additionally, non-initial spaces may
+appear in the final argument in the argument list without surrounding
+braces (as in the example below).
 
 If an argument line for a line macro ends in a @samp{@@} character,
 then this character together with the following newline are included
@@ -14106,15 +14105,36 @@ used to get the arguments for the macro.  Note that any substitution
 of the @samp{@@@var{<newline>}} sequence must be in a valid context,
 such as a definition line (@pxref{Def Cmd Continuation Lines}).
 
-For example, if the above macro was used as
+Another example:
 
 @example
-@@defbuiltin openbox (room, cupboard,@@
-key)
+@@linemacro deffunc @{type, name, args@}
+@@findex \name\
+@@deftypeline @{Func@} @{\type\@} \name\ \args\
+@@end linemacro
+
+@@defblock
+@@deffunc @{long int@} F (int @@var@{one@}, int @@var@{two@},@@
+int @@var@{three@}, int @@var@{four@}, int @@var@{five@})
+Explanation
+@@end defblock
 @end example
 
-@noindent the two arguments would be @samp{openbox} and
-@w{@samp{(room, cupboard,@@@var{<newline>}key)}}.
+@noindent Note how braces are needed around @samp{\type\} in the
+macro body in case the @code{type} argument contains a space.
+This example produces the output below and enters an index entry
+for @code{F}.
+
+@linemacro deffunc {type, name, args}
+@c @findex \name\
+@deftypeline {Func} {\type\} \name\ \args\
+@end linemacro
+
+@defblock
+@deffunc {long int} F (int @var{one}, int @var{two},@
+int @var{three}, int @var{four}, int @var{five})
+Explanation
+@end defblock
 
 Line macros produce a whole number of lines of output in their expansion.
 There may be better compatibility between the Texinfo processors
