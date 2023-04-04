@@ -1,3 +1,16 @@
+2023-04-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@link in texinfo.tex
+
+	* doc/texinfo.tex (\xrefX, \getprintedrefname, \startxreflink):
+	Split out \getprintedrefname and \startxreflink so we can reuse
+	this code.
+	(\link): New experimental command for creating plain link in
+	PDF output with no page number or decoration around link.
+	(\definedummies): Add \link.
+
+	Suggestion from Andreas Falkenhahn (help-texinfo, February 2023).
+
 2023-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/def.c (parse_def): Treat @deftypeline
