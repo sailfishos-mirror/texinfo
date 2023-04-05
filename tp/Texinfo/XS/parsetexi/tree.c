@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -75,17 +75,17 @@ destroy_associated_info (ASSOCIATED_INFO *a)
       switch (a->info[i].type)
         {
         case extra_string:
-          free (a->info[i].value);
+          free ((char *) a->info[i].value);
           break;
         case extra_element_oot:
-          destroy_element_and_children (a->info[i].value);
+          destroy_element_and_children ((ELEMENT *) a->info[i].value);
           break;
         case extra_contents:
           if (a->info[i].value)
             destroy_element ((ELEMENT *) a->info[i].value);
           break;
         case extra_misc_args:
-          destroy_element_and_children (a->info[i].value);
+          destroy_element_and_children ((ELEMENT *) a->info[i].value);
           break;
 
         default:

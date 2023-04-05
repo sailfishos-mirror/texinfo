@@ -1,3 +1,20 @@
+2023-04-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	intptr_t for KEY_PAIR
+
+	* tp/Texinfo/XS/parsetexi/tree_types.h (KEY_PAIR):
+	Store 'value' field as an 'intptr_t', which is said to
+	allow storage of pointer values, and may avoid possible
+	warnings of pointer/integer casts when storing integer values,
+	especially on MS-Windows.  Consequent changes throughout the
+	rest of the code.
+
+	* tp/Texinfo/XS/parsetexi/extra.c
+	(lookup_extra_element, lookup_info_element): New functions to
+	simplify some code that called lookup_info and lookup_extra.
+
+	Suggestion From Eli.
+
 2023-04-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Line Macros): Change second example to

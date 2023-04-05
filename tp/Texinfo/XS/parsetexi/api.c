@@ -316,7 +316,7 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
         {
 #define STORE(sv) hv_store (extra, key, strlen (key), sv, 0)
           char *key = a->info[i].key;
-          ELEMENT *f = a->info[i].value;
+          ELEMENT *f = (ELEMENT *) a->info[i].value;
 
           if (a->info[i].type == extra_deleted)
             continue;

@@ -17,6 +17,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdlib.h>
+#include <stdint.h>
 
 #include "command_ids.h"
 #include "element_types.h"
@@ -57,7 +58,7 @@ enum source_mark_status {
 typedef struct KEY_PAIR {
     char *key;
     enum extra_type type;
-    struct ELEMENT *value;
+    intptr_t value;
 } KEY_PAIR;
 
 typedef struct ELEMENT_LIST {

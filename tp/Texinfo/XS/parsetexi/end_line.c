@@ -709,30 +709,30 @@ end_line_def_line (ELEMENT *current)
                   if (arg->type == ET_bracketed_arg)
                     {
                       /* duplicate leading and trailing spaces info */
-                      KEY_PAIR *kspaces_before
-                        = lookup_info (arg, "spaces_before_argument");
-                      KEY_PAIR *kspaces_after
-                        = lookup_info (arg, "spaces_after_argument");
+                      ELEMENT *spaces_before
+                        = lookup_info_element (arg, "spaces_before_argument");
+                      ELEMENT *spaces_after
+                        = lookup_info_element (arg, "spaces_after_argument");
 
                       if (arg->contents.number > 0
-                          || kspaces_before || kspaces_after)
+                          || spaces_before || spaces_after)
                         {
                           ELEMENT *tmp_element = new_element (ET_NONE);
                           tmp_element->contents = arg->contents;
-                          if (kspaces_before)
+                          if (spaces_before)
                             {
                               ELEMENT *spaces_element = new_element (ET_NONE);
                               text_append (&spaces_element->text,
-                                           (char *)kspaces_before->value->text.text);
+                                           (char *)spaces_before->text.text);
                               add_info_element_oot (tmp_element,
                                                     "spaces_before_argument",
                                                     spaces_element);
                             }
-                          if (kspaces_after)
+                          if (spaces_after)
                             {
                               ELEMENT *spaces_element = new_element (ET_NONE);
                               text_append (&spaces_element->text,
-                                           (char *)kspaces_after->value->text.text);
+                                           (char *)spaces_after->text.text);
                               add_info_element_oot (tmp_element,
                                                     "spaces_after_argument",
                                                     spaces_element);
@@ -901,13 +901,13 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
-      ELEMENT *misc_cmd = k->value;
-      KEY_PAIR *misc_args;
+      ELEMENT *misc_cmd = (ELEMENT *) k->value;
+      ELEMENT *misc_args;
 
-      if ((misc_args = lookup_extra (misc_cmd, "misc_args")))
+      if ((misc_args = lookup_extra_element (misc_cmd, "misc_args")))
         {
           add_extra_integer (current->parent, "max_columns",
-                             misc_args->value->contents.number);
+                             misc_args->contents.number);
         }
       else
         {
@@ -1046,7 +1046,7 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = k->value;
+              ELEMENT *e = (ELEMENT *) k->value;
               if (!(command_flags(e) & CF_brace)
                   || (command_data(e->cmd).data == BRACE_noarg))
                 {
@@ -1074,7 +1074,7 @@ end_line_starting_block (ELEMENT *current)
 
               for (i = 0; i < e->contents.number; i++)
                 {
-                  if (contents_child_by_index (e, i) == k->value)
+                  if (contents_child_by_index (e, i) == (ELEMENT *) k->value)
                     {
                       i++;
                       break;
@@ -1089,7 +1089,7 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
-                      k->value->type = ET_NONE;
+                      ((ELEMENT *) k->value)->type = ET_NONE;
                       k->key = "";
                       k->type = extra_deleted;
                       break;
@@ -1102,7 +1102,7 @@ end_line_starting_block (ELEMENT *current)
       KEY_PAIR *k = lookup_extra (current, "command_as_argument");
       if (k && k->value)
         {
-          enum command_id cmd = k->value->cmd;
+          enum command_id cmd = ((ELEMENT *) k->value)->cmd;
           if (cmd && (command_data(cmd).flags & CF_accent))
             {
               command_warn (current, "accent command `@%s' "

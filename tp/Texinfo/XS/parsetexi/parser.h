@@ -235,6 +235,8 @@ void add_info_string_dup (ELEMENT *e, char *key, char *value);
 void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
 KEY_PAIR *lookup_info (ELEMENT *e, char *key);
+ELEMENT *lookup_extra_element (ELEMENT *e, char *key);
+ELEMENT *lookup_info_element (ELEMENT *e, char *key);
 
 /* In menus.c */
 int handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout);

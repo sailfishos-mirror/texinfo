@@ -892,7 +892,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                   KEY_PAIR *k; ELEMENT *e;
                   k = lookup_extra (parent, "authors");
                   if (k)
-                    e = k->value;
+                    e = (ELEMENT *) k->value;
                   else
                     {
                       e = new_element (ET_NONE);

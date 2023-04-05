@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #include "parser.h"
 
 static void
-add_associated_info_key (ASSOCIATED_INFO *a, char *key, ELEMENT *value,
+add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
                          enum extra_type type)
 {
   int i;
@@ -50,7 +50,8 @@ add_associated_info_key (ASSOCIATED_INFO *a, char *key, ELEMENT *value,
 void
 add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key, value, extra_element);
+  add_associated_info_key (e->extra_info, key,
+                           (intptr_t) value, extra_element);
 }
 
 /* Add an extra key that is a reference to another element that is
@@ -60,13 +61,15 @@ add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key, value, extra_element_oot);
+  add_associated_info_key (e->extra_info,
+                           key, (intptr_t) value, extra_element_oot);
 }
 
 void
 add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->info_info, key, value, extra_element_oot);
+  add_associated_info_key (e->info_info,
+                           key, (intptr_t) value, extra_element_oot);
 }
 
 /* Add an extra key that is a reference to the contents array of another
@@ -74,7 +77,8 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key, value, extra_contents);
+  add_associated_info_key (e->extra_info,
+                           key, (intptr_t) value, extra_contents);
 }
 
 /* Add an extra key that is a reference to the text field of another
@@ -82,46 +86,48 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_text (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key, value, extra_text);
+  add_associated_info_key (e->extra_info, key, (intptr_t) value, extra_text);
 }
 
 void
 add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
 {
   if (!value) return;
-  add_associated_info_key (e->extra_info, key, value, extra_misc_args);
+  add_associated_info_key (e->extra_info,
+                           key, (intptr_t) value, extra_misc_args);
 }
 
 void
 add_extra_string (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value, extra_string);
+  add_associated_info_key (e->extra_info, key, (intptr_t) value, extra_string);
 }
 
 void
 add_info_string (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->info_info, key, (ELEMENT *) value, extra_string);
+  add_associated_info_key (e->info_info, key, (intptr_t) value, extra_string);
 }
 
 void
 add_extra_string_dup (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) strdup (value),
-                           extra_string);
+  add_associated_info_key (e->extra_info,
+                           key, (intptr_t) strdup (value), extra_string);
 }
 
 void
 add_info_string_dup (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->info_info, key, (ELEMENT *) strdup (value),
-                           extra_string);
+  add_associated_info_key (e->info_info,
+                           key, (intptr_t) strdup (value), extra_string);
 }
 
 void
 add_extra_integer (ELEMENT *e, char *key, long value)
 {
-  add_associated_info_key (e->extra_info, key, (ELEMENT *) value, extra_integer);
+  add_associated_info_key (e->extra_info,
+                           key, (intptr_t) value, extra_integer);
 }
 
 KEY_PAIR *
@@ -136,11 +142,32 @@ lookup_associated_info (ASSOCIATED_INFO *a, char *key)
   return 0;
 }
 
+ELEMENT *
+lookup_extra_element (ELEMENT *e, char *key)
+{
+  KEY_PAIR *k;
+  k = lookup_associated_info (e->extra_info, key);
+  if (!k)
+    return 0;
+  return (ELEMENT *) k->value;
+}
+
 KEY_PAIR *
 lookup_extra (ELEMENT *e, char *key)
 {
   return lookup_associated_info (e->extra_info, key);
 }
+
+ELEMENT *
+lookup_info_element (ELEMENT *e, char *key)
+{
+  KEY_PAIR *k;
+  k = lookup_associated_info (e->info_info, key);
+  if (!k)
+    return 0;
+  return (ELEMENT *) k->value;
+}
+
 
 KEY_PAIR *
 lookup_info (ELEMENT *e, char *key)

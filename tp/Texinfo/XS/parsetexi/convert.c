@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -61,26 +61,26 @@ static void
 expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = e->cmd;
-  KEY_PAIR *k, *arg_line, *k_spc_before_arg;
+  KEY_PAIR *k, *arg_line;
+  ELEMENT *elt, *spc_before_arg;
 
   if (cmd)
     {
-      KEY_PAIR *k;
       ADD("@");  ADD(command_name(cmd));
-      k = lookup_info (e, "spaces_after_cmd_before_arg");
-      if (k)
-        ADD((char *)k->value->text.text);
+      elt = lookup_info_element (e, "spaces_after_cmd_before_arg");
+      if (elt)
+        ADD((char *)elt->text.text);
     }
 
-  k_spc_before_arg = lookup_info (e, "spaces_before_argument");
+  spc_before_arg = lookup_info_element (e, "spaces_before_argument");
 
   arg_line = lookup_info (e, "arg_line");
   if (arg_line)
     {
       char *s = 0;
 
-      if (k_spc_before_arg)
-        ADD((char *)k_spc_before_arg->value->text.text);
+      if (spc_before_arg)
+        ADD((char *)spc_before_arg->text.text);
 
       s = (char *)arg_line->value;
       if (s)
@@ -105,8 +105,8 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
           ADD((char *)k->value);
         }
 
-      if (k_spc_before_arg)
-        ADD((char *)k_spc_before_arg->value->text.text);
+      if (spc_before_arg)
+        ADD((char *)spc_before_arg->text.text);
 
       if ((command_data(cmd).flags & CF_block
            && ! (command_data(cmd).flags & CF_def
@@ -145,14 +145,15 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
     }
   else
     {
-      if (k_spc_before_arg)
-        ADD((char *)k_spc_before_arg->value->text.text);
+      if (spc_before_arg)
+        ADD((char *)spc_before_arg->text.text);
     }
 }
 
 static void
 convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
 {
+  ELEMENT *elt;
 
   if (e->type == ET_spaces_inserted
       || e->type == ET_bracketed_inserted
@@ -162,7 +163,6 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
     ADD(e->text.text);
   else
     {
-      KEY_PAIR *k;
       if (e->cmd
           || e->type == ET_def_line)
         {
@@ -170,13 +170,10 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         }
 
       if (e->type == ET_bracketed_arg)
-        {
-          KEY_PAIR *k;
-          ADD("{");
-        }
-      k = lookup_info (e, "spaces_before_argument");
-      if (k)
-        ADD((char *)k->value->text.text);
+        ADD("{");
+      elt = lookup_info_element (e, "spaces_before_argument");
+      if (elt)
+        ADD((char *)elt->text.text);
       if (e->contents.number > 0)
         {
           int i;
@@ -184,13 +181,15 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
             convert_to_texinfo_internal (e->contents.list[i], result);
         }
 
-      k = lookup_info (e, "spaces_after_argument");
-      if (k)
-        ADD((char *)k->value->text.text);
+      elt = lookup_info_element (e, "spaces_after_argument");
+      if (elt)
+        {
+          ADD((char *)elt->text.text);
+        }
 
-      k = lookup_info (e, "comment_at_end");
-      if (k)
-        convert_to_texinfo_internal ((ELEMENT *)k->value, result);
+      elt = lookup_info_element (e, "comment_at_end");
+      if (elt)
+        convert_to_texinfo_internal (elt, result);
 
       if (e->type == ET_bracketed_arg)
         ADD("}");
