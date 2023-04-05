@@ -1,5 +1,18 @@
 2023-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Avoid gnulib/Perl definition clash
+
+	* tp/Texinfo/XS/MiscXS.xs,
+	* tp/Texinfo/XS/misc.c,
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs,
+	* tp/Texinfo/XS/xspara.c [defined _WIN32 && !defined __CYGWIN__]:
+	'#undef free' after including "perl.h" and before including
+	"XSUB.h" to avoid warnings about redefining symbols in Perl
+	headers that Gnulib already redefined.	(Same change made on
+	2022-10-22 to other files.)  From Eli and Arash Esbati.
+
+2023-04-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	intptr_t for KEY_PAIR
 
 	* tp/Texinfo/XS/parsetexi/tree_types.h (KEY_PAIR):
