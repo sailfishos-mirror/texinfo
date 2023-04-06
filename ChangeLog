@@ -1,3 +1,7 @@
+2023-04-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* TODO.HTML: Update location of webkitgtk-info sources
+
 2023-04-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Avoid gnulib/Perl definition clash
