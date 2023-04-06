@@ -14049,6 +14049,9 @@ letters.
 @node Line Macros
 @section Line Macros
 
+@findex linemacro
+@cindex Line macros
+@cindex Macros taking whole line as an argument
 You can also define a macro using the @samp{@@linemacro} command.
 The syntax for line macro definitions is similar to that for
 @code{@@macro}.
@@ -14114,7 +14117,7 @@ Another example:
 @@end linemacro
 
 @@defblock
-@@deffunc @{long int@} F (int @@var@{one@}, int @@var@{two@},@@
+@@deffunc @{long int@} F (int @@var@{one@}, int @@var@{two@}, @@
 int @@var@{three@}, int @@var@{four@}, int @@var@{five@})
 Explanation
 @@end defblock
@@ -14131,7 +14134,7 @@ for @code{F}.
 @end linemacro
 
 @defblock
-@deffunc {long int} F (int @var{one}, int @var{two},@
+@deffunc {long int} F (int @var{one}, int @var{two}, @
 int @var{three}, int @var{four}, int @var{five})
 Explanation
 @end defblock
