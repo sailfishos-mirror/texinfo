@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-04-04.21}
+\def\texinfoversion{2023-04-06.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -8932,7 +8932,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % \startxreflink{NODE}{FILE} - start link in pdf output.
 \def\startxreflink#1#2{%
-  \ifpdf
+  \ifpdforxetex
     % For pdfTeX and LuaTeX
     {\indexnofonts
      \makevalueexpandable
@@ -8951,35 +8951,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
      \fi
      %
      \leavevmode
-     \startlink attr{/Border [0 0 0]}%
-     \ifnum\filenamelength>0
-       goto file{\the\filename.pdf} name{\pdfdestname}%
-     \else
-       goto name{\pdfmkpgn{\pdfdestname}}%
-     \fi
-    }%
-    \setcolor{\linkcolor}%
-  \else
-    \ifx\XeTeXrevision\thisisundefined
-    \else
-      % For XeTeX
-      {\indexnofonts
-       \makevalueexpandable
-       \turnoffactive
-       % This expands tokens, so do it after making catcode changes, so _
-       % etc. don't get their TeX definitions.  This ignores all spaces in
-       % #2, including (wrongly) those in the middle of the filename.
-       \getfilename{#2}%
-       %
-       % This (wrongly) does not take account of leading or trailing
-       % spaces in #1, which should be ignored.
-       \setpdfdestname{#1}%
-       %
-       \ifx\pdfdestname\empty
-         \def\pdfdestname{Top}% no empty targets
+     \ifpdf
+       \startlink attr{/Border [0 0 0]}%
+       \ifnum\filenamelength>0
+         goto file{\the\filename.pdf} name{\pdfdestname}%
+       \else
+         goto name{\pdfmkpgn{\pdfdestname}}%
        \fi
-       %
-       \leavevmode
+     \else % XeTeX
        \ifnum\filenamelength>0
          % With default settings,
          % XeTeX (xdvipdfmx) replaces link destination names with integers.
@@ -8995,9 +8974,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
          \special{pdf:bann << /Border [0 0 0] /Type /Annot /Subtype /Link /A
            << /S /GoTo /D (\pdfdestname) >> >>}%
        \fi
-      }%
-      \setcolor{\linkcolor}%
-    \fi
+     \fi
+    }%
+    \setcolor{\linkcolor}%
   \fi
 }
 
