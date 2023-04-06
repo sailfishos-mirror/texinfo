@@ -6109,7 +6109,7 @@
 
 	* tp/tests/coverage_macro.texi: add @cartouche with argument.
 
-2022-11-19  Werner Lemberg  <wl@gnu.org>
+2022-12-19  Werner Lemberg  <wl@gnu.org>
 
 	* doc/texinfo.tex (\code, \dashnobreak): Use a \penalty to disable
 	hyphenation for LuaTeX.
