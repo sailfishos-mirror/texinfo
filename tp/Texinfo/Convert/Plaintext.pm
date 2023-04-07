@@ -1717,38 +1717,24 @@ sub _convert($$)
 
   my $formatter = $self->{'formatters'}->[-1];
 
-  if (($element->{'type'} and $self->{'ignored_types'}->{$element->{'type'}})
-       or ($element->{'cmdname'}
-            and ($self->{'ignored_commands'}->{$element->{'cmdname'}}
-                 or ($brace_commands{$element->{'cmdname'}}
-                     and $brace_commands{$element->{'cmdname'}} eq 'inline'
-                     and $element->{'cmdname'} ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$element->{'cmdname'}}
+  my $type = $element->{'type'};
+  my $command = $element->{'cmdname'};
+
+  if (($type and $self->{'ignored_types'}->{$type})
+       or ($command
+            and ($self->{'ignored_commands'}->{$command}
+                 or ($brace_commands{$command}
+                     and $brace_commands{$command} eq 'inline'
+                     and $command ne 'inlinefmtifelse'
+                     and (($inline_format_commands{$command}
                           and (!$element->{'extra'}->{'format'}
                                or !$self->{'expanded_formats_hash'}
                                            ->{$element->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$element->{'cmdname'}}
+                         or (!$inline_format_commands{$command}
                              and !defined($element->{'extra'}->{'expand_index'}))))))) {
     return '';
   }
   my $result = '';
-
-  my $type = $element->{'type'};
-  my $command = $element->{'cmdname'};
-
-  # in ignorable spaces, keep only form feeds.
-  if ($type and $self->{'ignorable_space_types'}->{$type}
-      and ($type ne 'spaces_before_paragraph'
-           or $self->get_conf('paragraphindent') ne 'asis')) {
-    if ($type eq 'spaces_after_close_brace'
-        and $element->{'text'} =~ /\f/) {
-      # FIXME also in spaces_before_paragraph?  Does not seems to be
-      # relevant to keep form feeds in other ignorable spaces.
-      $result = _get_form_feeds($element->{'text'});
-    }
-    add_text_to_count($self, $result);
-    return $result;
-  }
 
   # First handle empty lines. This has to be done before the handling
   # of text below to be sure that an empty line is always processed
@@ -1771,6 +1757,21 @@ sub _convert($$)
       return '';
     }
   }
+
+  # in ignorable spaces, keep only form feeds.
+  if ($type and $self->{'ignorable_space_types'}->{$type}
+      and ($type ne 'spaces_before_paragraph'
+           or $self->get_conf('paragraphindent') ne 'asis')) {
+    if ($type eq 'spaces_after_close_brace'
+        and $element->{'text'} =~ /\f/) {
+      # FIXME also in spaces_before_paragraph?  Does not seems to be
+      # relevant to keep form feeds in other ignorable spaces.
+      $result = _get_form_feeds($element->{'text'});
+    }
+    add_text_to_count($self, $result);
+    return $result;
+  }
+
 
   # process text
   if (defined($element->{'text'})) {

@@ -1,3 +1,11 @@
+2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Assign
+	variables $type and $command earlier so we can use them in
+	a condition.  Swap two blocks of code dealing with spaces to
+	put the more frequently used one first, which may have a
+	minor reduction in runtime.
+
 2023-04-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\startxreflink): Use \ifpdforxetex conditional
