@@ -1,5 +1,10 @@
 2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert):
+	Use $type variable instead of accessing 'type' value in hash.
+
+2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): Assign
 	variables $type and $command earlier so we can use them in
 	a condition.  Swap two blocks of code dealing with spaces to

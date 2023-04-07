@@ -3044,8 +3044,8 @@ sub _convert($$)
 
   # open 'type' constructs.
   my $paragraph;
-  if ($element->{'type'}) {
-    if ($element->{'type'} eq 'paragraph') {
+  if ($type) {
+    if ($type eq 'paragraph') {
       $self->{'empty_lines_count'} = 0;
       my $conf = {};
       # indent. Not first paragraph.
@@ -3068,11 +3068,11 @@ sub _convert($$)
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
       }
-    } elsif ($element->{'type'} eq 'preformatted'
-             or $element->{'type'} eq 'rawpreformatted') {
+    } elsif ($type eq 'preformatted'
+             or $type eq 'rawpreformatted') {
       # if in a description reuse the main menu unfilled, to keep things
       # simpler and avoid having to do a separate count.
-      if ($element->{'type'} eq 'rawpreformatted'
+      if ($type eq 'rawpreformatted'
           or !$element->{'parent'}->{'type'}
           or $element->{'parent'}->{'type'} ne 'menu_entry_description') {
         $preformatted = $self->new_formatter('unfilled');
@@ -3082,7 +3082,7 @@ sub _convert($$)
                                                      'locations' => []};
         }
       }
-    } elsif ($element->{'type'} eq 'def_line') {
+    } elsif ($type eq 'def_line') {
       my ($category, $class, $type, $name, $arguments)
         = Texinfo::Convert::Utils::definition_arguments_content($element);
       if ($category or $class or $type or $name) {
@@ -3310,7 +3310,7 @@ sub _convert($$)
         delete $self->{'text_element_context'}->[-1]->{'counter'};
         $self->{'empty_lines_count'} = 0;
       }
-    } elsif ($element->{'type'} eq 'menu_entry') {
+    } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
       foreach my $content (@{$element->{'contents'}}) {
         if ($content->{'type'} eq 'menu_entry_node') {
@@ -3401,12 +3401,12 @@ sub _convert($$)
       }
 
       return $result;
-    } elsif ($element->{'type'} eq 'frenchspacing') {
+    } elsif ($type eq 'frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
       set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
-    } elsif ($element->{'type'} eq '_code') {
+    } elsif ($type eq '_code') {
       _open_code($formatter);
-    } elsif ($element->{'type'} eq '_stop_upper_case') {
+    } elsif ($type eq '_stop_upper_case') {
       push @{$formatter->{'upper_case_stack'}}, {};
     }
   }
@@ -3429,18 +3429,18 @@ sub _convert($$)
   }
 
   # now closing. First, close types.
-  if ($element->{'type'}) {
-    if ($element->{'type'} eq 'frenchspacing') {
+  if ($type) {
+    if ($type eq 'frenchspacing') {
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
       set_space_protection($formatter->{'container'}, undef,
                            undef, undef, $frenchspacing);
-    } elsif ($element->{'type'} eq '_code') {
+    } elsif ($type eq '_code') {
       _close_code($formatter);
-    } elsif ($element->{'type'} eq '_stop_upper_case') {
+    } elsif ($type eq '_stop_upper_case') {
       pop @{$formatter->{'upper_case_stack'}};
-    } elsif ($element->{'type'} eq 'row') {
+    } elsif ($type eq 'row') {
       my @cell_beginnings;
       my @cell_lines;
       my $cell_beginning = 0;
@@ -3556,7 +3556,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'row_counts'} = [];
       $self->{'format_context'}->[-1]->{'row_empty_lines_count'}
         = $self->{'empty_lines_count'};
-    } elsif ($element->{'type'} eq 'before_node_section') {
+    } elsif ($type eq 'before_node_section') {
       $self->{'text_before_first_node'} = $result;
     }
   }
