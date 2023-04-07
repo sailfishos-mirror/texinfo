@@ -1,3 +1,8 @@
+2023-04-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Inline the most
+	frequently used call to _count_added for efficiency.
+
 2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert):

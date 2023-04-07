@@ -1782,8 +1782,19 @@ sub _convert($$)
                       add_next($formatter->{'container'}, $element->{'text'}));
         } else {
           my $text = _process_text($self, $element, $formatter);
-          $result = _count_added($self, $formatter->{'container'},
-                      add_text ($formatter->{'container'}, $text));
+          # inlined below for efficiency
+          #$result = _count_added($self, $formatter->{'container'},
+          #                       add_text ($formatter->{'container'}, $text));
+
+          $result = add_text ($formatter->{'container'}, $text);
+          my $count_context = $self->{'count_context'}->[-1];
+          $count_context->{'lines'}
+            += Texinfo::Convert::Paragraph::end_line_count($formatter->{'container'});
+
+          if (!defined $count_context->{'pending_text'}) {
+            $count_context->{'pending_text'} = '';
+          }
+          $count_context->{'pending_text'} .= $result;
         }
         return $result;
       # the following is only possible if paragraphindent is set to asis
