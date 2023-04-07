@@ -1946,39 +1946,6 @@ sub _convert($$)
       }
       return $result;
     # commands with braces
-    } elsif ($accent_commands{$command}) {
-      my $encoding;
-      if ($self->{'enable_encoding'}) {
-        $encoding = $self->{'output_encoding_name'};
-      }
-      my $sc;
-      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-        $sc = 1;
-      }
-      my $accented_text
-         = Texinfo::Convert::Text::text_accents($element, $encoding, $sc);
-      $result .= _count_added($self, $formatter->{'container'},
-         add_text($formatter->{'container'}, $accented_text));
-
-      my $accented_text_original;
-      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-        $accented_text_original
-         = Texinfo::Convert::Text::text_accents($element, $encoding);
-      }
-
-      if (($accented_text_original
-           and $accented_text_original !~ /\p{Upper}/)
-          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
-          or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-        allow_end_sentence($formatter->{'container'});
-      }
-
-      # in case the text added ends with punctuation.
-      # If the text is empty (likely because of an error) previous
-      # punctuation will be cancelled, we don't want that.
-      remove_end_sentence($formatter->{'container'})
-        if ($accented_text ne '');
-      return $result;
     } elsif ($self->{'style_map'}->{$command}
          or ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command')) {
@@ -2089,6 +2056,39 @@ sub _convert($$)
           allow_end_sentence($formatter->{'container'});
         }
       }
+      return $result;
+    } elsif ($accent_commands{$command}) {
+      my $encoding;
+      if ($self->{'enable_encoding'}) {
+        $encoding = $self->{'output_encoding_name'};
+      }
+      my $sc;
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+        $sc = 1;
+      }
+      my $accented_text
+         = Texinfo::Convert::Text::text_accents($element, $encoding, $sc);
+      $result .= _count_added($self, $formatter->{'container'},
+         add_text($formatter->{'container'}, $accented_text));
+
+      my $accented_text_original;
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+        $accented_text_original
+         = Texinfo::Convert::Text::text_accents($element, $encoding);
+      }
+
+      if (($accented_text_original
+           and $accented_text_original !~ /\p{Upper}/)
+          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
+          or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+        allow_end_sentence($formatter->{'container'});
+      }
+
+      # in case the text added ends with punctuation.
+      # If the text is empty (likely because of an error) previous
+      # punctuation will be cancelled, we don't want that.
+      remove_end_sentence($formatter->{'container'})
+        if ($accented_text ne '');
       return $result;
     } elsif ($command eq 'image') {
       $result = _count_added($self, $formatter->{'container'},

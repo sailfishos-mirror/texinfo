@@ -1,6 +1,12 @@
 2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert):
+	Check for accent command after checking for style command
+	as accents commands are slightly less used.
+
+2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert):
 	Use $type variable instead of accessing 'type' value in hash.
 
 2023-04-07  Gavin Smith <gavinsmith0123@gmail.com>
