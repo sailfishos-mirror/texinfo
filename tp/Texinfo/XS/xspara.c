@@ -748,7 +748,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 }
 
 /* Like _add_next but zero end_line_count at beginning. */
-char *
+TEXT
 xspara_add_next (char *text, int text_len, int transparent)
 {
   static TEXT t;
@@ -757,10 +757,7 @@ xspara_add_next (char *text, int text_len, int transparent)
   state.end_line_count = 0;
   xspara__add_next (&t, text, text_len, transparent);
 
-  if (t.space > 0)
-    return t.text;
-  else
-    return "";
+  return t;
 }
 
 void
@@ -826,11 +823,10 @@ xspara_set_space_protection (int no_break,
 /* Return string to be added to paragraph contents, wrapping text. This 
    function relies on there being a UTF-8 locale in LC_CTYPE for mbrtowc to
    work correctly. */
-char *
-xspara_add_text (char *text)
+TEXT
+xspara_add_text (char *text, int len)
 {
   char *p = text;
-  int len;
   wchar_t wc;
   size_t char_len;
   static TEXT result;
@@ -838,7 +834,6 @@ xspara_add_text (char *text)
 
   text_reset (&result);
 
-  len = strlen (text); /* FIXME: Get this as an argument */
   state.end_line_count = 0;
 
   while (len > 0)
@@ -1035,10 +1030,7 @@ xspara_add_text (char *text)
         }
     }
 
-  if (result.space > 0)
-    return result.text;
-  else
-    return "";
+  return result;
 }
 
 

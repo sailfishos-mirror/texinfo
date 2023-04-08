@@ -18,7 +18,7 @@
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = xspara_
 
-#  Copyright 2010-2020 Free Software Foundation, Inc.
+#  Copyright 2010-2023 Free Software Foundation, Inc.
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -145,22 +145,23 @@ xspara_end (paragraph)
 SV *
 xspara_add_text (paragraph, text_in)
         SV *paragraph
-        SV * text_in
+        SV *text_in
     PREINIT:
         char *text;
-        char *retval;
+        STRLEN text_len;
+        TEXT retval;
     CODE:
         /* Always convert the input to UTF8 with sv_utf8_upgrade, so we can 
            process it properly in xspara_add_next. */
         if (!SvUTF8 (text_in))
           sv_utf8_upgrade (text_in);
 
-        text = SvPV_nolen (text_in);
+        text = SvPV (text_in, text_len);
 
         xspara_set_state (paragraph);
-        retval = xspara_add_text (text);
+        retval = xspara_add_text (text, text_len);
 
-        RETVAL = newSVpv (retval, 0);
+        RETVAL = newSVpv (retval.text ? retval.text : "", retval.end);
         SvUTF8_on (RETVAL);
 
     OUTPUT:
@@ -169,11 +170,11 @@ xspara_add_text (paragraph, text_in)
 SV *
 xspara_add_next (paragraph, text_in, ...)
         SV *paragraph
-        SV * text_in
+        SV *text_in
     PREINIT:
         char *text;
         STRLEN text_len;
-        char *retval;
+        TEXT retval;
         SV *arg_in;
         int transparent = 0;
     CODE:
@@ -195,7 +196,7 @@ xspara_add_next (paragraph, text_in, ...)
         xspara_set_state (paragraph);
         retval = xspara_add_next (text, text_len, transparent);
 
-        RETVAL = newSVpv (retval, 0);
+        RETVAL = newSVpv (retval.text ? retval.text : "", retval.end);
         SvUTF8_on (RETVAL);
 
     OUTPUT:
