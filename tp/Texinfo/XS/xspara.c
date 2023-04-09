@@ -987,13 +987,11 @@ xspara_add_text (char *text, int len)
          Perl code does, though. */
       else if (width == 1 || width == 0)
         {
-          char *added_word;
-          added_word = malloc (char_len + 1);
+          static char added_word[8]; /* long enough for one UTF-8 character */
           memcpy (added_word, p, char_len);
           added_word[char_len] = '\0';
 
           xspara__add_next (&result, added_word, char_len, 0);
-          free (added_word);
 
           /* Now check if it is considered as an end of sentence, and
              set state.end_sentence if it is. */

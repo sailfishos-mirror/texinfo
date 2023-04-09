@@ -1,5 +1,11 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara_add_text):
+	Use a static buffer rather than calling malloc and free.  This
+	is significant as it is done for nearly every character output.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara__add_next): Do not use mbrlen
 	to go back one UTF-8 code point; use elementary operations instead.
 	Use strchr instead of wcschr to check for end-of-word punctuation.
