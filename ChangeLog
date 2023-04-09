@@ -1,3 +1,9 @@
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (xspara_add_text): Only call mbrtowc
+	after if current character is an ASCII space character, for which
+	case this is not needed.
+
 2023-04-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (xspara_add_text, xspara_add_next):

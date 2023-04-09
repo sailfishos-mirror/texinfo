@@ -829,6 +829,7 @@ xspara_add_text (char *text, int len)
   char *p = text;
   wchar_t wc;
   size_t char_len;
+  int width;
   static TEXT result;
   dTHX;
 
@@ -838,15 +839,6 @@ xspara_add_text (char *text, int len)
 
   while (len > 0)
     {
-      char_len = mbrtowc (&wc, p, len, NULL);
-      if ((long) char_len == 0)
-        break; /* Null character. Shouldn't happen. */
-      else if ((long) char_len < 0)
-        {
-          p++; len--; /* Invalid.  Just try to keep going. */
-          continue;
-        }
-
       if (isspace ((unsigned char) *p))
         {
           state.last_letter = L'\0';
@@ -861,7 +853,7 @@ xspara_add_text (char *text, int len)
                 }
               else
                 {
-                  text_append_n (&state.space, p, char_len);
+                  text_append_n (&state.space, p, 1);
                   state.space_counter++;
                 }
             }
@@ -919,7 +911,7 @@ xspara_add_text (char *text, int len)
                             }
                           else
                             {
-                              text_append_n (&state.space, p, char_len);
+                              text_append_n (&state.space, p, 1);
                               state.space_counter++;
                             }
                         }
@@ -939,95 +931,104 @@ xspara_add_text (char *text, int len)
               xspara__end_line ();
               text_append (&result, "\n");
             }
-          p += char_len; len -= char_len;
+          p++; len--;
+          continue;
         }
-      else /************** Not a white space character. *****************/
+
+      /************** Not a white space character. *****************/
+      char_len = mbrtowc (&wc, p, len, NULL);
+      if ((long) char_len == 0)
+        break; /* Null character. Shouldn't happen. */
+      else if ((long) char_len < 0)
         {
-          int width = wcwidth (wc);
-          /*************** Double width character. *********************/
-          if (width == 2)
+          p++; len--; /* Invalid.  Just try to keep going. */
+          continue;
+        }
+
+      width = wcwidth (wc);
+      /*************** Double width character. *********************/
+      if (width == 2)
+        {
+          state.last_letter = L'\0';
+
+          /* We allow a line break in between Chinese characters even if
+             there was no space between them, unlike single-width
+             characters. */
+
+          /* Append wc to state.word. */
+          text_append_n (&state.word, p, char_len);
+
+          state.word_counter += 2;
+
+          if (state.counter != 0
+              && state.counter + state.word_counter > state.max)
             {
-              state.last_letter = L'\0';
+              xspara__cut_line (&result);
+            }
+          /* Accumulate the characters so that they can be pushed
+             onto the next line if necessary. */
+          if (!state.no_break && !state.double_width_no_break)
+            {
+              xspara__add_pending_word (&result, 0);
+              state.end_sentence = -2;
+            }
+        }
+      else if (wc == L'\b')
+        {
+          /* Code to say that a following full stop (or question or
+             exclamation mark) may be an end of sentence. */
+          xspara_allow_end_sentence ();
+        }
+      /*************** Word character ******************************/
+      /* Note: width == 0 includes accent characters which should not
+         properly increase the column count.  This is not what the pure
+         Perl code does, though. */
+      else if (width == 1 || width == 0)
+        {
+          char *added_word;
+          added_word = malloc (char_len + 1);
+          memcpy (added_word, p, char_len);
+          added_word[char_len] = '\0';
 
-              /* We allow a line break in between Chinese characters even if 
-                 there was no space between them, unlike single-width 
-                 characters. */
+          xspara__add_next (&result, added_word, char_len, 0);
+          free (added_word);
 
-              /* Append wc to state.word. */
-              text_append_n (&state.word, p, char_len);
+          /* Now check if it is considered as an end of sentence, and
+             set state.end_sentence if it is. */
 
-              state.word_counter += 2;
-
-              if (state.counter != 0
-                  && state.counter + state.word_counter > state.max)
+          if (strchr (".?!", *p) && !state.unfilled)
+            {
+              /* Doesn't count if preceded by an upper-case letter. */
+              if (!iswupper (state.last_letter))
                 {
-                  xspara__cut_line (&result);
-                }
-              /* Accumulate the characters so that they can be pushed
-                 onto the next line if necessary. */
-              if (!state.no_break && !state.double_width_no_break)
-                {
-                  xspara__add_pending_word (&result, 0);
-                  state.end_sentence = -2;
+                  if (state.french_spacing)
+                    state.end_sentence = -1;
+                  else
+                    state.end_sentence = 1;
                 }
             }
-          else if (wc == L'\b')
+          else if (strchr ("\"')]", *p))
             {
-              /* Code to say that a following full stop (or question or
-                 exclamation mark) may be an end of sentence. */
-              xspara_allow_end_sentence ();
-            }
-          /*************** Word character ******************************/
-          /* Note: width == 0 includes accent characters which should not 
-             properly increase the column count.  This is not what the pure 
-             Perl code does, though. */
-          else if (width == 1 || width == 0)
-            {
-              char *added_word;
-              added_word = malloc (char_len + 1);
-              memcpy (added_word, p, char_len);
-              added_word[char_len] = '\0';
-
-              xspara__add_next (&result, added_word, char_len, 0);
-              free (added_word);
-
-              /* Now check if it is considered as an end of sentence, and
-                 set state.end_sentence if it is. */
-
-              if (strchr (".?!", *p) && !state.unfilled)
-                {
-                  /* Doesn't count if preceded by an upper-case letter. */
-                  if (!iswupper (state.last_letter))
-                    {
-                      if (state.french_spacing)
-                        state.end_sentence = -1;
-                      else
-                        state.end_sentence = 1;
-                    }
-                }
-              else if (strchr ("\"')]", *p))
-                {
-                  /* '"', '\'', ']' and ')' are ignored for the purpose
-                   of deciding whether a full stop ends a sentence. */
-                }
-              else
-                {
-                  /* Otherwise reset the end of sentence marker: a full stop in 
-                     a string like "aaaa.bbbb" doesn't mark an end of 
-                     sentence. */
-                  state.end_sentence = -2;
-                  state.last_letter = wc;
-                }
+              /* '"', '\'', ']' and ')' are ignored for the purpose
+               of deciding whether a full stop ends a sentence. */
             }
           else
             {
-              /* Not printable, possibly a tab, or a combining character.
-                 Add it to the pending word without increasing the column 
-                 count. */
-              text_append_n (&state.word, p, char_len);
+              /* Otherwise reset the end of sentence marker: a full stop in
+                 a string like "aaaa.bbbb" doesn't mark an end of
+                 sentence. */
+              state.end_sentence = -2;
+              state.last_letter = wc;
             }
-          p += char_len; len -= char_len;
         }
+      else
+        {
+          /* Not printable, possibly a tab, or a combining character.
+             Add it to the pending word without increasing the column
+             count. */
+          text_append_n (&state.word, p, char_len);
+        }
+      p += char_len; len -= char_len;
     }
 
   return result;
