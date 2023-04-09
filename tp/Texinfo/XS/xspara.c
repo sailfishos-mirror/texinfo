@@ -706,8 +706,6 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
     }
   else
     {
-      /* The possibility of two-column characters is ignored here. */
-
       /* Calculate length of multibyte string in characters. */
       int len = 0;
       int left = word_len;
@@ -717,7 +715,15 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
       while (left > 0)
         {
           int columns;
-          int char_len = mbrtowc (&w, p, left, NULL);
+          int char_len;
+
+          if (0x20 <= *p && *p <= 0x7E) /* in printable ASCII range */
+            {
+              len++; p++; left--;
+              continue;
+            }
+
+          char_len = mbrtowc (&w, p, left, NULL);
           if (char_len == (size_t) -2) {
             /* unfinished multibyte character */
             char_len = left;

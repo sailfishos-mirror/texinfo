@@ -1,5 +1,11 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara__add_next): When getting
+	display length of text, optimize for the common case of printable
+	ASCII characters, not calling mbrtowc or wcwidth for such.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text):
 	Use a static buffer rather than calling malloc and free.  This
 	is significant as it is done for nearly every character output.
