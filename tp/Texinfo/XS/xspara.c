@@ -674,22 +674,26 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
         {
           /* Save last character in WORD */
           char *p = word + word_len;
-          int len = 0;
+
           while (p > word)
             {
-              p--; len++;
-              if ((long) mbrlen(p, len, NULL) > 0)
+              int len = 0;
+              /* Back one UTF-8 code point */
+              do
+                {
+                  p--;
+                  len++;
+                }
+              while ((*p & 0xC0) == 0x80 && p > word);
+
+              if (!strchr (".?!\"')", *p))
                 {
                   wchar_t wc = L'\0';
                   mbrtowc (&wc, p, len, NULL);
-                  if (!wcschr (L".?!\"')]", wc))
-                    {
-                      state.last_letter = wc;
-                      break;
-                    }
+                  state.last_letter = wc;
+                  break;
                 }
             }
-
         }
     }
 
