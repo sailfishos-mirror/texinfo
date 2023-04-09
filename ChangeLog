@@ -1,5 +1,10 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/api.c (element_to_perl_hash): Precompute
+	hash arguments for hv_store using PERL_HASH macro.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (PRINTABLE_ASCII): New macro.
 	(xspara__add_next): Use btowc for printable ASCII bytes rather
 	than mbrtowc.

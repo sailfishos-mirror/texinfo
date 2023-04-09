@@ -495,6 +495,20 @@ store_source_mark_list (ELEMENT *e)
     }
 }
 
+static int hashes_ready = 0;
+static U32 HSH_parent = 0;
+static U32 HSH_type = 0;
+static U32 HSH_cmdname = 0;
+static U32 HSH_contents = 0;
+static U32 HSH_args = 0;
+static U32 HSH_text = 0;
+static U32 HSH_extra = 0;
+static U32 HSH_info = 0;
+static U32 HSH_source_info = 0;
+static U32 HSH_file_name = 0;
+static U32 HSH_line_nr = 0;
+static U32 HSH_macro = 0;
+
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
 static void
@@ -511,24 +525,42 @@ element_to_perl_hash (ELEMENT *e)
       e->hv = newHV ();
     }
 
+  if (!hashes_ready)
+    {
+      hashes_ready = 1;
+      PERL_HASH(HSH_parent, "parent", strlen ("parent"));
+      PERL_HASH(HSH_type, "type", strlen ("type"));
+      PERL_HASH(HSH_cmdname, "cmdname", strlen ("cmdname"));
+      PERL_HASH(HSH_contents, "contents", strlen ("contents"));
+      PERL_HASH(HSH_args, "args", strlen ("args"));
+      PERL_HASH(HSH_text, "text", strlen ("text"));
+      PERL_HASH(HSH_extra, "extra", strlen ("extra"));
+      PERL_HASH(HSH_info, "info", strlen ("info"));
+      PERL_HASH(HSH_source_info, "source_info", strlen ("source_info"));
+
+      PERL_HASH(HSH_file_name, "file_name", strlen ("file_name"));
+      PERL_HASH(HSH_line_nr, "line_nr", strlen ("line_nr"));
+      PERL_HASH(HSH_macro, "macro", strlen ("macro"));
+    }
+
   if (e->parent)
     {
       if (!e->parent->hv)
         e->parent->hv = newHV ();
       sv = newRV_inc ((SV *) e->parent->hv);
-      hv_store (e->hv, "parent", strlen ("parent"), sv, 0);
+      hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
 
   if (e->type)
     {
       sv = newSVpv (element_type_names[e->type], 0);
-      hv_store (e->hv, "type", strlen ("type"), sv, 0);
+      hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
     }
 
   if (e->cmd)
     {
       sv = newSVpv (command_name(e->cmd), 0);
-      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, 0);
+      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
 
       /* Note we could optimize the call to newSVpv here and
          elsewhere by passing an appropriate second argument. */
@@ -541,7 +573,7 @@ element_to_perl_hash (ELEMENT *e)
 
       av = newAV ();
       sv = newRV_inc ((SV *) av);
-      hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
+      hv_store (e->hv, "contents", strlen ("contents"), sv, HSH_contents);
       for (i = 0; i < e->contents.number; i++)
         {
           element_to_perl_hash (e->contents.list[i]);
@@ -557,7 +589,7 @@ element_to_perl_hash (ELEMENT *e)
 
       av = newAV ();
       sv = newRV_inc ((SV *) av);
-      hv_store (e->hv, "args", strlen ("args"), sv, 0);
+      hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
       for (i = 0; i < e->args.number; i++)
         {
           element_to_perl_hash (e->args.list[i]);
@@ -569,7 +601,7 @@ element_to_perl_hash (ELEMENT *e)
   if (e->text.space > 0)
     {
       sv = newSVpv_utf8 (e->text.text, e->text.end);
-      hv_store (e->hv, "text", strlen ("text"), sv, 0);
+      hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
     }
 
   store_additional_info (e, e->extra_info, "extra");
@@ -579,30 +611,31 @@ element_to_perl_hash (ELEMENT *e)
 
   if (e->source_info.line_nr)
     {
-#define STORE(key, sv) hv_store (hv, key, strlen (key), sv, 0)
+#define STORE(key, sv, hsh) hv_store (hv, key, strlen (key), sv, hsh)
       SOURCE_INFO *source_info = &e->source_info;
       HV *hv = newHV ();
       hv_store (e->hv, "source_info", strlen ("source_info"),
-                newRV_inc((SV *)hv), 0);
+                newRV_inc((SV *)hv), HSH_source_info);
 
       if (source_info->file_name)
         {
-          STORE("file_name", newSVpv (source_info->file_name, 0));
+          STORE("file_name", newSVpv (source_info->file_name, 0),
+                HSH_file_name);
         }
       else
-        STORE("file_name", newSVpv ("", 0));
+        STORE("file_name", newSVpv ("", 0), HSH_file_name);
 
       if (source_info->line_nr)
         {
-          STORE("line_nr", newSViv (source_info->line_nr));
+          STORE("line_nr", newSViv (source_info->line_nr), HSH_line_nr);
         }
 
       if (source_info->macro)
         {
-          STORE("macro", newSVpv_utf8 (source_info->macro, 0));
+          STORE("macro", newSVpv_utf8 (source_info->macro, 0), HSH_macro);
         }
       else
-        STORE("macro", newSVpv ("", 0));
+        STORE("macro", newSVpv ("", 0), HSH_macro);
 #undef STORE
     }
 }
