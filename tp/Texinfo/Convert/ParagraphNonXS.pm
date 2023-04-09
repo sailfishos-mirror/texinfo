@@ -228,6 +228,14 @@ sub _add_next($;$$$)
     } else {
       $paragraph->{'word_counter'}
         += Texinfo::Convert::Unicode::string_width($word);
+
+      # The $paragraph->{'counter'} != 0 is here to avoid having an
+      # additional line output when the text is longer than the max.
+      if ($paragraph->{'counter'} != 0 and
+          $paragraph->{'counter'} + $paragraph->{'word_counter'} +
+             length($paragraph->{'space'}) > $paragraph->{'max'}) {
+        $result .= _cut_line($paragraph);
+      }
     }
     if ($paragraph->{'DEBUG'}) {
       my $para_word = 'UNDEF';;
@@ -235,13 +243,6 @@ sub _add_next($;$$$)
         $para_word = $paragraph->{'word'};
       }
       print STDERR "WORD+ $word -> $para_word\n";
-    }
-    # The $paragraph->{'counter'} != 0 is here to avoid having an
-    # additional line output when the text is longer than the max.
-    if ($paragraph->{'counter'} != 0 and 
-        $paragraph->{'counter'} + $paragraph->{'word_counter'} + 
-           length($paragraph->{'space'}) > $paragraph->{'max'}) {
-      $result .= _cut_line($paragraph);
     }
   }
   return $result;

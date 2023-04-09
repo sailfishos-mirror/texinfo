@@ -1,5 +1,12 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara__add_next),
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (_add_next):
+	Move code into a conditional block as it will only be run if
+	that block is run.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text): Only call mbrtowc
 	after if current character is an ASCII space character, for which
 	case this is not needed.

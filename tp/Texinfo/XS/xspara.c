@@ -735,15 +735,13 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
         }
 
       state.word_counter += len;
-    }
 
-  /* TODO: Shift this into the "else" clause above, because 
-     xspara__end_line would have set state.counter to 0. */
-  if (state.counter != 0
-      && state.counter + state.word_counter + state.space_counter
-          > state.max)
-    {
-      xspara__cut_line (result);
+      if (state.counter != 0
+          && state.counter + state.word_counter + state.space_counter
+              > state.max)
+        {
+          xspara__cut_line (result);
+        }
     }
 }
 
