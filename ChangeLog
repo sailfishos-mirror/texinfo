@@ -1,5 +1,11 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (PRINTABLE_ASCII): New macro.
+	(xspara__add_next): Use btowc for printable ASCII bytes rather
+	than mbrtowc.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element):
 	Do not construct dump string for element unless it will actually
 	be printed.

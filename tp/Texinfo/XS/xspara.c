@@ -645,6 +645,9 @@ xspara_end (void)
     return "";
 }
 
+/* check if a byte is in the printable ASCII range */
+#define PRINTABLE_ASCII(c) (0x20 <= (c) && (c) <= 0x7E)
+
 /* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end 
    of the line start a new one.  TRANSPARENT means that the letters in WORD
    are ignored for the purpose of deciding whether a full stop ends a sentence
@@ -688,10 +691,18 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 
               if (!strchr (".?!\"')", *p))
                 {
-                  wchar_t wc = L'\0';
-                  mbrtowc (&wc, p, len, NULL);
-                  state.last_letter = wc;
-                  break;
+                  if (!PRINTABLE_ASCII(*p))
+                    {
+                      wchar_t wc = L'\0';
+                      mbrtowc (&wc, p, len, NULL);
+                      state.last_letter = wc;
+                      break;
+                    }
+                  else
+                    {
+                      state.last_letter = btowc (*p);
+                      break;
+                    }
                 }
             }
         }
@@ -717,7 +728,7 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           int columns;
           int char_len;
 
-          if (0x20 <= *p && *p <= 0x7E) /* in printable ASCII range */
+          if (PRINTABLE_ASCII(*p))
             {
               len++; p++; left--;
               continue;
