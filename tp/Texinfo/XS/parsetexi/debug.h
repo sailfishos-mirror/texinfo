@@ -22,6 +22,5 @@ void debug (char *s, ...);
 void debug_nonl (char *s, ...);
 extern int debug_output;
 void debug_print_element (ELEMENT *e, int print_parent);
-char *print_element_debug (ELEMENT *e, int print_parent);
 
 #endif

@@ -47,7 +47,7 @@ debug_nonl (char *s, ...)
   vfprintf (stderr, s, v);
 }
 
-char *
+static char *
 print_element_debug (ELEMENT *e, int print_parent)
 {
   TEXT text;
@@ -96,7 +96,11 @@ print_element_debug (ELEMENT *e, int print_parent)
 void
 debug_print_element (ELEMENT *e, int print_parent)
 {
-  char *result = print_element_debug (e, print_parent);
-  debug_nonl (result);
-  free (result);
+  if (debug_output)
+    {
+      char *result;
+      result = print_element_debug (e, print_parent);
+      debug_nonl (result);
+      free (result);
+    }
 }

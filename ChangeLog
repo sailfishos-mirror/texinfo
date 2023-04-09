@@ -1,5 +1,12 @@
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/debug.c (debug_print_element):
+	Do not construct dump string for element unless it will actually
+	be printed.
+	(print_element_debug): Declare as static.
+
+2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
 	Keep a few old values of the 'Root' pointer to avoid calling
 	destroy_element_and_children on the main tree, which takes a
