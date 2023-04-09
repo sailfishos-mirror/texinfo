@@ -955,7 +955,17 @@ xspara_add_text (char *text, int len)
         }
 
       /************** Not a white space character. *****************/
-      char_len = mbrtowc (&wc, p, len, NULL);
+      if (!PRINTABLE_ASCII(*p))
+        {
+          char_len = mbrtowc (&wc, p, len, NULL);
+        }
+      else
+        {
+          /* Functonally the same as mbrtowc but (tested) slightly quicker. */
+          char_len = 1;
+          wc = btowc (*p);
+        }
+
       if ((long) char_len == 0)
         break; /* Null character. Shouldn't happen. */
       else if ((long) char_len < 0)
