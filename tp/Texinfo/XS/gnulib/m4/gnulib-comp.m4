@@ -44,6 +44,7 @@ AC_DEFUN([gl_EARLY],
 
   # Code from module absolute-header:
   # Code from module alignasof:
+  # Code from module alignof:
   # Code from module alloca-opt:
   # Code from module assert-h:
   # Code from module attribute:
@@ -52,6 +53,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module c-strcaseeq:
   # Code from module c99:
   # Code from module errno:
+  # Code from module exitfail:
   # Code from module extensions:
   # Code from module extern-inline:
   # Code from module float:
@@ -59,6 +61,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module gen-header:
   # Code from module getdelim:
   # Code from module getline:
+  # Code from module gettext-h:
   # Code from module gperf:
   # Code from module havelib:
   # Code from module iconv:
@@ -73,6 +76,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module malloca:
   # Code from module memchr:
   # Code from module multiarch:
+  # Code from module obstack:
   # Code from module rawmemchr:
   # Code from module size_max:
   # Code from module snippet/_Noreturn:
@@ -112,6 +116,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unitypes:
   # Code from module uniwidth/base:
   # Code from module uniwidth/width:
+  # Code from module vararrays:
   # Code from module vasnprintf:
   # Code from module vasprintf:
   # Code from module wchar:
@@ -173,6 +178,8 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_GETLINE
   ])
   gl_STDIO_MODULE_INDICATOR([getline])
+  AC_SUBST([LIBINTL])
+  AC_SUBST([LTLIBINTL])
   AC_DEFUN([gl_HAVE_MODULE_HAVELIB])
   AM_ICONV
   m4_ifdef([gl_ICONV_MODULE_INDICATOR],
@@ -205,6 +212,8 @@ AC_DEFUN([gl_INIT],
   ])
   gl_STRING_MODULE_INDICATOR([memchr])
   gl_MULTIARCH
+  gl_FUNC_OBSTACK
+  gl_CONDITIONAL([GL_COND_OBJ_OBSTACK], [test "$gl_cv_func_obstack" != yes])
   gl_FUNC_RAWMEMCHR
   gl_CONDITIONAL([GL_COND_OBJ_RAWMEMCHR], [test $HAVE_RAWMEMCHR = 0])
   AM_COND_IF([GL_COND_OBJ_RAWMEMCHR], [
@@ -332,6 +341,7 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([1.1], [uniwidth/width])
+  AC_C_VARARRAYS
   AC_REQUIRE([AC_C_RESTRICT])
   gl_FUNC_VASNPRINTF
   gl_FUNC_VASPRINTF
@@ -523,6 +533,7 @@ AC_DEFUN([gltests_LIBSOURCES], [
 AC_DEFUN([gl_FILE_LIST], [
   build-aux/config.rpath
   lib/_Noreturn.h
+  lib/alignof.h
   lib/alloca.in.h
   lib/arg-nonnull.h
   lib/asnprintf.c
@@ -537,12 +548,15 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/c-strcaseeq.h
   lib/c-strncasecmp.c
   lib/errno.in.h
+  lib/exitfail.c
+  lib/exitfail.h
   lib/float+.h
   lib/float.c
   lib/float.in.h
   lib/free.c
   lib/getdelim.c
   lib/getline.c
+  lib/gettext.h
   lib/iconv.c
   lib/iconv.in.h
   lib/iconv_close.c
@@ -565,6 +579,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/malloca.h
   lib/memchr.c
   lib/memchr.valgrind
+  lib/obstack.c
+  lib/obstack.h
   lib/printf-args.c
   lib/printf-args.h
   lib/printf-parse.c
@@ -665,6 +681,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/mmap-anon.m4
   m4/multiarch.m4
   m4/musl.m4
+  m4/obstack.m4
   m4/off_t.m4
   m4/pid_t.m4
   m4/printf.m4
@@ -684,6 +701,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/strnlen.m4
   m4/sys_types_h.m4
   m4/unistd_h.m4
+  m4/vararrays.m4
   m4/vasnprintf.m4
   m4/vasprintf.m4
   m4/warn-on-use.m4

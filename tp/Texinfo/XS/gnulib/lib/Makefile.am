@@ -34,6 +34,7 @@
 #  --macro-prefix=gl \
 #  getline \
 #  iconv \
+#  obstack \
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
@@ -70,6 +71,7 @@ EXTRA_libgnu_la_SOURCES =
 libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 libgnu_la_LDFLAGS += -no-undefined
 libgnu_la_LDFLAGS += $(LTLIBICONV)
+libgnu_la_LDFLAGS += $(LTLIBINTL)
 libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
 
 ## begin gnulib module absolute-header
@@ -80,6 +82,13 @@ libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
 HAVE_INCLUDE_NEXT = (__GNUC__ || __clang__ || 60000000 <= __DECC_VER)
 
 ## end   gnulib module absolute-header
+
+## begin gnulib module alignof
+
+
+EXTRA_DIST += alignof.h
+
+## end   gnulib module alignof
 
 ## begin gnulib module alloca-opt
 
@@ -192,6 +201,14 @@ EXTRA_DIST += errno.in.h
 
 ## end   gnulib module errno
 
+## begin gnulib module exitfail
+
+libgnu_la_SOURCES += exitfail.c
+
+EXTRA_DIST += exitfail.h
+
+## end   gnulib module exitfail
+
 ## begin gnulib module float
 
 BUILT_SOURCES += $(FLOAT_H)
@@ -268,6 +285,12 @@ libgnu_la_SOURCES += getline.c
 endif
 
 ## end   gnulib module getline
+
+## begin gnulib module gettext-h
+
+libgnu_la_SOURCES += gettext.h
+
+## end   gnulib module gettext-h
 
 ## begin gnulib module gperf
 
@@ -455,6 +478,16 @@ endif
 EXTRA_DIST += memchr.valgrind
 
 ## end   gnulib module memchr
+
+## begin gnulib module obstack
+
+if GL_COND_OBJ_OBSTACK
+libgnu_la_SOURCES += obstack.c
+endif
+
+EXTRA_DIST += obstack.h
+
+## end   gnulib module obstack
 
 ## begin gnulib module rawmemchr
 

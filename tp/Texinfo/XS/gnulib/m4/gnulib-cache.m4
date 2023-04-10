@@ -39,6 +39,7 @@
 #  --macro-prefix=gl \
 #  getline \
 #  iconv \
+#  obstack \
 #  strchrnul \
 #  strndup \
 #  uniconv/u8-strconv-from-enc \
@@ -51,6 +52,7 @@ gl_LOCAL_DIR([])
 gl_MODULES([
   getline
   iconv
+  obstack
   strchrnul
   strndup
   uniconv/u8-strconv-from-enc
