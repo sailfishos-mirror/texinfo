@@ -50,7 +50,7 @@ add_associated_info_key (ASSOCIATED_INFO *a, char *key, intptr_t value,
 void
 add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key,
+  add_associated_info_key (&e->extra_info, key,
                            (intptr_t) value, extra_element);
 }
 
@@ -61,14 +61,14 @@ add_extra_element (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info,
+  add_associated_info_key (&e->extra_info,
                            key, (intptr_t) value, extra_element_oot);
 }
 
 void
 add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->info_info,
+  add_associated_info_key (&e->info_info,
                            key, (intptr_t) value, extra_element_oot);
 }
 
@@ -77,7 +77,7 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info,
+  add_associated_info_key (&e->extra_info,
                            key, (intptr_t) value, extra_contents);
 }
 
@@ -86,47 +86,48 @@ add_extra_contents (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_text (ELEMENT *e, char *key, ELEMENT *value)
 {
-  add_associated_info_key (e->extra_info, key, (intptr_t) value, extra_text);
+  add_associated_info_key (&e->extra_info, key, (intptr_t) value, extra_text);
 }
 
 void
 add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
 {
   if (!value) return;
-  add_associated_info_key (e->extra_info,
+  add_associated_info_key (&e->extra_info,
                            key, (intptr_t) value, extra_misc_args);
 }
 
 void
 add_extra_string (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->extra_info, key, (intptr_t) value, extra_string);
+  add_associated_info_key (&e->extra_info, key,
+                           (intptr_t) value, extra_string);
 }
 
 void
 add_info_string (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->info_info, key, (intptr_t) value, extra_string);
+  add_associated_info_key (&e->info_info, key, (intptr_t) value, extra_string);
 }
 
 void
 add_extra_string_dup (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->extra_info,
+  add_associated_info_key (&e->extra_info,
                            key, (intptr_t) strdup (value), extra_string);
 }
 
 void
 add_info_string_dup (ELEMENT *e, char *key, char *value)
 {
-  add_associated_info_key (e->info_info,
+  add_associated_info_key (&e->info_info,
                            key, (intptr_t) strdup (value), extra_string);
 }
 
 void
 add_extra_integer (ELEMENT *e, char *key, long value)
 {
-  add_associated_info_key (e->extra_info,
+  add_associated_info_key (&e->extra_info,
                            key, (intptr_t) value, extra_integer);
 }
 
@@ -146,7 +147,7 @@ ELEMENT *
 lookup_extra_element (ELEMENT *e, char *key)
 {
   KEY_PAIR *k;
-  k = lookup_associated_info (e->extra_info, key);
+  k = lookup_associated_info (&e->extra_info, key);
   if (!k)
     return 0;
   return (ELEMENT *) k->value;
@@ -155,14 +156,14 @@ lookup_extra_element (ELEMENT *e, char *key)
 KEY_PAIR *
 lookup_extra (ELEMENT *e, char *key)
 {
-  return lookup_associated_info (e->extra_info, key);
+  return lookup_associated_info (&e->extra_info, key);
 }
 
 ELEMENT *
 lookup_info_element (ELEMENT *e, char *key)
 {
   KEY_PAIR *k;
-  k = lookup_associated_info (e->info_info, key);
+  k = lookup_associated_info (&e->info_info, key);
   if (!k)
     return 0;
   return (ELEMENT *) k->value;
@@ -172,6 +173,6 @@ lookup_info_element (ELEMENT *e, char *key)
 KEY_PAIR *
 lookup_info (ELEMENT *e, char *key)
 {
-  return lookup_associated_info (e->info_info, key);
+  return lookup_associated_info (&e->info_info, key);
 }
 

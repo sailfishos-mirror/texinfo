@@ -94,24 +94,6 @@ static ELEMENT *alloc_element (void)
   return (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
 }
 
-static ASSOCIATED_INFO *alloc_associated_info (void)
-{
-  return (ASSOCIATED_INFO *) obstack_alloc
-    (&obs_element, sizeof (ASSOCIATED_INFO));
-}
-
-
-ASSOCIATED_INFO *
-new_associated_info (void)
-{
-  ASSOCIATED_INFO *info = alloc_associated_info ();
-
-  info->info_number = 0;
-  info->info_space = 0;
-  info->info = 0;
-  return info;
-}
-
 ELEMENT *
 new_element (enum element_type type)
 {
@@ -132,8 +114,8 @@ new_element (enum element_type type)
   e->contents.number = 0;
   e->parent = 0;
 
-  e->extra_info = new_associated_info();
-  e->info_info = new_associated_info();
+  e->extra_info.info = 0;
+  e->info_info.info = 0;
 
   e->source_mark_list.space = 0;
   e->source_mark_list.number = 0;
@@ -169,8 +151,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
         }
     }
   free (a->info);
-
-  free (a);
 }
 
 void
@@ -205,11 +185,10 @@ destroy_element (ELEMENT *e)
   free (e->contents.list);
   free (e->args.list);
 
-  /* freed in reset_obstacks */
-  /* destroy_associated_info (e->extra_info); */
-  /* destroy_associated_info (e->info_info); */
-
   destroy_source_mark_list (&(e->source_mark_list));
+
+  destroy_associated_info (&e->extra_info);
+  destroy_associated_info (&e->info_info);
 
   /* freed in reset_obstacks */
   /* free (e); */

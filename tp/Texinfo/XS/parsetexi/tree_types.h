@@ -105,8 +105,8 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     SOURCE_INFO source_info;
 
-    ASSOCIATED_INFO *extra_info;
-    ASSOCIATED_INFO *info_info;
+    ASSOCIATED_INFO extra_info;
+    ASSOCIATED_INFO info_info;
 
     SOURCE_MARK_LIST source_mark_list;
 

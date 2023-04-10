@@ -1,5 +1,19 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/tree_types.h (ELEMENT):
+	Contain ASSOCIATED_INFO structures as subfields rather than
+	as pointers outside the structure.  This avoids having to
+	allocate these objects separately and may improve memory cache
+	performance.
+	* tp/Texinfo/XS/parsetexi/tree.c (alloc_associated_info)
+	(new_associated_info): Remove.
+	(destroy_associated_info): Do not free the ASSOCIATED_INFO
+	object itself.
+	(destroy_element): Call destroy_associated_info to free other
+	storage.
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data):
 	Remove commented-out code.  Combine conditional blocks.  Use
 	av_unshift and av_store instead of av_push.

@@ -614,8 +614,8 @@ element_to_perl_hash (ELEMENT *e)
       hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
     }
 
-  store_additional_info (e, e->extra_info, "extra");
-  store_additional_info (e, e->info_info, "info");
+  store_additional_info (e, &e->extra_info, "extra");
+  store_additional_info (e, &e->info_info, "info");
 
   store_source_mark_list (e);
 

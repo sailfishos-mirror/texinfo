@@ -108,7 +108,7 @@ is_container_empty (ELEMENT *current)
   if (current->contents.number == 0
       && current->args.number == 0
       && current->text.end == 0
-      && current->info_info->info_number == 0)
+      && current->info_info.info_number == 0)
     return 1;
   return 0;
 }
