@@ -1,5 +1,9 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: add note of LD_BIND_NOW variable for callgrind
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_perl_array)
 	(store_additional_info, element_to_perl_hash)
 	(build_target_elements_list, build_internal_xref_list):

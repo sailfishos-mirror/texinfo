@@ -228,8 +228,8 @@ NYTProf profiling for Perl code
 * e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
   man page.
 callgrind profiling for XS code
-* e.g. 'valgrind --tool=callgrind perl ../tp/texi2any.pl FILE.texi' then
-  'kcachegrind callgrind.out.*'.
+* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tp/texi2any.pl \
+  FILE.texi' then 'kcachegrind callgrind.out.*'.
 
 check for C compiler warnings by configuring with
 
