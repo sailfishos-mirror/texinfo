@@ -281,8 +281,6 @@ build_perl_array (ELEMENT_LIST *e)
   sv = newRV_inc ((SV *) av);
   for (i = 0; i < e->number; i++)
     {
-      if (!e->list[i]) /* For arrays only, allow elements to be undef. */
-        av_push (av, newSV (0));
       if (!e->list[i]->hv)
         {
           if (e->list[i]->parent)

@@ -1,3 +1,9 @@
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/api.c (build_perl_array):
+	Remove case checking for a null pointer that we unconditionally
+	dereferenced afterwards anyway.
+
 2023-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/xspara.c (xspara_add_text):
