@@ -177,7 +177,7 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
   ICONV_CONST char *inptr; size_t bytes_left;
   size_t iconv_ret;
 
-  t.end = 0;
+  t.end = 0; /* reset internal TEXT buffer */
   inptr = s;
   bytes_left = strlen (s);
   text_alloc (&t, 10);
@@ -215,8 +215,6 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
     }
 
   t.text[t.end] = '\0';
-  /* FIXME freeing t.text leads to invalid memory access in the loop
-     above, both in the case E2BIG and in text_buffer_iconv */
   return strdup (t.text);
 }
 

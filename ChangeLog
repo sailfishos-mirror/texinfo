@@ -1,5 +1,10 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/input.c (encode_with_iconv):
+	Remove spurious comment.
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add note of LD_BIND_NOW variable for callgrind
 
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
