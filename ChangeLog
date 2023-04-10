@@ -1,5 +1,11 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data):
+	Remove commented-out code.  Combine conditional blocks.  Use
+	av_unshift and av_store instead of av_push.
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Run 'gnulib-tool --add-import obstack' under tp/Texinfo/XS.
 
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>

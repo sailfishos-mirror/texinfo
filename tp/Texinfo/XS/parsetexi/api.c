@@ -823,53 +823,30 @@ build_single_index_data (INDEX *i)
   if (i->index_number > 0)
     {
       entries = newAV ();
+      av_unshift (entries, i->index_number);
       STORE("index_entries", newRV_inc ((SV *) entries));
-    }
 #undef STORE
 
-  entry_number = 1;
-  if (i->index_number > 0)
-  for (j = 0; j < i->index_number; j++)
-    {
+      entry_number = 1;
+      for (j = 0; j < i->index_number; j++)
+        {
 #define STORE2(key, value) hv_store (entry, key, strlen (key), value, 0)
-      HV *entry;
-      INDEX_ENTRY *e;
+          HV *entry;
+          INDEX_ENTRY *e;
 
-      e = &i->index_entries[j];
-      entry = newHV ();
+          e = &i->index_entries[j];
+          entry = newHV ();
 
-      STORE2("index_name", newSVpv_utf8 (i->name, 0));
-      STORE2("entry_element",
-             newRV_inc ((SV *)e->command->hv));
-      STORE2("entry_number", newSViv (entry_number));
+          STORE2("index_name", newSVpv_utf8 (i->name, 0));
+          STORE2("entry_element",
+                 newRV_inc ((SV *)e->command->hv));
+          STORE2("entry_number", newSViv (entry_number));
 
-      av_push (entries, newRV_inc ((SV *)entry));
+          av_store (entries, j, newRV_inc ((SV *)entry));
 
-      /*
-      {
-      SV **extra_hash;
-      AV *av;
-      extra_hash = hv_fetch (e->command->hv, "extra", strlen ("extra"), 0);
-      if (!extra_hash)
-        {*/
-          /* There's no guarantee that the "extra" value was set on
-             the element. */
-        /*
-          extra_hash = hv_store (e->command->hv, "extra", strlen ("extra"),
-                                 newRV_inc ((SV *)newHV ()), 0);
-        }*/
-
-      /* element index_entry extra value is an array reference containing the
-         index name and entry number */
-      /*
-      av = newAV ();
-      av_push (av, newSVpv_utf8 (i->name, 0));
-      av_push (av, newSViv (entry_number));
-      hv_store ((HV *)SvRV(*extra_hash), "index_entry", strlen ("index_entry"),
-                newRV_inc ((SV *)av), 0);
-      }*/
-      entry_number++;
+          entry_number++;
 #undef STORE2
+        }
     }
 }
 
