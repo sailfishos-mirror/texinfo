@@ -157,6 +157,8 @@ reset_parser_except_conf (void)
   source_marks_reset_counters ();
   free_small_strings ();
 
+  reset_obstacks ();
+
   current_node = current_section = current_part = 0;
 }
 
@@ -242,9 +244,10 @@ parse_text (char *string, int line_nr)
 void
 parse_string (char *string, int line_nr)
 {
-  ELEMENT *root_elt = new_element (ET_root_line);
+  ELEMENT *root_elt;
 
   reset_parser_except_conf ();
+  root_elt = new_element (ET_root_line);
   input_push_text (strdup (string), line_nr, 0, 0);
   Root = parse_texi (root_elt, root_elt);
 }
@@ -253,10 +256,12 @@ parse_string (char *string, int line_nr)
 void
 parse_piece (char *string, int line_nr)
 {
-  ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
-  ELEMENT *document_root = before_node_section->parent;
+  ELEMENT *before_node_section, *document_root;
 
   reset_parser_except_conf ();
+  before_node_section = setup_document_root_and_before_node_section ();
+  document_root = before_node_section->parent;
+
   input_push_text (strdup (string), line_nr, 0, 0);
   Root = parse_texi (document_root, before_node_section);
 }

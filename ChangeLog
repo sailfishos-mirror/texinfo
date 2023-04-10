@@ -1,5 +1,18 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Obstacks for parsetexi
+
+	* tp/Texinfo/XS/parsetexi/tree.c (alloc_element, alloc_associated_info)
+	(reset_obstacks): Use obstack allocation for tree elements.
+	(new_associated_info, new_element): Call new functions.
+	(destroy_element): Do not call 'free' on obstack-allocated storage.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
+	Call reset_obstacks.
+	(parse_string, parse_piece): Do not create tree elements until
+	after calling reset_parser_except_conf.
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/input.c (encode_with_iconv):
 	Remove spurious comment.
 

@@ -4,6 +4,8 @@
 
 #include "tree_types.h"
 
+void reset_obstacks (void);
+
 ASSOCIATED_INFO *new_associated_info (void);
 ELEMENT *new_element (enum element_type type);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);

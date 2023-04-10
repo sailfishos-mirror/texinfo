@@ -16,6 +16,7 @@
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
+#include <obstack.h>
 
 #include "errors.h"
 #include "tree.h"
@@ -25,10 +26,85 @@
 
 //int element_counter;
 
+#if 0
+      /* could be used if obstacks not available.  delete this code if it is
+         not used eventually. */
+
+#     define CHAIN_LENGTH 32
+
+      typedef struct ELEMENT_CHAIN {
+        ELEMENT array[CHAIN_LENGTH];
+        int num;
+        struct ELEMENT_CHAIN *next;
+        struct ELEMENT_CHAIN *prev;
+      } ELEMENT_CHAIN;
+
+      static ELEMENT_CHAIN *element_chain = 0;
+
+      ELEMENT *
+      alloc_element (void)
+      {
+        if (!element_chain)
+          {
+            element_chain = calloc (1, sizeof (ELEMENT_CHAIN));
+          }
+        else if (element_chain->num == CHAIN_LENGTH)
+          {
+            element_chain->next = calloc (1, sizeof (ELEMENT_CHAIN));
+            element_chain->next->prev = element_chain;
+            element_chain = element_chain->next;
+          }
+        return &element_chain->array[element_chain->num++];
+      }
+
+      void
+      chain_free (ELEMENT_CHAIN *chain)
+      {
+        ELEMENT *current, *next;
+
+        current = chain;
+        while (current)
+          {
+            next = current;
+            free (current);
+            current = next;
+          }
+      }
+
+#endif
+
+static struct obstack obs_element;
+static int *obs_element_first = 0;
+
+#define obstack_chunk_alloc malloc
+#define obstack_chunk_free free
+
+void
+reset_obstacks (void)
+{
+  if (obs_element_first)
+    obstack_free (&obs_element, obs_element_first);
+
+  obstack_init (&obs_element);
+  obs_element_first = obstack_alloc (&obs_element, sizeof (int));
+}
+
+static ELEMENT *alloc_element (void)
+{
+  return (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
+}
+
+static ASSOCIATED_INFO *alloc_associated_info (void)
+{
+  return (ASSOCIATED_INFO *) obstack_alloc
+    (&obs_element, sizeof (ASSOCIATED_INFO));
+}
+
+
 ASSOCIATED_INFO *
 new_associated_info (void)
 {
-  ASSOCIATED_INFO *info = malloc (sizeof (ASSOCIATED_INFO));
+  ASSOCIATED_INFO *info = alloc_associated_info ();
 
   info->info_number = 0;
   info->info_space = 0;
@@ -39,7 +115,7 @@ new_associated_info (void)
 ELEMENT *
 new_element (enum element_type type)
 {
-  ELEMENT *e = malloc (sizeof (ELEMENT));
+  ELEMENT *e = alloc_element ();
 
   //element_counter++;
 
@@ -129,12 +205,14 @@ destroy_element (ELEMENT *e)
   free (e->contents.list);
   free (e->args.list);
 
-  destroy_associated_info (e->extra_info);
-  destroy_associated_info (e->info_info);
+  /* freed in reset_obstacks */
+  /* destroy_associated_info (e->extra_info); */
+  /* destroy_associated_info (e->info_info); */
 
   destroy_source_mark_list (&(e->source_mark_list));
 
-  free (e);
+  /* freed in reset_obstacks */
+  /* free (e); */
 }
 
 /* Recursively destroy this element and all data in its descendants. */
