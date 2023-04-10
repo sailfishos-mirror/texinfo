@@ -1,5 +1,13 @@
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/api.c (build_perl_array)
+	(store_additional_info, element_to_perl_hash)
+	(build_target_elements_list, build_internal_xref_list):
+	Use av_unshift to extend array followed by av_store instead
+	of av_push for each element.
+
+2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_perl_array):
 	Remove case checking for a null pointer that we unconditionally
 	dereferenced afterwards anyway.

@@ -279,6 +279,7 @@ build_perl_array (ELEMENT_LIST *e)
 
   av = newAV ();
   sv = newRV_inc ((SV *) av);
+
   for (i = 0; i < e->number; i++)
     {
       if (!e->list[i]->hv)
@@ -292,7 +293,7 @@ build_perl_array (ELEMENT_LIST *e)
               element_to_perl_hash (e->list[i]);
             }
         }
-      av_push (av, newRV_inc ((SV *) e->list[i]->hv));
+      av_store (av, i, newRV_inc ((SV *) e->list[i]->hv));
     }
   return sv;
 }
@@ -371,6 +372,8 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
               int j;
               AV *av;
               av = newAV ();
+              av_unshift (av, f->contents.number);
+
               STORE(newRV_inc ((SV *)av));
               /* An array of strings or integers. */
               for (j = 0; j < f->contents.number; j++)
@@ -380,18 +383,18 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
                   if (k)
                     {
                       IV value = (IV) (intptr_t) k->value;
-                      av_push (av, newSViv (value));
+                      av_store (av, j, newSViv (value));
                     }
                   else if (f->contents.list[j]->text.end > 0)
                     {
                       SV *sv = newSVpv_utf8 (f->contents.list[j]->text.text,
                                              f->contents.list[j]->text.end);
-                      av_push (av, sv);
+                      av_store (av, j, sv);
                     }
                   else
                     {
                       /* Empty strings permitted. */
-                      av_push (av, newSVpv ("", 0));
+                      av_store (av, j, newSVpv ("", 0));
                     }
                 }
               break;
@@ -571,12 +574,14 @@ element_to_perl_hash (ELEMENT *e)
 
       av = newAV ();
       sv = newRV_inc ((SV *) av);
+      av_unshift (av, e->contents.number);
+
       hv_store (e->hv, "contents", strlen ("contents"), sv, HSH_contents);
       for (i = 0; i < e->contents.number; i++)
         {
           element_to_perl_hash (e->contents.list[i]);
           sv = newRV_inc ((SV *) e->contents.list[i]->hv);
-          av_push (av, sv);
+          av_store (av, i, sv);
         }
     }
 
@@ -587,12 +592,14 @@ element_to_perl_hash (ELEMENT *e)
 
       av = newAV ();
       sv = newRV_inc ((SV *) av);
+      av_unshift (av, e->args.number);
+
       hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
       for (i = 0; i < e->args.number; i++)
         {
           element_to_perl_hash (e->args.list[i]);
           sv = newRV_inc ((SV *) e->args.list[i]->hv);
-          av_push (av, sv);
+          av_store (av, i, sv);
         }
     }
 
@@ -664,11 +671,12 @@ build_target_elements_list (void)
   dTHX;
 
   target_array = newAV ();
+  av_unshift (target_array, labels_number);
 
   for (i = 0; i < labels_number; i++)
     {
       sv = newRV_inc (target_elements_list[i]->hv);
-      av_push (target_array, sv);
+      av_store (target_array, i, sv);
     }
 
   return target_array;
@@ -684,11 +692,12 @@ build_internal_xref_list (void)
   dTHX;
 
   list_av = newAV ();
+  av_unshift (list_av, internal_xref_number);
 
   for (i = 0; i < internal_xref_number; i++)
     {
       sv = newRV_inc (internal_xref_list[i]->hv);
-      av_push (list_av, sv);
+      av_store (list_av, i, sv);
     }
 
   return list_av;
