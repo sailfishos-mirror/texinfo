@@ -76,7 +76,13 @@
 static struct obstack obs_element;
 static int *obs_element_first = 0;
 
-#define obstack_chunk_alloc malloc
+static void *
+alloc_and_zero (size_t size)
+{
+  return calloc (1, size);
+}
+
+#define obstack_chunk_alloc alloc_and_zero
 #define obstack_chunk_free free
 
 void
@@ -101,24 +107,10 @@ new_element (enum element_type type)
 
   //element_counter++;
 
-  /* Zero all elements */
-  memset (e, 0, sizeof (*e));
+  /* alloc_element zeroes *e.  We assume null pointers have bit representation
+     of all zeroes. */
 
   e->type = type;
-  e->cmd = CM_NONE;
-  e->args.list = 0;
-  e->args.space = 0;
-  e->args.number = 0;
-  e->contents.list = 0;
-  e->contents.space = 0;
-  e->contents.number = 0;
-  e->parent = 0;
-
-  e->extra_info.info = 0;
-  e->info_info.info = 0;
-
-  e->source_mark_list.space = 0;
-  e->source_mark_list.number = 0;
 
   return e;
 }

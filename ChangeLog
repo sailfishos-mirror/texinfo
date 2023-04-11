@@ -1,3 +1,9 @@
+2023-04-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi.c (alloc_and_zero): New function
+	to wrap calloc.  Use for obstack_chunk_alloc definition.
+	(new_element): Remove explicit initialisation code.
+
 2023-04-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/tree_types.h (ELEMENT):
