@@ -24,55 +24,6 @@
 /* for debug */
 #include "parser.h"
 
-//int element_counter;
-
-#if 0
-      /* could be used if obstacks not available.  delete this code if it is
-         not used eventually. */
-
-#     define CHAIN_LENGTH 32
-
-      typedef struct ELEMENT_CHAIN {
-        ELEMENT array[CHAIN_LENGTH];
-        int num;
-        struct ELEMENT_CHAIN *next;
-        struct ELEMENT_CHAIN *prev;
-      } ELEMENT_CHAIN;
-
-      static ELEMENT_CHAIN *element_chain = 0;
-
-      ELEMENT *
-      alloc_element (void)
-      {
-        if (!element_chain)
-          {
-            element_chain = calloc (1, sizeof (ELEMENT_CHAIN));
-          }
-        else if (element_chain->num == CHAIN_LENGTH)
-          {
-            element_chain->next = calloc (1, sizeof (ELEMENT_CHAIN));
-            element_chain->next->prev = element_chain;
-            element_chain = element_chain->next;
-          }
-        return &element_chain->array[element_chain->num++];
-      }
-
-      void
-      chain_free (ELEMENT_CHAIN *chain)
-      {
-        ELEMENT *current, *next;
-
-        current = chain;
-        while (current)
-          {
-            next = current;
-            free (current);
-            current = next;
-          }
-      }
-
-#endif
-
 static struct obstack obs_element;
 static int *obs_element_first = 0;
 
@@ -104,8 +55,6 @@ ELEMENT *
 new_element (enum element_type type)
 {
   ELEMENT *e = alloc_element ();
-
-  //element_counter++;
 
   /* alloc_element zeroes *e.  We assume null pointers have bit representation
      of all zeroes. */
