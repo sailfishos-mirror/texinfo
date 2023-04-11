@@ -97,9 +97,13 @@ typedef struct SOURCE_MARK_LIST {
 } SOURCE_MARK_LIST;
 
 typedef struct ELEMENT {
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
+
+    enum element_type type;
     enum command_id cmd;
     TEXT text;
-    enum element_type type;
     ELEMENT_LIST args;
     ELEMENT_LIST contents;
     struct ELEMENT *parent;
@@ -109,11 +113,6 @@ typedef struct ELEMENT {
     ASSOCIATED_INFO info_info;
 
     SOURCE_MARK_LIST source_mark_list;
-
-    /********* Used when building Perl tree only ********************/
-    void *hv;
-    /* This should be HV *hv, but we don't want to include the Perl headers 
-       everywhere; */
 } ELEMENT;
 
 typedef struct IGNORED_CHARS {
