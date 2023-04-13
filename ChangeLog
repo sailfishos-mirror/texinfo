@@ -1,5 +1,9 @@
 2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: add note about Perl::Destruct::Level.
+
+2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash)
 	(build_single_index_data, build_global_info, build_global_info2)
 	(build_source_info_hash, convert_error): Use newRV_noinc instead
