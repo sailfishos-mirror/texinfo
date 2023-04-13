@@ -1,3 +1,11 @@
+2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/tree.c (spare_element, new_element)
+	(destroy_element, reset_obstacks): Reuse storage from
+	destroy_element, which is called a lot from abort_empty_line.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line): Disable
+	check for infinite loop when closing commands.
+
 2023-04-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/tree_types.h (ELEMENT):

@@ -33,12 +33,19 @@ alloc_and_zero (size_t size)
   return calloc (1, size);
 }
 
+/* Used with destroy_element to reuse storage, e.g. from
+   abort_empty_line.  Reduces memory use slightly (about 5% from testing)
+   for large manuals. */
+static ELEMENT *spare_element;
+
 #define obstack_chunk_alloc alloc_and_zero
 #define obstack_chunk_free free
 
 void
 reset_obstacks (void)
 {
+  spare_element = 0;
+
   if (obs_element_first)
     obstack_free (&obs_element, obs_element_first);
 
@@ -54,10 +61,20 @@ static ELEMENT *alloc_element (void)
 ELEMENT *
 new_element (enum element_type type)
 {
-  ELEMENT *e = alloc_element ();
+  ELEMENT *e;
 
-  /* alloc_element zeroes *e.  We assume null pointers have bit representation
-     of all zeroes. */
+  if (spare_element)
+    {
+      e = spare_element;
+      spare_element = 0;
+      memset (e, 0, sizeof (ELEMENT));
+    }
+  else
+    {
+      e = alloc_element ();
+      /* alloc_element zeroes *e.  We assume null pointers have bit
+         representation of all zeroes. */
+    }
 
   e->type = type;
 
@@ -130,6 +147,8 @@ destroy_element (ELEMENT *e)
 
   destroy_associated_info (&e->extra_info);
   destroy_associated_info (&e->info_info);
+
+  spare_element = e;
 
   /* freed in reset_obstacks */
   /* free (e); */

@@ -2016,7 +2016,8 @@ end_line (ELEMENT *current)
             }
         }
 
-      if (current == current_old)
+      /* Check is disabled as new_element can reuse storage. */
+      if (0 && current == current_old)
         fatal ("infinite loop when closing commands");
 
       current = end_line (current);
