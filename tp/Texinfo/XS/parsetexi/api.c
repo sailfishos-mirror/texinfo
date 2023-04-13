@@ -578,14 +578,14 @@ element_to_perl_hash (ELEMENT *e)
       int i;
 
       av = newAV ();
-      sv = newRV_inc ((SV *) av);
+      sv = newRV_noinc ((SV *) av);
       av_unshift (av, e->contents.number);
 
       hv_store (e->hv, "contents", strlen ("contents"), sv, HSH_contents);
       for (i = 0; i < e->contents.number; i++)
         {
           element_to_perl_hash (e->contents.list[i]);
-          sv = newRV_inc ((SV *) e->contents.list[i]->hv);
+          sv = newRV_noinc ((SV *) e->contents.list[i]->hv);
           av_store (av, i, sv);
         }
     }
@@ -596,7 +596,7 @@ element_to_perl_hash (ELEMENT *e)
       int i;
 
       av = newAV ();
-      sv = newRV_inc ((SV *) av);
+      sv = newRV_noinc ((SV *) av);
       av_unshift (av, e->args.number);
 
       hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
@@ -625,7 +625,7 @@ element_to_perl_hash (ELEMENT *e)
       SOURCE_INFO *source_info = &e->source_info;
       HV *hv = newHV ();
       hv_store (e->hv, "source_info", strlen ("source_info"),
-                newRV_inc((SV *)hv), HSH_source_info);
+                newRV_noinc((SV *)hv), HSH_source_info);
 
       if (source_info->file_name)
         {
@@ -736,7 +736,7 @@ build_float_list (void)
           hv_store (float_hash,
                     floats_list[i].type,
                     strlen (floats_list[i].type),
-                    newRV_inc ((SV *)av),
+                    newRV_noinc ((SV *)av),
                     0);
         }
       else
@@ -824,7 +824,7 @@ build_single_index_data (INDEX *i)
     {
       entries = newAV ();
       av_unshift (entries, i->index_number);
-      STORE("index_entries", newRV_inc ((SV *) entries));
+      STORE("index_entries", newRV_noinc ((SV *) entries));
 #undef STORE
 
       entry_number = 1;
@@ -842,7 +842,7 @@ build_single_index_data (INDEX *i)
                  newRV_inc ((SV *)e->command->hv));
           STORE2("entry_number", newSViv (entry_number));
 
-          av_store (entries, j, newRV_inc ((SV *)entry));
+          av_store (entries, j, newRV_noinc ((SV *)entry));
 
           entry_number++;
 #undef STORE2
@@ -868,7 +868,7 @@ build_index_data (void)
       HV *hv2;
       build_single_index_data (idx);
       hv2 = idx->hv;
-      hv_store (hv, idx->name, strlen (idx->name), newRV_inc ((SV *)hv2), 0);
+      hv_store (hv, idx->name, strlen (idx->name), newRV_noinc ((SV *)hv2), 0);
     }
 
   return hv;
@@ -898,7 +898,7 @@ build_global_info (void)
     {
       AV *av = newAV ();
       hv_store (hv, "dircategory_direntry", strlen ("dircategory_direntry"),
-                newRV_inc ((SV *) av), 0);
+                newRV_noinc ((SV *) av), 0);
       for (i = 0; i < global_info.dircategory_direntry.contents.number; i++)
         {
           e = contents_child_by_index (&global_info.dircategory_direntry, i);
@@ -969,7 +969,7 @@ build_global_info2 (void)
     {
       av = newAV ();
       hv_store (hv, "footnote", strlen ("footnote"),
-                newRV_inc ((SV *) av), 0);
+                newRV_noinc ((SV *) av), 0);
       for (i = 0; i < global_info.footnotes.contents.number; i++)
         {
           e = contents_child_by_index (&global_info.footnotes, i);
@@ -983,7 +983,7 @@ build_global_info2 (void)
     {
       av = newAV ();
       hv_store (hv, "float", strlen ("float"),
-                newRV_inc ((SV *) av), 0);
+                newRV_noinc ((SV *) av), 0);
       for (i = 0; i < global_info.floats.contents.number; i++)
         {
           e = contents_child_by_index (&global_info.floats, i);
@@ -997,7 +997,7 @@ build_global_info2 (void)
     {                                                                   \
       av = newAV ();                                                    \
       hv_store (hv, #cmd, strlen (#cmd),                                \
-                newRV_inc ((SV *) av), 0);                              \
+                newRV_noinc ((SV *) av), 0);                              \
       for (i = 0; i < global_info.cmd.contents.number; i++)             \
         {                                                               \
           e = contents_child_by_index (&global_info.cmd, i);            \
@@ -1105,7 +1105,7 @@ build_source_info_hash (SOURCE_INFO source_info)
                 newSVpv_utf8 ("", 0), 0);
     }
 
-  return newRV_inc ((SV *) hv);
+  return newRV_noinc ((SV *) hv);
 }
 
 static SV *
@@ -1131,7 +1131,7 @@ convert_error (int i)
   hv_store (hv, "source_info", strlen ("source_info"),
             build_source_info_hash(e.source_info), 0);
 
-  return newRV_inc ((SV *) hv);
+  return newRV_noinc ((SV *) hv);
 
 }
 

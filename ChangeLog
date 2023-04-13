@@ -1,5 +1,14 @@
 2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash)
+	(build_single_index_data, build_global_info, build_global_info2)
+	(build_source_info_hash, convert_error): Use newRV_noinc instead
+	of newRV_inc when we have just created a Perl object that we
+	are taking a reference to, as the object already has a reference
+	count of 1.
+
+2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/tree.c (spare_element, new_element)
 	(destroy_element, reset_obstacks): Reuse storage from
 	destroy_element, which is called a lot from abort_empty_line.
