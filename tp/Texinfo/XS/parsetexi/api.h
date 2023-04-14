@@ -1,7 +1,6 @@
 /* api.h - declarations for api.c */
 #ifndef API_H
 #define API_H
-extern ELEMENT *Root;
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 

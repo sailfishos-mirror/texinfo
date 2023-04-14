@@ -113,6 +113,8 @@ reset_floats ()
   floats_number = 0;
 }
 
+static ELEMENT *Root;
+
 void
 reset_parser_except_conf (void)
 {

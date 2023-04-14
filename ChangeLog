@@ -1,5 +1,11 @@
 2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/api.c (Root): Declare as a static
+	pointer.  For some reason, even though the symbol was undefined
+	in the XS library, the program still ran, although much slower.
+
+2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
 	Always call destroy_element_and_children.
 
