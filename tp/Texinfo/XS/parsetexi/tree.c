@@ -27,18 +27,12 @@
 static struct obstack obs_element;
 static int *obs_element_first = 0;
 
-static void *
-alloc_and_zero (size_t size)
-{
-  return calloc (1, size);
-}
-
 /* Used with destroy_element to reuse storage, e.g. from
    abort_empty_line.  Reduces memory use slightly (about 5% from testing)
    for large manuals. */
 static ELEMENT *spare_element;
 
-#define obstack_chunk_alloc alloc_and_zero
+#define obstack_chunk_alloc malloc
 #define obstack_chunk_free free
 
 void
@@ -48,14 +42,18 @@ reset_obstacks (void)
 
   if (obs_element_first)
     obstack_free (&obs_element, obs_element_first);
+  else
+    obstack_init (&obs_element);
 
-  obstack_init (&obs_element);
   obs_element_first = obstack_alloc (&obs_element, sizeof (int));
 }
 
 static ELEMENT *alloc_element (void)
 {
-  return (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
+  ELEMENT *e;
+  e = (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
+  memset (e, 0, sizeof (ELEMENT));
+  return e;
 }
 
 ELEMENT *

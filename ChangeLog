@@ -1,5 +1,14 @@
 2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/tree.c (reset_obstacks):
+	Do not call obstack_init more than once.  Storage was not
+	being reused in the obstack.
+	(alloc_element): Zero element.
+	(alloc_and_zero): Do not use for obstack_chunk_alloc definition,
+	and remove.
+
+2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
 	Free a variable to avoid a memory leak.
 
