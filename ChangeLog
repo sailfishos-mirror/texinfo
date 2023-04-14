@@ -1,3 +1,8 @@
+2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
+	Free a variable to avoid a memory leak.
+
 2023-04-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add note about Perl::Destruct::Level.

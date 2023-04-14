@@ -1747,6 +1747,7 @@ end_line_misc_line (ELEMENT *current)
       ELEMENT *end_elt;
 
       debug ("END COMMAND %s", end_command);
+      free (end_command);
 
       /* Reparent the "@end" element to be a child of the block element. */
       end_elt = pop_element_from_contents (current);
