@@ -1,5 +1,10 @@
 2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf):
+	Always call destroy_element_and_children.
+
+2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/tree.c (reset_obstacks):
 	Do not call obstack_init more than once.  Storage was not
 	being reused in the obstack.

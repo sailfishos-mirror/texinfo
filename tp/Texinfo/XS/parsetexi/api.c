@@ -113,29 +113,16 @@ reset_floats ()
   floats_number = 0;
 }
 
-ELEMENT *Root;
-
-/* Array to keep old values of Root.  This is a time efficiency to avoid
-   calling destroy_element_and_children.  It is likely the first value
-   of Root is the main parse tree representing the whole document.
-   We keep the references to avoid the appearance of a memory leak. */
-#define MAX_OLD_ROOTS 5
-static ELEMENT *old_roots[MAX_OLD_ROOTS];
-static int n_old_roots = 0;
-
-
 void
 reset_parser_except_conf (void)
 {
   /* do before destroying tree because index entries refer to in-tree
      elements. */
   wipe_indices ();
+
   if (Root)
     {
-      if (n_old_roots == MAX_OLD_ROOTS)
-        destroy_element_and_children (Root);
-      else
-        old_roots[n_old_roots++] = Root;
+      destroy_element_and_children (Root);
       Root = 0;
     }
   wipe_user_commands ();
