@@ -315,7 +315,11 @@ store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
       HV *extra;
       int i;
       int nr_info = 0; /* number of info type stored */
-      extra = newHV ();
+
+
+      /* Use sv_2mortal so that reference count is decremented if
+         the hash is not saved. */
+      extra = (HV *) sv_2mortal((SV *)newHV ());
 
       for (i = 0; i < a->info_number; i++)
         {
@@ -417,7 +421,7 @@ store_source_mark_list (ELEMENT *e)
       SV *sv;
       int i;
       av = newAV ();
-      sv = newRV_inc ((SV *) av);
+      sv = newRV_noinc ((SV *) av);
       hv_store (e->hv, "source_marks", strlen ("source_marks"), sv, 0);
 
       for (i = 0; i < e->source_mark_list.number; i++)
@@ -484,7 +488,7 @@ store_source_mark_list (ELEMENT *e)
               SAVE_S_M_TYPE (expanded_conditional_command)
             }
 
-          av_push (av, newRV_inc ((SV *)source_mark));
+          av_push (av, newRV_noinc ((SV *)source_mark));
 #undef STORE
         }
     }

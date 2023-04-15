@@ -1,3 +1,9 @@
+2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/api.c (store_source_mark_list):
+	Use newRV_noinc when refering to objects we have just created.
+	(store_additional_info): Use sv_2mortal on created hash.
+
 2023-04-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/api.c (Root): Declare as a static
