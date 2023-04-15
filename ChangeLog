@@ -1,6 +1,11 @@
 2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert):
+	Move handling of cross-reference commands earlier.
+
+2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert):
 	Combine brace commands into a single conditional block
 	so all the checks for these can be easily skipped.
 

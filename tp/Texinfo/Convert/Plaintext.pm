@@ -2027,176 +2027,6 @@ sub _convert($$)
           }
         }
         return $result;
-      } elsif ($command eq 'image') {
-        $result = _count_added($self, $formatter->{'container'},
-                     add_pending_word($formatter->{'container'}, 1));
-        # add an empty word so that following spaces aren't lost
-        add_next($formatter->{'container'},'');
-        my ($image, $lines_count) = $self->format_image($element);
-        _add_lines_count($self, $lines_count);
-        add_text_to_count($self, $image);
-        if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
-          $self->{'empty_lines_count'} = 0;
-        }
-        $result .= $image;
-        return $result;
-      } elsif ($command eq 'today') {
-        my $today = $self->Texinfo::Convert::Utils::expand_today();
-        unshift @{$self->{'current_contents'}->[-1]}, $today;
-      } elsif (exists($brace_no_arg_commands{$command})) {
-        my $text;
-
-        if ($command eq 'dots' or $command eq 'enddots') {
-          # Don't use Unicode ellipsis character.
-          $text = '...';
-        } else {
-          $text = Texinfo::Convert::Text::brace_no_arg_command($element,
-                                             $self->{'convert_text_options'});
-        }
-
-        # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
-        # is the case whether we are in @sc or not.
-        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
-            and $letter_no_arg_commands{$command}) {
-          $text = _protect_sentence_ends($text);
-          $text = uc($text);
-        }
-
-        if ($punctuation_no_arg_commands{$command}) {
-          $result .= _count_added($self, $formatter->{'container'},
-                      add_next($formatter->{'container'}, $text));
-          add_end_sentence($formatter->{'container'}, 1);
-        } elsif ($command eq 'tie') {
-          $result .= _count_added($self, $formatter->{'container'},
-                         add_next($formatter->{'container'}, $text));
-        } else {
-          $result .= _count_added($self, $formatter->{'container'},
-                         add_text($formatter->{'container'}, $text));
-
-          # This is to have @TeX{}, for example, not to prevent end sentences.
-          if (!$letter_no_arg_commands{$command}) {
-            allow_end_sentence($formatter->{'container'});
-          }
-
-          if ($command eq 'dots') {
-            remove_end_sentence($formatter->{'container'});
-          }
-        }
-        if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
-            or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-          allow_end_sentence($formatter->{'container'});
-        }
-        return $result;
-      } elsif ($command eq 'email') {
-        # nothing is output for email, instead the command is substituted.
-        my @email_contents;
-        if ($element->{'args'}) {
-          my $name;
-          my $email;
-          if (scalar (@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and @{$element->{'args'}->[1]->{'contents'}}) {
-            $name = $element->{'args'}->[1]->{'contents'};
-          }
-          if (defined($element->{'args'}->[0])
-              and $element->{'args'}->[0]->{'contents'}
-              and @{$element->{'args'}->[0]->{'contents'}}) {
-            $email = $element->{'args'}->[0]->{'contents'};
-          }
-          my $prepended;
-          if ($name and $email) {
-            $prepended = $self->gdt('{name} @url{{email}}',
-                             {'name' => $name, 'email' => $email});
-          } elsif ($email) {
-            $prepended = $self->gdt('@url{{email}}',
-                             {'email' => $email});
-          } elsif ($name) {
-            $prepended = {'contents' => $name};
-          } else {
-            return '';
-          }
-          unshift @{$self->{'current_contents'}->[-1]}, $prepended;
-        }
-        return '';
-      } elsif ($command eq 'uref' or $command eq 'url') {
-        if ($element->{'args'}) {
-          if (scalar(@{$element->{'args'}}) == 3
-               and defined($element->{'args'}->[2])
-               and $element->{'args'}->[2]->{'contents'}
-               and @{$element->{'args'}->[2]->{'contents'}}) {
-            unshift @{$self->{'current_contents'}->[-1]},
-              {'type' => '_stop_upper_case',
-               'contents' => $element->{'args'}->[2]->{'contents'}};
-          } elsif ($element->{'args'}->[0]->{'contents'}
-                   and @{$element->{'args'}->[0]->{'contents'}}) {
-            # no mangling of --- and similar in url.
-            my $url = {'type' => '_stop_upper_case',
-              'contents' => [
-               {'type' => '_code',
-                'contents' => $element->{'args'}->[0]->{'contents'}}]};
-            if (scalar(@{$element->{'args'}}) == 2
-               and defined($element->{'args'}->[1])
-               and $element->{'args'}->[1]->{'contents'}
-               and @{$element->{'args'}->[1]->{'contents'}}) {
-              my $prepended = $self->gdt('{text} ({url})',
-                   {'text' => $element->{'args'}->[1]->{'contents'},
-                    'url' => $url });
-              unshift @{$self->{'current_contents'}->[-1]}, $prepended;
-            } else {
-              my $prepended = $self->gdt('@t{<{url}>}',
-                                          {'url' => $url});
-              unshift @{$self->{'current_contents'}->[-1]}, $prepended
-            }
-          } elsif (scalar(@{$element->{'args'}}) == 2
-                   and defined($element->{'args'}->[1])
-                   and $element->{'args'}->[1]->{'contents'}
-                   and @{$element->{'args'}->[1]->{'contents'}}) {
-            unshift @{$self->{'current_contents'}->[-1]},
-              {'contents' => $element->{'args'}->[1]->{'contents'}};
-          }
-        }
-        return '';
-      } elsif ($command eq 'footnote') {
-        $self->{'footnote_index'}++ unless ($self->{'multiple_pass'});
-        my $formatted_footnote_number;
-        if ($self->get_conf('NUMBER_FOOTNOTES')) {
-          $formatted_footnote_number = $self->{'footnote_index'};
-        } else {
-          $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
-        }
-        push @{$self->{'pending_footnotes'}}, {'root' => $element,
-                                      'number' => $self->{'footnote_index'}}
-            unless ($self->{'multiple_pass'});
-        if (!$self->{'in_copying_header'}) {
-          $self->format_error_outside_of_any_node($element);
-        }
-        $result .= _count_added($self, $formatter->{'container'},
-             add_next($formatter->{'container'},
-                      "($formatted_footnote_number)", 1));
-        if ($self->get_conf('footnotestyle') eq 'separate'
-            and $self->{'current_node'}) {
-          $result .= _convert($self, {'contents' =>
-           [{'text' => ' ('},
-            {'cmdname' => 'pxref',
-             'args' => [
-               {'type' => 'brace_command_arg',
-                'contents' => [
-                   @{$self->{'current_node'}->{'args'}->[0]->{'contents'}},
-                   {'text' => "-Footnote-$self->{'footnote_index'}"}
-                ]
-               }
-             ]
-            },
-            {'text' => ')'}],
-            });
-        }
-        return $result;
-      } elsif ($command eq 'anchor') {
-        $result = _count_added($self, $formatter->{'container'},
-                     add_pending_word($formatter->{'container'}));
-        $result .= $self->_anchor($element);
-        return $result;
       } elsif ($ref_commands{$command}) {
         if (scalar(@{$element->{'args'}})) {
           my @args;
@@ -2440,6 +2270,176 @@ sub _convert($$)
           return $result;
         }
         return '';
+      } elsif ($command eq 'image') {
+        $result = _count_added($self, $formatter->{'container'},
+                     add_pending_word($formatter->{'container'}, 1));
+        # add an empty word so that following spaces aren't lost
+        add_next($formatter->{'container'},'');
+        my ($image, $lines_count) = $self->format_image($element);
+        _add_lines_count($self, $lines_count);
+        add_text_to_count($self, $image);
+        if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
+          $self->{'empty_lines_count'} = 0;
+        }
+        $result .= $image;
+        return $result;
+      } elsif ($command eq 'today') {
+        my $today = $self->Texinfo::Convert::Utils::expand_today();
+        unshift @{$self->{'current_contents'}->[-1]}, $today;
+      } elsif (exists($brace_no_arg_commands{$command})) {
+        my $text;
+
+        if ($command eq 'dots' or $command eq 'enddots') {
+          # Don't use Unicode ellipsis character.
+          $text = '...';
+        } else {
+          $text = Texinfo::Convert::Text::brace_no_arg_command($element,
+                                             $self->{'convert_text_options'});
+        }
+
+        # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
+        # is the case whether we are in @sc or not.
+        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
+            and $letter_no_arg_commands{$command}) {
+          $text = _protect_sentence_ends($text);
+          $text = uc($text);
+        }
+
+        if ($punctuation_no_arg_commands{$command}) {
+          $result .= _count_added($self, $formatter->{'container'},
+                      add_next($formatter->{'container'}, $text));
+          add_end_sentence($formatter->{'container'}, 1);
+        } elsif ($command eq 'tie') {
+          $result .= _count_added($self, $formatter->{'container'},
+                         add_next($formatter->{'container'}, $text));
+        } else {
+          $result .= _count_added($self, $formatter->{'container'},
+                         add_text($formatter->{'container'}, $text));
+
+          # This is to have @TeX{}, for example, not to prevent end sentences.
+          if (!$letter_no_arg_commands{$command}) {
+            allow_end_sentence($formatter->{'container'});
+          }
+
+          if ($command eq 'dots') {
+            remove_end_sentence($formatter->{'container'});
+          }
+        }
+        if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
+            or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+          allow_end_sentence($formatter->{'container'});
+        }
+        return $result;
+      } elsif ($command eq 'email') {
+        # nothing is output for email, instead the command is substituted.
+        my @email_contents;
+        if ($element->{'args'}) {
+          my $name;
+          my $email;
+          if (scalar (@{$element->{'args'}}) == 2
+              and defined($element->{'args'}->[1])
+              and $element->{'args'}->[1]->{'contents'}
+              and @{$element->{'args'}->[1]->{'contents'}}) {
+            $name = $element->{'args'}->[1]->{'contents'};
+          }
+          if (defined($element->{'args'}->[0])
+              and $element->{'args'}->[0]->{'contents'}
+              and @{$element->{'args'}->[0]->{'contents'}}) {
+            $email = $element->{'args'}->[0]->{'contents'};
+          }
+          my $prepended;
+          if ($name and $email) {
+            $prepended = $self->gdt('{name} @url{{email}}',
+                             {'name' => $name, 'email' => $email});
+          } elsif ($email) {
+            $prepended = $self->gdt('@url{{email}}',
+                             {'email' => $email});
+          } elsif ($name) {
+            $prepended = {'contents' => $name};
+          } else {
+            return '';
+          }
+          unshift @{$self->{'current_contents'}->[-1]}, $prepended;
+        }
+        return '';
+      } elsif ($command eq 'uref' or $command eq 'url') {
+        if ($element->{'args'}) {
+          if (scalar(@{$element->{'args'}}) == 3
+               and defined($element->{'args'}->[2])
+               and $element->{'args'}->[2]->{'contents'}
+               and @{$element->{'args'}->[2]->{'contents'}}) {
+            unshift @{$self->{'current_contents'}->[-1]},
+              {'type' => '_stop_upper_case',
+               'contents' => $element->{'args'}->[2]->{'contents'}};
+          } elsif ($element->{'args'}->[0]->{'contents'}
+                   and @{$element->{'args'}->[0]->{'contents'}}) {
+            # no mangling of --- and similar in url.
+            my $url = {'type' => '_stop_upper_case',
+              'contents' => [
+               {'type' => '_code',
+                'contents' => $element->{'args'}->[0]->{'contents'}}]};
+            if (scalar(@{$element->{'args'}}) == 2
+               and defined($element->{'args'}->[1])
+               and $element->{'args'}->[1]->{'contents'}
+               and @{$element->{'args'}->[1]->{'contents'}}) {
+              my $prepended = $self->gdt('{text} ({url})',
+                   {'text' => $element->{'args'}->[1]->{'contents'},
+                    'url' => $url });
+              unshift @{$self->{'current_contents'}->[-1]}, $prepended;
+            } else {
+              my $prepended = $self->gdt('@t{<{url}>}',
+                                          {'url' => $url});
+              unshift @{$self->{'current_contents'}->[-1]}, $prepended
+            }
+          } elsif (scalar(@{$element->{'args'}}) == 2
+                   and defined($element->{'args'}->[1])
+                   and $element->{'args'}->[1]->{'contents'}
+                   and @{$element->{'args'}->[1]->{'contents'}}) {
+            unshift @{$self->{'current_contents'}->[-1]},
+              {'contents' => $element->{'args'}->[1]->{'contents'}};
+          }
+        }
+        return '';
+      } elsif ($command eq 'footnote') {
+        $self->{'footnote_index'}++ unless ($self->{'multiple_pass'});
+        my $formatted_footnote_number;
+        if ($self->get_conf('NUMBER_FOOTNOTES')) {
+          $formatted_footnote_number = $self->{'footnote_index'};
+        } else {
+          $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
+        }
+        push @{$self->{'pending_footnotes'}}, {'root' => $element,
+                                      'number' => $self->{'footnote_index'}}
+            unless ($self->{'multiple_pass'});
+        if (!$self->{'in_copying_header'}) {
+          $self->format_error_outside_of_any_node($element);
+        }
+        $result .= _count_added($self, $formatter->{'container'},
+             add_next($formatter->{'container'},
+                      "($formatted_footnote_number)", 1));
+        if ($self->get_conf('footnotestyle') eq 'separate'
+            and $self->{'current_node'}) {
+          $result .= _convert($self, {'contents' =>
+           [{'text' => ' ('},
+            {'cmdname' => 'pxref',
+             'args' => [
+               {'type' => 'brace_command_arg',
+                'contents' => [
+                   @{$self->{'current_node'}->{'args'}->[0]->{'contents'}},
+                   {'text' => "-Footnote-$self->{'footnote_index'}"}
+                ]
+               }
+             ]
+            },
+            {'text' => ')'}],
+            });
+        }
+        return $result;
+      } elsif ($command eq 'anchor') {
+        $result = _count_added($self, $formatter->{'container'},
+                     add_pending_word($formatter->{'container'}));
+        $result .= $self->_anchor($element);
+        return $result;
       } elsif ($explained_commands{$command}) {
         if ($element->{'args'}
             and defined($element->{'args'}->[0])
