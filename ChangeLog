@@ -1,6 +1,14 @@
 2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert):
+	Insert into 'current_contents' array less, rather calling
+	_convert recursively on added material.  This seems more
+	straightforward than modifying an array that we are iterating
+	over.
+
+2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert):
 	Move handling of cross-reference commands earlier.
 
 2023-04-15  Gavin Smith <gavinsmith0123@gmail.com>

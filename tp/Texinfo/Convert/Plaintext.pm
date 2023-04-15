@@ -2256,7 +2256,9 @@ sub _convert($$)
               # added by whether it is followed by 2 spaces (although this
               # doesn't help at the end of a line).
               push @added, {'cmdname' => ':'};
-              unshift @{$self->{'current_contents'}->[-1]}, @added;
+              for my $added_element (@added) {
+                $result .= _convert($self, $added_element);
+              }
             }
           }
 
@@ -2285,7 +2287,8 @@ sub _convert($$)
         return $result;
       } elsif ($command eq 'today') {
         my $today = $self->Texinfo::Convert::Utils::expand_today();
-        unshift @{$self->{'current_contents'}->[-1]}, $today;
+        $result .= _convert($self, $today);
+        return $result;
       } elsif (exists($brace_no_arg_commands{$command})) {
         my $text;
 
@@ -2347,30 +2350,31 @@ sub _convert($$)
               and @{$element->{'args'}->[0]->{'contents'}}) {
             $email = $element->{'args'}->[0]->{'contents'};
           }
-          my $prepended;
+          my $email_tree;
           if ($name and $email) {
-            $prepended = $self->gdt('{name} @url{{email}}',
+            $email_tree = $self->gdt('{name} @url{{email}}',
                              {'name' => $name, 'email' => $email});
           } elsif ($email) {
-            $prepended = $self->gdt('@url{{email}}',
+            $email_tree = $self->gdt('@url{{email}}',
                              {'email' => $email});
           } elsif ($name) {
-            $prepended = {'contents' => $name};
+            $email_tree = {'contents' => $name};
           } else {
             return '';
           }
-          unshift @{$self->{'current_contents'}->[-1]}, $prepended;
+          $result .= _convert($self, $email_tree);
+          return $result;
         }
         return '';
       } elsif ($command eq 'uref' or $command eq 'url') {
+        my $inserted;
         if ($element->{'args'}) {
           if (scalar(@{$element->{'args'}}) == 3
                and defined($element->{'args'}->[2])
                and $element->{'args'}->[2]->{'contents'}
                and @{$element->{'args'}->[2]->{'contents'}}) {
-            unshift @{$self->{'current_contents'}->[-1]},
-              {'type' => '_stop_upper_case',
-               'contents' => $element->{'args'}->[2]->{'contents'}};
+            $inserted = {'type' => '_stop_upper_case',
+                         'contents' => $element->{'args'}->[2]->{'contents'}};
           } elsif ($element->{'args'}->[0]->{'contents'}
                    and @{$element->{'args'}->[0]->{'contents'}}) {
             # no mangling of --- and similar in url.
@@ -2382,24 +2386,23 @@ sub _convert($$)
                and defined($element->{'args'}->[1])
                and $element->{'args'}->[1]->{'contents'}
                and @{$element->{'args'}->[1]->{'contents'}}) {
-              my $prepended = $self->gdt('{text} ({url})',
+              $inserted = $self->gdt('{text} ({url})',
                    {'text' => $element->{'args'}->[1]->{'contents'},
                     'url' => $url });
-              unshift @{$self->{'current_contents'}->[-1]}, $prepended;
             } else {
-              my $prepended = $self->gdt('@t{<{url}>}',
-                                          {'url' => $url});
-              unshift @{$self->{'current_contents'}->[-1]}, $prepended
+              $inserted = $self->gdt('@t{<{url}>}', {'url' => $url});
             }
           } elsif (scalar(@{$element->{'args'}}) == 2
                    and defined($element->{'args'}->[1])
                    and $element->{'args'}->[1]->{'contents'}
                    and @{$element->{'args'}->[1]->{'contents'}}) {
-            unshift @{$self->{'current_contents'}->[-1]},
-              {'contents' => $element->{'args'}->[1]->{'contents'}};
+            $inserted = {'contents' => $element->{'args'}->[1]->{'contents'}};
           }
         }
-        return '';
+        if ($inserted) {
+          $result .= _convert($self, $inserted);
+        }
+        return $result;
       } elsif ($command eq 'footnote') {
         $self->{'footnote_index'}++ unless ($self->{'multiple_pass'});
         my $formatted_footnote_number;
