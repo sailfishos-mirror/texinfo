@@ -1838,14 +1838,23 @@ sub _convert($$)
       my $following_not_empty;
       my @parents = @{$self->{'current_roots'}};
       my @parent_contents = @{$self->{'current_contents'}};
+      my $last_parent = $element;
       while (@parents) {
+        my $current_child = $last_parent;
         my $parent = pop @parents;
         my $parent_content = pop @parent_contents;
+        $last_parent = $parent;
+
         if ($parent->{'type'} and $parent->{'type'} eq 'paragraph') {
           $following_not_empty = 1;
           last;
         }
-        foreach my $following_content (@$parent_content) {
+        my $n = scalar(@$parent_content);
+        while ($n > 0) {
+          $n--;
+          my $following_content = $parent_content->[$n];
+          last if $following_content == $current_child;
+
           unless (($following_content->{'type'}
                    and ($following_content->{'type'} eq 'empty_line'
                         or $ignorable_types{$following_content->{'type'}}))
@@ -2232,7 +2241,18 @@ sub _convert($$)
           # command, for other commands it may be in the argument..."
 
           if ($name) {
-            my $next = $self->{'current_contents'}->[-1]->[0];
+            # Find next element
+            my $next;
+            my $count = 0;
+
+            for my $e (@{$self->{'current_contents'}->[-1]}) {
+               if ($count == 1) {
+                 $next = $e;
+                 last;
+               }
+               $count++ if $e == $element;
+            }
+
             if (!($next and $next->{'text'}
                     and $next->{'text'} =~ /^[\.,]/)) {
               if ($command eq 'xref') {
@@ -2460,11 +2480,11 @@ sub _convert($$)
               and defined($element->{'args'}->[-1])
               and $element->{'args'}->[-1]->{'contents'}
               and @{$element->{'args'}->[-1]->{'contents'}}) {
-            my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})',
+            my $inserted = $self->gdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
                     'explanation' => $element->{'args'}->[-1]->{'contents'}});
-            unshift @{$self->{'current_contents'}->[-1]}, $prepended;
-            return '';
+            $result .= _convert($self, $inserted);
+            return $result;
           } else {
             $result = _convert($self, $argument);
 
@@ -2497,9 +2517,9 @@ sub _convert($$)
             $argument
              = {'contents' => $contents};
           }
-          unshift @{$self->{'current_contents'}->[-1]}, ($argument);
+          $result .= _convert($self, $argument);
         }
-        return '';
+        return $result;
         # condition should actually be that the $command is inline
       } elsif ($math_commands{$command}) {
         push @{$self->{'context'}}, $command;
@@ -2568,8 +2588,6 @@ sub _convert($$)
                         'contents' => [$expansion]};
         }
         $result .= _convert($self, $expansion);
-        #  unshift @{$self->{'current_contents'}->[-1]}, $expansion;
-        #return '';
         return $result;
       } elsif ($element->{'args'} and $element->{'args'}->[0]
                and $element->{'args'}->[0]->{'type'}
@@ -2904,16 +2922,16 @@ sub _convert($$)
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
                                                                $self, $element);
-      unshift @{$self->{'current_contents'}->[-1]}, $expansion
-        if ($expansion);
-      return '';
+      $result .= _convert($self, $expansion);
+      return $result;
     } elsif ($command eq 'insertcopying') {
       if ($self->{'global_commands'}
           and $self->{'global_commands'}->{'copying'}) {
-        unshift @{$self->{'current_contents'}->[-1]},
+        my $inserted =
          {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
+        $result .= _convert($self, $inserted);
       }
-      return '';
+      return $result;
     } elsif ($command eq 'printindex') {
       $result = $self->format_printindex($element);
       return $result;
@@ -3433,11 +3451,12 @@ sub _convert($$)
   # The processing of contents is done here.
   # $element->{'contents'} undef may happen for some empty commands/containers
   if ($element->{'contents'}) {
-    my @contents = @{$element->{'contents'}};
-    push @{$self->{'current_contents'}}, \@contents;
+    my $contents = $element->{'contents'};
+    push @{$self->{'current_contents'}}, $contents;
+
     push @{$self->{'current_roots'}}, $element;
-    while (@contents) {
-      my $content = shift @contents;
+
+    for my $content (@$contents) {
       my $text = _convert($self, $content);
       $self->{'empty_lines_count'} = 0
         if ($preformatted and $text =~ /\S/);
