@@ -1,3 +1,9 @@
+2023-04-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/infomap.c (default_vi_like_info_keys): Add BackTab for
+	info_move_to_prev_xref.
+	Report from Sebastian Carlos <sebaaa1754@gmail.com>
+
 2023-04-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert):

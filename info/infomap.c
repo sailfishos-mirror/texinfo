@@ -477,6 +477,7 @@ static int default_vi_like_info_keys[] =
   ESC, KEY_RIGHT_ARROW, NUL,    A_info_xref_item,
   ESC, KEY_LEFT_ARROW, NUL,     A_info_beginning_of_node,
   CONTROL('x'), KEY_DELETE, NUL, A_ea_backward_kill_line,
+  KEY_BACK_TAB, NUL,            A_info_move_to_prev_xref,
   
 };
 
