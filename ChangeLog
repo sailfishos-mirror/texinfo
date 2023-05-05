@@ -1,5 +1,16 @@
 2023-05-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Error checking for @link and @inforef
+
+	* tp/Texinfo/command_data.txt (link): Add ref flag.
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace) <ref command>,
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace):
+	Handle @link the same as @inforef.  Add internal @link and @inforef
+	to list of internal references, which results in check being done
+	in Texinfo/Structuring.pm for references to non-existent nodes.
+
+2023-05-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@link for Info output
 
 	* tp/Texinfo/command_data.txt: Add @link.

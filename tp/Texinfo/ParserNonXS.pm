@@ -5950,9 +5950,12 @@ sub _handle_close_brace($$$)
             push @args, undef;
           }
         }
-        if (($closed_command eq 'inforef'
-             and !defined($args[0]) and !defined($args[2]))
-            or ($closed_command ne 'inforef'
+        my $link_or_inforef = ($closed_command eq 'link'
+                               or $closed_command eq 'inforef');
+
+        if ($link_or_inforef
+             and !defined($args[0]) and !defined($args[2])
+            or (!$link_or_inforef
              and !defined($args[0]) and !defined($args[3])
              and !defined($args[4]))) {
           $self->_line_warn(sprintf(__(
@@ -5968,9 +5971,10 @@ sub _handle_close_brace($$$)
               $arg_label->{'extra'}->{$label_info}
                 = [@{$ref_label_info->{$label_info}}];
             }
-            if ($closed_command ne 'inforef'
-                and !defined($args[3]) and !defined($args[4])
-                and !$ref_label_info->{'manual_content'}) {
+            if (!$link_or_inforef
+                  and !defined($args[3]) and !defined($args[4])
+                  and !$ref_label_info->{'manual_content'}
+                or $link_or_inforef and !defined($args[2])) {
               # we use the @*ref command here and not the label command
               # to have more information for messages
               push @{$self->{'internal_references'}}, $ref;
@@ -5987,7 +5991,7 @@ sub _handle_close_brace($$$)
                     $source_info);
           }
         }
-        if ($closed_command ne 'inforef' and defined($args[2])) {
+        if (!$link_or_inforef and defined($args[2])) {
           if (_check_empty_expansion($args[2])) {
             $self->_line_warn(sprintf(__(
              "in \@%s empty cross reference title after expansion `%s'"),

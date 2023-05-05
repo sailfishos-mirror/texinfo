@@ -2628,7 +2628,8 @@ $result_trees{'ref_error_formatting'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'node'
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -2688,7 +2689,8 @@ $result_trees{'ref_error_formatting'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'node'
                   },
                   'type' => 'brace_command_arg'
                 },
@@ -3056,6 +3058,24 @@ $result_errors{'ref_error_formatting'} = [
     'line_nr' => 12,
     'macro' => '',
     'text' => '@ref reference to nonexistent node `node\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@inforef reference to nonexistent node `node\'
+',
+    'file_name' => '',
+    'line_nr' => 39,
+    'macro' => '',
+    'text' => '@inforef reference to nonexistent node `node\'',
+    'type' => 'error'
+  },
+  {
+    'error_line' => '@inforef reference to nonexistent node `node\'
+',
+    'file_name' => '',
+    'line_nr' => 40,
+    'macro' => '',
+    'text' => '@inforef reference to nonexistent node `node\'',
     'type' => 'error'
   }
 ];

@@ -303,12 +303,14 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           ELEMENT *ref = current->parent;
           if (ref->args.number > 0)
             {
-              if ((closed_command == CM_inforef
+              int link_or_inforef = (closed_command == CM_link
+                                     || closed_command == CM_inforef);
+              if ((link_or_inforef
                    && (ref->args.number <= 0
                        || ref->args.list[0]->contents.number == 0)
                    && (ref->args.number <= 2
                        || ref->args.list[2]->contents.number == 0))
-                  || (closed_command != CM_inforef
+                  || (!link_or_inforef
                        && (ref->args.number <= 0
                            || ref->args.list[0]->contents.number == 0)
                        && (ref->args.number <= 3
@@ -341,16 +343,19 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                       if (ref_label_info->node_content)
                         destroy_element (ref_label_info->node_content);
                     }
-                  if (closed_command != CM_inforef
-                      && (ref->args.number <= 3
-                          || ref->args.number <= 4
-                             && ref->args.list[3]->contents.number == 0
-                          || (ref->args.list[3]->contents.number == 0
-                               && ref->args.list[4]->contents.number == 0))
-                      && !ref_label_info->manual_content)
+                  if (!link_or_inforef
+                        && (ref->args.number <= 3
+                            || ref->args.number <= 4
+                               && ref->args.list[3]->contents.number == 0
+                            || (ref->args.list[3]->contents.number == 0
+                                 && ref->args.list[4]->contents.number == 0))
+                        && !ref_label_info->manual_content
+                      || link_or_inforef
+                        && (ref->args.number <= 2
+                            || ref->args.list[2]->contents.number == 0))
                     {
-                      /* we use the @*ref command here and not the label command
-                         to have more information for messages */
+                      /* we use the @*ref command here and not the label
+                         command to have more information for messages */
                       remember_internal_xref (ref);
                     }
                   free (ref_label_info);
@@ -373,7 +378,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                     }
                 }
 
-              if (closed_command != CM_inforef
+              if (!link_or_inforef
                   && ref->args.number > 2
                   && ref->args.list[2]->contents.number > 0)
                 {

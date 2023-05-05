@@ -2675,7 +2675,8 @@ $result_trees{'refs_formatting'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'chapter'
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -2735,7 +2736,8 @@ $result_trees{'refs_formatting'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'chapter'
                   },
                   'type' => 'brace_command_arg'
                 },

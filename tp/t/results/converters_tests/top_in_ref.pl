@@ -2682,7 +2682,8 @@ $result_trees{'top_in_ref'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'Top'
                   },
                   'type' => 'brace_command_arg'
                 }
@@ -2742,7 +2743,8 @@ $result_trees{'top_in_ref'} = {
                   'extra' => {
                     'node_content' => [
                       {}
-                    ]
+                    ],
+                    'normalized' => 'Top'
                   },
                   'type' => 'brace_command_arg'
                 },
