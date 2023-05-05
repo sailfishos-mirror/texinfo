@@ -899,8 +899,8 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">(no_existing_no_manual.info)c</a>
-<a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">(no_existing_no_manual.info)c</a>
+<p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">c</a>
+<a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">c</a>
 </p>
 
 <ul class="mini-toc">

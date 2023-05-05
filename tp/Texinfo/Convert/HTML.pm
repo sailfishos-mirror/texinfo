@@ -2472,6 +2472,7 @@ my %default_commands_args = (
   'xref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
   'pxref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
   'ref' => [['monospace'],['normal'],['normal'],['filenametext'],['normal']],
+  'link' => [['monospace'],['normal'],['filenametext']],
   'image' => [['url', 'filenametext', 'monospacestring'],['filenametext'],['filenametext'],['string', 'normal'],['filenametext']],
   # FIXME shouldn't it better not to convert if later ignored?
   # note that right now ignored argument are in elided empty types
@@ -5213,7 +5214,7 @@ sub _convert_xref_commands($$$$)
 
   my $tree;
   my $name;
-  if ($cmdname ne 'inforef'
+  if ($cmdname ne 'link' and $cmdname ne 'inforef'
       and $args->[2]
       and defined($args->[2]->{'normal'}) and $args->[2]->{'normal'} ne '') {
     $name = $args->[2]->{'normal'};
@@ -5222,7 +5223,7 @@ sub _convert_xref_commands($$$$)
     $name = $args->[1]->{'normal'}
   }
 
-  if ($cmdname eq 'inforef') {
+  if ($cmdname eq 'link' or $cmdname eq 'inforef') {
     $args->[3] = $args->[2];
     $args->[2] = undef;
   }
@@ -5308,7 +5309,7 @@ sub _convert_xref_commands($$$$)
     } elsif ($cmdname eq 'xref') {
       $tree = $self->gdt('See {reference_name}',
         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
-    } elsif ($cmdname eq 'ref') {
+    } elsif ($cmdname eq 'ref' or $cmdname eq 'link') {
       $tree = $self->gdt('{reference_name}',
          { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
     }
@@ -5341,8 +5342,6 @@ sub _convert_xref_commands($$$$)
       if (!defined($name)) {
         my $node_name = $self->command_text($label_info);
         $name = $node_name;
-      } elsif ($file ne '') {
-        $name = "($file)$name";
       }
     } elsif (!defined($name) and $label_info->{'node_content'}) {
       my $node_no_file_tree = {'type' => '_code',

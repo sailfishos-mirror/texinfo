@@ -1,5 +1,15 @@
 2023-05-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@link for HTML
+
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args):
+	Add 'link', copied from 'inforef'.
+	(_convert_xref_commands): Treat 'link' similarly to 'ref', but
+	with the arguments of 'inforef'.
+	Do not prefix a user-provided label with a parenthesised manual.
+
+2023-05-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Error checking for @link and @inforef
 
 	* tp/Texinfo/command_data.txt (link): Add ref flag.

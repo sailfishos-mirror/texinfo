@@ -889,7 +889,7 @@ $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-ext
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
 <p><var class="var">a &ntilde; &aring; TeX <img class="image" src="myimage.jpg" alt="myimage"> <a class="ref" href="#chap">chap</a> See <a data-manual="f" href="f.html#node">(f)node</a>
-<a data-manual="argf" href="argf.html#ext">(argf)name</a> <code class="verb">inverb</code> <a class="anchor" id="inanchor"></a>&#x00ff; <em class="math">ma+th</em> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="url" href="la">la</a> <a class="url" href="a">b</a> lb
+<a data-manual="argf" href="argf.html#ext">name</a> <code class="verb">inverb</code> <a class="anchor" id="inanchor"></a>&#x00ff; <em class="math">ma+th</em> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="url" href="la">la</a> <a class="url" href="a">b</a> lb
 c <a class="email" href="mailto:a@c">e</a> <abbr class="abbr" title="d">ab</abbr> (d)</var></p></div>
 </div>
 <div class="footnotes-segment">

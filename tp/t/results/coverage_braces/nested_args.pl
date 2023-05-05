@@ -184,7 +184,7 @@ $result_converted{'plaintext'}->{'nested_args'} = '*Note descr in b: (â€˜manualâ
 ';
 
 
-$result_converted{'html_text'}->{'nested_args'} = '<p>See <a data-manual="manual" href="manual.html#g_t_0040-in-samp">(manual)S&#7869;ction</a>.</p>';
+$result_converted{'html_text'}->{'nested_args'} = '<p>See <a data-manual="manual" href="manual.html#g_t_0040-in-samp">S&#7869;ction</a>.</p>';
 
 
 $result_converted{'latex_text'}->{'nested_args'} = 'See Section ``S\\~{e}ction\'\' in \\texttt{\\Texinfocommandstyletextcite{manual}}.';

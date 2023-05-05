@@ -6696,7 +6696,7 @@ See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 <a class="ref" href="#text-with-a-lot-of-features">title</a>.
 </p>
 <p>And now a ref (with manual without printed manual)
-<a data-manual="manual" href="manual.html#text-with-a-lot-of-features">(manual)title</a>.
+<a data-manual="manual" href="manual.html#text-with-a-lot-of-features">title</a>.
 </p>
 <p>And now a ref (without manual with a printed manual)
 &lsquo;title&rsquo; in <cite class="cite">printed manual title</cite>.
