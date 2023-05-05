@@ -434,6 +434,7 @@ xref                    brace,ref,contain_basic_inline  BRACE_arguments     5
 ref                     brace,ref,contain_basic_inline  BRACE_arguments     5
 pxref                   brace,ref,contain_basic_inline  BRACE_arguments     5
 image                   brace,contain_basic_inline,no_paragraph      BRACE_arguments     5
+link                    brace,contain_basic_inline  BRACE_arguments     3
 
 # leading space is ignored in inline brace commands, not trailing space
 # inline format command

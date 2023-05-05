@@ -2036,6 +2036,23 @@ sub _convert($$)
           }
         }
         return $result;
+      } elsif ($command eq 'link') {
+        # Use arg 2 if present, otherwise use arg 1.  Do not produce
+        # functional link in Info/plaintext output.
+        my $text_arg;
+
+        if (defined($element->{'args'}->[1])
+              and defined($element->{'args'}->[1]->{'contents'})) {
+          $text_arg = $element->{'args'}->[1];
+        } elsif (defined($element->{'args'}->[0])
+              and defined($element->{'args'}->[0]->{'contents'})) {
+          $text_arg = $element->{'args'}->[0];
+        }
+        if (defined($text_arg)) {
+          $result = _convert($self, $text_arg);
+          return $result;
+        }
+        return '';
       } elsif ($ref_commands{$command}) {
         if (scalar(@{$element->{'args'}})) {
           my @args;
