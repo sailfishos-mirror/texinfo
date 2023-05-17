@@ -1,3 +1,9 @@
+2023-05-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/debug.h: Change include guard symbol to
+	avoid clash with Perl headers.  Report from Werner.  Remove copyright
+	notice, as this file is trivial.
+
 2023-05-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	@link for HTML
