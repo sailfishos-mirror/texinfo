@@ -1,3 +1,7 @@
+2023-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: Correct name of new variable.
+
 2023-05-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/debug.h: Change include guard symbol to

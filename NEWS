@@ -38,7 +38,7 @@ See the manual for detailed information.
       configured with INDEX_ENTRY_COLON.
     . add @example syntax highlighting as a texi2any extension.
  . Info output:
-    . new variable ASCII_HYPHENS_AND_QUOTES, on by default,
+    . new variable ASCII_DASHES_AND_QUOTES, on by default,
       outputs ASCII characters for literal quote or hyphen characters
       in source rather than UTF-8.  this makes it easier to search
       Info files.
