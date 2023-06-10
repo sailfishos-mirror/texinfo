@@ -1,3 +1,9 @@
+2023-06-10  Paul Eggert <eggert@cs.ucla.edu>
+
+	* doc/texinfo.tex: Fix two misspellings in comments.
+	Originally reported by Josh Soref <jsoref@gmail.com> in:
+	https://lists.gnu.org/r/bug-gnulib/2023-06/msg00057.html
+
 2023-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: Correct name of new variable.

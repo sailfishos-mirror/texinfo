@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2023-04-06.21}
+\def\texinfoversion{2023-06-08.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2023 Free Software Foundation, Inc.
 %
@@ -5783,7 +5783,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   % below is chosen so that the gutter has the same value (well, +-<1pt)
   % as it did when we hard-coded it.
   %
-  % We put the result in a separate register, \doublecolumhsize, so we
+  % We put the result in a separate register, \doublecolumnhsize, so we
   % can restore it in \pagesofar, after \hsize itself has (potentially)
   % been clobbered.
   %
@@ -8180,7 +8180,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Read recursive and nonrecursive macro bodies. (They're different since
 % rec and nonrec macros end differently.)
 % 
-% We are in \macrobodyctxt, and the \xdef causes backslashshes in the macro 
+% We are in \macrobodyctxt, and the \xdef causes backslashes in the macro
 % body to be transformed.
 % Set \macrobody to the body of the macro, and call \macrodef.
 %
