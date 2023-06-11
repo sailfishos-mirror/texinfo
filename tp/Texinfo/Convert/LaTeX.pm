@@ -3145,8 +3145,9 @@ sub _convert($$)
           }
         }
         my $node_arg = $element->{'args'}->[0];
-        if ($cmdname eq 'inforef' and scalar(@args) == 3) {
-          $args[3] = $args[2];
+        if (($cmdname eq 'link' or $cmdname eq 'inforef')
+            and scalar(@args) == 3) {
+          $args[3] = $args[2]; # use as the manual argument
           $args[2] = undef;
         }
         my $book = '';
@@ -3156,7 +3157,7 @@ sub _convert($$)
 
         my $file_contents;
         # FIXME not sure if Texinfo TeX uses the external node manual
-        # specified as part of the node name with manual name prependended
+        # specified as part of the node name with manual name prepended
         # in parentheses
         if (defined($args[3])) {
           $file_contents = $args[3];
@@ -3275,7 +3276,9 @@ sub _convert($$)
           $text_representation .= $reference_result
             if defined($text_representation);
           my $name;
-          if (defined($args[2])) {
+          if ($cmdname eq 'link' and defined($args[1])) {
+            $name = $args[1];
+          } elsif (defined($args[2])) {
             $name = $args[2];
           } elsif (not defined($float_type)) {
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
@@ -3294,8 +3297,11 @@ sub _convert($$)
             $text_representation .= $name_text if (defined($text_representation));
           }
 
-          # TODO translation
-          if (defined($float_type)) {
+          if ($cmdname eq 'link') {
+            if (defined($name_text)) {
+              $reference_result .= "\\hyperref[$reference_label]{$name_text}";
+            }
+          } elsif (defined($float_type)) {
             # no page for float reference in Texinfo TeX
             if (defined($name_text)) {
               $reference_result .= "\\hyperref[$reference_label]{$name_text}";
@@ -3348,7 +3354,7 @@ sub _convert($$)
                              .$text_representation.'}';
           }
           return $result;
-        } else {
+        } elsif ($cmdname ne 'link') {
           # external ref
           # TODO hyper reference to manual file which seems to be implemented
           # in recent Texinfo TeX
@@ -3385,6 +3391,20 @@ sub _convert($$)
               $result .= "\\texttt{$filename}";
             }
           } elsif ($name_text) {
+            $result .= $name_text;
+          }
+        } else {
+          # external @link - just produce non-working text.
+          my $name;
+          if (defined($args[1])) {
+            $name = $args[1];
+          } elsif (defined($args[0])) {
+            $name = $args[0];
+          }
+
+          my $name_text;
+          if (defined($name)) {
+            $name_text = _convert($self, {'contents' => $name});
             $result .= $name_text;
           }
         }
